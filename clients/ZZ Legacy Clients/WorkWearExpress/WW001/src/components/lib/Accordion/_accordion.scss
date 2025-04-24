@@ -1,0 +1,47 @@
+@if(get-value($settings, 'components', 'accordion')==1) {
+  .#{$ID} {
+    @at-root #{&}_accordion {
+      @at-root #{&}Wrap {
+        position: relative;
+        input[type="radio"] {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          display: none;
+          &:checked {
+            &~.#{$ID}_accordion__el .#{$ID}_accordion__body {
+              max-height: 600px;
+              transition: max-height 0.25s ease-out;
+            }
+            &~.#{$ID}_accordion__el .#{ID}_accordion__title {
+              &:after {
+                content: '-';
+              }
+            }
+          }
+        }
+      }
+      @at-root #{&}__el {
+        @at-root #{&}Wrap {}
+      }
+      @at-root #{&}__title {
+        cursor: pointer;
+        display: block;
+        position: relative;
+        &:after {
+          @include pseudo(block, absolute, '+');
+          top: 50%;
+          transform: translateY(-50%);
+          right: 15px;
+        }
+      }
+      @at-root #{&}__body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.25s ease-out;
+        height: auto;
+      }
+      @at-root #{&}__content {}
+    }
+  }
+}

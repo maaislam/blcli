@@ -1,0 +1,118 @@
+@import '_mixins.scss';
+.FL009 {
+
+  #HeaderGroup, #divMobSearch, .TopNavBar{
+    transition: opacity 0.5s ease;
+  }
+  #BreadcrumbGroup {
+    display: none;
+  } // Style contextual breadcrumbs
+  .FL009-Wrap {
+    clear: both;
+    width: 100%; // Hidden by default
+    z-index: 6101;
+    display: none;
+    position: fixed;
+    text-align: center;
+    top: 0; // Style the 'return to' breadcrumb
+    .FL009-Back-To-Wrap {
+      float: left;
+      height: 70px;
+      width: 50%;
+      position: relative;
+      display: block;
+      background-color: #f2f2f2;
+      >a {
+        position: relative;
+        width: 100%;
+        display: block;
+        height: 100%; // Before pseudoclass for the back to arrow, taken from accordion
+        // positioning and font size added for test
+        .FL009-Back-To-Text-Wrap {
+          position: absolute;
+          padding: 0 10px 0 20px;
+          width: 100%;
+          display: block;
+          color: #636363;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          >span {
+            display: block;
+            text-align: center;
+          }
+        }
+        &::before {
+          content: '';
+          top: 25%;
+          padding: 12px 0;
+          left: 0;
+          @include rotate(180);
+          color: #636363;
+          background-position: -376px -135px;
+          position: absolute;
+          height: 20px;
+          width: 28px;
+          display: inline-block;
+          background-image: url('https://www.flannels.com/images/core/main-sprite-flan-v2.png');
+          background-repeat: no-repeat;
+        }
+      }
+    } // Style brand breadcrumb
+    .FL009-Brand-Wrap {
+      height: 70px;
+      float: right;
+      width: 50%;
+      position: relative;
+      display: block;
+      background-color: #777777;
+      >a {
+        color: #f2f2f2;
+        position: relative;
+        padding: 10px;
+        width: 100%;
+        display: block;
+        height: 100%;
+        >.FL009-Brand-Text-Wrap {
+          position: absolute;
+          padding: 10px;
+          width: 100%;
+          display: block;
+          color: #f2f2f2;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          >span {
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
+  } 
+ // Functional CSS
+  // Show navigation, hide test based on website classes
+  // Amend due to website changes, change visibility of header, header search, changing display property
+  // causes flicker due to classes being toggled
+  #BodyWrap.Responsive.headerFix {
+    #HeaderGroup, #divMobSearch, .TopNavBar{
+      opacity: 0;
+    }
+    .FL009-Wrap {
+      display: block;
+    }
+  } // Styling class added to content parent, hides test, makes navigation sticky
+  #mp-pusher>.mp-scroller.FL009-Scrolled {
+    #HeaderGroup, #divMobSearch, .TopNavBar {
+      opacity: 1;
+    }
+    .FL009-Wrap {
+      display: none;
+    }
+  } // Hide test on navigation open
+  .am-container.showAccordianMenu {
+    #mp-pusher>.mp-scroller>.mp-scroller-inner>.FL009-Wrap {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@import './variables';
+
+.#{$id} {
+    &__hide-desktop {
+        display: none !important;
+
+        @media (max-width: 600px) {
+            display: flex !important;
+
+        }
+    }
+
+    &__cart-recommendation-slider {
+
+        @media (max-width: 600px) {
+            margin: 0 -16px;
+            padding: 1.5rem 20px;
+            background-color: #fff;
+
+        }
+
+    }
+
+    &__headline {
+        font-family: 'gill-sans-nova';
+        font-weight: 400;
+        font-size: 20px;
+
+        @media (max-width: 600px) {
+            float: left;
+
+        }
+
+        @media (max-width: 360px) {
+            font-size: 16px;
+
+        }
+
+        @media (max-width: 330px) {
+            font-size: 14px;
+
+        }
+    }
+
+    &__recommendations--card {
+        text-align: left !important;
+
+        & .image {
+            width: 176px;
+            height: 176px;
+            background-position: center;
+            background-size: contain;
+
+            @media (max-width: 600px) {
+                width: 125px;
+                height: 125px;
+
+            }
+        }
+
+        & .title {
+            min-height: 60px;
+            margin: 14px 0;
+            font-family: 'Minion Pro';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            text-transform: capitalize;
+            color: #000000;
+        }
+
+        & .brand {
+            margin-bottom: 14px;
+        }
+
+        &.swiper-slide {
+            @media (max-width: 600px) {
+
+
+                opacity: 0;
+            }
+
+            &.swiper-slide-active,
+            &.swiper-slide-next {
+                @media (max-width: 600px) {
+
+
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__swiper-button-next,
+    &__swiper-button-prev {
+        position: absolute;
+        top: 30px;
+
+
+
+        &.#{$id}__swiper-button-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+
+    &__swiper-button-next {
+        right: 20px;
+
+    }
+
+    &__swiper-button-prev {
+        right: 50px;
+    }
+}

@@ -1,0 +1,193 @@
+@import './variables';
+
+.#{$id} {
+    #maincontent{
+        .product-info-main {
+            .product-info-price {
+                display: none;   
+            }
+        }
+    }  
+    
+    .#{$id}-priceContainer {
+        background: #f3f3f3;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding: 10px;
+        .#{$id}-priceWrapper {
+            p {
+                text-transform: uppercase;
+                color: black;
+                font-size: 14px;
+                display: inline-block;
+                margin-bottom: 3px;
+                b {
+                    font-weight: 600;
+                    font-size: 25px;
+                    color: black;
+                    margin-left: 5px;
+                }
+            }
+            span {
+                text-decoration: line-through;
+                font-weight: 100;
+                display: inline-block;
+            }
+        }
+
+        .#{$id}-logo {
+            height: 25px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+            margin-right: 5px;
+            max-width: 50px;
+        }
+
+        .#{$id}-contentBottom {
+            position: relative;
+            font-size: 14px;
+            margin-top: 5px;
+            padding-left: 43px;
+            padding: 5px 10px;
+            padding-left: 20px;
+            border-radius: 15px;
+            max-width: 310px;
+            text-align: center;
+            color: black;
+            font-weight: 100;
+                &:before {
+                    content: '';
+                    height: 40px;
+                    width: 40px;
+                    position: absolute;
+                    left: 0px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: url('//cdn.optimizely.com/img/6087172626/6c3e310c8b9f4bb3bc40e32d0bd9a11d.png') no-repeat;
+                    background-position: -6px;
+                    background-size: contain;                    
+                }
+                span {
+                    font-weight: 700;
+                    color: black;
+                }
+                @media(min-width: 370px) {
+                    font-size: 16px;
+                    padding-left: 20px;
+                    max-width: 325px;
+                    &::before {
+                        height: 50px;
+                        width: 50px;
+                    }
+                }
+        }
+    }
+
+    &.#{$id}-1 {
+        .#{$id}-priceContainer {
+            .#{$id}-contentBottom {
+                text-align: left;
+                padding-left: 0px;
+                &::before {
+                   display: none;
+                }
+                .#{$id}-usp {
+                    position: relative;
+                    padding-left: 40px;
+                    margin-bottom: 10px;
+                    @media(min-width: 1024px) {
+                        margin-bottom: 15px;
+                    }
+                    &:before {
+                        content: '';
+                        height: 40px;
+                        width: 40px;
+                        position: absolute;
+                        left: 0px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: url('//cdn.optimizely.com/img/6087172626/6c3e310c8b9f4bb3bc40e32d0bd9a11d.png') no-repeat;
+                        background-position: -6px;
+                        background-size: contain;                    
+                    }
+
+                    &.#{$id}-countdownUSP {
+                        margin-bottom: 0;
+                        &::before {
+                            background: url('//cdn.optimizely.com/img/6087172626/180b733af0de407d8100bea52fc0dc39.png') no-repeat center;
+                            background-position: -6px;
+                            background-size: contain;   
+                        }
+                        
+                    }
+                }
+
+                .#{$id}-countdown {
+                    font-weight: 600;
+                    display: inline-block;
+                    &.#{$id}-countdownUsp {
+                        &::before {
+                            background: url('//cdn.optimizely.com/img/6087172626/180b733af0de407d8100bea52fc0dc39.png') no-repeat center;
+                        }
+                    }
+                    span {
+                        font-weight: 600;
+                    }
+                    &.#{$id}-lessThan2 {
+                        color: #ea3636;
+                        span {
+                            color: #ea3636;
+                        }
+                    }
+                }
+                
+                @media(min-width: 375px) {
+                    max-width: 400px;
+                }
+            }
+        }
+        
+    }
+
+    &.#{$id}-2 {
+        .#{$id}-priceContainer {
+            .#{$id}-contentBottom {
+                text-align: left;
+                padding-left: 0px;
+                max-width: 100%;
+                &::before {
+                   display: none;
+                }
+                .#{$id}-deliveryCost {
+                    font-size: 13px;
+                    padding-left: 40px;
+                }
+                .#{$id}-usp {
+                    position: relative;
+                    padding-left: 40px;
+                    margin-bottom: 5px;
+                  
+                    &:before {
+                        content: '';
+                        height: 40px;
+                        width: 40px;
+                        position: absolute;
+                        left: 0px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: url('//cdn.optimizely.com/img/6087172626/6c3e310c8b9f4bb3bc40e32d0bd9a11d.png') no-repeat;
+                        background-position: -6px;
+                        background-size: contain;                    
+                    }
+                }
+                @media(min-width: 1024px) {
+                    max-width: 90%;
+                    
+                }
+            }
+        }
+            
+    }
+}

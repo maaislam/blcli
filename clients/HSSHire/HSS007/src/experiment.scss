@@ -1,0 +1,179 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-promotion__wrapper{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    padding-bottom: 20px;
+    .#{$id}-promotion__container {
+      background-color: #f5f5f5;
+      padding: 20px 20px 0px 20px;
+      
+      .#{$id}-promotion__title {
+        width: 95%;
+        margin: auto;
+        p {
+          font-family: 'HandelGothic BT',Arial,Helvetica,sans-serif;
+          font-size: 20px;
+          color: #000;
+        }
+      }
+
+      .#{$id}-promotion__subTitle {
+        width: 95%;
+        margin: auto;
+        p {
+          font-size: 1.2em;
+          color: #000;
+          text-align: justify;
+          line-height: 18px;
+        }
+      }
+
+      .#{$id}-promotion__list {
+        &:hidden {
+          display: none;
+        }
+        ul {
+          line-height: 35px;
+          padding: 10px 0px 0px 20px;
+          
+          li.#{$id}-promotion__item {
+            padding: 10px 0px 10px 35px;
+            line-height: 16px;
+            font-size: 1.2em;
+            // color: #999999;
+            background: url("https://www.hss.com/_ui/desktop/theme-hire/images/confirmation-icon.png") no-repeat left center;
+          
+            &:first-of-type {
+              font-weight: 800;
+            }
+          }
+        }
+
+        ul.#{$id}-sublist {
+          // list-style-type: disc !important;
+          list-style-position: inside;
+          padding: 0px 0px 20px 60px;
+          line-height: 26px;
+          font-size: 1.2em;
+          li.#{$id}-sublist__item {
+            // list-style-type: circle;
+            list-style-type: disc !important;
+            list-style-position: inside;
+          }
+        }
+      }
+
+      .#{$id}-promotion__cta {
+        min-height: 40px;
+        margin-top: 20px;
+        
+        .#{$id}-btn__wrapper {
+          width: 80%;
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+        
+          a.#{$id}-btn-info {
+            display: inline-block;
+            color: #53565a;
+            font-size: 18px;
+            height: 46px;
+            line-height: 27px;
+            float: left;
+            margin: 0 10px 0 0;
+            // background: linear-gradient(to bottom,#ffd800 1%,#ffca00 100%);
+            background-position: 0 -46px;
+        
+            font-family: 'HandelGothic BT',Arial,Helvetica,sans-serif;
+            
+            position: relative;
+            left: 0 !important;
+            transform: translateX(0%) !important;
+            width: 45%;
+            font-size: 1.4em;
+            
+            &##{$id}-register {
+              background: linear-gradient(to bottom,#ffd800 1%,#ffca00 100%);
+              &:hover {
+                background: linear-gradient(to bottom,#f5c000 1%,#f9d200 100%);
+                background-position: 0 100%;
+              }
+            }
+
+            &##{$id}-login {
+              color: #FFF;
+              background: linear-gradient(to bottom,#00a3da 1%,#0081cc 100%);
+
+              &:hover {
+                background: linear-gradient(to bottom,#0099d0 1%,#0077c2 100%) !important;
+                background-position: 0 100%;
+              }
+            }
+            
+          }
+        }
+      }
+
+      .#{$id}-showMore__wrapper {
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+
+        .#{$id}-showMore {
+          font-family: 'HandelGothic BT',Arial,Helvetica,sans-serif;
+          width: 85%;
+          // margin: auto;
+          // margin-top: 10px;
+          text-align: center;
+          font-size: 15px;
+          font-weight: 700;
+          color: #0089cf;
+          padding-right: 5px;
+
+          position: relative;
+          left: 50%;
+          transform: translateX(-55%);
+
+          &:after {
+            content: "";
+            width: 30px !important;
+            height: 30px !important;
+            margin-left: 5px;
+            // left: 0;
+            position: absolute;
+            background: url("https://www.hss.com/_ui/responsive/theme-hire/images/sprite-bg.png") no-repeat scroll 0px -1543px rgba(0, 0, 0, 0) !important;
+          }
+
+          &.open {
+            &:after {
+              background: url("https://www.hss.com/_ui/responsive/theme-hire/images/sprite-bg.png") no-repeat scroll 0px -1464px rgba(0, 0, 0, 0) !important;
+              //-1464px
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1279px){
+    .#{$id}-promotion__cta {
+      min-height: 100px !important;
+    }
+    .#{$id}-btn__wrapper {
+      a.#{$id}-btn-info {
+        width: 100% !important;
+
+        &:last-of-type {
+          margin-top: 10px !important;
+        }
+      }
+    }
+  }
+}

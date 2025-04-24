@@ -1,0 +1,126 @@
+@import './variables';
+
+.#{$id} {
+  .font-light {
+    font-weight: 300 !important;
+  }
+
+  .mini-cart-content {
+    display: flex;
+    flex-direction: column;
+
+    & > .paTracker-inpage-wrapper {
+      width: 100% !important;
+    }
+
+    .mini-cart-header,
+    .#{$id}__discountProgressCard,
+    .mini-cart-products {
+      order: -1;
+    }
+  }
+
+  &__discountProgressCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 108px;
+    gap: 18px;
+    border-radius: 4px;
+    background: #f1f1f1;
+    text-transform: none !important;
+
+    @include media-query(sm) {
+      height: 70px;
+      padding: 0 12px;
+      gap: 8px;
+    }
+
+    .#{$id}__discountOfferMessage {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      &-text {
+        color: #000;
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 300;
+
+        span {
+          font-weight: 600;
+        }
+
+        span.#{$id}__gotDiscountMessage {
+          font-weight: 500;
+          font-family: 'GillSansNova-Medium';
+        }
+      }
+    }
+
+    .#{$id}__discountProgress {
+      height: 10px;
+      width: 100%;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+
+      &-bar {
+        min-height: 10px;
+        max-width: 100% !important;
+        border-radius: 20px;
+        background: #7c738e;
+      }
+
+      // @include media-query(sm) {
+      //     height: 10px;
+      //     width: 100%;
+      // }
+    }
+  }
+
+  &__basketProgressCard {
+    margin: 0 0 18px;
+    gap: 12px;
+
+    .#{$id}__discountProgress {
+      min-height: 10px;
+      width: 407px;
+
+      @include media-query(sm) {
+        width: 100%;
+      }
+    }
+
+    @include media-query(sm) {
+      margin: 23px 0 16px;
+      padding: 0 12px;
+      height: 70px;
+    }
+  }
+
+  &__miniCartProgressCard {
+    height: auto;
+    margin: 9px 0 2px;
+    padding: 12px;
+    gap: 7px;
+
+    .#{$id}__discountOfferMessage {
+      &-text {
+        font-size: 13px;
+        line-height: 17px;
+
+        @include media-query(sm) {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .#{$id}__discountProgress {
+      &-bar {
+        min-height: 10px;
+      }
+    }
+  }
+}

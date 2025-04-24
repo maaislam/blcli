@@ -1,0 +1,184 @@
+@import "./variables";
+
+$gutter: 32px;
+
+.#{$id} {
+  body {
+    width: 100%;
+  }
+  .ddlDoubleUpsDipsClass {
+    display: none;
+  }
+}
+
+.#{$id}-2 {
+  .#{$id}-price {
+    display: none !important;
+  }
+}
+
+.menuList {
+  @media (max-width: 900px) {
+    p.inputs {
+      select {
+        display: block;
+      }
+    }
+  }
+}
+.#{$id}-sides-mobile {
+  @media (max-width: 900px) {
+    p.inputs {
+      select {
+        display: none !important;
+      }
+    }
+  }
+}
+.#{$id}-sides {
+  // Only target sides
+  .menuList .quantCustomise {
+    display: block !important;
+  }
+  .menuList {
+    // Remove close
+    .close {
+      display: none !important;
+    }
+    // Remove buttons
+    .greenButton:not(.#{$id}-add) {
+      display: none !important;
+    }
+  }
+  // Remove styles for popup
+  .menuListContH {
+    all: unset;
+  }
+  .#{$id}-side {
+    padding: 0 $gutter / 2;
+    margin-right: 0 !important;
+    margin-bottom: $gutter;
+    width: auto !important;
+    max-width: 25%;
+    box-sizing: border-box;
+    .menuListCont {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0 !important;
+    }
+    @media (max-width: 900px) {
+      max-width: 33.33%;
+    }
+  }
+  .#{$id}-add {
+    margin-left: auto;
+    order: 11;
+    transition: 200ms opacity;
+    max-width: initial !important;
+    align-self: flex-end;
+    span {
+      width: 100%;
+      padding: 0;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      font: 400 16px "Roboto Condensed", sans-serif;
+    }
+    &.is-disabled {
+      opacity: 0.45;
+    }
+  }
+  .buttons {
+    display: none !important;
+  }
+  // Remove portion dropdown
+  .inputs {
+    display: none;
+  }
+  .dipsCustomise {
+    width: calc(100% - 80px);
+    .pnlFreeDips > p {
+      min-width: calc(100% + 80px);
+      margin-top: 0 !important;
+      margin-bottom: 8px;
+    }
+    .ddlFreeDip {
+      width: 100%;
+    }
+    br {
+      display: none;
+    }
+  }
+  .pnlFreeDips {
+    .inputs {
+      display: block;
+    }
+  }
+  .titleWithIcon {
+    width: 100%;
+    max-width: calc(100% - 50px) !important;
+  }
+  .dip-selection-box {
+    flex-grow: 1;
+  }
+  .PRSeparator {
+    display: none;
+  }
+  .menuItems {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -#{$gutter / 2};
+    margin-left: -#{$gutter / 2};
+    margin-bottom: -#{$gutter};
+  }
+  .titleWithIcon {
+    min-height: auto;
+  }
+  .#{$id}-price {
+    margin-left: auto;
+  }
+}
+
+.#{$id}-price {
+  font-family: "Roboto Condensed";
+}
+
+.#{$id}-dip {
+  &:after {
+    content: "Please select your free dip above.";
+    color: #da291c;
+    font-family: "Roboto Condensed";
+    font-size: 14px;
+    margin-top: 8px;
+    display: none;
+  }
+  &.has-error {
+    &:after {
+      display: block;
+    }
+    .variationDropDown {
+      border-color: #da291c;
+    }
+  }
+}
+
+// Mobile
+#ctl00_cphBody__objDealBuilderMobile_upDealBuilder {
+  .#{$id}-price {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .fancybox-inner {
+    min-height: 285px !important;
+    .fancyContainer.fancyDips.controlContainer {
+      a.greenButton {
+        width: 100%;
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,104 @@
+@import './variables';
+
+.#{$id} {
+    &__gift-checkbox-container {
+        width: 100%;
+        padding: 0 0 40px;
+
+        @media (max-width: 812px) {
+            padding: 0 0 25px;
+        }
+
+        .#{$id}__gift-checbox {
+            text-align: end;
+
+            @media (max-width: 812px) {
+                text-align: left;
+            }
+        }
+
+        span.gift-icon {
+            position: relative;
+            padding-left: 5px;
+            top: 4px;
+        }
+
+        label[for="giftOnOrder"] {
+            position: relative;
+            font-size: 18px;
+            color: #181818;
+            font-weight: 600;
+            padding-left: 30px;
+            cursor: pointer;
+
+            @media (max-width: 812px) {
+                padding-left: 35px;
+            }
+        }
+
+        /* Hide the browser's default checkbox */
+        input#giftOnOrder {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .custom-checkmark {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            height: 23px;
+            width: 23px;
+            border: 1px solid #7f28c4;
+            border-radius: 3px;
+
+            @media (max-width: 812px) {
+                top: 0;
+            }
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .#{$id}__gift-checbox input:checked~.custom-checkmark {
+            background-color: #7f28c4;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .custom-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .#{$id}__gift-checbox input:checked~.custom-checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .#{$id}__gift-checbox .custom-checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 7px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+    }
+
+    #CartPage {
+        .Cart-Footer .Cart-BottomActions {
+            margin-top: 4rem;
+        }
+
+        .ContentBottom {
+            margin-top: 5rem;
+        }
+    }
+}

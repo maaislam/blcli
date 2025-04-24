@@ -1,0 +1,95 @@
+$id: "--ID--";
+
+$c-grey: #ececec;
+$c-black: #222222;
+$c-warning: #ffae42;
+$c-warning-light: #fff7ec;
+$c-green: #169a5c;
+
+$f-heading: Soho Gothic W01 Bold, sans-serif;
+$f-body: source sans pro, Arial, sans-serif;
+
+$m-small: 480px;
+$m-medium: 992px;
+$m-large: 1200px;
+
+@mixin media($size) {
+	@media screen and (min-width: $size) {
+		@content;
+	}
+}
+
+@mixin reset {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	float: none;
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		float: none;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+	}
+}
+
+// @mixin line-clamp($lines) {
+// 	display: -webkit-box;
+// 	-webkit-line-clamp: $lines;
+// 	-webkit-box-orient: vertical;
+// 	overflow: hidden;
+// }
+
+// @mixin visually-hidden {
+// 	clip: rect(0 0 0 0);
+// 	clip-path: inset(50%);
+// 	height: 1px;
+// 	overflow: hidden;
+// 	position: absolute;
+// 	white-space: nowrap;
+// 	width: 1px;
+// }
+
+@mixin heading-1 {
+	font-family: $f-heading;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 46px;
+	color: $c-green;
+
+	@include media($m-medium) {
+		font-size: 48px;
+		line-height: 70px;
+	}
+}
+
+@mixin heading-2 {
+	font-family: $f-heading;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 32px;
+
+	@include media($m-medium) {
+		font-size: 32px;
+		line-height: 46px;
+	}
+}
+
+@mixin heading-3 {
+	font-family: $f-heading;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 26px;
+
+	@include media($m-medium) {
+		font-size: 24px;
+		line-height: 34px;
+	}
+}

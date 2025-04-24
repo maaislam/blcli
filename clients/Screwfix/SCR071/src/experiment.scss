@@ -1,0 +1,70 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}__button-collect {
+    padding-left: 0;
+    svg {
+      left: 8px;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 24px;
+      max-width: 100%;
+      margin-left: 22px;
+
+      @media screen and (min-width: 1025px) and (max-width: 1100px) {
+        font-size: 15px;
+      }
+
+      @media screen and (max-width: 640px) {
+        margin-left: 0px;
+      }
+
+      @media screen and (max-width: 340px) {
+        line-height: 16px;
+      }
+    }
+  }
+
+  .#{$id}__button-deliver {
+    span {
+      @media screen and (min-width: 1025px) and (max-width: 1100px) {
+        font-size: 15px;
+      }
+    }
+  }
+  [data-qaid='button-click-and-collect']:not([disabled]),
+  [data-qaid='button-deliver']:not([disabled]) {
+    background: linear-gradient(0deg, #056a18 0, #3e961c 49%, #5eab2a 52%, #82c72c);
+    border: 1px solid #0f701d;
+    color: #fff;
+    fill: #fff;
+  }
+
+  [data-qaid='pdp_sticky_banner'] {
+    [data-qaid='pdp-button-click-and-collect']:not([disabled]) {
+      position: relative;
+      &::before {
+        content: 'Free Click & Collect';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 2;
+        background: linear-gradient(0deg, #056a18 0, #3e961c 49%, #5eab2a 52%, #82c72c);
+        color: #fff;
+        fill: #fff;
+      }
+
+      &:hover {
+        &::before {
+          background: linear-gradient(0deg, #024b0d 0, #26770f 49%, #408f18 52%, #62b11a);
+        }
+      }
+    }
+  }
+}

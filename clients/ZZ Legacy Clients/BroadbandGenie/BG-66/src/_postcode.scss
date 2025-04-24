@@ -1,0 +1,305 @@
+ /*------------------------------------*\
+  #POSTCODE CHECKER
+  # Taken from site
+\*------------------------------------*/
+
+/*------------------------------------*\
+  #VARIABLES
+\*------------------------------------*/
+$imgPrefix: '/img';
+
+// Color Variables
+$white: #fefefe;
+$lighter-grey: #f5f5f5;
+$subtle-grey: #e8e8e9;
+$light-grey: #b7b7b7;
+$grey: #6b6b6e;
+$dark-grey: #323233;
+$pearl: #d5d0ec;
+$blue: #2350c1;
+$dark-blue: #151c4e;
+$blue-gradient-light: #045ce3;
+$blue-gradient-dark: #0045c7;
+$orange: #f25a32;
+$light-green: #18a611;
+$green: #0F640C;
+
+// Text Color Variables
+$color__text: $grey;
+$color__text--dark: $dark-grey;
+$color__text--light: $light-grey;
+$color__text--lighter: $white;
+$color__text--hero: $subtle-grey;
+$color__text--strong: $dark-blue;
+$color__text--highlight: $blue;
+$color__text--notice: $orange;
+
+// Link Color Variables
+$color__link: $blue;
+$color__link__hover: lighten($blue, 15%);
+
+// Background Color Variables
+$color__bg: $dark-blue;
+$color__bg--light: $blue;
+$color__bg--dark: $grey;
+$color__bg--subtle: $lighter-grey;
+$color__bg--shadow: $subtle-grey;
+$color__bg__highlight: $blue-gradient-light;
+$color__bg__action: $orange;
+$color__bg__btn: $orange;
+$color__bg__btn--secondary: $blue;
+$color__bg__notice: $orange;
+
+
+// Size Variables
+$size-header--m: 52px;
+$size-header: 90px;
+
+
+
+// Fonts
+$font-primary: 'Lato', 'Helvetica', 'Arial', sans-serif;
+$font-title: 'Montserrat', 'Lato', 'Arial', sans-serif;
+
+
+.pc-checker {
+    margin-bottom: 10px;
+    max-width: 505px;
+    &__wrap {
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: calc(100% - 150px);
+        &.-check {
+            width: calc(100% - 160px);
+        }
+    }
+    &__label {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        color: #c4c4c4;
+        font-size: 12px;
+        line-height: 1;
+        cursor: text;
+        text-transform: capitalize;
+        transition: all 0.2s ease-in-out;
+        &.focused {
+            top: 5px;
+            font-size: 10px;
+        }
+        &.label-error {
+            color: red !important;
+        }
+        &.label-valid {
+            color: green !important;
+        }
+        span {
+            display: none;
+        }
+    }
+    &__input {
+        height: 50px;
+        width: 100%;
+        border-radius: 5px 0 0 5px;
+        border: 0;
+        padding: 10px 15px;
+        font-size: 18px;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__submit {
+        float: left;
+        background-color: $color__bg--btn;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 0 5px 5px 0;
+        border: none;
+        margin: 0;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        &.-check {
+            width: 160px;
+        }
+        &:hover {
+            text-decoration: none;
+            background: darken($color__bg__btn, 10%);
+            color: #fff;
+        }
+    }
+    &__why {
+        font-size: 12px;
+        color: #fff;
+    }
+}
+
+.pc-checker-widget {
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.10);
+    padding: 20px 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    text-align: left;
+    max-width: 505px;
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: $font-title;
+        color: $color__text--dark;
+        margin-bottom: 20px;
+    }
+    &__wrap {
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: calc(100% - 160px);
+    }
+    &__label {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        color: #c4c4c4;
+        font-size: 12px;
+        line-height: 1;
+        cursor: text;
+        text-transform: capitalize;
+        transition: all 0.2s ease-in-out;
+        &.-focused {
+            top: 5px;
+            font-size: 10px;
+        }
+        &.-error {
+            color: red !important;
+        }
+        &.-valid {
+            color: green !important;
+        }
+        span {
+            display: none;
+        }
+    }
+    &__input {
+        height: 50px;
+        width: 100%;
+        border-radius: 5px 0 0 5px;
+        padding: 10px 15px;
+        font-size: 18px;
+        border: 1px solid $color__bg--shadow;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__submit {
+        float: left;
+        background-color: $color__bg--btn;
+        color: $white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 0 5px 5px 0;
+        border: none;
+        margin: 0;
+        width: 160px;
+        height: 50px;
+        line-height: 50px;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+            background: darken($color__bg__btn, 10%);
+            color: $white;
+        }
+    }
+    .why-postcode {
+        color: $color__text;
+        text-decoration: underline;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 20px;
+        display: inline-block;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+@mixin components__postcode--lap-and-up {
+    .pc-checker {
+        margin-bottom: 15px;
+
+        &__wrap {
+            &.-check {
+                width: calc(100% - 220px);
+            }
+        }
+
+        &__input {
+            padding: 10px 20px;
+            font-size: 20px;
+            height: 70px;
+        }
+
+        &__label {
+            top: 25px;
+            left: 20px;
+            font-size: 18px;
+            text-transform: none;
+            &.focused {
+                top: 10px;
+                font-size: 12px;
+            }
+            span {
+                display: inline;
+            }
+        }
+
+        &__submit {
+            height: 70px;
+            line-height: 70px;
+            font-size: 24px;
+            &.-check {
+                font-size: 20px;
+                width: 200px;
+            }
+        }
+    }
+
+    .pc-checker-widget {
+        padding: 20px;
+        &__wrap {
+            width: calc(100% - 220px);
+        }
+
+        &__input {
+            padding: 10px 20px;
+            font-size: 20px;
+            height: 70px;
+        }
+
+        &__label {
+            top: 25px;
+            left: 20px;
+            font-size: 18px;
+            text-transform: none;
+            &.-focused {
+                top: 10px;
+                font-size: 12px;
+            }
+            span {
+                display: inline;
+            }
+        }
+
+        &__submit {
+            height: 70px;
+            line-height: 70px;
+            font-size: 20px;
+            width: 200px;
+        }
+    }
+}

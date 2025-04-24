@@ -1,0 +1,225 @@
+@import '../../variables';
+
+.#{$id}_StickyBasket {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  box-sizing: border-box;
+
+  &.#{$id}_StickyBasket--open {
+    .#{$id}_StickyBasket__trigger:after {
+      transform: none;
+      transform-origin: initial;
+    }
+
+    .#{$id}_StickyBasket__order {
+      display: block;
+    }
+
+    .#{$id}_StickyBasket__trigger__float {
+      display: inline-block;
+      transition: width ease .3s;
+      width: 90px;
+    }
+  }
+}
+
+.#{$id}_StickyBasket__trigger {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background: #e6e6e6;
+  height: 60px;
+  border-top: 1px solid #d6d6d6;
+  z-index: 2;
+  transition: background .2s ease-in;
+
+  &:active {
+    background: #f5f5f5;
+    transition: background .2s ease-in;
+  }
+
+  &:after {
+    font-family: km-icons;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "";
+    line-height: 0;
+    font-weight: 100;
+    float: right;
+    font-size: 25px;
+    transform: rotate(180deg);
+    transform-origin: 13px -4px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: 3px;
+    transition: all 0.3s ease;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    em {
+      font-weight: bold;
+      font-style: normal;
+    }
+  }
+
+  p {
+    display: inline;
+  }
+}
+
+.#{$id}_StickyBasket__trigger__float {
+  display: none;
+  background: #e6e6e6;
+  padding: 6px 10px;
+  // min-width: 90px;
+  border-radius: 7px;
+  position: absolute;
+  bottom: 100%;
+  z-index: 2;
+  margin-bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 13px;
+  line-height: normal;
+  overflow: hidden;
+  transition: width ease .3s;
+  width: 0;
+
+  &:before {
+    content: '×';
+    position: absolute;
+    left: 10px;
+    font-size: 28px;
+    line-height: 2px;
+    top: 50%;
+    font-weight: 100;
+  }
+}
+
+.#{$id}_StickyBasket__order {
+  display: none;
+  position: fixed;
+  height: calc(100% - 60px);
+  width: 100%;
+  top: 100%;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  background: white;
+  overflow-y: scroll;
+  padding-bottom: 40px;
+}
+
+.#{$id}_StickyBasket .section-header-note {
+  display: none;
+}
+
+.#{$id}_StickyBasket {
+  .section-header {
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .checkout-mini-cart {
+    margin: 0;
+    padding: 15px 0;
+  }
+
+  .mini-cart-product {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .checkout-order-totals {
+    margin: 0;
+    padding: 15px 0;
+  }
+
+  .order-totals-table {
+    margin: 0 auto;
+    text-align: left;
+
+    .order-subtotal, 
+    .order-total {
+      border: 1px solid #e0e0e0;
+      border-left: 0;
+      border-right: 0;
+
+      td {
+        padding: 20px 0;
+        font-weight: 500;
+      }
+    }
+
+    tr {
+      &:nth-child(2) td {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      &:nth-last-child(2) td {
+        padding-bottom: 20px;
+      }
+
+      td {
+        padding: 2px 0;
+        color: #000;
+        text-align: right;    
+        
+        &:first-child {
+          color: #000;
+          text-align: left;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .tooltip {
+      padding-left: 23px;
+      color: #b0b0b0;  
+
+      span {
+        display: none;
+      }
+
+      &:before {
+        position: absolute;
+        left: 0;
+        font-size: 18px;
+        font-family: km-icons;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e614";
+      }
+    }
+  }
+
+  .price-sales {
+    font-size: 14px;
+  }
+}

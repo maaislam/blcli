@@ -1,0 +1,60 @@
+@import './variables';
+@import './lib/components/MobileSlidingNav';
+
+:root {
+  --app-height: 100vh;
+}
+
+@media(max-width: 1086px) {
+  .#{$id} {
+    .wisp_container {
+      display: none !important; // Wisp breaks on iOS
+    }
+
+    &-font-madelyn {
+      font-family: 'neom-madelyn';
+      text-transform: capitalize;
+      line-height: 1;
+
+      @media(min-width: 360px) {
+        font-size: 38px;
+      }
+    }
+
+    // Existing Nav Amends
+    .navigation{ 
+      transform: translateX(-100%);
+      transition: 0.25s transform;
+      display: block;
+      top: 0;
+      z-index: 1000000;
+
+      .MobileSlidingNav__extra-nav {
+        display: none;
+      }
+
+      &.is-visible {
+        transform: translateX(0);
+        height: var(--app-height) !important;
+        overflow: hidden;
+
+        .MobileSlidingNav__extra-nav {
+          display: block;
+
+          // Hide on landscape
+          @media (orientation: landscape) {
+            display: none;
+          }
+
+        }
+      }
+    }
+
+  }
+
+  .#{$id}-2 {
+    .MobileSlidingNav__level {
+      padding-bottom: 0;
+    }
+  }
+}

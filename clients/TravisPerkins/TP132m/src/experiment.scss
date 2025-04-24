@@ -1,0 +1,289 @@
+@import './variables';
+
+.#{$id} {
+  #products .row .prod {
+    // .tpPlpProductPanelComponent {
+    //   position: relative;
+    // }
+    .prod_info {
+      padding-bottom: 60px !important;
+    }
+    .prod_img {
+      position: relative;
+      overflow: inherit;
+      * {
+        box-sizing: border-box;
+      }
+      &:hover {
+        .TP132m-product-zoom {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .TP132m-info {
+    border: 1px solid #cfcfcf;
+    background: #cccccc;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  .TP132m-labels {
+    display: inline-block;
+    float: left;
+    width: 80px;
+    p {
+      margin: 10px 0;
+    }
+  }
+  .TP132m-data {
+    width: calc(100% - 100px);
+    display: inline-block;
+    float: left;
+    min-height: 75px;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 13px;
+    position: relative;
+    button {
+      position: absolute;
+      text-align: center;
+      top: 40%; left: 0; right: 0;
+      width: 120px;
+      cursor: pointer;
+      margin: auto;
+      display: inline-block;
+      text-decoration: underline;
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      z-index: 9;
+      display: none;
+      outline: none;
+      &:focus {
+        outline: none;
+      }
+    }
+    p {
+      margin: 10px 0;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      transition: ease-in all .4s;
+      opacity: 0;
+      width: 100%;
+    }
+    &.TP132m-blur-on {
+      &:after {
+        background-color: rgba(204,204,204,.7);
+        opacity: 1;
+        transition: ease-in all .4s;
+      }
+      p {
+        color: transparent;
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
+      }
+      button {
+        display: inline-block;
+        width: 120px;
+      }
+    }
+  }
+
+  .TP132m-hover-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3px 10px;
+    height: 20px;
+    background-color: rgba(204,204,204,.9);
+    border: 1px solid #333;
+    p {
+      margin: 0;
+    }
+  }
+
+
+  // Hide old price
+  .tp_prodViewWrapper #tp_product_lister_enumeration li.product_item {
+    .advanced_plp_trade_prices_link {
+      display: none;
+    }
+    .advanced_plp_product_price {
+      > .price_section { display: none }
+    }
+    .product_item_header {
+      .product_header {
+        text-align: center;
+        width: 65%;
+        > .price_section {
+          margin-top: 5px;
+          span.price_value {
+            color: #ff0000;
+            font-size: 24px;
+            line-height: 32px;
+            display: block;
+          }
+          .crossed-price {
+            text-decoration: line-through;
+          }
+        }
+      }
+      .product_item_img {
+        width: 28%;
+        margin-right: 2%;
+        img {
+          max-width: 100%;
+          height: auto;
+          width: 100%;
+          max-height: 100%;
+        }
+      }   
+    }
+    #addToCartButton {
+      padding: 10px 0 !important;
+    }
+  }
+  .tpQ_input.quantity-gadget .tpQ_Text { display: none }
+  .tp_prodQuoteProcess .quantity-row {
+    max-width: 220px;
+    margin: auto;
+  }
+}
+
+
+body.TP122m {
+  #r_content.list_view #products .row .prod .prod_info {
+    padding-bottom: 70px;
+  }
+  .TP084_ProductInfo_Wrapper, .TP122m-tech-wrapper {
+    background-color: #F5F5F5;
+    p.TP084_ProductInfo_Text, p.TP122m-tech-link {
+      width: calc(100% - 50px) !important;
+      text-align: center;
+    }
+  }
+  .TP084_ProductInfo_Wrapper {
+    padding: 8px;
+    margin-top: 25px;
+    position: relative;
+    z-index: 99;
+    cursor: pointer;
+    &:after {
+      content: '\f107';
+      position: absolute !important;
+      right: 15px;
+      top: 15px;
+      border-top: none;
+      position: inherit;
+      font-family: fontawesome;
+      font-size: 26px;
+      transition: ease-in all .2s;
+    }
+    &.TP084_Product_Info_Open {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .TP084_ProductInfo_Wrapper, .TP122m-tech-wrapper {
+    margin-top: 5px;
+    position: relative;
+    padding: 8px;
+    z-index: 99;
+    cursor: pointer;
+    .TP084_ProductInfo_Icon {
+      width: 25px !important;
+      // padding-top: 10px;
+      display: inline-block !important;
+      vertical-align: middle;
+      margin-right: 5px !important;
+    }
+    p {
+      width: auto !important;
+      display: inline-block !important;
+      line-height: 28px !important;
+      cursor: pointer;
+      vertical-align: middle;
+      color: #0a4e37;
+      text-decoration: underline;
+
+    }
+    &:after {
+      content: '\f107';
+      position: absolute !important;
+      right: 15px;
+      top: 7px;
+      border-top: none;
+      position: inherit;
+      font-family: fontawesome;
+      font-size: 26px;
+      transition: ease-in all .2s;
+    }
+    &.TP122m-show {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .TP122m-tech-info-wrap {
+    height: auto;
+    transition: ease-in all;
+    tr { border-bottom: 2px solid #e0e0e0; }
+    .prod_content {
+      min-height: auto;
+    }
+    &.TP122m-toggle-tech {
+      height: 0;
+      display: none;
+    }
+  }
+  .TP084_ProductInfo_Data_Wrap, .TP122m-tech-info-wrap {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .TP084_ProductInfo_Data_Wrap {
+    .tp_detOverview {
+      padding: 5px 0;
+      font-weight: 500;
+      > h3 {display: none}
+      ul {
+        list-style: circle;
+        li {
+          border: none !important;
+          padding: 15px 0 0 !important;
+          margin-left: 20px !important;
+          list-style: disc;
+          display: list-item;
+          position: static !important;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .TP122m-tech-info-wrap {
+    h4 {
+      display: none;
+    }
+    table.tp_specificationTable {
+      width: 100%;
+      margin: 5px 0;
+      border-collapse: collapse;
+      font-weight: 500;
+    }
+  }
+  .TP122m-tech-specs {
+    .TP122m-tech-data {
+      display: block;
+      background-color: #fff;
+      &.TP122m-hide {
+        display: none;
+      }
+    }
+  }
+}

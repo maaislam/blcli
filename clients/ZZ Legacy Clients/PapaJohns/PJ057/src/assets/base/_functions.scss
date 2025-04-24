@@ -1,0 +1,204 @@
+// Image aspect ratio
+/*
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  width: auto;
+  height: auto;
+
+  @at-root #{&}Container {
+    position: relative;
+    height: 0;
+    padding-bottom: get-aspect-ratio(350,150);
+  }
+}
+*/
+
+@function decimal-round ($number, $digits: 0, $mode: round) {
+  $n: 1; // $number must be a number
+  @if type-of($number) !=number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  } // $digits must be a unitless number
+  @if type-of($digits) !=number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  }
+  @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @if $digits>0 {
+    @for $i from 1 through $digits {
+      $n: $n * 10;
+    }
+  }
+  @if $mode==round {
+    @return round($number * $n) / $n;
+  }
+  @else if $mode==ceil {
+    @return ceil($number * $n) / $n;
+  }
+  @else if $mode==floor {
+    @return floor($number * $n) / $n;
+  }
+  @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+
+// es. 1280x490 = Aspect ratio: 2.61:1 = 1 / 2,61 * 100 = 38,314176245211 = 38.32%
+@function get-aspect-ratio($width, $height, $round:round) {
+  $aspect: false;
+  @if $round==round {
+    $ratio: $width / $height;
+    $aspect: (1 / $ratio) * 100%;
+  }
+  @else {
+    $ratio: decimal-round($width / $height, 2, $round);
+    $aspect: (1 / decimal-round($ratio, 2, $round)) * 100%;
+  }
+  @return decimal-round($aspect, 2);
+}
+
+//colWidth calc
+@function colWidth($colWidth, $maxCols) {
+  @return $colWidth / $maxCols * 100%;
+}
+
+//column padding based on how many columns the project have
+@function colPadding($columns, $device) {
+  @if $device==mobile {
+    @return 100% / get-value($settings, 'base', 'mobileColumns') * $columns;
+  }
+  @else if $device==tablet {
+    @return 100% / get-value($settings, 'base', 'tabletColumns') * $columns;
+  }
+  @else {
+    @return 100% / get-value($settings, 'base', 'columns') * $columns;
+  }
+}
+
+$columns: ( 
+  full: 100%, 
+  half: 50%, 
+  one-third: 33.33333%, 
+  two-third: 66.66666%, 
+  one-fourth: 25%, 
+  one-fifth: 20%, 
+  two-fifth: 40%, 
+  four-fifth: 80%, 
+  one-sixth: 16.66666%, 
+  five-sixth: 83.33333%);
+
+
+// ----
+// Functions from:
+// https://gist.github.com/pascalduez/10011785
+// ----
+// Capitalize string
+// --------------------------------------------------------------------------------
+// @param [string] $string
+// --------------------------------------------------------------------------------
+// @return [string]
+// --------------------------------------------------------------------------------
+//Example
+//sass {
+//  capitalize: capitalize("hello");
+//  uncapitalize: uncapitalize("HELLO");
+//  ucwords: str-ucwords("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+//  camelize: camelize("my-function-name");
+//  camelize: camelize("Another class constructor.");
+//}
+//Result
+//sass {
+//  capitalize: "Hello";
+//  uncapitalize: "hELLO";
+//  ucwords: "Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.";
+//  camelize: "myFunctionName";
+//  camelize: "AnotherClassConstructor";
+//}
+@function capitalize($string) {
+  @return to-upper-case(str-slice($string, 1, 1))+str-slice($string, 2);
+}
+
+// Alias
+@function str-ucfirst($string) {
+  @return capitalize($string);
+}
+
+// Uncapitalize string
+// --------------------------------------------------------------------------------
+// @param [string] $string
+// --------------------------------------------------------------------------------
+// @return [string]
+@function uncapitalize($string) {
+  @return to-lower-case(str-slice($string, 1, 1))+str-slice($string, 2);
+}
+
+// Alias
+@function str-lcfirst($string) {
+  @return uncapitalize($string);
+}
+
+// Capitalize each word in string
+// --------------------------------------------------------------------------------
+// @param [string] $string
+// --------------------------------------------------------------------------------
+// @return [string]
+@function str-ucwords($string) {
+  $progress: $string;
+  $result: "";
+  $running: true;
+  @while $running {
+    $index: str-index($progress, " ");
+    @if $index {
+      $result: $result + capitalize(str-slice($progress, 1, $index));
+      $progress: str-slice($progress, ($index + 1));
+    }
+    @else {
+      $running: false;
+    }
+  }
+  @return capitalize($result)+capitalize($progress);
+}
+
+// Return whether `$value` is contained in `$list`
+// --------------------------------------------------------------------------------
+// @param [list] $list
+// @param [$value] $value
+// --------------------------------------------------------------------------------
+// @return [boolean]
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}
+
+// Camelize string
+// --------------------------------------------------------------------------------
+// @param [string] $string
+// --------------------------------------------------------------------------------
+// @return [string]
+@function camelize($string) {
+  $progress: $string;
+  $result: "";
+  $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
+  @while str-length($progress)>0 {
+    $char: str-slice($progress, 1, 1);
+    @if contain($exclude, $char) {
+      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+    }
+    @else {
+      $result: $result + $char;
+      $progress: str-slice($progress, 2);
+    }
+  }
+  @return $result;
+}

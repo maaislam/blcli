@@ -1,0 +1,230 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    #product_add_form #product_grid {
+
+        h2,
+        small a {
+            color: get-value($settings, 'colors', 'text') !important;
+        }
+    }
+    .item_customisation{
+        &.bordered{
+            border: 2px solid red;
+        }
+    }
+    .customisation_header {
+        @include clearfix;
+
+        #customisation_left {
+            padding: 0 get-value($settings, 'base', 'gutter') * 2;
+        }
+
+        border: 2px solid get-value($settings, 'colors', 'wwOrange');
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    .isRequired {
+        border: 2px solid red !important;
+    }
+
+    .#{$ID}_logoblockWrap {
+        max-width: 450px;
+        margin: 0 auto;
+        padding: get-value($settings, 'base', 'gutter') * 2;
+        border: 2px solid red;
+        margin-top: 10px;
+        .#{$ID}_message__title{
+            color:red;
+        }
+    }
+
+    @at-root #{&}_fakeButton{
+        cursor:pointer;
+        border: 0;
+        background: #66bc29 url('https://www.workwearexpress.com/images/addtocart.png') no-repeat 10px center;
+        text-align: left;
+        font-size: 20px;
+        color: #fff;
+        line-height: 22px;
+        padding: 15px 15px 15px 60px;
+        display:inline-block;
+        & > * {
+            pointer-events: none;
+        }
+        &:hover, &:focus{
+            background-color: darken(#66bc29, 5%);
+        }
+        @at-root #{&}Wrap{
+            text-align: right;
+            display: block;
+            @at-root #bundle-content #{&} .#{$ID}_fakeButton{
+                font-size:18px;
+            }
+            @at-root #bundle-content #{&}{
+                margin-top:15px;
+            }
+        }
+    }
+
+    @at-root #{&}_message {
+        text-align: center;
+
+        @at-root .#{$ID}_logoblockWrap #{&} {
+            text-align: center;
+
+            .#{$ID}_message__content {
+                font-weight: normal;
+                color: red;
+            }
+        }
+
+        @at-root #{&}__title {
+            color: get-value($settings, 'colors', 'wwOrange');
+            margin-bottom: get-value($settings, 'base', 'baseline') / 2;
+        }
+
+        @at-root #{&}__content {
+            font-weight: bold;
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 2);
+            color: red;
+        }
+    }
+
+    @at-root #{&}_option-text {
+        @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 2);
+        color: red;
+        display: block;
+        text-align: left;
+        padding: 0 get-value($settings, 'base', 'gutter') - 5;
+        margin-top: 5px;
+        margin-left: 2px;
+    }
+
+    @at-root #{&}_selectSize {
+        display: inline-block;
+        text-align: center;
+        border: 2px solid red;
+        padding: 10px;
+        @at-root #{&}Wrap {
+            text-align: right;
+            padding: 0 get-value($settings, 'base', 'gutter') * 2;
+            padding-right:0;
+        }
+
+        @at-root #{&}__title {
+            color: red;
+            margin-bottom:0;
+            margin-bottom: 10px;
+        }
+
+        @at-root #{&}__info {
+            display: block;
+        }
+
+        @at-root #{&}__link {
+            color: red;
+            display: inline-block;
+            text-align: right;
+            margin-top: get-value($settings, 'base', 'baseline') / 2;
+        }
+    }
+    #text_entry{
+        @include clearfix;
+    }
+    #customisation_left #text_style{
+        width: 235px!important;
+        margin-right:6px!important;
+    }
+
+    @media screen and (max-width: 768px) {
+        .#{$ID}_fakeButtonWrap{
+            text-align: center;
+            .#{$ID}_fakeButton{
+                margin-top:10px;
+            }
+        }
+        .bundle_product_right{
+            overflow: hidden;
+            overflow-x: scroll;
+        }
+        .item_customisation{
+            box-sizing: border-box;
+            padding: 10px;
+            &.bordered{
+                border: 2px solid get-value($settings, 'colors', 'wwOrange');
+                padding: 10px;
+            }
+        }
+        .#{$ID}_message{
+            margin-bottom:10px;
+        }
+        .#{$ID}_message__content{
+            line-height: 1.50;
+            color: get-value($settings, 'colors', 'text');
+            margin-bottom:0;
+            strong{
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 2);
+                color: get-value($settings, 'colors', 'wwOrange');
+                display:block;
+                margin-top: get-value($settings, 'base', 'baseline') / 2;
+            }
+        }
+        .#{$ID}_selectSize__link {
+            display: none;
+        }
+
+        .#{$ID}_selectSizeWrap{
+            padding: 0;
+        }
+        .#{$ID}_selectSize {
+            margin-bottom: get-value($settings, 'base', 'baseline');
+            display:block;
+            border: 2px solid get-value($settings, 'colors', 'wwOrange');
+        }
+
+        .#{$ID}_option-text {
+            text-align: center;
+        }
+
+        #customisation_left {
+            padding:0;
+            #logo_upload {
+                &~img {
+                    display:none;
+                }
+            }
+
+            #text_entry,
+            #notes_comments {
+                padding: get-value($settings, 'base', 'gutter') * 2;
+            }
+        }
+        #text_entry{
+            max-width: 315px!important;
+        }
+        .logo_upload{
+            max-width:315px!important;
+            margin-top:5px!important;
+        }
+    }
+
+    .zopim {
+        position: fixed !important;
+        bottom: 20px;
+        right: 20px;
+    }
+}

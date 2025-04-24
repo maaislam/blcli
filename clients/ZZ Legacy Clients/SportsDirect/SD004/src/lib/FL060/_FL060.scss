@@ -1,0 +1,461 @@
+@import '../../variables';
+
+// Make title caps
+.Delivery.leftWrap {
+  h1 {
+    text-transform: uppercase;
+    // &:not(.SD004-quickTitle) {
+    //   padding-left: 20px;
+    // }
+  }
+}
+
+// Hide titles
+.homeDeliveryWrapper .changeDeliveryWrap .innerDelWrap .CurrentDeliveryLabel, .homeDeliveryWrapper .changeDeliveryWrap .innerDelWrap .deliveryTitle,
+.collectInStoteDeliveryWrapper .innerDelWrap .CurrentDeliveryLabel, .collectInStoteDeliveryWrapper .innerDelWrap .deliveryTitle,
+.deliveryCollectionDeliveryWrapper .innerDelWrap .CurrentDeliveryLabel, .deliveryCollectionDeliveryWrapper .innerDelWrap .deliveryTitle  {
+  display: none;
+}
+
+p.SD004-pleaseSelect {
+  text-align: center;
+}
+
+// Feature list
+ul.SD004-featureList {
+  clear: both;
+  margin-top: 10px;
+  padding: 0 10px;
+  width: 100%;
+  float: left;
+  // padding-left: 15px;
+  > li {
+    span.SD004-tick {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-size: 140px 140px;
+      background-position: -97px -39px;
+      background-color: #bbb;
+      border-color: #bbb;
+    }
+    p {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 30px);
+      font-size: initial;
+      font-size: 12px;
+      margin: 0 0 10px 0;
+      font-weight: 400;
+      padding-left: 5px;
+      strong {
+        font-weight: 900;
+        text-decoration: underline;
+      }
+    }
+    &:last-of-type {
+      p strong {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.deliveryWrapper {
+  .SD004-chosenOption {
+    position: relative;
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+    .SD004-tick {
+      position: absolute;
+      top: -7px; right: -7px;
+    }
+    @media only screen and (max-width: 479px) {
+      p span span {
+        display: block;
+        margin-top: 5px;
+      }
+    }
+  }
+  // Change link
+  .changeDeliveryLink {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    z-index: 999;
+    a {
+      display: block !important;
+    }
+  }
+}
+
+// Change link
+.homeDelWrap .CurrentAddressWrapper {
+  .DifferentAddressLinkWrapper {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    z-index: 999;
+    a {
+      display: block !important;
+    }
+  }
+  .SD004-chosenOption {
+    p {
+      display: none; // Only show the tick
+    }
+  }
+}
+
+
+// Shipping options radio buttons
+.DeliveryOptions .DeliveryOptionsItem {
+  .SelectIt {
+    right: -2px;
+    top: 20px;
+    left: auto;
+  }
+  .InnerMethods {
+    .hidden-xs.col-sm-2.DelIcon {
+      display: block !important;
+    }
+    .DeliveryNaming {
+      padding-right: 20px;
+      
+    }
+  }
+}
+
+.DeliveryGroupLine .locationSub {
+  display: none;
+}
+
+
+.SD004-deliveryAssets {
+  background: url(https://www.sportsdirect.com/images/core/sprite-new-checkout-v3-01.svg);
+  background-size: 520px 520px;
+  background-position: -270px -216px;
+  width: 100%;
+  float: left;
+  height: 45px;
+  max-width: 68px;
+  padding: 0;
+  font-size: 11px;
+  text-size-adjust: none;
+  &.SD004-express {
+    background-position: -346px -216px;
+  }
+}
+
+
+// Tick on Titles.
+.SD004-tick {
+  background-image: url('https://www.sportsdirect.com/images/core/sprite-new-checkout-v3-01.svg');
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+  background-position: -116px -54px;
+  background-color: #fff;
+  border: 1px solid #000;
+  text-align: center;
+  border-radius: 14px;
+  float: none;
+  margin: 0;
+  order: 2;
+  height: 23px;
+  width: 23px;
+  display: inline-block;
+  vertical-align: middle;
+  &.SD004-tickActive {
+    background-color: #3da34d;
+    border-color: #3da34d;
+    background-position: -138px -55px;
+    // background-position: -201px -329px;
+  }
+}
+
+// First page arrows
+.DeliveryOptions .deliveryGroupTypeLi .DelTick {
+  top: 25px;
+}
+
+// Home delivery styling
+#HomeDeliveryWrapper {
+  // .changeDeliveryWrap {
+  //   // padding: 10px 20px 10px 0;
+  //   > div {
+  //     border: 1px solid #ccc;
+  //     padding: 15px;
+  //     // cursor: pointer;
+  //     line-height: 1.2em;
+  //   }
+  // }
+  .homeDelWrap .CurrentAddressWrapper {
+    > .col-xs-12 {
+      // padding: 10px 20px 10px 0;
+      // > div {
+      //   border: 1px solid #ccc;
+      //   padding: 15px;
+      //   // cursor: pointer;
+      //   line-height: 1.2em;
+      //   min-height: 65px;
+      // }
+    }
+  }
+  // .DeliveryOptions .DeliveryOptionsItem .InnerMethods .DeliveryNaming {
+  //   width: calc(100% - 75px);
+  // }
+  
+  .DeliveryOptionsItem.active {
+    p {
+      color: #fff;
+    }
+  }
+}
+
+
+// Force active ticks on delivery options
+.DeliveryOptionsItem.active {
+  .SD004-tick {
+    background-color: $greenBtnHov;
+    border-color: $greenBtnHov;
+    background-position: -201px -329px;
+  }
+  ul.SD004-featureList {
+    li {
+      span.SD004-tick {
+        background-position: -179px -296px;
+        background-size: 390px 390px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+
+p.SD004-billingMessage {
+  margin: 10px 0;
+}
+
+// Collect in store title
+#CollectInStoteDeliveryWrapper {
+  // padding: 10px 20px;
+  .innerDelWrap {
+    border: 1px solid #ccc;
+    padding: 15px;
+    // cursor: pointer;
+    line-height: 1.2em;
+  }
+}
+
+// Pickup locations, shop etc.
+#DeliveryOptionsWrapper {
+  // padding: 10px 20px;
+  padding-left: 0 !important;
+  .innerDelWrap {
+    // border: 1px solid #ccc;
+    padding: 15px;
+    // cursor: pointer;
+    line-height: 1.2em;
+  }
+  // @media only screen and (min-width: 1022px) {
+  //   .DeliveryOptions {
+  //     padding: 0 20px 0 0;
+  //   }
+  // }
+}
+
+@media only screen and (min-width: 1022px) {
+  #shippingServiceGroupType {
+    padding-left: 20px;
+  }
+}
+
+// T&Cs Tooltip
+.MessageGroupB.GoodsSupplyTermsAndConditions .EtailTermsText {
+  position: relative;
+  .SD004-tcTooltip {
+    display: inline-block;
+    margin-left: 5px;
+    width: 25px;
+    height: 2px;;
+    .SD004-tcIcon {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      text-align: center;
+      display: block;
+      margin: auto;
+      padding: 0;
+      &:hover, &:focus {
+        + .SD004-info {
+          display: block;
+        }
+      }
+    }
+
+    .SD004-info {
+      position: absolute;
+      bottom: 105%;
+      left: 0; right: 0;
+      margin: auto;
+      max-width: 320px;
+      padding: 20px;
+      border: 1px solid #cccccc;
+      background-color: #ccc;
+      text-align: center;
+      display: none;
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+  }
+}
+
+
+
+// Don't truncate the billing address text
+.SD004-billingAddress {
+  margin-top: 10px;
+  p.SD004-addedBilling {
+    white-space: initial;
+  }
+  .DifferentAddressLinkWrapper {
+    display: none;
+  }
+}
+
+
+// Hide info when clicking options
+ul#DeliveryOptionsList li.active .DeliveryOptionDescription, #SelectedStoreInfo .active .ClickMain {
+  display: none !important;
+}
+
+li.deliveryGroup_StoreDelivery {
+  .DeliveryOptionDescription {
+    display: none;
+  }
+}
+
+.CheckoutLeft {
+  > h2 {
+    text-transform: uppercase;
+  }
+}
+
+
+// If two continue buttons on /yourdetails. Hide 2nd.
+.CheckWrap .ProgressButContain:nth-child(2) {
+  display: none;
+}
+
+.DeliveryContinueButton .GoodsSupplyTermsAndConditions label.EtailTermsText {
+  padding-right: 25px;
+}
+
+// Desktop only
+@media only screen and (min-width: 769px) {
+  .MessageGroupB.GoodsSupplyTermsAndConditions .EtailTermsText {
+    // padding-right: 35px;
+    .SD004-tcTooltip {
+      float: right;
+      margin-top: -15px;
+      margin-right: -5px;
+    }
+  }
+  .DeliveryOptions .DeliveryOptionsItem .InnerMethods .DeliveryNaming {
+    width: calc(100% - 105px);
+  }
+  .DeliveryOptions .deliveryGroupTypeLi .DelIcon {
+    top: 35px !important;
+  }
+  // #HomeDeliveryWrapper .changeDeliveryWrap {
+  //   padding-bottom: 10px;
+  //   padding-top: 0;
+  // }
+  #DeliveryOptionsWrapper {
+    padding-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1021px) {
+  .Delivery.leftWrap h1 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .DeliveryOptions .deliveryGroupTypeLi .DeliveryNaming {
+    width: calc(100% - 75px) !important;
+  }
+}
+
+@media only screen and (min-width: 575px) {
+  .SD004-deliveryAssets {
+    display: none;
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 479px) {
+  // .DeliveryOptions .DeliveryOptionsItem {
+  //   .SelectIt {
+  //     right: 10px;
+  //   }
+  // }
+  .MessageGroupB.GoodsSupplyTermsAndConditions .EtailTermsText .SD004-tcTooltip {
+    position: absolute;
+    top: 0; right: -25px;
+    width: 100%;
+    span.SD004-tcIcon {
+      margin-right: 15px;
+    }
+  }
+}
+// Really small, hide icons.
+@media only screen and (max-width: 339px) {
+  .deliveryGroupTypeLi .DelIcon, .SD004-deliveryAssets {
+    display: none !important;
+  }
+  .DeliveryOptions .deliveryGroupTypeLi .DeliveryNaming {
+    width: calc(100% - 45px);
+  }
+  .DeliveryOptions .DeliveryOptionsItem .InnerMethods .DeliveryNaming {
+    width: 95% !important;
+    margin: 0 3% 0 2%;
+    padding-right: 10px;
+  }
+  #DeliveryOptionsWrapper .DeliveryOptions {
+    padding: 0;
+  }
+  #HomeDeliveryWrapper .changeDeliveryWrap, #HomeDeliveryWrapper .homeDelWrap .CurrentAddressWrapper > .col-xs-12 {
+    padding: 10px 0;
+  }
+  .Delivery.leftWrap h1 {
+    padding: 10px 0;
+    font-size: 1.4em;
+  }
+}
+
+.SD004 {
+  @media only screen and (max-width: 767px) {
+    #HomeDeliveryWrapper .homeDelWrap .CurrentAddressWrapper > .col-xs-12 > div, #HomeDeliveryWrapper .changeDeliveryWrap > div {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+  #HomeDeliveryWrapper .changeDeliveryWrap {
+    padding-bottom: 10px;
+  }
+  .SD004-chosenOption p:first-of-type {
+              font-weight: bold;
+  }
+  // Logged in, don't show the option to change billing address
+  &.SD004-loggedIn {
+    .SD004-billingAddress .DifferentAddressLinkWrapper {
+      display: none;
+    }
+  }
+}

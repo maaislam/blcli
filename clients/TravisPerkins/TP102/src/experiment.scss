@@ -1,0 +1,295 @@
+@import '_mixins.scss';
+.TP102 {
+  .TP102_main-wrap {
+    margin-top: 50px;
+    padding: 5px 0 30px 0;
+    position: relative;
+    >p {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 13px;
+    }
+  }
+  .TP102_main-header {
+    width: 300%;
+    position: absolute;
+    top: -62px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin: 0;
+    background: #0A4F38;
+    color: #fff;
+    font-size: 19px;
+    padding: 10px 0;
+  }
+  .TP102_branch-wrap {
+    >div {
+      float: left;
+      width: 58%;
+      &.TP102_checklist{
+        width: 42%;
+      }
+    }
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  .yCmsContentSlot.header_buttons {
+    display: none;
+  }
+  &.page-TPHomePage .tpCarousel {
+    margin-top: 0;
+  }
+  .TP102_checklist {
+    p {
+      position: relative;
+      box-sizing: border-box;
+      padding: 9px 10px 10px 45px;
+      font-size: 14px;
+      line-height: 17px;
+    }
+    p::after {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 22px;
+      border: solid #8dc641;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+  }
+  .TP102_postcode-reg {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      line-height: 20px;
+      padding: 8px 12px;
+      border: 1px solid #e0e0e0;
+      border-bottom: 2px solid #bdbdbd;
+      @include anim(300ms, def, (border-color));
+      outline: none;
+      box-shadow: 0;
+      margin-bottom: 20px;
+      &:focus {
+        border-bottom-color: #F6B112;
+        outline: none;
+        box-shadow: 0;
+      }
+    }
+    p {
+      padding-top: 20px;
+      span {
+        display: block;
+        font-style: italic;
+        color: #707070;
+        padding-top: 10px;
+      }
+    }
+    a {
+      float: left;
+      width: calc(50% - 10px);
+      text-align: center;
+      background: #F6B112;
+      border-color: #F6B112;
+      border-radius: 4px;
+      text-transform: capitalize;
+      outline: none;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      font-weight: 600;
+      color: #333;
+      padding: 10px 0;
+      line-height: 1.3333333;
+      box-sizing: border-box;
+      font-size: 14px;
+      @include anim(300ms, def, (box-shadow));
+      &:hover {
+        color: #333;
+        border-color: #e09b12;
+        background: #e09b12;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+      }
+      &+a {
+        margin-left: 20px;
+      }
+    }
+  }
+  .TP102_pop-up_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    background: rgba(#000, 0.7);
+    display: none;
+    box-sizing: border-box;
+    * {
+      box-sizing: border-box;
+    }
+    .TP102_body_click {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    .TP102_inner_div {
+      position: absolute;
+      width: calc(100% - 40px);
+      height: auto;
+      left: 50%;
+      top: 50%;
+      max-width: 900px;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      background: #fff;
+      z-index: 20;
+      .TP102_overflow_fix {
+        max-height: 480px;
+        max-height: calc(100vh - 80px);
+        @media (min-width: 768px) {
+          max-height: 800px;
+          max-height: calc(100vh - 80px);
+        }
+        &::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        >h2 {
+          padding: 10px 15px;
+          font-size: 19px;
+          text-align: center;
+          color: #fff;
+          background: #0A4F38;
+        }
+      }
+    }
+    .TP102_call {
+      width: calc(45% - 30px);
+      float: left;
+      margin: 20px 10px 20px 20px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+      h3 {
+        font-size: 17px;
+        font-weight: 500;
+        padding: 15px;
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 0;
+      }
+      div {
+        padding: 20px;
+        min-height: 287px;
+        .TP102_find-branch {
+          border: 2px solid #e0e0e0;
+          padding: 10px;
+          box-sizing: border-box;
+          display: block;
+          max-width: 210px;
+          margin: 30px auto 0;
+        }
+        .TP102_call-us {
+          font-size: 21px;
+          padding: 15px 0;
+          line-height: 20px;
+        }
+        p {
+          line-height: 17px;
+        }
+      }
+    }
+    .TP102_find-number {
+      width: calc(55% - 30px);
+      float: left;
+      margin: 20px 20px 20px 10px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+      line-height: 0;
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+      h3 {
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+        padding: 15px;
+        margin: 0;
+      }
+    }
+    .TP102_modal-btn {
+      float: left;
+      width: calc(50% - 30px);
+      text-align: center;
+      background: #F6B112;
+      border-color: #F6B112;
+      border-radius: 4px;
+      text-transform: capitalize;
+      outline: none;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      font-weight: 600;
+      color: #333;
+      padding: 10px 0;
+      line-height: 1.3333333;
+      box-sizing: border-box;
+      font-size: 14px;
+      @include anim(300ms, def, (box-shadow));
+      &:hover {
+        color: #333;
+        border-color: #e09b12;
+        background: #e09b12;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+      }
+      &.TP102_close-modal{
+        background: #E0E0E0;
+      }
+      &+.TP102_modal-btn {
+        margin-left: 60px;
+      }
+    }
+    .TP102_btn-wrap {
+      padding: 19px 40px 45px;
+      clear: both;
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+    .TP102_close_btn {
+      position: absolute;
+      top: 10px;
+      right: 11px;
+      text-transform: uppercase;
+      //background: #000;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      font-size: 14px;
+      text-align: center;
+      font-family: Arial;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,375 @@
+@import './variables';
+@import './keyframes.scss';
+
+.#{$id} {
+
+    &.#{$id}-noScroll{
+        overflow: hidden;
+    }
+
+    .#{$id}-overlay {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.585);
+        top: 0%;
+        z-index: 999;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        &.#{$id}-overlayShow {
+            display: block;
+        }
+    }
+
+    .#{$id}-gameTrigger {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: auto;
+        width: 200px;
+        z-index: 9999;
+        &.#{$id}-hidden {
+            display: none;
+        }
+        .#{$id}-gameTriggerBox {
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
+            background: black;
+            border: 1px solid black;
+            border-radius: 50px;
+            margin-right: 10px;
+            margin-left: auto;
+            margin-bottom: 10px;
+            background-image: url('//cdn.optimizely.com/img/6087172626/b3f7d9776ad24fc28a3b68ae52367632.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 30px;
+            box-shadow: 1px 1px 5px 2px #d2d2d2;
+        }
+        .#{$id}-message {
+            background: black;
+            opacity: 1;
+            color: white;
+            text-transform: uppercase;
+            position: absolute;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+            font-size: 12px;
+            top: 43%;
+            transform: translateY(-50%);
+            right: 85px;
+            &::before{
+                left: 95%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(0, 0, 0, 0);
+                border-left-color: #000000;
+                border-width: 10px;
+                margin-top: -10px;
+            }
+        }
+
+        @media(min-width: 767px) {
+            width: 300px;
+            max-width: 300px;
+            .#{$id}-gameTriggerBox {
+                height: 100px;
+                width: 100px;
+                background-size: 50px;
+            }
+            .#{$id}-message {
+                top: 45%;
+                right: 110px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    // email box
+    .#{$id}-emailModal {
+        position: fixed;
+        background: white;
+        z-index: 9991;
+        width: 100%;
+        height: 420px;
+        &.#{$id}-modalShow {
+            animation: MEslide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        .#{$id}-titleBox{
+            background: black;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            h3 {
+                margin: 0;
+                color: white;
+                text-transform: uppercase;
+            }
+            .#{$id}-close {
+                position: absolute;
+                right: 5px;
+                cursor: pointer;
+                top: 5px;
+                background: url('//cdn.optimizely.com/img/6087172626/246d32e196424b3f948598dcbe92b45e.png') no-repeat center;
+                height: 30px;
+                width: 30px;
+                background-size: contain;
+            }
+        }
+
+        // general
+        .#{$id}-boxIcon {
+            height: 90px;
+            width: 90px;
+            background: url('//cdn.optimizely.com/img/6087172626/6036094dddb04ddfa8cd84bbf6ec0a73.png') no-repeat center;
+            background-size: contain;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .#{$id}-button {
+            background: #0EBCF4;
+            display: block;
+            border: 1px solid #0EBCF4;
+            border-radius: 4px;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 8px 10px;
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        // email form
+        .#{$id}-emailForm {
+            text-align: center;
+            .#{$id}-error {
+                color: red;
+                margin-bottom: 0;
+                display: none;
+                &.#{$id}-errorShow {
+                    display: block;
+                }
+            }
+            input {
+                margin-bottom: 15px;
+                margin-top: 10px;
+                max-width: 90%;
+                height: 40px;
+                &.#{$id}-invalidEmail {
+                    border: 1px solid red;
+                }
+            }
+            button {
+                position: relative;
+                &.#{$id}-loading {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        height: 20px;
+                        width: 20px;
+                        background: url('//cdn.optimizely.com/img/6087172626/3e17657b80fe4e04a198ac154abce97c.gif');
+                        right: 5px;
+                        background-size: contain;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        .#{$id}-step {
+            padding: 20px;
+            //display: none;
+            position: absolute;
+            opacity: 0;
+            top: 48px;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            p {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: black;
+            }
+            &.#{$id}-stepShow {
+                //display: block;
+                opacity: 1;
+                top: 48px;
+                left: 0;
+                z-index: 99;
+            }
+            &.#{$id}-gameStep {
+
+                .#{$id}-successText {
+                    &.#{$id}-textHide {
+                        animation: fade-out 1s ease-out both;
+                    }
+                }
+                .#{$id}-gameBoxes {
+                    display: flex;
+                    justify-content: space-between;
+                    align-content: center;
+
+                    .#{$id}-boxIcon {
+                        height: 80px;
+                        width: 90px;
+                        margin-top: 30px;
+                        background: url('//cdn.optimizely.com/img/6087172626/f2f3cba8d2704581975ec2a9212fd2c1.png') no-repeat center;
+                        background-size: contain;
+                        transform: translateY(0px) scale(1);
+                        cursor: pointer;
+                        &:hover {
+                            transition: all .2s ease-in-out;
+
+                            transform: scale(1.1);
+                        }
+                        &.#{$id}-boxShow {
+                           
+                            &:nth-child(1) {
+                                animation: boxscale1 1.5s ease-out;
+                                animation-fill-mode: forwards;
+                            }
+                            &:nth-child(2) {
+                                animation: boxscale2 1.5s ease-out;
+                                animation-fill-mode: forwards;
+                            }
+                            &:nth-child(3) {
+                                animation: boxscale3 1.5s ease-out;
+                                animation-fill-mode: forwards;
+                            }
+                        }
+                        &.#{$id}-boxHide {
+                            animation: fade-out 1s ease-out both;
+                        }
+                    }
+                }
+            }
+            &.#{$id}-finalStep {
+                opacity: 0;
+                transform: scale(0);
+                &.#{$id}-stepShow {
+                    animation: scale-in-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                }
+
+                .#{$id}-trophy {
+                    margin: 0 auto;
+                    height: 80px;
+                    width: 80px;
+                    background: url('//cdn.optimizely.com/img/6087172626/f0aabd64748047d8a715f73b23261856.png') no-repeat center;
+                    background-size: contain;
+                }
+                h3 {
+                    text-align: center;
+                    color: black;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    margin-bottom: 0;
+                }
+                p {
+                    font-size: 17px;
+                    text-align: center;
+                }
+                .#{$id}-voucher {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-content: center;
+                    margin-bottom: 20px;
+                    margin-top: 10px;
+                    input {
+                        border: 2px dashed black;
+                        border-right: 0px;
+                        text-transform: uppercase;
+                        color: black;
+                        height: 50px;
+                       
+                    }
+                    .#{$id}-copyButton {
+                        background-color: black;
+                        background-image: url('//cdn.optimizely.com/img/6087172626/9167ade60f6f46b9b14aa994a5600c98.png');
+                        background-size: 25px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        height: 50px;
+                        width: 70px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 767px) {
+            width: 50%;
+            max-width: 400px;
+            right: 0;
+            border-top-left-radius: 22px;
+            border-bottom-left-radius: 20px;
+            .#{$id}-titleBox {
+                border-top-left-radius: 20px;
+                padding: 15px;
+            }
+            .#{$id}-step {
+                padding: 30px;
+
+                .#{$id}-voucher {
+                    max-width: 80%;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+    }
+
+    &.#{$id}-2 {
+        .#{$id}-gameTrigger {
+            width: 100%;
+        
+            .#{$id}-message {
+                width: 100%;
+                position: relative;
+                padding: 10px;
+                text-align: center;
+                bottom: 0;
+                left: 0;
+                border: 0;
+                bottom: 0;
+                top: unset;
+                transform: unset;
+                border-radius: 0;
+                cursor: pointer;
+                font-size: 20px;
+                box-shadow: 0px -2px 5px 0px rgba(49, 49, 49, 0.623);
+                &::before {
+                    display: none;
+                }
+                @media(min-width: 767px) {
+                    border-top-left-radius: 5px;
+                }
+            }
+            .#{$id}-close {
+                position: absolute;
+                right: 5px;
+                cursor: pointer;
+                top: 10px;
+                background: url('//cdn.optimizely.com/img/6087172626/246d32e196424b3f948598dcbe92b45e.png') no-repeat center;
+                height: 30px;
+                width: 30px;
+                background-size: contain;
+            }
+        }
+    }
+}

@@ -1,0 +1,338 @@
+@import "./variables";
+
+.#{$id} {
+  &__hide {
+    display: none !important;
+  }
+
+  &__howitworks {
+    height: 100%;
+
+    &--module1 {
+      padding: 40px 24px 0;
+      margin-bottom: 48px;
+      margin-top: 48px;
+      border-radius: 24px;
+      border: 1px solid #D5D6DA;
+
+      @media (max-width: 768px) {
+        padding: 40px 14px;
+      }
+
+      &>div:not(:last-child) {
+        margin-bottom: 40px;
+
+        @media (max-width: 768px) {
+          margin-bottom: 15px;
+        }
+      }
+
+      &>div:nth-child(3) {
+        margin-bottom: 40px;
+
+        @media (max-width: 768px) {
+          margin-bottom: 32px;
+        }
+      }
+    }
+
+    &--title {
+      @include experimentFont(28px, 700, 40px, $black-primary);
+    }
+
+    &--heroImage {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+
+      &>.image-wrapper {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 999;
+      }
+
+      @media (max-width: 768px) {
+        //   height: 150px;
+      }
+    }
+
+    &--steps {
+      @include experimentFont();
+
+      &>div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+
+        justify-content: center;
+        align-items: flex-start;
+
+        &>div:not(:last-child) {
+          margin-right: 36px;
+
+          @media (max-width: 768px) {
+            margin-right: 16px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          align-items: flex-start;
+        }
+
+        &>.step-text {
+          font-size: 28px;
+        }
+
+        @media (max-width: 768px) {
+          margin-bottom: 20px;
+        }
+
+        &:last-child {
+          margin-bottom: 40px;
+
+          @media (max-width: 768px) {
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      & .highlight {
+        @include experimentFont(16px, 700, 24px, $black-primary);
+      }
+    }
+
+    &--cta,
+    &--learnCta {
+      display: inline-block;
+      width: 100%;
+      max-width: 250px;
+      padding: 8px 45px;
+      background-color: $yellow-primary;
+      border: 1px solid $yellow-primary;
+      border-radius: 24px;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 700;
+      text-align: center;
+      color: $black-008RB;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $yellow-secondary;
+        border-color: $yellow-secondary;
+        text-decoration: underline;
+      }
+
+
+
+      @media (max-width: 768px) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    &--learnCta {
+      max-width: 180px;
+      margin-left: 20px;
+      color: #fff;
+      background-color: transparent;
+      border: 1px solid #fff;
+
+      &:hover {
+        background-color: transparent;
+        border-color: #fff;
+        font-weight: 700;
+        text-decoration: underline;
+        border-color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        display: block;
+        max-width: 258px;
+        margin-top: 5px;
+        margin-left: 0;
+      }
+    }
+
+    // added 22 Sept 2022
+    &--module1 {
+      .#{$id} {
+        &__howitworks {
+          &--cta {
+            color: #fff;
+            background-color: $black-008RB;
+            border: 1px solid $black-008RB;
+
+            &:hover {
+              color: #f3f4f5;
+              background-color: #383530;
+              border-color: #383530;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &__step--container {
+          flex-direction: column;
+        }
+
+        @media screen and (max-width: 768px) {
+          &__step--container {
+
+            .step-img .svg {
+              height: 22px;
+              width: 22px;
+
+              svg {
+                height: 20px;
+                width: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // end
+
+    &--module3 {
+      padding: 60px;
+      margin-bottom: 48px;
+      margin-top: 32px;
+      background-color: $green-008RB;
+      border-radius: 24px;
+
+      @media (max-width: 768px) {
+        margin: 32px -32px;
+        padding: 32px 32px;
+      }
+
+      .step-img {
+        display: flex;
+      }
+
+
+      &>div:not(:nth-last-child(-n+2)) {
+        margin-bottom: 50px;
+
+        @media (max-width: 768px) {
+          margin-bottom: 15px;
+        }
+      }
+
+      & .#{$id}__howitworks {
+        &--title {
+          margin-bottom: 38px !important;
+          color: $white-primary;
+        }
+
+        &--subtitle {
+          margin-bottom: 46px !important;
+          @include experimentFont(20px, 400, 32px, $white-secondary);
+
+          @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+
+        &--steps {
+          &>.#{$id}__step--container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+          }
+
+          & img {
+            width: 72px;
+            height: 72px;
+
+            @media (max-width: 768px) {
+              width: 48px;
+              height: 48px;
+            }
+          }
+
+          & .step-content {
+            &>.title {
+              color: #efece7;
+              @include experimentFont(16px, 600, 22px, #efece7);
+            }
+
+            &>.paragraph {
+              color: #efece7;
+              @include experimentFont(16px, 400, 22px, #efece7);
+            }
+          }
+        }
+
+        &--cta {
+
+
+          @media (max-width: 1399px) {
+            max-width: 70%;
+            margin-bottom: 20px;
+          }
+
+          @media (max-width: 1024px) {
+            max-width: 100%;
+
+          }
+        }
+
+        &--learnCta {
+          @media (max-width: 1399px) {
+            max-width: 70%;
+            margin-left: 0;
+          }
+
+          @media (max-width: 1024px) {
+            max-width: 100%;
+
+          }
+        }
+      }
+    }
+  }
+
+  &__quote--module2 {
+    display: flex;
+    margin: 48px 0;
+
+    .quote {
+      display: none;
+    }
+
+    & svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 32px;
+      font-family: Haffer;
+    }
+
+    figure,
+    blockquote {
+      margin: 0;
+      line-height: 32px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    & span {
+      font-family: "Para";
+      font-style: normal !important;
+      @include experimentFont(24px, 300, 32px, #1c1b18);
+    }
+
+    @media (max-width: 768px) {
+      @include experimentFont(20px, 300, 1.5, #1c1b18);
+    }
+  }
+}

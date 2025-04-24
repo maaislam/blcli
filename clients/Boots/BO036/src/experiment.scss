@@ -1,0 +1,130 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-heading {
+    text-align: center;
+    color: #004990;
+    text-transform: uppercase;
+    margin: 24px 0;
+  }
+  .#{$id}-accordion-wrapper {
+    padding-right: 12px;
+  }
+  .#{$id}-category-wrapper {
+    border-top: 1px solid #f2f2f2;
+
+    &:last-child {
+      border-bottom: 1px solid #f2f2f2;
+    }
+  }
+  .#{$id}-category a {
+    display: block;
+    padding: 12px 0;
+    color: #05054b;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .#{$id}-category-heading {
+    padding: 12px 0 6px;
+    color: #05054b;
+    cursor: pointer;
+
+    .#{$id}-category-name {
+      width: calc(100% - 30px);
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    a {
+      color: #333333;
+    }
+  }
+
+  // +- icon
+  .#{$id}-category-toggle-icon,
+  .#{$id}-expanded-list-toggle-icon {
+      display: inline-block;
+      margin-top: -2px;
+      &:after {
+        float: right;
+        font-size: 24px;
+        font-family: "ElegantIcons";
+        content: "L";
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+      }
+    }
+
+  .#{$id}-subcategory-wrapper {
+    display: none;
+    margin-bottom: 12px;
+
+    @media (max-width: 600px) {
+      max-height: 128px;
+      overflow-y: scroll;
+    }
+
+    .#{$id}-subcategory a {
+      font-size: 0.9rem;
+      padding: 6px 0;
+      display: block;
+      &:hover {
+        text-decoration: underline;;
+      }
+    }
+  }
+
+  .#{$id}-subcategory-open {
+    .#{$id}-subcategory-wrapper {
+      display: block;
+    }
+
+    .#{$id}-category-toggle-icon {
+      &:after {
+        content: "K";
+      }
+    }
+  }
+
+  .#{$id}-expanded-list-wrapper {
+    .#{$id}-category-heading {
+      cursor: initial;
+    }
+
+    .#{$id}-subcategory-wrapper {
+      display: block;
+      max-height: 224px;
+      overflow-y: hidden;
+      margin-bottom: 0;
+    }
+
+    .#{$id}-expanded-list-toggle {
+      cursor: pointer;
+      padding-top: 4px;
+      margin-bottom: 12px;
+      color: #05054b;
+      font-size: 0.9rem;
+      // Label and icon
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .#{$id}-subcategory-open {
+      .#{$id}-subcategory-wrapper {
+        max-height: none;
+        overflow-y: initial;
+      }
+
+      .#{$id}-expanded-list-toggle-icon {
+        &:after {
+          content: "K";
+        }
+      }
+    }
+  }
+}

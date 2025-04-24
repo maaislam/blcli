@@ -1,0 +1,86 @@
+@import './variables';
+
+.#{$id} {
+  .constrain {
+    a.accordTitle {
+      &:before {
+        display: none;
+      }
+      padding-left: 0px;
+      border: 1px solid #bfbfbf;
+      padding: 20px 40px 20px 20px;
+      border-radius: 0px 6px;
+
+      margin-bottom: 0px;
+      margin-top: 20px;
+      position: relative;
+
+      transition: border-radius 1s ease;
+
+      .BO084-icon {
+        $size: 20px;
+        height: $size;
+        width: $size;
+        position: relative;
+        box-sizing: border-box;
+        line-height: $size;
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:before, &:after {
+            $width: 20px;
+            $height: 2.5px;
+            transform: rotate(-45deg);
+            transform: rotate(-90deg);
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -$height/2;
+            margin-left: -$width/2;
+            display: block;
+            height: $height;
+            width: $width;
+            background-color: #333333;
+            transition: all 0.3s ease-in;
+        }
+
+        &:after {
+            transform: rotate(-180deg);
+        }
+
+        // &:hover {
+
+        //     &:before, &:after {
+        //         transform: rotate(0deg);
+        //     }
+        // }
+      }
+
+      &.open {
+        border-radius: 0px 6px 0px 0px;
+        .#{$id}-icon:before, .#{$id}-icon:after {
+          transform: rotate(0deg);
+          height: 3.5px !important;
+        }
+      }
+
+    }
+
+    .accordContent {
+      border: 1px solid #bfbfbf;
+      border-top: 0px;
+      padding: 30px 20px 20px 20px;
+      border-radius: 0px 0px 0px 6px;
+      background-color: #FFF;
+    }
+
+    .richText.mrg>p {
+      margin-top: 20px;
+    }
+  }
+  
+}

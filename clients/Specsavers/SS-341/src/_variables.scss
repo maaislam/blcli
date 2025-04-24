@@ -1,0 +1,68 @@
+$id: "--ID--";
+
+$c-green: #016c42;
+$c-light-green: #3baa35;
+$c-black: #333333;
+$c-gray: #808080;
+$c-light-gray: #ececec;
+
+$f-regular: specsavers web regular, Arial, sans-serif;
+$f-medium: specsavers web medium, Arial, sans-serif;
+$f-bold: specsavers web bold, Arial, sans-serif;
+
+$m-mobile: 480px;
+$m-tablet: 768px;
+$m-desktop: 1026px;
+
+@mixin green-button {
+  font-family: $f-medium;
+  background-color: $c-green !important;
+  color: #fff !important;
+  border: 0;
+  padding: 16px 40px;
+  border-radius: 999px;
+  transition: $transition;
+  text-align: center;
+  width: 100%;
+
+  @include media($m-mobile) {
+    width: auto;
+  }
+
+  &:hover {
+    background-color: darken($c-green, 5%);
+  }
+}
+
+@mixin flow($gap) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $gap;
+}
+
+@mixin media($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin reset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  float: none;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    float: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}

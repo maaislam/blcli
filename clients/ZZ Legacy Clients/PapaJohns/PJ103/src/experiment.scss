@@ -1,0 +1,178 @@
+@import './variables';
+
+.#{$id} {
+
+    .#{$id}-tipjar {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+        // position: fixed;
+        // top: 0;
+        // width: 100%;
+        // background-color: #fff;
+        // z-index: 999999;
+        
+        .PJ-col {
+            flex:1;
+
+            a.PJ-btn {
+                background-color: #00FFCC;
+                display: inline-block;
+                padding: 10px 20px;
+            }
+
+            @media only screen and (max-width: 479px) {
+                width: 50%;
+
+                &.PJ-tipImages {
+                    width: 140px;
+                    img {
+                        max-width: 140px;
+                    }
+                }
+                &.PJ-content {
+                    text-align: right;
+                    h2 {
+                        margin-bottom: 20px;
+                    }
+
+                    .PJ-tooltip {
+                        width: 220px;
+                        left: -100px
+                    }
+                }
+                &.PJ-cta {
+                    padding-top: 10px;
+                    padding-left: 20px;
+
+                    a {
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        .PJ-tipImages {
+            width: 200px;
+            img {
+                max-width: 170px;
+                height: auto;
+                display: block;
+            }
+        }
+
+        .PJ-content {
+            text-align: right;
+            .PJ-rel {
+                position: relative;
+            }
+
+            h2 {
+                margin-bottom: 40px;
+            }
+
+            > p {
+                text-decoration: underline;
+                cursor: pointer;
+
+                &:hover, &:focus {
+                    + .PJ-rel .PJ-tooltip {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .PJ-tooltip {
+            background-color: #f1f1f1;
+            max-width: 390px;
+            width: 100%;
+            position: absolute;
+            top: 80%;
+            left: 0; right: 0;
+            margin: auto;
+            padding: 20px;
+            text-align: left;
+            display: none;
+            z-index: 9999;
+
+            h4 {
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 0; 
+                    width: 80%;
+                    height: 4px;
+                    background-color: #00FFCC;
+                }
+            }
+
+            // &.close {
+            //     visibility: hidden;
+            //     opacity: 0;
+            //     max-height: 0;
+            // }
+            
+        }
+
+        h2, h4, h3 {
+            font: bold 24px 'Roboto Condensed',sans-serif;
+        }
+        p {
+            font-family: "Roboto Condensed", sans-serif;
+        }
+
+        .PJ-cta {
+            text-align: left;
+            padding-top: 40px;
+            padding-left: 40px;
+            a {
+                color: #000000;
+                text-transform: uppercase;
+                font-size: 1.6em;
+                width: 100px;
+                text-decoration: none;
+                font: bold 24px 'Roboto Condensed',sans-serif;
+
+                svg {
+                    display: inline;
+                    vertical-align: middle;
+                    max-width: 15px;
+                }
+            }
+
+            
+        }
+
+    }
+
+
+    &.PJ-confPage {
+        .#{$id}-tipjar {
+            .PJ-cta {
+                text-align: center;
+                padding: 0;
+            }
+
+            h3 {
+                margin-bottom: 20px;
+                @media only screen and (min-width: 649px) {
+                    font-size: 2.4em;
+                }
+            }
+
+            .PJ-content:not(.PJ-cta) {
+                text-align: center;
+                padding-top: 30px;
+                > p {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

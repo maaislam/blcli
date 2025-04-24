@@ -1,0 +1,22 @@
+$id: '--ID--';
+$media: (
+  xsm: 360px,
+  sm: 768px,
+  md: 850px,
+  lg: 1024px,
+);
+$brand-black: #1c2c3c;
+$brand-gray: #636f7e;
+$brand-green: #33705a;
+$brand-white-primary: #fff;
+$brand-white-secondary: #e3e8ed;
+
+@mixin media-query($breakpoint) {
+  @each $breakpoints, $size in $media {
+    @if $breakpoint==$breakpoints {
+      @media screen and (max-width: $size) {
+        @content;
+      }
+    }
+  }
+}

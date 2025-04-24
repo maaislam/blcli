@@ -1,0 +1,87 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+//Components
+@import './components/CheckOut/_CheckOut.scss';
+//Old elements reset and changes
+.#{$ID} {
+  #ctl00_cphBody__checkoutUpdatePanel {
+    .mainMobileInside {
+      //display: none !important;
+    }
+  }
+  #ctl00__objHeader_hypSignOutMobile {
+    display: none;
+  }
+  #ctl00__objHeader_divMobileBasketButtons {
+    #ctl00__objHeader_aCheckoutMobile {
+      display: none;
+    }
+  }
+  .password {
+    display: none;
+    &.visible {
+      display: block;
+    }
+  }
+  .omnibarMenu {
+    .checkout-title {
+      position: relative;
+      top: 5px;
+      @include calc-rem(font-size, (get-value($settings, 'base', 'font-size') + 9));
+    }
+    .lock {
+      img {
+        max-width: 25px;
+        position: relative;
+        top: 10px;
+        right: -35px;
+      }
+    }
+  }
+  label.actionButton,
+  div.actionButton {
+    text-align: center;
+    background: #439776;
+    color: #fff;
+    font: bold 18px 'Open Sans Condensed', sans-serif;
+    padding: 10px 5px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    display: block;
+  }
+  .#{$ID}_actionButton.actionButton {
+    display: block;
+  }
+  .#{$ID}_actionButton.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .actionButton--charity {
+    .actionButton {
+      width: 50%;
+      margin: 0 auto;
+      &.active {
+        background-color: get-value($settings, 'colors', 'papaGreyDark');
+      }
+    }
+  }
+  .actionButtonWrap {
+    display: block;
+    padding: get-value($settings, 'base', 'gutter');
+    padding-bottom: 20px;
+    margin: get-value($settings, 'base', 'gutter') / 2 0;
+  }
+  .optionsCont iframe {
+    max-height: 605px;
+    overflow: hidden;
+  }
+  .optionsCont {
+    &.isHidden {
+      display: none;
+    }
+  }
+}

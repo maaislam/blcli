@@ -1,0 +1,296 @@
+@import '../../../variables';
+
+$component: '#{$id}_DesktopHeader';
+$hhPurple: #624B9B;
+$hhGreen: #3BB884;
+
+.#{$id}.HH035 .HH035_stickyNav {
+  display: none !important;
+}
+
+@media screen and (min-width: 992px) {
+  .#{$id} {
+    .#{$component} {
+      position: fixed;
+      z-index: 100;
+      width: 100%;
+      top: -100px;
+      opacity: 0;
+      left: 0;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+      background-color: #fff;
+      transition: top 0.25s ease-in-out, opacity 0.25s;
+
+      &.#{$component}--stick {
+        top: 0;
+        opacity: 1;
+        transition: top 0.25s ease-in-out, opacity 0.25s;
+      }
+
+      #top-nav .logo-block {
+        .logo-30yrs {
+          margin-left: 10px;
+          display: inline-block;
+          position: relative;
+          left: 0;
+          top: 0;
+        }
+
+        .logo-medium {
+          display: inline-block;
+        }
+
+        .logo-large {
+          display: none;
+        }
+      }
+    }
+
+    .#{$component}_openingTimesWrap {
+      position: relative;
+    }
+
+    .#{$component}_openingTimes {
+      position: absolute;
+      z-index: 999999;
+      background-color: $hhPurple;
+      color: #fff;
+      left: 20px;
+      top: 25px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, top 0.25s;
+      transform: translateX(-50%);
+      padding: 12px;
+      min-width: 250px;
+      box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.35);
+
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: 999999;
+        top: -10px;
+        right: 30px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 7px 10px 7px;
+        border-color: transparent transparent lighten($hhPurple, 10%) transparent;
+      }
+    }
+
+    .#{$component}_openingTimesLabel {
+      color: $hhPurple;
+      display: block;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+
+        &~.#{$component}_openingTimes {
+          opacity: 1;
+          top: 35px;
+          pointer-events: all;
+          transition: opacity 0.25s, top 0.25s;
+        }
+      }
+    }
+
+    ##{$component}_tooltipTrigger {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+
+      &:checked {
+        &~ {
+          .#{$component}_openingTimes {
+            opacity: 1;
+            top: 35px;
+            pointer-events: all;
+            transition: opacity 0.25s, top 0.25s;
+          }
+        }
+      }
+    }
+
+    .#{$component}_locationDropdown {
+      background-color: #fff;
+      border: 1px solid #e4e4e4;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      display: none;
+
+      li {
+        border-bottom: 1px solid #e4e4e4;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+
+    #top-nav {
+      padding: 0;
+
+      .contact:first-child {
+        padding-left: 0;
+      }
+
+      .menu .menu-item {
+        overflow: visible;
+        position: relative;
+        height: auto;
+
+        .#{$component}_locationDropdown a {
+          background-image: none;
+          height: auto;
+          padding: 10px 0;
+          min-height: 70px;
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          justify-content: center;
+        }
+
+        a {
+          padding: 50px 5px 10px;
+          height: auto;
+          background-position: center top 7px;
+          background-size: auto 37px;
+        }
+
+        &.find-local {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-local_branch_unselected.png');
+          }
+          
+          &:hover {
+            .#{$component}_locationDropdown {
+              display: block;
+            }
+
+            > a {
+              background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-local_branch_selected.png');
+              background-color: $hhPurple;
+              color: #fff;
+
+              strong {
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        &.visiting-care {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-visiting_care.png');
+
+            strong {
+              color: $hhPurple;
+            }
+          }
+        }
+
+        &.request-a-call {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-call_unselected.png');
+          }
+
+          &:hover {
+            > a {
+              background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-call_selected.png');
+              background-color: $hhGreen;
+              color: #fff;
+
+              strong {
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        &.book-appt {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-book_appointment.png');
+          }
+        }
+        
+        &.live-chat {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-live_chat.png');
+
+            strong {
+              color: #2487cb;
+            }
+          }
+        }
+
+        &.home-visit {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-home_visit.png');
+
+            strong {
+              color: $hhPurple;
+            }
+          }
+        }
+
+        &.request-a-brochure {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-brochure.png');
+
+            strong {
+              color: $hhGreen;
+            }
+          }
+        }
+
+        &.customer-service {
+          > a {
+            background-image: url('https://ab-test-sandbox.userconversion.com/experiments/HH037-customer_service.png');
+
+            strong {
+              color: #2487cb;
+            }
+          }
+        }
+      }
+
+      .logo-block {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .#{$id} {
+      .logo-block {
+        padding-left: 30px;
+
+        .logo-medium,
+        .logo-30yrs {
+          height: 75px;
+        }
+      }
+    }
+  }
+
+  // Logo fix on /jobs page
+  @media (max-width: 1879px) {
+    #top-nav .logo-block .logo-medium {
+        display: inline-block;
+    }
+  }
+
+  .logo-30yrs {
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}

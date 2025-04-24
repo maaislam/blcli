@@ -1,0 +1,218 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100000;
+
+        @media all and (max-height: 400px) {
+            display: none;
+        }
+    }
+
+}
+
+.#{$id} {
+
+
+    &.#{$id}-invisibilitycloak #main {
+        opacity: 0 !important;
+    }
+
+    .#{$id}-popup-outer {
+
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%,-50%);
+        z-index: 1000001;
+        background: #F8F8F8;
+        padding: 20px 60px;
+        min-height: 355px;
+        border-radius: 2px;
+        width: 650px;
+
+
+        @media all and (max-width: 768px) {
+            width: 75%;
+            max-width: 100%;
+        }
+
+        @media all and (max-width: 450px) {
+            width: 90%;
+            padding: 20px 40px;
+        }
+
+        &.#{$id}-active {
+            display: flex;
+        }
+
+        &.#{$id}-step1complete {
+
+            .#{$id}-step1 {
+                display: none !important;
+            }
+
+            .#{$id}-step2 {
+                display: flex !important;
+            }
+
+        }
+
+        &.#{$id}-step2complete {
+
+            .#{$id}-step1,
+            .#{$id}-step2 {
+                display: none !important;
+            }
+
+            .#{$id}-step3 {
+                display: flex !important;
+            }
+
+        }
+
+        .#{$id}-popup {
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &.#{$id}-step1 {
+                display: flex;
+            }
+
+            &.#{$id}-step2 {
+                display: none;
+                justify-content: center;
+
+                & > svg {
+                    margin-bottom: 20px;
+                }
+            }
+
+            &.#{$id}-step3 {
+                display: none;
+                align-items: flex-start;
+
+                h2 {
+                    margin-bottom: 40px;
+                }
+
+                p {
+                    margin-bottom: 20px;
+                }
+
+                & > svg {
+                    
+                    margin: 0 auto 20px;
+                }
+
+                .#{$id}-popup--previous {
+                    margin-top: 20px;
+                }
+            }
+
+            
+
+            
+
+            
+
+            p {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px;
+                margin: 20px 0;
+                color: #222;
+                font-weight: 500;
+                width: 100%;
+            }
+
+            svg {
+                margin: 0 0 5px;
+            }
+
+            .#{$id}-text {
+                font-size: 16px;
+                line-height: 20px;
+            }
+
+            &--buttons {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                display: flex;
+
+                @media all and (max-width: 600px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 100%;
+                }
+                
+
+                button {
+                    margin: 0 15px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    background: #FFF;
+                    padding: 15px 40px;
+                    border: 2px solid #26815E;
+                    color: #26815E;
+                    border-radius: 50px;
+                    cursor: pointer;
+
+                    @media all and (max-width: 600px) {
+                        margin: 0 0 10px;
+                        min-width: 150px;
+                    }
+                    @media all and (max-width: 450px) {
+                        width: 100%;
+                        min-width: 0;
+                    }
+
+                    &:hover {
+                        background: #26815E;
+                        color: #FFF;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+            }
+
+            &--previous {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                a {
+                    color: #26815E;
+                    font-weight: 600;
+                    line-height: 20px;
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+
+        
+
+    }
+    
+
+
+}

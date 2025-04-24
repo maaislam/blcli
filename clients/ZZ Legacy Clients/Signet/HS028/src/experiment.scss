@@ -1,0 +1,796 @@
+@import './variables';
+
+.#{$id} {
+  .product-image,
+  .wish-list__button,
+  .enhanced-web-prices {
+    display: none;
+  }
+  .product-image__corner-flag {
+    z-index: 99;
+  }
+  .offer {
+    z-index: 100;
+  }
+
+  .tangiblee-button {
+    display: none;
+  }
+  
+  .container.pdpContent {
+    padding: 0px;
+  }
+
+  section#js-accordion-tabs {
+    margin-top: 20px;
+  }
+  /* Only one image */
+  .product-image{
+    &.#{$id}-oneImage {
+      display: block;
+      .thumbnails {
+        display: none;
+      }
+    }
+  } 
+  section.step-up-down,
+  .js-previousAndNext.previous-and-next {
+    display: none !important;
+  }
+  .brand-stock {
+    display: none;
+  }
+  /* Inner content changes */
+  .pdpContent {
+    display: block;
+    .buying-info {
+      .buying-info__name {
+        text-align: left;
+        font-size: 26px;
+        margin-bottom: 5px;
+      }
+      .buying-info__model-code,
+      .buying-info__moduel-code {
+        display: none;
+      }
+      .buying-info__sku {
+        display: none;
+      }
+    }
+  }
+
+  /* Top banners */
+  .#{$id}_topBanners {
+    margin-top: 5px;
+    padding: 10px;
+    .#{$id}-banner {
+      border: 1px solid black;
+      text-transform: uppercase;
+      display: inline-flex;
+      padding: 5px 10px;
+      position: absolute;
+      right: 10px;
+      top: 0;
+      z-index: 99;
+      &.#{$id}-saleBanner {
+        color: #dd213b;
+        border: 1px solid #dd213b;
+      }
+    }
+  }
+
+  /* Image slider */
+  .#{$id}_productSlider {
+    padding: 0 2%;
+  }
+  .#{$id}_productSlider,
+  .#{$id}_lightboxproductSlider  {
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    &.slick-slider {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -khtml-user-select: none;
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+      .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        &:focus {
+          outline: none;
+        }
+        &.dragging {
+          cursor: pointer;
+          cursor: hand;
+        }
+      }
+      .slick-track,
+      .slick-list {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        &:before,
+        &:after {
+          display: table;
+          content: '';
+        }
+        &:after {
+          clear: both;
+        }
+      }
+      .slick-loading{
+        .slick-track {
+          visibility: hidden;
+        } 
+      }
+  
+      .slick-slide {
+        display: none;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+        img {
+          display: block;
+        }
+        &.slick-loading img {
+          display: none;
+        }
+        .dragging img {
+          pointer-events: none;
+        }
+      }
+  
+      &.slick-initialized .slick-slide {
+        display: block;
+      }
+  
+      .slick-vertical .slick-slide {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+      }
+      .slick-arrow.slick-hidden {
+        display: none;
+      }
+      [dir='rtl'] .slick-slide {
+        float: right;
+      }
+    
+      .slick-dots {
+        position: relative;
+        list-style: none;
+        text-align: center;
+        padding: 0px;
+        background: white;
+        margin: 0px;
+        li {
+           display: inline-block;
+           border: 1px solid #ccc;
+           background: #ccc;
+           border-radius: 2px;
+           height: 1px;
+           width: 30px;
+           margin: 5px;
+           button {
+             color: transparent;
+             display: none;
+           }
+           &.slick-active {
+             border: 1px solid rgb(164, 24, 37);
+             background: rgb(164, 24, 37);
+           }
+        }
+      }
+  
+      /* Arrows */
+      .slick-prev, .slick-next {
+        font-size: 0;
+        line-height: 0;
+        position: absolute;
+        top: 49%;
+        display: block;
+        width: 20px;
+        height: 20px;
+        padding: 0px;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        cursor: pointer;
+        color: transparent;
+        border: none;
+        outline: none;
+        background: #ccc;
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/E28A69E635C5AD0AE5D067DD7EC69B101F4B3840D785AE06D388BDA3AFFB6F9F/ernestjones-co-uk/EJ026/next1.png');
+        background-size: 8px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 9;
+        border-radius: 50px;
+      }
+      .slick-prev {
+        transform: translate(0%, -50%) rotate(180deg);
+        &::before {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .slick-next {
+          right: 5px;
+        &::before {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &::after {
+          right: -49px;
+        }
+      }
+    }
+  }
+
+  .#{$id}_lightboxproductSlider {
+    .slick-prev {
+      left: 8px;
+    }
+  }
+  .#{$id}_productSlider {
+    &::after {
+      content: '';
+      height: 40px;
+      width: 40px;
+      bottom: 30px;
+      position: absolute;
+      background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/1B3E248C6E68B2FA130EF5236E2BC6A900291CC6ADED5C256C9550A74C78AD94/ernestjones-co-uk/EJ026/noun_ZoomIn_1881149.png');
+      background-size: contain;
+      right: 20px;
+      pointer-events: none;
+    }
+  }
+  /* Lightbox */
+  .#{$id}_Lightbox__overlay {
+    z-index: 99999;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+  }
+
+  .#{$id}_Lightbox {
+    z-index: 999999;
+    margin: 0px auto;
+    width: 95%;
+    max-width: 880px;
+    height: auto;
+    max-height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    position: fixed;
+    display: none;
+    box-shadow: 0 0 40px 3px hsla(0,0%,39%,.2);
+    background: white;
+    .#{$id}_Lightbox__close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      -moz-background-size: contain;
+      -o-background-size: contain;
+      background-size: cover;
+      height: 30px;
+      width: 30px;
+      z-index: 999;
+      background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/BE73A5D73E0AA2E45EFBCBC62E8EFC61AD753921B73B04E676AE29B5482E5A67/ernestjones-co-uk/EJ026/noun_Cross_26909051.png'); 
+    }
+    @media screen and (max-width: 400px) {
+      width: 95%;
+    }
+  }
+
+  /* Product info */
+  .buying-info {
+    padding: 0 2%;
+    .ratings-images {
+      display: none;
+    }
+    .#{$id}-productReviews {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .#{$id}-reviewStars {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .#{$id}-reviewText {
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: underline;
+        margin-left: 10px;
+        color: #a41825;
+      }
+    }
+    .buying-info__pricing {
+      text-align: left;
+      position: relative;
+      .buying-info__price--current  {
+        text-align: left;
+        letter-spacing: 0px;
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      .buying-info__price--seperator {
+        display: none;
+      }
+      .buying-info__price--was {
+        margin: 0px;
+        top: 0;
+      }
+      .buying-info__price--was,
+      .buying-info__price--save {
+        color: black;
+        font-size: 14px;
+      }
+      .buying-info__price--save {
+        margin-left: 5px;
+        padding-left: 5px;
+        border-left: 1px solid black;
+        top:0px;
+        padding-left: 9px;
+      }
+    }
+
+    /* Stock message */
+    .#{$id}-stockMessage {
+      position: absolute;
+      border-radius: 20px;
+      padding: 5px 10px;
+      width: 70px;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      &::before {
+        content: '';
+        position: absolute;
+        background-image: url('//cdn.optimizely.com/img/8355110909/d4853acfb13a4b2da3c42cb8e787a0f7.png');
+        height: 30px;
+        width: 30px;
+        background-position: center;
+        background-size: cover;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      span {
+         color: #197001;
+         padding-left: 20px;
+      }
+    }
+  }
+  .delivery-offer {
+    display: none;
+  }
+  .buying-buttons__buy {
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+    float: none;
+    padding: 10px;
+    height: auto;
+  }
+  // options
+  .buying-options__sections {
+    width: auto;
+    select {
+      border: 1px solid #8c8c8c;
+      border-radius: 3px;
+      width: 100%;
+      font-family: "Arial","Helvetica Neue",Helvetica,sans-serif;
+    }
+    a {
+      text-decoration: underline;
+      color: #a41825;
+    }
+  }
+  /* Quantity */
+  .buying-buttons {
+    display: block;
+    .quality {
+      text-align: center;
+      margin-bottom: 20px;
+      display: block;
+      width: 100%;
+      float: none;
+      clear: both;
+      .quality__label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      #quantityChange {
+        display: inline-block;
+        border: 1px solid #dddddd;
+        height: 48px;
+        width: 48px;
+        padding: 0px;
+        margin: 0px;
+        font-size: 14px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      .#{$id}-qty_button {
+        display: inline-block;
+        border: 1px solid #dddddd;
+        height: 48px;
+        width: 48px;
+        background: white;
+        font-size: 20px;
+        border-radius: 60px;
+        padding: 0px;
+        position: relative;
+        vertical-align: middle;
+        &.#{$id}-increase {
+          &::after {
+            content: '';
+            position: absolute;
+            font-weight: 100;
+            top: 50%;
+            left: 50%;
+            height: 50px;
+            background-size: cover;
+            width: 50px;
+            transform: translate(-50%, -50%);
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/A4EC82602473731856852A2E9768D6F9B5E55DC642A3B832629FC8A0F6CFE022/hsamuel-co-uk/HS028---Back-to-Basics-PDP/noun_Plus_2048210.png');
+          }
+        }
+        &.#{$id}-decrease {
+          &::after {
+            content: '';
+            position: absolute;
+            font-weight: 100;
+            top: 50%;
+            left: 50%;
+            height: 40px;
+            background-size: cover;
+            width: 40px;
+            transform: translate(-50%, -50%);
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/D122337D6C320636DFF750520BB003173EC3186EE25EC4A865CA3A85D31301F8/hsamuel-co-uk/HS028---Back-to-Basics-PDP/noun_Minus_152164.png');
+          }
+        }
+        &.#{$id}-inactive {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .buying-buttons-ifc {
+    .buying-buttons-ifc__button {
+      margin-top: 15px;
+    }
+    .buying-buttons-ifc__message {
+      display: none;
+    }
+  }
+  .buying-buttons__buy,
+  .ifcBuyButton {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
+    height: 42px;
+    border-radius: 2px;
+  }
+  #js-ifcBuyButton {
+    display: none;
+  }
+  #basketForm {
+    position: relative;
+    background: #f2f2f2;
+    padding: 10px 2%;
+    width: auto;
+  }
+  .#{$id}-financeMessage {
+    text-align: left;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #484849;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    padding-left: 40px;
+    line-height: 19px;
+    span {
+      display: block;
+      font-weight: 600;
+    }
+  }
+
+  /* Finance tooltip */
+  .#{$id}-finance_tooltip {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    left: 0;
+    transform: translateY(-50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/02374552C5024373C2CA8F90E2C4448C908F2DA7D6FE93C3DB882BDD0D3318CA/ernestjones-co-uk/EJ026/noun_Information_189702.png');
+  }
+  .#{$id}-finance_box {
+    position: absolute;
+    color: black;
+    background: white;
+    border: 2px solid black;
+    box-shadow: 1px 1px 2px 0px #bdbdbd;
+    z-index: 99;
+    padding: 10px;
+    left: 0;
+    display: none;
+    span {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      top: 0;
+      right: 0;
+      background-size: contain;
+      background-position: center;
+      z-index: 9;
+      background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/BE73A5D73E0AA2E45EFBCBC62E8EFC61AD753921B73B04E676AE29B5482E5A67/ernestjones-co-uk/EJ026/noun_Cross_26909051.png');
+    }
+    &::before {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(194, 225, 245, 0);
+      border-bottom-color: #000000;
+      border-width: 15px;
+      margin-left: 0;
+      right: 18px;
+      left: auto;
+    }
+    &.#{$id}-financeMessage_show {
+      display: block;
+    }
+  }
+
+  .#{$id}-storeAppointment {
+    font-size: 15px;
+    font-weight: bold;
+    background: #fff;
+    border: 2px solid #a41825;
+    padding: 6.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    border-radius: 2px;
+    a {
+      font-weight: 100;
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+      font-family: DINCondensed-Regular;
+    }
+  }
+
+  /* Accordion */
+  #js-accordion-tabs {
+    padding: 10px;
+    width: auto;
+    .product-details__description-container, 
+    .product-details__specification-container, 
+    .product-details__bazaar-voice, 
+    .product-details__delivery-returns, 
+    .product-details__help-centre, 
+    .product-details__tabArea{
+      margin-bottom: 0px;
+    }
+
+    h2[data-accordion-tabs-target] {
+      text-transform: none;
+      &:after {
+        content: '';
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/A8894859D026E9ECD388A6D3324C9352011BEE30BE10D13D4FDD76E703544DF0/ernestjones-co-uk/EJ026/noun_Plus_21706861.png');
+        position: absolute;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+      &.viewing{
+        position: relative;
+        color: #a41825;
+        &:after {
+          content: '';
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/BE73A5D73E0AA2E45EFBCBC62E8EFC61AD753921B73B04E676AE29B5482E5A67/ernestjones-co-uk/EJ026/noun_Cross_26909051.png');
+          position: absolute;
+          right: 0;
+          width: 20px;
+          height: 20px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    // review tab
+    .product-details__bazaar-voice {
+      h2[data-accordion-tabs-target] { 
+        img {
+          width: 100px;
+          margin-left: 10px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        span {
+          display: inline-block;
+          vertical-align: middle;
+          font-weight: 500;
+          margin-left: 5px;
+        }
+      }
+    }
+    .#{$id}-delivery_Tab {
+      h2 {
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        padding-bottom: 10px;
+        position: relative;
+        text-transform: capitalize;
+        &:after {
+          content: '';
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/A8894859D026E9ECD388A6D3324C9352011BEE30BE10D13D4FDD76E703544DF0/ernestjones-co-uk/EJ026/noun_Plus_21706861.png');
+          position: absolute;
+          right: 0;
+          width: 20px;
+          height: 20px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          top: 50%;
+          transform: translateY(-50%);
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+      }
+      .#{$id}-delivery_content {
+        height: 0px !important;
+        visibility: hidden !important;
+        transition: height cubic-bezier(0.55,0.085,0.68,0.53) 250ms,opacity cubic-bezier(0.55,0.085,0.68,0.53) 250ms;
+        &.#{$id}-tab_active {
+          display: block;
+          height: auto !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+      }
+      &.#{$id}-delivery_active {
+        h2 {
+          position: relative;
+          &:after {
+            content: '';
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/BE73A5D73E0AA2E45EFBCBC62E8EFC61AD753921B73B04E676AE29B5482E5A67/ernestjones-co-uk/EJ026/noun_Cross_26909051.png');
+            position: absolute;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+    .product-details__help-centre {
+      span {
+        height: 40px;
+        width: 40px;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        display: inline-block;
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/B3241AC7273DD21CC702055FF9CA243F2949D54BCB6E0CDCB428F0CC6071FFC5/ernestjones-co-uk/EJ026/noun_tab_9096421.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    .product-details__specification-container {
+      .specification__attribute {
+        dt {
+          background: #f3f3f7;
+        }
+        dd {
+          background: white;
+        }
+        dt,dd {
+          flex-basis: 48%;
+          float: left;
+          line-height: 30px;
+          margin: 0;
+          padding: 5px;
+          width: 48%;
+        }
+      }
+    }
+  }
+  /* Compare button */
+  .compare-wish {
+    .compare {
+      width: 100%;
+    }
+    .checkLabel {
+      background: none;
+      padding: 10px;
+      border: 2px solid black;
+      text-align: center;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .checkbox:checked+.checkLabel,
+    .checkbox:checked+*+.checkLabel {
+      background: black;
+      color: white;
+      position: relative;
+      &::before {
+        content: '';
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/D856B6CDF34272C469730ED27937F6F154F566BFFC8E735E1CD2D6170D875ADE/ernestjones-co-uk/EJ026/noun_Check_2027112.png');
+        position: absolute;
+        height: 25px;
+        width: 25px;
+        left: 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+  

@@ -1,0 +1,82 @@
+@import "./variables";
+
+.#{$id} {
+	.FlanProdDet #productVariantAndPrice #divSize {
+		width: 60% !important;
+		@media screen and (max-width: 1021px) {
+			width: 100% !important;
+		}
+		.u-form__select-contain {
+			display: none;
+		}
+	}
+	.#{$id}-size-dropdown {
+		width: 100%;
+		max-width: 300px;
+		display: inline-block;
+		position: relative;
+		@media screen and (max-width: 767px) {
+			max-width: 400px;
+		}
+		button {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			padding: 0 20px;
+			height: 66px;
+			align-items: center;
+			font-size: 16px;
+			border-radius: 0;
+			&:hover,
+			&:active,
+			&:focus {
+				background: transparent;
+				border: 1px solid #ccc;
+				box-shadow: unset;
+				outline: none;
+			}
+
+			span.caret {
+				background-image: url("https://www.flannels.com/images/marketing/icons/icon-arrow-down-black.svg");
+				background-repeat: no-repeat;
+				background-size: auto 10px;
+				background-position: 50% 50%;
+				border: 0;
+				height: 22px;
+				width: 22px;
+				right: 20px;
+			}
+		}
+		ul.dropdown-menu {
+			margin-top: 0;
+			z-index: 5100;
+			max-height: 300px;
+			overflow-y: auto;
+			font-size: 1.1em;
+			width: 100%;
+			padding: 0;
+			float: none;
+			border-radius: 0;
+			border: 1px solid #ddd;
+			border-top: 0px;
+			li.size-dropdown-option {
+				width: 100%;
+				height: auto;
+				padding: 0;
+				cursor: pointer;
+				text-align: left;
+				display: flex;
+				height: 62px;
+				border-bottom: 1px solid #ddd;
+				text-transform: capitalize;
+				padding: 0 20px;
+				align-items: center;
+				font-size: 16px;
+				&.greyOut {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+}

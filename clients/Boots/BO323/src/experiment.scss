@@ -1,0 +1,207 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+
+    }
+
+    @media all and (max-height: 400px) {
+        height: auto;
+        overflow: visible;
+    }
+
+
+}
+
+.#{$id} {
+
+
+    .#{$id}-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #FFF;
+        border-radius: 5px;
+        z-index: 10001;
+        width: 422px;
+
+        @media all and (max-width: 550px) {
+            width: 90%;
+        }
+
+        &--close {
+            position: absolute;
+            top: 17px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        &--content {
+
+            h2 {
+                color: var(--Grey-Base, #333);
+                text-align: center;
+                /* Body/Bold */
+                font-family: "Boots Sharp";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 22px;
+                /* 137.5% */
+                padding: 20px 0;
+                margin-bottom: 0px;
+            }
+
+            p {
+                color: var(--Grey-Base, #333);
+                /* Body/Light */
+                font-family: "Boots Sharp";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 22px;
+                margin-bottom: 20px;
+                padding: 0 20px;
+                span {
+                    font-weight: 700;
+                }
+                a {
+                    text-decoration: underline;
+                }
+                &:last-of-type {
+                    margin-bottom: 5px;
+                }
+            }
+
+        }
+
+        &--cta {
+            padding: 10px;
+            border-top: 1px solid var(--Grey-Base, #D0D0D0);
+
+            &--button {
+                width: 100%;
+                display: flex;
+                padding: 12px 20px 11px 20px;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid var(--Boots-Blue-Base, #05054B);
+                gap: 9px;
+                align-self: stretch;
+                color: var(--White-Base, #FFF);
+                text-align: center;
+                /* CTA/CTA */
+                font-family: "Boots Sharp";
+                font-size: 14px;
+                border-radius: 5px;
+                background: var(--Boots-Blue-Base, #05054B);
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: 1.4px;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                &:hover {
+                    transition: all 0.5s ease;
+                    background: #FFF;
+                    border: 1px solid var(--Boots-Blue-Base, #05054B);
+                    color: var(--Boots-Blue-Base, #05054B);
+                }
+            }
+        }
+    }
+
+    .#{$id}-heroct {
+        margin-top: 20px !important;
+    }
+
+    .#{$id}-account {
+        
+        .#{$id}-message {
+            margin-bottom: 40px;
+        }
+    }
+
+    .#{$id}-acf {
+        .#{$id}-message {
+            margin-top: 20px;
+        }
+    }
+
+    .#{$id}-message {
+
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 5px;
+        border: 1px solid var(--Accent-Blue-Base, #0067B2);
+        background: var(--Accent-Blue-3-T, #F7FAFC);
+        box-sizing: border-box;
+        position: relative;
+        margin-bottom: 20px;
+
+        &.#{$id}-success {
+            border: 1px solid var(--Signposting-Success-Green-Base, #0C8117);
+                background: var(--Signposting-Success-Green-3-T, #F7FBF8);
+        }
+
+        &--close {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        &--content {
+
+            @media all and (max-width: 992px) {
+                padding-right: 40px;
+            }
+
+            h2 {
+                color: var(--Grey-Base, #333);
+                /* Body/Bold */
+                font-family: "Boots Sharp";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 22px;
+                margin-bottom: 5px;
+                /* 137.5% */
+            }
+
+            p {
+                color: var(--Grey-Base, #333);
+                /* Small/Regular */
+                font-family: "Boots Sharp";
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 18px;
+                /* 150% */
+            }
+        }
+
+    }
+
+}

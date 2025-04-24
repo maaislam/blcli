@@ -1,0 +1,102 @@
+@import '../../../variables';
+
+.#{$id}-product-carousel {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr);
+
+  & > h2 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 1.25px;
+  }
+
+  .splide {
+    @include slider-arrows;
+
+    .splide__pagination {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 0.25rem;
+      margin-top: 1rem;
+
+      li {
+        width: 6px;
+        height: 6px;
+      }
+
+      button {
+        cursor: pointer;
+        display: block;
+        padding: 0;
+        width: 6px;
+        height: 6px;
+        background-color: rgba(#d1d1d1, 0.5);
+        border: 0;
+        border-radius: 50%;
+        transition: $transition;
+
+        &.is-active {
+          background-color: rgba(#a3a3a3, 1);
+        }
+      }
+    }
+  }
+}
+
+.#{$id}-product-carousel-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  a {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.6rem;
+    text-align: center;
+  }
+
+  &-content {
+    display: grid;
+    gap: 0.6rem;
+    justify-items: center;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.4;
+
+    @media (min-width: $breakpoint-s) {
+      font-size: 1rem;
+    }
+  }
+
+  &-range {
+    @include line-clamp(2);
+
+    font-weight: 600;
+  }
+
+  &-name {
+    @include line-clamp(3);
+    min-height: 45px;
+    font-weight: 300;
+  }
+
+  &-price {
+    font-weight: 600;
+
+    span {
+      text-decoration: line-through;
+      color: #4a4a4a;
+      font-weight: 400;
+    }
+  }
+}

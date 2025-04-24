@@ -1,0 +1,93 @@
+@import './variables';
+
+.#{$id} {
+    &__popularCoursesContainer {
+        max-width: 876px;
+        margin: 46px 8.33333% 0;
+
+        @include media-query(lg) {
+            margin: 30px 0 0;
+            padding-left: 2rem;
+            overflow: hidden;
+        }
+
+        .#{$id}__title {
+            margin-bottom: 28px;
+            color: #000;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 29px;
+
+            @include media-query(lg) {
+                margin-bottom: 23px;
+                font-size: 20px;
+            }
+        }
+
+        .#{$id}__popularCourses {
+            margin-left: 11px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+
+            .#{$id}__popularCourse {
+                position: relative;
+                padding: 14px 15px;
+                border: 2px solid #D0021B;
+                color: #D0021B;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 20px;
+                text-transform: uppercase;
+
+                &::before {
+                    background-color: #d0021b;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: inherit;
+                    z-index: -1;
+                    box-shadow: inset 0 0 0 26px #fff;
+                    transition: box-shadow .3s;
+                }
+
+                &:hover {
+                    color: #fff;
+                    transition: color .3s;
+                    
+                    &::before {
+                        box-shadow: inset 0 0 0 0 #fff;
+                    }
+                }
+
+                &:last-child {
+                    margin-right: 20px;
+                }
+
+                @include media-query(lg) {
+                    padding: 14px 10px;
+                    min-width: max-content;
+                }
+            }
+
+            @include media-query(lg) {
+                padding: 0 0 15px 0;
+                margin-left: 0;
+                margin-bottom: -15px;
+                overflow-x: scroll;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    @include media-query(lg) {
+        .homepage-hero + .wrapper + .related-links-card-container > .related-links-card {
+            margin-top: 0;
+        }
+    }
+}

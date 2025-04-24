@@ -1,0 +1,189 @@
+.FL016 {
+  // Style added basket
+  .FL016-Wrap {
+    width: 100%;
+    float: left;
+    display: none; //hideen by default
+    max-height: 483px; // Calculated from 3 x 161px, 161px height of product container when product title is on two lines
+    overflow: scroll;
+    .FL016-Image {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 50%;
+      width: auto;
+    } // Style the product container
+    .FL016-Product-Container {
+      border-top: #E8E8E8 1px dashed;
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+    .FL016-Product-Detail-Container {
+      display: inline-block;
+      width: 50%; // Style product information
+      > p {
+        margin: 0;
+        font-size: 13px;
+      }
+    } // Style quantity section/price discount
+    .FL016-Product-Quantity-Wrap {
+      text-align: right;
+      .FL016-Quantity{
+        // Align prices with total price
+        padding-right: 5px;
+      }
+
+    } // using same styling as quantity
+    .FL016-Discounted-Price{
+        color: #e41d1d;
+        text-align: right;
+        padding-right: 5px;
+    }
+    
+  } // Functional CSS
+  // Hide close bag and edit bag buttons, until bag is visible
+  // Hide view bag button
+  .col-xs-12.col-md-4.CheckoutLeft.FL016-Show-Bag {
+    #TotalRow {
+      border-top: #E8E8E8 1px dashed;
+    }
+    .col-xs-12.ExitLinks,
+    .FL016-Wrap {
+      display: block;
+      border-top-width: 1;
+    }
+    .FL016-View-Bag-Container {
+      display: none;
+    }
+  } // style added buttons
+  // View bag - CSS from website
+  .FL016-View-Bag-Container {
+    float: left;
+    width: 100%;
+    background-color: #181816;
+    margin-bottom: 15px;
+    cursor: pointer;
+    .FL016-View-Bag-Button {
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 14px;
+      margin: 0;
+      padding: 18px 0;
+    }
+  } // Style close bag and existing edit bag
+  .col-xs-12.ExitLinks {
+    display: none; // Hidden by default, revealed in functional CSS
+    // Hide continue shopping - FL011
+    >.ContText.col-xs-6 {
+      display: none;
+    } // Remove under line from buttons
+    >div>a {
+      text-decoration: none;
+    }
+    .FL016-Close-Bag-Container {
+      display: inline-block;
+      width: calc(50% - 2px);
+      cursor: pointer;
+      .FL016-Close-Bag-Button {
+        text-align: center;
+        font-size: 12px;
+        padding: 20px 0;
+        margin: 0;
+      }
+    } // Edit bag
+    #dnn_ctr102498_Delivery_ctl00_ctl01_divEditCart {
+      width: calc(50% - 2px);
+      #dnn_ctr102498_Delivery_ctl00_ctl01_lnkEditCart {
+        text-decoration: none;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// V2
+.FL016-2 {
+  // Hide first basket
+  .OrderSumm > .FL016-Wrap { display: none !important }
+  // Show new
+  .CheckoutLeft {
+    > .FL016-2-Wrap .FL016-Wrap { 
+      display: block !important;
+    }
+    > .FL016-2-Wrap .ExitLinks:last-of-type { display: block !important }
+    > .FL016-View-Bag-Container { display: none }
+  }
+  .FL016-2-Wrap {
+    p {
+      text-align: center;
+      margin: 10px auto;
+    }
+    > p {
+      font-style: italic;
+      display: block;
+      width: 100%;
+      float: left;
+    }
+    .FL016-Wrap {
+      max-height: 320px; 
+      .FL016-Product-Container {
+        border-top: 0;
+        padding: 0 25px;
+        box-sizing: border-box;
+        img.FL016-Image {
+          float: left;
+        }
+        .FL016-Product-Detail-Container {
+          width: 48%;
+          vertical-align: middle;
+          float: right;
+        }
+        .FL016-Product-Quantity-Wrap {
+          width: 48%;
+          float: right;
+          display: block;
+          text-align: center;
+          clear: none;
+          padding-top: 20px;
+          padding-bottom: 15px;
+        }
+      }
+    }
+    .FL016-Close-Bag-Container a {
+      text-align: center;
+    }
+    .bx-wrapper {
+      border: 1px solid #e0e0e0;
+      width: 100%;
+      float: left;
+      display: block;
+      padding-bottom: 20px;
+    }
+    .bx-controls {
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      transform: none;
+      .bx-prev, .bx-next {
+        width: 34px;
+        height: 34px;
+        top: 55%;
+        background-color: transparent;
+        &:before, &:after {
+          background-color: #666;
+        }
+      }
+      .bx-pager {
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        left: 0;
+        &.bx-default-pager a {
+          width: 6px;
+          height: 6px;
+          margin: 0 3px;
+        }
+      }
+    }
+  }
+}

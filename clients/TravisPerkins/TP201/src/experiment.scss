@@ -1,0 +1,528 @@
+@import "./variables";
+
+// Variant 1
+.#{$id}-1 {
+  // Hide some panels.
+  .#{$id}_hidden {
+    display: none;
+  }
+
+  // Read more in overview
+  [data-test-id="content"] {
+    height: auto;
+  }
+  [data-test-id="view-more-grad"] {
+    display: none;
+  }
+
+  [data-test-id="view-more"] {
+    display: none;
+  }
+
+  // ACCORDION
+  .#{$id}_accordionItem {
+    margin-top: 24px;
+  }
+  .#{$id}_accordionHeading {
+    padding: 16px 32px;
+    background: #f0f3f6;
+    color: #182d3d;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .#{$id}-arrow {
+      transform: rotate(-90deg);
+      transition: all 0.2s;
+      width: 14px;
+      height: 14px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .#{$id}_accordionBody {
+    display: none;
+    padding: 16px 32px;
+
+    @media (max-width: 400px) {
+      padding: 8px 4px;
+    }
+  }
+  .#{$id}_active {
+    .#{$id}_accordionBody {
+      display: block;
+    }
+    .#{$id}-arrow {
+      transform: rotate(0);
+    }
+  }
+
+  // MULTISTEP
+
+  .#{$id}_Multistep {
+    // Step wrapper
+
+    > div {
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .#{$id}_Multistep-stepContent {
+      background: #ffffff;
+      box-shadow: 0px 0px 10px rgba(197, 197, 197, 0.25);
+      border-radius: 0 0 4px 4px;
+      display: flex;
+      margin: 0px auto;
+      max-width: 122.4rem;
+      display: none;
+      padding: 32px;
+      position: relative;
+
+      [class*="PDPMobile__WhiteSection"] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      [class*="ProductVariantSelectMobile__DropdownButton"] {
+        padding: 10px 2px 10px 4px;
+        height: auto;
+        min-width: auto;
+      }
+    }
+
+    .#{$id}_Multistep-stepHeader {
+      background: #ffffff;
+      box-shadow: 0px 0px 10px rgba(197, 197, 197, 0.25);
+      border-radius: 4px;
+      cursor: pointer;
+      height: 100px;
+    }
+
+    .#{$id}_Multistep-stepBlocks {
+      display: flex;
+      justify-content: center;
+      margin: 0px auto;
+      top: 0;
+      left: -2px;
+      right: -2px;
+      position: absolute;
+      > span {
+        flex: 1;
+        height: 8px;
+        display: inline-block;
+        background: #dae3ec;
+        margin: 0 2px;
+      }
+
+      &[data-step="step1"] {
+        > span {
+          &:nth-child(1) {
+            background: #0f7258;
+          }
+        }
+      }
+      &[data-step="step2"] {
+        > span {
+          &:nth-child(1),
+          &:nth-child(2) {
+            background: #0f7258;
+          }
+        }
+      }
+      &[data-step="step3"] {
+        > span {
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3) {
+            background: #0f7258;
+          }
+        }
+      }
+      &[data-step="step4"] {
+        > span {
+          background: #0f7258;
+        }
+      }
+    }
+    .#{$id}_Multistep-arrow {
+      transform: rotate(-90deg);
+      transition: all 0.2s;
+    }
+
+    .#{$id}_Multistep-active {
+      .#{$id}_Multistep-stepContent {
+        display: block;
+      }
+
+      .#{$id}_Multistep-stepHeader {
+        background: #f0f3f6;
+      }
+
+      .#{$id}_Multistep-arrow {
+        transform: rotate(0);
+      }
+    }
+
+    .#{$id}_Multistep-completed {
+      .#{$id}_Multistep-stepHeader {
+        .#{$id}_Multistep-circle {
+          background: #0f7258;
+          svg {
+            display: block;
+          }
+        }
+      }
+
+      .#{$id}_Multistep-title {
+        display: none;
+      }
+      .#{$id}_Multistep-titleCompleted {
+        display: block;
+      }
+    }
+
+    .#{$id}_Multistep-flex {
+      display: flex;
+      margin: 0px auto;
+      max-width: 122.4rem;
+      align-items: center;
+      height: 100%;
+    }
+
+    .#{$id}_Multistep-circle {
+      width: 20px;
+      height: 20px;
+      border: 3px solid #0f7258;
+      border-radius: 26px;
+      margin-right: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        padding-top: 2px;
+        display: none;
+      }
+    }
+
+    .#{$id}_Multistep-graphic {
+      margin-right: 24px;
+      width: 80px;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .#{$id}_Multistep-title {
+      flex: 1;
+      font-size: 24px;
+      line-height: 24px;
+
+      strong {
+        margin-right: 16px;
+      }
+    }
+    .#{$id}_Multistep-titleCompleted {
+      display: none;
+    }
+
+    // Product List
+    .#{$id}_Multistep-productList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .#{$id}_Multistep-productItem {
+      flex-basis: calc(25% - 30px);
+      box-shadow: 0px 0px 10px rgba(197, 197, 197, 0.25);
+      border-radius: 4px;
+      padding: 10px;
+      margin: 0 5px;
+    }
+
+    .#{$id}_Multistep-productImage {
+      text-align: center;
+      margin-bottom: 16px;
+      img {
+        width: 128px;
+        height: 128px;
+      }
+    }
+
+    .#{$id}_Multistep-stepIntro {
+      a {
+        color: #182d3d;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+
+    .#{$id}_Multistep-productLabel {
+      font-size: 14px;
+      color: #606f80;
+      font-weight: 400;
+      line-height: 18px;
+      margin: 2px 0;
+    }
+
+    .#{$id}_Multistep-productName {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      margin: 3px 0 16px;
+      color: #182d3d;
+      min-height: 60px;
+    }
+
+    .#{$id}_Multistep-productPrice {
+      font-size: 24px;
+      line-height: 28px;
+      color: #0f7258;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .#{$id}_Multistep-productQuantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f3f6;
+      color: rgb(96, 111, 128);
+      margin-top: 24px;
+      margin-bottom: 12px;
+      input {
+        flex: 1;
+        border: none;
+        background: inherit;
+        text-align: center;
+        font-size: 16px;
+        color: black;
+        outline: none;
+      }
+    }
+
+    .#{$id}_Multistep-productQuantityIcon {
+      width: 3rem;
+      text-align: center;
+      color: inherit;
+      line-height: 4rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .#{$id}_Multistep-productButtons {
+      display: flex;
+      justify-content: center;
+
+      > div {
+        flex: 1;
+        text-align: center;
+        &:last-child {
+          margin-left: 16px;
+        }
+      }
+
+      button {
+        width: 100%;
+        outline: none;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        background-color: rgb(15, 114, 88);
+        border: none;
+        border-radius: 4px;
+        height: 40px;
+        padding: 0px 16px;
+
+        &.#{$id}_Multistep-buttonDisabled {
+          background: #a1a9b2;
+          cursor: initial;
+          &:hover {
+            background: #a1a9b2;
+          }
+        }
+
+        &:hover {
+          background-color: rgb(9, 87, 68);
+        }
+      }
+    }
+
+    // Loader
+    .#{$id}_Multistep-loader {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &.#{$id}_Multistep-active {
+        display: flex;
+      }
+
+      .#{$id}_Multistep-loaderSuccess {
+        opacity: 0;
+        &.#{$id}_Multistep-active {
+          opacity: 1;
+        }
+
+        p {
+          font-size: 3rem;
+          color: #117258;
+          font-weight: 600;
+        }
+
+        svg {
+          width: 36px;
+          height: 36px;
+          vertical-align: middle;
+          fill: white;
+          background: #137258;
+          border-radius: 50%;
+          margin-right: 12px;
+        }
+      }
+
+      .#{$id}_Multistep-loaderFail {
+        opacity: 0;
+        p {
+          font-size: 3rem;
+          font-weight: 600;
+        }
+        &.#{$id}_Multistep-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // MOBILE
+  &.#{$id}_mobile {
+    .#{$id}_Multistep-productList {
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      justify-content: flex-start;
+    }
+
+    .#{$id}_Multistep-title {
+      font-size: 16px;
+      line-height: 24px;
+
+      strong {
+        display: block;
+      }
+    }
+
+    .#{$id}_Multistep-stepHeader {
+      padding: 0 16px;
+    }
+
+    .#{$id}_Multistep-stepBlocks {
+      span {
+        height: 5px;
+      }
+    }
+
+    .#{$id}_Multistep-graphic {
+      width: 50px;
+      margin-right: 16px;
+    }
+
+    [class*="PDPMobile__WidgetWrapper"],
+    [data-test-id="recently-viewed"] {
+      display: none;
+    }
+
+    .#{$id}_Multistep-loaderSuccess {
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  // LOADER
+  .#{$id}_Multistep-spinner {
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - 25px);
+    width: 2.5rem;
+    height: 0.5rem;
+    background: #049c74;
+    border-radius: 0.5rem;
+    animation: gCPLTo 1s ease-in-out infinite;
+
+    opacity: 0;
+    &.#{$id}_Multistep-active {
+      opacity: 1;
+    }
+  }
+
+  /*!sc*/
+  .#{$id}_Multistep-spinner:before,
+  .#{$id}_Multistep-spinner:after {
+    position: absolute;
+    display: block;
+    content: "";
+    animation: gCPLTo 1s ease-in-out infinite;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  /*!sc*/
+  .#{$id}_Multistep-spinner:before {
+    top: -1rem;
+    left: 1rem;
+    width: 2rem;
+    background: #0a4f38;
+  }
+
+  /*!sc*/
+  .#{$id}_Multistep-spinner:after {
+    bottom: -1rem;
+    width: 1.7rem;
+    background: #0f7258;
+  }
+
+  @keyframes gCPLTo {
+    0% {
+      -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      transform: translateX(10px);
+    }
+
+    50% {
+      -webkit-transform: translateX(-7px);
+      -ms-transform: translateX(-7px);
+      transform: translateX(-7px);
+    }
+
+    100% {
+      -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      transform: translateX(10px);
+    }
+  }
+}

@@ -1,0 +1,212 @@
+@import './variables';
+
+.#{$id} {
+  &__stocksItem {
+    @media screen and (max-width: 767px) {
+      &.oct-body-scroll-disabled {
+        overflow-x: hidden !important;
+        overflow-y: scroll;
+      }
+
+      .oct-listers-facet-sticky-ribbon.show.menu-open {
+        .oct-listers-facet-menu__backdrop {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .#{$id}__toggleStatusText {
+      &::before {
+        content: 'On';
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        color: #fff;
+      }
+    }
+
+    .oct-toggle__slider.oct-toggle__slider--unselected .#{$id}__toggleStatusText {
+      &::before {
+        content: 'Off';
+        right: 4px;
+        left: auto;
+        color: #333333;
+      }
+    }
+  }
+
+  .toggle-facet_container_text {
+    font-size: 13px !important;
+  }
+
+  .oct-listers-facet-sticky-ribbon.show.menu-open {
+    .oct-listers-facets__item--inStock {
+      display: none;
+    }
+  }
+
+  &__totalItems {
+    font-family: Boots Sharp, Arial, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.2;
+    margin: 15px 7px 15px auto !important;
+    color: #333 !important;
+  }
+
+  &__toggle-facet_container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__toggle-facet_container_text {
+    font-family: Boots Sharp, Arial, sans-serif;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin: 15px 11px 15px 0 !important;
+    color: #333 !important;
+  }
+
+  &__oct-toggle {
+    line-height: 0 !important;
+    margin: 9px 8px 9px 0px !important;
+  }
+
+  &__oct-toggle__checkbox {
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+
+  &-1 {
+    .#{$id}__oct-toggle__slider {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      border: 1px solid #767676;
+      background-color: #fff;
+      border-radius: 12px;
+      margin: -2px;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 2px;
+        left: 1px;
+        background-color: #767676;
+        border-radius: 50%;
+        transition: all 0s ease-in-out 0s;
+      }
+
+      &::after {
+        content: '';
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        position: absolute;
+        top: 50%;
+        right: 4px;
+        color: #333;
+      }
+    }
+
+    .#{$id}__oct-toggle__checkbox:checked+.#{$id}__oct-toggle__slider {
+      background-color: #05054b;
+
+      &::before {
+        left: 26px;
+        background: #fff;
+      }
+
+      &::after {
+        content: '';
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        color: #fff;
+      }
+    }
+  }
+
+  &-2 {
+    .#{$id}__oct-toggle__slider {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      border: 1px solid #767676;
+      background-color: #fff;
+      border-radius: 12px;
+      margin: -2px;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 2px;
+        left: 1px;
+        background-color: #767676;
+        border-radius: 50%;
+        transition: all 0s ease-in-out 0s;
+      }
+
+      &::after {
+        content: 'Off';
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        position: absolute;
+        top: 50%;
+        right: 4px;
+        color: #333;
+      }
+    }
+
+    .#{$id}__oct-toggle__checkbox:checked+.#{$id}__oct-toggle__slider {
+      background-color: #05054b;
+
+      &::before {
+        left: 26px;
+        background: #fff;
+      }
+
+      &::after {
+        content: 'On';
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        color: #fff;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    &__searchPage {
+      .oct-template .oct-listers__pagination-top {
+        display: none;
+      }
+    }
+  }
+}

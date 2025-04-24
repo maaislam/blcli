@@ -1,0 +1,408 @@
+@import './variables';
+
+@keyframes MEslide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+
+
+@keyframes MEslide-in-leftRotated {
+    0% {
+      -webkit-transform: translateX(-1000px) rotate(90deg);
+              transform: translateX(-1000px) rotate(90deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) rotate(90deg);
+              transform: translateX(0) rotate(90deg);;
+      opacity: 1;
+    }
+}
+@keyframes MEslide-in-left {
+    0% {
+      -webkit-transform: translateX(-3000px);
+              transform: translateX(-3000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+}
+  
+
+.#{$id} {
+    &.#{$id}-noScroll{
+        overflow: hidden;
+    }
+
+    .#{$id}-overlay {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.585);
+        top: 0%;
+        z-index: 999;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        cursor: pointer;
+        &.#{$id}-overlayShow {
+            display: block;
+        }
+    }
+    .#{$id}-emailModal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: auto;
+        width: 90%;
+        z-index: 9999;
+        background: white;
+        transform: translate(-50%,-50%);
+        display: none;
+        &.#{$id}-modalShow {
+            display: block;
+        }
+        .#{$id}-close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            height: 30px;
+            cursor: pointer;
+            width: 30px;
+            background: url('//cdn.optimizely.com/img/6087172626/426428b78a2347d0a994bb6e6ad2446a.png') no-repeat center;
+            background-size: contain;
+        }
+        .#{$id}-logoBox {
+            background: black;
+            padding: 10px;
+            .#{$id}-logo {
+                height: 40px;
+                background: url('https://cdn.optimizely.com/img/6087172626/0bf707bcc92f4eddae0897869f7d0f81.png') no-repeat center;
+                background-size: contain;
+                width: 140px;
+                margin: 0 auto;
+            }
+        }
+
+        .#{$id}-button {
+            background: #0EBCF4;
+            display: block;
+            border: 1px solid #0EBCF4;
+            border-radius: 4px;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 8px 10px;
+            width: 90%;
+            font-weight: 900;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .#{$id}-content {
+            text-align: center;
+            padding: 15px;
+            &.#{$id}-emailHidden {
+                display: none;
+            }
+            h3 {
+                font-size: 23px;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: black;
+                margin-top: 5px;
+                span {
+                    color: #0ABBF4;
+                }
+            }
+            p {
+                color: black;
+                font-weight: 300;
+                font-size: 15px;
+                line-height: 22px;
+            }
+            .#{$id}-smallPrint {
+                font-size: 11px;
+                color: black;
+                font-weight: 100;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                a {
+                    color: black;
+                    text-decoration: underline;
+                }
+            }
+
+            // email form
+            .#{$id}-emailForm {
+                text-align: center;
+                .#{$id}-error {
+                    color: red;
+                    margin-bottom: 0;
+                    display: none;
+                    &.#{$id}-errorShow {
+                        display: block;
+                    }
+                }
+                input {
+                    margin-bottom: 15px;
+                    margin-top: 10px;
+                    max-width: 90%;
+                    height: 40px;
+                    border: 1px solid #ccc;
+                    font-weight: 100;
+                    color: black;
+                    &.#{$id}-invalidEmail {
+                        border: 1px solid red;
+                    }
+                }
+                button {
+                    position: relative;
+                    &.#{$id}-loading {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            height: 20px;
+                            width: 20px;
+                            background: url('//cdn.optimizely.com/img/6087172626/3e17657b80fe4e04a198ac154abce97c.gif');
+                            right: 5px;
+                            background-size: contain;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+
+         // success message
+         .#{$id}-success {
+            padding: 15px;
+            display: none;
+            &.#{$id}-successShow {
+                display: flex;
+                flex-direction: column;
+            }
+            h3 {
+                text-align: center;
+                color: black;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 700;
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+            p {
+                font-size: 16px;
+                text-align: center;
+                color: black;
+                font-weight: 100;
+                margin-top: 0px;
+                margin-bottom: 10px;
+            }
+            .#{$id}-voucher {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-content: center;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                input {
+                    border: 2px dashed black;
+                    border-right: 0px;
+                    text-transform: uppercase;
+                    color: black;
+                    height: 50px;
+                    font-size: 16px;
+                    padding-bottom: 3px;
+                   
+                }
+                .#{$id}-copyButton {
+                    background-color: black;
+                    background-image: url('//cdn.optimizely.com/img/6087172626/9167ade60f6f46b9b14aa994a5600c98.png');
+                    background-size: 25px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    height: 50px;
+                    width: 70px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &.#{$id}-1 {
+        .#{$id}-emailModal {
+            background: unset;
+            @media(orientation: landscape) {
+                overflow-y: scroll;
+                max-height: 250px;
+            }
+            .#{$id}-gameBG {
+                height: 215px;
+                background-color: transparent;
+                background-image: url('//cdn.optimizely.com/img/6087172626/f2c653cf46af4d268edd95d8402f2cd7.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: -65px;
+                width: 100%;
+                @media(min-width: 375px) {
+                    height: 250px;
+                    top: -100px;
+                }
+                @media(min-width: 414px) {
+                    height: 300px;
+                    top: -150px;
+                }
+                @media(orientation: landscape) {
+                    background-size: contain;
+                }
+            }
+            .#{$id}-modalInner {
+                background: white;
+                margin-top: 5px;
+                
+                h3 {
+                    display: none;
+                }
+                p{
+                    color: black;
+                    font-weight: 300;
+                    font-size: 17px;
+                    line-height: 24px;
+                }
+                input {
+                    border: 1px solid black;
+                }
+            }
+            .#{$id}-boxHeading {
+                display: none;
+            }
+            .#{$id}-logoBox {
+                height: 130px;
+                margin-bottom: 10px;
+                .#{$id}-logo {
+                    display: none;
+                }
+            }
+            .#{$id}-close {
+                top: -65px;
+                right: -6px;
+                height: 40px;
+                width: 40px;
+                @media(min-width: 375px) {
+                    top: -130px;
+                }
+            }
+            .#{$id}-rightSide {
+                display: none;
+                background: url('//cdn.optimizely.com/img/6087172626/44f27c881ca64c0898167f8d8f1e9ab7.png') no-repeat center;
+                background-size: cover;
+                position: relative;
+                .#{$id}-boxHeading {
+                    display: block;
+                    position: absolute;
+                    top: 16%;
+                    left: 50%;
+                    width: 90%;
+                    transform: translateX(-50%);
+                    text-align: center;
+                    font-size: 26px;
+                    text-transform: uppercase;
+                    color: white;
+                    text-shadow: -1px 1px 0px #13bbf4;
+                    line-height: 30px;
+                    span {
+                        
+                        text-transform: uppercase;
+                        font-size: 40px;
+                    }
+                }
+                
+            }
+
+            &.#{$id}-success {
+                .#{$id}-close {
+                    top: 10px;
+                    right: 5px;
+                    height: 30px;
+                    width: 30px;
+                }
+                .#{$id}-gameBG {
+                    display: none;
+                }
+                .#{$id}-logoBox {
+                    height: auto;
+                    margin-bottom: 0;
+                    .#{$id}-logo {
+                        display: block;
+                    }
+                }
+                .#{$id}-blockHeading {
+                    h3 {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }  
+    
+    &.#{$id}-2 {
+        .#{$id}-logoBox {
+            padding: 0;
+            .#{$id}-logo {
+                display: none;
+            }
+            .#{$id}-close {
+                background-color: white;
+                border: 2px solid black;
+                border-radius: 30px;
+                top: -10px;
+                right: -8px;
+                background-image: url('//cdn.optimizely.com/img/6087172626/3a3631b5af854714a66c0935bf05a79f.png');
+                background-size: 20px;
+            }
+        }
+        .#{$id}-wheel {
+            height: 150px;
+            width: 200px;
+            margin: 0 auto;
+            background: url('//cdn.optimizely.com/img/6087172626/be7badf29350418db9a63d4415813d1e.png') no-repeat center;
+            background-size: contain;
+            margin-bottom: 10px;
+            @media(min-width: 375px) {
+                height: 200px;
+            }
+        }
+
+        .#{$id}-emailModal {
+            @media(orientation: landscape) {
+                height: 300px;
+                overflow-y: scroll;
+                .#{$id}-close {
+                    right: 5px;
+                    top: 5px;
+                    border: 0px;
+                    height: 30px;
+                    width: 30px;
+                    background-size: 30px;
+                }
+            }
+        }
+    }
+}

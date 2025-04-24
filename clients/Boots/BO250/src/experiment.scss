@@ -1,0 +1,118 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-root {
+    margin-top: 10px;
+    clear: both;
+    width: 100%;
+  }
+
+  #NDDCountdownContainer {
+    margin-top: 10px;
+  }
+  .#{$id}-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5px;
+    .#{$id}-size {
+      font-family: Boots Sharp,Arial,sans-serif;
+      text-align: center;
+      border-radius: 5px;
+      box-sizing: border-box;
+      width: 33%;
+      flex-grow: 1;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .#{$id}-size_inner {
+        height: 85px;
+        width: 85px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #D0D0D0;
+        background: white;
+        border-radius: 100px;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        
+        @media(min-width: 375px) {
+          height: 100px;
+          width: 100px;
+        }
+        @media(min-width: 767px) {
+          height: 85px;
+          width: 85px;
+        }
+        @media(min-width: 1024px) {
+          height: 120px;
+          width: 120px;
+          border-radius: 150px;
+        }
+      }
+      &.#{$id}-current {
+        .#{$id}-size_inner {
+          border: 1px solid #616161;
+          background: #F7FAFC;
+        }
+      }
+      h3 {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        color: #333333;
+        font-family: Boots Sharp,Arial,sans-serif;
+      }
+      p {
+        font-weight: 300;
+        font-size: 14px;
+        color: #333333;
+        text-transform: uppercase;
+      }
+      .#{$id}-sizeML {
+        font-weight: 300;
+        font-size: 10px;
+        color: #333333;
+        @media(min-width: 1024px) {
+          font-size: 12px;
+        }
+      }
+
+      .#{$id}-bestValueMsg {
+        background: #CC0033;
+        font-weight: 400;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 10px;
+        text-transform: uppercase;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        display: block;
+        color: white;
+        letter-spacing: 3px;
+        box-sizing: border-box;
+        font-family: Boots Sharp,Arial,sans-serif;
+        @media(min-width: 1024px) {
+          font-size: 12px;
+          padding: 5px;
+        }
+      }
+
+      &.#{$id}-bestValue {
+        background: #F2F2F2;
+        padding-bottom: 30px;
+        position: relative;
+        @media(min-width: 1024px) {
+          padding-bottom: 40px;
+        }
+      }
+    }
+  }
+}

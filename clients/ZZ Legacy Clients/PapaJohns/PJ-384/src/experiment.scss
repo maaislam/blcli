@@ -1,0 +1,65 @@
+@import "./variables";
+@import "./lib/components/Container/container";
+@import "./lib/components/Item/item";
+@import "./lib/components/Button/button";
+
+.#{$id}-transitions-only-after-page-load {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.#{$id}-visually-hidden {
+  @include visually-hidden;
+}
+
+.#{$id}-app {
+  @include reset;
+
+  font: $font-regular;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-color: rgba($color-white, 0);
+  transition: background-color $transition;
+
+  > div {
+    transform: translateY(100%);
+    transition: transform $transition;
+
+    @include media($media-mobile) {
+      transform: translateX(100%);
+    }
+  }
+
+  &[data-open="true"] {
+    pointer-events: all;
+    background-color: rgba($color-white, 0.9);
+
+    @include media($media-mobile) {
+      background-color: rgba($color-white, 0.8);
+    }
+
+    > div {
+      transform: translateY(0);
+
+      @include media($media-mobile) {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &[data-open="overlay"] {
+    pointer-events: all;
+    background-color: rgba($color-white, 0.8);
+  }
+}

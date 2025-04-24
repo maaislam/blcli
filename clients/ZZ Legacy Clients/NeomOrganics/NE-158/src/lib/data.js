@@ -1,0 +1,17 @@
+export default {
+  "/products/real-luxury-luxury-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Real_Luxuxury_3_wick_product_750x750.jpg?v=1611309876",
+  "/products/perfect-night-sleep-luxury-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/PNS3WickProduct_750x750.jpg?v=1611309818",
+  "/products/complete-bliss-luxury-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Complete_Bliss_3_wick_product_750x750.jpg?v=1611309753",
+  "/products/feel-refreshed-luxury-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Energy_3_wick_product_750x750.jpg?v=1611309686",
+  "/products/happiness-luxury-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Happiness_3_wick_product_750x750.jpg?v=1611310325",
+  "/products/bedtime-hero-scented-candle-3-wick":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/BedtimeHero3wickProduct_750x750.jpg?v=1611310264",
+  "/products/real-luxury-standard-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Real_Luxury_1_wick_product_750x750.jpg?v=1611311163",
+  "/products/perfect-nights-sleep-standard-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/PNS1WickProduct_750x750.jpg?v=1604937836",
+  "/products/feel-refreshed-standard-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Energy_1_wick_product_750x750.jpg?v=1611308369",
+  "/products/happiness-standard-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Happiness_1_wick_product_750x750.jpg?v=1611308419",
+  "/products/complete-bliss-standard-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Complete_Bliss_1_wick_product_750x750.jpg?v=1611308094",
+  "/products/perfect-nights-sleep-travel-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/PNSTravelCandleProduct_750x750.jpg?v=1599492890",
+  "/products/complete-bliss-travel-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Complete_Bliss_travel_candle_product_750x750.jpg?v=1611311047",
+  "/products/real-luxury-travel-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Real_Luxury_travel_candle_product_750x750.jpg?v=1611311018",
+  "/products/happiness-travel-scented-candle":"https://cdn.shopify.com/s/files/1/0028/2568/3008/products/Happiness_travel_candle_product_750x750.jpg?v=1611310953",
+};

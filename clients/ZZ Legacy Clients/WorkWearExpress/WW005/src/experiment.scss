@@ -1,0 +1,229 @@
+@import './variables';
+
+html.#{$id}--no-scroll,
+body.#{$id}--no-scroll {
+  position: fixed;
+}
+
+.#{$id} {
+  // New elements
+  .#{$id}_filters {
+    &.#{$id}_filters-highlight {
+      #filter_bar .filter_list p {
+        background: #f6851f;
+        color: #FFF;
+        transition: all ease .6s;
+
+        &:after {
+          color: #FFF;
+        }
+      }
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .#{$id}_filter_heading {
+    display: none;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0 0 10px 0;
+    font-size: 22px;
+  }
+  
+  @media only screen and (min-width: 451px) {
+    .#{$id}_filter_heading {
+      display: block;
+    }
+
+    .#{$id}_filters {
+      float: left;
+      width: 160px;
+  
+      .#{$id}_filters__inner {
+        width: 100%;
+      }
+    }
+
+    .#{$id}_filter_close {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .#{$id}_filters {
+      display: none;
+      position: fixed;
+      height: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      z-index: 999;
+      padding-top: 55px;
+      padding-bottom: 50px;
+      overflow: auto;
+      box-sizing: border-box;
+
+      &.#{$id}_filters--open {
+        .#{$id}_filter_close {
+          position: fixed;
+        }
+      }
+
+      #filter_bar {
+        display: block !important;
+        height: auto !important;
+      }
+    }
+
+    .#{$id}_filter_close {
+      display: block;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 999;
+      background: whitesmoke;
+      padding: 8px 25px 8px 8px;
+      border-radius: 4px;
+      line-height: normal;
+
+      i {
+        font-style: normal;
+        font-size: 19px;
+        position: absolute;
+        right: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: -1px;
+      }
+    }
+
+    &.#{$id}_filters--active {
+      #site_torso,
+      .#{$id}_filters {
+        z-index: 9999;
+      }
+
+      #filter_link {
+        z-index: 10000;
+      }
+    }
+  }
+
+  // Existing elements
+  #site_torso {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 10px auto 40px auto;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  @media only screen and (min-width: 451px) {
+    #filter_bar {
+      float: none;
+      width: 100%;
+    }
+    
+    #filter_bar .filter_list {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      ul {
+        display: none !important;
+      }
+  
+      ul + span {
+        // display: none;
+      }
+  
+      ul li.extras {
+        // display: block;
+      }
+  
+      p {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 10px 25px 8px 10px;
+        background: #d8d8d8;
+        color: #000;
+        transition: all ease .6s;
+  
+        &:after {
+          content: '+';
+          position: absolute;
+          top: 1px;
+          right: 0;
+          width: 26px;
+          height: 26px;
+          line-height: 35px;
+          text-align: center;
+          font-size: 22px;
+          font-weight: bold;
+          font-family: Arial, Helvetica, sans-serif;
+          color: #f6851f;
+        }
+  
+        &.active:after {
+          content: '-';
+          top: -2px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    #nav_bar_outer {
+      z-index: 9999;
+    }
+
+    #site_torso {
+      z-index: 999;
+    }
+
+    .zopim {
+      top: initial !important;
+      bottom: 60px !important;
+      right: 1px !important;
+      border-radius: 3px;
+    }
+
+    #filter_link {
+      position: fixed;
+      margin: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      bottom: 0;
+      z-index: 9999;
+      line-height: 55px;
+
+      &:after {
+        line-height: 55px;
+      }
+
+      &.#{$id}_filters-highlight {
+        background: #f6851f;
+        color: #FFF;
+
+        &:after {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}

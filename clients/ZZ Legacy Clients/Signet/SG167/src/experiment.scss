@@ -1,0 +1,67 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-root {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+  }
+
+  .#{$id}-message {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    justify-items: center;
+    align-items: center;
+    background-color: #f3f3f7;
+    padding: 15px 12px;
+    font-size: 15px;
+
+    @media (min-width: 1000px) {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+      text-align: center;
+    }
+
+    button {
+      position: relative;
+      display: inline-block;
+      background-color: transparent;
+      border: 0;
+      font-size: 15px;
+      text-decoration: underline;
+      cursor: pointer;
+
+      @media (min-width: 1000px) {
+        padding-right: 30px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          width: 25px;
+          height: 25px;
+          background-image: url("data:image/svg+xml,%0A%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.2475 6.65749L10 12.7475L3.7525 6.65749C3.64088 6.54846 3.49104 6.48743 3.335 6.48743C3.17897 6.48743 3.02913 6.54846 2.9175 6.65749C2.86346 6.71045 2.82052 6.77365 2.79121 6.84341C2.76189 6.91317 2.7468 6.98808 2.7468 7.06374C2.7468 7.13941 2.76189 7.21431 2.79121 7.28407C2.82052 7.35383 2.86346 7.41704 2.9175 7.46999L9.56375 13.95C9.68047 14.0638 9.83701 14.1274 10 14.1274C10.163 14.1274 10.3195 14.0638 10.4363 13.95L17.0825 7.47124C17.1369 7.41825 17.1802 7.35488 17.2097 7.2849C17.2393 7.21491 17.2545 7.13971 17.2545 7.06374C17.2545 6.98777 17.2393 6.91258 17.2097 6.84259C17.1802 6.7726 17.1369 6.70924 17.0825 6.65624C16.9709 6.54721 16.821 6.48618 16.665 6.48618C16.509 6.48618 16.3591 6.54721 16.2475 6.65624V6.65749Z' fill='black'/%3E%3C/svg%3E%0A");
+          background-size: 100% 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,241 @@
+@import "./variables";
+
+.#{$id} {
+	.Responsive .BasketNew #BasketDiv {
+		th.size,
+		td.size {
+			display: none;
+		}
+	}
+	.Responsive .BasketNew #BasketDiv tr {
+		@media screen and (max-width: 767px) {
+			border-bottom: none;
+		}
+	}
+	.add-to-wishlist-dom {
+		cursor: pointer;
+	}
+	.#{$id}-prodDescContainer {
+		display: flex;
+		justify-content: space-between;
+	}
+	.#{$id}-prodDeskRight {
+		span.money {
+			color: #000000;
+			font-size: 12px;
+			font-weight: 600 !important;
+		}
+		@media screen and (min-width: 768px) {
+			display: none;
+		}
+	}
+
+	.sizeAndColour {
+		display: flex;
+		justify-content: space-between;
+
+		.productcolour,
+		.productsize {
+			color: #000;
+			font-size: 12px;
+			font-weight: 600;
+			// text-decoration: underline;
+			width: calc(50% - 10px);
+		}
+		.productsize {
+			display: flex;
+			justify-content: flex-end;
+			align-items: baseline;
+		}
+		.productcolour {
+			span:not(.baskColourLabel) {
+				font-weight: 400;
+			}
+		}
+		select.customSize {
+			border: none;
+			color: #000;
+			&:disabled {
+				color: #888;
+				background-color: transparent;
+			}
+		}
+	}
+	.quantityAndIconsRow {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 16px;
+		align-items: center;
+		.quantityCustom {
+			color: #000;
+			font-size: 12px;
+			font-weight: 600;
+
+			select#qtyboxCustom {
+				border: none;
+				color: #000;
+			}
+		}
+		.wishlistAndRemove {
+			display: flex;
+			justify-content: space-between;
+			padding-right: 20px;
+			span.deleteItemText {
+				display: none;
+			}
+			a.prodelete {
+				margin: 0;
+				padding: 0;
+			}
+			span.deleteItemIcon {
+				margin-right: 0;
+				margin-left: 10px;
+			}
+			.#{$id}-wish-dom {
+				display: flex;
+				span {
+					display: flex;
+					margin-top: 1.6px;
+				}
+			}
+		}
+	}
+	.basket-action-buttons-container {
+		display: none;
+	}
+	&-1 {
+		.quantityAndIconsRow {
+			.#{$id}-wish-dom .wishlist-text {
+				display: none !important;
+			}
+		}
+		.s-basket-remove-button {
+			margin-left: 25px;
+		}
+	}
+	&-2 {
+		.quantityAndIconsRow {
+			width: 100%;
+			align-items: start;
+			.wishlistAndRemove {
+				display: flex;
+				justify-content: space-between;
+				position: absolute;
+				right: 0;
+				z-index: 99;
+				span.deleteItemText {
+					display: block;
+				}
+				span.elipsis {
+					position: absolute;
+					right: 2px;
+					padding: 0 4px;
+					//top: -2px;
+				}
+				.elipsis {
+					svg circle {
+						fill-opacity: 1;
+					}
+				}
+
+				&.active {
+					background: #fff;
+					padding: 5px;
+					padding-right: 15px;
+					border: 0.6px solid #9e9e9e;
+					// filter: drop-shadow(-1px 1px 3px rgba(0, 0, 0, 0.35));
+					box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.35);
+					width: 196px;
+					.wishlistAndRemoveInner {
+						display: block;
+						width: 100%;
+					}
+
+					&::after {
+						content: "";
+						width: 100%;
+						position: absolute;
+						height: 0.6px;
+						background: #9e9e9e;
+						left: 0;
+						top: 50%;
+					}
+
+					.elipsis {
+						svg circle {
+							fill-opacity: 1;
+						}
+					}
+				}
+				.wishlistAndRemoveInner {
+					display: none;
+					.#{$id}-wish-dom {
+						//margin-bottom: 10px;
+						height: 42px;
+						padding: 10px;
+						margin-bottom: 0.6px;
+
+						a.add-to-wishlist-dom {
+							display: flex;
+							align-items: center;
+
+							span.icon-heart {
+								margin-right: 5px;
+							}
+						}
+					}
+					.s-basket-remove-button {
+						padding: 5px 0;
+						display: flex;
+						align-items: center;
+						height: 42px;
+						padding: 10px;
+						a {
+							display: flex;
+							align-items: center;
+
+							span.deleteItemText {
+								line-height: 20px;
+								margin-top: 3px;
+								margin-left: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.Basket #BasketDiv table {
+		.prdQuantity,
+		.itemprice,
+		.itemtotalprice {
+			@media screen and (max-width: 767px) {
+				display: none;
+			}
+		}
+
+		th.prdQuantity,
+		td.prdQuantity {
+			display: none;
+		}
+	}
+	.Basket #BasketDiv table .productTitle {
+		display: block;
+		color: #000000;
+		line-height: 12px;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: -1px;
+	}
+	.Basket #BasketDiv table .productTitleDesc {
+		display: block;
+		color: #000000;
+		line-height: 12px;
+		font-size: 12px;
+		font-weight: 400;
+		letter-spacing: -1px;
+		// text-transform: uppercase;
+		margin-top: 3px;
+		margin-bottom: 16px;
+	}
+}

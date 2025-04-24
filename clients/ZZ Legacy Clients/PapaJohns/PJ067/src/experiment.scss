@@ -1,0 +1,370 @@
+@import './variables';
+@import './font';
+
+.#{$id} {
+    .#{$id}_offerWrap ~ .PJMCont .halfDecide,
+    .#{$id}_offerWrap ~ .PJMCont .menuBanner {
+        display: none !important;
+    }
+
+    @at-root #{&}--cartActive {
+        .main {
+            padding-top: 120px;
+        }
+    }
+
+    @at-root #{&}_offer {
+        padding: 12px;
+        background-color: #0E7954;
+        display: inline-block;
+        vertical-align: top;
+        width: calc(75% - 24px);
+        min-height: 135px;
+        position: relative;
+        @media screen and (max-width:768px){
+            width: calc(100% - 24px);
+            display: block;
+
+            .#{$id}_offer__sliderWrap--completed:before {
+                left: -40px;
+            }
+
+            .#{$id}_offer__sliderWrap--completed:after {
+                right: -40px;
+            }
+        }
+
+        .#{$id}_offer__sliderWrap--completed .#{$id}_offer__price {
+          display: none;
+        }
+        .#{$id}_offer__sliderWrap--completed .#{$id}_offer__bar:before {
+          display: none;
+        }
+        .#{$id}_offer__sliderWrap--completed .#{$id}_offer__slider {
+            width: 62%;
+
+            @media(max-width: 1300px) {
+              width: 55%;
+            }
+            @media(max-width: 1100px) {
+              width: 50%;
+            }
+        }
+
+        @at-root #{&}Wrap {
+            font-size: 0;
+            padding-right: 21px;
+            @media screen and (max-width:768px){
+                padding-right:0;
+            }
+            &:not(.#{$id}_offerWrap--error) {
+                &~ {
+                    .PJ053-banner-desktop {
+                        display: none;
+                    }
+                }
+            }
+
+            @at-root .main.mainMobileInside #{&} {
+                .#{$id}_offer__linkHolder {
+                    display: none;
+                }
+
+                .#{$id}_offer {
+                    width: 100%;
+                    display: block;
+                }
+
+                .#{$id}_offer__sliderWrap--completed:before {
+                    left: -40px;
+                }
+
+                .#{$id}_offer__sliderWrap--completed:after {
+                    right: -40px;
+                }
+            }
+
+            @at-root #{&}--error {
+                background-color: #96BBAE;
+                @at-root #{&}{
+                    @media screen and(max-width:768px){
+                        margin-bottom: 20px;
+
+                        .#{$id}_offer__body {
+                            width: 100%;
+                        }
+    
+                        .#{$id}_offer__sliderWrap {
+                            padding-right: 4px;
+                        }
+    
+                        .#{$id}_offer__slider {
+                            width: 100%;
+                            margin: 0;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+                @at-root .main.mainMobileInside #{&}{
+                    margin-bottom: 20px;
+
+                    .#{$id}_offer__body {
+                        width: 100%;
+                    }
+
+                    .#{$id}_offer__sliderWrap {
+                        padding-right: 4px;
+                    }
+
+                    .#{$id}_offer__slider {
+                        width: 100%;
+                        margin: 0;
+                        margin-top: 10px;
+                    }
+                }
+                .#{$id}_offer {
+                    background-color: transparent;
+                    width: 100%;
+                }
+
+                .#{$id}_offer__content {
+                    position: relative;
+                    top: unset;
+                    left: unset;
+                    transform: none;
+                }
+
+                &~ {
+                    .PJMCont.padded {
+                        display: none;
+                    }
+                }
+
+                &~#ctl00_cphBody__objMenuHeader_pnlFeatureBanner {
+                    display: none;
+                }
+            }
+        }
+
+        @at-root #{&}__title {
+            background-color: #000;
+            text-transform: uppercase;
+            font-size: 25px;
+            padding: 10px;
+            padding-bottom: 5px;
+            color: #fff;
+            display: inline-block;
+            font-family: 'ItalianPlate';
+            font-weight: 900;
+            letter-spacing: 1px;
+
+            @at-root .#{$id}_offer__sliderWrap #{&} {
+                text-align: center;
+                background-color: transparent;
+                font-size: 20px;
+                text-transform: none;
+                display: block;
+                padding: 0 0 5px;
+                margin: 12px 0;
+                font-weight: normal;
+                letter-spacing: normal;
+            }
+
+            @at-root .#{$id}_offerWrap--error #{&} {
+                background-color: #959595;
+                color: #E3E3E3;
+            }
+        }
+
+        @at-root #{&}__header {
+            text-align: center;
+        }
+
+        @at-root #{&}__content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        @at-root #{&}__body {
+            font-size: 0;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        @at-root #{&}__slider {
+            position: relative;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            display: inline-block;
+            vertical-align: middle;
+            width: 50%;
+            margin: 0 10px;
+            height: 10px;
+
+            @at-root #{&}Wrap {
+                font-size: 0;
+                text-align: center;
+                position: relative;
+
+                &:before,
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    height: 60px;
+                    width: 60px;
+                }
+
+                @at-root #{&}--completed {
+                    &:before {
+                        left: 70px;
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAACcCAMAAAC9ZjJ/AAAB7FBMVEUAAAD/7b350kP/7kv10T/+10b10T//403////10T/00T/10UD00UD10T//1Eb/ykX////////10UD10UH20kH210T////10T/10UD20j/////////10ED10T/////00T/00T/tiwP20UD30kH11EH31UL/1En////00D/////10T/tiwL////10T/10UDtigP////00T/////00T/wjQX////tiwLsiwL////////10T/10T/10T/10UD10UD10kD////wjAX40kP////////tiwL10T/10T/////tiwP10T/////siwP10T/10UD////////////////////01UD////////////xjAf////ykAn////////10D/tiwL////////tiwP////10T/10T/uiwP////10UD////////////ujAP20UHuiwPtiwTwjATviwT300H/////2EH////wkA//3kP////3kxT////tiwL////tiwP////////////tiwTtiwP////00UDujAL30kD20UD200D////////20kD////51UL41EH////zjgz////tiwL////tiwLtigTtiwLtiwL////uiwP////21EHtiwL////////uiwPuiwT31kL00D/////sigK/JrxVAAAAoXRSTlMAAS0E9RX3CPvav6TqaAsG94qGTEca3Ll7cksy/Pnt7dWwbkA0IBEE8eTi3dfNw6iSkF9fNA/89uHDtLCgnJlkQSomGfTt3tDMyse0lpSCfnNVUUUwLicjIh0ZBvHm5si+urmtqZ+XjIRuZWFTUEZBPDsXExIQDwwMCf7oxK6lnIuAeHdpWldQOzg3KiojHxT51tHPj3lyWFg+LtOpo5KFHgDw97kAAAfoSURBVHja7dxnX9NAAAbwJxRaGcpeKiAgIAiIgAwZgshWARUE3CiI4EAFEffee2+9yxfV0BZJLk0v7TXkRf/v4Xctl+ee3CVgZfQXwbbaEj7DtiZoPezq4BtKB2FTPymlE7Cn56sopbu2wZZuUsUZ2NE6uqhUQtDEB9IYddsffCL9gChFI0/3nUm8VU896p/MIygjadchRkXxKqq1qvRW/9f5wMdGVxVBiNlS6kPprecIwKs0SmkbxBgp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');
+                    }
+
+                    &:after {
+                        right: 70px;
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAACcCAMAAAC9ZjJ/AAAB71BMVEUAAAD//73500P/0E7/2kT10UD////00T/10UD00T/10UD////10T//2UX////00D/////20kH10D/10T/10T/20j/10UH21EH31kL61EX/5FL10EDtiwL10T/00T/////////////10UH10kD20UD10T//////////////////1Eb/////yjr////10T/10T/10UD////10UD00T/10kDwjAX50kP////////10T/////tigP10T/10T/10UD////10j/20kD////////30kL01UDwjAX////////zkhLsiwL////sigL10T/////////////tiwP00T/siwP////////////////wjATxjAf////22EP//////////3b10UDtiwLtigL////////tigPuiwP10UD10UD////tiwL////////////20UHuiwPtiwT200H////////yjg3tiwLtiwP////////tiwP10UD////tiwTuiwT00UDujALujAP20UD200D40kHuiwT////41EHxkQn/3Ub/r1D////tiwL////tiwLtiwPtigP////tigT////10ED////////tiwL////uiwP0kAvtiwLuiwP10T/10kD10T/300D////////tjAP00D/////sigJ44EG7AAAAonRSTlMAAiwFFPj77Nq/owbPEPfx4kf257VyTTQfFwn8/PrVy8OJhntuaUE6MSgLCgfs4sjDmpWQZjQm8ea6tbOwrJqTYVxWSz0wKiAODvf06N7d2tbKp5ZvXk5GQCIdGxoRA/Tv276npp+djIB7dWNTU1BGOS0WE+DEuq6tn46LhHdpYFdQQzskIxoOA/nW0c+9qaKPhYN9eXJoWBfTkoWCfj80GGSFMzjKAAAH3UlEQVR42u3c91vTQBwG8DcULBsUUDaoyFb2EpAhKiBDlgoyVBRBVHDvvffe+y5/qE/aVNtckl7apOTx6ed30ku5e+97uUvBI+447KszcRK2lU+rYFenKX28CzZVRSl9CXvq3k0pXVUCWxqlkouwI2GQuvyEDe2jbhdgtjgEqawon8ryZ9ePniiaiINZZieDGAiFoy/3rKJKqxqvwByNgxMISMnsHqphzxRMEbeKDgTYuvVUQ/IE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');
+                    }
+                }
+
+                @at-root .#{$id}_offerWrap--error #{&} {
+
+                    &:after,
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+
+            @at-root .#{$id}_offerWrap--error #{&} {
+                background-color: #fff;
+                color: #000;
+                font-weight: bold;
+                font-family: 'ItalianPlate';
+                border-radius: 0;
+                height: auto;
+                margin-top: 12px;
+
+                p {
+                    font-size: 20px;
+                    margin-bottom: 0;
+                    padding: 10px;
+                }
+
+                a {
+                    color: #0E7954;
+                    text-decoration: underline;
+
+                    &:hover,
+                    &:focus {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        @at-root #{&}__price {
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: #fff;
+
+            &:nth-child(2) {
+                text-align: right;
+            }
+
+            font-family: 'ItalianPlate';
+
+            .fa {
+              color: #f4d03e;
+              font-size: 1.1em;
+            }
+        }
+
+        @at-root #{&}__bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: block;
+            background-color: #D92B27;
+            border-radius: 10px 0 0 10px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                right: -4px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 5px 0 5px;
+                border-color: #ffffff transparent transparent transparent;
+                opacity: 0;
+            }
+
+            @at-root .#{$id}_offer__slider[data-offer] #{&} {
+                &:before {
+                    opacity: 1;
+                }
+            }
+
+            @at-root .#{$id}_offer__slider[data-offer="100"] #{&} {
+                border-radius: 10px;
+            }
+        }
+
+        @at-root #{&}__link {
+            display: block;
+            padding-right: 10px;
+            @at-root #{&}Wrap {
+                display: inline-block;
+                vertical-align: top;
+                width: 50%;
+                @at-root #{&}{
+                    &:last-child{
+                        @media screen and (max-width:768px){
+                            .#{$id}_offer__link{
+                                padding-right: 0;
+                                padding-left:10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @at-root #{&}Holder {
+                font-size: 0;
+                width: 25%;
+                display: inline-block;
+                vertical-align: top;
+                @media screen and (max-width:768px){
+                    width:100%;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &.#{$id}-not-is-pizzas .#{$id}_offer__linkHolder {
+      display: none;
+
+      + .#{$id}_offer {
+        width: calc(100% - 27px);
+      }
+    }
+
+    &.#{$id}-is-pizzas .#{$id}_offer__linkHolder {
+      display: inline-block;
+    }
+}

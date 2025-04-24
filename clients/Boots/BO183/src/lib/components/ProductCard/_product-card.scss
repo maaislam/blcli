@@ -1,0 +1,51 @@
+@import "./../../../variables";
+
+##{$id}-root {
+  .#{$id}-product-card {
+    list-style: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-m);
+    padding: var(--space-m);
+    background-color: var(--colour-white);
+    border-radius: 15px 0 15px 0;
+    height: 100%;
+  }
+
+  .#{$id}-product-card-image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+
+    > img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .#{$id}-product-card-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
+    text-align: center;
+    color: var(--colour-grey-dark);
+
+    span {
+      font-weight: 600;
+    }
+
+    > * {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}

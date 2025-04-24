@@ -1,0 +1,53 @@
+$id: "--ID--";
+$c-silver: #ececec;
+$c-grey: #ececec;
+$c-black: #222222;
+$c-warning: #ffae42;
+$c-warning-light: #fff7ec;
+$c-green: #016c42;
+$f-regular: specsavers web regular, Arial, sans-serif;
+$f-medium: specsavers web medium, Arial, sans-serif;
+
+@mixin media($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin reset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  float: none;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    float: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

@@ -1,0 +1,129 @@
+@import "../../variables";
+
+.#{$id} {
+  .#{$id}_StickyCartHeader {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 2px 24px #e1e1e1;
+    background: white;
+    border-radius: 0 0 8px 8px;
+    z-index: -1;
+    padding: 22px 0;
+    opacity: 0;
+    transition: all 0.2s;
+    top: -100%;
+
+    @at-root .mobile #{&} {
+      position: fixed;
+      left: 0;
+    }
+    @at-root #{&}--wrap {
+      max-width: 967px;
+      margin: 0 auto;
+      font-size: 0;
+    }
+    &.#{$id}_StickyCartHeader--fixed {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      z-index: 1000;
+    }
+  }
+
+  .#{$id}_StickyCartHeader--wrap,
+  .#{$id}_StickyCartHeader--summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .#{$id}_StickyCartHeader--summary {
+    flex: 1;
+    padding-right: 24px;
+  }
+
+  .#{$id}_StickyCartHeader--title {
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #181818;
+    max-width: 320px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .#{$id}_StickyCartHeader--titleShade {
+    font-size: 19px;
+    max-width: 320px;
+    line-height: 23px;
+    font-family: "Montserrat", sans-serif;
+
+    .#{$id}_StickyCartHeader--shadeName {
+      color: #181818;
+    }
+
+    .#{$id}_StickyCartHeader--changeShade {
+      color: #7f28c4;
+      cursor: pointer;
+    }
+  }
+
+  .#{$id}_StickyCartHeader--price {
+    font-size: 36px;
+    line-height: 44px;
+    color: #7f28c4;
+    flex: 1;
+    text-align: right;
+    margin: 0;
+    font-weight: 500;
+    font-family: "Montserrat-Medium", "Montserrat", sans-serif;
+  }
+
+  @media (max-width: 950px) {
+    .#{$id}_StickyCartHeader--wrap {
+      flex-wrap: wrap;
+      padding: 0 30px;
+    }
+    .#{$id}_StickyCartHeader_ctas {
+      width: 100%;
+      margin-top: 12px;
+
+      .Button {
+        max-width: 400px;
+      }
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$id}_StickyCartHeader--wrap {
+      flex-wrap: wrap;
+      padding: 0 30px;
+    }
+
+    .#{$id}_StickyCartHeader_ctas {
+      width: 100%;
+    }
+
+    .#{$id}_StickyCartHeader--title {
+      font-size: 16px;
+      line-height: 17px;
+    }
+
+    .#{$id}_StickyCartHeader--price {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .#{$id}_StickyCartHeader--summary {
+      margin-bottom: 16px;
+      padding-right: 0;
+    }
+
+    .#{$id}_StickyCartHeader--titleShade {
+      font-size: 12px;
+      line-height: 14px;
+      margin-right: 12px;
+    }
+  }
+}

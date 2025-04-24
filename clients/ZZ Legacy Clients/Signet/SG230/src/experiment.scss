@@ -1,0 +1,100 @@
+@import './variables';
+
+.#{$id} {
+
+  span.SG230-content a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .#{$id}-voucher {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #ededed;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    box-shadow: 0.125rem 0.125rem 0.75rem rgba(0, 0, 0, 0.33);
+
+    .#{$id}-content,span {
+      font-family: Montserrat,sans-serif;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .#{$id}-copy__section {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      padding: 0 0.75rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+      @media(min-width: 767px) {
+        display: inline;
+      }
+    }
+    input {
+      font-family: Montserrat,sans-serif;
+      font-weight: 700;
+      text-align: center;
+      color: #a01d29;
+      background-color: #ededed;
+      padding: 0.1rem 1rem;
+      border: 0.0625rem solid #a01d29;
+      border-radius: 0.1875rem;
+      outline: none;
+      transition: .5s ease;
+      width: 40%;
+      max-width: 150px;
+    }
+
+    .#{$id}-copyButton {
+      font-size: .875rem;
+      font-weight: 300;
+      text-decoration: underline;
+      white-space: nowrap;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      display: inline;
+    }
+    .#{$id}-success {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%);
+      height: 0;
+      padding: 0 2.5rem;
+      background-color: #fff;
+      font-weight: 600;
+      font-size: .875rem;
+      white-space: nowrap;
+      box-shadow: 0.0625rem 0.0625rem 0.125rem rgb(0 0 0 / 25%);
+      pointer-events: none;
+      opacity: 0;
+      transition: .4s ease;
+      z-index: 999;
+      &:after {
+        content: " ";
+        position: absolute;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        border-bottom: 0.5rem solid #fff;
+        left: 49%;
+        bottom: 100%;
+      }
+      &.show {
+        opacity: 1;
+        height: auto;
+        padding: 0.5rem 2.5rem;
+      }
+    }
+  }
+}

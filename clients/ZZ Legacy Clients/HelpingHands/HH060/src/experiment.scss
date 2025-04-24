@@ -1,0 +1,133 @@
+@import './variables';
+
+.#{$id} {
+  .HH027_separator.col-xs-12 {
+    display: none !important;
+  }
+
+  #hero {
+    &:before {
+      content: "";
+      width: 100%;
+      height: calc(100% - 80px);
+      position: absolute;
+      z-index: 1;
+      background: rgba(103, 113, 124, 0.24);
+      display: block;
+      top: 0;
+      left: 0;
+      transition: 0.4s background;
+
+      @media(min-width: 992px) {
+        height: calc(100%);
+      }
+    }
+
+    &.#{$id}-hero--active:before {
+      //background: rgba(0,0,0,0.8);
+    }
+  }
+
+  &-bg-teal {
+    background-color: #445562 !important;
+
+    &:hover {
+      background-color: #32414d !important;
+    }
+  }
+  &-bg-pink {
+    background-color: #af3474 !important;
+
+    &:hover {
+      background-color: #952861 !important;
+    }
+  }
+
+  #hero .col-xs-offset-1 {
+    width: 95%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 2.5%;
+  }
+
+  &-jobwrap {
+    min-height: 250px;
+
+    .btn {
+      cursor: pointer;
+      font-size: 14px !important;
+
+      @media(min-width: 375px) {
+        font-size: 16px !important;
+      }
+
+      @media(min-width: 992px) {
+        max-width: 400px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+    
+    h2 {
+      color: #fff;
+      font-weight: 600;
+      font-size: 26px;
+      margin-bottom: 0;
+      padding-bottom: 15px;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &__slide1,
+    &__slide2 {
+      padding: 0;
+      overflow: hidden;
+
+      &.#{$id}-hide {
+        display: none;
+      }
+    }
+
+    &__slide1 {
+    }
+
+    &__slide2 {
+      opacity: 0;
+      height: 0;
+      transform: translateY(70px);
+      transition: 0.6s all;
+
+      &.#{$id}-show {
+        height: auto;
+        opacity: 1;
+        display: block;
+        transform: translateY(0);
+      }
+    }
+
+    &__inner {
+      padding: 0;
+
+      @media(min-width: 390px) {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  .#{$id}-hero--active {
+    .#{$id}-jobwrap__inner {
+      @media(min-width: 992px) {
+        > div {
+          width: 50%;
+          padding: 0 15px;
+        }
+
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}

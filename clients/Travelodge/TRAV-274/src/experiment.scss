@@ -1,0 +1,768 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+}
+
+.#{$id} {
+
+    
+    .extra-info {
+        display: none;
+    }
+
+
+    .#{$id}-hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-booknow {
+        cursor: pointer !important;
+    }
+
+    .#{$id}-extrasmodal {
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        position: fixed;
+        width: 800px;
+        height: 100%;
+        top: 0;
+        right: -800px;
+        background-color: #fff;
+        z-index: 1010;
+        overflow: hidden;
+        font-family: 'fs albert regular', Arial, Helvetica, sans-serif;
+        transition: right 0.2s ease;
+        transition: opacity 0.1s ease 0.2s;
+        will-change: right;
+
+        @media all and (max-width: 830px) {
+            width: 100%;
+        }
+
+        &.#{$id}-visible {
+            opacity: 1;
+            right: 0;
+            transition: right 0.5s ease;
+            will-change: right;
+        }
+
+        &--subnav,
+        &--content,
+        &--footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &--subnav {
+            height: 75px;
+            position: relative;
+            padding: 0 80px;
+
+            @media all and (max-width: 768px) {
+                padding: 0 10px;
+            }
+
+            .#{$id}-close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+                border: none;
+                background: none;
+
+                @media all and (min-width: 768px) {
+                    display: none;
+                }
+
+                svg {
+                    width: 26px;
+                }
+            }
+
+            .#{$id}-subnav {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+
+                &--links {
+                    display: flex;
+                    width: 25%;
+                    justify-content: center;
+                    align-items: center;
+
+                    p {
+                        margin-top: 0;
+                        color: #464646;
+                        text-align: center;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 130%;
+                        opacity: 0.75
+                    }
+
+                    &.#{$id}-active {
+                        
+                        width: 50%;
+
+                        p {
+                            font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                            opacity: 1;
+                        }
+                    }
+
+                    @media all and (max-width: 450px) {
+
+                        width: 50%;
+
+                        &:first-of-type {
+                            display: none;
+                        }
+                    }
+                }
+
+                &--progressbar {
+                    width: 100%;
+                    height: 4px;
+                    background: #D6D6D6;
+                    margin-top: 15px;
+                    border-radius: 5px;
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        width: 60%;
+                        height: 4px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: #346F8E;
+
+                        @media all and (max-width: 450px) {
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        // CONTENT
+
+
+        &--content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            justify-content: flex-start;
+                @media all and (max-width: 768px) {
+                        padding-right: 0;
+                    }
+            
+        }
+
+        .#{$id}-extras {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+
+            &--header {
+                margin-bottom: 30px;
+
+                h2 {
+                    color: #464646;
+                    font-family: 'fs albert bold';
+                    font-size: 18px;
+                    font-style: normal;
+                    line-height: normal;
+                }
+                
+                p {
+                    color: #464646;
+                    font-family: 'fs albert regular';
+                    font-size: 16px;
+                    font-style: normal;
+                    line-height: normal;
+                }
+            }
+
+            &--holder {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            @media all and (min-width: 768px) {
+                &.breakfasttogo {
+
+                    .#{$id}-extra {
+                        order: 1;
+                    }
+
+                    ##{$id}-extra-earlycheckin,
+                    ##{$id}-extra-latecheckout {
+                        order: 5;
+                    }
+
+                    ##{$id}-extra-pets {
+                        order: 6;
+                    }
+
+                    ##{$id}-extra-pets .#{$id}-extra--contentinner p:first-of-type {
+                        margin-bottom: 39px;
+                    }
+
+                }
+            }
+            
+
+
+        }
+
+        .#{$id}-extra {
+            display: flex;
+            width: 48%;
+            flex-direction: column;
+            margin-bottom: 50px;
+            justify-content: flex-start;
+            max-width: 100%;
+
+            @media all and (max-width: 768px) {
+                width: 100%;
+            }
+
+            &--header {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 5px 10px 20px;
+
+                svg {
+                    margin-right: 20px;
+                }
+
+                h3 {
+                    color: #464646;
+                    font-family: 'fs albert bold';
+                    font-size: 18px;
+                    font-style: normal;
+                    line-height: normal;
+                }
+            }
+
+            &--content {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: space-between;
+
+
+
+                &inner {
+                    width: 100%;
+
+                    p {
+                        @media all and (max-width: 768px) {
+                            margin-bottom: 10px !important;
+                        }
+                    }
+                }
+
+                &left {
+                    overflow: hidden;
+                    width: 50%;
+                }
+
+                p, span {
+                    color: #464646;
+                    font-family: 'fs albert regular';
+                    font-size: 16px;
+                    font-style: normal;
+                    line-height: normal;
+                    margin-top: 0;
+                    margin-bottom: 10px;
+
+                    &.#{$id}-bold {
+                        font-family: 'fs albert bold';
+                    }
+                }
+
+                .#{$id}-menus {
+                    color: #346F8E;
+                    font-family: 'fs albert bold';
+                    font-size: 16px;
+                    font-style: normal;
+                    line-height: normal;
+                    text-decoration: none;
+                    margin-bottom: 9px;
+
+                    a {
+                        display: inline;
+                        color: #346F8E;
+                        font-family: 'fs albert bold';
+                        font-size: 16px;
+                        font-style: normal;
+                        line-height: normal;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                button {
+                    align-self: last;
+                    width: 100%;
+                    display: flex;
+                    max-width: 95%;
+                    padding: 5px 15px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+                    align-self: stretch;
+                    border-radius: 5px;
+                    border-radius: 5px;
+                    border: 2px solid #346F8E;
+                    background: #FFF;
+                    text-align: center;
+                    font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                    font-size: 18px;
+                    font-style: normal;
+                    line-height: normal;
+                    color: #346F8E;
+                    
+                    @media all and (max-width: 450px) {
+                        margin-top: 20px;
+                        max-width: 100%;
+                    }
+
+                    .#{$id}-addtext {
+                        display: flex;
+                    }
+
+                    .#{$id}-addedtext {
+                        display: none;
+                    }
+
+                    span {
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #346F8E;
+                        text-align: center;
+                        font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                        font-size: 18px;
+                        font-style: normal;
+                        line-height: normal;
+                        margin-bottom: 0;
+                    }
+
+                    &.#{$id}-active {
+                        border: 2px solid #346F8E;
+                        background: #346F8E;
+                        color: #FFF;
+
+                        span {
+                            color: #FFF;
+                        }
+
+                        .#{$id}-addtext {
+                            display: none;
+                        }
+
+                        .#{$id}-addedtext {
+                            display: flex;
+                        }
+                    }
+
+                    &.#{$id}-remove {
+                        position: relative;
+                        pointer-events: none;
+                        animation: pointerevents 0.5s ease 3s forwards;
+
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: #FFF;
+                            opacity: 0;
+                            animation: opacity 0.5s ease 3s forwards;
+                        }
+
+                        &:after {
+                            content: "Remove";
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            line-height: 1;
+                            opacity: 0;
+                            color: #346F8E;
+                            animation: opacity 0.5s ease 3s forwards;
+                        }
+                    }
+
+
+                    @keyframes pointerevents {
+                        0% {
+                            pointer-events: none;
+                        }
+                        100% {
+                            pointer-events: all;
+                        }
+                    }
+
+                    @keyframes opacity {
+                        0% {
+                            opacity:0;
+                        }
+                        100% {
+                            opacity:1;
+                        }
+                    }
+                }
+            }
+
+            &--multiplerooms {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                &button {
+                    width: 100%;
+                    color: #346F8E;
+                    font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: none;
+                    border: none;
+                    padding: 15px 0 0;
+
+                    svg {
+                        transform: rotate(180deg);
+                        margin-right: 20px;
+                    }
+                }
+
+                .#{$id}-multiplerooms {
+                    display: none;
+                    overflow-y: hidden;
+                    overflow-x: auto;
+                    flex-direction: row;
+                    max-width: 700px;
+                    padding-bottom: 5px;
+                
+                    /* Chrome, Edge, and Safari */
+
+                    &::-webkit-scrollbar {
+                        height: 4px;
+                        width: 4px;
+                        background: #FFF;
+                        padding-top: 10px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: #FFF;
+                    }
+                
+                    &::-webkit-scrollbar-thumb {
+                        background: #346F8E;
+                        border-radius: 10px;
+                    }
+
+                    &--room {
+                        display: flex;
+                        flex-direction: row;
+                        padding: 10px 0 10px;
+                        margin-right: 30px;
+                        min-width: 220px;
+
+                        &button {
+                            width: 32px;
+                            height: 32px;
+                            border: 2px solid #464646;
+                            background: #FFF;
+                            margin-right: 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            svg {
+                                display: none;
+                                
+                            }
+
+                            &.#{$id}-active svg {
+                                display: flex;
+                            }
+                        }
+
+                        
+
+                        &inner {
+                            h3, p {
+                                color: #464646;
+                                font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: normal;
+                            }
+
+                            p {
+                                font-family: 'fs albert regular', Arial, Helvetica, sans-serif;
+                                margin-top: 3px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+                &.#{$id}-active {
+
+                    .#{$id}-extra--multipleroomsbutton svg {
+                        transform: rotate(0);
+                    }
+
+                    .#{$id}-multiplerooms {
+                        display: flex;
+                    }
+                }
+
+            }
+
+
+            &.#{$id}-hero {
+                width: 100%;
+                margin-bottom: 20px;
+                border: 2px solid #346F8E;
+                padding: 15px 10px;
+
+                
+
+                .#{$id}-extra--header {
+                    width: 47%;
+                    position: relative;
+                    padding-bottom: 10px;
+                }
+
+                .#{$id}-extra--contentleft {
+                    padding-top: 10px;
+                    width: 46%;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+
+                    .#{$id}-unlimited-breakfast {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                    
+                    img:nth-of-type(2) {
+                        margin: 0 2px;
+                    }
+                }
+
+                .#{$id}-extra--contentinner {
+                    padding-left: 20px;
+                    width: 54%;
+                }
+
+                .#{$id}-breakfastprice {
+                    background: #00A09D;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    color: #FFF;
+                    font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                    font-size: 16px;
+                    line-height: 18px;
+                    position: absolute;
+                    top: -10px;
+                    right: 5px;
+
+                    & > span {
+                        font-family: 'fs albert regular', Arial, Helvetica, sans-serif;
+                        font-size: 16px;
+                        margin-left: 1px;
+                        color: #FFF;
+                        line-height: 18px;
+                    }
+                }
+
+                .#{$id}-kidseatfree {
+                    background: #346F8E;
+                    border-radius: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    color: #FFF;
+                    font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                    font-size: 14px;
+                    line-height: 18px;
+                    position: absolute;
+                    right: 0;
+                    padding: 7px 15px;
+
+                }
+
+                @media all and (max-width: 650px) {
+
+                    .#{$id}-extra--header {
+                        width: 100%;
+                    }
+
+                    .#{$id}-extra--content {
+                        flex-direction: column;
+
+                        &left {
+                            width: 100%;
+                            height: auto !important;
+                            justify-content: flex-start;
+
+                        }
+
+                        &inner {
+                            width: 100%;
+                            padding-left: 0;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .#{$id}-button {
+                        max-width: 100%;
+                    }
+                }
+
+                @media all and (max-width: 450px) {
+                    .#{$id}-extra--content {
+                        flex-direction: column;
+                
+                        &left img {
+                            width: 33%;
+
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+
+        // FOOTER
+
+
+        &--footer {
+            height: 70px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 25px;
+            border-top: 1px solid #EFEFEF;
+
+            @media all and (max-width: 450px) {
+                flex-direction: column;
+                padding: 10px;
+                height: auto;
+            }
+
+            &total {
+                display: flex;
+                width: 50%;
+                justify-content: space-between;
+
+                @media all and (max-width: 450px) {
+                    width: 100%;
+                }
+
+                p {
+                    margin-top: 0;
+                    color: #464646;
+                    font-size: 16px;
+                    font-style: normal;
+                    line-height: normal;
+
+                    &.#{$id}-totalamount {
+                        font-size: 18px;
+                        font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                    }
+                }
+            }
+
+            &button {
+                display: flex;
+                width: 50%;
+                justify-content: flex-end;
+                align-items: center;
+
+                @media all and (max-width: 450px) {
+                        width: 100%;
+                        margin: 10px 0 5px;
+                    }
+
+                .#{$id}-reviewbutton {
+                    border-radius: 5px;
+                    border: none;
+                    background: #008CC6;
+                    color: #FFF;
+                    text-align: center;
+                    font-size: 18px;
+                    font-family: 'fs albert bold', Arial, Helvetica, sans-serif;
+                    font-style: normal;
+                    line-height: 42px;
+                    width: 90%;
+                    @media all and (max-width: 450px) {
+                            width: 100%;
+                        }
+                }
+            }
+
+
+            
+
+        }
+
+        &.#{$id}-multipleroomsactive {
+            .#{$id}-remove:after {
+                content: "Remove all" !important;
+            }
+        }
+
+    }
+
+}

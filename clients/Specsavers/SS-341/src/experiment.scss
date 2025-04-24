@@ -1,0 +1,532 @@
+@import "./variables";
+
+$step-1: ".#{$id}-step[data-step='1']";
+$step-2: ".#{$id}-step[data-step='2']";
+$step-3: ".#{$id}-step[data-step='3']";
+
+$transition-time: 0.25s;
+$transition: $transition-time ease;
+
+$container-max-width: 920px;
+
+@mixin active-step {
+	opacity: 1;
+	height: auto;
+	transform: translateX(0);
+	transition: $transition;
+}
+
+@mixin inactive-step($pos) {
+	opacity: 0;
+	height: 0;
+
+	@if $pos == "right" {
+		transform: translateX(100%);
+	} @else {
+		transform: translateX(-100%);
+	}
+}
+
+.#{$id} {
+	#main-content {
+		overflow: hidden;
+	}
+
+	#main .panelizer-view-mode .node.node-webform.clearfix {
+		max-width: unset !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	#content-wrapper {
+		&[data-step="0"] {
+			#{$step-1},
+			#{$step-2},
+			#{$step-3},
+			.#{$id}-current-step-counter,
+			.#{$id}-next-step-container {
+				@include inactive-step("right");
+			}
+		}
+
+		&[data-step="1"] {
+			#{$step-1},
+			.#{$id}-current-step-counter,
+			.#{$id}-next-step-container {
+				@include active-step;
+			}
+
+			#{$step-2} {
+				@include inactive-step("right");
+			}
+
+			#{$step-3} {
+				@include inactive-step("right");
+			}
+
+			.#{$id}-current-step-progress-bar::after {
+				width: 30%;
+			}
+		}
+
+		&[data-step="2"] {
+			#{$step-1} {
+				@include inactive-step("left");
+			}
+
+			#{$step-2} {
+				@include active-step;
+			}
+
+			#{$step-3} {
+				@include inactive-step("right");
+			}
+
+			.#{$id}-current-step-progress-bar::after {
+				width: 60%;
+			}
+
+			form .form-actions {
+				display: block !important;
+				@include inactive-step("right");
+			}
+
+			.form-item-submitted-let-us-know-where-your-home-visit-is-for {
+				display: none !important;
+			}
+		}
+
+		&[data-step="3"] {
+			#{$step-1} {
+				@include inactive-step("left");
+			}
+
+			#{$step-2} {
+				@include inactive-step("left");
+			}
+
+			#{$step-3} {
+				@include active-step;
+			}
+
+			.#{$id}-current-step-progress-bar::after {
+				width: 90%;
+			}
+
+			form .form-actions {
+				display: block !important;
+				@include active-step;
+			}
+
+			.#{$id}-next-step-container {
+				@include inactive-step("left");
+			}
+
+			.form-item-submitted-let-us-know-where-your-home-visit-is-for {
+				display: none !important;
+			}
+		}
+	}
+
+	form.webform-client-form {
+		font-family: $f-regular;
+		position: relative;
+		max-width: $container-max-width;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 20px;
+
+		& > *:not(.#{$id}-step) {
+			display: none;
+		}
+
+		#{$step-1},
+		#{$step-2},
+		#{$step-3} {
+			transition: $transition;
+		}
+
+		.form-actions button {
+			@include green-button;
+
+			transition: $transition;
+
+			&.#{$id}-disabled {
+				background-color: $c-gray !important;
+				color: $c-black !important;
+				pointer-events: none !important;
+			}
+		}
+
+		.form-type-radio label,
+		select {
+			cursor: pointer;
+		}
+
+		input[type="radio"] {
+			position: relative;
+			appearance: none;
+			background-color: #fff;
+			width: 20px;
+			height: 20px;
+			border: 2px solid $c-green;
+			border-radius: 50%;
+			display: grid;
+			place-content: center;
+
+			&:focus {
+				outline-offset: 3px;
+			}
+
+			&::after {
+				content: "";
+				display: block;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				transform: scale(0);
+				transition: $transition;
+				background-color: $c-light-green;
+			}
+
+			&:checked::after {
+				transform: scale(1);
+			}
+		}
+
+		input[type="checkbox"] {
+			appearance: none;
+			background-color: #fff;
+			margin: 0;
+			width: 20px;
+			height: 20px;
+			border: 2px solid $c-green;
+			border-radius: 0.15em;
+			display: grid;
+			place-content: center;
+
+			&::before {
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				border-radius: 0.15em;
+				background-color: $c-green;
+				background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.3794 2.06082c.3482-.37796.3404-.96207-.0177-1.330637-.3859-.397204-1.0257-.390384-1.40303.014955L3.99609 7.15006 2.04864 5.05445c-.38068-.40965-1.02733-.41536-1.415191-.01251-.356245.37001-.363946.95307-.017598 1.33237L2.64844 8.60025l.63038.65475c.39218.40734 1.04382.40875 1.43776.00311l.63889-.65786 6.02393-6.53943Z' fill='%23fff'/%3E%3C/svg%3E");
+				background-repeat: no-repeat;
+				background-size: 65%;
+				background-position: center;
+				opacity: 0;
+				transition: $transition;
+			}
+
+			&:checked::before {
+				opacity: 1;
+			}
+
+			&:focus {
+				outline-offset: 3px;
+			}
+		}
+
+		input[type="text"],
+		input[type="email"],
+		select,
+		textarea {
+			padding: 5px 10px;
+			min-height: 55px;
+		}
+
+		.form-item-submitted-let-us-know-where-your-home-visit-is-for {
+			margin-top: 20px;
+
+			input {
+				margin-top: 10px;
+			}
+		}
+
+		.form-item-submitted-gdpr-consent {
+			order: 1;
+
+			label {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+				align-items: center;
+				font-family: $f-bold;
+
+				input {
+					margin-right: 10px;
+				}
+
+				& + div {
+					order: 0;
+				}
+			}
+		}
+
+		#recaptcha {
+			order: 1;
+			padding: 0;
+			margin-bottom: 24px;
+		}
+	}
+
+	.#{$id}-banner {
+		@include reset;
+
+		background-color: $c-green;
+		color: #fff;
+		padding: 60px 64px;
+		text-align: center;
+
+		@include media($m-tablet) {
+			padding: 80px 40px;
+		}
+
+		h1 {
+			font-family: $f-medium;
+			font-size: 24px;
+			line-height: 1.25;
+
+			@include media($m-tablet) {
+				font-size: 32px;
+			}
+		}
+	}
+
+	.#{$id}-start-page-container {
+		@include active-step;
+
+		&.#{$id}-hidden {
+			@include inactive-step("left");
+		}
+	}
+
+	.#{$id}-form-start {
+		max-width: $container-max-width;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 20px;
+
+		&-content {
+			padding-bottom: 32px;
+			border-bottom: 2px solid $c-light-gray;
+
+			button {
+				@include green-button;
+			}
+		}
+	}
+
+	.#{$id}-eligibility-steps {
+		@include reset;
+
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 20px;
+		max-width: $container-max-width;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 32px 20px;
+
+		@include media($m-tablet) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto 1fr;
+			padding: 48px 20px;
+		}
+
+		h2 {
+			font-family: $f-medium;
+			font-size: 18px;
+
+			@include media($m-tablet) {
+				font-size: 24px;
+				grid-column: 1/3;
+			}
+		}
+	}
+
+	.#{$id}-eligibility-step {
+		background-color: $c-light-gray;
+
+		&-content {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			gap: 8px;
+			padding: 30px;
+
+			h3 {
+				font-size: 15px;
+				font-family: $f-medium;
+
+				@include media($m-tablet) {
+					font-size: 18px;
+				}
+
+				span {
+					display: inline-flex;
+					justify-content: center;
+					align-items: center;
+					width: 30px;
+					height: 30px;
+					background-color: $c-green;
+					border-radius: 999px;
+					color: #fff;
+					font-family: $f-medium;
+					margin-right: 8px;
+				}
+			}
+
+			p {
+				font-family: $f-regular;
+				font-size: 14px;
+
+				@include media($m-tablet) {
+					font-size: 15px;
+				}
+			}
+
+			a {
+				justify-self: start;
+				font-family: $f-bold;
+				font-size: 14px;
+				color: $c-green;
+				text-decoration-thickness: 2px;
+
+				@include media($m-tablet) {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	.#{$id}-current-step-counter {
+		max-width: $container-max-width;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 20px;
+		padding-top: 160px;
+		margin-top: -80px;
+
+		& > p {
+			font-family: $f-medium;
+			font-size: 18px;
+		}
+	}
+
+	.#{$id}-next-step-container {
+		max-width: $container-max-width;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 20px 20px 60px;
+
+		button {
+			@include green-button;
+
+			transition: $transition;
+
+			&.#{$id}-disabled {
+				background-color: $c-gray !important;
+				color: $c-black;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.#{$id}-current-step-progress-numbers {
+		display: flex;
+		justify-content: center;
+		padding-bottom: 20px;
+	}
+
+	.#{$id}-current-step-progress-number {
+		width: 25px;
+		text-align: center;
+		cursor: pointer;
+		font-size: 24px;
+		font-family: $f-regular;
+		color: $c-gray;
+		transition: color $transition;
+
+		&.current {
+			color: $c-black;
+		}
+
+		& + * {
+			margin-left: 60px;
+		}
+	}
+
+	.#{$id}-current-step-progress {
+		margin-bottom: 40px;
+		position: relative;
+	}
+
+	.#{$id}-current-step-progress-bar {
+		height: 3px;
+		background-color: $c-light-gray;
+		position: relative;
+		left: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		max-width: 100vw;
+		right: 50%;
+		width: 100vw;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 30%;
+			background-color: $c-green;
+			transition: 0.5s ease-in-out;
+		}
+	}
+
+	.#{$id}-step {
+		@include reset;
+		font-family: $f-regular;
+
+		&:not([data-step="3"]) {
+			@include flow(48px);
+
+			& > * {
+				@include flow(20px);
+
+				> div {
+					@include flow(20px);
+				}
+			}
+		}
+
+		* {
+			box-shadow: none;
+			border-color: #cccccc;
+		}
+
+		&[data-step="3"] {
+			@include flow(30px);
+		}
+
+		&[data-step="3"] > *,
+		&[data-step="3"] #addressfield-wrapper > *,
+		&[data-step="3"] #addressfield-wrapper .street-block > *,
+		&[data-step="3"] #addressfield-wrapper .addressfield-container > * {
+			@include flow(10px);
+
+			> div {
+				@include flow(20px);
+			}
+		}
+
+		&:not([data-step="3"]) > * > * label.control-label {
+			display: grid;
+			grid-template-columns: 20px 1fr;
+			gap: 10px;
+			align-items: center;
+		}
+	}
+}

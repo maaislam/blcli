@@ -1,0 +1,47 @@
+/**
+ * @fileoverview The triggers file contains all activation conditions for the experiment.
+ * This is the first file to be evaluated.
+ */
+import activate from './lib/experiment';
+import shared from './lib/shared';
+import { pollerLite } from '../../../../lib/uc-lib';
+import { observePageChange } from '../../../../lib/utils';
+
+const ieChecks = /MSIE|Trident|Edge\/(12|13|14|15|16|17|18)/.test(window.navigator.userAgent);
+
+if(!ieChecks) {
+  const { ID, VARIATION } = shared;
+
+  if(!document.documentElement.classList.contains(`${ID}`)) {
+    pollerLite([
+      'body',
+      '.search-result-content',
+    ], () => {
+      activate();
+    });
+  }
+
+
+  observePageChange(document.body, (p) => {
+    pollerLite([
+      'body',
+      '.search-result-content',
+  
+      
+    ], () => {
+       const removeEverything = () => {
+          document.documentElement.classList.remove('HC073');
+          document.documentElement.classList.remove(`HC073-1`);
+          document.documentElement.classList.remove(`HC073-control`);
+          const allProducts = document.querySelector(`.HC073-offerWrapper`);
+          if(allProducts) {
+            allProducts.remove();
+          }
+      }
+      removeEverything();
+        setTimeout(() => {
+          activate();
+        }, 500);
+    });
+  });
+}

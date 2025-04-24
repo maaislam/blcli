@@ -1,0 +1,31 @@
+@import "./../../../variables";
+
+##{$id}-root {
+  .#{$id}-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-s);
+
+    @media screen and (min-width: $media-desktop) {
+      grid-template-columns: 65% 1fr;
+      grid-template-rows: auto 1fr auto;
+
+      .#{$id}-sidecar {
+        grid-column: 2;
+        grid-row: 1 / 4;
+      }
+    }
+
+    .#{$id}-tile-grid {
+      grid-column: 1;
+    }
+
+    .#{$id}-tile-grid.collapsed {
+      grid-row: 2;
+
+      @media screen and (min-width: $media-tablet) {
+        grid-row: 3;
+      }
+    }
+  }
+}

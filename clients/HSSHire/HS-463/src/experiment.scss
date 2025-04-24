@@ -1,0 +1,40 @@
+@import "./variables";
+
+.#{$id} {
+	.#{$id}-show-more-box {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 10px;
+		margin-top: 10px;
+
+		&[closed] {
+			display: none;
+		}
+	}
+
+	.#{$id}-show-more-toggle {
+		display: inline;
+		color: #0089cf;
+		text-decoration: underline;
+		background-color: transparent;
+		border: 0;
+		font-size: inherit;
+		font-weight: inherit;
+	}
+
+	.details.item_spec_details {
+		p {
+			display: inline;
+		}
+
+		&[closed] {
+			p:first-child {
+				position: relative;
+
+				&::after {
+					content: "..";
+				}
+			}
+		}
+	}
+}

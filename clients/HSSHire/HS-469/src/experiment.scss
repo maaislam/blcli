@@ -1,0 +1,137 @@
+@import "./variables";
+
+.#{$id} {
+	.product_listing_padding {
+		padding-block: 15px;
+		background-color: #f5f5f5;
+	}
+
+	.product_listing_section {
+		@include reset;
+
+		& > .product_list_section > .row {
+			display: none;
+		}
+	}
+
+	.product_list_section {
+		background-color: #f5f5f5;
+	}
+
+	.#{$id}-product-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 30px;
+		width: 100%;
+
+		@include media($m-medium) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.#{$id}-product-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: 1fr 45px;
+		gap: 10px;
+		border: 1px solid #f5f5f5;
+		padding: 20px;
+		background-color: #fff;
+	}
+
+	.#{$id}-product-card__body {
+		display: grid;
+		grid-template-columns: clamp(50px, 30%, 200px) 1fr;
+		align-items: start;
+		gap: 10px;
+
+		@include media($m-small) {
+			grid-template-columns: clamp(50px, 45%, 200px) 1fr;
+		}
+	}
+
+	.#{$id}-product-card__image {
+		position: relative;
+		padding-bottom: 100%;
+
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.#{$id}-product-card__content {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 15px;
+	}
+
+	.#{$id}-product-card__content-title-link {
+		justify-self: start;
+	}
+
+	.#{$id}-product-card__content-title {
+		font-size: 20px;
+		font-weight: 700;
+	}
+
+	.#{$id}-product-card__content-reviews {
+		> * {
+			width: 260px;
+			margin-left: -40px;
+		}
+	}
+
+	.#{$id}-product-card__content-info {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 10px;
+		padding-left: 10px;
+		padding-bottom: 20px;
+	}
+
+	.#{$id}-product-card__content-info-item {
+		position: relative;
+		text-align: left;
+		line-height: 1.6;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0.6em;
+			left: -10px;
+			width: 4px;
+			height: 4px;
+			background-color: #53565a;
+			border-radius: 50%;
+		}
+	}
+
+	.#{$id}-product-card__cta-container {
+		display: grid;
+	}
+
+	.#{$id}-product-card__cta-link {
+		display: grid;
+		align-items: center;
+		text-transform: uppercase;
+		font-weight: 700;
+		background-color: transparent;
+		border: 2px solid #0089cf;
+		color: #0089cf;
+		text-align: center;
+		padding: 10px 25px;
+		transition: 0.25s ease;
+
+		&:hover {
+			background-color: #0089cf;
+			color: #fff;
+		}
+	}
+}

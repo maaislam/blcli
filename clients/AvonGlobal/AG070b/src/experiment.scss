@@ -1,0 +1,233 @@
+@import "./variables";
+
+.#{$id} {
+  overflow-x: hidden;
+
+  // Another experiment/an injected panel, add nicer styles to it.
+  .inc_pdp_block {
+    margin-bottom: 32px;
+  }
+
+  .#{$id}_wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 100px;
+    margin-top: 25px;
+  }
+
+  .#{$id}_gelShine {
+    .#{$id}_parallaxWrapperBottom {
+      // padding: 394px 0 54px;
+
+      h2,
+      p {
+        color: #181818;
+      }
+    }
+  }
+
+  .#{$id}_skinSoSoft {
+    ##{$id}_parallaxWrapper1 {
+      h2 {
+        margin-left: 0;
+        text-align: left;
+      }
+      p {
+        text-align: left;
+        max-width: 620px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .#{$id}_content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 976px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .#{$id}_parallaxWrapper {
+    padding: 200px 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    @media (max-width: 1110px) {
+      padding: 200px 25px;
+    }
+
+    .#{$id}_parallaxContent {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1080px;
+    }
+
+    .#{$id}_starsWrapper {
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    h2 {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 24px;
+      font-family: "Montserrat-Bold", "Montserrat", sans-serif;
+      max-width: 1080px;
+      font-size: 70px;
+      font-weight: bold;
+      color: white;
+    }
+
+    p {
+      font-size: 26px;
+      line-height: 35px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 817px;
+      font-family: "Montserrat-Medium", "Montserrat", sans-serif;
+    }
+
+    &.#{$id}_parallaxWrapperBottom {
+      p {
+        max-width: 1080px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      background-attachment: fixed;
+    }
+  }
+
+  .#{$id}_textImageWrapper {
+    padding: 48px 0;
+
+    .#{$id}_textWrapper {
+      max-width: 478px;
+      text-align: left;
+
+      @media (max-width: 1110px) {
+        padding: 0 25px;
+      }
+
+      &.#{$id}_textRight {
+        text-align: right;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h3 {
+      font-size: 30px;
+      font-weight: bold;
+      color: #181818;
+      margin-bottom: 16px;
+      line-height: 40px;
+      font-family: "Montserrat-Bold", "Montserrat", sans-serif;
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 35px;
+      font-weight: 400;
+      color: #181818;
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$id}_wrapper {
+      margin-bottom: 12px;
+    }
+    .#{$id}_content {
+      flex-wrap: wrap;
+    }
+
+    .#{$id}_parallaxWrapper {
+      padding: 72px 18px;
+
+      h2 {
+        font-size: 36px;
+        line-height: 40px;
+        text-align: center !important;
+      }
+      p {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center !important;
+      }
+    }
+
+    .#{$id}_textImageWrapper {
+      padding: 32px 24px;
+
+      .#{$id}_textWrapper {
+        text-align: center;
+        padding: 0;
+      }
+
+      .#{$id}_imageWrapper {
+        order: -1;
+        margin-bottom: 16px;
+        width: 80%;
+
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      h3 {
+        font-size: 22px;
+        margin-bottom: 0;
+      }
+      p {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &.Layout_Desktop {
+    .#{$id}_slide {
+      opacity: 0;
+      -moz-transition: all 500ms linear;
+      -webkit-transition: all 500ms linear;
+      -o-transition: all 500ms linear;
+      transition: all 500ms linear;
+      -moz-transform: translate3d(-100px, 0px, 0px);
+      -webkit-transform: translate3d(-100px, 0px, 0px);
+      -o-transform: translate(-100px, 0px);
+      -ms-transform: translate(-100px, 0px);
+      transform: translate3d(-100px, 0px, 0px);
+
+      &.#{$id}_slide_right {
+        -moz-transform: translate3d(100px, 0px, 0px);
+        -webkit-transform: translate3d(100px, 0px, 0px);
+        -o-transform: translate(100px, 0px);
+        -ms-transform: translate(100px, 0px);
+        transform: translate3d(100px, 0px, 0px);
+      }
+    }
+
+    .#{$id}_slide.#{$id}_hasSlid {
+      opacity: 1;
+      -moz-transform: translate3d(0px, 0px, 0px);
+      -webkit-transform: translate3d(0px, 0px, 0px);
+      -o-transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      transform: translate3d(0px, 0px, 0px);
+    }
+  }
+}

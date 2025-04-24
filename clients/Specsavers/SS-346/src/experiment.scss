@@ -1,0 +1,302 @@
+@import "./variables";
+
+.#{$id} {
+  div.container.main-content-area {
+    padding-top: 2rem;
+
+    @include media(768px) {
+      padding-top: 0;
+      margin-top: -4rem;
+    }
+
+    @include media(992px) {
+      .pane-unipro-help-faq-unipro-help-faq-ask-the-optician {
+        margin-top: 8rem;
+      }
+    }
+  }
+
+  .desktop-faq-column
+    div.panel-pane.pane-block.pane-unipro-help-faq-unipro-help-faq-most-back-to.pane-unipro-help-faq {
+    display: none;
+  }
+
+  div.sidebar {
+    @include media(768px) {
+      margin-top: 6rem;
+    }
+  }
+
+  .#{$id}-root {
+    @include reset;
+
+    box-sizing: border-box;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-family: $f-regular;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+
+    @include media(768px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    & + .middle-top {
+      border: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    h1 {
+      font-family: $f-medium;
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+      margin-bottom: 0.8rem;
+
+      & + p {
+        margin-bottom: 1.6rem;
+      }
+    }
+
+    details {
+      box-shadow: 0 0 0 1px $c-silver;
+      border-radius: 0.4rem;
+      transition: box-shadow 0.25s ease;
+
+      & + * {
+        margin-top: 1.6rem;
+      }
+
+      &[open] {
+        box-shadow: 0 0 0 2px $c-green;
+        border-width: 2px;
+
+        summary .#{$id}-accordion-cross {
+          transform: rotate(90deg);
+
+          &::before {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    summary {
+      list-style: none;
+      position: relative;
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+      padding-right: 4.2rem;
+      padding-left: 4.2rem;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      @include media(768px) {
+        padding-right: 5rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 1.8rem;
+        left: 1.6rem;
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+      }
+
+      &[icon-email]::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='.8' y='2.8' width='14.4' height='10.4' rx='1.2' stroke='%23222' stroke-width='1.6'/%3E%3Cpath d='m1 3 5.69842 4.88436c.74898.64198 1.85418.64198 2.60316 0L15 3' stroke='%23222' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E");
+      }
+
+      &[icon-store]::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9677 10.304v4.128H8.73573V7.584h1.264c-.512-.896-.96-1.696-1.136-2.048-.336-.656-.48-1.392-.416-2.128h-6.384c-.224 0-.432.144-.512.352L.431734 6.848c-.128.352.128.72.512.72h.463996v7.536c0 .144.112.272.272.272H12.6397c.144 0 .272-.128.272-.272v-4.736c-.128.032-.256.048-.4.048-.192 0-.368-.032-.544-.112Zm-4.17597 1.312h-5.44V7.584h5.44v4.032Z' fill='%23222'/%3E%3Cpath d='M3.39216 10.768c.08 0 .176-.032.224-.112l1.392-1.792c.096-.128.08-.304-.048-.4-.128-.096-.304-.08-.4.048l-1.392 1.792c-.096.128-.08.304.048.4.048.048.112.064.176.064ZM4.97593 10.704c.048.048.112.064.176.064.08 0 .17599-.032.22399-.112l1.392-1.792c.096-.128.08-.304-.048-.4-.128-.096-.304-.08-.4.048l-1.39199 1.792c-.096.128-.08.304.048.4ZM15.264 2.304C14.496.8 12.656.192 11.152.944 9.64797 1.712 9.05597 3.6 9.79197 5.056c.32003.64 1.61603 2.896 2.30403 4.08.192.336.656.32.848 0 .672-1.184 1.968-3.44 2.304-4.08.48-.848.464-1.856.016-2.752Zm-2.736 2.704c-.736 0-1.328-.592-1.328-1.328 0-.736.592-1.328 1.328-1.328.736 0 1.328.592 1.328 1.328 0 .736-.592 1.328-1.328 1.328Z' fill='%23222'/%3E%3C/svg%3E");
+      }
+
+      h2 {
+        font-family: $f-medium;
+        margin-bottom: 0.6rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .#{$id}-accordion-cross {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      display: block;
+      width: 1.4rem;
+      height: 1.4rem;
+      transition: 0.25s ease;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        transition: opacity 0.1s ease;
+      }
+
+      &::after {
+        width: 2px;
+        height: 100%;
+      }
+    }
+
+    .#{$id}-accordion-content {
+      padding-right: 4.2rem;
+      padding-left: 4.2rem;
+      padding-bottom: 2.4rem;
+
+      h3 {
+        font-family: $f-medium;
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .#{$id}-warning-box,
+      .#{$id}-copy-box-content {
+        margin-right: -2.6rem;
+        margin-left: -2.6rem;
+
+        @include media(768px) {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+
+    .#{$id}-store-cta {
+      display: inline-block;
+      padding: 0.8rem 2.4rem;
+      background-color: $c-green;
+      color: #fff;
+      font-family: $f-medium;
+      text-decoration: none;
+      border-radius: 999rem;
+      margin-top: 1.6rem;
+      margin-bottom: 3.2rem;
+      transition: background-color 0.25s ease;
+
+      &:hover {
+        background-color: darken($c-green, 5%);
+      }
+    }
+
+    .#{$id}-copy-box-content {
+      display: flex;
+      flex-direction: column;
+      padding: 1.6rem;
+      background-color: $c-grey;
+      margin-top: 1.6rem;
+      border-radius: 0.4rem;
+
+      @include media(768px) {
+        flex-direction: row;
+        justify-content: flex-end;
+
+        p {
+          display: flex;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+
+      span {
+        display: block;
+        font-size: 1.4rem;
+
+        &:not(:first-of-type) {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &:first-of-type {
+          font-family: $f-medium;
+          font-size: 1.6rem;
+          margin-bottom: 0.4rem;
+
+          @include media(768px) {
+            margin-bottom: 0;
+            margin-right: 0.6rem;
+            font-size: 1.4rem;
+          }
+        }
+      }
+
+      button {
+        display: inline-block;
+        background-color: transparent;
+        font-family: $f-medium;
+        color: $c-green;
+        border: 0;
+        text-decoration: underline;
+        margin-top: 1rem;
+        align-self: flex-end;
+
+        @include media(768px) {
+          margin-top: 0;
+          margin-left: 1rem;
+          justify-self: flex-end;
+          align-self: center;
+        }
+      }
+    }
+
+    .#{$id}-warning-box {
+      position: relative;
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
+      padding-right: 1.6rem;
+      padding-left: 4.2rem;
+      border: 1px solid $c-warning;
+      border-radius: 0.4rem;
+      background-color: $c-warning-light;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 1.8rem;
+        left: 1.6rem;
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.15 13.059c.3791.6667-.1023 1.4943-.8692 1.4943H1.90772c-.7669 0-1.248373-.8276-.86927-1.4943L7.22497 2.17999c.38341-.67423 1.35514-.67423 1.73855 0L15.15 13.059ZM7.43539 6.36542c0-.36384.29496-.6588.6588-.6588.36385 0 .6588.29496.6588.6588v3.73768c0 .3638-.29495.6588-.6588.6588-.36384 0-.6588-.295-.6588-.6588V6.36542Zm.65913 6.29288c.36402 0 .65912-.2831.65912-.6323 0-.3491-.2951-.6322-.65912-.6322-.36403 0-.65913.2831-.65913.6322 0 .3492.2951.6323.65913.6323Z' fill='%23FFAE42'/%3E%3C/svg%3E");
+      }
+
+      h2 {
+        font-family: $f-medium;
+        margin-bottom: 0.6rem;
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        font-family: $f-medium;
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+}

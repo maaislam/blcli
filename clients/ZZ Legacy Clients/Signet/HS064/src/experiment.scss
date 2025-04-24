@@ -1,0 +1,195 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-bannerwrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background: #ececec;
+    }
+    .#{$id}-noticeBanner {
+        text-align: center;
+        background: #efefef;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        position: relative;
+        h4 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: #484849;
+
+            >img {
+              height: 18px;
+              width: auto;
+              margin-right: 10px;
+              vertical-align: middle;
+              display: inline-block;
+            }
+            >span {
+              display: inline-block;
+              vertical-align: middle;
+            }
+        }
+        p {
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: black;
+        } 
+        .#{$id}_link {
+            display: block;
+            margin-top: 5px;
+            text-decoration: none;
+			color: black;
+			cursor: pointer;
+            &.#{$id}__bannerLink {
+                height: 100%;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top: 0;
+            }
+            &.#{$id}_link {
+              color: inherit;
+                &:hover {
+                  color: #a01c29;
+                }
+                text-decoration: underline;
+            }
+            @media(min-width: 1024px) {
+                &.#{$id}__bannerLink {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .page-overlay--is-active + main > .#{$id}-bannerwrap.slick-initialized {
+      max-width: 100vw; /* Fixes slick positioning error */
+    }
+
+		.slick-slider {
+				position: relative;
+				display: block;
+				box-sizing: border-box;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-touch-callout: none;
+				-khtml-user-select: none;
+				-ms-touch-action: pan-y;
+				touch-action: pan-y;
+				-webkit-tap-highlight-color: transparent
+		}
+
+		.slick-list {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: 0;
+				padding: 0
+		}
+
+		.slick-list:focus {
+				outline: 0
+		}
+
+		.slick-list.dragging {
+				cursor: pointer;
+				cursor: hand
+		}
+
+		.slick-slider .slick-list,
+		.slick-slider .slick-track {
+				-webkit-transform: translate3d(0, 0, 0);
+				-moz-transform: translate3d(0, 0, 0);
+				-ms-transform: translate3d(0, 0, 0);
+				-o-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0)
+		}
+
+		.slick-track {
+				position: relative;
+				top: 0;
+				left: 0;
+				display: block;
+				margin-left: auto;
+				margin-right: auto
+		}
+
+		.slick-track:after,
+		.slick-track:before {
+				display: table;
+				content: ''
+		}
+
+		.slick-track:after {
+				clear: both
+		}
+
+		.slick-loading .slick-track {
+				visibility: hidden
+		}
+
+		.slick-slide {
+				display: none;
+				float: left;
+				height: 100%;
+				min-height: 1px
+		}
+
+		[dir=rtl] .slick-slide {
+				float: right
+		}
+
+		.slick-slide img {
+				display: block
+		}
+
+		.slick-slide.slick-loading img {
+				display: none
+		}
+
+		.slick-slide.dragging img {
+				pointer-events: none
+		}
+
+		.slick-initialized .slick-slide {
+				display: block
+		}
+
+		.slick-loading .slick-slide {
+				visibility: hidden
+		}
+		.slick-arrow.slick-hidden {
+				display: none
+		}
+		.slick-dots {
+				display: flex;
+				justify-content: center;
+				margin: 0;
+				padding: 1rem 0;
+				padding-top: 0;
+				list-style-type: none;
+				
+						li {
+								margin: 0 5px;
+						}
+				
+						button {
+								display: block;
+								width: 12px;
+								height: 12px;
+								padding: 0;
+								border: none;
+								border-radius: 100%;
+								background-color: #ccc;
+								text-indent: -9999px;
+						}
+				
+						li.slick-active button {
+								background-color: #a01d29;
+						}
+		}
+}

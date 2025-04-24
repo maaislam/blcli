@@ -1,0 +1,317 @@
+@import './variables';
+
+.#{$id} {
+  .oct-advantage-card-offers:not(.#{$id}__oct-advantage-card-offers) {
+    display: none;
+  }
+
+  .#{$id}__offer-filter-buttons {
+    display: flex;
+    font-family: Boots Sharp, Arial, sans-serif;
+    margin: 0 20px 0;
+
+    @media screen and (max-width: 991px) {
+      margin: 0 10px 0;
+    }
+
+    [data-test-id='applied'] {
+      width: 146px;
+      height: 35px;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 24px;
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #0d8118;
+      background-color: #e9f2e8;
+      border: 1px solid #0d8118;
+      border-bottom: none;
+      border-top-right-radius: 5px;
+      cursor: pointer;
+    }
+
+    [data-test-id='missing'] {
+      position: relative;
+      width: 146px;
+      height: 35px;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 24px;
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #cc0133;
+      background-color: #fadedd;
+      border: 1px solid #cc0133;
+      border-bottom: none;
+      border-left: none;
+      border-top-right-radius: 5px;
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -4px;
+        display: inline-block;
+        width: 5px;
+        border-top: 1px solid #cc0133;
+        background-color: #fadedd;
+      }
+    }
+  }
+
+  .#{$id}__oct-advantage-card-offers {
+    background-color: #fff;
+    padding: 10px 15px 0;
+    margin: 0 20px 10px;
+    border: 1px solid #0d8118;
+    border-bottom: none;
+    overflow-y: auto;
+    min-height: 100%;
+    max-height: 240px;
+
+    @media screen and (max-width: 991px) {
+      margin: 0 10px 10px;
+    }
+
+    &::-webkit-scrollbar {
+      border-radius: 1px;
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f2f2f2;
+      background-clip: padding-box;
+      border-bottom: 7px solid #0000;
+      border-radius: 1px;
+      border-right: 4px solid #0000;
+      border-top: 8px solid #0000;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #d0d0d0;
+      background-clip: padding-box;
+      border-bottom: 7px solid #0000;
+      border-radius: 1px;
+      border-right: 4px solid #0000;
+      border-top: 8px solid #0000;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #616161;
+      background-clip: padding-box;
+      border-right: 4px solid #0000;
+    }
+    p {
+      color: #000;
+    }
+
+    .oct-text--size_s {
+      font-size: 14px;
+    }
+
+    .oct-tile__content {
+      padding: 15px 0;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .oct-advantage-card-offer__savings {
+      display: flex;
+      justify-content: space-between;
+    }
+    .oct-advantage-card-offer__text {
+      font-family: Boots Sharp, Arial, sans-serif;
+      font-size: 14px;
+      color: #e41b68;
+    }
+    .oct-advantage-card-offer__link {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .oct-advantage-card-offer__link svg {
+      height: 16px !important;
+      width: 16px !important;
+    }
+    .oct-advantage-card-offer__savings-cta {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      width: 40%;
+    }
+    .oct-advantage-card-offer__type--applied {
+      font-family: Boots Sharp, Arial, sans-serif;
+      font-size: '10px';
+      font-weight: 700;
+      background: #0c81171a;
+      color: #0c8117;
+      margin-right: 10px;
+      padding: 2px;
+      text-transform: uppercase;
+    }
+    .oct-advantage-card-offer__type--missed {
+      font-family: Boots Sharp, Arial, sans-serif;
+      font-size: '10px';
+      font-weight: 700;
+      background: #ec918f4d;
+      color: #c03;
+      margin-right: 10px;
+      padding: 2px;
+      text-transform: uppercase;
+    }
+    .oct-advantage-card-offer__expiry {
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .oct-advantage-card-offer__expiry-text {
+      font-family: Boots Sharp, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #616161;
+      margin-top: 5px;
+      max-width: 70%;
+    }
+  }
+
+  &__offerWrapper {
+    font-family: Boots Sharp, Arial, sans-serif;
+    margin: 8px 0 18px;
+    &.#{$id}__mobile {
+      display: none;
+
+      @media screen and (max-width: 767px) {
+        display: block;
+        margin: 20px 0 18px;
+      }
+    }
+
+    &.#{$id}__desktop {
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  &__offersContainer {
+    display: flex;
+    //align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1120px) {
+      flex-direction: column;
+    }
+  }
+
+  &__load-now {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+
+    @media screen and (max-width: 580px) {
+      width: 100%;
+    }
+  }
+
+  &__load-title {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: #e41b68;
+    padding-bottom: 8px;
+  }
+
+  &__load-button {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid #e41b68;
+    padding: 13px 21px;
+    background-color: #fff;
+    cursor: pointer;
+
+    &.#{$id}__loaded {
+      background-color: #ffe7f6;
+      pointer-events: none;
+
+      .#{$id}__load-card-success {
+        display: block;
+      }
+    }
+  }
+
+  &__load-card-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &__load-card-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #e41b68;
+    padding-left: 14px;
+  }
+
+  &__load-card-success {
+    display: none;
+    padding-left: 14px;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__filter-section {
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 767px) {
+      padding-top: 16px;
+    }
+  }
+
+  &__filter-title {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+    padding-right: 16px;
+  }
+
+  &__filter-buttons {
+    display: flex;
+  }
+
+  &__filter-button {
+    width: 180px;
+    height: 50px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #05054b;
+    border: 2px solid #05054b;
+    border-radius: 5px;
+    padding: 13px;
+    background-color: #fff;
+    cursor: pointer;
+
+    &.#{$id}__filter-button--active {
+      background-color: #cae0f5;
+    }
+
+    @media screen and (max-width: 1280px) {
+      width: 125px;
+    }
+
+    &:nth-child(2) {
+      margin: 0 15px;
+    }
+  }
+}

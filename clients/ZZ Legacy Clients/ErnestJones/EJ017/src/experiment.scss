@@ -1,0 +1,221 @@
+@import '_mixins.scss';
+.EJ017 {
+  .EJ017_banner {
+    position: relative;
+    height: 200px;
+    background-size: cover; // background-color: saddlebrown;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    //background-image: url('//service.maxymiser.net/cm/images-us/1/1/2/B926E265A18E8E3C2F0836BCBE456C2AD67D198B70630EBF99574A69118C5A34/ernestjones-co-uk/EJ017---Diamonds-Page-Filters/diamond-ring.jpg');
+    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/FF7CF7D33E011196106CD44A7D75FA0FBB551E81607B8EBEAFBA072DAC81A0D6/ernestjones-co-uk/EJ017---Diamonds-Page-Filters/bg.jpg');
+    @media (min-width: 768px) {
+      height: 300px;
+    }
+    @media (min-width: 1024px) {
+      height: 330px;
+    }
+  }
+  .EJ017_banner-background {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%,rgba(0, 0, 0, 0.7) 100%);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .EJ017_banner-content {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: -50px;
+    @media (min-width: 1024px) {
+      margin-top: -66px;
+    }
+    h2 {
+      line-height: normal;
+      text-transform: none;
+      font-family: Georgia;
+      font-weight: 500;
+      color: #fff;
+      font-size: 30px;
+      margin: 0;
+      padding-bottom: 20px;
+      @media(max-width: 500px) {
+        font-size: 22px;
+      }
+    }
+    p {
+      padding-top: 16px;
+      margin: 0;
+      color: #fff;
+      font-family: Georgia;
+      border-top: 1px solid #fff;
+      display: inline-block;
+    }
+  }
+  .js & #content-webnav .browse .browse__sidebar {
+    position: absolute;
+    top: 20px;
+    max-height: calc(100vh - 153px);
+  }
+  .js &.EJ017_sticky #content-webnav .browse .browse__sidebar {
+    position: fixed;
+    top: 124px;
+    max-height: calc(100vh - 153px);
+  }
+  .js &.EJ017_sticky-bottom #content-webnav .browse .browse__sidebar {
+    position: absolute;
+    bottom: 20px;
+    top: auto;
+    max-height: calc(100vh - 153px);
+  }
+  .EJ017_filter-selection {
+    padding: 30px 2%;
+
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    h3,
+    h4 {
+      font-family: Georgia;
+      font-weight: 500;
+      text-transform: none;
+    }
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+    h4 {
+      font-size: 18px;
+      margin: 0 0 20px 0;
+    }
+    .EJ017_half-block {
+      width: 100%;
+      float: left;
+      box-sizing: border-box;
+      padding-bottom: 20px;
+      &+.EJ017_half-block {
+        border-top: 1px solid #e9eaec;
+        padding: 37px 0 0 0;
+      }
+      @media (min-width: 1024px) {
+        width: 50%;
+        padding: 0 20px 0 0;
+        &+.EJ017_half-block {
+          border-top: 0;
+          border-left: 1px solid #e9eaec;
+          padding: 0 0 0 20px;
+        }
+      }
+    }
+  }
+  .EJ017_filter-options {
+    @media (max-width: 1023px) {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding-bottom: 17px;
+    }
+    @media (min-width: 1024px) {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    @media (min-width: 1220px) {
+      max-width: none;
+    }
+  }
+  .EJ017_filter-wrap {
+    background: #fbfbfd;
+    margin-bottom: 10px;
+    text-align: center;
+    @media (min-width: 1024px) {
+      margin-bottom: 0px;
+      padding-bottom: 30px;
+    }
+  }
+  .EJ017_filter {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #e8e6e8;
+    border-radius: 50%;
+    padding: 16px 10px 10px 10px;
+    margin: 0 5px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+    @include anim(300ms,
+    def,
+    (background));
+    @media (min-width: 1024px) {
+      margin: 0 8px;
+    }
+    @media (min-width: 1220px) {
+      margin: 0;
+      &+.EJ017_filter {
+        margin-left: 10px;
+      }
+    }
+    &.EJ017_active {
+      background: #e8e6e8;
+      .EJ017_filter-content {
+        color: #000;
+      }
+    }
+    .EJ017_filter-content {
+      color: #b8b8b8;
+      display: block;
+      font-size: 13px;
+      @include anim(300ms,
+      def,
+      (color));
+    }
+    .EJ017_filter-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(187, 172, 213, 0.95);
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px solid #e8e6e8;
+      box-sizing: border-box;
+      padding: 27px 10px;
+      opacity: 0;
+      color: #fff;
+      font-family: Georgia;
+      @include anim(300ms,
+      def,
+      (opacity));
+    }
+    .EJ017_filter-hover--show {
+      opacity: 1;
+    }
+    // &:hover .EJ017_filter-hover {
+    //   opacity: 1;
+    // }
+    img {
+      max-width: 100%;
+      width: 40px;
+      height: 40px;
+    }
+    &.EJ017_hide {
+      display: none;
+    }
+  }
+}

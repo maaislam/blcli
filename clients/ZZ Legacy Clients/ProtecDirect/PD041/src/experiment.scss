@@ -1,0 +1,742 @@
+@import './variables';
+
+.#{$id} {
+
+  // Global styling
+
+  .PD041_Underline {
+    text-decoration: underline;
+  }
+
+  // Space up breadcrumbs
+  #breadcrumb {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+
+    // Increase breadcrumbs size
+    a {
+      font-size: 14px;
+    }
+
+    ul>li {
+      float: none;
+      display: inline-block;
+    }
+  }
+
+  // Hide next day delivery banner 
+
+  .catBanner {
+    margin-top: 0;
+
+    img {
+      display: none;
+    }
+
+    // Restyle product title
+    h2 {
+      background: none;
+      color: #000000;
+      padding: 0;
+      width: 50%;
+      float: left;
+    }
+
+    // Style inserted prices
+
+    .PD041_Upper_Price_Container {
+      float: right;
+      width: 50%;
+      text-align: right;
+      color: #6cab38;
+
+      span {
+        display: block;
+        font-size: 16px;
+      }
+    }
+
+    // Clear floats
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  // Hide product title
+  .PD041_Details_Content>h3 {
+    display: none;
+  }
+
+  // Clean up carousel area
+
+  #productDetailUpdateable .mainImageHolder {
+    background: none;
+    border-radius: 0;
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+
+    // Make main image take up entire image area
+    >.span-5 {
+      float: none;
+      width: 100%;
+
+      #primary_image {
+        margin: 0;
+      }
+
+      #imageLink {
+        display: inline-block;
+
+        >img {
+          position: static;
+          top: 0;
+          width: 250px;
+          border: none;
+          outline: none;
+        }
+      }
+
+      // Override inline style
+      #zoomLink>.details {
+        bottom: 20px !important;
+      }
+    }
+
+  }
+
+  // Hide thumbnails / restyle main image
+  .PD041_Thumbnail_Hide {
+    >.span-4 {
+      display: none;
+    }
+  }
+
+  // Restyle thumbnails, make them larger and match the main image
+  #productDetailUpdateable>.PD041_Thumbnail_Restyle>.span-4 {
+    float: none;
+    display: block;
+    width: auto;
+
+    .scroller {
+      overflow: visible;
+
+      #carousel_alternate {
+        height: auto;
+        width: auto;
+      }
+
+      .jcarousel-container.jcarousel-container-vertical {
+        padding: 0;
+      }
+
+      .jcarousel.jcarousel-clip.jcarousel-clip-vertical {
+        width: auto;
+        height: auto;
+      }
+
+      .jcarousel-item.jcarousel-item-vertical {
+        height: auto;
+        width: calc(50% - 20px);
+        padding: 0 5px;
+        float: none;
+        display: inline-block;
+        margin: 0;
+
+        .thumb {
+          width: auto;
+          height: auto;
+          border: none;
+        }
+
+        img {
+          width: 100px;
+        }
+      }
+    }
+
+    // Hide arrow carousel
+    .jcarousel-control-prev,
+    .jcarousel-control-next {
+      display: none;
+    }
+  }
+
+  .PD041_Brand_Code_Container {
+
+    margin-bottom: 5px;
+  }
+
+  .PD041_Product_Detail_Area {
+    display: inline-block;
+    width: calc(100% - 355px);
+
+    .PD041_Brand_Code_Container>span {
+      width: calc(50% - 2px);
+      display: inline-block;
+    }
+
+    // Tab area
+
+    // Style tab buttons
+
+    .PD041_Information_Tabs_Container {
+
+      // Clear floats
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    .PD041_Information_Tabs_Container {
+      border: solid 1px #000000;
+      border-top: none;
+    }
+
+    .PD041_Information_Tabs_Container .PD041_Tab_Header {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      color: #000000;
+      background-color: #FFFFFF;
+      transition: color ease 0.5s;
+      padding: 10px 0;
+      border-top: solid 1px #000000;
+      border-bottom: solid 1px #000000;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .PD041_Details_Tab_Header {
+      float: right;
+    }
+
+    .PD041_Tab_Content {
+      padding: 10px;
+    }
+
+    // Display toggled with active styling classes
+    .PD041_Tab_Content {
+      display: none;
+    }
+
+    .PD041_Overview_Active {
+
+      .PD041_Overview_Tab_Header {
+        background-color: #4E4F51;
+        color: #FFFFFF;
+      }
+
+      .PD041_Overview_Content {
+        display: block;
+      }
+    }
+
+    .PD041_Details_Active {
+
+      .PD041_Details_Tab_Header {
+        background-color: #4E4F51;
+        color: #FFFFFF;
+      }
+
+      .PD041_Details_Content {
+        display: block;
+      }
+    }
+
+    .PD041_Overview_Content {
+
+      .PD041_Overview_More_Information_Container {
+        text-align: center;
+
+
+        .PD041_More_Information {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #4E4F51;
+          color: #FFFFFF;
+          cursor: pointer;
+        }
+
+        // Change styling if branding logo exists
+
+        &.PD041_Info_Logo {
+          position: relative;
+
+          img {
+            float: right;
+          }
+
+          // Clear floats
+
+          &::after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+
+          .PD041_More_Information {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -46px;
+          }
+
+        }
+      }
+
+    }
+
+    // Data sheets area
+
+    .PD041_Data_Sheet_Container {
+      margin: 10px 0 0 0;
+
+      >a {
+        display: inline-block;
+        width: calc(50% - 45px);
+        background-color: #E81D19;
+        color: #FFFFFF;
+        padding: 10px 20px;
+        text-align: center;
+      }
+
+      >a:first-child {
+        margin-right: 10px;
+      }
+    }
+
+    // Price Area
+
+    .PD041_Price_Container {
+      margin-top: 10px;
+      box-sizing: border-box;
+      border: solid 1px #000000;
+    }
+
+    .PD041_Price_Container.PD041_Discounts {
+      .PD041_Price_Area {
+        width: 50%;
+        display: inline-block;
+      }
+
+      .PD041_Discount_Area {
+        padding: 10px;
+        float: right;
+
+        >span {
+          display: block;
+        }
+
+        .PD041_Discount_Title {
+          color: #E81D19;
+        }
+      }
+
+      // Clear floats
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+
+    .PD041_Price_Area {
+      padding: 10px;
+
+      >.PD041_ExVat_Price {
+        font-size: 16px;
+      }
+
+      >span {
+        display: block;
+        color: #61A131;
+        font-weight: 700;
+      }
+    }
+
+    // Style next day delivery area
+    .PD041_Free_Delivery_Container {
+      margin-top: 10px;
+      box-sizing: border-box;
+      border: solid 1px #000000;
+
+      >div {
+        padding: 10px;
+      }
+
+      // Clear floats
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    .PD041_Countdown_Container {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      box-sizing: border-box;
+      border-right: 1px solid #000000;
+    }
+
+    .PD041_Free_Delivery_Text_Container {
+      float: right;
+      margin-right: 35px;
+      margin-top: 6px;
+    }
+
+    // style countdown text
+    #PD041_Delivery_Day,
+    #PD041_Countdown {
+      display: inline;
+    }
+  }
+
+  // Hide product details
+
+  #productDetailUpdateable>.PD041_Product_Detail_Area+.span-9 {
+    display: none;
+  }
+
+  #productDetailUpdateable>.span-6.last {
+    display: none;
+  }
+
+  // Bottom container
+
+  .PD041_Related_Details_Area:not(.PD041_Related_Products) {
+
+    .PD041_Discover_More_Container {
+      display: block;
+      margin-left: auto;
+    }
+
+    .PD041_Related_Products_Container {
+      display: none;
+    }
+
+  }
+
+  .PD041_Related_Details_Area.PD041_Related_Products {
+    .PD041_Related_Products_Container {
+      width: 50%;
+      display: inline-block;
+    }
+  }
+
+  .PD041_Related_Details_Area {
+    clear: both;
+    margin-top: 20px;
+
+    >div {
+      vertical-align: middle;
+    }
+
+    .PD041_Related_Products_Container {
+
+
+      h3 {
+        margin: 0;
+      }
+
+      // Style individual related item
+      .jcarousel-item {
+        display: inline-block;
+        width: calc(33% - 15px);
+        margin: 0 5px;
+        text-align: center;
+
+        >a {
+          display: inline-block;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 11px;
+        }
+      }
+
+      .jcarousel-list {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .PD041_Discover_More_Container {
+      width: calc(50% - 10px);
+      display: inline-block;
+      min-height: 205px;
+      background-color: #F4F4F4;
+
+      .PD041_Discover_More_Title {
+        margin: 10px 0 0 10px;
+      }
+
+      .PD041_Discover_More_Link {
+        display: block;
+        background-color: #4E4F51;
+        color: #FFFFFF;
+        padding: 15px 20px;
+        margin: 10px auto;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+  }
+
+  // Hide Product tabs above footer
+  #content .span-24 .span-24:last-child {
+    display: none;
+  }
+
+  // Add to bag area, copying PD003/PD002 styling
+
+  .PD041_Add_To_Bag_Container {
+    text-align: right;
+
+    .PD041_Add_To_Bag_Button {
+      float: none;
+      display: inline-block;
+      width: 30%;
+      height: 50px;
+      color: #fff;
+      background: #6cab38;
+      border: 0;
+      text-transform: uppercase;
+      transition: 0.3s background;
+      margin-top: 5px;
+      font-weight: bold;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0;
+      text-align: center;
+      vertical-align: middle;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        background: #4f9018;
+      }
+    }
+
+    .PD041_ATB_Text {
+      position: absolute;
+      top: 50%;
+      margin-top: -9px;
+      left: 50%;
+      margin-left: -43px;
+    }
+
+    .PD041_Add_To_Bag_Button.PD041_Disable {
+      background: #4E4F51;
+      cursor: progress;
+
+      &:hover {
+        background: #4E4F51;
+      }
+    }
+
+    // Add to basket message controlled by jQuery animations
+
+    .PD041_Basket_Message_Container {
+      display: none;
+      width: 420px;
+      margin: 10px 0 0 auto;
+      text-align: center;
+    }
+
+    .PD041_Basket_Message_Container.PD041_Success .PD041_Basket_Message {
+      color: #6cab38;
+    }
+
+    .PD041_Basket_Message_Container.PD041_Error .PD041_Basket_Message {
+      color: #E81D19;
+    }
+
+    .PD041_Basket_Message {
+      font-size: 14px;
+    }
+
+    // Quantity options area
+
+    .PD041_Options_Wrap {
+      margin: 20px 0;
+
+      &:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+
+    .PD041_Options_Area {
+      float: right;
+    }
+
+    .PD041_Options_Headers {
+      margin-bottom: 10px;
+
+      &:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+
+    .PD041_Single_Option .PD041_Option_Header:first-child {
+      width: 33%;
+    }
+
+    .PD041_Single_Option .PD041_Option_Header:last-child {
+      width: 66%;
+    }
+
+    .PD041_Option_Header {
+      float: left;
+      text-align: center;
+      width: 33.33%;
+    }
+
+    .PD041_Option_Row_Container {
+      background-color: #F4F4F4;
+      margin-bottom: 10px;
+
+      >div {
+        vertical-align: middle;
+        float: left;
+        width: 100px;
+      }
+
+      &:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+
+    .PD041_Detail_Side {
+      padding: 0 30px;
+      text-align: center;
+
+      >span {
+        text-align: center;
+        display: inline-block;
+        line-height: 30px;
+      }
+    }
+
+    // With branding
+
+    .PD041_Branding_Error {
+      display: none;
+      text-align: center;
+    }
+
+    .PD041_Branding_Error_Message {
+      color: #E81D19;
+      padding-bottom: 20px;
+      display: inline-block;
+    }
+
+    .PD041_Options_Area.PD041_Product_Branding {
+
+
+      .PD041_Option_Header {
+        width: 25%;
+      }
+
+      .PD041_Branding_Container {
+        width: auto !important;
+      }
+
+      .PD041_Branding_Button {
+        color: #FFFFFF;
+        background-color: #027ac8;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 6px 20px;
+        cursor: pointer;
+        transition: 0.3s background;
+
+        &:hover {
+          background-color: #0223a3;
+        }
+      }
+    }
+
+    // Quantity Selectors
+    .PD041_Minus,
+    .PD041_Plus {
+      background: #58595b;
+      height: 20px;
+      font-size: 18px;
+      width: 20px;
+      padding: 5px;
+      text-align: center;
+      color: white;
+      line-height: 23px;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .PD041_Plus {
+      float: left;
+    }
+
+    .PD041_Minus {
+      float: left;
+    }
+
+    .PD041_Option_Wrap {
+      height: auto;
+      float: none;
+      display: inline-block;
+      vertical-align: middle;
+
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    // Text Input
+    .PD041_Input {
+      text-align: center;
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: 0 0;
+      box-sizing: border-box;
+      margin: 0 !important;
+      border: solid 1px #58595b;
+      border-radius: 0;
+      float: left;
+    }
+
+    // Updateable Total
+
+    .PD041_Update_Price_Container {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      text-align: left;
+
+      >span {
+        display: block;
+        font-size: 16px;
+      }
+    }
+  }
+}

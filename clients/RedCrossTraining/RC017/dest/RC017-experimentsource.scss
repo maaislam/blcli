@@ -1,0 +1,437 @@
+.rc017 {
+    #wrapper {
+        filter: grayscale(0);
+        transition: 0.5s all;
+    }
+    &.rc17-lightbox-active #wrapper {
+        filter: blur(2px);
+    }
+    .rc17-lightbox-page-overlay {
+        background: rgba(0,0,0,0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 800;
+        width: 100%;
+        height: 100%;
+        display: block;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        transition: 0.5s opacity;
+    }
+    .rc17-lightbox-page-overlay--active {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .rc17-lightbox {
+        background: #efefef;
+        width: 800px;
+        height: auto;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        z-index: 1000;
+        -moz-transform: translate(400%, -50%);
+        -webkit-transform: translate(400%, -50%);
+        transform: translate(400%, -50%);
+        transition: 0.4s all;
+    }
+
+    .rc17-lightbox--active {
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .rc17-lightbox__sidebar {
+        float: left;
+        width: 230px;
+        height: 100%;
+        background: #fff;
+        padding: 12px 12px 50px;
+        min-height: 300px;
+    }
+
+    .rc17-lightbox__title {
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        line-height: 1;
+        margin-top: 3px;
+    }
+    .rc17-lightbox__instructions {
+        color: #838a98;
+        padding: 5px 0;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .rc17-lightbox__main {
+        width: 570px;
+        float: left;
+        padding: 45px 20px 0;
+    }
+    .rc17-lightbox__main-title {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #ccc;
+        text-align: center;
+    }
+    .rc17-lightbox__close {
+        font-size: 25px;
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    .rc17-lightbox__close:hover {
+        color: #252b37;
+    }
+
+    .rc17-lightbox-init {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        background: #000;
+        box-shadow: none;
+        padding: 12px 24px 11px 48px;
+        font-weight: normal;
+        font-size: 20px;
+        color: #fff;
+        transition: 0.3s all;
+        cursor: pointer;
+    }
+
+    .rc17-lightbox-init--active {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    .rc17-lightbox-init .fa {
+       color: #ffffff;
+       font-weight: bold;
+       font-size: 23px;
+       position: absolute;
+       left: 12px;
+       top: 50%;
+       -webkit-transform: translateY(-57%);
+       transform: translateY(-57%);
+    }
+
+    .rc17-lightbox-init:hover {
+        background: #94141d;
+    }
+
+    @media(max-width: 820px) {
+        .rc17-lightbox {
+            width: 100%;
+        }
+        .rc17-lightbox__sidebar {
+            width: 30%;
+            padding: 20px 20px 30px;
+        }
+        .rc17-lightbox__main {
+            width: 70%;
+        }
+    }
+
+    @media(max-width: 767px) {
+        .rc17-lightbox__main,
+        .rc17-lightbox__sidebar {
+            width: 100%;
+        }
+        .rc17-lightbox__sidebar {
+            min-height: 0;
+        }
+        .rc17-lightbox__main {
+            padding: 20px;
+        }
+        .rc17-lightbox__instructions {
+            margin-bottom: 0;
+        }
+        .rc17-lightbox__close {
+            font-size: 20px;
+            color: #fff;
+            top: 5px;
+            right: 5px;
+        }
+        .rc17-lightbox__close:hover {
+            color: #fff;
+        }
+
+        .rc17-lightbox-init {
+            padding: 12px;
+            font-size: 16px;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: 0;
+            width: 100%;
+            box-shadow: none;
+            text-align: center;
+            -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+        }
+        .rc17-lightbox-init--active {
+            -webkit-transform: none;
+            transform: none;
+        }
+        .rc17-lightbox-init .fa {
+            display: inline-block;
+            position: relative;
+            top: auto;
+            left: auto;
+            -webkit-transform: none;
+            transform: none;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    }
+
+    .rc17-steps-tracker {
+        font-size: 11px;
+        color: #000;
+        padding: 0 5px;
+    }
+    .rc17-steps-tracker__step {
+        margin-bottom: 25px;
+        padding: 0 25px;
+        display: block;
+        position: relative;
+    }
+    .rc17-steps-tracker__answer {
+        color: #2de8bf;
+        display: block;
+    }
+    .rc17-steps-tracker__title {
+        color: #000;
+    }
+    .rc17-steps-tracker__title strong {
+        font-weight: normal;
+    }
+    .rc17-steps-tracker__title em {
+        font-style: normal;
+        color: #fff;
+        display: none;
+    }
+    .rc17-steps-tracker .fa-pencil {
+        color: #bbb;
+        position: absolute;
+        font-weight: normal;
+        top: 50%;
+        right: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 13px;
+    }
+    .rc17-steps-tracker .fa-pencil:hover {
+        color: #333;
+    }
+    .rc17-steps-tracker .fa-check {
+        color: green;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 16px;
+    }
+    
+    @media(max-width: 767px) {
+        .rc17-steps-tracker {
+            display: none;
+        }
+    }
+
+    .rc17-question {
+        opacity: 0;
+        transition: 0.5s all;
+    }
+
+    .rc17-question--active {
+        opacity: 1;
+    }
+
+    .rc17-question__answers--checkbox {
+        text-align: left;
+    }
+    .rc17-question__answers--checkbox .rc17-question__answer {
+        width: 150px;
+        text-align: left;
+    }
+    .rc17-question__answers--checkbox .rc17-question__answer-checkbox {
+        float: left;
+        margin: 1px 6px 0 0;
+    }
+    .rc17-question__answers--checkbox .rc17-question__answer-text {
+        float: left;
+        width: 80%;
+    }
+
+    .rc17-question--id-rc17_additional_training .rc17-question__answers--checkbox .rc17-question__answer { 
+        width: 100%;
+    }
+
+    .rc17-question__answers-group {
+        text-align: center;
+        position: relative;
+
+    }
+    .rc17-question--id-rc17_risk_conditions .rc17-question__answers--checkbox {
+        @media(max-width: 768px) {
+            padding-bottom: 55px;
+        }
+    }
+    .rc17-question--id-rc17_risk_conditions .rc17-question__answers-group {
+        &:after {
+            @media(max-width: 768px) {
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+                content: "";
+                width: 100%;
+                height: 65px;
+                margin: 0;
+                padding: 0;
+                background: -moz-linear-gradient(top, rgba(239,239,239,0) 0%, rgba(239,239,239,1) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(239,239,239,0) 0%,rgba(239,239,239,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(239,239,239,0) 0%,rgba(239,239,239,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                pointer-events: none;
+                -webkit-transform: translate(-1px, 1px);
+                -moz-transform: translate(-1px, 1px);
+                transform: translate(-1px, 1px);
+            }
+        }
+    }
+    .rc17-question__answer {
+        float: none;
+        display: inline-block;
+        width: auto;
+    }
+    .rc17-question__answer input {
+        display: inline-block;
+    }
+
+    .rc17-question h2 {
+        color: #cd121f;
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        line-height: 1.3;
+        margin-top: 0;
+    }
+
+    .rc17-additional-text {
+        margin: 15px 0 0;
+        font-style: italic;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .rc17-buttons-wrapper {
+        margin-top: 30px;
+        text-align: center;
+        position: relative;
+    }
+
+    .rc17-question--has-additional-text .rc17-buttons-wrapper {
+        margin-top: 15px;
+    }
+
+    .rc17-question__button {
+        font-weight: bold;
+        display: inline-block;
+        background-color: #cd121f;
+        border: 0;
+        color: #fff;
+        text-align: center;
+        padding: 8px 14px;
+        margin: 0 5px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .rc17-question__back {
+        background: none;
+        text-decoration: underline;
+        color: #cd121f;
+        position: absolute;
+        font-weight: normal;
+        left: 50%;
+        -webkit-transform: translateX(-200%);
+        transform: translateX(-200%);
+        font-size: 14px;
+    }
+
+    @media(max-width: 767px) {
+        .rc17-question h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .rc17-buttons-wrapper {
+            margin-top: 20px;
+        }
+        .rc17-question__answers--radio .rc17-question__answer {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+
+        .rc17-question--id-rc17_risk_conditions .rc17-question__answers {
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+    }
+
+    .rc17-invalid-message {
+        display: none;
+        color: #c00;
+        margin: 15px 0;
+        padding: 15px;
+        background: #eee;
+        text-align: center;
+    }
+    .rc17-invalid-message--active {
+        display: block;
+    }
+
+    .rc17-completed {
+        padding: 30px;
+        text-align: center;
+    }
+
+    @media(max-height: 450px) {
+        /**** Small device landscape considerations ****/
+        .rc17-lightbox__sidebar {
+            margin-bottom: 0;
+            padding: 10px 0 5px;
+            margin: 0;
+        }
+
+        .rc17-question--id-rc17_risk_conditions .rc17-question__answers {
+            max-height: 100px;
+        }
+
+        .rc17-lightbox__instructions {
+            display: none;
+        }
+        
+    }
+    @media(max-width: 320px) and (max-height: 480px) {
+        /* iPhone 4 */
+        .rc17-question--id-rc17_risk_conditions .rc17-question__answers {
+            max-height: 110px;
+        }
+    }
+}

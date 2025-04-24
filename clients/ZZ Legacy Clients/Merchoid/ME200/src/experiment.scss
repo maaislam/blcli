@@ -1,0 +1,122 @@
+@import './variables';
+
+@keyframes popAnim {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.15);
+  }
+  0%{
+    transform: scale(1);
+  }
+}
+
+@keyframes ellipsis {
+  to {
+    width: 25px;
+  }
+}
+@keyframes ME200dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);}
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;}
+}
+@keyframes backgroundProgress {
+  0% { 
+    background: rgba(0,172,229,.7);
+    width: 95%;
+  }
+  70% {
+    border-radius: 10px;
+  }
+  100% {
+    background: rgba(208, 74, 74, 0.93);
+    width: 95%;
+    border-radius: 10px;
+  }
+}
+
+@keyframes smallBarProgress {
+  0% { 
+    background: rgba(0,172,229,.7);
+    width: 90%;
+  }
+  70% {
+    border-radius: 10px 0 0 10px;
+  }
+  100% {
+    background: rgba(208, 6, 6, 1);
+    width: 13%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+}
+
+.#{$id} {
+  #merchoid-scarcity-message,
+  .ME193_scarcityMessage,
+  .ME159_stock-checker,
+  .ME198_scarcityBar {
+    display: none !important;
+  }
+  .#{$id}_scarcityBar {
+    position: absolute;
+    height: 35px;
+    width: 95%;
+    background: rgba(0, 172, 229, .7);
+    border-radius: 5px;
+    top: 20px;
+    left: 50%;
+    z-index: 99;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    padding: 10px;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .35);
+    animation: backgroundProgress 5s ease-in-out forwards;
+    p {
+      margin-bottom: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-weight: 600;
+      width: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      font-size: 14px;
+    }
+    &.#{$id}-animatedLoader{
+      .#{$id}-smallerLoader {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        top: 0;
+        background: white;
+        animation: smallBarProgress 5s ease-in-out forwards;
+      }
+    }
+    .#{$id}-pulseText {
+      &:after {
+        content: '.';
+        animation: ME200dots 1s steps(5, end) infinite;
+      }
+    }
+  }
+}

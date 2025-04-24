@@ -1,0 +1,35 @@
+@import "./../../../variables";
+
+##{$id}-root {
+  .#{$id}-picker-result {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xs);
+    padding-top: var(--space-s);
+    padding-bottom: var(--space-s);
+    font-weight: 400;
+
+    @media screen and (min-width: $media-tablet) {
+      grid-template-columns: 1fr auto;
+    }
+
+    & + * {
+      border-top: 1px solid var(--colour-grey);
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xxs);
+    }
+
+    p:first-of-type {
+      font-size: var(--font-size-xs);
+    }
+
+    &-value {
+      font-size: var(--font-size-s);
+      color: var(--colour-blue);
+    }
+  }
+}

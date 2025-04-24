@@ -1,0 +1,302 @@
+@import './variables';
+
+.#{$id}-3for2 {
+    position: relative;
+
+    .product_offer_notify,
+    .oct-teaser__promotion-offer-roundel-item,
+    .member_price_advantage_roundel {
+        display: none !important;
+    }
+
+    &::after {
+        content: "3 for 2";
+        background: #CC0033;
+        padding: 7px 10px;
+        font-size: 12px;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        color: #FFF;
+        z-index: 5;
+
+        @media all and (max-width: 550px) {
+            top: 5px;
+            left: 5px;
+            padding: 2px 5px;
+            font-size: 11px;
+        }
+
+    }
+}
+
+.#{$id}.#{$id}-promodisplayed {
+    
+    .usabilla-live-button {
+        display: none !important;
+    }
+    
+    .#{$id}-hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-deal-button {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background: #11205E;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 50px 10px 30px;
+        color: #FFF;
+        font-size: 18px;
+        border: none !important;
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: Boots Sharp, Arial, sans-serif;
+
+        @media all and (max-width: 550px) {
+            width: 100%;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 30px;
+            margin-left: 10px;
+        }
+    }
+
+    .#{$id}-deal-container {
+
+        position: fixed;
+        bottom: -100%;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: #11205E;
+        z-index: 1000;
+        padding: 15px 15px 7px;
+        border-top-left-radius: 12px;
+        width: 480px;
+        transform: all 1s ease;
+        font-family: 'Boots Sharp', Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+
+        @media all and (max-width: 550px) {
+            border-top-right-radius: 12px;
+            width: 100%;
+        }
+
+        
+
+        &.#{$id}-animate {
+            bottom: 0;
+            transition: bottom 1s ease 2s;
+            will-change: bottom;
+        }
+
+        & * {
+            box-sizing: border-box;
+        }
+
+        &.#{$id}-deal-container--active {
+            bottom: 0;
+            transform: all 1s ease;
+        }
+
+        h2 {
+            font-family: 'Boots Sharp', Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #FFFFFF;
+            margin-bottom: 0;
+            padding-right: 40px;
+
+            span {
+                font-weight: 700;
+                
+            }
+
+        }
+
+        p {
+            font-family: 'Boots Sharp', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #FFFFFF;
+            margin: 0 0 10px;
+            color: #FFF;
+        }
+
+        .#{$id}-close {
+            position: absolute;
+            top: 13px;
+            right: 10px;
+            background: none !important;
+            border: none !important;
+            color: #FFF;
+            cursor: pointer;
+
+            svg {
+                width: 20px;
+            }
+        }
+
+        .#{$id}-deal {
+            
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            width: 100%;
+
+            @media all and (max-width: 400px) {
+                flex-wrap: wrap;
+            }
+
+            svg {
+                width: 27px;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+
+            &--product {
+                border-radius: 8px;
+                background: #FFF;
+                overflow: hidden;
+                width: 31%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                border: 3px solid #11205E;
+                img {
+                    max-width: 100px;
+                }
+
+                @media all and (max-width: 400px) {
+                    width: 49%;
+                    margin-bottom: 8px;
+                }
+
+                p {
+                    display: flex;
+                    background: #E8F2E9;
+                    color: #000;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    margin-bottom: 0;
+                    width: 100%;
+                }
+
+                &.#{$id}-deal--productempty {
+                    cursor: pointer;
+                    border: 3px solid #CA1138;
+
+                    .#{$id}-plusholder {
+                        min-height: 100px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    svg {
+                        position: static;
+                    }
+
+                    p {
+                        margin-top: auto;
+                        text-decoration: underline;
+                        font-weight: 700;
+                        padding: 10px 0;
+                    }
+                }
+            }
+
+            
+
+        }
+
+    }
+
+    .#{$id}-nomore {
+        color: #FFF;
+        margin: 5px 0 0;
+        font-size: 12px;
+        width: 100%;
+        text-align: center;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .#{$id}-basket3for2 {
+
+        display: flex;
+        padding: 10px 15px 10px 20px;
+        
+        &--inner {
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 15px;
+            border: 2px solid #c03;
+            background: #FFF;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            &--text {
+
+                padding-left: 20px;
+                width: 80%;
+                font-family: Boots Sharp,Arial,sans-serif;
+
+                h3 {
+                    font-weight: bold;
+                }
+
+                p {
+                    margin-bottom: 0;
+                    font-weight: normal;
+                }
+
+            }
+
+            &--button {
+                padding-right: 20px;
+                width: 10%;
+                display: flex;
+                justify-content: flex-end;
+
+                svg {
+                    width: 35px;
+                }
+            }
+
+        }
+
+
+    }
+}

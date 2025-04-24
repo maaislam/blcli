@@ -1,0 +1,12 @@
+/**
+ * @fileoverview The triggers file contains all activation conditions for the experiment.
+ * This is the first file to be evaluated.
+ */
+import activate from './lib/experiment';
+import { pollerLite } from '../../../../lib/uc-lib';
+
+const DOM_RENDER_DELAY = 500; // 2 seconds to about hydration issue
+
+pollerLite(['#trolleyForm', () => window.orderLines && window.orderLines.length > 0], () => {
+  setTimeout(activate, DOM_RENDER_DELAY);
+});

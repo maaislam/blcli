@@ -1,0 +1,162 @@
+@import './variables';
+
+.#{$id} {
+    &__gift-checkbox-container {
+        width: 100%;
+        padding: 0 0 50px;
+
+        @media (max-width: 812px) {
+            padding: 10px 0 30px;
+        }
+
+        .#{$id}__gift-checkbox {
+            text-align: end;
+
+            @media (max-width: 812px) {
+                text-align: left;
+            }
+        }
+
+        span.gift-icon {
+            position: relative;
+            padding-left: 5px;
+            top: 4px;
+        }
+
+        label[for="giftOnOrderMobile"],
+        label[for="giftOnOrderDesktop"] {
+            position: relative;
+            font-size: 18px;
+            color: #181818;
+            font-weight: 600;
+            padding-left: 35px;
+            cursor: pointer;
+
+            @media (max-width: 812px) {
+                font-size: 15px;
+                padding-left: 27px;
+                display: block;
+            }
+        }
+
+        /* Hide the browser's default checkbox */
+        input#giftOnOrderMobile,
+        input#giftOnOrderDesktop {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .custom-checkmark-Mobile,
+        .custom-checkmark-Desktop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 23px;
+            width: 23px;
+            border: 1px solid #7f28c4;
+            border-radius: 3px;
+
+            @media (min-width: 450px) and (max-width: 812px) {
+                top: 7px;
+            }
+
+            @media (max-width: 812px) {
+
+                height: 20px;
+                width: 20px;
+            }
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .#{$id}__gift-checkbox.for-Mobile input:checked~.custom-checkmark-Mobile,
+        .#{$id}__gift-checkbox.for-Desktop input:checked~.custom-checkmark-Desktop {
+            background-color: #7f28c4;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .custom-checkmark-Mobile:after,
+        .custom-checkmark-Desktop:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .#{$id}__gift-checkbox input:checked~.custom-checkmark-Mobile:after,
+        .#{$id}__gift-checkbox input:checked~.custom-checkmark-Desktop:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .#{$id}__gift-checkbox .custom-checkmark-Mobile:after,
+        .#{$id}__gift-checkbox .custom-checkmark-Desktop:after {
+            left: 7px;
+            top: 3px;
+            width: 7px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+
+            @media (max-width: 812px) {
+                left: 6px;
+                top: 3px;
+                width: 6px;
+                height: 10px;
+            }
+        }
+
+    }
+
+    &__gift-checkbox-container.for-Desktop {
+        display: block;
+
+        @media (max-width: 812px) {
+            display: none;
+        }
+    }
+
+    &__gift-checkbox-container.for-Mobile {
+        display: none;
+
+        @media (max-width: 812px) {
+            display: block;
+        }
+    }
+
+    #CartPage {
+        .Cart-Footer .Cart-BottomActions {
+            margin-top: 5rem;
+        }
+
+        .ContentBottom {
+            margin-top: 5rem;
+        }
+    }
+
+    .omni-r-cart-51660 {
+        .Cart-Footer .Cart-BottomActions {
+            display: block !important;
+            text-align: end !important;
+
+            .Cart-ContinueShopping {
+                display: none !important;
+            }
+        }
+
+        .#{$id}__gift-checkbox-container {
+            padding: 0 0 25px;
+
+            @media (max-width: 812px) {
+                padding: 0;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,243 @@
+@import './variables';
+
+.#{$id} {
+  &-logos {
+    &.swiper-container {
+      margin: 10px 0;
+
+      @media(min-width: 1200px) {
+        margin: 0;
+        padding: 21px 0 35px;
+      }
+    }
+
+    .swiper-wrapper {
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide  {
+      @media(min-width: 768px) {
+        flex-shrink: unset;
+        padding: 0 0 10px;
+      }
+      @media(min-width: 1024px) {
+        padding: 0 20px 10px;
+      }
+      @media(min-width: 1200px) {
+        padding: 0 30px 0;
+      }
+
+      a {
+        padding: 15px 20px;
+      }
+    }
+
+  }
+
+  &-explore {
+    max-height: 60px;
+    transition: 0.4s max-height;
+    overflow: hidden;
+
+    @media(min-width: 768px) {
+      display: none;
+    }
+
+    .CTAtext {
+      font-size: 12px !important;
+    }
+    .CTAwrapper {
+      &:hover {
+        .CTAtext {
+          font-weight: bold;
+        }
+
+        hr {
+          border-top: 2px solid #000;
+        }
+      }
+    }
+  }
+
+  .HOFhomeBrandLogos a[href*=brand]:not(.brandLogoTitle):hover {
+    @media(min-width: 1024px) {
+      transition: 0.15s background;
+      transition-delay: 0.05s;
+      background: #fff;
+    }
+  }
+
+  &-active {
+    transition: 0.2s background;
+    background: #fff;
+  }
+
+  &-subsection {
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Montserrat,Arial,Helvetica,sans-serif!important;
+    position: relative;
+    height: auto;
+    max-height: 0;
+    transition: 0.4s max-height;
+    overflow: hidden;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before {
+      content: "";
+      background: #fff;
+      height: 2px;
+      width: 100%;
+      margin-bottom: 18px;
+      display: none;
+      position: absolute;
+      top: 10px;
+
+      @media(min-width: 1200px) {
+        top: 0;
+      }
+    }
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    &__inner {
+      grid-area: 1 / 1 / 2 / 2;
+
+      margin-top: 35px;
+      z-index: 1;
+      opacity: 0;
+      transition: 0.5s opacity;
+
+      &.#{$id}-fadein {
+        opacity: 1;
+      }
+
+      &.#{$id}-fadeout {
+        opacity: 0;
+      }
+    }
+
+    &__close {
+      cursor: pointer;
+      right: 10px;
+      top: 20px;
+      position: absolute;
+      background: url(https://www.houseoffraser.co.uk/images/core/hof-sprite-sheet-v8.svg);
+      display: block;
+      height: 30px;
+      width: 30px;
+      transform: scale(1.25);
+      background-position: -183px -149px;
+      background-size: 750px 750px;
+      font-family: none;
+      z-index: 2;
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      @media(min-width: 768px) {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      break {
+        @media(min-width: 768px) {
+          display: none;
+        }
+      }
+
+      a {
+        display: block;
+        margin: 8px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding: 0.85em;
+        background: #fff;
+        font-size: 12px;
+
+        @media(min-width: 1024px) {
+          padding: 1.1em;
+          font-size: 14px;
+          line-height: 1;
+        }
+      }
+
+      break {
+        flex-basis: 100%;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+    }
+
+    &__all {
+      margin-top: 20px;
+      text-align: center;
+
+      @media(min-width: 768px) {
+        margin-bottom: 30px;
+      }
+
+      a {
+        background: none !important;
+        text-decoration: none !important;
+        font-size: 13px;
+        font-weight: 400;
+
+        &:hover{
+          font-weight: 800;
+        }
+
+        @media(min-width: 1024px) {
+          font-size: 15px;
+        }
+
+        &:after {
+          content: "";
+          width: 70px;
+          height: 1px;
+          background: #333;
+          display: block;
+          margin: 10px auto 11px;
+          padding-bottom: 1px;
+        }
+
+        &:hover:after {
+          height: 2px;
+          margin-top: 9px;
+        }
+      }
+    }
+  }
+
+  .HOFhomeBrandLogos {
+    background: #F7EFE4 !important;
+    &.#{$id}-bl--active {
+      .#{$id}-subsection {
+        max-height: 350px;
+      }
+
+      .#{$id}-subsection:before {
+        display: block;
+      }
+
+      .#{$id}-explore {
+        max-height: 0;
+      }
+    }
+  }
+}

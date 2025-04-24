@@ -1,0 +1,200 @@
+@import "./variables";
+
+.#{$id} {
+  // General
+  .#{$id}_buttons {
+    flex: 1;
+    text-align: center;
+
+    a {
+      @media (max-width: 1130px) {
+        font-size: 14px;
+        width: 108px;
+        padding: 8px 0;
+      }
+    }
+  }
+  .#{$id}_buttonSecondary {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 32px;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 200px;
+    margin-right: 8px;
+    margin-left: 8px;
+    display: inline-block;
+  }
+  .#{$id}_buttonPrimary {
+    color: white;
+    padding: 10px 32px;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 200px;
+    background: #5f24d2;
+    border: 1px solid #5f24d2;
+    display: inline-block;
+
+    &:hover {
+      border: 1px solid #875add;
+
+      background-color: #875add;
+    }
+  }
+
+  // V1
+  &.#{$id}-1 {
+    .#{$id}_middleCta {
+      display: none !important;
+    }
+
+    // Chatbot adjust position
+    #drift-frame-controller {
+      bottom: 80px !important;
+      @media (max-width: 1024px) {
+        bottom: 110px !important;
+      }
+    }
+
+    .#{$id}_sticky {
+      position: fixed;
+      bottom: -150px;
+      transition: all 0.2s;
+      background: #02152c;
+      padding: 16px 24px;
+      width: 100%;
+      z-index: 1000;
+
+      &.#{$id}_active {
+        bottom: 0;
+      }
+    }
+    .#{$id}_stickyContent {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      p {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+        margin-right: 24px;
+      }
+
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        p {
+          margin-right: 0;
+          margin-bottom: 12px;
+          font-size: 14px;
+          width: 100%;
+          text-align: center;
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // V2
+  &.#{$id}-2 {
+    .#{$id}_middleCta,
+    .#{$id}_bottomCta {
+      display: none !important;
+    }
+
+    .#{$id}_ctaWrapper {
+      margin: 24px 0;
+      background: #032550;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      color: white;
+
+      &.#{$id}_ctaWrapperMiddle {
+        max-width: 650px;
+
+        .#{$id}_ctaContent {
+          p {
+            font-size: 20px;
+            @media (max-width: 768px) {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+
+      .#{$id}_ctaContent {
+        max-width: 500px;
+        margin-left: 32px;
+        padding-right: 18px;
+        padding-bottom: 18px;
+
+        @media (max-width: 940px) {
+          padding-bottom: 0;
+        }
+
+        p {
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 1.33;
+          @media (max-width: 1200px) {
+            font-size: 20px;
+          }
+
+          @media (max-width: 768px) {
+            font-size: 18px;
+          }
+        }
+      }
+
+      picture,
+      img {
+        display: flex;
+        align-self: flex-end;
+        width: 260px;
+
+        @media (min-width: 1021px) and (max-width: 1200px) {
+          width: 220px;
+        }
+        @media (min-width: 941px) and (max-width: 1020px) {
+          width: 180px;
+        }
+        @media (max-width: 940px) {
+          max-width: 100%;
+          width: auto;
+        }
+      }
+      .#{$id}_buttons {
+        text-align: left;
+
+        a {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 940px) {
+        padding: 24px 0 0;
+        flex-wrap: wrap;
+
+        .#{$id}_buttonSecondary {
+          border: none;
+        }
+
+        picture,
+        img {
+          order: 2;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,446 @@
+/**
+ * ID - Description
+ *
+ * @fileoverview The main experiment logic goes here. Everything should be written inside the
+ * activate function which is called if the conditions in triggers.js have passed evaluation
+ * @author User Conversion
+ */
+
+import { setup, fireEvent, newEvents, bootsEvents, fireBootsEvent } from '../../../../../core-files/services';
+import { pollerLite } from './../../../../../lib/utils';
+import shared from '../../../../../core-files/shared';
+
+import eventTypes from './eventTypes';
+import actionTypes from './actionTypes';
+import elementTypes from './elementTypes';
+
+const { ID, VARIATION } = shared;
+const testID = `${ID}|Frag Upsizer`;
+const testVariant = `${VARIATION === 'control' ? 'Control' : `V${VARIATION}`}`;
+const testIDAndVariant = `${testID}|${testVariant}`;
+
+// const bootsSVG = `<p class="${ID}-svg-container"><svg width="30px" height="19px" viewBox="0 0 30 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="oct-icon oct-payment-icons__icon" aria-hidden="true" aria-label="" style="height: 19px; width: 31px; fill: black;"><title>WIP / Basket &amp; Checkout / Z / Payment / Payment Card / Boots Advantage Card</title><defs><rect id="bootsAdvantageCardDefs" x="0" y="0" width="16.0555556" height="17" rx="1"></rect></defs><g id="WIP-/-Basket-&amp;-Checkout-/-Z-/-Payment-/-Payment-Card-/-Boots-Advantage-Card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group"><rect id="Rectangle" stroke="#05054B" fill="#FFFFFF" x="0.5" y="0.5" width="29" height="18" rx="2"></rect><line x1="4" y1="5.5" x2="14" y2="5.5" id="Line-2" stroke="#E41B68"></line><line x1="4" y1="8.5" x2="14" y2="8.5" id="Line-2" stroke="#E41B68"></line><g id="Logo-Crop-/-Square-/-No-Background" transform="translate(13.000000, 1.000000)"><mask id="bootsAdvantageCardMask" fill="white"><use xlink:href="#bootsAdvantageCardDefs"></use></mask><use id="Mask" fill-opacity="0" fill="#FFFFFF" xlink:href="#bootsAdvantageCardDefs"></use><path d="M36.2688985,7.25359882 C36.2466034,6.34718376 35.7848465,5.4773888 34.9960723,5.07070235 C35.3075799,4.60406745 35.606763,4.13770382 35.8888439,3.68503881 C36.1861575,4.27550386 36.6267272,4.91337159 36.6267272,5.75264981 C36.6267272,6.28465835 36.4998116,6.8072406 36.2688985,7.25359882 M35.5050228,8.12522402 C35.1680223,8.36552021 34.7667578,8.5074172 34.3160002,8.5074172 C33.7150836,8.5074172 33.2029323,8.26684786 32.8858129,7.85167286 C33.4893198,7.13556426 34.0854762,6.33355268 34.6487306,5.5175426 C35.3033405,5.87761131 35.5712469,6.70809789 35.5715976,7.46019288 C35.5717369,7.69263625 35.5498956,7.91442711 35.5050228,8.12522402 M32.6462348,7.25359882 C32.6147838,7.11719006 32.5980503,6.97163437 32.5980503,6.81792596 C32.5980503,6.04454534 33.1563044,5.42109503 33.893587,5.42109503 C33.9425779,5.42109503 33.9902919,5.42314978 34.0368635,5.42699414 C33.5666451,6.08438093 33.0965611,6.70630675 32.6462348,7.25359882 M23.7660841,10.9186064 C23.5067539,10.9186064 23.3896459,10.7093678 23.3896459,10.3244102 C23.3896459,9.0809549 24.4947408,6.47214916 26.2687,4.93885719 C26.4650726,5.26510417 26.5530756,5.67759323 26.5550022,6.10797769 C26.5640846,8.16340248 24.6807237,10.9186064 23.7660841,10.9186064 M16.7585441,12.2688723 C16.5110839,12.2688723 16.3874217,12.0547441 16.3874217,11.6923992 C16.3874217,10.1110609 19.0760406,4.93885719 20.428592,4.93885719 C20.6843279,4.93885719 20.7997822,5.15298546 20.7997822,5.52359469 C20.7997822,7.12139398 18.1275792,12.2688723 16.7585441,12.2688723 M12.8542107,6.96425611 C12.5222199,6.6031797 12.1568035,6.31064126 11.7832195,6.08273021 C12.7128212,4.16997886 13.7459942,2.36329328 15.0383355,0.984506911 C15.4775352,1.43840802 15.7159756,2.05778819 15.7159756,2.79736709 C15.7159756,4.63897342 14.5009181,6.25486411 12.8542107,6.96425611 M7.68751565,15.8374323 C7.32443056,15.8374323 6.99513208,15.7901335 6.69941292,15.7068685 C8.32192997,13.9139903 9.53085477,11.0412457 10.851987,8.15682901 C11.4067368,8.17467636 11.9408968,8.10763004 12.4125965,8.02517936 C12.6768091,8.57254331 12.8383492,9.24171711 12.8383492,10.037451 C12.8383492,12.642214 10.8889519,15.8374323 7.68751565,15.8374323 M5.52545091,15.0658518 C5.02240072,14.5664533 4.7742728,13.9201355 4.78113379,13.3825394 C4.78453098,13.1158635 4.85134233,12.8687107 4.95998572,12.6546626 C5.12211816,13.0275845 5.51372729,13.3132178 5.98773486,13.3132178 C6.17164927,13.3132178 6.34737046,13.2724737 6.50757116,13.2012422 C6.18603735,13.8983487 5.86283826,14.5290338 5.52545091,15.0658518 M8.90559314,6.38750221 C8.90559314,6.02432958 9.32236671,5.9616772 9.76888105,6.01771236 C9.60809292,6.33139665 9.45240705,6.64733361 9.30128635,6.96425611 C9.04912759,6.7998816 8.90559314,6.59707091 8.90559314,6.38750221 M11.4844473,6.67491341 C11.6587525,6.81509021 11.8239557,6.97729196 11.9750613,7.161784 C11.7243821,7.21293228 11.4678859,7.24417851 11.2076942,7.25359882 C11.299124,7.06021719 11.3913751,6.8672336 11.4844473,6.67491341 M36.7092278,2.05470867 C36.7092278,1.83579388 36.5813406,1.69730515 36.3746,1.69730515 C36.031226,1.69730515 35.619742,2.11817413 35.619742,2.7500931 C35.619742,2.83927301 35.6299344,2.92770063 35.6481843,3.01599148 C35.2543992,3.62691488 34.8442926,4.2441985 34.4303982,4.84199112 C34.2885309,4.81381465 34.1396391,4.79883734 33.9839982,4.79883734 C32.9869328,4.79883734 31.9600477,5.5403163 31.9600477,6.88225506 C31.9600477,7.24752338 32.0240946,7.56724429 32.1347649,7.84429015 C31.2821837,8.8091976 30.5313889,9.43496152 30.0245921,9.43496152 C29.8236363,9.43496152 29.7040821,9.32683773 29.7040821,9.10238339 C29.7040821,8.86124201 29.8213637,8.47873954 30.0557891,7.94660084 L32.9854177,1.50396803 L36.1481632,1.13363889 L36.5076522,0.390039862 L33.4471063,0.48872591 L33.9772492,-0.67717828 L32.7896959,-0.53089314 L32.2523219,0.527229198 L27.9713039,0.665307598 L27.2015016,2.18129764 L31.6785169,1.65702373 L30.777384,3.43152608 C30.3182436,3.22546852 29.7592451,3.10872764 29.1112697,3.10872764 C28.13149,3.10872764 27.2200959,3.35021096 26.4013976,3.75664976 C26.0295124,3.57712732 25.6112794,3.49116172 25.184369,3.49116172 C24.149633,3.49116172 22.9787457,3.98507069 22.0280282,4.85067659 C21.8355432,4.26040681 21.4312902,3.90594404 20.8344145,3.90594404 C20.1383695,3.90594404 19.3994199,4.26984457 18.6925626,4.85573741 C18.2693711,4.51071238 17.6561049,4.41312057 17.0121238,4.65474067 C17.3583902,4.01153743 17.5499111,3.32675337 17.5499111,2.6472353 C17.5499111,1.45753156 16.9885711,0.584744767 15.9642341,0.0580772306 C16.3152523,-0.225192077 16.6843139,-0.478233225 17.0736226,-0.696053782 C16.9309289,-0.807665445 16.8391283,-0.877969851 16.7190921,-0.944444444 C16.2103669,-0.739002388 15.7296709,-0.49669839 15.2745248,-0.222661665 C14.6299928,-0.426667543 13.8598461,-0.53089314 12.9788915,-0.53089314 C8.89283779,-0.53089314 5.02695385,1.81260984 5.02695385,4.70781092 C5.02695385,5.98436932 5.75433367,6.44059567 6.47269183,6.44059567 C7.14511529,6.44059567 7.80238787,6.06568444 8.00988601,5.61294595 C7.42568198,5.49319593 7.07948444,4.98984922 7.07948444,4.35129646 C7.07948444,2.09704177 9.82902424,0.124415045 12.6504618,0.124415045 C13.2820468,0.124415045 13.8294755,0.241087532 14.2782858,0.456514455 C12.5644462,1.76788311 11.2494878,3.55004508 10.1628256,5.45729145 C10.003948,5.43294479 9.85085528,5.42097662 9.7059578,5.42097662 C8.89545476,5.42097662 8.30994224,5.76675393 8.30994224,6.4358768 C8.30994224,6.89094053 8.6075881,7.28014517 9.06376723,7.56245702 C8.39237678,8.95124259 7.80521144,10.339823 7.24070355,11.6037977 C7.04505063,11.220201 6.59871958,10.9697587 6.08255675,10.9697587 C4.83970278,10.9697587 3.9059267,12.0555104 3.9059267,13.3995008 C3.9059267,14.2759806 4.26417607,15.114983 4.88143656,15.7864311 C4.29860988,16.4331222 3.66082683,16.8172661 2.91657444,16.8344318 C2.67188778,16.8401082 2.43436336,16.7830713 2.22300863,16.6619535 C2.8073504,16.5981461 3.2857049,16.1675658 3.27262005,15.6079345 C3.2595352,15.0483033 2.78972029,14.6524648 2.14642783,14.6673738 C1.35727375,14.6855654 0.93139638,15.3406 0.944451645,15.913362 C0.969686778,16.9757929 1.87674222,17.5331673 3.06209173,17.5057432 C4.08512025,17.4820804 4.9657994,17.1191373 5.74868652,16.5086926 C6.49390306,16.9822899 7.42430463,17.2697994 8.46303496,17.2697994 C11.6073928,17.2697994 14.2744292,14.6115679 14.2744292,11.041978 C14.2744292,9.62433205 13.9064695,8.50028223 13.3555285,7.64158368 C14.3769731,7.28431693 15.2721145,6.71600019 15.9706387,6.02793343 C16.9471128,5.06596673 17.6746992,5.15466791 18.0895577,5.41598419 C16.4667611,7.08769712 15.1491858,9.78504737 15.1491858,11.5972323 C15.1491858,12.7197092 15.6013017,13.4514084 16.4721328,13.4514084 C19.0802873,13.4514084 22.196134,8.45535033 22.1569483,5.71053776 C22.9954805,4.78796341 24.1166454,4.23865895 25.0252159,4.23865895 C25.1980737,4.23865895 25.3548164,4.25883386 25.4965459,4.29624291 C23.45772,5.72797709 22.186768,8.17645795 22.186768,10.0599048 C22.186768,11.0577076 22.6807555,11.814369 23.6436626,11.814369 C25.4390415,11.814369 27.7778548,9.03720819 27.7778548,6.2678438 C27.7778548,5.41673647 27.5346143,4.77688432 27.1479915,4.32715497 C27.7759953,3.95593676 28.4661866,3.73052497 29.2040343,3.73052497 C29.6337683,3.73052497 30.0825097,3.83037364 30.4855919,4.00613465 L28.687114,7.54747972 C28.2684677,8.41219656 28.1068354,9.05136482 28.1068354,9.51696053 C28.1068354,10.2320411 28.5280298,10.5990192 29.1979051,10.5990192 C30.1734839,10.5990192 31.3231599,9.6995605 32.4693926,8.41356435 C32.9657216,9.02236767 33.7369701,9.29558372 34.3757861,9.29558372 C34.5790145,9.29558372 34.7882343,9.27575077 34.998074,9.23683714 C34.5153119,9.84187905 33.7115579,10.2979686 32.532682,10.5906073 L32.0059824,12.5146775 C34.0776582,11.8873406 35.3935807,10.411632 35.9529924,8.92388679 C36.9189985,8.45794913 37.7777778,7.56820174 37.7777778,6.33377127 C37.7777778,4.97015304 36.6264489,4.15529215 36.2078026,3.16583287 C36.517638,2.81663609 36.7092278,2.37901168 36.7092278,2.05470867 Z" id="Fill-1" fill="#05054B" mask="url(#bootsAdvantageCardMask)"></path></g></g></g></svg>`
+const arrowSVG = `
+<svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+  <path d="M1.1452 0.825623L6.1452 5.82562L1.1452 10.3256" stroke="black" stroke-linecap="round"/>
+</svg>`;
+
+const bootsSVG = `
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" viewBox="0 0 29 22" fill="none">
+  <path d="M19.9443 1.38756L4.27379 3.78845C1.91344 4.15008 0.337391 6.10582 0.753584 8.15672L2.51195 16.8215C2.92814 18.8724 5.17897 20.2419 7.53932 19.8802L23.2099 17.4793C25.5702 17.1177 27.1463 15.162 26.7301 13.1111L24.9717 4.44626C24.5555 2.39536 22.3047 1.02593 19.9443 1.38756Z" fill="white"/>
+  <path d="M20.7823 1.89818L5.11179 4.29907C2.75144 4.6607 1.17539 6.61644 1.59158 8.66734L2.84755 14.8565C3.26375 16.9074 5.51458 18.2768 7.87493 17.9152L23.5455 15.5143C25.9058 15.1527 27.4819 13.1969 27.0657 11.146L25.8097 4.95688C25.3935 2.90598 23.1427 1.53655 20.7823 1.89818Z" stroke="#05054B"/>
+  <path d="M5.15308 8.1217L13.7007 6.81213" stroke="#E41B68"/>
+  <path d="M5.65546 10.5974L14.203 9.28784" stroke="#E41B68"/>
+  <mask id="mask0_164_98" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="11" y="2" width="16" height="15">
+    <path d="M22.617 2.11575L12.9912 3.41041C12.2494 3.51018 11.794 4.1607 11.9739 4.86337L14.5808 15.0418C14.7608 15.7445 15.5081 16.2333 16.2498 16.1335L25.8757 14.8388C26.6175 14.739 27.0729 14.0885 26.8929 13.3859L24.286 3.20741C24.106 2.50473 23.3588 2.01598 22.617 2.11575Z" fill="white"/>
+  </mask>
+  <g mask="url(#mask0_164_98)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M41.8649 4.93788C41.6795 4.25107 41.1515 3.63978 40.4495 3.41609C40.6107 3.02748 40.7621 2.64042 40.9025 2.26563C41.248 2.68236 41.7162 3.1196 41.8715 3.75777C41.97 4.1623 41.9658 4.57343 41.8649 4.93788ZM41.4192 5.6835C41.1959 5.90276 40.9033 6.05418 40.5451 6.10307C40.0675 6.16824 39.616 6.04087 39.2872 5.75957C39.6342 5.1496 39.9596 4.4751 40.2561 3.79353C40.843 3.99632 41.2096 4.59875 41.349 5.1706C41.3922 5.34733 41.4158 5.51834 41.4192 5.6835ZM38.9861 5.33079C38.9359 5.23048 38.8956 5.12161 38.8672 5.00474C38.7241 4.41667 39.0523 3.88206 39.6382 3.8021C39.6771 3.79678 39.7154 3.79317 39.7532 3.79104C39.5012 4.34191 39.2427 4.8658 38.9861 5.33079ZM32.6076 9.08073C32.4016 9.10886 32.2698 8.96246 32.1985 8.66975C31.9684 7.72424 32.3638 5.62069 33.4897 4.2624C33.7062 4.48918 33.8524 4.79328 33.9336 5.12033C34.3212 6.68225 33.3345 8.98153 32.6076 9.08073ZM27.2889 10.8675C27.0922 10.8943 26.9543 10.7449 26.8873 10.4694C26.5946 9.26698 27.774 5.04251 28.8488 4.89582C29.052 4.86808 29.1834 5.01838 29.252 5.30018C29.5477 6.51512 28.3768 10.719 27.2889 10.8675ZM23.2046 7.25741C22.8739 7.01886 22.5294 6.83605 22.1903 6.70327C22.5751 5.14802 23.0617 3.66219 23.8336 2.47362C24.2666 2.77112 24.5707 3.21623 24.7076 3.77859C25.0484 5.17892 24.3819 6.5394 23.2046 7.25741ZM20.7409 14.5648C20.4523 14.6042 20.1819 14.6039 19.9315 14.5727C20.8891 13.0334 21.3181 10.7179 21.8342 8.38138C22.2783 8.33478 22.6904 8.22587 23.05 8.11201C23.3612 8.49956 23.6134 8.99087 23.7607 9.59593C24.2427 11.5766 23.2849 14.2176 20.7409 14.5648ZM18.88 14.2126C18.3878 13.8874 18.071 13.4229 17.977 13.0134C17.9303 12.8102 17.9377 12.615 17.9844 12.4405C18.1822 12.7065 18.5463 12.8812 18.923 12.8298C19.0691 12.8098 19.2012 12.7598 19.3154 12.6883C19.1889 13.2532 19.0487 13.7678 18.88 14.2126ZM19.96 7.24712C19.8928 6.97097 20.2124 6.87813 20.5776 6.87231C20.5079 7.12826 20.4426 7.38538 20.3812 7.64276C20.1504 7.54512 19.9988 7.40647 19.96 7.24712ZM22.0625 7.18596C22.227 7.27364 22.3883 7.37906 22.5425 7.50296C22.3527 7.56904 22.1547 7.62062 21.9497 7.656C21.9865 7.49904 22.0241 7.34229 22.0625 7.18596ZM41.2527 0.936971C41.2122 0.770512 41.0849 0.679078 40.9206 0.701501C40.6478 0.738743 40.3987 1.10339 40.5156 1.58389C40.5321 1.65171 40.5566 1.71784 40.5874 1.78299C40.3876 2.29024 40.1759 2.80409 39.9576 3.30353C39.8397 3.2975 39.7186 3.30226 39.5949 3.31914C38.8026 3.42728 38.1238 4.10246 38.3721 5.12285C38.4397 5.40059 38.5498 5.63676 38.689 5.83541C38.19 6.66158 37.7092 7.21883 37.3065 7.2738C37.1468 7.2956 37.0318 7.22635 36.9902 7.05568C36.9456 6.87232 36.968 6.56875 37.0558 6.13869L38.1916 0.92208L40.6364 0.297458L40.7844 -0.306952L38.3706 0.100032L38.5761 -0.844L37.6595 -0.603966L37.4283 0.258895L34.0519 0.828204L33.7207 2.06443L37.1814 1.18021L36.7937 2.62724C36.3907 2.52036 35.9249 2.49222 35.4099 2.5625C34.6313 2.66877 33.9518 2.95123 33.3764 3.34908C33.0477 3.25291 32.6994 3.2329 32.3601 3.27921C31.5379 3.39143 30.6988 3.89399 30.1035 4.65529C29.8413 4.22734 29.4545 4.00165 28.9802 4.06639C28.427 4.14188 27.9072 4.49873 27.4539 5.0209C27.0537 4.80445 26.5483 4.79676 26.0813 5.05033C26.2374 4.52369 26.2629 3.98222 26.1371 3.46553C25.917 2.5609 25.3094 1.95813 24.3979 1.66876C24.6244 1.41529 24.8709 1.18285 25.1399 0.975003C25.0059 0.905612 24.9199 0.86211 24.8122 0.824583C24.446 1.03597 24.1088 1.27235 23.7978 1.53009C23.2479 1.44487 22.6166 1.44915 21.9165 1.5447C18.6695 1.98787 16.0311 4.18912 16.5669 6.39058C16.8032 7.36126 17.4656 7.62927 18.0365 7.55136C18.5708 7.47843 19.0238 7.12207 19.1049 6.75531C18.6185 6.72761 18.2502 6.38243 18.132 5.89688C17.7148 4.18278 19.5347 2.38462 21.7768 2.07861C22.2787 2.01011 22.7353 2.03945 23.1319 2.15458C22.0126 3.3376 21.2975 4.83535 20.7869 6.40344C20.6562 6.40216 20.5323 6.40967 20.4171 6.42538C19.7731 6.51329 19.3718 6.83972 19.4956 7.34851C19.5798 7.69453 19.8884 7.95819 20.3031 8.12338C20.0266 9.25221 19.817 10.3717 19.6023 11.3941C19.3758 11.1236 18.9748 10.9816 18.5646 11.0376C17.577 11.1724 17.0359 12.0992 17.2846 13.1212C17.4468 13.7876 17.8868 14.3868 18.5015 14.8304C18.1581 15.3853 17.7223 15.7466 17.1341 15.8404C16.9407 15.8712 16.7414 15.8536 16.551 15.7844C17.0036 15.6725 17.304 15.2932 17.19 14.8691C17.0761 14.445 16.6295 14.195 16.121 14.2761C15.4973 14.3755 15.2801 14.9198 15.3965 15.3539C15.6131 16.159 16.4371 16.4844 17.374 16.335C18.1825 16.2061 18.8152 15.8346 19.3244 15.2855C20.0042 15.5648 20.7968 15.6825 21.6222 15.5698C24.1209 15.2288 25.7484 12.9183 25.0878 10.204C24.8254 9.12605 24.325 8.31125 23.7283 7.71806C24.4739 7.33562 25.08 6.80639 25.5078 6.20744C26.1057 5.37007 26.7003 5.3586 27.0784 5.51231C26.0982 6.95946 25.5503 9.15338 25.8857 10.5313C26.0934 11.3848 26.5881 11.8922 27.2801 11.7977C29.3527 11.5149 30.9042 7.37799 30.3651 5.29513C30.8607 4.50268 31.65 3.96339 32.372 3.86485C32.5094 3.8461 32.6377 3.84444 32.7572 3.85752C31.402 5.16731 30.8451 7.16694 31.1937 8.59908C31.3784 9.3578 31.9109 9.87957 32.6761 9.77514C34.1029 9.58041 35.4475 7.21504 34.935 5.10926C34.7775 4.46209 34.4657 4.00194 34.0753 3.70191C34.5056 3.35153 35.0124 3.10527 35.5987 3.02524C35.9402 2.97863 36.3153 3.00589 36.6681 3.09581L35.8943 5.98366C35.7217 6.68658 35.7115 7.19012 35.7977 7.54415C35.93 8.08789 36.3326 8.32125 36.865 8.24859C37.6402 8.14278 38.3874 7.33416 39.0603 6.23199C39.5673 6.64108 40.2308 6.76518 40.7384 6.69589C40.8999 6.67385 41.0625 6.63608 41.2221 6.58373C40.9504 7.09615 40.3961 7.53013 39.5134 7.88051L39.451 9.40067C40.9812 8.69896 41.7538 7.43413 41.923 6.2422C42.6044 5.78314 43.1222 5.01344 42.8937 4.0748C42.6414 3.03793 41.5757 2.5432 41.0599 1.83624C41.2415 1.53711 41.3127 1.18357 41.2527 0.936971Z" fill="#05054B"/>
+  </g>
+</svg>`;
+
+const revertAllChanges = () => {
+  const allBasketPoints = document.querySelectorAll(`.${ID}-basket-points`);
+  const allBasketSummary = document.querySelectorAll(`.${ID}-advantage-summary`);
+  const allBasketSummaryMessage = document.querySelectorAll(`.${ID}-summary-message`);
+  const allBasketFooter = document.querySelectorAll(`.${ID}-basket-footer`);
+  const basketHolder = document.querySelector('.oct-basket');
+
+  allBasketPoints.forEach((item) => {
+    item.remove();
+  });
+
+  allBasketSummary.forEach((item) => {
+    item.remove();
+  });
+
+  allBasketSummaryMessage.forEach((item) => {
+    item.remove();
+  });
+
+  allBasketFooter.forEach((item) => {
+    item.remove();
+  });
+
+  if(basketHolder && basketHolder.classList.contains(`${ID}-mobile-basket`)){
+    basketHolder.classList.remove(`${ID}-mobile-basket`);
+  }
+
+  if(basketHolder && basketHolder.classList.contains(`${ID}-desktop-basket`)){
+    basketHolder.classList.remove(`${ID}-desktop-basket`);
+  }
+
+};
+
+const startExperiment = () => {
+
+  if(window.outerWidth < 992) {
+
+    pollerLite(['.oct-basket__content', '.oct-basket-totals'], () => {
+      if(document.querySelector(`.${ID}-mobile-basket`)){
+        return;
+      } else {
+      let theBasket = document.querySelector('.oct-basket');
+
+      theBasket.classList.add(`${ID}-mobile-basket`);
+      console.log('mobile basket');
+
+      let mobileBasketInterval = setInterval(() => {
+        if(document.querySelector('.oct-product-tile-new') || document.querySelector('.oct-product-tile')){
+          clearInterval(mobileBasketInterval);
+
+          // pollerLite(['.oct-product-tile'], () => {
+            console.log('mobile basket items');
+    
+            const isLoggedInAdcardUser = window.userObj.isLoggedIn && window.userObj.advantageCardFlag;
+            const isLoggedInResultBoolean = (isLoggedInAdcardUser === 'true');
+            // const isLoggedInResultBoolean = true;
+    
+            const currPoints = document.querySelector('.oct-basket-totals__delivery-header .oct-basket-totals__points')?.innerText.split('earn')[1].split('Boots')[0].trim();
+            const currValue = parseFloat(currPoints * 0.01);
+            console.log(currPoints);
+            console.log(currValue);
+            const currPointsText = `<span>${currPoints} Points</span> With Advantage Card`;
+            const currValueText = `<span>Earn £${currValue.toFixed(2)}</span> With Advantage Card`;
+    
+            // console.log('VARIATION', VARIATION)
+    
+            const cardPointsHTML = `
+              <div class="${ID}-basket-points">
+                <div class="${ID}-basket-points-head">
+                  ${isLoggedInResultBoolean ? 'Congratulations!' : "Don't miss out!"}
+                </div>
+                <div class="${ID}-basket-points-body">
+                  <div class="${ID}-basket-points-body-svg">
+                    ${bootsSVG} 
+                    <p>${VARIATION === '1' ? currPointsText : currValueText }</p>
+                  </div>
+                  <div class="${ID}-basket-points-body-status">
+                    <p class="${ID}-status ${isLoggedInResultBoolean ? `${ID}-applied` : `${ID}-missed`}">${isLoggedInResultBoolean ? 'APPLIED' : 'MISSED'}</p>
+                    <p>${arrowSVG}</p>
+                  </div>
+                </div>
+              </div>
+            `;
+    
+            const basketProducts = document.querySelectorAll(`.${ID}-mobile-basket .oct-product-tile`).length ? document.querySelectorAll(`.${ID}-mobile-basket .oct-product-tile`) : document.querySelectorAll(`.${ID}-mobile-basket .oct-product-tile-new`);
+            const lastBasketProduct = basketProducts[basketProducts.length - 1];
+            // const target = lastBasketProduct.querySelector('.oct-product-buttons') ? lastBasketProduct.querySelector('.oct-product-buttons') : lastBasketProduct.querySelector('.oct-product-buttons-new');
+            const target = document.querySelector('.oct-basket__content .oct-basket-price-advantage .oct-adCardTile');
+
+            target.insertAdjacentHTML('beforebegin', cardPointsHTML);
+            fireBootsEvent(`${VARIATION === '1' ? 'Points' : 'Value'} Displayed`, true, eventTypes.experience_render, {
+              render_element: elementTypes.Icons,
+              render_detail: `${VARIATION === '1' ? 'Points' : 'Value'} Displayed`
+            });
+    
+            if(isLoggedInResultBoolean){
+              const summaryAdvantageHtml = `
+                <div class="${ID}-advantage-summary">
+                  <p>Advantage Card</p>
+                  <p>${VARIATION === '1' ? `Points ${currPoints}` : `Earn £${currValue}`}</p>
+                </div>
+                `;
+    
+              const basketTotalsTarget = document.querySelector(`.${ID}-mobile-basket .oct-basket-totals__topDescription`);
+              basketTotalsTarget.insertAdjacentHTML('afterend', summaryAdvantageHtml);
+              fireBootsEvent(`Signed In and Adcard Owner Summary`, true, eventTypes.experience_render, {
+                render_element: elementTypes.Icons,
+                render_detail: `Signed In and Adcard Owner Summary`
+              });
+            } else if(!isLoggedInResultBoolean){
+              const summaryAdvantageHtml = `
+                <div class="${ID}-summary-message">
+                  <p>
+                    <span>You could earn ${VARIATION === '1' ? currPoints : `£${currValue}`}</span> 
+                    ${VARIATION === '1' ? 'Advantage Card Points' : ''} - 
+                    <span>Sign up</span>
+                  </p>
+                </div>
+                `;
+    
+              const basketFooterTarget = document.querySelector(`.${ID}-mobile-basket .oct-basket-footer`);
+              // basketFooterTarget.insertAdjacentHTML('beforebegin', summaryAdvantageHtml);
+              const adCardMessage = document.querySelector('.oct-basket__content .oct-basket-price-advantage .oct-adCardTile');
+              adCardMessage.style.display = 'none';
+
+            }
+    
+            const priceAdvantageSaving = document.querySelectorAll(`.${ID}-mobile-basket .oct-adCardTile .oct-adCardTile__login-amount`)[1];
+            if(priceAdvantageSaving){
+              const priceAdSaveValue = priceAdvantageSaving.innerText.trim();
+              
+              const pdpPriceAdvantage = document.querySelector(`.${ID}-pdp-price-advantage`);
+              if(pdpPriceAdvantage){
+                pdpPriceAdvantage.remove();
+              }
+
+              const priceAdSaveHtml = `
+              <div class="${ID}-pdp-price-advantage">
+                + Save <strong>${priceAdSaveValue}</strong> with Price Advantage
+              </div>
+              `;
+              const target = document.querySelector(`.${ID}-mobile-basket .${ID}-basket-points`);
+              target.insertAdjacentHTML('afterend', priceAdSaveHtml);
+              fireBootsEvent(`Price Advantage Displayed`, true, eventTypes.experience_render, {
+                render_element: elementTypes.Icons,
+                render_detail: `Price Advantage Displayed`
+              });
+            }
+    
+          // });
+        }
+      }, 100);
+
+    }
+    });
+
+  } else {
+    pollerLite(['.oct-basket__content', '.oct-basket-totals'], () => {
+      console.log('desktop basket');
+
+      if(document.querySelector(`.${ID}-desktop-basket`)){
+        console.log('desktop basket IF')
+        return;
+      } else {
+      let theBasket = document.querySelector('.oct-basket');
+      console.log('desktop basket ELSE')
+
+      theBasket.classList.add(`${ID}-desktop-basket`);
+
+      let basketInterval = setInterval(() => {
+        if(document.querySelector('.oct-product-tile-new') || document.querySelector('.oct-product-tile')){
+          clearInterval(basketInterval);
+
+          // pollerLite(['.oct-product-tile-new' || '.oct-product-tile'], () => {
+            console.log('DESKTOP POLLER');
+    
+            const isLoggedInAdcardUser = window.userObj.isLoggedIn && window.userObj.advantageCardFlag;
+            const isLoggedInResultBoolean = (isLoggedInAdcardUser === 'true');
+    
+            const currPoints = document.querySelector('.oct-basket-totals__delivery-header .oct-basket-totals__points')?.innerText.split('earn')[1].split('Boots')[0].trim();
+            const currValue = parseFloat(currPoints * 0.01);
+            console.log(currPoints);
+            console.log(currValue);
+            const currPointsText = `<span>${currPoints} Points</span> With Advantage Card`;
+            const currValueText = `<span>Earn £${currValue.toFixed(2)}</span> With Advantage Card`;
+    
+            const cardPointsHTML = `
+              <div class="${ID}-basket-points">
+                <div class="${ID}-basket-points-head">
+                  ${isLoggedInResultBoolean ? 'Congratulations!' : "Don't miss out!"}
+                </div>
+                <div class="${ID}-basket-points-body">
+                  <div class="${ID}-basket-points-body-svg">
+                    ${bootsSVG} 
+                    <p>${VARIATION === '1' ? currPointsText : currValueText }</p>
+                  </div>
+                  <div class="${ID}-basket-points-body-status">
+                    <p class="${ID}-status ${isLoggedInResultBoolean ? `${ID}-applied` : `${ID}-missed`}">${isLoggedInResultBoolean ? 'APPLIED' : 'MISSED'}</p>
+                    <p>${arrowSVG}</p>
+                  </div>
+                </div>
+              </div>
+            `;
+    
+            const basketProducts = document.querySelectorAll(`.${ID}-desktop-basket .oct-product-tile`).length ? document.querySelectorAll(`.${ID}-desktop-basket .oct-product-tile`) : document.querySelectorAll(`.${ID}-desktop-basket .oct-product-tile-new`);
+            const lastBasketProduct = basketProducts[basketProducts.length - 1];
+            // const target = lastBasketProduct.querySelector('.oct-product-buttons') ? lastBasketProduct.querySelector('.oct-product-buttons') : lastBasketProduct.querySelector('.oct-product-buttons-new');
+            const target = document.querySelector('.oct-basket__content .oct-basket-price-advantage .oct-adCardTile');
+            target.insertAdjacentHTML('beforebegin', cardPointsHTML);
+            fireBootsEvent(`${VARIATION === '1' ? 'Points' : 'Value'} Displayed`, true, eventTypes.experience_render, {
+              render_element: elementTypes.Icons,
+              render_detail: `${VARIATION === '1' ? 'Points' : 'Value'}`
+            });
+
+    
+            if(isLoggedInResultBoolean){
+              const summaryAdvantageHtml = `
+                <div class="${ID}-advantage-summary">
+                  <p>Advantage Card</p>
+                  <p>${VARIATION === '1' ? `Points ${currPoints}` : `Earn £${currValue}`}</p>
+                </div>
+                `;
+    
+              const basketTotalsTarget = document.querySelector(`.${ID}-desktop-basket .oct-basket-totals__topDescription`);
+              basketTotalsTarget.insertAdjacentHTML('afterend', summaryAdvantageHtml);
+              fireBootsEvent(`Signed In and Adcard Owner Summary`, true, eventTypes.experience_render, {
+                render_element: elementTypes.Icons,
+                render_detail: `Signed In and Adcard Owner Summary`
+              });
+            } else if(!isLoggedInResultBoolean){
+              const summaryAdvantageHtml = `
+                <div class="${ID}-summary-message">
+                  <p>
+                    <span>You could earn ${VARIATION === '1' ? currPoints : `£${currValue}`}</span> 
+                    ${VARIATION === '1' ? 'Advantage Card Points' : ''} - 
+                    <span>Sign up</span>
+                  </p>
+                </div>
+                `;
+    
+              const basketFooterTarget = document.querySelector(`.${ID}-desktop-basket .oct-basket-footer`);
+              // basketFooterTarget.insertAdjacentHTML('beforebegin', summaryAdvantageHtml);
+              const adCardMessage = document.querySelector('.oct-basket__content .oct-basket-price-advantage .oct-adCardTile');
+              adCardMessage.style.display = 'none';
+
+            }
+    
+            const priceAdvantageSaving = document.querySelectorAll(`.${ID}-desktop-basket .oct-adCardTile .oct-adCardTile__login-amount`)[1];
+            if(priceAdvantageSaving){
+              const priceAdSaveValue = priceAdvantageSaving.innerText.trim();
+
+              const pdpPriceAdvantage = document.querySelector(`.${ID}-pdp-price-advantage`);
+              if(pdpPriceAdvantage){
+                pdpPriceAdvantage.remove();
+              }
+    
+              const priceAdSaveHtml = `
+              <div class="${ID}-pdp-price-advantage">
+                + Save <strong>${priceAdSaveValue}</strong> with Price Advantage
+              </div>
+              `;
+              const target = document.querySelector(`.${ID}-desktop-basket .${ID}-basket-points`);
+              target.insertAdjacentHTML('afterend', priceAdSaveHtml);
+              fireBootsEvent(`Price Advantage Displayed`, true, eventTypes.experience_render, {
+                render_element: elementTypes.Icons,
+                render_detail: `Price Advantage Displayed`
+              });
+            }
+    
+          // });
+        }
+      }, 100);
+
+      basketInterval;
+    }
+    });
+  }
+};
+
+export default () => {
+  const { ID, VARIATION } = shared;
+
+	bootsEvents.initiate = true;
+	bootsEvents.methods = ["datalayer"];
+	bootsEvents.property = "G-C3KVJJE2RH"; 
+	bootsEvents.testID = testIDAndVariant;
+
+  setup();
+
+  // fireEvent('Conditions Met');
+
+  if (window.usabilla_live){
+    window.usabilla_live('trigger', `${ID} V${VARIATION} trigger`);
+  }
+  
+  // -----------------------------
+  // Add events that apply to both variant and control
+  // @see https://app.gitbook.com/@userconversion/s/development/events/helpers/
+  // -----------------------------
+  // ...
+
+  // -----------------------------
+  // If control, bail out from here
+  // -----------------------------
+  if(VARIATION == 'control') {
+    return;
+  }
+
+  // -----------------------------
+  // Write experiment code here
+  // -----------------------------
+  // ...
+  document.body.addEventListener('click', (e) => {
+
+    if ((e.target.classList.contains(`.oct-iconButton`) || e.target.closest('.oct-iconButton')) && e.target.closest('#mobileLink_basket')) {
+      // fireEvent('Click - user has clicked on the basket icon to open it');
+      fireBootsEvent('Click - user has clicked on the basket icon to open it', true, eventTypes.experience_action, {
+        action: actionTypes.view_cart,
+        action_detail: 'User has clicked on the basket icon to open it'
+      });
+      document.documentElement.classList.add(`${ID}-basket-loading`);
+
+      let currBasketQuantity = parseInt(document.querySelector('.oct-basket-icon .oct-basket-icon__badge')?.innerText) ? parseInt(document.querySelector('.oct-basket-icon .oct-basket-icon__badge').innerText) : 0;
+
+      // logMessage("Num Items: "+currBasketQuantity);
+      if (currBasketQuantity == 0) {
+        document.documentElement.classList.remove(`${ID}-basket-loading`);
+      } else {
+        if (window.outerWidth > 992) {
+          startExperiment();
+
+        } else {
+          document.documentElement.classList.remove(`${ID}-basket-loading`);
+          startExperiment();
+        }
+
+      }
+
+    }
+
+    if ((e.target.classList.contains(`.oct-notification__ctas_left`) || e.target.closest('.oct-notification__ctas_left')) && e.target.closest('#oct-notification-container')) {
+      // fireEvent('Click - user has clicked on the view basket in the notification to open it');
+      fireBootsEvent('Click - user has clicked on the view basket in the notification to open it', true, eventTypes.experience_action, {
+        action: actionTypes.view_cart,
+        action_detail: 'User has clicked on the view basket in the notification to open it'
+      });
+      document.documentElement.classList.add(`${ID}-basket-loading`);
+
+      let currBasketQuantity = parseInt(document.querySelector('.oct-basket-icon .oct-basket-icon__badge')?.innerText) ? parseInt(document.querySelector('.oct-basket-icon .oct-basket-icon__badge').innerText) : 0;
+
+      // logMessage("Num Items: " + currBasketQuantity);
+      if (currBasketQuantity == 0) {
+        document.documentElement.classList.remove(`${ID}-basket-loading`);
+      } else {
+        if (window.outerWidth > 992) {
+          startExperiment();
+
+        } else {
+          document.documentElement.classList.remove(`${ID}-basket-loading`);
+          startExperiment();
+        }
+
+      }
+
+    }
+
+    if ((e.target.classList.contains(`.oct-basket-header__close-btn`) || e.target.closest('.oct-basket-header__close-btn')) && document.querySelector('.oct-basket__content')) {
+      // fireEvent('Click - user has clicked on the basket to close it');
+      fireBootsEvent('Click - user has clicked on the basket to close it', true, eventTypes.experience_action, {
+        action: actionTypes.close,
+        action_detail: 'User has clicked on the basket to close it'
+      });
+    }
+
+    if (e.target.classList.contains(`${ID}-remove-button`) || e.target.closest(`.${ID}-remove-button`)) {
+      // revertAllChanges();
+    }
+
+  });
+
+
+
+  window.addEventListener("oct-basket:updated", (data) => {
+    console.log('basket updated')
+    revertAllChanges();
+    startExperiment();
+    // if (document.querySelector(`.${ID}-basket-points`)) {
+    //   let currPoints = document.querySelector('.oct-adCardTile__login-amount')?.innerText;
+    //   document.querySelector(`.${ID}-basket-points`).innerText = currPoints + "points";
+    // }
+
+    // let allCurrBasketItems = document.querySelectorAll(`.${ID}-basket .oct-product-tile`);
+    // if (allCurrBasketItems.length == 1) {
+    //   [].slice.call(allCurrBasketItems).forEach((item) => {
+    //     if (!item.querySelector(`.${ID}-remove-button`)) {
+    //       item.querySelector('.oct-product-buttons__remove-cta').insertAdjacentHTML('afterend', `<button data-testid="button" class="${ID}-remove-button oct-button oct-button--cta oct-button--cta-textOnly oct-button--cta-textOnly-responsive oct-product-buttons__remove-cta" tabindex="-1"><div class="oct-button__content"><p class="oct-text oct-text--standard oct-text--size_s" data-testid="text" role="button" tabindex="0" aria-label="Remove">Remove</p></div></button>`);
+    //       item.querySelector('.oct-product-buttons__remove-cta').classList.add(`${ID}-hidden`);
+    //     }
+        
+    //   });
+    // }
+
+
+  });
+};

@@ -1,0 +1,137 @@
+@import './variables';
+
+.#{$id} {
+
+    &__component {
+        margin-top: 10px;
+    }
+
+    .TP171__component + .TP171__component {
+        display: none;
+    }
+
+    &__calculator {
+        // display: grid;
+        // grid-template-rows: 29px 29px 49px 29px;
+        box-sizing: border-box;
+        border: 1px solid #F1F3F6;
+
+        @media all and (min-width: 431px) and (max-width: 800px) {
+            margin-top: 10px;
+        }
+
+        & + .TP171__calculator {
+            display: none;
+        }
+
+        &__title {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 29px;
+            position: relative;
+            cursor: pointer;
+
+            &:after {
+                
+                content: url('http://sb.monetate.net/img/1/581/3527144.png');
+                position: absolute;
+                bottom: 60%;
+                left: 90%;
+                font-size: 24px;
+                height: 15px!important;
+                // left: 20px
+            }
+
+            &--expanded {
+                background-color: #000000;
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: 900;
+                text-align: center;
+                line-height: 29px;
+                position: relative;
+                cursor: pointer;
+                &:after {
+                    content: url('http://sb.monetate.net/img/1/581/3527143.png');
+                    position: absolute;
+                    bottom: 60%;
+                    left: 90%;
+                    font-size: 24px;
+                    height: 15px!important;
+                }
+            }
+        }
+
+        &__headers {
+            border-bottom: 1px solid #F1F3F6;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            line-height: 29px;
+            font-size: 14px;
+
+            & > span {
+                justify-self: center;
+                align-self: center;
+            }
+        }
+
+        &__main {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            padding: 4px;
+
+            &__markup {
+                font-size: 18px;
+                font-weight: 700;
+                text-align: center;
+                align-self: center;
+                justify-self: center;
+                &__input {
+                    height: 28px;
+                    width: 60.62px;
+                    font-size: 18px;
+                    font-weight: 700;
+                    text-align: center;
+
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    &[type=number] {
+                        -moz-appearance: textfield; 
+                    }
+                }
+            }
+
+            &__profit {
+                justify-self: center;
+                align-self: center;
+                font-size: 18px;
+                font-weight: 700;
+                color: #36705A;
+            }
+        }
+
+        &__bot {
+            background: #F1F3F6;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 29px;
+            text-align: center;
+
+            &__green {
+                color: #36705A;
+                font-weight: 700;
+            }
+        }
+    }
+}

@@ -1,0 +1,224 @@
+@import './variables';
+
+@keyframes NH071-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes NH071shake-horizontal {
+    0%,
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateX(-10px);
+              transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateX(10px);
+              transform: translateX(10px);
+    }
+    80% {
+      -webkit-transform: translateX(8px);
+              transform: translateX(8px);
+    }
+    90% {
+      -webkit-transform: translateX(-8px);
+              transform: translateX(-8px);
+    }
+  }
+
+.#{$id} {
+  &.zero-results .main-content section#SearchResults {
+    display: none !important;
+  }
+
+  .main-content #SearchResults.sort-wrapper {
+    display: none !important;
+  }
+
+  &-force-hide {
+    display: none !important;
+  }
+
+  &-force-show {
+    display: block !important;
+  }
+
+    .search-again {
+        .close-btn {
+            display: none;
+        }
+    }
+    .content.search-content {
+        .container {
+            .#{$id}-loader {
+                display: none;
+                &.#{$id}-loader_visible {
+                    display: block;
+                }
+                span {
+                    display: inline-block;
+                    width: 69px;
+                    height: 57px;
+                    vertical-align: middle;
+                    position: relative;
+                    &::after {
+                        content: " ";
+                        display: block;
+                        position: absolute;
+                        top: 0%;
+                        left: 0%;
+                        width: 35px;
+                        height: 35px;
+                        margin: 1px;
+                        border-radius: 50%;
+                        border: 5px solid #fff;
+                        border-color: #ec7125 transparent #215baf transparent;
+                        animation: NH071-dual-ring 1.2s linear infinite;
+                    }
+                }
+                p {
+                    display: inline-block;
+                    width: 20%;
+                    font-size: 16px;
+                    vertical-align: middle;
+                    margin: 0;
+                }
+            }
+            p {
+                display: none;
+            }
+            .bullets {
+              p {
+                display: block;
+              }
+            }
+        }
+        .#{$id}_noResultsWrapper {
+          &.#{$id}_noResultsWrapper--hidden {
+            display: none; 
+          }
+
+          .#{$id}-allDepartures {
+            text-decoration: underline;
+          }
+
+          .#{$id}-resultDiv {
+            margin: 15px 0;
+            background: #fcfcfc;
+            padding: 15px;
+          }
+          .#{$id}-resultDiv--hidden {
+            display: none;
+          }
+
+            h3 {
+                font-size: 20px;
+                margin: 0 0 15px;
+            }
+
+            // other suggestions
+            .#{$id}-suggestion {
+                display: inline-block;
+                width: auto;
+                border: 1px solid #eaeaea;
+                background: #eef5f9;
+                margin: 0 10px 0 0;
+                margin-left: 0;
+                text-align: center;
+                a {
+                    padding: 10px;
+                    display: block;
+                    font-size: 15px;
+                    color: black;
+                    text-transform: capitalize;
+                    font-family: "Open Sans", Arial;
+                }
+            }
+
+            .#{$id}-searchAgain {
+                input {
+                    display: block;
+                    padding: 10px 20px;
+                    background: #fff;
+                    color: #333;
+                    font-family: "Open Sans",Arial;
+                    font-size: 16px;
+                    box-shadow: 0 0 7px 2px #98b3cb;
+                    border-radius: 6px;
+                    border: 0;
+                    margin-right: 10px;
+                    width: 200px;
+                    margin-bottom: 10px;
+                    @media(min-width: 767px) {
+                        display: inline-block;
+                    }
+                    &.#{$id}-search_error{
+                        animation: NH071shake-horizontal 0.6s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                        box-shadow: 0 0 7px 2px #d20909;
+                    }
+                }
+                .#{$id}-search_again_button {
+                    width: 100px;
+                    display: block;
+                    cursor: pointer;
+                    background: #f6743a url('https://www.nationalholidays.com/images/icon-arrowwhite.png') no-repeat 90% center;
+                    background-size: 9px 16px;
+                    color: #fff;
+                    font-size: 17px;
+                    border: none;
+                    border-bottom: 4px solid #ee4f1e;
+                    font-weight: 700;
+                    font-family: "vag_roundedbold", Arial;
+                    padding: 11px 58px 9px 37px;
+                    box-shadow: 1px 3px 1px #D3DDDE;
+                    border-radius: 4px;
+                    transition: background-color, 0.3s;
+                    &:hover {
+                        background-color: #f78957;
+                    }
+                    @media(min-width: 767px) {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    // page with results
+    &.#{$id}-results_show {
+        .result-item {
+            .result-content {
+                padding-bottom: 70px;
+                .details {
+                    ul {
+                        display: none;
+                    }
+                    div:nth-child(6) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .NH074-filter-category {
+          display: none !important;
+        }
+
+        a.shortlist {
+          display: none !important;
+        }
+    }
+}

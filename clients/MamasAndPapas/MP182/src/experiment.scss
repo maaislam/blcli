@@ -1,0 +1,100 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-quicklinks__wrapper {
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    width: 95%;
+    margin: auto;
+
+    &.v1 {
+      padding: 30px 0;
+
+      button.slick-arrow {
+        &:before {
+          content: '\E93C';
+          position: absolute;
+          right: 0;
+          font-family: mamaspapasIcon;
+          color: #000;
+          top: 0;
+        }
+        &.slick-prev:before {
+          transform: rotate(-180deg);
+        }
+      }
+
+    }
+    &.v2 {
+      padding: 2% 0;
+    }
+
+    .slick-dots {
+      position: static;
+      margin-top: 20px;
+      bottom: 0;
+    }
+
+    .#{$id}-quicklinks__content {
+      width: 100%;
+      margin: auto;
+      ul.#{$id}-quicklinks {
+        padding: 0px;
+        list-style: none;
+        margin-bottom: 0px;
+        // --- Slick
+        div.slick-list.draggable {
+          padding: 0px 45px 0px 0px !important;
+        }
+        a {
+          &.#{$id}-link__v1 {
+            div.#{$id}-quicklink__wrapper {
+              display: inline-block;
+              margin: 1vw;
+              position: relative;
+              height: 100px;
+              // background-color: lightcoral;
+              div.#{$id}-img {
+                display: inline-block;
+                width: 65px;
+                height: 65px;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                border-radius: 33px;
+                filter: contrast(0.9);
+
+                position: relative;
+                top: 0px;
+              }
+              li {
+                max-width: 90px;
+                margin: auto;
+                text-align: center;
+                text-decoration: underline;
+                line-height: 20px;
+                margin-top: 5px;
+              }
+            }
+          }
+
+          &.#{$id}-link__v2 {
+            div.#{$id}-quicklink__wrapper {
+              display: inline-block;
+              margin: 10px 6px;
+              li {
+                background-color: #E2EEFA;
+                border-radius: 4px;
+                padding: 10px 20px;
+              }
+              @media only screen and (max-width: 479px) {
+                margin: 5px 4px;
+              }
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}

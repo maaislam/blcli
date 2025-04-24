@@ -1,0 +1,538 @@
+@import "./variables";
+
+.#{$id} {
+	body.add_bg {
+		background-color: #fff;
+	}
+	.login-intercept.checkout {
+		display: none;
+	}
+	#payments-and-security-icon {
+		&.fixed {
+			position: fixed;
+			width: 100%;
+			bottom: 46px;
+			left: 50%;
+			transform: translateX(-50%);
+			@media screen and (max-width: 767px) {
+				bottom: 93px;
+			}
+		}
+	}
+	#checkout-footer {
+		&.fixed {
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+		}
+	}
+	&-simplified-checkout__wrapper {
+		max-width: 450px;
+		display: block;
+		margin: 0 auto;
+		span.error.error-msg {
+			display: none !important;
+		}
+		.guest-checkout__content {
+			border: 2px solid #d6d6d6;
+			margin-bottom: 24px;
+			padding: 16px;
+			&.active {
+				border: 2px solid #000;
+			}
+		}
+
+		.signInUp-checkout__content {
+			border: 2px solid #d6d6d6;
+			padding: 16px;
+			&.active {
+				border: 2px solid #000;
+			}
+		}
+		.simplified-checkout__form {
+			padding-left: 32px;
+			padding-right: 16px;
+			::-webkit-input-placeholder {
+				/* WebKit browsers */
+				text-transform: none;
+			}
+			:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				text-transform: none;
+			}
+			::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				text-transform: none;
+			}
+			:-ms-input-placeholder {
+				/* Internet Explorer 10+ */
+				text-transform: none;
+			}
+			::placeholder {
+				/* Recent browsers */
+				text-transform: none;
+			}
+			label {
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 24px;
+				margin: 0;
+				padding: 0;
+				color: #252525;
+				font-family: "GillSansNova-Medium", sans-serif;
+			}
+			input {
+				border: 2px solid #d6d6d6;
+				font-family: "GillSansNova-Medium", sans-serif;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 24px;
+				text-align: left;
+				text-transform: none;
+				padding: 8px;
+				line-height: 24px;
+				&.password-input {
+					&::-webkit-input-placeholder {
+						/* WebKit browsers */
+						text-transform: none;
+						position: absolute;
+						top: 12px;
+					}
+					&:-moz-placeholder {
+						/* Mozilla Firefox 4 to 18 */
+						text-transform: none;
+						position: absolute;
+						top: 12px;
+					}
+					&::-moz-placeholder {
+						/* Mozilla Firefox 19+ */
+						text-transform: none;
+						position: absolute;
+						top: 12px;
+					}
+					&:-ms-input-placeholder {
+						/* Internet Explorer 10+ */
+						text-transform: none;
+						position: absolute;
+						top: 12px;
+					}
+					&::placeholder {
+						/* Recent browsers */
+						text-transform: none;
+						position: absolute;
+						top: 12px;
+					}
+				}
+				&:focus {
+					border: 2px solid #000;
+				}
+				&.green_bg {
+					border: 2px solid #118f40;
+					position: relative;
+				}
+			}
+			span.error {
+				padding-top: 0;
+			}
+
+			p.massage {
+				font-family: "GillSansNova-Medium", sans-serif;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 24px;
+				color: #252525;
+			}
+			button {
+				display: block;
+				width: 100%;
+				margin-top: 24px;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 12px;
+				line-height: 130%;
+				color: #fff;
+				padding: 8px;
+				text-align: center;
+				height: 32px;
+				margin-bottom: 16px;
+				&:hover {
+					background-color: #000;
+					color: #fff;
+				}
+			}
+		}
+		.guest-checkout__content,
+		.signInUp-checkout__content {
+			.field-wrapper {
+				position: relative;
+				span.green-check {
+					position: absolute;
+					right: 10px;
+					top: 55%;
+					transform: translateY(-50%);
+					display: none;
+				}
+				&.green_bg {
+					span.green-check {
+						display: block;
+					}
+				}
+			}
+			.error-form {
+				display: none;
+			}
+			.email-error,
+			.global-from-error {
+				display: flex;
+				justify-content: flex-start;
+				margin-bottom: 16px;
+				display: none;
+				&.active {
+					display: flex;
+				}
+				span.info-icon {
+					margin-right: 10px;
+				}
+				span.error-massage {
+					font-style: normal;
+					font-weight: 500;
+					font-size: 14px;
+					line-height: 24px;
+					color: #bc0031;
+					font-family: "GillSansNova-Medium", sans-serif;
+					margin-top: -4px;
+				}
+			}
+
+			.simplified-checkout__header {
+				padding-left: 32px;
+				padding-right: 16px;
+				cursor: pointer;
+				h3 {
+					font-style: normal;
+					font-weight: 600;
+					font-size: 16px;
+					line-height: 24px;
+					margin-bottom: 8px;
+					padding: 0;
+					color: #252525;
+					font-family: "GillSansNova-Medium", sans-serif;
+					position: relative;
+
+					&::before {
+						content: "";
+						display: block;
+						width: 12px;
+						height: 12px;
+						border: 2px solid #000;
+						border-radius: 50%;
+						position: absolute;
+						right: calc(100% + 16px);
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+
+				p {
+					font-style: normal;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 24px;
+					margin: 0;
+					padding: 0;
+					color: #252525;
+					font-family: "GillSansNova-Medium", sans-serif;
+				}
+			}
+			.simplified-checkout__form {
+				max-height: 0px;
+				overflow: hidden;
+				transition: all 0.1s ease-in-out;
+
+				a#password-reset {
+					font-family: "GillSansNova-Medium", sans-serif;
+					font-style: normal;
+					font-weight: 500;
+					font-size: 14px;
+					line-height: 24px;
+					color: #000;
+					text-decoration: underline;
+				}
+
+				.login-rememberme {
+					margin-top: 24px;
+					label {
+						position: relative;
+						cursor: pointer;
+						&::after {
+							position: absolute;
+							content: "";
+							width: 36px;
+							left: -36px;
+							height: 24px;
+							background-color: transparent;
+							z-index: 999;
+						}
+						span {
+							font-style: normal;
+							font-weight: 500;
+							font-size: 16px;
+							line-height: 24px;
+							font-family: "GillSansNova-Medium", sans-serif;
+							color: #000;
+						}
+					}
+					.checker {
+						width: 24px;
+						height: 24px;
+						input {
+							display: none;
+						}
+
+						span {
+							width: 24px;
+							height: 24px;
+							position: relative;
+							&::before {
+								border: 1.2px solid #000;
+								content: "";
+								position: absolute;
+								width: 22.8px;
+								height: 22.8px;
+								background-color: #fff;
+								left: 0;
+								top: 0;
+							}
+							&.checked::after {
+								content: "";
+								position: absolute;
+								width: 10px;
+								height: 5px;
+								border: solid #000;
+								border-width: 0px 0px 2px 2px;
+								-webkit-transform: rotate(315deg);
+								transform: rotate(315deg);
+								left: 6px;
+								top: 8px;
+							}
+						}
+					}
+				}
+
+				.not-got-an-account,
+				.got-an-account {
+					font-style: normal;
+					font-weight: 500;
+					font-size: 14px;
+					line-height: 24px;
+					font-family: "GillSansNova-Medium", sans-serif;
+					text-decoration: underline;
+					color: #000;
+					cursor: pointer;
+				}
+				.not-gotac-div,
+				.gotac-div {
+					font-style: normal;
+					font-weight: 500;
+					font-size: 14px;
+					line-height: 24px;
+					font-family: "GillSansNova-Medium", sans-serif;
+					color: #000;
+				}
+				button[disabled] {
+					cursor: pointer;
+					pointer-events: all;
+					opacity: 1;
+				}
+			}
+
+			&.active {
+				.simplified-checkout__header {
+					cursor: default;
+					h3 {
+						&::before {
+							background-color: #000;
+						}
+					}
+				}
+				.simplified-checkout__form {
+					max-height: 1000px;
+					overflow: hidden;
+					transition: all 0.1s ease-in-out;
+					margin-top: 16px;
+				}
+			}
+		}
+
+		.signInUp-checkout__content {
+			.password-field-wrapper {
+				position: relative;
+
+				input {
+					padding-right: 25px;
+				}
+
+				span.eye-icon {
+					position: absolute;
+					right: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					cursor: pointer;
+					height: 30px;
+					width: 15px;
+					padding: 5px;
+					padding-right: 10px;
+					padding-left: 0;
+					display: flex;
+					align-items: center;
+
+					&.active::after {
+						content: "";
+						display: block;
+						width: 1px;
+						height: 10px;
+						background-color: #7f7f7f;
+						position: absolute;
+						right: 16px;
+						top: 50%;
+						-webkit-transform: translateY(-50%);
+						transform: translateY(-50%) rotate(45deg);
+					}
+				}
+			}
+
+			.login-form,
+			.register-form {
+				display: none;
+				&.active {
+					display: block;
+				}
+			}
+		}
+	}
+
+	.ui-dialog.forgot-password-dialog {
+		position: fixed !important;
+		top: 50% !important;
+		left: 50% !important;
+		transform: translate(-50%, -50%);
+		width: 320px !important;
+		height: auto;
+		padding: 16px;
+		background-color: #fff;
+		border: none;
+
+		.ui-dialog-titlebar {
+			padding-bottom: 10px;
+			span {
+				font-style: normal;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 24px;
+				font-family: "GillSansNova-Medium", sans-serif;
+				color: #252525;
+			}
+		}
+		.ui-dialog .ui-dialog-titlebar-close {
+			top: 2px;
+		}
+
+		#dialog-container {
+			.error-form {
+				display: none;
+			}
+			.form-caption {
+				display: none;
+			}
+			p {
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 24px;
+				font-family: "GillSansNova-Medium", sans-serif;
+			}
+			::-webkit-input-placeholder {
+				/* WebKit browsers */
+				text-transform: none;
+			}
+			:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				text-transform: none;
+			}
+			::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				text-transform: none;
+			}
+			:-ms-input-placeholder {
+				/* Internet Explorer 10+ */
+				text-transform: none;
+			}
+			::placeholder {
+				/* Recent browsers */
+				text-transform: none;
+			}
+			label {
+				display: block;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 24px;
+				margin: 0;
+				padding: 0;
+				color: #252525;
+				font-family: "GillSansNova-Medium", sans-serif;
+			}
+			input.input-text {
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 24px;
+				font-family: "GillSansNova-Medium", sans-serif;
+				text-align: left;
+				border: 2px solid #d6d6d6;
+
+				&:focus {
+					border: 2px solid #000;
+				}
+			}
+			.email-error {
+				display: flex;
+				justify-content: flex-start;
+				margin-bottom: 16px;
+
+				span.info-icon {
+					margin-right: 10px;
+				}
+				span.error-msg {
+					font-style: normal;
+					font-weight: 500;
+					font-size: 14px;
+					line-height: 24px;
+					color: #bc0031;
+					font-family: "GillSansNova-Medium", sans-serif;
+					margin-top: -4px;
+				}
+			}
+			.form-row.error {
+				border: none;
+			}
+			button,
+			a.button {
+				display: block;
+				width: 100%;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 12px;
+				line-height: 130%;
+				font-family: "GillSansNova-Medium", sans-serif;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: 10px;
+			}
+		}
+	}
+}

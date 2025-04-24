@@ -1,0 +1,298 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-lightbox__wrapper {
+    // display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99999;
+    overflow: hidden !important;
+    top: 0px;
+    // top: 139px;
+    // top: 70px;
+    &.hide {
+      display: none !important;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      // background-color: #000;
+      background-color: #FFF;
+      z-index: -2;
+      position: fixed;
+      top: 0;
+      // top: 139px;
+      // top: 70px;
+      opacity: .6;
+    }
+    .#{$id}-lightbox__container {
+      display: block;
+      width: 80vw;
+      height: auto;
+      background-color: #FFF;
+      opacity: 1;
+      position: absolute;
+      left: 10.3%;
+      left: 10%;
+      top: 20% !important;
+      max-width: 1024px !important;
+      border: 7px solid #007a53;
+      box-sizing: border-box;
+
+      box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.75);
+      font-family: 'Roboto Condensed',sans-serif;
+
+      @media screen and (max-width: 433px) {
+        width: 100%;
+        left: 0px;
+        top: 0 !important;
+        max-height: 99vh;
+        overflow: scroll;
+
+        @media screen and (max-width: 320px) {
+          max-height: 568px;
+          overflow: scroll;
+        }
+      }
+
+      .#{$id}-lightbox__header {
+        display: block;
+        width: 100%;
+        height: 50px;
+        // background-color: #da291c;
+        .#{$id}-lightbox__title {
+          // color: #FFF;
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          position: relative;
+          // top: 50%;
+          top: 33%;
+          left: 0;
+          // transform: translateY(-50%);
+          font-size: 20px;
+          font-weight: 600;
+          font-family: 'Roboto Condensed',sans-serif;
+
+          @media screen and (max-width: 433px) {
+            left: unset;
+            width: 85%;
+            padding-left: 3%;
+          }
+
+        }
+        .#{$id}-lightbox__close {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          color: #FFF;
+          background-image: url('https://dl.airtable.com/.attachmentThumbnails/6208dc0642022bb29fd814e982bc041f/a664d22a');
+          background-size: 100%;
+          background-repeat: no-repeat;
+          transform: rotate(45deg);
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .#{$id}-lightbox__content {
+        padding: 20px;
+        // max-height: 380px;
+        max-height: 415px;
+        position: relative;
+        @media screen and (max-width: 433px) {
+          max-height: unset;
+        }
+
+        ul.#{$id}-dips {
+          list-style: none;
+          margin: auto;
+          font-family: 'Roboto Condensed',sans-serif;
+          
+          li.#{$id}-dip {
+            display: inline-block;
+            width: 19%;
+            text-align: center;
+            // background-color: lightblue;
+            min-height: 200px;
+
+            @media screen and (max-width: 433px) {
+              &:nth-of-type(odd), &:nth-of-type(even) {
+                display: inline-block;
+                width: 49%;
+                min-height: unset;
+                margin-bottom: 20px;
+
+                @media screen and (max-width: 320px) {
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                }
+              }
+              &:nth-of-type(6) {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+            }
+
+
+            &:nth-of-type(1) {
+              display: none;
+            }
+
+            .#{$id}-dip__img {
+              
+
+              div {
+                display: block;
+                width: 90px;
+                height: 90px;
+                margin: auto;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                // background-color: lightcoral;
+                @media screen and (max-width: 433px) {
+                  width: 60px;
+                  height: 60px;
+                }
+
+                &##{$id}-bbq__img {
+                  background-image: url('https://dl.airtable.com/.attachmentThumbnails/838988c30737f4b73a226b0bc4c45acf/c16837ce');
+                }
+                &##{$id}-specialGarlic__img {
+                  background-image: url('https://dl.airtable.com/.attachmentThumbnails/85fa0e42bc0a3c0c2a42cf7bca039a59/69773b28');
+                }
+                &##{$id}-garlicAndHerb__img {
+                  background-image: url('https://dl.airtable.com/.attachmentThumbnails/bdb1348cdc7d69c2da76f01adb847197/6526b5b0');
+                }
+                &##{$id}-hotBuffalo__img {
+                  background-image: url('https://dl.airtable.com/.attachmentThumbnails/fc66a753795b7befb2aa6c2f94a945f3/a0ea37db');
+                }
+                &##{$id}-pizzaSauce__img {
+                  background-image: url('https://dl.airtable.com/.attachmentThumbnails/6951169ffe6238ea6af8b8302311dbcf/46fdc34b');
+                }
+              }
+              
+            }
+            .#{$id}-dip__title {
+              font-weight: 700;
+            }
+            .#{$id}-dip__input {
+              @media screen and (max-width: 433px) {
+                // display: none;
+              }
+              // -- Increase / Decrease input
+              form {
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                padding: 20px 0px;
+
+                @media screen and (max-width: 433px) {
+                  padding: 5px 0px;
+                }
+              }
+              
+              .value-button {
+                display: inline-block;
+                // border: 1px solid #ddd;
+                margin: 0px;
+                width: 40px;
+                height: 20px;
+                text-align: center;
+                vertical-align: middle;
+                padding: 11px 0;
+                // background: #eee;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                /// edw
+                color: #007a53;
+                font-weight: 800;
+                font-size: 1.8em;
+              }
+              
+              .value-button:hover {
+                cursor: pointer;
+              }
+              
+              form .decrease {
+                margin-right: -4px;
+                border-radius: 8px 0 0 8px;
+              }
+              
+              form .increase {
+                margin-left: -4px;
+                border-radius: 0 8px 8px 0;
+              }
+              
+              form #input-wrap {
+                margin: 0px;
+                padding: 0px;
+              }
+              
+              input.number {
+                text-align: center;
+                border: none;
+                border: 1px solid #ddd;
+                // border-bottom: 1px solid #ddd;
+                margin: 0px;
+                width: 40px;
+                height: 40px;
+              }
+              
+              input[type=number]::-webkit-inner-spin-button,
+              input[type=number]::-webkit-outer-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+              }
+              // -- END -- Increase / Decrease input
+            }
+            .#{$id}-dip__cta {
+              width: 80%;
+              margin: auto;
+              .#{$id}-cta__btn{
+                background-color: #007a53;
+                color: #FFF;
+                width: 90%;
+                margin: auto;
+                padding: 7px 5px;
+                font-weight: 500;
+                font-size: .8em;
+
+                @media screen and (max-width: 320px) {
+                  font-size: .7em;
+                  padding: 5px;
+                }
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+
+        .#{$id}-skip-step {
+          text-align: center;
+          font-family: 'Roboto Condensed',sans-serif;
+          padding: 2vw 0 1vw 0;
+          a {
+            color: #007a53;
+            font-weight: 700;
+            font-size: 1.2em;
+          }
+          
+        }
+      }
+    }
+  }
+}

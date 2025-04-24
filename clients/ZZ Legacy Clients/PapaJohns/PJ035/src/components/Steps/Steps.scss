@@ -1,0 +1,147 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}_Steps {
+    list-style-type: none;
+    font-family: 'Open Sans Condensed',sans-serif;
+    font-size: 0;
+    padding: 0;
+    position: relative;
+
+    &:after {
+      width: 100%;
+      background: #209f81;
+      left: 0;
+    }
+  }
+
+  // Dashed line
+  .#{$id}_Steps:after,
+  .#{$id}_Step:after,
+  .#{$id}_Step:first-of-type:before,
+  .#{$id}_Step:last-of-type:before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    height: 1px;
+  }
+
+  .#{$id}_Step {
+    display: inline-block;
+    width: 33.33%;
+    padding: 12px 0;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+
+    &:after {
+      background: #FFF;
+      width: 60px;
+      z-index: 2;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:first-of-type:before {
+      background: #FFF;
+      width: 50%;
+      z-index: 2;
+      left: 0;
+    }
+
+    &:last-of-type:before {
+      background: #FFF;
+      width: 50%;
+      z-index: 2;
+      right: 0;
+    }
+  }
+
+  .#{$id}_Step--active {
+    .#{$id}_Step-num {
+      height: 45px;
+      width: 45px;
+      margin-top: -5px;
+      background: #209f81;
+
+      i {
+        line-height: 45px;
+        font-size: 21px;
+      }
+    }
+
+    .#{$id}_Step-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: black;
+    }
+  }
+
+  .#{$id}_Step--completed {
+    .#{$id}_Step-num:after {
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-color: #209f81;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      background-image: url('https://ab-test-sandbox.userconversion.com/experiments/PJ035-white_tick.png');
+      background-position: center;
+      background-size: 20px;
+      background-repeat: no-repeat;
+    }
+
+    .#{$id}_Step-text {
+      color: black;
+    }
+  }
+
+  .#{$id}_Step-num {
+    display: inline-block;
+    margin: 0 auto;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background: #636363;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+
+    i {
+      line-height: 35px;
+      font-weight: bold;
+      font-size: 18px;
+      font-style: normal;
+    }
+  }
+
+  .#{$id}_Step-text {
+    font-size: 12px;
+    display: block;
+    line-height: normal;
+    margin-top: 2px;
+    color: #505050;
+  }
+
+  // Existing elements
+  // .checkout-mobile-panel {
+  //   margin-top: 0 !important;
+  // }
+
+  // Dealbuilder
+  .aside-pick-deal .aside-header {
+    > a {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .#{$id}_Steps {
+      margin: 0 -5px;
+    }
+  }
+}

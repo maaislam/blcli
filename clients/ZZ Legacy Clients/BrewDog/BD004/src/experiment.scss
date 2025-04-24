@@ -1,0 +1,150 @@
+@import './variables';
+
+.#{$id} {
+    .BD004-popup {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0,0,0,.75);
+        z-index: 9999999;
+    }
+
+
+    .BD-hide { display: none !important; }
+
+    .BD004-popup--wrap {
+        max-width: 640px;
+        margin: auto;
+        margin-top: 50px;
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+
+        button.btn.tertiary-btn {
+            display: block;
+            width: 100%;
+        }
+
+        p {
+            font-size: 1.25em;
+            line-height: 1.3em;
+        }
+
+        button.BD-close:not(.BD004-continue) {
+            appearance: none;
+            background-color: transparent;
+            color: #00afdb;
+            text-decoration: underline;
+            display: inline-block;
+            margin: 10px auto;
+            border: none;
+            font-size: 1.4em;
+            text-transform: initial !important;
+            letter-spacing: 0.1em;
+        }
+    }
+
+    .BD004-popup--close {
+        position: absolute;
+        top: 30px; right: 30px;
+        width: 45px;
+        height: 40px;
+        text-align: right;
+        cursor: pointer;
+
+        img {
+            max-width: 50%;
+            margin: auto;
+            height: auto;
+        }
+    }
+
+    .BD004-popup--center {
+        border: 2px solid #000;
+        padding: 35px 15px;
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 2.4em;
+        }
+
+    }
+
+    .BD004-popup--tabs {
+        max-width: 320px;
+        margin: auto;
+        padding-top: 20px;
+    }
+
+
+    .BD004-tab--content {
+        position: relative;
+        input#BD004-confirmAge {
+            left: 0;
+        }
+        label {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+    }
+
+    button.BD-tabBtn {
+        display: block;
+        border: 2px solid #999;
+        width: 100%;
+        text-transform: initial !important;
+        margin-bottom: 25px;
+        background-color: transparent;
+        text-align: left;
+        padding: 0 20px 0 50px;
+        position: relative;
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 16px;
+        }
+
+        &:before {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            border-radius: 10px;
+        }
+
+        &:after {
+            width: 12px;
+            height: 12px;
+            background-color: #00afdb;
+            border: 1px solid #00afdb;
+            border-radius: 6px;
+            left: 19px;
+            top: 20px;
+            visibility: hidden;
+            opacity: 0;
+            transition: ease all .3s;
+        }
+
+        &:not(.BD-toggle) {
+            border-color: #00afdb;
+
+            &:after {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+    }
+
+
+    @media only screen and (max-width: 339px) {
+        .BD004-popup--wrap {
+            max-height: 480px;
+            max-height: 85vh;
+            overflow-y: scroll;
+        }
+    }
+
+
+}

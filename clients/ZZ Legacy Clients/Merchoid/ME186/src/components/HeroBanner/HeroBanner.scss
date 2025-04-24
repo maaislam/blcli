@@ -1,0 +1,170 @@
+@import '../../variables';
+
+// ----- Variables -----
+$background-offset-y: 70px; // How low down the background should be
+
+
+// ----- Styles -----
+.#{$id} {
+  .#{$id}_HeroBanner {
+    position: relative;
+    margin-bottom: $background-offset-y;
+    margin-bottom: calc(#{$background-offset-y} + 10px);
+    
+    .flickity-page-dots {
+      bottom: -35px;
+
+      .dot {
+        border: 3px solid #fff;
+        width: 12px;
+        height: 12px;
+        
+        &.is-selected {
+          background-color: #fff;
+        }
+      }
+    }
+
+    .flickity-prev-next-button {
+      right: 0;
+      background: rgba(0, 0, 0, 0.50);
+      height: 45px;
+      width: 45px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 1;
+
+      svg, path {
+        fill: white;
+      }
+
+      svg {
+        max-width: 33px;
+        max-height: 33px;
+      }
+    }
+
+    .asSeeninimage-bar {
+      position: absolute;
+      background: none;
+      z-index: 2;
+      width: 100%;
+      padding: 0;
+      bottom: -47px;
+
+      li.me111-seenInlogo {
+        height: auto;
+        width: 90px;
+        line-height: normal;
+
+        &.right {
+          left: initial;
+          right: 20px;
+        }
+
+        &.left {
+          left: 20px;
+        }
+
+        > p {
+          display: block;
+          margin: 0;
+          font-size: 9px;
+          line-height: normal;
+        }
+
+        > img {
+          padding: 0;
+          display: inline-block;
+          margin: 2px 0 0 0;
+          max-height: 20px;
+          width: auto;
+          max-width: 65px;
+        }
+      }
+    }
+  }
+
+  .#{$id}_HeroBanner-background {
+    position: absolute;
+    height: 100%;
+    height: calc(100% + 10px);
+    width: 100%;
+    top: $background-offset-y;
+    background: #0cbbf4;
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0% 100%);
+  }
+
+  .#{$id}_HeroBanner-slides {
+    padding: 0 5px;
+    margin: 0 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .#{$id}_HeroBanner-slide {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+
+    > a {
+      display: block;
+    }
+  }
+
+  .#{$id}_HeroBanner-content {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    line-height: normal;
+  }
+  
+  .#{$id}_HeroBanner-slideImg {
+    border-radius: 4px;
+  }
+
+  .#{$id}_HeroBanner-slideTitle {
+    color: white;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+
+  .#{$id}_HeroBanner-slideDesc {
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .#{$id}_HeroBanner-slideCta {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 25px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+    background: #f4851f;
+    border-radius: 4px;
+  }
+
+  .#{$id}_HeroBanner-slideGradient {
+    display: none;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    display: block;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.25882352941176473) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 0 0 4px 4px;
+  }
+}

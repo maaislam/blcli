@@ -1,0 +1,304 @@
+// Old TP112 code that styles filters
+.TP126 {
+  // Hide current filters section - Client amend, no longer hiding filters
+  // #facets_filters>.item {
+  //   display: none;
+  // } 
+  // Hide elements if they do not exist, using test class
+  // Hide refinement title
+  #facets_filters > .title_holder {
+    display: none;
+  }
+
+  // .TP126-Hide {
+  //   display: none;
+  // } // Create space between test content and product information
+  .TP126_Wrap {
+    margin-bottom: 20px;
+    max-width: 670px;
+    float: right;
+  }
+
+  // Style header
+  .TP126_Header {
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  // Style the dropdown options
+  // Allow drop down options to sit next to each other
+  .TP126_Filter-Wrap {
+    vertical-align: middle;
+    display: inline-block;
+    // width: calc(25% - 50px); // Space out options
+    // Client amend reduce space between drop downs
+    margin: 10px 0 0 0;
+  }
+
+  // Style drop down selectors - using styling from drop down on page
+  .TP126_Select_Group {
+    // Client amend - increase font size
+    font-size: 16px;
+    outline: 0;
+    background: #eee;
+    border: 1px solid #000;
+    color: #000;
+    min-width: 170px;
+  }
+
+  // Space out options above and below more filter options
+  .TP126_Show_More_Wrap {
+    margin: 15px 0;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  // Client amend, change button styling
+  .TP126_More_Filter_Options {
+    cursor: pointer;
+    background: #eee;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-transform: capitalize;
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
+    transition: box-shadow 0.5s;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+
+    &:hover {
+      color: #333;
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.5s;
+      background: #e0e0e0;
+      border-color: #e0e0e0;
+      outline: none;
+    }
+  }
+
+  // Push down more options - Client amend, element no longer exists
+  // .TP126_More_Filters_Wrap {
+  //   display: none; // Reveled by slideDown
+  // }
+  // Amend - add glow to filters container
+  .TP126-Glow {
+    animation: TP112Glow 10s infinite;
+  }
+
+  @keyframes TP112Glow {
+    0% {
+      box-shadow: none;
+    }
+
+    50% {
+      box-shadow: 0px 0px 20px 5px rgb(246, 177, 18);
+    }
+
+    100% {
+      box-shadow: none;
+    }
+  }
+
+  // Restyling ddSlick
+  // Hide the first dropdown option (currently as select option)
+  .TP126_Filters_Top_Wrap .TP126_Filter-Wrap {
+    // .dd-options li:first-child {
+    //   display: none;
+    // }
+
+    // Copying style for drop down
+    .dd-select {
+      // dropdown container
+      border: 1px solid #e0e0e0;
+      border-bottom: 2px solid #bdbdbd;
+      background: #ffffff;
+      border-radius: 2px;
+      position: relative;
+      cursor: pointer; // arrow
+
+      .dd-pointer {
+        width: 0;
+        height: 0;
+        vertical-align: middle;
+        border-top: 4px dashed;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+      }
+
+      // Selected text
+      .dd-selected-text {
+        font-size: 14px;
+      }
+    }
+
+    // Have height contain options
+    .dd-container .dd-options {
+      height: auto !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      float: left;
+      min-width: 0 !important;
+      width: 100% !important;
+      font-size: 14px;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+
+      .dd-option-value {
+        margin: 0 0 1em;
+        color: #232323;
+        font-family: Helvetica, sans-serif;
+        font-weight: normal;
+      }
+
+      .dd-option-text {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #666;
+        font-size: 13px;
+      }
+
+      .TP126_Filter-Disable > a,
+      .dd-option-selected {
+        background-color: #efefef;
+        color: #333 !important;
+        opacity: .5;
+        pointer-events: none;
+
+        .dd-option-text {
+          color: #333 !important;
+        }
+      }
+
+      // hover states
+      .dd-option:hover {
+        background-color: #0f7258 !important;
+        color: #232323 !important;
+
+        .dd-option-text {
+          color: #fff;
+        }
+      }
+
+      .dd-option.TP126_Filter-Disable:hover,
+      .dd-option.dd-option-selected:hover {
+        pointer-events: none;
+        background-color: #efefef !important;
+        color: #333 !important;
+        cursor: default;
+
+        label {
+          color: #333 !important;
+        }
+      }
+    }
+  }
+}
+
+// TP126 styling
+.TP126 {
+  // 01
+  .TP126-filter-header {
+    margin-top: 40px;
+
+    h3 {
+      font-weight: normal;
+      font-size: 16px;
+      height: 30px;
+      border-bottom: 1px solid #f6b112;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // 02
+  h1.bold {
+    color: #000;
+    font-size: 20px;
+    line-height: 30px;
+
+    span {
+      color: #0F7258;
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  .TP126_Wrap {
+    width: 100%;
+
+    .TP126_Header {
+      color: #000;
+    }
+  }
+
+  .TP126_Filters_Top_Wrap {
+    .TP126_Filter-Wrap {
+      width: calc(100% / 4 - 14px);
+      margin: 0 2px;
+
+      .dd-container {
+        width: 100% !important;
+
+        .dd-selected {
+          border-right: 20px solid #fff;
+
+          .dd-selected-text {
+            color: #BDBDBD;
+            white-space: nowrap;
+            overflow: hidden;
+
+            &.TP126-added-filter {
+              color: #333;
+            }
+          }
+        }
+
+        .dd-select {
+          width: 100% !important;
+        }
+
+        .dd-options .dd-option {
+          &.TP126-active-filter {
+            background-color: #f6b112;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiCBAMAgTLcFOIAAABUElEQVRIx+XSzStEURjH8W83TTKRKeIWeUtKXhaSsJCUrLBBktlYWfgXrG1kb2Fpo+xmo2xYiIUUFlJCQvI2maZhLsdmup7jztu5s5Ln7J7f8zm3c8+Bf1w2dYXwMEkcZvzySRwUCocpP3yMJCq1rsz5CO8uV6yY8kHigq9jmfF+YoJvUmTGu4kKHiFgxjt5FnybYjPeyoPguwRlaDHHdFbezK3gB5TpfA2FYjEjr+da8CNCerzsRgtpeQ0Xgp9S+XvgZ/cvwh5ezZng59jeL8yLAYdxLavgRKSX1KY/45IYSjDk9ss5FMkNjZn/8qoYfKMHgFL2RfeelmzXZLEhhp9oo4Qd0XmknRwVYEuAqHbvr3Tl4gBB9gSSR+rNhwOEOPbwOAP5cgBbezSKBMMmHKCJO5d/MGrKATp4ST2qCT8coI8Yn8z65QBVNBTC/1h9A+ld0Rp8/RfSAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA4LTE2VDEyOjAyOjA0KzAyOjAwuUyudQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wOC0xNlQxMjowMjowNCswMjowMMgRFskAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC') !important;
+            background-position: 95% center !important;
+            background-repeat: no-repeat !important;
+            background-size: 16px !important;
+            padding-right: 25px !important;
+
+            label {
+              color: #333;
+              font-weight: 700;
+            }
+          }
+
+          &:hover label {
+            color: #fff !important;
+          }
+        }
+      }
+
+      .TP126_Filter_Header {
+        margin: 10px 0 3px 0;
+      }
+    }
+
+    .TP126_Show_More_Wrap {
+      margin: 12px 0;
+      display: block;
+
+      span.TP126_More_Filter_Options {
+        border: none;
+        background-color: transparent;
+        background: transparent;
+        box-shadow: none;
+        text-decoration: underline;
+      }
+    }
+  }
+}

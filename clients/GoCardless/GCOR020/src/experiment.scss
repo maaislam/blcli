@@ -1,0 +1,223 @@
+@import './variables';
+
+.#{$id} {
+    &__hide {
+        display: none !important;
+    }
+
+    &__overlay {
+        position: fixed;
+        z-index: 999999;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0 0 0 / 70%);
+        user-select: none;
+
+        .#{$id}__modalcontainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 24px;
+            background-color: #344139;
+            transform: translate(-50%, -50%);
+
+            &--wistiaplayer {
+                margin-top: 15px;
+            }
+
+            &--close {
+                position: absolute;
+                top: 15px;
+                right: 25px;
+                cursor: pointer;
+            }
+
+        }
+
+    }
+
+    &__casestudy {
+        margin-top: 40px;
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .image-wrapper {
+            position: relative;
+
+
+
+            .play-btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    transform: translate(-50%, -50%) scale(1.05);
+                }
+
+                &:active {
+                    transform: translate(-50%, -50%) scale(0.98);
+                }
+            }
+
+            .#{$id}__brand-logo {
+                position: absolute;
+                top: calc(100% - 60px);
+                left: 50%;
+                z-index: 1;
+                width: 100%;
+                height: 64px;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+                transform: translateX(-50%);
+            }
+        }
+
+        .content-wrapper {
+            position: relative;
+            padding: 30px 30px 24px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.3;
+            background-color: $primary-gray;
+            border-radius: 20px;
+
+            &::before {
+                position: absolute;
+                top: -30px;
+                left: 0;
+                width: 100%;
+                height: 60px;
+                background-color: $primary-gray;
+                border-radius: 20px;
+                content: '';
+
+            }
+        }
+
+        .text-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            margin-bottom: 30px;
+
+            @media (max-width: 786px) {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-review {
+                position: relative;
+                padding-right: 30px;
+                font-family: 'para';
+
+                @media (max-width: 786px) {
+                    padding-right: 0;
+                }
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 2px;
+                    height: 100%;
+                    background-color: #000;
+                    content: '';
+
+                    @media (max-width: 1200px) {
+                        height: calc(100% - 10px);
+                    }
+
+                    @media (max-width: 786px) {
+                        display: none;
+                    }
+                }
+
+                .reviewer {
+                    margin-top: 20px;
+                    font-family: 'Haffer';
+                    font-size: 12px;
+
+                    @media (max-width: 786px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .key-benefits {
+                padding-left: 30px;
+
+                @media (max-width: 786px) {
+                    padding-left: 0;
+                }
+
+                &-title {
+                    font-size: 18px;
+                }
+
+                ul {
+
+                    font-size: 14px;
+                    font-weight: 400;
+
+                    li:first-child {
+                        margin-bottom: 15px;
+                    }
+                }
+
+            }
+
+
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+
+            @media (max-width: 786px) {
+                gap: 15px;
+            }
+
+            .signup-btn {
+                width: 100%;
+                max-width: 260px;
+                margin: 0 auto;
+
+                @media (max-width: 786px) {
+                    max-width: unset;
+                    margin: 0;
+                }
+            }
+
+            .customerstories-btn {
+                font-weight: 400;
+                box-shadow: none;
+
+                @media (max-width: 786px) {
+                    box-shadow: inset 0 0 0 2px var(--btn-secondary-on-light-border-default), var(--flux-focus-ring, 0 0 0 0 transparent);
+                }
+            }
+        }
+    }
+}

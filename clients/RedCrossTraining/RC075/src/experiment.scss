@@ -1,0 +1,266 @@
+@import './variables';
+
+.#{$id} {
+    .hbspt-form {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.75);
+        z-index: 99999999;
+        overflow-y: scroll;
+        display: none;
+        iframe {
+            max-width: 940px;
+            width: 100% !important;
+            margin: 0 auto 20px;
+            height: 100% !important;
+            background-color: #ffffff;
+            padding: 20px;
+            
+            @media only screen and (min-width: 940px) {
+                min-height: 900px;
+            }
+
+            @media only screen and (max-width: 649px) {
+                height: 1424px !important;
+            }
+        }
+
+        .RC-formTitle {
+            background-color: #ffffff;
+            position: relative;
+            max-width: 940px;
+            margin: auto;
+            margin-top: 20px;
+            padding: 20px 25px;
+
+            h1 {
+                margin: 0;
+                text-align: center;
+                color: #343333;
+                font-size: 1.6em;
+                line-height: 1.65em;
+                font-weight: 500;
+                font-family: Montserrat;
+                color: #666666;
+            }
+
+            button.RC-closeForm {
+                appearance: none;
+                padding: 0; 
+                margin: 0;
+                position: absolute;
+                top: 5px; right: 0;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                span {
+                    display: block;
+                    height: 2rem;
+                    width: 4.2rem;
+                    background: url(https://www.redcrossfirstaidtraining.co.uk/assets/img/svg/search.svg?v16a532aa43c) no-repeat 50%;
+                    background-image: url(https://www.redcrossfirstaidtraining.co.uk/assets/img/svg/close.svg?v16a532aa431);
+                }
+            }
+
+        }
+    }
+
+    .course-app-component {
+        position: relative;
+    }
+
+    .RC075-message {
+        background-color: #d0021b;
+        padding: 20px;
+        max-width: 320px;
+        text-align: right;
+        position: absolute;
+        display: none;
+        left: 400px; top: 0; // First Aid Course Finder Desktop (To the Right)
+
+        &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 30px 15px 0;
+            border-color: transparent #d0021a transparent transparent;
+            position: absolute;
+            right: 100%;
+            top: 40%;
+        }
+
+        p {
+            color: #ffffff;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        button:not(.RC-openForm) {
+            appearance: none;
+            border: none;
+            padding: 0;
+            position: absolute;
+            top: 15px; right: 15px;
+            background-color: transparent;
+            cursor: pointer;
+            
+            // span {
+            //     display: block;
+            //     height: 2rem;
+            //     width: 4.2rem;
+            //     background: url(https://www.redcrossfirstaidtraining.co.uk/assets/img/svg/search.svg?v16a532aa43c) no-repeat 50%;
+            //     background-image: url(https://www.redcrossfirstaidtraining.co.uk/assets/img/svg/close.svg?v16a532aa431);
+            // }
+
+            svg {
+                fill: #ffffff
+            }
+        }
+
+        button.RC-openForm {
+            display: inline-block;
+            position: relative;
+            padding: 1.4rem 2rem 1.2rem;
+            background-color: #fff;
+            color: #d0021b;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 0;
+            border-radius: 0;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: HelveticaNeue,Arial,Verdana,sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 2.2rem;
+            text-transform: uppercase;
+            z-index: 1;
+            transition: color .3s;
+        }
+
+        @media only screen and (max-width: 649px) {
+            left: 20px;
+            top: auto;
+            bottom: calc(100% - 20px);
+
+            &:before {
+                border-width: 15px 10px 0 10px;
+                top: 100%; right: 90%;
+                border-color: #d0021a transparent transparent transparent;
+            }
+        }
+    }
+
+    // Force hide the message for certain courses
+    &.xpid-305-ct.RC-showMessage,
+    &.xpid-306-ct.RC-showMessage,
+    &.xpid-308-ct.RC-showMessage,
+    &.xpid-307-ct.RC-showMessage {
+      .RC075-message {
+        display: none !important;
+      }
+    }
+
+    // Search results
+    .location-search + .wrapper .RC075-message, .news-list .wrapper .RC075-message, .component.course-list .wrapper .RC075-message, .component.course-info .wrapper .RC075-message {
+        display: block;
+        position: static;
+        left: 0;
+        max-width: 100%;
+        text-align: left;
+        margin: 20px 0;
+        
+        @media only screen and (min-width: 649px) {
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: right;
+            p, button.RC-openForm {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            p {
+                width: calc(100% - 260px);
+                margin-right: 50px;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .location-search + .wrapper .RC075-message {
+        display: none;
+    }
+
+    .news-list .wrapper .RC075-message {
+        margin-bottom: 25px;
+    }
+    
+
+    // PDP
+    &.RC075-showingMessage .component.course-info > .wrapper > div:last-of-type:not(.wrapper) {
+        display: none;
+    } 
+    .component.course-info .RC075-message {
+        background-color: transparent;
+        position: relative;
+        text-align: left !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-basis: 100%;
+
+        .RC-close { display: none; }
+
+        p {
+            width: 100% !important;
+            margin: 0 !important;
+            margin-bottom: 20px !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+    }
+
+    .component.course-list .wrapper .RC075-message {
+        @media only screen and (min-width: 649px) {
+            max-width: calc(83.3333% - 2rem);
+            margin:auto;
+            margin-bottom: 30px;
+        }
+        margin-bottom: 20px;
+    }
+
+    &.RC-showMessage {
+        .RC075-message {
+            display: block !important;
+        }
+    }
+
+    &.RC-showForm {
+        .hbspt-form {
+            display: block !important;
+        }
+    }
+
+    &.RC075-noArrow {
+        .RC075-message:before {
+            display: none;
+        }
+    }
+
+
+    .news-list-item {
+        position: relative;
+        .RC075-notOn {
+            position: absolute; 
+            top: 5px; right: 5px;
+            background-color: #d0021b;
+            p {
+                margin: 0;
+                color: #ffffff;
+                padding: 2px 9px;
+            }
+        }
+    }
+}

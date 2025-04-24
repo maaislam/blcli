@@ -1,0 +1,360 @@
+@import './variables';
+
+@keyframes deal-slide-in-bottom {
+  0% {
+    -webkit-transform: translateX(-50%) translateY(1000px);
+    transform: translateX(-50%) translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0) translateX(-50%);
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+html.#{$id}-noScroll {
+  overflow: hidden;
+}
+
+
+.#{$id} {
+
+  &.#{$id}-1 {
+    .#{$id}-overlay {
+      display: none;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      top: 0;
+      z-index: 1012;
+      cursor: pointer;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    .#{$id}-dealBuilder {
+      position: fixed;
+      background: white;
+      font-family: Boots Sharp, Arial, sans-serif;
+      //top: 50%;
+      top: 10%;
+      height: 90%;
+      overflow-x: scroll;
+      width: 100%;
+      left: 50%;
+      z-index: 1013;
+      box-sizing: border-box;
+      padding: 10px;
+      animation: deal-slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      @media(min-width: 375px) {
+        padding: 20px;
+      }
+      @media(min-width: 1024px) {
+        padding: 30px;
+      }
+
+      @media(min-width: 768px) {
+        animation: unset;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+        max-width: 720px;
+      }
+      @media(min-width: 1024px) {
+        max-width: 960px;
+        overflow-x: hidden;
+      }
+
+      .#{$id}-close {
+        position: absolute;
+        background: url('https://boots.scene7.com/is/image/Boots/ABTESTING%5Fclose?scl=1&fmt=png-alpha') no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        z-index: 99;
+        @media(min-width: 768px) {
+          right: 10px;
+          top: 10px;
+        }
+      }
+
+      .#{$id}-container {
+        box-sizing: border-box;
+        @media(min-width: 768px) {
+          max-width: 80%;
+          margin: 0 auto;
+        }
+      }
+
+      h3 {
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 32px;
+        font-family: Boots Sharp, Arial, sans-serif;
+        color: #05054B;
+        letter-spacing: 4.7px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10px;
+        @media(min-width: 768px) {
+          font-size: 25px;
+        }
+
+      }
+
+      p {
+        font-weight: 300;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .#{$id}-amountAdded {
+        font-weight: 300;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 10px;
+
+        span {
+          font-weight: 700;
+          font-size: 16px;
+        }
+      }
+
+      .plus {
+        background: url('https://boots.scene7.com/is/image/Boots/Plus?scl=1&fmt=png-alpha') no-repeat center;
+        background-size: contain;
+        height: 30px;
+        width: 30px;
+        flex-shrink: 0;
+        align-self: center;
+        display: block;
+        margin: 0 auto;
+
+      }
+
+      .#{$id}-products {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        @media(min-width: 768px) {
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 30px;
+        }
+      }
+
+      .#{$id}-product {
+        background: #FFFFFF;
+        box-shadow: 0px 0px 15px rgba(201, 201, 201, 0.25);
+        padding: 10px;
+        box-sizing: border-box;
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        position: relative;
+        @media(min-width: 768px) {
+          width: 33%;
+          padding-top: 70px;
+        }
+        @media(min-width: 1024px) {
+          width: 200px;
+        }
+
+        .addedMsg {
+          display: none;
+          @media(min-width: 768px) {
+            display: block;
+            background: #F7FAFC;
+            font-weight: 700;
+            font-size: 14px;
+            color: #05054B;
+            text-transform: uppercase;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: 1px;
+            border-top-left-radius: 30px;
+          }
+        }
+
+        a {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 10px;
+          @media(min-width: 768px) {
+            flex-direction: column;
+          }
+        }
+
+        &.no-product {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          box-shadow: unset;
+          border: 1px solid #C1C1C1;
+          padding: 30px;
+          @media(min-width: 768px) {
+            padding: 15px;
+          }
+
+          .#{$id}-question {
+            font-weight: 700;
+            font-size: 60px;
+            color: #05054B;
+            display: block;
+            line-height: 60px;
+            margin-bottom: 10px;
+          }
+        }
+
+
+        h4 {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 21px;
+          font-family: Boots Sharp, Arial, sans-serif;
+          color: #05054B;
+          margin-bottom: 10px;
+          @media(min-width: 768px) {
+            text-align: center;
+          }
+        }
+
+        p {
+          text-align: left;
+          font-weight: 700;
+          font-size: 14px;
+          color: #05054B;
+          @media(min-width: 768px) {
+            text-align: center;
+          }
+        }
+
+        .#{$id}-image {
+          position: relative;
+          height: 0;
+          width: 30%;
+          flex-shrink: 0;
+          padding-bottom: 60%;
+          @media(min-width: 768px) {
+            padding-bottom: 70%;
+            width: 100%;
+          }
+          @media(min-width: 1024px) {
+            padding-bottom: 80%;
+          }
+
+          img {
+            position: absolute; // Absolutely positioned, so it doesn't shift the layout
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .#{$id}-productDetails {
+          @media(min-width: 768px) {
+            margin-top: 10px;
+          }
+
+        }
+
+        .#{$id}-cta {
+          font-weight: 700;
+          font-size: 14px;
+          color: #05054B;
+          background: white;
+          border: 1px solid #05054B;
+          text-transform: uppercase;
+          height: 40px;
+          border-radius: 5px;
+          letter-spacing: 1px;
+          max-width: 250px;
+          margin: 0 auto;
+          padding: 9px 20px;
+          padding-top: 10px;
+          box-sizing: border-box;
+          cursor: pointer;
+          &:hover {
+            transition: all .4s ease-in-out;
+            background: #05054B;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &.#{$id}-2 {
+    .#{$id}-basketMSG {
+      background: #F2F2F2;
+      padding: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      .fullLink {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+      h3 {
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        color: #05054B;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 22px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-family: Boots Sharp, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .amountLeft {
+        font-weight: 700;
+      }
+
+      .#{$id}-textcta {
+        display: block;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        color: #05054B;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: Boots Sharp, Arial, sans-serif;
+        text-align: center;
+        margin-top: 10px;
+      }
+      
+    }
+  }
+}

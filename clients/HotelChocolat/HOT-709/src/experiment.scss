@@ -1,0 +1,795 @@
+@import './variables';
+
+// start css HOT-705
+.#{$id} {
+  &:has(.#{$id}__modalContainers.open) {
+    overflow: hidden;
+  }
+
+  &__delivery-option-message {
+    td {
+      font-family: 'GillSansNova-Light' !important;
+      font-size: 13px !important;
+      font-weight: 300 !important;
+      line-height: 19px !important;
+      color: #000;
+    }
+  }
+
+  .#{$id}-ways-to-pay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    height: 56px;
+    cursor: pointer;
+
+    img {
+      height: 42px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 959px) {
+      .#{$id}-more-ways {
+        max-width: 120px;
+      }
+    }
+
+    .#{$id}-ways-to-pay {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #000;
+      font-family: GillSansNova-Medium;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 0.75rem;
+      padding: 0px 16px;
+
+      p.#{$id}-more-ways,
+      p.#{$id}-learn-more {
+        font-size: 0.85rem;
+        line-height: 0.85rem;
+      }
+
+      .#{$id}-learn-more {
+        color: #000;
+        font-family: GillSansNova-Light;
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 0.75rem;
+        text-decoration-line: underline;
+      }
+    }
+
+    .#{$id}-ways-to-pay-terms p {
+      color: #a0a0a0;
+      font-family: GillSansNova-Light;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .#{$id}-ways-to-pay-slide a {
+    color: #000;
+  }
+
+  .#{$id}-ways-to-pay-slide {
+    @media screen and (max-width: 767px) {
+    }
+
+    &-close {
+      position: absolute;
+      right: 33px;
+      top: 24px;
+      display: flex;
+      cursor: pointer;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .#{$id}-payment-options {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+
+      img {
+        max-width: 45%;
+        object-fit: contain;
+        height: 100%;
+      }
+
+      @media screen and (max-width: 767px) {
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+
+        img {
+          order: 1;
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+        }
+
+        .#{$id}-brief {
+          order: 2;
+        }
+      }
+
+      .#{$id}-brief {
+        margin: 7px 0;
+      }
+
+      .#{$id}-sub-heading {
+        margin-bottom: 10px;
+      }
+
+      .#{$id}-free {
+        border: 1px solid black;
+        padding-top: 6px;
+        padding-bottom: 3px;
+        padding-left: 7px;
+        border-radius: 3px;
+        padding-right: 7px;
+        font-weight: 500;
+        font-size: 16px;
+        color: #000;
+      }
+    }
+  }
+}
+// end css HOT-705
+
+// start HOT-666 CSS
+.#{$id} {
+  #klarna-placement-cart {
+    display: none;
+  }
+
+  .#{$id}-ways-to-pay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c8c8c8;
+    height: 34px;
+    cursor: pointer;
+
+    img {
+      height: 20px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 959px) {
+      .#{$id}-more-ways {
+        max-width: 120px;
+      }
+    }
+
+    .#{$id}-ways-to-pay {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #000;
+      font-family: GillSansNova-Medium;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 0.75rem;
+
+      p.#{$id}-more-ways,
+      p.#{$id}-learn-more {
+        font-size: 0.85rem;
+        line-height: 0.85rem;
+      }
+
+      .#{$id}-learn-more {
+        color: #000;
+        font-family: GillSansNova-Light;
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 0.75rem;
+        text-decoration-line: underline;
+      }
+    }
+
+    .#{$id}-ways-to-pay-terms p {
+      color: #a0a0a0;
+      font-family: GillSansNova-Light;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  .#{$id}-ways-to-pay-slide {
+    &-content {
+      overflow-y: auto;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 10px;
+      padding-right: 10px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: #c2c2c2;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 5px;
+      }
+
+      @media screen and (max-width: 767px) {
+        height: 81%;
+      }
+    }
+
+    h2 {
+      color: #000;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 37.28px;
+
+      @media screen and (max-width: 767px) {
+        // margin-bottom: 30px;
+      }
+    }
+
+    .#{$id}-payment-options {
+      display: flex;
+      // justify-content: space-between;
+
+      @media screen and (max-width: 767px) {
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        img {
+          min-height: 20px;
+        }
+      }
+    }
+
+    h3 {
+      color: #000;
+      font-family: GillSansNova-Medium;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+
+      /* 200% */
+      @media screen and (max-width: 767px) {
+        // margin-bottom: 20px;
+      }
+
+      // margin-bottom: 20px;
+    }
+
+    p,
+    li {
+      color: #000;
+      font-family: GillSansNova-Light;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23px;
+      //max-width: 440px;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+  }
+}
+// end HOT-666 CSS
+
+// start - HOT-715 CSS
+.#{$id} {
+  &__delivery-container {
+    padding: 0;
+
+    .#{$id}__deliveryWrapper {
+      overflow-y: auto;
+      height: 80%;
+      padding-right: 10px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: #c2c2c2;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #000;
+        border-radius: 5px;
+      }
+    }
+
+    .#{$id}__delivery-info {
+      font-size: 26px;
+      font-family: 'GillSansNova-Medium';
+      line-height: 37px;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .delivery-header {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    [data-section='Click & Collect'] .delivery-header,
+    [data-section='Gift By Text'] .delivery-header {
+      margin: 30px 0 20px;
+    }
+
+    .delivery-title {
+      margin-left: 9px;
+      font-size: 16px;
+      font-family: 'GillSansNova-Medium';
+      font-weight: 600;
+      line-height: 23px;
+      color: #000;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 40px 30px;
+      align-items: start;
+
+      @include media-query(xlg) {
+        gap: 30px 20px;
+      }
+
+      @include media-query(sm) {
+        gap: 20px 15px;
+      }
+    }
+
+    .grid-title {
+      max-width: 140px;
+      font-family: 'GillSansNova-Medium';
+      font-size: 13px;
+      line-height: 19px;
+      color: #000;
+
+      @include media-query(md) {
+        max-width: 100%;
+      }
+    }
+
+    .grid-description {
+      font-size: 13px;
+      font-family: 'GillSansNova-Light';
+      line-height: 19px;
+      color: #000;
+
+      b {
+        font-family: 'GillSansNova-Medium';
+      }
+
+      span {
+        font-family: 'GillSansNova-Light';
+        font-style: italic;
+      }
+    }
+
+    .grid-price {
+      font-size: 13px;
+      font-family: 'GillSansNova-Light';
+      line-height: 19px;
+      color: #000;
+      text-align: right;
+
+      @include media-query(md) {
+        margin-bottom: 16px;
+      }
+
+      b {
+        font-family: 'GillSansNova-Medium';
+      }
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .#{$id}__deliveryFooter {
+      color: #000;
+
+      .#{$id}__title {
+        font-family: 'GillSansNova-Medium';
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 23px;
+        margin: 30px 0 20px;
+      }
+
+      .#{$id}__more-info {
+        font-family: 'GillSansNova-Light';
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 19px;
+
+        a {
+          color: #000;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// end - HOT-715 CSS
+.#{$id} {
+  #primary {
+    #page_heading {
+      padding-bottom: 0;
+      h3 {
+        display: none;
+      }
+    }
+  }
+  .cart-options-box {
+    display: none;
+  }
+  .li-callout-msg .delivery-info-title .view {
+    color: #000 !important;
+  }
+  .cart-row {
+    .button-text.remove {
+      color: #000 !important;
+    }
+  }
+  .#{$id}__uspsWrapper {
+    margin-bottom: 50px;
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 14px;
+    }
+  }
+
+  .#{$id}__uspsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    gap: 50px;
+
+    @media screen and (max-width: 1279px) {
+      gap: 25px;
+    }
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(1, minmax(10px, 1fr));
+      gap: 14px;
+    }
+  }
+
+  .#{$id}__uspsItem {
+    display: flex;
+    align-items: center;
+    font-family: GillSansNova-Medium;
+    cursor: pointer;
+
+    @media screen and (max-width: 767px) {
+      justify-content: space-between;
+    }
+  }
+
+  .#{$id}__uspsContent {
+    max-width: 220px;
+    padding: 8px;
+
+    @media screen and (max-width: 767px) {
+      max-width: 100%;
+      justify-content: space-between;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 21.51px;
+    }
+
+    p {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 14px;
+    }
+  }
+
+  .#{$id}__modalContainers {
+    &.open {
+      .#{$id}__modalWrapper {
+        right: 0;
+      }
+
+      .#{$id}__modal-overlay {
+        display: block;
+        cursor: pointer;
+      }
+
+      &[data-model='delivery'] [data-model='delivery'] {
+        display: block;
+      }
+
+      &[data-model='gifting'] [data-model='gifting'] {
+        display: block;
+
+        h2 {
+          margin-bottom: 4px;
+        }
+
+        .#{$id}-following-options {
+          margin-bottom: 28px;
+
+          @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+          }
+        }
+
+        .#{$id}-payment-options {
+          margin-bottom: 32px;
+
+          @media screen and (max-width: 768px) {
+            margin-bottom: 14px;
+          }
+        }
+      }
+
+      &[data-model='payment'] [data-model='payment'] {
+        display: block;
+        padding-right: 40px;
+        padding-left: 30px;
+
+        @media screen and (max-width: 768px) {
+          padding: 49px 14px;
+        }
+
+        p,
+        li {
+          font-family: 'GillSansNova-Medium';
+        }
+
+        .#{$id}-payment-options {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 20px;
+          margin: 24px 0;
+
+          img {
+            max-width: 66px;
+            max-height: 30px;
+            object-fit: contain;
+            height: 100%;
+          }
+
+          img[alt='Visa'],
+          img[alt='HotelChocolat Gift Card'] {
+            max-width: 44px;
+          }
+
+          img[alt='Mastercard'],
+          img[alt='Maestro'] {
+            max-width: 35px;
+          }
+        }
+      }
+    }
+  }
+
+  .#{$id}__modalWrapper {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    color: #fff;
+    transition: right 0.3s ease-in-out;
+    z-index: 100000000000000;
+    box-sizing: border-box;
+
+    & [data-model] {
+      position: relative;
+      display: none;
+      padding: 49px 22px;
+      height: 100%;
+
+      @media screen and (max-width: 768px) {
+        padding: 49px 14px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      right: -640px;
+      width: 640px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 90%;
+      right: -550px;
+    }
+  }
+
+  .#{$id}__modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
+
+  .#{$id}-continue-shopping {
+    position: fixed;
+    max-width: 640px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    padding: 24px 32px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px 5px #0000001a;
+    opacity: 0;
+    animation: fadeIn 0s ease-in-out 0.3s forwards;
+    box-sizing: border-box;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      font-family: GillSansNova-Medium;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 17px;
+      border: 1px solid #000000;
+      padding: 11px 8px;
+      margin: 0;
+      color: #000;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 767px) {
+      max-width: 90%;
+      padding: 24px;
+    }
+  }
+}
+
+// shipping page styles
+.#{$id} {
+  &__shippingAddress {
+    .store-pickup-container .storelist-wrapper {
+      width: 100% !important;
+    }
+
+    .store-pickup-container {
+      .label {
+        border: 1px solid #000;
+        width: 100%;
+
+        .default {
+          text-transform: math-auto !important;
+          color: #000 !important;
+          text-align: left;
+        }
+      }
+
+      .item {
+        text-transform: capitalize !important;
+      }
+    }
+  }
+
+  .shippingaddress .checkout-tabs.delivery-tabs ul.ui-tabs-nav li a.ui-tabs-anchor {
+    padding-top: 36px;
+    height: 64px;
+    width: 86px;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+    text-transform: capitalize;
+
+    @include media-query(md) {
+      width: 92px;
+    }
+  }
+
+  .shippingaddress .checkout-tabs.delivery-tabs ul.ui-tabs-nav li a.ui-tabs-anchor:before {
+    top: 10px;
+    height: 24px;
+  }
+
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav {
+    margin-bottom: 18px;
+  }
+
+  //active or inactive tab style changes for V2
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.ui-state-active {
+    background: #000;
+    border: 1px solid #000;
+  }
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li:not(.ui-state-active) {
+    background: #ffffff;
+    border: 1px solid #00000033;
+  }
+
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li:not(.ui-state-active) a.ui-tabs-anchor {
+    color: #00000066;
+  }
+
+  // delivery to address disable icon
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.tab-nav-home-delivery a.ui-tabs-anchor:before {
+    background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 11.5C22 11.2 21.9 10.9 21.8 10.7L19.4 7C19.2 6.6 18.8 6.3 18.3 6.3H15.3V4.3C15.3 3.8 14.9 3.5 14.4 3.5H2.8C2.4 3.5 2 3.9 2 4.3V16.8C2 17.3 2.4 17.6 2.8 17.6H4.5C4.5 17.8 4.5 17.9 4.5 18.1C4.5 19.5 5.6 20.5 6.9 20.5C8.2 20.5 9.4 19.4 9.4 18.1C9.4 18 9.4 17.8 9.3 17.7H14.4C14.4 17.8 14.3 18 14.3 18.1C14.3 19.5 15.4 20.5 16.7 20.5C18 20.5 19.2 19.4 19.2 18.1C19.2 18 19.2 17.8 19.1 17.7H21C21.5 17.7 21.9 17.3 21.9 16.8L22 11.5ZM6.9 19.8C6 19.8 5.2 19 5.2 18.1C5.2 17.9 5.3 17.6 5.4 17.5C5.6 16.9 6.2 16.5 6.9 16.5C7.6 16.5 8.2 16.9 8.5 17.5C8.6 17.7 8.7 17.9 8.7 18.1C8.7 19 7.9 19.8 6.9 19.8ZM17 19.8C16 19.8 15.3 19 15.3 18.1C15.3 17.9 15.4 17.6 15.4 17.5C15.6 16.9 16.3 16.5 17 16.5C17.7 16.5 18.3 16.9 18.5 17.5C18.6 17.7 18.6 17.9 18.6 18.1C18.6 19 17.9 19.8 17 19.8ZM21.2 16.8L21.1 16.9H19C18.6 16.1 17.8 15.7 16.9 15.7C16 15.7 15.2 16.2 14.8 16.9H9.1C8.7 16.1 7.8 15.7 6.9 15.7C6 15.7 5.2 16.2 4.8 16.9H2.8C2.8 16.9 2.7 16.9 2.7 16.8V4.3C2.7 4.2 2.7 4.2 2.8 4.2H14.3C14.4 4.2 14.4 4.3 14.4 4.3V7.1H18.1C18.3 7.1 18.5 7.2 18.6 7.3L21 11.1V11.2C21 11.3 21.1 11.4 21.1 11.6V16.8H21.2Z' fill='black' fill-opacity='0.4'/%3E%3Cpath d='M14.9 7.9V11.5H20.5L18.2 7.9H14.9ZM15.6 10.8V8.6H17.8L19.2 10.8H15.6Z' fill='black' fill-opacity='0.4'/%3E%3C/svg%3E%0A")
+      no-repeat 50% 50%;
+  }
+
+  // delivery to address active icon
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.tab-nav-home-delivery.ui-state-active a.ui-tabs-anchor:before {
+    background: url(https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/en_GB/v1736726851089/images/svg-icons/white-delivery-van.svg)
+      no-repeat 50% 50%;
+  }
+
+  // collect from disable icon
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.tab-nav-store-delivery a.ui-tabs-anchor:before {
+    background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.5 10.6L19.3 4.6C19.1 4.3 18.7 4 18.3 4H5.70001C5.30001 4 4.90001 4.3 4.80001 4.7L2.60001 10.7C2.30001 11.3 2.70001 12 3.40001 12H4.00001V19C4.00001 19.5 4.40001 20 5.00001 20H15V13.5C15 13.2 15.2 13 15.5 13H18.5C18.8 13 19 13.2 19 13.5V20C19.5 20 20 19.5 20 19V12H20.6C21.3 12 21.7 11.3 21.5 10.6ZM14 17.5C14 17.8 13.8 18 13.5 18H5.50001C5.20001 18 5.00001 17.8 5.00001 17.5V13.5C5.00001 13.2 5.20001 13 5.50001 13H13.5C13.8 13 14 13.2 14 13.5V17.5ZM20 11H4.00001H3.40001L5.60001 5H18.2L20.4 11H20Z' fill='black' fill-opacity='0.4'/%3E%3C/svg%3E%0A")
+      no-repeat 50% 50%;
+  }
+  // collect from active icon
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.tab-nav-store-delivery.ui-state-active a.ui-tabs-anchor:before {
+    background: url(https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/en_GB/v1736726851089/images/svg-icons/white-store-shopfront.svg)
+      no-repeat 50% 50%;
+  }
+
+  // gift by text disable icon
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.tab-nav-sms-delivery a.ui-tabs-anchor:before {
+    background: url("data:image/svg+xml,%3Csvg width='17' height='22' viewBox='0 0 17 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.6 21.55H3.40001C2.04901 21.55 0.950012 20.451 0.950012 19.1V2.90001C0.950012 1.54901 2.04901 0.450012 3.40001 0.450012H10.6C11.952 0.450012 13.05 1.54901 13.05 2.90001V6.60001H11.95V2.90001C11.95 2.25101 11.433 1.55001 10.599 1.55001H3.40001C2.56601 1.55001 2.05001 2.25101 2.05001 2.90001V19.1C2.05001 19.749 2.56601 20.451 3.40001 20.451H10.6C11.249 20.451 11.951 19.934 11.951 19.1V12.6H13.051V19.1C13.05 20.451 11.951 21.55 10.6 21.55Z' fill='black' fill-opacity='0.4'/%3E%3Cpath d='M8.40001 3.1004H5.70001C5.42401 3.1004 5.20001 2.8764 5.20001 2.6004C5.20001 2.3244 5.42401 2.1004 5.70001 2.1004H8.40001C8.67601 2.1004 8.90001 2.3244 8.90001 2.6004C8.90001 2.8764 8.67601 3.1004 8.40001 3.1004Z' fill='black' fill-opacity='0.4'/%3E%3Cpath d='M9.61682 15.2326C9.47882 15.2326 9.35382 15.1956 9.24282 15.1276C9.02782 14.9936 8.89982 14.7596 8.89982 14.4996V13.2996H8.49982C7.67282 13.2996 6.99982 12.6266 6.99982 11.7996V7.79962C6.99982 6.97262 7.67282 6.29962 8.49982 6.29962H15.4998C15.9608 6.29962 16.3818 6.49962 16.6528 6.84662C16.8658 7.11862 16.9538 7.44362 16.8998 7.75062V11.6996C16.8998 12.5266 16.2268 13.1996 15.3998 13.1996H12.5998C12.5968 13.1996 12.5958 13.1976 12.5958 13.1976L10.1028 15.0976C9.92682 15.1896 9.76482 15.2326 9.61682 15.2326ZM8.49982 7.29962C8.25982 7.29962 7.99982 7.49062 7.99982 7.79962V11.7996C7.99982 12.0396 8.19082 12.2996 8.49982 12.2996H9.19982C9.57282 12.2996 9.89982 12.6266 9.89982 12.9996V14.0056L11.9968 12.4016C12.1938 12.1996 12.4678 12.1996 12.5998 12.1996H15.3998C15.6398 12.1996 15.8998 12.0086 15.8998 11.6996L15.9148 7.57862C15.9178 7.56762 15.9108 7.51962 15.8658 7.46262C15.7858 7.36062 15.6488 7.29962 15.4998 7.29962H8.49982ZM12.6508 13.1546L12.6178 13.1796C12.6298 13.1726 12.6428 13.1636 12.6508 13.1546Z' fill='black' fill-opacity='0.4'/%3E%3C/svg%3E%0A")
+      no-repeat 50% 50%;
+  }
+
+  // gift by text active icon
+  .shippingaddress .checkout-tabs ul.ui-tabs-nav li.tab-nav-sms-delivery.ui-state-active a.ui-tabs-anchor:before {
+    background: url("data:image/svg+xml,%3Csvg width='17' height='22' viewBox='0 0 17 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.6 21.55H3.40001C2.04901 21.55 0.950012 20.451 0.950012 19.1V2.90001C0.950012 1.54901 2.04901 0.450012 3.40001 0.450012H10.6C11.952 0.450012 13.05 1.54901 13.05 2.90001V6.60001H11.95V2.90001C11.95 2.25101 11.433 1.55001 10.599 1.55001H3.40001C2.56601 1.55001 2.05001 2.25101 2.05001 2.90001V19.1C2.05001 19.749 2.56601 20.451 3.40001 20.451H10.6C11.249 20.451 11.951 19.934 11.951 19.1V12.6H13.051V19.1C13.05 20.451 11.951 21.55 10.6 21.55Z' fill='white' fill-opacity='1'/%3E%3Cpath d='M8.40001 3.1004H5.70001C5.42401 3.1004 5.20001 2.8764 5.20001 2.6004C5.20001 2.3244 5.42401 2.1004 5.70001 2.1004H8.40001C8.67601 2.1004 8.90001 2.3244 8.90001 2.6004C8.90001 2.8764 8.67601 3.1004 8.40001 3.1004Z' fill='white' fill-opacity='1'/%3E%3Cpath d='M9.61682 15.2326C9.47882 15.2326 9.35382 15.1956 9.24282 15.1276C9.02782 14.9936 8.89982 14.7596 8.89982 14.4996V13.2996H8.49982C7.67282 13.2996 6.99982 12.6266 6.99982 11.7996V7.79962C6.99982 6.97262 7.67282 6.29962 8.49982 6.29962H15.4998C15.9608 6.29962 16.3818 6.49962 16.6528 6.84662C16.8658 7.11862 16.9538 7.44362 16.8998 7.75062V11.6996C16.8998 12.5266 16.2268 13.1996 15.3998 13.1996H12.5998C12.5968 13.1996 12.5958 13.1976 12.5958 13.1976L10.1028 15.0976C9.92682 15.1896 9.76482 15.2326 9.61682 15.2326ZM8.49982 7.29962C8.25982 7.29962 7.99982 7.49062 7.99982 7.79962V11.7996C7.99982 12.0396 8.19082 12.2996 8.49982 12.2996H9.19982C9.57282 12.2996 9.89982 12.6266 9.89982 12.9996V14.0056L11.9968 12.4016C12.1938 12.1996 12.4678 12.1996 12.5998 12.1996H15.3998C15.6398 12.1996 15.8998 12.0086 15.8998 11.6996L15.9148 7.57862C15.9178 7.56762 15.9108 7.51962 15.8658 7.46262C15.7858 7.36062 15.6488 7.29962 15.4998 7.29962H8.49982ZM12.6508 13.1546L12.6178 13.1796C12.6298 13.1726 12.6428 13.1636 12.6508 13.1546Z' fill='white' fill-opacity='1'/%3E%3C/svg%3E%0A")
+      no-repeat 50% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

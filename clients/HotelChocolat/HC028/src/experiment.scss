@@ -1,0 +1,370 @@
+@import './variables';
+
+.#{$id} {
+  .pt_cart .cart-total .order-totals-table {
+    // border: 1px solid red;
+
+    tr {
+      // border: 1px solid red;
+    }
+  }
+  #cart-table .li-callout-msg {
+    display: none;
+  }
+  // --- HIDE Original Coupon Input
+  form.cart-coupon-code {
+    display: none !important;
+  }
+
+// --- Delivery Information
+  .delivery-options {
+    float: unset !important;
+    margin: auto;
+    
+    h4.toggle-title {
+      background-color: #fff;
+      text-transform: capitalize;
+      text-align: center;
+      position: relative;
+      color: #000;
+      text-decoration: underline;
+      width: 180px;
+      padding-left: 30px;
+      margin: auto;
+      background-image: url('https://editor-assets.abtasty.com/48343/5fbc36c078ab21606170304.png');
+      background-repeat: no-repeat;
+      // background-size: 10%;
+      background-size: 15%;
+      background-position: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  .toggleContent {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    background-color: #fff;
+    z-index: 99999;
+    padding-top: 50px !important;
+  // --- DESKTOP
+    @media screen and (min-width: 768px) {
+      width: 50% !important;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    //////
+      max-width: 550px;
+      min-width: 550px;
+
+      ul.HC028-deliveryInformation__wrapper {
+        li {
+          // height: 60px;
+          padding: 5px 0 80px 30px;
+
+          .content-asset {
+            margin-top: unset !important;
+          }
+
+          h5 {
+            width: 200px;
+          }
+
+          p {
+            width: 400px;
+          }
+        }
+      }
+    }
+
+    .delivery-info-title {
+      display: none;
+    }
+
+    h4.#{$id}-header {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0px;
+      height: 40px;
+      padding-top: 12px;
+      min-height: 35px;
+      padding: 10px 0 7px 10px;
+      margin: 0;
+      cursor: pointer;
+      box-sizing: border-box;
+      /* position: relative; */
+      text-transform: uppercase;
+      color: #aaa;
+      background-color: #D6D7D8;
+
+    ////
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    ##{$id}-close {
+      position: absolute;
+      top: 7px;
+      right: 15px;
+      font-size: 25px;
+      color: #fff;
+      // text-shadow: 1px 1px 2px #00000024;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .#{$id}-overlay {
+
+    &.show {
+      position: fixed;
+      background-color: #000;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0;
+      opacity: .3;
+      z-index: 9999;
+    }
+    
+  }
+
+  ul.#{$id}-deliveryInformation__wrapper {
+    list-style: none;
+    padding: 0px;
+    text-align: left;
+    li {
+      padding: 0 0 3% 25px;
+      border-bottom: 1px solid #d6d6d6;
+      margin: 15px 5px;
+      &.gift-by-text {
+        &.enabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw40e19263/images/info_sms_delivery.png') no-repeat;
+          .content-disabled {
+            display: none;
+          }
+        }
+        &.disabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw40e19263/images/info_sms_delivery_f.png') no-repeat;
+          .content-enabled {
+            display: none;
+          }
+        }
+      }
+      &.uk-delivery {
+        &.enabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw7ef21e56/images/info_delivery.png') no-repeat;
+          .content-disabled {
+            display: none;
+          }
+        }
+        &.disabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw7ef21e56/images/info_delivery_.png') no-repeat;
+          .content-enabled {
+            display: none;
+          }
+        }
+        
+      }
+      &.click-collect {
+        &.enabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw712bf534/images/info_collect.png') no-repeat;
+          .content-disabled {
+            display: none;
+          }
+        }
+        &.disabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw712bf534/images/info_collect_f.png') no-repeat;
+          .content-enabled {
+            display: none;
+          }
+        }
+        
+      }
+      &.international-delivery {
+        &.enabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw5a8d2560/images/info_international.png') no-repeat;
+          .content-disabled {
+            display: none;
+          }
+        }
+        &.disabled {
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/default/dw5a8d2560/images/info_international_f.png') no-repeat;
+          .content-enabled {
+            display: none;
+          }
+        }
+        
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+// --- HIDE original Delivery Info icons
+  .delivery-info {
+    display: none !important;
+  }
+
+  // --- CODE INPUT -------------------------------
+  .cart-total {
+    table.order-totals-table {
+      tbody {
+        margin: 0 0 20px;
+        border: 1px solid #d6d6d6;
+        border-collapse: inherit;
+        padding: 10px;
+
+        // tr {
+        //   padding: 0px 10px;
+        // }
+        td {
+          padding: 5px;
+        }
+
+      // --- Error Messages
+      .#{$id}-notApplicable .not-applied {
+        font-family: GillSansNova-Medium;
+        // padding: 4px 0;
+        color: #bc0031;
+        font-size: .8125rem;
+        font-weight: 400 !important;
+        text-align: center;
+      }
+      .#{$id}-discountInput__error {
+        .coupon-error, .#{$id}-coupon-error {
+          font-family: GillSansNova-Medium;
+          padding: 4px 0;
+          color: #bc0031;
+          font-size: .8125rem;
+          font-weight: 400 !important;
+          // height: 100%;
+          text-rendering: optimizelegibility;
+          // text-align: center;
+          margin-left: 5px;
+
+        ///////
+          width: 101%;
+        }
+        // .coupon-error {
+        //   text-align: left;
+          
+        // }
+
+        .empty-code {
+          text-align: left;
+          display: none;
+
+          &.show {
+            display: block;
+          }
+        }
+      }
+        
+      // --- Applied Code(s)
+        tr.#{$id}-code-applied {
+          td.#{$id}-code-name {
+            color: #118f40;
+            &:after {
+              display: inline-block;
+              content:'\2713';
+              margin-left: 5px;
+            }
+          }
+          td.#{$id}-remove {
+            font-family: GillSansNova-Medium;
+            padding: 4px 0;
+            color: #bc0031;
+            font-weight: 400 !important;
+            padding: 10px;
+            line-height: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            font-size: .85em;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      // --- Clickable Discount Text
+        tr.#{$id}-discountText__row {
+          color: #929292;
+          text-decoration: underline;
+          // max-width: 50px;
+
+          &:hover {
+            cursor: pointer;
+          }
+          td {
+            font-family: GillSansNova-Medium;
+            font-weight: 400;
+          }
+          
+        }
+        tr.#{$id}-discountInput__row {
+          display: none;
+          opacity: .25;
+          &.show{
+            display: table-row;
+          }
+          &.focused {
+            opacity: 1;
+          }
+          
+          input##{$id}_cart_couponCode {
+            // width: 66%;
+            width: 100%;
+            height: 40px;
+            display: inline-block;
+            // float: left;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          button##{$id}-add-coupon {
+            display: inline-block;
+            // float: left;
+            width: calc(32%);
+            width: 100%;
+            height: 40px;
+            color: #fff;
+            // background-color: #C0C0C0;
+            // border-color: #C0C0C0;
+            background-color: #000;
+            border-color: #000;
+            // position: absolute;
+            // left: 80%;
+            // transform: translateX(-50%);
+            padding: 0px 25px 0px 20px;
+            margin-left: -9px;
+
+
+            &:hover {
+              // color: #C0C0C0;
+              color: #000;
+              background-color: #FFF;
+            }
+          }
+        }
+
+        tr.#{$id}-discountInput__subtext {
+          display: none;
+
+          &.show {
+            display: table-row;
+          }
+        }
+      }
+    }
+  }
+}

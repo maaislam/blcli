@@ -1,0 +1,73 @@
+@import './variables';
+
+.#{$id} {
+
+    .mp-menu .mp-level a.MobMenChevron:after {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .saleColor .#{$id}-media {
+        border-radius: 8px;
+    }
+
+    .am-menu .am-level a.MobMenChevron.#{$id}-child-link:after, 
+    .mp-menu .mp-level a.MobMenChevron.#{$id}-child-link:after {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #mp-menu .mp-level .shopbySize>.mp-level>p>a:before, 
+    #mp-menu .mp-level .shopbySize>a:before {
+        display: none;
+    }
+
+    .#{$id}-link {
+        $root: &;
+        display: flex !important;
+        align-items: center;
+        &:after {
+            top: 50% !important;
+            transform: translateY(-50%);
+        }
+        &.rotate-90 {
+            &:after {
+                top: 25px !important;
+            }
+        }
+        &--top {
+            #{$root}__media {
+                object-position: top;
+            }
+        }
+        &--all-brands {
+            #{$root}__media {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #333333;
+                color: white;
+                font-weight: bold;
+                &:before {
+                    content: 'A-Z';
+                }
+            }
+        }
+        &--hide {
+            display: none !important;
+        }
+    }
+
+    .#{$id}-media {
+        background-color: #f1f1f1;
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+
+}

@@ -1,0 +1,61 @@
+@import './variables';
+@import '../src/lib/shared/shared.scss';
+
+.#{$id} {
+    &__slidecatalog {
+        position: absolute;
+        width: 100px;
+        height: auto;
+        min-height: 140px;
+        padding: 4px 8px 8px;
+        background-color: #7622B8;
+        //transform: translate(-100%, -50%);
+        border-radius: 5px;
+        z-index: 10;
+        animation: slide-in-right 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+        transition: all 0.3s ease-in;
+
+
+
+        & a {
+            display: block;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+
+            &>.#{$id}__slidecatalog--title {
+                padding-top: 4px;
+                padding-bottom: 8px;
+            }
+        }
+
+        & img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__closeicon {
+        display: block;
+        text-align: right;
+        cursor: pointer;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translate(0, -50%);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translate(-100%, -50%);
+        opacity: 1;
+
+    }
+}

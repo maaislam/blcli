@@ -1,0 +1,89 @@
+body.TP083 {
+    //Show test in list view only
+    #r_content.list_view {
+
+        #products .row .prod .prod_info {
+            padding: 0 0 50px 0;
+            .TP083_ProductInfo_Product{
+            max-width: none;
+            }
+        }
+
+        .TP083_ProductInfo_Wrapper .TP083_ProductInfo_Icon {
+            width: 25px;
+            padding-top: 10px;
+        }
+        .TP083_ProductInfo_Wrapper {
+            display: block;
+            position: relative;
+            >.TP083_ProductInfo_Text {
+                width: auto;
+                display: inline-block;
+                font-size: 13px;
+                cursor: pointer;
+                vertical-align: super;
+                >.TP083_View_ProductInfo {
+                    display: inline-block;
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+                >.TP083_Close_ProductInfo {
+                    display: none;
+                }
+            }
+            &.TP083_Product_Info_Open {
+                >.TP083_ProductInfo_Text {
+                    .TP083_View_ProductInfo {
+                        display: none;
+                    }
+                    .TP083_Close_ProductInfo {
+                        display: inline-block;
+                        font-weight: 500;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+        .TP083_ProductInfo_Text,
+        .TP083_ProductInfo_Text>span {
+            text-decoration: underline;
+            color: #0a4e37;
+        }
+        .TP083_ProductInfo_Data_Wrap .TP083_RequestFailed {
+            text-decoration: underline;
+            color: #0a4e37;
+            width: 100%;
+            cursor: pointer;
+        } //Style category level reviews section
+        .stars-block {
+            position: static;
+            margin-top: 10px;
+        } 
+        //Style product information
+        .TP083_ProductInfo_Data_Wrap > .prod_content{
+            padding: 14px 20px;
+            height: auto;
+
+            //Override min-height 
+            min-height: 0;
+
+            //Style bullet points
+            ul{
+                padding: 0 0 0 15px;
+            }
+        }
+        
+    }
+    //Hide test if grid view is selected
+    #r_content.grid_view{
+        .TP083_ProductInfo_Wrapper {
+            display: none !important;
+            >.TP083_ProductInfo_Icon {
+                display: none !important;
+            }
+        }
+        .TP083_ProductInfo_Data_Wrap {
+            display: none !important;
+        }
+    }
+}

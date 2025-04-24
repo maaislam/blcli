@@ -1,0 +1,124 @@
+@import './variables';
+
+.#{$id} {
+  &.Layout_Phone #HeaderPlaceholder {
+    min-height: 6.3rem;
+    z-index: 101;
+  }
+
+  header {
+    #Hamburger {
+      span {
+        display: block;
+        margin-top: 4px;
+      }
+    }
+
+    .#{$id}-search {
+      cursor: pointer;
+      position: absolute;
+      left: 5rem;
+      top: 1rem;
+      text-align: center;
+      min-width: 35px;
+
+      @media(min-width: 375px) {
+        min-width: 45px;
+      }
+
+      svg-icon {
+        color: #000;
+        width: 2.8rem;
+        height: 2rem;
+        display: block;
+        margin: 0 auto .1rem auto;
+      }
+
+      span {
+        color: #000;
+        font-size: 1rem;
+        margin-bottom: -0.5px;
+        display: block;
+        margin-top: 4px;
+      }
+    }
+
+    .#{$id}-search-wrapper {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s;
+      padding-top: 0;
+      padding-bottom: 0;
+      background: #fff;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+			#SearchBar {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: block !important; // It's actually hidden on PDPs on control
+        background: none;
+
+        svg-icon {
+          color: #888;
+        }
+			}
+
+      #SearchInput {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        background-color: #F6F9F9 !important;
+
+        #SearchButton {
+          padding-right: 0.35rem;
+        }
+
+        input[type=search] {
+        }
+      }
+
+      &.#{$id}-active {
+        overflow: visible;
+        max-height: 68px;
+      }
+    }
+  }
+
+  #MainContentWrapper {
+    &:before {
+      opacity: 0;
+    }
+  }
+
+  &.#{$id}-active {
+
+    #MainContentWrapper {
+      &:before {
+        transition: 2s opacity;
+        content: "";
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        display: block;
+        width: 100vw;
+        height: 100%;
+        background: #546264;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &.Lang_ru {
+    .#{$id}-search {
+      min-width: 45px;
+    }
+  }
+
+  &.Lang_cs.#{$id}-active {
+    #BreadcrumbBar {
+      display: none;
+    }
+  }
+}

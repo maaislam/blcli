@@ -1,0 +1,67 @@
+$TiledNav_gutter: 15px;
+
+.TiledNav {
+  width: 100%;
+  background: #000;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  &__inner {
+    position: relative;
+    z-index: 3;
+    padding: $TiledNav_gutter;
+    display: grid;
+    gap: $TiledNav_gutter;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+  &__link {
+    padding: $TiledNav_gutter;
+    display: block;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+
+    &:active, &:hover {
+      background: #00AFDB;
+      color: #000;
+    }
+
+    span {
+      position: relative;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(-150%, -50%);
+      height: 30px;
+      display: block;
+      max-height: 50px;
+      max-width: 100px;
+      display: none;
+    }
+  }
+  &--2col &__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  &--3col &__inner {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

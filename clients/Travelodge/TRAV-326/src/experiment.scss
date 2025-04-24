@@ -1,0 +1,382 @@
+@import './variables';
+
+.#{$id} {
+  &:has(.#{$id}-active) {
+    overflow: hidden;
+  }
+
+  #section-img-with-hotel-details .hotel-details-right-content .rebase-hotel-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .#{$id}-share--overlay {
+    position: fixed;
+    /* Stays in place even when scrolling */
+    top: 0;
+    /* Aligns to the top of the screen */
+    left: 0;
+    /* Aligns to the left of the screen */
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background */
+    z-index: 998;
+    /* Ensures it's above other elements */
+    display: flex;
+    /* Optional: Flexbox to easily center content */
+    align-items: center;
+    /* Optional: Vertical centering */
+    justify-content: center;
+    /* Optional: Horizontal centering */
+  }
+
+  .#{$id}.#{$id}-share--active {
+    @media all and (max-width: 768px) {
+      #section-img-with-hotel-details .carousel {
+        overflow: visible;
+      }
+    }
+  }
+
+  .#{$id}-share {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    margin-top: 20px;
+    z-index: 999;
+
+    @media screen and (max-width: 767px) {
+      margin-top: 0;
+    }
+
+    &--button {
+      cursor: pointer;
+
+      @media screen and (max-width: 1023px) {
+        right: 0px;
+      }
+
+      &text {
+        color: #008cc6;
+        position: relative;
+        top: 1px;
+
+        @media all and (max-width: 600px) {
+          display: none;
+        }
+      }
+
+      &svg {
+        display: flex;
+        width: 25px;
+        height: 25px;
+        align-items: center;
+        justify-content: center;
+
+        @media all and (max-width: 600px) {
+          margin-right: 0;
+        }
+
+        svg path {
+          fill: #008cc6;
+        }
+      }
+
+      &.ocb-button {
+        right: 0;
+      }
+    }
+
+    &--social {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 30px;
+      right: 10px;
+      width: 425px;
+      // border: 2px solid #c6c6c6;
+      background: #fff;
+      // padding: 15px 20px 20px;
+      z-index: 998;
+
+      @media screen and (max-width: 450px) {
+        width: 360px;
+      }
+
+      &.#{$id}-active {
+        display: flex;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .#{$id}-share--header {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        background: #383c3d;
+        color: #fff;
+
+        .#{$id}-share--header--title {
+          color: #fff;
+          font-family: 'FS Albert Light', arial, sans-serif;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          width: 100%;
+          text-align: center;
+
+          @media screen and (max-width: 450px) {
+            font-size: 18px;
+          }
+        }
+
+        .#{$id}-share--header--closebutton {
+          cursor: pointer;
+        }
+      }
+
+      .#{$id}-share--hotelinfo {
+        display: flex;
+        // align-items: center;
+        margin: 10px 8px;
+
+        @media screen and (max-width: 450px) {
+          flex-direction: column;
+        }
+
+        &--image {
+          width: 200px;
+          height: 105px;
+
+          @media screen and (max-width: 450px) {
+            width: 345px;
+            height: 150px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        &--text {
+          display: flex;
+          flex-direction: column;
+          margin-top: 16px;
+
+          @media screen and (min-width: 451) {
+            align-items: center;
+          }
+
+          h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            font-family: 'FS Albert Bold', arial, sans-serif;
+            color: #464646;
+
+            @media screen and (min-width: 451px) {
+              padding-left: 20px;
+            }
+          }
+
+          .trip-advisor-rating {
+            margin-bottom: 0;
+
+            .ta-wrapper {
+              span {
+                font-family: 'FS Albert Bold', arial, sans-serif;
+                color: #353535;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+
+      // @media all and (max-width: 400px) {
+      //     width: 250px;
+      // }
+    }
+
+    &--linkbox {
+      border: 1px solid #c6c6c6;
+      border-radius: 5px;
+      padding: 0;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      margin: 0 8px 10px;
+
+      button {
+        border: none;
+        background: #f6f6f6;
+        height: 30px;
+        padding: 0 5px;
+        border-right: 1px solid #c6c6c6;
+        width: 13%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
+      input {
+        border: none;
+        height: 30px;
+        width: 87%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+
+    &--copybutton {
+      background: #5cb85c;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 40px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 0 8px;
+
+      // font-family: $font-family;
+      span {
+        color: #fff;
+      }
+
+      &innertext {
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &tick {
+        display: none;
+      }
+
+      &.#{$id}-share--copybutton--copied {
+        .#{$id}-share--copybuttoninnertext {
+          display: none;
+        }
+
+        .#{$id}-share--copybuttontick {
+          display: flex;
+        }
+      }
+    }
+
+    &--copycompletetext {
+      font-size: 11px;
+      text-align: center;
+      width: 100%;
+    }
+
+    &--socialbuttons {
+      margin: 8px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    &--socialbutton {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &--whatsapp {
+        background: #25d267;
+      }
+
+      &--email {
+        background: #5ea8ff;
+      }
+
+      &--messenger {
+        background: #f1f1f1;
+      }
+
+      &--telegram {
+        background: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .TRAV-326 .trv-bullets {
+      flex-wrap: nowrap !important;
+      overflow-x: scroll;
+    }
+
+    .TRAV-326 .trv-bullets::-webkit-scrollbar {
+      display: block;
+      border-radius: 1px;
+      width: 6px;
+    }
+
+    .TRAV-326 .trv-bullets::-webkit-scrollbar-track {
+      background: #f2f2f2;
+      background-clip: padding-box;
+      border-bottom: 7px solid #0000;
+      border-radius: 1px;
+      border-right: 4px solid #0000;
+      border-top: 8px solid #0000;
+    }
+
+    .TRAV-326 .trv-bullets::-webkit-scrollbar-thumb {
+      background: #d0d0d0;
+      background-clip: padding-box;
+      border-bottom: 7px solid #0000;
+      border-radius: 1px;
+      border-right: 4px solid #0000;
+      border-top: 8px solid #0000;
+    }
+
+    .TRAV-326 .trv-bullets::-webkit-scrollbar-thumb:hover {
+      background: #616161;
+      background-clip: padding-box;
+      border-right: 4px solid #0000;
+    }
+    .TRAV-326 .key-points-border:has(.rebase-icons) {
+      display: block;
+      height: max-content;
+      padding: 12px 15px;
+    }
+
+    .TRAV-326 .key-points-border:has(.rebase-icons) span {
+      margin-right: 0 !important;
+    }
+
+    .TRAV-326 .key-points-border:has(.rebase-icons) span + span {
+      display: none;
+    }
+
+    .TRAV-326 .key-points-border:has(.rebase-icons) svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .TRAV-326 .key-points-border:has(svg#top-icon-newdesign) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .TRAV-326 button.key-points-border:not(:has(.rebase-icons)) {
+      display: none;
+    }
+  }
+}

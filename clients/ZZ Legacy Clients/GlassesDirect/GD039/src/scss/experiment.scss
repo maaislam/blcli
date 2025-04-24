@@ -1,0 +1,281 @@
+@import './variables';
+@import '../../../../../lib/components/Accordion/Accordion';
+
+.#{$id} {
+  &.overlay-template .header {
+    margin: 0;
+  }
+  
+  &.overlay-template #prescription-tab-add {
+    padding: 0;
+    border-top: 0;
+
+    > .form-heading,
+    > .prescription-option-description,
+    > .prescription-about {
+      display: none;
+    }
+  }
+
+  .prescription-name,
+  .prescription-line-fields,
+  .prescription-additional-fields {
+    display: none;
+  }
+
+  #parsley-id-multiple-terms_and_conditions {
+    text-align: left;
+  }
+
+  .prescription-additional-fields > tr {
+    display: none;
+
+    &:last-of-type {
+      display: block;
+      margin-top: 20px;
+
+      td {
+        border: none;
+      }
+    }
+  }
+
+  .prescription-form--has-validation > .action-section {
+    display: none;
+  }
+
+  #id_notes {
+    min-height: 100px;
+    font-size: 1rem;
+  }
+
+  #id_terms_and_conditions_row {
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .checkbox-custom.field-error {
+    margin-bottom: 0;
+  }
+
+  .checkbox-custom input[type="checkbox"]+label:before {
+    position: relative;
+    top: 3px;
+  }
+  
+  .prescription-form-errors {
+    margin-bottom: 30px;
+    display: inline-block;
+    padding: 0;
+  }
+
+  .prescription-table {
+    padding: 0;
+  }
+
+  // Override accordion styles
+  .#{$id}_Accordion__itemTab {
+    padding: 18px 10px;
+    background-color: white;
+
+    h2 {
+      font-size: 17px;
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: black;
+    }
+  }
+
+  .#{$id}_Accordion__nav {
+    background: #2d3746;
+  }
+
+  .#{$id}_Accordion__nav--prev {
+    display: none;
+  }
+
+  .#{$id}_Accordion__itemBodyInner {
+    padding: 10px 10px 20px 10px;
+  }
+
+  // New styles
+  .#{$id}_sendItLater {
+    display: inline-block;
+  }
+
+  .#{$id}_simple-form {
+    display: block;
+  }
+
+  .#{$id}_complex-form {
+    display: none;
+  }
+  
+  .#{$id}_form--showComplex {
+    .#{$id}_simple-form {
+      display: none;
+    }
+
+    .#{$id}_complex-form {
+      display: block;
+    }
+  }
+
+  .#{$id}_Accordion--forceOpenAll {
+    .#{$id}_Accordion__nav {
+      display: none;
+    }
+  }
+  
+  .#{$id}_Accordion__item {
+    &.#{$id}_Accordion__item--open {
+      .#{$id}_Accordion__itemTab {
+        background-color: #2d3746;
+        
+        h2 {
+          color: white;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+      margin: 5px 0 10px 0;
+      font-weight: 800;
+    }
+
+    h4 {
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 5px 0 10px 0;
+      font-weight: 800;
+    }
+
+    .select-wrap select,
+    input {
+      font-size: 1rem;
+    }
+
+    .select-wrap select {
+      padding: 10px 46px 10px 10px;
+    }
+
+    #id_date_day,
+    #id_date_month,
+    #id_date_year {
+      padding: 10px 30px 10px 10px;
+    }
+
+    .field-label {
+      margin: 0 0 8px 0;
+      display: block;
+      font-size: 1.1rem;
+      vertical-align: middle;
+    }
+
+    .field-help {
+      display: block;
+      margin: 8px 0;
+      font-size: .8rem;
+    }
+
+    .#{$id}_description {
+      background: #f5f5f5;
+      padding: 15px;
+      margin-bottom: 20px;
+  
+      p {
+        font-size: 1rem;
+        margin: 10px 0;
+  
+        &:first-of-type {
+          margin-top: 0;
+        }
+  
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  
+    a.prescription-tooltip-trigger {
+      text-decoration: none;
+      font-size: 1.3rem;
+      vertical-align: middle;
+      width: 10%;
+      display: inline-block;
+      text-align: right;
+      line-height: normal;
+    }
+
+    .#{$id}_form-field {
+      margin: 15px 0;
+
+      .complex-field-group h5 {
+        margin: 30px 0 10px 0;        
+      }
+
+      &:first-of-type {
+        .complex-field-group h5 {
+          margin-top: 0;
+        }
+      }
+    }
+  
+    ##{$id}_leftEye,
+    ##{$id}_rightEye {
+      .select-wrap,
+      input {
+        width: 40%;
+        font-family: Helvetica,Arial,sans-serif;
+        border: solid 1px #6d6d6d;
+        font-size: 1rem;
+        line-height: normal;
+        vertical-align: middle;
+      }
+
+      input {
+        padding: 10px;
+        display: inline-block;
+      }
+
+      .field-label {
+        margin: 0;
+        display: inline-block;
+        text-align: left;
+        width: 50%;
+      }
+
+      .#{$id}_fields {
+        .element-simple,
+        .element-complex {
+          margin: 12px auto;
+          display: block;
+          max-width: 370px;
+          font-size: 0;
+        }
+      }
+    }
+
+    ##{$id}_extraInfo {
+      .toggle-extra-info__button {
+        display: none;
+      }
+
+      .toggle-extra-info__content {
+        display: block;
+      }
+    }
+
+    .toggle-complexity {
+      text-align: center;
+
+      &:before {
+        top: 0.2rem;
+        margin-right: 3px;
+      }
+    }
+  }
+}

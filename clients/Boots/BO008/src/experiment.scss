@@ -1,0 +1,374 @@
+@import './variables';
+@import './grid';
+
+/* Custom Styles */
+
+.#{$id} {
+    font-family: $f37Ginger;
+    
+    #content {
+        .rowContainer {
+            display: none;
+        }
+    }
+   
+    // banner text
+    .#{$id}__banner  {
+        padding: 10px;
+        margin-bottom: 10px;
+        .#{$id}__bannerText {
+            align-items: center;
+        }
+        .#{$id}__textLeft {
+            color: white;
+            text-align: left;
+        }
+
+        .#{$id}__banner__button {
+            margin: 0 auto;
+        }
+    }
+
+    // carousel
+    .#{$id}__heroCarousel {
+        .#{$id}__slide {
+            height: 500px;
+            background: #daedf4;
+            text-align: center;
+            .#{$id}__button {
+                background: transparent;
+            }
+            .#{$id}__banner_title {
+                color: $valueRed;
+                margin-bottom: 10px;
+            }
+            .#{$id}__p {
+                color: $midnightBlue;
+                margin-bottom: 10px;
+            }
+            .#{$id}__button {
+                margin: 0 auto;
+            }
+            @media(min-width: 767px) {
+                text-align: left;
+                height: 250px;
+                .#{$id}__button {
+                    margin: unset
+                } 
+            }
+            @media(min-width: 1200px) {
+                height: 500px;
+                .#{$id}__p {
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    // draggable bars
+    .#{$id}__carousel__inner {
+        display: -webkit-box;
+        -webkit-overflow-scrolling: touch;
+        width: 100vw;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        @media(min-width: 1100px) {
+            display: flex;
+            width: auto;
+            overflow-x: visible;
+            overflow-y: visible;
+        }
+    }
+    .#{$id}__image {
+        width: 80%;
+        height: 80%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    
+
+    // banners teaser banners
+    .#{$id}__smallBoxes {
+        .#{$id}__h4 {
+            text-align: center;
+            @media(min-width: 767px) {
+                padding-bottom: 30px;
+            }
+        }
+    }
+    .#{$id}__teaserBox {
+        .#{$id}__h4,
+        .#{$id}__h3  {
+            color: $midnightBlue;
+        }
+    }
+
+    // boxes in carousel
+    // smaller box in carousel
+    .#{$id}__carouselBar {
+        &.#{$id}__smallBoxes {
+            background: $backgroundGrey;
+            .#{$id}__carouselBox {
+                &.#{$id}__teaserBox { 
+                    margin: 0.5rem 2%;
+                    display: flex;
+                    margin-left: 15px;
+                    .#{$id}__outer {
+                        background: $white;
+                    }
+                    @media(min-width: 767px) {
+                        margin-top: 40px;
+                       
+                    }
+                    @media(min-width: 1024px) {
+                        width: 16%;
+                    }
+                }
+            }
+            .#{$id}__carousel__inner {
+                padding-bottom: 20px;
+                width: 99vw;
+                text-align: left;
+                &::-webkit-scrollbar-track {
+                    height: 8px;
+                    border-radius: 4px;
+                    background-color: $white;
+                    margin: 30px;
+                }
+        
+                &::-webkit-scrollbar {
+                    height: 8px;
+                    background-color: transparent;
+                }
+        
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 8px;
+                    width: 20px;
+                    background-color: $keylineGrey;
+                }
+                @media(min-width: 767px) {
+                    margin: 0 auto;
+                }
+            }
+        }
+        .#{$id}__disclaimer {
+            color: $midnightBlue;
+        }
+    }
+
+    // propositions bar
+    .#{$id}__propBox {
+        text-align: center;
+        .#{$id}__innerText {
+            padding: 10px;
+            .#{$id}__icon {
+                width: 28px;
+                height: 28px;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin: 0 auto;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            span {
+                font-size: 14px;
+                font-weight: 600;
+                color: $midnightBlue;
+            }
+            .#{$id}__p {
+                margin-top: 0;
+                color: $textGrey2;
+            }
+        }
+        @media(min-width: 767px) {
+            &:last-of-type {
+                &::after {
+                    display: none;
+                }
+            }
+            .#{$id}__innerText {
+                padding: 0;
+            }
+        }
+    }
+
+    // newsletter 
+    .#{$id}__newsletter {
+        background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/7CDEA1D469C6C2527CE26094CE12A1AECD82A56D69BDB01B78BB0FFEFB4B489A/new-boots-com/BO008---VML-DDL-Homepage/newsbackground.png') no-repeat center;
+        background-size: cover;
+        #cu_newsletter_signup {
+            background: none;
+            padding: 0;
+            .container,
+            .success,
+            .error {
+                background: none;
+                padding: 0;
+                text-align: left;
+                h4 {
+                    font-family: $f37Ginger;
+                    font-size: 14px;
+                    color: $midnightBlue;
+                    font-weight: 600;
+                    @media(min-width: 1200px) {
+                        font-size: 18px;
+                    }
+                }
+                p {
+                    font-size: 12px;
+                    font-weight: 300;
+                    color: $midnightBlue;
+                    @media(min-width: 1200px) {
+                        font-size: 16px;
+                    }
+                }
+                input {
+                    border: solid 1px $textGrey1;
+                    background-color: $white;
+                    color: $textGrey1;
+                    font-size: 12px !important;
+                }
+                button {
+                    color: white;
+                    font-size: 14px;
+                    letter-spacing: 1px;
+                    line-height: 38px;
+                    font-weight: 600;
+                    width: 100%;
+                    cursor: pointer;
+                    &:hover {
+                        background: $white;
+                        color: $accentBlue;
+                    }
+                }
+                .footer {
+                    font-size: 11px;
+                }
+            }
+        }
+        @media(min-width: 767px) {
+            #cu_newsletter_signup{
+                width: 500px;
+                .container {
+                    form {
+                        display: flex;
+                        button {
+                            width: 161px;
+                            height: auto;
+                            font-size: 12px;
+                            line-height: 34px;
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Slick styling on desktop
+    .#{$id}__brandBar {
+        .#{$id}__carousel__inner {
+            height: 75px;
+        }
+        .slick-arrow {
+            top: 20px;
+            &.slick-next {
+                right: -70px;
+                &:after {
+                    transform: unset;
+                    background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/4A07111EBC550FFDF7B0002747C9EE363B3FB32C71797045A876D30DD4C4111C/new-boots-com/BO008---VML-DDL-Homepage/rightarrow.svg') no-repeat center; 
+                }
+            }
+            &.slick-prev {
+                left: -70px;
+                &:after {
+                    background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/A4C2E7EC52AAE8B37F17C28CB3CA535C52C9852A5E497DA77FD70519BCA70F72/new-boots-com/BO008---VML-DDL-Homepage/leftArrow.svg') no-repeat center;  
+                }
+            }
+            &.slick-next,
+            &.slick-prev { 
+                &:hover {
+                    &::after {
+                        height: inherit;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        transform: rotate(0);
+                    }
+                
+                }
+                   
+            }
+        }
+    }
+    .#{$id}__heroCarousel {
+        .slick-arrow {
+            &.slick-next {
+                right: 70px;
+            }
+            &.slick-prev {
+                left: 70px;
+            }
+        }
+    }
+    .#{$id}__heroCarousel,
+    .#{$id}__smallBoxes.#{$id}__carouselBar {
+        .slick-arrow {
+            top: 50%;
+            width: 28px;
+            height: 28px;
+            border: solid 1px $keylineGrey;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            transform: translateY(-50%);
+            &:after {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            &.slick-next {
+                &:after {
+                    background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/4A07111EBC550FFDF7B0002747C9EE363B3FB32C71797045A876D30DD4C4111C/new-boots-com/BO008---VML-DDL-Homepage/rightarrow.svg') no-repeat center; 
+                }
+            }
+            &.slick-prev {
+                &:after {
+                    background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/A4C2E7EC52AAE8B37F17C28CB3CA535C52C9852A5E497DA77FD70519BCA70F72/new-boots-com/BO008---VML-DDL-Homepage/leftArrow.svg') no-repeat center;  
+                }
+            }
+        }
+
+    }
+
+    .#{$id}__smallBoxes.#{$id}__carouselBar{
+        .#{$id}__teaserBox {
+            margin-left: 20px !important;
+            margin-right: 20px !important;
+        }
+        .slick-track {
+            display: flex !important;
+        }
+        .slick-slide{
+            height: inherit !important;
+        }
+        .slick-arrow {
+
+            &.slick-next {
+                right: -70px;
+            }
+            &.slick-prev {
+                left: -70px;
+            }
+            
+        }
+    }
+}

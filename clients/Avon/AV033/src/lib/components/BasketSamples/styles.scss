@@ -1,0 +1,362 @@
+@import '../../../_variables';
+
+$component: '#{$id}_BasketSamples';
+
+.#{$id} {
+  .#{$component} {
+    background: #F6F9F9;
+    text-align: center;
+    margin: 1rem 0 2rem;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    font-family: $fontFamily;
+
+    h2 {
+      margin: 0 0 10px 0;
+    }
+
+    .#{$component}Toggle {
+      background-color: #bae1e9;
+      color: #055263;
+      padding: 2rem;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+      }
+    }
+
+    .#{$component}ToggleIcon {
+      height: 23px;
+      width: 23px;
+      // background-image: url('https://ab-test-sandbox.userconversion.com/experiments/AV033-arrow_white.png');
+      background-image: url('#$(ContentManager:arrow_white.png)!');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      float: right;
+    }
+
+    &.#{$component}--open {
+      .#{$component}Toggle {
+        color: #333;
+        background: #f6f9f9;
+      }
+
+      .#{$component}ToggleIcon {
+        transform: rotate(90deg);
+      }
+    }
+
+    .#{$component}Content {
+      padding: 3rem 0;
+      max-width: 976px;
+      margin: 0 auto;
+    }
+
+    .#{$component}Top {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 976px;
+    }
+
+    .#{$component}Desc {
+      margin: 0 auto 30px;
+      font-size: 1.4rem;
+      max-width: 320px;
+      color: #505050;
+    }
+  }
+  
+  .#{$component}Products {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .#{$component}Product--link {
+      display: none;
+    };
+  }
+  
+  .#{$component}Product {
+    padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+    width: 25%;
+
+    &.#{$component}Product--hasVariants {}
+
+    &.#{$component}Product--isConditional {}
+
+    .ProductListItem {
+      border-width: 2px;
+      border-style: solid;
+      border-color: rgb(242, 246, 246);
+      border-image: initial;
+      border-radius: 2px;
+      padding: 15px;
+      background: white;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    .ProductImage {
+      width: auto;
+      display: block;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative;
+      max-width: 130px;
+      margin: 0 auto;
+    }
+
+    .product-options {
+      margin-bottom: .7rem;
+      border: solid 1px;
+      font-size: 1.2rem;
+      padding: .7rem .2rem;
+      text-align: center;
+      display: none;
+    }
+
+    .ImageWrapper {
+      .ImageAspectRatio {
+        display: none;
+      }
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        display: inline-block;
+        position: static;
+        margin: 0px auto;
+      }
+    }
+
+    .ProductDetails {
+      display: block;
+      padding: 0px;
+
+      .ProductDetailsTop {
+        position: relative;
+        padding-bottom: 1.2rem;    
+        text-align: center;
+
+        .ProductDescription {
+          margin-bottom: 1.5rem;
+          display: none;
+        }
+      }
+
+      .ProductAction {
+        width: 100%;
+        padding-bottom: .2rem;
+      }
+
+      .Quantity {
+        display: none;
+      }
+    }
+
+    .#{$component}OfferBadge {
+      background-color: rgb(186, 225, 233);
+      color: rgb(6, 83, 99);
+      text-align: center;
+      min-width: 100px;
+      display: inline-block;
+      font-size: 1.3rem;
+      padding: 2px 5px;
+      border-radius: 15px;
+      margin: 5px auto 10px;
+    }
+
+    .ProductName {
+      display: block;
+      line-height: 1.5;
+      margin-bottom: .5rem;
+      color: rgb(84, 98, 100);
+      text-align: center;
+      font-size: 1.4rem;
+    }
+
+    .AddToCart {
+      text-align: center;
+    }
+
+    .Button {
+      background-color: rgb(255, 51, 109);
+      display: inline-block;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: normal;
+      font-style: normal;
+      font-family: Roboto, Lato, Arial, Gotham, "Helvetica Neue", Helvetica, sans-serif !important;
+      border-width: 2px;
+      border-style: solid;
+      border-color: rgb(255, 51, 109);
+      border-image: initial;
+      margin: 0px;
+      padding: 8px 10px;
+      transition: transform 0.2s ease 0s, -webkit-transform 0.2s ease 0s;
+      min-width: 0;
+
+      &:hover {
+        transform: scale(1.02);
+        transition: transform 0.2s ease 0s, -webkit-transform 0.2s ease 0s;
+        background-color: #ff336d;
+        border-width: 2px;
+        border-color: rgb(255, 51, 109);
+      }
+    }
+
+    .#{$component}AddToCart--success {
+      .Button {
+        background-color: white;
+        color: rgb(255, 51, 109);
+        transition: all 0.2s ease 0s;
+
+        span::before {
+          content: '+';
+          font-size: 1.4rem;
+          line-height: 0;
+          height: auto;
+          width: auto;
+          background: none;
+        }
+      }
+    }
+  }
+
+  .#{$component}Link {
+    text-align: center;
+
+    .Button {
+      background-color: white;
+      color: $avonPink;
+      transition: all 0.2s ease 0s;
+      font-family: $fontFamily;
+      font-weight: normal;
+      font-style: normal;
+      border-width: 2px;
+      border-style: solid;
+      border-color: $avonPink;
+      border-image: initial;
+      padding: 8px 10px;
+      width: 100%;
+      max-width: 290px;
+      margin: 20px 0 0;
+      font-size: 1.5rem;
+      
+      &:hover {
+        border-width: 2px;
+        border-style: solid;
+        border-color: $avonPink;
+        color: white;
+        background: $avonPink;
+        transition: all 0.2s ease 0s;
+      }
+    }
+  }
+
+  &.Layout_Desktop,
+  &.Layout_Tablet {
+    @media (max-width: 992px) {
+      .#{$component}Product {
+        padding: 0px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .#{$component} {
+        .#{$component}Desc {
+          margin: 0 auto 15px;
+        }
+      }
+
+      .#{$component}Product {
+        .ProductListItem {
+          padding: 15px 2px;
+        }
+
+        .Button {
+          padding: 8px 3px;
+          width: 95%;
+        }
+
+        .#{$component}OfferBadge {
+          width: 85%;
+          min-width: 0;
+        }
+      }
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component}ToggleText {
+      .#{$id}_SampleCount {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        width: auto;    
+        text-align: left;
+      }
+
+      .#{$id}_SampleCountInner {
+        display: inline-flex;
+      }
+    }
+    
+    &.#{$component}--open {
+
+    }
+
+    .#{$component}Products {
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+
+      .#{$component}Product--link {
+        width: 49%;
+        display: inline-block;
+        align-self: center;
+
+        .#{$component}Link {
+          display: inline-block;
+          width: 100%;
+  
+          a {
+            margin: 0;
+            white-space: normal;
+          }
+        }
+      }
+    }
+    
+    .#{$component}Product {
+      width: 50%;
+      padding: 3px;
+    }
+
+    .#{$component} {
+      .#{$component}Desc {
+        padding: 0 1rem;
+        margin: 0 auto 20px;
+      }
+
+      .#{$component}Content {
+        padding: 0 0 3rem 0;
+      }
+    }
+  }
+}

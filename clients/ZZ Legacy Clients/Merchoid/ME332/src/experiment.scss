@@ -1,0 +1,776 @@
+@import './variables';
+
+@keyframes search-slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+html.nav-open body.mobile .nav-sections {
+  z-index: 99999;
+}
+
+.#{$id} {
+
+  @media (max-width: 767px){
+    .review-fans .review-banner {
+        height: auto;
+    }
+  }
+
+  .fotorama--fullscreen {
+    z-index: 99999 !important;
+  }
+
+  .page-header,
+  .top-search-banner,
+  .as-seen-block {
+    display: none;
+  }
+
+  #search_autocomplete_footer {
+    display: none !important;
+  }
+  // For both
+  .#{$id}-header {  
+    position: relative;
+    .#{$id}-headerContent {
+      height: 60px;
+      background: white;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      z-index: 9992;
+      position: relative;
+    }
+    .#{$id}-headerContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-grow: 1;
+      @media(min-width: 1200px) {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      
+    }
+
+    .#{$id}-left {
+      width: 25%;
+      .action.nav-toggle {
+        height: 23px;
+        width: 23px;
+        background: url('https://editor-assets.abtasty.com/49254/62d95611b2bf11658410513.png') no-repeat center;
+        background-size: contain;
+        position: relative;
+        top: unset;
+        left: unset;
+        @media(min-width:768px) {
+          height: 27px;
+          width: 27px;
+        }
+        &::before {
+          display: none;
+        }
+        span {
+          display: none;
+        }
+      }
+
+    }
+    .#{$id}-middle {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .#{$id}-logo {
+      background: url('https://www.merchoid.com/media/logo/default/logo_2_.png') no-repeat center;
+      background-size: contain;
+      width: 150px;
+      height: 30px;
+      @media(min-width: 1200px) {
+        width: 150px;
+        height: 35px;
+      }
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .#{$id}-logoText {
+      display: none;
+    }
+  }
+
+  .#{$id}-headerIcons {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-end;
+    @media(min-width:1200px) {
+      gap: 30px;
+    }
+    .#{$id}-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left: 0;
+        text-decoration: none;
+      }
+      .icon-img {
+        height: 23px;
+        width: 23px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        @media(min-width:768px) {
+          height: 27px;
+          width: 27px;
+        }
+        @media(min-width: 1200px) {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      .icon-name {
+        display: none;
+        @media(min-width:1200px) {
+         display: block;
+         font-size: 14px;
+         color: black;
+         margin-top: 5px;
+         margin-bottom: 0;
+        }
+      }
+
+      &.search {
+        .icon-img {
+          background-image: url('https://editor-assets.abtasty.com/49254/62d956400ff1c1658410560.png');
+        }
+      }
+      &.account {
+        .icon-img {
+          background-image: url('https://editor-assets.abtasty.com/49254/62d9566fb7a331658410607.png');
+          background-size: 30px;
+        }
+      }
+      &.wishlist {
+        .icon-img {
+          background-image: url('https://editor-assets.abtasty.com/49254/62d95659889a01658410585.png');
+        }
+      }
+      &.basket {
+        .icon-img {
+          background-image: url('https://editor-assets.abtasty.com/49254/62d9567fc07c81658410623.png');
+        }
+      }
+      &.basket.notEmpty {
+        .icon-img {
+          background-image: url('https://editor-assets.abtasty.com/49254/62d97272236c31658417778.png');
+        }
+      }
+
+      &.account,
+      &.wishlist {
+        display: none;
+
+        @media(min-width:768px) {
+          display: flex;
+        }
+      }
+
+      
+    }
+    
+  }
+
+  .#{$id}-search {
+    position: absolute;
+    background: white;
+    width: 100%;
+    left: 0;
+    z-index: 9991;
+    top: auto;
+    transform: translateY(-1000px);
+    opacity: 0;
+    box-shadow: inset 1px 3px 6px 0px rgba(222, 221, 221, 0.7);
+
+    &.#{$id}_searchActive {
+      animation: search-slide-in-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+    }
+
+    .#{$id}-searchContainer {
+      padding-right: 30px;
+      position: relative;
+    }
+
+    .#{$id}-closeSearch {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: url('https://editor-assets.abtasty.com/49254/62d9708f4743c1658417295.png') no-repeat center;
+      background-size: contain;
+      cursor: pointer;
+    }  
+
+    .form.minisearch {
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
+      .field.search  {
+        flex-grow: 1;
+        label {
+          display: none;
+        }
+      }
+      .control {
+        display: flex;
+        height: 100%;
+        align-items: center;
+      }
+      input {
+        height: 100%;
+        border: 0;
+        flex-grow: 1;
+        &::placeholder {
+          color: #939393;
+        }
+        &:focus {
+          outline: none;
+          box-shadow: unset;
+        }
+      }
+      .actions {
+        cursor: pointer;
+      }
+      button {
+        background: #1FBBED;
+        color: white;
+        border: 1px solid #1FBBED;
+        cursor: pointer;
+        &[disabled] {
+          opacity: 1;
+          background: #C1C1C1;
+          border: 1px solid #C1C1C1;
+        }
+      }
+    }
+  }
+
+  .#{$id}-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    &.#{$id}-active {
+      display: block;
+    }
+    
+  }
+
+  // Reviews
+  .review-fans {
+    @media(min-width: 1200px) {
+      display: none;
+    }
+    .container {
+      padding: 8px;
+      height: auto;
+      max-width: 300px;
+      .slick-slide {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .review-banner-conveyor-belt {
+      margin: 0;
+      @media(min-width: 767px) {
+        width: 600px !important;
+      }
+     
+    }
+    .review-banner {
+      background: black;
+    }
+    .review-banner-text{
+      display: none;
+    }
+    .review-quote {
+      flex-grow: 1;
+      font-size: 14px;
+      max-width: 60%;
+      color: white;
+      text-transform: capitalize;
+      font-size: 14px;
+      @media(min-width: 767px) {
+        max-width: 50%;
+      }
+
+      
+    }
+    .review-info {
+        display: flex;
+        flex-direction: column;
+        @media(min-width: 767px) {
+          flex-direction: row;
+          align-items: center;
+        }
+    }
+    .review-author {
+      color: white;
+      @media(min-width: 767px) {
+        margin-top: 3px;
+        margin-left: 20px;
+      }
+    }
+    .review-star-rating {
+      background: url('https://editor-assets.abtasty.com/49254/62da74da8909a1658483930.png') repeat-x 0 0;
+      background-size: contain;
+      height: 19px;
+    }
+  }
+
+  &.#{$id}-1 {
+    div.sections.nav-sections div.block-search {
+      @media(min-width: 1024px) {
+        display: inline-block;
+      }
+    }
+    .#{$id}-header {
+      .#{$id}-icon {
+        &.search{ 
+          @media(min-width: 1024px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .navigation {
+      .form.minisearch {
+        input {
+          @media(min-width: 1200px) {
+            background: #626262;
+            border: 1px solid #626262;
+          }
+        }
+        .action.search {
+          @media(min-width: 1200px) {
+            background: #626262;
+            border: 1px solid #626262;
+          }
+        }
+      }
+    }
+   
+  }
+
+  &.#{$id}-1,
+  &.#{$id}-2 {
+    .#{$id}-header {
+      #reviews {
+        display: none;
+        @media(min-width: 1200px) {
+          display: block;
+          max-width: 300px;
+          padding: 10px;
+
+          .review-quote {
+            margin-bottom: 5px;
+            color: black;
+            text-align: center;
+            text-transform: capitalize;
+          }
+          .review-star-rating {
+            background: url('https://editor-assets.abtasty.com/49254/62da74da8909a1658483930.png') repeat-x 0 0;
+            background-size: contain;
+            height: 15px;
+          }
+          .review-star-rating-5 {
+            width: 81px;
+          }
+          .review-star-rating-4 {
+            width: 64px;
+          }
+          .review-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+          }
+          .review-author {
+            color: black;
+            margin-top: 3px;
+            text-transform: capitalize;
+            font-weight: 400;
+            margin-left: 10px;
+          }
+        }
+      }
+      .#{$id}-headerContent {
+        @media(min-width: 1200px) {
+          height: auto;
+          padding: 15px;
+        }
+      }
+      .#{$id}-middle {
+        @media(min-width: 1200px) {
+          flex-direction: column;
+          .#{$id}-logoText {
+            display: block;
+            margin-top: 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: black;
+            font-weight: 900;
+          }
+        }
+      }
+    }
+  }
+
+  // Show/hide icons based on variation
+  &.#{$id}-2 {
+    .#{$id}-header {
+      .#{$id}-icon {
+        &.search{ 
+          display: none;
+
+          @media(min-width:768px) {
+            display: flex;
+          }
+        }
+      }
+
+    }
+
+    @media(max-width: 1199px) {
+      .#{$id}-search {
+        position: relative;
+        left: unset;
+        top: unset;
+        transform: unset;
+        opacity: 1;
+        .#{$id}-searchContainer {
+          padding-right: 0;
+          .action.search {
+            position: relative;
+            top: unset;
+            left: unset;
+            right: unset;
+            padding-left: 35px;
+            background: #1FBBED;
+            color: white;
+            border: 1px solid #1FBBED;
+            &[disabled] {
+              opacity: 1;
+              background: #C1C1C1;
+              border: 1px solid #C1C1C1;
+            }
+            &::before {
+              left: 5px;
+              right: auto;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+        .#{$id}-closeSearch {
+          display: none;
+        }
+      }
+    }
+    @media(min-width: 1200px) {
+      .#{$id}-search {
+        background: #F4F4F4;
+      }
+      .navigation {
+        
+        .form.minisearch {
+          display: none;
+        }
+      }
+      .#{$id}-searchContainer {
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      .form.minisearch {
+        justify-content: center;
+        .field.search {
+          width: 100%;
+          input {
+            text-align: center;
+            background: #F4F4F4;
+          }
+        }
+        .action.search {
+          height: 30px;
+          width: 30px;
+          background: url('https://editor-assets.abtasty.com/49254/62d956400ff1c1658410560.png') no-repeat center;
+          background-size: contain;
+          border: 0px;
+          span {
+            display: none;
+          }
+        
+        }
+      }
+    }
+  }
+
+  &.#{$id}-3 {
+    .fotorama--fullscreen {
+      z-index: 9999 !important;
+    }
+    .#{$id}-header {
+      .#{$id}-left {
+        .#{$id}-logo {
+          display: none;
+        }
+      }
+
+      @media(min-width: 1200px) {
+        .#{$id}-headerContent {
+          height: auto;
+          padding: 0;
+        }
+
+        .#{$id}-headerContainer {
+          align-items: stretch;
+        }
+        .#{$id}-icon {
+          .icon-img {
+            height: 25px;
+            width: 25px;
+          }
+        }
+          
+        .#{$id}-left {
+          width: 155px;
+          align-items: center;
+          display: flex;
+          .#{$id}-logo {
+            display: block;
+          }
+        }
+        .#{$id}-middle {
+          width: 55%;
+          justify-content: flex-start;
+          align-items: stretch;
+          .#{$id}-logo {
+            display: none;
+          }
+
+          .#{$id}-desktopNavigation {
+            display: flex;
+            align-items: center;
+            li.level0 {
+              margin: 0;
+              height: 80px;
+              display: inline-flex;
+              align-items: center;
+            }
+
+            .navigation {
+              display: flex;
+              flex-direction: column;
+              .form.minisearch {
+                display: none;
+              }
+            }
+          }
+        }
+
+        // Navigation
+        .sections.nav-sections {
+          background: none;
+          div.navigation {
+            padding: 0;
+            
+            .nav-item.level0 {
+              .nav-anchor {
+                border: 0px;
+                padding: 0px 10px;
+                &::after {
+                  display: none;
+                }
+                span {
+                  color: black;
+                  font-size: 14px;
+                }
+              }
+
+              .submenu-inner {
+                a {
+                  &::after {
+                    display: block;
+                  }
+                }
+                span {
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .#{$id}-trending {
+      display: none;
+      @media(min-width: 1200px) {
+        display: block;
+
+        h2 {
+          color: black;
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 18px;
+        }
+
+        .#{$id}-trendBlocks {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+
+          .#{$id}-trendBlock {
+            padding: 20px 10px;
+            box-sizing: border-box;
+            background: #EFEFEF;
+            flex-basis: 25%;
+            flex-grow: 0;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              background: #f9f9f9;
+            }
+            a {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              left: 0;
+              top: 0;
+            }
+
+            .#{$id}-trendText {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              span {
+                font-weight: 100;
+                color: black;
+                text-transform: uppercase;
+                font-size: 12px;
+              }
+              h3 {
+                margin: 0;
+                color: black;
+              }
+            }
+
+            .#{$id}-trendImage {
+              height: 180px;
+              width: 100%;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .#{$id}-search {
+      @media(min-width: 1200px) {
+        .#{$id}-searchContainer {
+          padding: 30px 20px;
+          box-sizing: border-box;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+        .#{$id}-closeSearch {
+          position: absolute;
+          top: 20px;
+          right: -50px;
+        }
+        .form.minisearch {
+          max-width: 1024px;
+          margin: 0 auto;
+          justify-content: center;
+          background: #F8F8F8;
+          border: 0.5px solid #1FBBED;
+          box-shadow: 0px 0px 5px #1FBBED;
+          padding: 0;
+          height: 50px;
+          box-sizing: border-box;
+          input {
+            background: #F8F8F8;
+          }
+          .field.search {
+            width: 100%;
+          }
+          .actions {
+            display: flex;
+            align-items: center;
+          }
+          .action.search {
+            height: 60px;
+            width: 60px;
+            background: url('https://editor-assets.abtasty.com/49254/62d956400ff1c1658410560.png') no-repeat center;
+            background-size: 30px;
+            border: 0px;
+            background-color: transparent;
+            span {
+              display: none;
+            }
+          
+          }
+        }
+      }
+    }
+
+    .review-fans {
+      @media(min-width: 1200px) {
+        display: block;
+
+        .container {
+          max-width: 600px;
+        }
+      }
+    }
+  }
+
+}

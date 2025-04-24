@@ -1,0 +1,231 @@
+@import './variables';
+
+@keyframes BootsprogressBar {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+.#{$id} {
+    .heroCarousel {
+        display: none;
+    }
+    .#{$id}__heroCarousel {
+        .#{$id}__slide {
+            position: relative;
+            height: auto;
+            text-align: center;
+            padding-bottom: 10px;
+            &:focus {
+                outline: none;
+            }
+            .#{$id}__slide__content {
+                height: 100%;
+                .#{$id}-image {
+                    height: 300px;
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                .#{$id}-logo {
+                    height: 50px;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 200px;
+                    margin: 0 auto;
+                    margin-bottom: 30px;
+                    margin-top: 20px;
+                }
+
+                .#{$id}-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    .#{$id}-button {
+                        width: 250px;
+                        height: 40px;
+                        line-height: 40px;
+                        border-radius: 0px;
+                        transition: background-color 0.4s ease-in-out;
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-family: FuturaLTBook,Tahoma,Arial,sans-serif;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        font-size: 13px;
+                        box-sizing: border-box;
+                        margin-bottom: 15px;
+                        @media(min-width: 375px) {
+                            width: 270px;
+                        }
+                        
+                        &.#{$id}-white {
+                            border: 1px solid white;
+                            color: white;
+                            &:hover {
+                                color: black;
+                                background: white;
+                            }
+                        }
+                        &.#{$id}-black {
+                            border: 1px solid black;
+                            color: black;
+                            &:hover {
+                                color: white;
+                                background: black;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        .slick-dots {
+            margin-top: 10px;
+            li {
+                width: 35px;
+                height: 5px;
+                margin: 10px;
+                background: #D0D0D0;
+                button {
+                    display: none;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+            .slick-active {
+                position: relative;
+                &::after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                    top: 0;
+                    background: white;
+                    background-color: #05054B;
+                    animation: BootsprogressBar 7s ease-in-out;
+                    animation-fill-mode:both;
+                    animation-play-state: running;
+                }
+                &.#{$id}-pauseAnim {
+                    &::after {
+                        animation-play-state: paused;
+                    }
+                }
+                
+            }
+        }
+        .slick-arrow {
+            border: 1px solid #D0D0D0;
+            background: white;
+            height: 30px;
+            width: 30px;
+            border-radius: 30px;
+            box-shadow: 0px 1px 3px 1px rgba(204, 204, 204, 0.4);
+            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/21111900E4B705F473DC65994A120FC7DD3C9A26447621C192EE62306AF4685A.png?meta=/BO073---Chanel-Carousel/arrow.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 6px;
+            transform: translateY(-50%);
+            &.slick-prev {
+               background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/8F7DC44F56C7781A9A99AE7B8F056A3334D235096B75F08ABE864F0D4004C9E7.png?meta=/BO073---Chanel-Carousel/arrowleft.png');
+                left: 5px;
+            }
+            &.slick-next {
+                right: 5px;
+            }
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    @media(min-width: 500px) {
+        .#{$id}__heroCarousel {
+            .#{$id}__slide {
+                height: 600px;
+                .#{$id}__slide__content {
+                    height: 100%;
+                    .#{$id}-image {
+                        height: 400px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media(min-width: 767px) {
+        .#{$id}__heroCarousel {
+            .#{$id}__slide {
+                height: 350px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                padding: 0;
+                .#{$id}-image {
+                    display: none;
+                }
+                .#{$id}__slide__content {
+                    width: 60%;
+                    margin-left: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-content: center;
+                    .#{$id}-logo {
+                        margin-bottom: 20px;
+                    }
+                    .#{$id}-buttons {
+                        flex-direction: row;
+                        .#{$id}-button {
+                            margin: 10px;
+                            width: 300px;
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media(min-width: 1024px) {
+        .#{$id}__heroCarousel {
+            .slick-arrow {
+                &.slick-next {
+                    right: 20px;
+                }
+                &.slick-prev {
+                    left: 20px;
+                }
+                
+            }
+        }
+    }
+    @media(min-width: 1280px) {
+        .#{$id}__heroCarousel {
+            .#{$id}__slide {
+                height: 540px;
+                .#{$id}__slide__content {
+                    width: 50%;
+                    margin-left: 20px;
+                    .#{$id}-logo {
+                        width: 250px;
+                        height: 70px;
+                        margin-bottom: 30px;
+                        &.#{$id}-chanellogo {
+                            background-size: 150px;
+                            height: 50px;
+                        }
+                    }
+                    .#{$id}-buttons {
+                        .#{$id}-button {
+                            width: 250px;
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

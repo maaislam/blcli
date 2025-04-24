@@ -1,0 +1,176 @@
+@import './variables';
+
+.#{$id} {
+
+    @media(max-width: 600px) {
+        #estore_lister_template_container {
+            padding: 0 !important;
+        }
+
+        .contentRecommendationWidget,
+        #estore_category_heading,
+        .cm-placement-slot5 {
+            padding: 0 10px !important;
+            ;
+        }
+
+        .productListingWidget .header_bar,
+        .product_listing_container {
+            margin-left: 10px;
+            margin-right: 10px;
+            width: auto;
+        }
+
+        .algolia-search {
+            .product_listing_container {
+                margin: 0;
+            }
+
+            .product_listing_container__header,
+            .plp_gridView_redesign {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+
+    .#{$id}-heroFilters {
+        margin-bottom: 10px;
+        padding: 10px;
+        overflow: hidden;
+
+        .swiper-slide {
+            width: auto !important;
+        }
+
+        @media(min-width: 767px) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-left: 0;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+            font-family: Boots Sharp, Arial, sans-serif;
+            color: #05054B;
+
+            @media(min-width: 767px) {
+                flex-shrink: 0;
+                //flex-grow: 1;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                margin-top: 0;
+            }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 85%);
+            z-index: 99;
+            width: 50px;
+            height: 100%;
+
+            &::after {
+                content: '';
+                background: url('https://boots.scene7.com/is/image/Boots/bootArr1?scl=1&fmt=png-alpha') no-repeat center;
+                background-size: 25px;
+                height: 30px;
+                width: 20px;
+            }
+        }
+
+        .swiper-button-next {
+            right: 0;
+            left: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            justify-content: flex-end;
+        }
+
+        .swiper-button-prev {
+            margin: 0;
+            top: 50%;
+            left: 0;
+            right: auto;
+            transform: translateY(-50%) rotate(-180deg);
+            justify-content: flex-end;
+
+            @media(min-width: 1280px) {
+                display: flex;
+            }
+        }
+
+        .swiper-button-disabled {
+            display: none;
+        }
+
+        .swiper-container {
+            padding-right: 10px;
+        }
+
+        .#{$id}-filters {
+            .#{$id}-topFilter {
+                width: auto;
+                padding: 10px 30px;
+                background: #FFFFFF;
+                border: 1px solid #D0D0D0;
+                border-radius: 15px 0px;
+                font-weight: 400;
+                font-size: 14px;
+                color: #333333;
+                text-align: center;
+                display: block;
+                height: auto;
+                box-sizing: border-box;
+                font-family: Boots Sharp, Arial, sans-serif;
+                
+                cursor: pointer;
+
+                @media(min-width: 1024px) {
+                    font-size: 16px;
+                    padding: 15px 30px;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        background: #05054B;
+                        color: white;
+                    }
+                }
+                @media(min-width: 1280px) {
+                    flex-grow: 1;
+                    max-width: max-content;
+                }
+
+                &.#{$id}-filterActive {
+                    background: #144b8d;
+                    color: white;
+                }
+
+
+            }
+
+            @media(min-width: 767px) {
+                width:auto;
+                max-width: 100%;
+            }
+
+            // @media(min-width: 1024px) {
+            //     width: 90%;
+            // }
+            @media(min-width: 1280px) {
+                &.#{$id}-rating {
+                    .swiper-button-next {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

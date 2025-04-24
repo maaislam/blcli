@@ -1,0 +1,698 @@
+@import './variables';
+@import './FL015';
+@import './FL034';
+
+/* ~~~~~~~~~~~ Loader Animation ~~~~~~~~~~~ */
+@keyframes blink {
+  /* At the start of the animation the dot has an opacity of .2 */
+  0% {
+      opacity: .2;
+  }
+  /* At 20% the dot is fully visible and then fades out slowly */
+  20% {
+      opacity: 1;
+  }
+  /* Until it reaches an opacity of .2 and the animation can start again */
+  100% {
+      opacity: .2;
+  }
+}
+
+.FL063-guest-loading, .FL063-first-loading {
+  position: relative;
+  z-index: 9999;
+
+  // Hide it all
+  #dnn_ContentPane { 
+    display: none;
+  }
+
+  .UC_loading-dots span {
+    /* Use the blink animation, which is defined above */
+    animation-name: blink;
+    /* The animation should take 1.4 seconds */
+    animation-duration: 1.4s;
+    /* It will repeat itself forever */
+    animation-iteration-count: infinite;
+    /**
+     * This makes sure that the starting style (opacity: .2)
+     * of the animation is applied before the animation starts.
+     * Otherwise we would see a short flash or would have
+     * to set the default styling of the dots to the same
+     * as the animation. Same applies for the ending styles.
+     */
+    animation-fill-mode: both;
+  }
+
+  .UC_loading-dots span:nth-child(2) {
+      /**
+      * Starts the animation of the third dot
+      * with a delay of .2s, otherwise all dots
+      * would animate at the same time
+      */
+      animation-delay: .2s;
+  }
+
+  .UC_loading-dots span:nth-child(3) {
+      /* Starts the animation of the third dot
+        with a delay of .4s */
+      animation-delay: .4s;
+  }
+
+  .UC_loading-dots span:nth-child(4) {
+      /* Starts the animation of the fourth dot
+        with a delay of .6s */
+      animation-delay: .6s;
+  }
+
+  .UC_loading-dots span:nth-child(5) {
+      /* Starts the animation of the fifth dot
+        with a delay of .8s */
+      animation-delay: .8s;
+  }
+
+  /* ~~~~~~~~~~~ Loader Styles ~~~~~~~~~~~ */
+
+  .UC_loading-dots {
+      font-size: 100px;
+      line-height: 60px;
+      color: #000;
+      /* Position dots in centre of window */
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+  }
+}
+
+.#{$id} {
+  // Email Input
+  .FL063-email {
+    margin: 20px 0 55px;
+    padding: 0 15px;
+  }
+
+
+  // Re format inputs and labels.
+  input[type="text"], input[type="email"], input[type="password"] {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    height: 39px;
+    padding: 10px;
+    font-size: 13px;
+    margin: auto;
+    appearance: none;
+    color: #222;
+    font-weight: 700;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid #999;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: border-color ease-in-out .15s;
+    // &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    //   color: #000;
+    //   font-weight: 600;
+    // }
+    // &::-moz-placeholder { /* Firefox 19+ */
+    //   color: #000;
+    //   font-weight: 600;
+    // }
+    // &:-ms-input-placeholder { /* IE 10+ */
+    //   color: #000;
+    //   font-weight: 600;
+    // }
+    // &:-moz-placeholder { /* Firefox 18- */
+    //   color: #000;
+    //   font-weight: 600;
+    // }
+  }
+  label.label, .RegLabel label {
+    text-align: center;
+    text-transform: uppercase;
+    color: #606060;
+    margin-bottom: 0;
+  }
+
+  .FL034-error, #FL034-guest { display: none}
+  .FL063-emailErr p {
+    color: #e1251b;
+  }
+
+  // Back
+  .FL063-back {
+    position: absolute;
+    top: 45px;
+    left: 10px;
+    display: none;
+    padding: 5px;
+    z-index: 9999;
+    p {
+      color: #000;  
+      margin: 0;
+      text-decoration: underline;
+    }
+  }
+
+  // Try again
+  section.newCustomer .FL063-tryAgain {
+    padding: 0;
+    span.ImgButWrap {
+      a.dnnPrimaryAction {
+        background-color: #f5f5f5 !important;
+        color: #000 !important;
+        border: 2px solid #000 !important;
+        &:after {
+          background-position: -38px -62px;
+        }
+        @media only screen and (min-width: 479px) {
+          &:hover {
+            background-color: #000 !important;
+            color: #f5f5f5 !important;
+            &:after {
+              background-position: -78px -62px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // User clicked yes.
+  &.FL015-yesUser {
+    .FL063-back {
+      display: inline-block;
+    }
+    .existingCustomer {
+      .SectionTops {
+        > h1, .FL063-email, > h2, button[data-choice="yes"], button[data-choice="no"], button[data-choice="notsure"] { display: none }
+      }
+    }
+    .innerBorder > h2 {
+      margin: 0 0 35px !important;
+      font-size: 18px !important;
+      text-transform: uppercase;
+    }
+    @media only screen and (min-width: 479px) {
+      .loginContainer .ForgotPass a.ForgotPasswordLinkButton {
+        text-decoration: none !important;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: #000;
+          transition: ease-in-out all .2s;
+        }
+        &:hover:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // User clicked no
+  &.FL063-guestCheckout {
+    section.newCustomer, .SectionTops > h2, .FL015-account-options { display: none !important }
+  }
+
+  // Password Reset Confirmation
+  &.FL063-passReset {
+    .c_Invisible {
+      text-align: center;
+    }
+    
+    .Login .innerPass { display: none }
+
+
+    // Style confirmation
+    .ModPasswordResetC {
+      background: #eee;
+      padding: 30px;
+    }
+    .ModPasswordResetC .dnnFormSuccess {
+      .FL063-confirm {
+        color: #487D0F;
+        font-size: 1.3em;
+        font-weight: bold;
+
+        span {
+          // display: block;
+          // font-size: 20px;
+          // line-height: 22px;
+        }
+      }
+    }
+    .FL063-pswConfirm-guestCheckout .NewCustWrap { display: none }
+    .dnnFormMessage.dnnFormSuccess {
+      margin-bottom: 20px;
+
+      background: #fff;
+      padding: 40px 40px 30px;
+
+      @media(min-width: 768px) {
+        border-bottom: 1px solid #dedede;
+      }
+    }
+  }
+
+  .FL015-button {
+    pointer-events: none;
+  }
+  &.FL063-hasInput {
+    .FL015-button {
+      pointer-events: initial;
+    }
+  }
+  
+
+  // Wrong Password
+  &.FL063-wrongPsw {
+    #dnn_ctr88149_Launch_registerLogin_Header, #FL034-guest { display: none; }
+    .FL063-back { 
+      display: inline-block; 
+      // @media only screen and (max-width: 479px) {
+      // }
+    }
+    &.FL015 .CustomerGroups .newCustomer .innerBorder {
+      padding-bottom: 40px;
+    }
+    .FL034-error { display: block; }
+    .FL015-button {
+      background-color: #000 !important;
+      border: 2px solid #000;
+      color: #f5f5f5 !important;  
+      display: block;
+      width: 100%;
+      margin-bottom: 12px;
+      font-size: 14px;
+      max-width: 380px;
+      line-height: 20px;
+      padding: 14px 0;
+      font-weight: 400;
+      text-transform: uppercase;
+      position: relative;
+      padding-left: 10px;
+      &:after {
+        content: "";
+        padding-left: 5px;
+        color: #fff;
+        background: url('https://www.flannels.com/images/core/sprite-new-checkout-v3-01.svg') no-repeat;
+        background-size: 220px 220px;
+        background-position: -78px -62px;
+        height: 17px;
+        display: inline-block;
+        width: 100%;
+        max-width: 25px;
+        font-size: 11px;
+        vertical-align: sub;
+        -moz-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        text-size-adjust: none;
+      }
+    }
+    &.FL015 .CustomerGroups .newCustomer {
+      display: block;
+      .SectionTops, .InputLabelGroup { display: none }
+    }
+    &.FL015 .CustomerGroups .existingCustomer .innerBorder {
+      display: block;
+    }
+  }
+
+  // Page load / Change
+  &.FL063-loading {
+    .container-fluid.ContentWrapper, .ContentWrap .container-fluid {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 800px;
+        background-color: #fff;
+        z-index: 999;
+      }
+      .FL063-first-loading {
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 0; right: 0;
+        margin: auto;
+        z-index: 9999;
+        width: 100%;
+      }
+    }
+  }
+
+  .Login .tcLogin {
+    text-align: center;
+  }
+
+  // Make all A tags capital
+  .CheckWrap .ImgButWrap a.dnnPrimaryAction {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+
+  .passButtons {
+    text-transform: uppercase;
+  }
+
+  // DESKTOP
+  @media only screen and (min-width: 479px) {
+    .FL063-back {
+      top: 60px;
+      left: 0;
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+      p {
+        text-decoration: none !important;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 1px;
+          background-color: #000;
+          transition: ease-in-out all .2s;
+        }
+      }
+      &:hover {
+        p:after {
+          width: 100%;
+          // right: 0;
+        }
+      }
+    }
+    section.existingCustomer, .CustomerGroups, section.newCustomer {
+      font-size: 1.2em;
+      width: 100%;
+      max-width: 670px;
+      margin: auto;
+      text-align: center;
+      float: none;
+      .FL015-account-options {
+        max-width: 570px;
+        margin: auto;
+      }
+      .innerBorder, .FL034-error {
+        max-width: 570px;
+        margin: auto;
+      }
+      .FL034-error p {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+    .CustomerGroups .innerBorder {
+      background-color: transparent;
+      max-width: 420px;
+      margin: auto;
+      border: none;
+    }
+    // Button transitions
+    button.FL015-button {
+      transition: ease-in-out all .2s;
+      &:hover {
+        background-color: #f5f5f5 !important;
+        color: #000 !important;
+        &:after {
+          background-position: -38px -62px;
+        }
+      }
+      &:last-of-type {
+        // Opposite colours
+        &:hover {
+          color: #f5f5f5 !important;
+          background-color: #000 !important;
+          &:after {
+            background-position: -78px -62px;
+          }
+        } 
+      }
+    }
+
+    .CheckWrap .ImgButWrap a.dnnPrimaryAction {
+      transition: ease-in-out all .2s;
+      border: 2px solid transparent;
+      &:hover {
+        background-color: #f5f5f5 !important;
+        color: #000 !important;
+        border-color: #000;
+        &:after {
+          background-position: -38px -62px;
+        }
+      }
+    }
+  }
+
+  &.FL063-3 {
+    .existingCustomer > .SectionTops {
+      > p {
+        display: none;
+      }
+      // > h1 {
+      //   display: none;
+      // }
+    }
+    &.FL015-yesUser .existingCustomer > .SectionTops {
+      > h1 {
+        display: block;
+      }
+      > p {
+        display: block;
+      }
+    }
+    .CustomerGroups .existingCustomer .innerBorder h2 {
+      // display: none;
+    }
+
+    .contact-sec.SectionTops > h2 {
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+    section.existingCustomer .FL063-email {
+      display: none;
+    }
+
+    #dnn_ContentPane {
+      margin-top: 40px;
+    }
+
+    .FL015-account-options {
+      > button {
+        pointer-events: initial;
+      }
+    }
+
+    // Cart info
+    .FL063-cartInfo {
+      display: block;
+      margin: 30px auto;
+      > p {
+        text-align: left;
+        text-transform: uppercase;
+        color: #999;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #999;
+        display: block;
+      }
+      .SubSumm {
+        .col-xs-6:not(.text-right) {
+          text-align: left;
+        }
+      }
+      .TotalSumm {
+        .col-xs-6:not(.text-right) {
+          text-align: left;
+        }
+      }
+      #SubtotalRow {
+        margin-bottom: 10px;
+        > div {
+          color: #999999;
+          > span {
+            color: #999999;
+          }
+        }
+      }
+      #TotalRow {
+        > div, > div span {
+          font-weight: 900;
+          color: #000;
+        }
+      }
+    }
+
+    .hidden-xs.field.guestSubText {
+      display: none;
+    }
+
+    &.FL015-yesUser, &.FL015-notSureUser {
+      .FL063-cartInfo {
+        display: none;
+      }
+      .existingCustomer > .SectionTops {
+        > h1, > p {
+          display: none;
+        }
+      }
+    }
+    
+    .SectionTops .FL063-email {
+      position: relative;
+      top: 80px;
+      transition: ease-out all .6s;
+    }
+    .row.CustomerGroups {
+      margin-bottom: 50px;
+    }
+    &.FL063-hasInput {
+      &.FL015 .FL015-account-options, .SectionTops > h2 {
+        visibility: visible;
+        opacity: 1;
+      }
+      .SectionTops .FL063-email {
+        top: 0;
+      }
+      .row.CustomerGroups {
+        margin-bottom: 0;
+      }
+    }
+    &.FL063-wrongPsw {
+      &.FL015 .CustomerGroups .existingCustomer .innerBorder h2 {
+        display: none;
+      }
+      section.existingCustomer .FL034-error {
+        background-color: transparent;
+        border: none;
+        padding-bottom: 0;
+
+        > p {
+          font-size: 16px;
+          > span {
+            display: block;
+            &:first-of-type {
+              margin-bottom: 20px
+            }
+          }
+        }
+
+        a.dnnPrimaryAction {
+          width: 100%;
+          border-radius: 0;
+          cursor: pointer;
+          text-transform: none;
+          padding: 5px 10px;
+          line-height: 39px;
+          background-color: #fff;
+          color: #000;
+          border:  2px solid #000000;
+          margin: 10px auto;
+          transition: ease-in-out all .2s;
+          &:after {
+            content: "";
+            padding-left: 5px;
+            color: #fff;
+            background: url('https://www.flannels.com/images/core/sprite-new-checkout-v3-01.svg') no-repeat;
+            background-size: 220px 220px;
+            background-position: -38px -62px;
+            height: 17px;
+            display: inline-block;
+            width: 100%;
+            max-width: 25px;
+            font-size: 11px;
+            vertical-align: sub;
+            -moz-text-size-adjust: none;
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            text-size-adjust: none;
+          }
+          @media only screen and (min-width: 479px) {
+            &:hover {
+              background-color: #000;
+              color: #fff;
+              &:after {
+                background-position: -78px -62px;
+              }
+            }
+          }
+        }
+
+        > hr {
+          display: block;
+          border-bottom: 1px solid #999;
+        }
+
+        > h2 {
+          display: block;
+          text-transform: uppercase;
+          font-weight: 900;
+          margin-bottom: 0;
+          margin-top: 10px;
+        }
+
+      }
+      .FL063-guestMessage {
+        display: none;
+      }
+      .NewCustWrap a#dnn_ctr88149_Launch_btnGuestCustomer {
+        display: none;
+      }
+    }
+    .FL034-error {
+      padding: 0 30px;
+    }
+    .FL063-red {
+      color: #e1251b;
+    }
+    .FL063-guestMessage {
+      margin-bottom: 30px;
+      position: relative;
+      top: -10px;
+    }
+    &.FL015-guestUser {
+      .CustomerGroups .existingCustomer > .SectionTops {
+        > h1, > p {
+          display: block !important;
+        }
+      }
+      .FL063-guestMessage {
+        display: none !important;
+      }
+    }
+    .loginContainer > .dnnFormMessage {
+      font-size: 1em;
+    }
+    .loginContainer .ForgotPass a.ForgotPasswordLinkButton {
+      font-size: 1.1em;
+      text-decoration: underline;
+    }
+    @media only screen and (max-width: 479px) {
+      .FL063-guestMessage {
+        margin: 20px 0;
+        text-align: center;
+      }
+      .FL034-error {
+        padding: 20px;
+      }
+
+    }
+  }
+}

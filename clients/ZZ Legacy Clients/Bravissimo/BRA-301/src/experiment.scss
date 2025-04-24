@@ -1,0 +1,134 @@
+@import './variables';
+
+.#{$id} {
+
+	.#{$id}-heading {
+		position: relative;
+		display: inline-block;
+	}
+
+	.#{$id}-ffinfo-modal {
+		display: none;
+
+		&.#{$id}-active {
+			display: flex;
+			position: absolute;
+			bottom: -45px;
+			left: -13px;
+			width: 200px;
+			border: 1px solid #EF4873;
+			z-index: 100;
+			background: #FFF;
+			padding: 7px 30px 7px 10px;
+			text-align: center;
+			color: #EF4873;
+
+			&::before {
+				content: "";
+				width: 0;
+				height: 0;
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;
+				border-bottom: 13px solid #EF4873;
+				position: absolute;
+				top: -13px;
+				left: 20px;
+			}
+
+			&::after {
+				content: "";
+				width: 0;
+				height: 0;
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;
+				border-bottom: 12px solid #fff;
+				position: absolute;
+				top: -11px;
+				left: 20px;
+			}
+
+			&.#{$id}-right-align {
+				right: -35px;
+				left: auto;
+
+				&::before,
+				&::after {
+					left: auto;
+					right: 12px;
+				}
+			}
+
+			p {
+				font-size: 12px;
+				font-weight: 400;
+			}
+		}
+	}
+
+	.#{$id}-ffinfo-close {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+
+		svg {
+			width: 10px;
+			height: 10px;
+			display: flex;
+
+			path {
+				fill: #EF4873;
+			}
+		}
+
+		.#{$id}-closetext {
+			display: flex;
+			font-size: 7px !important;
+			color: #EF4873;;
+		}
+	}
+
+	.#{$id}-ffinfo-trigger {
+
+		position: absolute;
+		top: -10px;
+		right: -14px;
+
+		svg {
+			width: 12px;
+			height: 12px;
+			border: 1px solid #EF4873;
+			border-radius: 50%;
+			padding: 1px;
+
+			path {
+				fill: #EF4873;
+			}
+		}
+	}
+
+	.c-size-grid__selected p {
+		max-width: 350px;
+
+		@media all and (max-width: 800px) {
+			max-width: 290px;
+		}
+	}
+
+	.#{$id}-ffinfo-additional {
+		display: inline-block;
+		font-size: 16px;
+		margin-top: 5px;
+
+		@media all and (max-width: 550px) {
+			margin-bottom: 20px;
+		}
+	}
+
+
+
+}

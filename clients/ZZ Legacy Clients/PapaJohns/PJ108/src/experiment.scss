@@ -1,0 +1,229 @@
+@import "./variables";
+
+// Order confirmation page includes the class of removeMarginTop25
+.removeMarginTop25 {
+  .#{$id}_wrapper {
+    margin-top: 24px;
+  }
+}
+
+.#{$id} {
+  .#{$id}_wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    // Step management.
+    &[data-step="done"] {
+      display: none;
+    }
+    &[data-step="1"] {
+      .#{$id}_body2 {
+        display: none;
+      }
+    }
+    &[data-step="2"] {
+      .#{$id}_body1 {
+        display: none;
+      }
+    }
+    // 32px = right marign of the grid below, done to appear same width
+    width: calc(100% - 32px);
+    margin-bottom: 24px;
+    background-color: #f8f8f8;
+    position: relative;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
+
+    > .#{$id}_close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      i {
+        font-size: 18px;
+      }
+    }
+
+    p,
+    button {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
+    .#{$id}_content {
+      padding: 16px 40px 16px 12px;
+      @media (max-width: 900px) {
+        padding: 12px 12px 12px;
+      }
+    }
+
+    .#{$id}_body1,
+    .#{$id}_body2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      @media (max-width: 900px) {
+        flex-wrap: wrap;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 22px;
+
+        @media (max-width: 1200px) {
+          font-size: 18px;
+        }
+
+        @media (max-width: 900px) {
+          font-size: 15px;
+          text-align: center;
+          padding: 0 24px;
+        }
+      }
+      .PJ-small {
+        font-size: 14px;
+        opacity: 0.85;
+        font-family: "Roboto Condensed", sans-serif;
+        @media (max-width: 600px) {
+          display: none;
+        }
+      }
+      .#{$id}_formWrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 560px;
+        @media (max-width: 900px) {
+          padding-right: 30px;
+          margin-top: 6px;
+        }
+        input {
+          padding: 6px 12px;
+          background: white;
+          border: 1px solid #007a53;
+          flex: 1;
+          margin-right: 12px;
+          margin-left: 24px;
+          box-shadow: none;
+          font-size: 16px;
+        }
+        button {
+          background: #007a53;
+          color: white;
+          border: none;
+          height: 100%;
+          padding: 7px 14px;
+          border-radius: 3px;
+          font-size: 16px;
+          cursor: pointer;
+          &:hover {
+            background: white;
+            color: #007a53;
+            border: 1px solid #007a53;
+          }
+        }
+      }
+
+      .#{$id}_close {
+        text-align: center;
+        background-color: #007a53;
+        color: #ffffff;
+        display: inline-block;
+        appearance: none;
+        padding: 6px 20px;
+        border: 1px solid transparent;
+        border-radius: 16px;
+        cursor: pointer;
+        margin-left: 12px;
+      }
+    }
+
+    .#{$id}_buttons {
+      margin-left: 16px;
+      @media (max-width: 900px) {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        width: 100%;
+      }
+      span {
+        margin: 0 6px;
+      }
+      button {
+        display: inline-block;
+        appearance: none;
+        text-transform: uppercase;
+        border-radius: 3px;
+        width: 30px;
+        margin: 0;
+        background: #007a53;
+        border: none;
+        color: white;
+        padding: 6px 0px;
+        text-align: center;
+        cursor: pointer;
+        margin-right: 3px;
+        margin-left: 3px;
+
+        @media (max-width: 1200px) {
+          width: 24px;
+          margin-right: 2px;
+          margin-left: 2px;
+        }
+        @media (max-width: 900px) {
+          margin-right: 4px;
+          margin-left: 4px;
+        }
+
+        &:hover,
+        &:focus {
+          background: white;
+          color: #007a53;
+          border: 1px solid #007a53;
+        }
+      }
+    }
+  }
+  .#{$id}_mobileLabels {
+    display: none;
+  }
+
+  .#{$id}_thankyou {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
+    .#{$id}_mobileLabels {
+      font-family: "Roboto Condensed", sans-serif;
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      width: 100%;
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .#{$id}_content {
+      .#{$id}_buttons {
+        width: 100%;
+        text-align: center;
+        margin-top: 12px;
+      }
+
+      button.#{$id}_close {
+        display: block !important;
+        margin: 12px auto 0 !important;
+      }
+    }
+  }
+}

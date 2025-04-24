@@ -1,0 +1,650 @@
+@import './variables';
+
+@keyframes slide-out-top {
+  0% {
+    left: 0;
+    -webkit-transform: translateY(0) translateX(0%);
+            transform: translateY(0) translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-1000px) translateX(0%);
+            transform: translateY(-1000px) translateX(0%);
+    opacity: 0;
+  }
+}
+
+.#{$id} {
+  &.#{$id}-noScroll {
+    overflow: hidden;
+  }
+
+  &.#{$id}-scroll {
+    overflow: auto;
+  }
+
+
+  // Select box
+  /*.#{$id}-overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 300;
+
+    &.#{$id}-hide {
+      display: none;
+    }
+  } */
+
+  .#{$id}-selectionModal {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+    //top: 50%;
+    transform: translateY(0) translateX(0%);
+    opacity: 1;
+    &.#{$id}-selectHide {
+      animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    .#{$id}-topContent {
+      .#{$id}-logo {
+        height: 40px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/54366AB6A85EB1EE0A8D4A4F065703CFD4B4E30B5B16B4CD13974982A9EDB5BE.jpg?meta=/SG131---Store-Select-Homepage/logo.jpg') no-repeat center;
+        background-size: contain;
+        width: 70%;
+        margin: 0 auto;
+        max-width: 250px;
+      }
+
+      .#{$id}-textLink {
+        position: fixed;
+        background: black;
+        box-sizing: border-box;
+        padding: 10px;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-family: Oxygen, sans-serif;
+        text-transform: uppercase;
+        z-index: 9999;
+        font-weight: 600;
+      }
+    }
+
+    .#{$id}-innerContent {
+      height: 100%;
+
+      .#{$id}-banners {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding-bottom: 83px;
+        box-sizing: border-box;
+
+        @media screen and (orientation:landscape) {
+          height: 100%;
+          overflow: auto;
+        }
+
+        .#{$id}-banner-large {
+          flex-grow: 1;
+          display: flex;
+          background: #ccc;
+          margin-bottom: 5px;
+          justify-content: flex-start;
+          align-items: flex-end;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          @media screen and (orientation:landscape) {
+            flex-grow: unset;
+            height: 150px;
+            align-items: unset;
+            @media(min-width: 1077px) {
+              align-items: flex-end;
+            }
+          }
+
+          &[banner-target=watches] {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/0C71FA18D4D83BF0462560D3F9DC5D73115747DE3633A732D346A31ECBF81B50.jpg?meta=/SG131---Store-Select-Homepage/watches.jpg');
+          }
+
+          &[banner-target=engagement] {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/3F55130F9CBA5225BB1A7C6F890D75D6D2DD9FC9EA1F3886D1DA4FF45A4E8133.jpg?meta=/SG131---Store-Select-Homepage/engagement.jpg');
+          }
+
+          &[banner-target=weddings] {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D63554DBE4A4C7BE1A1189F640454FE438B358C21CC55D962A9131DE689262DC.jpg?meta=/SG131---Store-Select-Homepage/weddings.jpg');
+          }
+
+          &[banner-target=jewellery] {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D9F15C5781F0787E6167F435BDF54E79615EA8180B3C685F40068250E3AB13CA.jpg?meta=/SG131---Store-Select-Homepage/jewellery.jpg');
+          }
+
+          .#{$id}-bannerText {
+            width: 100%;
+            padding: 10px;
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              height: 20px;
+              width: 20px;
+              background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/9F866C7BCD79E231B59DE5170CB6CAED4185A7E0E146C155C0F3C564E4094CAD.png?meta=/SG131---Store-Select-Homepage/arrowwhite.png') no-repeat center;
+              background-size: contain;
+              right: 10px;
+              bottom: 10px;
+            }
+
+            h3,
+            p {
+              margin-bottom: 0;
+              color: white;
+              font-family: Oxygen, sans-serif;
+            }
+
+            h3 {
+              font-size: 20px;
+            }
+
+            p {
+              font-size: 16px;
+            }
+
+            @media screen and (orientation:landscape) {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: flex-end;
+            }
+          }
+        }
+      }
+    }
+
+    @media(min-width: 767px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      //top: 50%;
+      //left: 50%;
+      padding: 30px;
+      //transform: translate(-50%, -50%);
+
+      .#{$id}-topContent {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .#{$id}-logo {
+          margin-left: 0;
+          position: relative;
+          margin-bottom: 40px;
+
+          &::after {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: black;
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+          }
+        }
+
+        .#{$id}-textLink {
+          position: relative;
+          width: auto;
+          background: unset;
+          color: black;
+          text-decoration: underline;
+          font-size: 15px;
+          cursor: pointer;
+        }
+      }
+
+      .#{$id}-innerContent {
+        justify-content: center;
+        align-content: center;
+        height: 50%;
+        width: 100%;
+
+        
+
+        .#{$id}-banners {
+          flex-direction: row;
+          padding-bottom: 0;
+          height: calc(100% - 90px);
+          align-items: flex-start;
+          justify-content: space-evenly;
+          overflow: hidden;
+
+          .#{$id}-banner-large {
+            flex-grow: unset;
+            height: 100%;
+            width: 100%;
+            padding-bottom: 0;
+            background-position: bottom;
+            cursor: pointer;
+
+            &[banner-target=watches] {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/4F1A1D90733B58CB1B83A2BE6714EE1BCD1F4D984636E92FC3BBEC9B8E85EE08.jpg?meta=/SG131---Store-Select-Homepage/watchesDesktop.jpg');
+            }
+
+            &[banner-target=engagement] {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/B6224B12F83AC5C953581F6211819060882846396C711800A8EE6BD88C3BAC2B.jpg?meta=/SG131---Store-Select-Homepage/engagementDesktop.jpg');
+            }
+
+            &[banner-target=weddings] {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/08A1BA836539D9E56EF773D430FBA14E9635E98544C6E29C9A48A5381042023D.jpg?meta=/SG131---Store-Select-Homepage/weddingDesktop.jpg');
+            }
+
+            &[banner-target=jewellery] {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7C00D1478CDA44CEAE17D3507EA51A60DC33DD581594234D94C5235A43211206.jpg?meta=/SG131---Store-Select-Homepage/jewelleryDesktop.jpg');
+            }
+
+            .#{$id}-bannerText {
+              line-height: 28px;
+              background: rgba(255, 255, 255, 0.8);
+              h3,
+              p {
+                color: black;
+              }
+
+              &::after {
+                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/3BD2F210F24CEDA3EBF97DEF6BBC7A8AE62A8B07C261008CBC86E7755D3DE987.png?meta=/SG131---Store-Select-Homepage/arrowblack.png');
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    @media(min-width: 1280px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+
+      .#{$id}-topContent {
+        .#{$id}-logo {
+          max-width: 300px;
+          margin-bottom: 50px;
+
+          &::after {
+            bottom: -20px;
+          }
+        }
+      }
+
+      .#{$id}-innerContent {
+        overflow: hidden;
+
+  
+
+
+        .#{$id}-banners {
+          &:hover {
+            .#{$id}-banner-large {
+              width: 20%;
+            }
+          }
+
+          .#{$id}-banner-large {
+            transition: 0.5s;
+            background-position: center;
+            align-items: flex-end;
+            cursor: pointer;
+            .#{$id}-bannerText {
+              position: relative;
+              background: unset;
+    
+              h3,
+              p {
+                position: relative;
+              }
+    
+              &::before {
+                content: '';
+                position: absolute;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+                height: 0%;
+                bottom: 0;
+                left: 0;
+                transition: 0.5s;
+              }
+    
+              p {
+                position: relative;
+    
+                &:before {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 2px;
+                  bottom: 0;
+                  left: 0;
+                  background-color: black;
+                  visibility: hidden;
+                  transform: scaleX(0);
+                  transition: all 0.5s ease-in-out;
+                }
+              }
+            }
+
+            &:hover {
+              width: 60%;
+
+              .#{$id}-bannerText {
+                transition: 0.5s;
+
+                h3 {
+                  font-size: 26px;
+                }
+
+                p {
+                  font-size: 20px;
+
+                  &:before {
+                    visibility: visible;
+                    transform: scaleX(1);
+                  }
+                }
+
+                &::before {
+                  height: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    @media(min-width: 1100px) {
+      .#{$id}-innerContent {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  &.#{$id}-personalised {
+
+    // homepage grid tiles
+    .home-tile-grid {
+      grid-gap: 0.5rem;
+      padding: 0;
+
+      @media(min-width: 1280px) {
+        padding: initial;
+        padding: 10px;
+      }
+
+      .home-tile-grid__large-tile {
+        height: 400px;
+        overflow: hidden;
+        @media(min-width: 1024px) {
+          height: 410px;
+        }
+
+        @media(min-width: 1280px) {
+          height: 516px;
+        }
+      }
+
+      .home-tile-grid__small-tile {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 200px;
+
+        @media(min-width: 1024px) {
+          height: 300px;
+        }
+
+        @media(min-width: 1280px) {
+          height: 400px;
+        }
+      }
+
+      .#{$id}-block {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        justify-content: flex-end;
+        cursor: pointer;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        > a {
+          height: 100%;
+        }
+        .#{$id}-buttons {
+          background: rgba(255, 255, 255, 0.9);
+          padding: 5px 0px;
+          display: flex;
+          flex-direction: column;
+
+          .#{$id}-button {
+            padding-left: 5px;
+            text-align: left;
+            color: black;
+            font-weight: 300;
+            text-decoration: none;
+            position: relative;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 21px;
+
+            &::after {
+              content: '';
+              position: absolute;
+              height: 20px;
+              width: 20px;
+              background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/3BD2F210F24CEDA3EBF97DEF6BBC7A8AE62A8B07C261008CBC86E7755D3DE987.png?meta=/SG131---Store-Select-Homepage/arrowblack.png') no-repeat center;
+              background-size: contain;
+              right: 5px;
+              bottom: 2px;
+              display: none;
+
+              @media(min-width: 375px) {
+                display: initial;
+                ;
+              }
+            }
+
+            span {
+              display: block;
+              font-weight: 600;
+              font-size: 15px;
+              text-decoration: underline;
+            }
+
+            @media(min-width: 767px) {
+              font-size: 15px;
+              padding: 5px;
+              transition: 0.5s;
+
+              span {
+                font-size: 17px;
+                transition: 0.5s;
+              }
+
+              &::after {
+                bottom: 5px;
+              }
+            }
+          }
+
+          @media(min-width: 1280px) {
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              background: rgba(255, 255, 255, 0.8);
+              width: 100%;
+              height: 0%;
+              bottom: 0;
+              left: 0;
+              transition: 0.5s;
+            }
+
+            .#{$id}-button {
+              line-height: 24px;
+            }
+          }
+        }
+        &:hover {
+          @media(min-width: 1280px) {
+            .#{$id}-buttons {
+              &::before {
+                height: 100%;
+              }
+
+              .#{$id}-button {
+                font-size: 17px;
+
+                span {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+
+        }
+      }
+
+      .home-tile-grid__large-tile {
+        .#{$id}-block {
+          .#{$id}-buttons {
+            padding: 5px 10px;
+
+            .#{$id}-button {
+              padding-left: 0;
+
+              &::after {
+                display: block;
+              }
+            }
+          }
+        }
+
+      }
+
+      .home-tile-grid__text-tile {
+        padding: 10px;
+
+        .#{$id}-block {
+          h3 {
+            margin-bottom: 0;
+            font-family: Oxygen, sans-serif;
+            font-size: 17px;
+
+            @media(min-width: 767px) {
+              font-size: 20px;
+            }
+          }
+
+          .#{$id}-buttons {
+            background: unset;
+
+            &::before {
+              display: none;
+            }
+
+            .#{$id}-button {
+              background: black;
+              box-sizing: border-box;
+              padding: 5px;
+              font-family: Oxygen, sans-serif;
+              color: white;
+              text-decoration: none;
+              width: auto;
+              text-align: center;
+              margin: 0 auto;
+              font-size: 14px;
+              font-weight: 600;
+              text-transform: uppercase;
+              max-width: 250px;
+              width: 100%;
+              margin-top: 5px;
+              border: 1px solid black;
+              transition: 0.5s;
+              &:hover {
+                background: white;
+                color: black;
+              }
+
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.hsamuel {
+    .#{$id}-selectionModal {
+      .#{$id}-topContent {
+        .#{$id}-logo {
+          background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/1BFE1CE5C0ECBE13FA64A86CCD2D1D2B28ADA5B31C0CB60E8587FFC4D85B35A1.png?meta=/SG131---Store-Select-Homepage/territorial-logo--red.png') no-repeat center;
+          background-size: contain;
+          max-width: 150px;
+        }
+        .#{$id}-textLink {
+          background: #a01d29;
+          font-family: Montserrat,sans-serif;
+          font-weight: 600;
+          padding: 15px;
+          @media(min-width: 767px) {
+            background: unset;
+          } 
+        }
+      }
+
+      .#{$id}-banners {
+        .#{$id}-banner-large {
+          .#{$id}-bannerText {
+            h3,p {
+              font-family: Montserrat,sans-serif;
+            }
+
+            p {
+              @media(min-width: 1280px) {
+                &::before {
+                  background: #a01d29;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

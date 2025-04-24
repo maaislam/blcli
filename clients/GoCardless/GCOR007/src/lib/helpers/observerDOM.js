@@ -1,0 +1,18 @@
+const observeDOM = (targetSelectorString, callbackFunction, configObject, extraparameter) => {
+  const target = document.querySelector(`${targetSelectorString}`);
+
+  const observer = new MutationObserver((mutations) => {
+    // mutations.forEach(function (mutation, index) {
+    // });
+    //const callbackParameter = extraparameter;
+    callbackFunction(mutations);
+  });
+
+  // configuration of the observer:
+
+  const config = configObject || { attributes: false, childList: true, characterData: false, subtree: false };
+
+  observer.observe(target, config);
+};
+
+export default observeDOM;

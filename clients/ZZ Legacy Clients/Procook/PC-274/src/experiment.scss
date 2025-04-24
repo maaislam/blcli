@@ -1,0 +1,189 @@
+@import './variables';
+
+.#{$id} {
+  .hidden {
+    display: none !important;
+  }
+  .open {
+    display: none;
+  }
+  ul.hidden-logo {
+    &:before {
+      background-image: none;
+      height: 110px;
+    }
+
+    position: relative;
+
+    a.#{$id}-category__link {
+      display: block !important;
+    }
+  }
+
+  // --- Back Button
+  .#{$id}-back__btn {
+    position: absolute;
+    top: 20px;
+    .icon {
+      background-color: transparent;
+
+      &:before {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/PC-274/Vector.png');
+        background-size: 8px;
+        background-repeat: no-repeat;
+        background-position: calc(100% - 5px) 50%;
+        content: '' !important;
+
+        width: 30px;
+        height: 30px;
+
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+
+  nav.main-header-menu {
+    ul {
+      a.#{$id}-category__link {
+        display: none;
+      }
+    }
+
+    li.loaded {
+      &>span.icon {
+        pointer-events: none;
+      }
+      span.icon {
+        background-color: transparent;
+        pointer-events: none;
+
+        &:before {
+          background-image: url('https://ucds.ams3.digitaloceanspaces.com/PC-274/Vector.png');
+          background-size: 8px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          content: '' !important;
+
+          width: 30px;
+          height: 30px;
+        }
+
+        &.active {
+          &:before {
+            background-image: none;
+            content: '-' !important;
+            width: unset;
+            height: unset;
+            font-size: 20px;
+          }
+        }
+      }
+
+      a.drop.active {
+        background-color: transparent;
+        border: none;
+
+        padding-left: 5px;
+
+        span.icon.active {
+          background-color: #dcdcdd;
+        }
+        span.text {
+          font-weight: 700;
+        }
+      }
+      a.#{$id}-category__link {
+        width: 100%;
+        position: absolute;
+        top: 52px;
+        border: none;
+        padding-left: 5px;
+
+        font-weight: 800;
+        font-size: 18px;
+
+        div {
+          font-size: 1rem;
+        }
+
+        span.icon {
+          width: 30px;
+          height: 35px;
+
+          position: absolute;
+          right: 25px;
+          top: 9px;
+        }
+      }
+
+      ul {
+        &.active {
+          li.col_1 {
+            margin-left: 0;
+
+            span.icon {
+              pointer-events: auto !important;
+            }
+            
+
+            &:before {
+              display: none !important;
+            }
+            // margin-left: 0;
+            a.menuCategory {
+              font-size: 15px;
+              border-bottom: none;
+              .icon {
+                background-color: #dcdcdd;
+                &:before {
+                  background-image: none;
+                  content: '+' !important;
+                  width: unset;
+                  height: unset;
+                  font-size: 20px;
+                }
+              }
+            }
+            a.menuCategory.active {
+              // display: none;
+              .icon {
+                background-color: #dcdcdd;
+                &:before {
+                  background-image: none;
+                  content: '-' !important;
+                  width: unset;
+                  height: unset;
+                  font-size: 20px;
+                  font-weight: 500;
+                }
+              }
+            }
+
+            ul {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    li.last-child.loaded {
+      span.icon {
+        &:before {
+          background-image: url('https://ucds.ams3.digitaloceanspaces.com/PC-274/Vector-white.png');
+        }
+
+        &.active {
+          &:before {
+            background-image: none;
+            content: '-' !important;
+            width: unset;
+            height: unset;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

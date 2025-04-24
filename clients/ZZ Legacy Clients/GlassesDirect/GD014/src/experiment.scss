@@ -1,0 +1,40 @@
+@import '_mixins.scss';
+.GD014,
+.GD014_mobile {
+  .product.product-actions-container.GD014_seen::before {
+    content: 'Previously you viewed...';
+    text-align: left;
+    display: block;
+    line-height: 15px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.GD014 {
+  .product.product-actions-container {
+    @include anim(200ms, def, (border-color));
+    &.GD014_checked-product {
+      padding-top: 33px;
+    }
+    &.GD014_seen {
+      border-color: #2d3746;
+      padding-top: 12px;
+    }
+  }
+}
+
+.GD014_mobile {
+  .product.product-actions-container {
+    // &.GD014_checked-product {
+    //   padding-top: 33px;
+    // }
+    &.GD014_seen {
+      .product-info {
+        border: 1px solid #2d3746;
+      }
+    }
+  }
+}

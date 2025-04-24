@@ -1,0 +1,184 @@
+@import './variables';
+
+.#{$id} {
+
+  .#{$id}-inGrid {
+    text-align: center;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .#{$id}-innerText {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      align-content: center;
+    }
+    span {
+      font-weight: 600;
+      &.xmasText {
+        margin-bottom: 5px;
+        display: block;
+      }
+    }
+    h3 {
+      font-family: Georgia,Times,Times New Roman,serif;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 20px;
+      line-height: 23px;
+      color: black;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 20px;
+      font-family: "Open Sans","Arial","Helvetica",Helvetica,sans-serif;
+    }
+    a {
+      font-weight: 700;
+      color: black;
+      margin-top: 15px;
+      text-transform: uppercase;
+      font-family: "Open Sans","Arial","Helvetica",Helvetica,sans-serif;
+      text-decoration: none;
+      position: relative;
+      &:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        background: black;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      &:hover:after { 
+        width: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .#{$id}-line {
+      width: 50px;
+      height: 1px;
+      background: black;
+      margin: 0 auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    @media(min-width: 767px) {
+      background-size: 80%;
+      .#{$id}-innerText {
+        max-width: 85%;
+        margin: 0 auto;
+        h3 {
+          font-size: 25px;
+          line-height: 35px;
+        }
+        p {
+          font-size: 16px;
+          line-height: 25px;
+        }
+      }
+    }
+    @media(min-width: 1280px) {
+      .#{$id}-innerText {
+        h3 {
+          font-size: 27px;
+          line-height: 35px;
+          max-width: 215px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .product-tile-list--list-mode,
+  .product-tile-list--one-column-mode {
+    .#{$id}-inGrid {
+      height: 200px;
+      padding: 10px;
+      background-size: 70%;
+      @media(min-width: 400px) {
+        background-size: 60%;
+        height: 250px;
+      }
+      @media(min-width: 767px) {
+        height: 100%;
+      }
+      .#{$id}-innerText {
+        width: 85%;
+        margin: 0 auto;
+        h3 {
+          font-size: 20px;
+          line-height: 25px;
+        }
+        .#{$id}-line {
+          margin-bottom: 15px;
+          margin-top: 15px;
+        }
+        p {
+          margin-top: 0;
+          margin-bottom: 0;
+          line-height: 25px;
+          font-size: 16px;
+          max-width: 250px;
+          margin: 0 auto;
+        }
+      }
+
+      @media(min-width: 1280px) {
+        .#{$id}-innerText {
+          h3 {
+            font-size: 25px;
+            line-height: 35px;
+          }
+        }
+      }
+    }
+  }
+
+  &.hsamuel {
+    .#{$id}-inGrid {
+      background-size: contain;
+      @media(min-width: 767px) {
+        background-size: 70%;
+        h3 {
+          font-size: 25px;
+          line-height: 29px;
+        }
+      }
+      .#{$id}-line { 
+        background: #a01d29;
+      }
+    }
+    .product-tile-list--list-mode,
+    .product-tile-list--one-column-mode {
+      .#{$id}-inGrid {
+        height: 230px;
+        h3 {
+          font-size: 22px;
+        }
+      }
+      @media(min-width: 767px) {
+        .#{$id}-inGrid {
+          background-size: 70%;
+          h3 {
+            font-size: 25px;
+            line-height: 29px;
+          }
+        }
+      }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

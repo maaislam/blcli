@@ -1,0 +1,103 @@
+@import '../../_variables.scss';
+.#{$id} {
+  @at-root #{&}_popOver {
+    min-width: 350px;
+    position: relative;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 3;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 15px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAXCAMAAAC/B6aqAAAAclBMVEUAAAAAAAAAAAAAAAAAAAACAgIaGhoCAgL9/f3s7Ozn5+fh4eHc3NxFRUUxMTEAAAD8/Pz6+vr29vbz8/Pw8PDx8fHPz8/n5+e7u7ufn5+RkZGCgoJ0dHRgYGDu7u7IyMjGxsatra2urq5vb29sbGz////0VN9yAAAAJXRSTlMABRQJDxstJPvYzcGxOjQg+PPs5t/eppWLbWFYT0XEmZl8ezw7Tlo64QAAALhJREFUKM+N0lcOg0AMRdHp1KH3ks7+txgmCjLV8L6P5A9fUg5XVhLpX2C+JEx5p8xTjFCm3BPmKkbJCAMHZU5gmIE6Q1imDTPjrE8PWdozTv7jsksOWNLJkQFs410WtyODUS6baIdFjeSULGFtb5hdTwygCF/2mj1DAQxgtXIVsAW0Hgt2t4CtYDFjBbAt9CERYFsI8Xi/3yPQhUSQmXggERTqfMg1xqZ4Prc3JIJAwQQwZJTuHP0CbkQ8VWWxzMkAAAAASUVORK5CYII=);
+    }
+    @at-root #{&}Wrap {
+      padding: 0;
+      width: auto;
+      pointer-events: all;
+      transition: opacity 0.25s;
+      transform: translate3d(-50%, -1px, 0);
+      cursor: auto;
+      display: none;
+      &.visible {
+        opacity: 1;
+        transition: opacity 0.25s;
+        display: block;
+      }
+      @at-root #nav-hometrial #{&}, .active-filters__item--clear-all #{&} {
+        bottom: unset;
+        top: 50px;
+        z-index: 100;
+        pointer-events: all;
+        .#{$id}_popOver {
+          min-width: 150px;
+          &:after {
+            transform: translateX(-50%) rotate(180deg);
+            top: -14px;
+            bottom: unset;
+          }
+          .#{$id}_popOver__head,
+          .#{$id}_popOver__body {
+            padding: 10px;
+          }
+          .#{$id}_popOver__body {
+            .#{$id}_popOver__CTA {
+              font-size: 14px;
+              color: #0a64cd;
+            }
+          }
+        }
+      }
+    }
+    @at-root #{&}__head {
+      padding: 20px;
+      border-bottom: 1px solid #EAEBEC;
+      &~.#{$id}_popOver__body.hide{
+        border-bottom: none;
+      }
+      @at-root #{&}Content {
+        display: block;
+        font-weight: bold;
+        font-size: 17px;
+      }
+    }
+    @at-root #{&}__body {
+      padding: 20px;
+      font-size: 0;
+      &.hide{
+        display:none;
+      }
+    }
+    @at-root #{&}__CTA {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+      width: 50%;
+      padding: 0 10px;
+      font-size: 15px;
+      &:only-child {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+      &:last-child {
+        .button-popover__link {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .active-filters__item--clear-all .#{$id}_popOverWrap {
+    top: 40px;
+    .#{$id}_popOver:after {
+      opacity: 0;
+    }
+  }
+}

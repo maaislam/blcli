@@ -1,0 +1,133 @@
+@import "./variables";
+
+.#{$id} {
+  .#{$id}-wrapper {
+    &.#{$id}-hide {
+      display: none;
+    }
+
+    width: calc(
+      100% - 32px
+    ); // 32px = right marign of the grid below, done to appear same width
+    margin-bottom: 24px;
+    background-color: #f8f8f8;
+    position: relative;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
+
+    > .#{$id}-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      i {
+        font-size: 18px;
+      }
+    }
+
+    p,
+    button {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
+    .#{$id}-content {
+      padding: 16px 40px 16px 12px;
+    }
+
+    .#{$id}-body--two {
+      display: none;
+    }
+
+    .#{$id}-body,
+    .#{$id}-body--two {
+      > * {
+        display: inline-block;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @media (max-width: 600px) {
+          font-size: 15px;
+        }
+      }
+      .PJ-small {
+        font-size: 14px;
+        opacity: 0.85;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+      .#{$id}-close {
+        text-align: center;
+        background-color: #007a53;
+        color: #ffffff;
+        display: inline-block;
+        appearance: none;
+        padding: 6px 20px;
+        border: 1px solid transparent;
+        border-radius: 16px;
+        cursor: pointer;
+        margin-left: 12px;
+      }
+    }
+
+    .#{$id}-buttons {
+      margin-left: 16px;
+      button {
+        display: inline-block;
+        padding: 6px 14px;
+        background-color: #ffffff;
+        appearance: none;
+        text-transform: uppercase;
+        margin: 0 5px;
+        border: 1px solid #007a53;
+        border-radius: 3px;
+        color: #007a53;
+        min-width: 80px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .#{$id}-showMessage {
+    .#{$id}-body {
+      display: none;
+    }
+    .#{$id}-body--two {
+      display: block;
+    }
+
+    .#{$id}-buttons {
+      display: none;
+    }
+  }
+
+  // Variant 2
+  &.#{$id}-2 {
+    @media only screen and (max-width: 890px) {
+      .#{$id}-buttons {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 12px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .#{$id}-content {
+      .#{$id}-buttons {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 12px;
+      }
+
+      button.#{$id}-close {
+        display: block !important;
+        margin: 12px auto 0 !important;
+      }
+    }
+  }
+}

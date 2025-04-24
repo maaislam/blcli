@@ -1,0 +1,23 @@
+@mixin anim($speed, $animType, $type...) {
+  -webkit-transition-property: $type;
+  -moz-transition-property: $type;
+  -o-transition-property: $type;
+  transition-property: $type;
+  -webkit-transition-duration: $speed;
+  -moz-transition-duration: $speed;
+  -o-transition-duration: $speed;
+  transition-duration: $speed;
+  
+  @if $animType=='def' {
+      -webkit-transition-timing-function: ease-in-out;
+      -moz-transition-timing-function: ease-in-out;
+      -o-transition-timing-function: ease-in-out;
+      transition-timing-function: ease-in-out;
+  }
+  @else {
+      -webkit-transition-timing-function: $animType;
+      -moz-transition-timing-function: $animType;
+      -o-transition-timing-function: $animType;
+      transition-timing-function: $animType;
+  }
+}

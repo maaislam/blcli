@@ -1,0 +1,688 @@
+@import './variables';
+
+$darkBlue: #012169;
+$blue: #0067B2;
+$grey: #4C4C4D;
+$lightBlue: #E6F0F8;
+
+html.#{$id}-noScroll {
+    overflow: hidden;
+}
+
+.#{$id} {
+    [class*="styles-module__appContainer"] {
+        display: none;
+    }
+
+    .#{$id}-overlay {
+        position: fixed;
+        background: rgba(1, 32, 105, 0.7);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        display: none;
+        cursor: pointer;
+        &.#{$id}-overlayShow {
+          display: block;
+        }
+      }
+
+    .#{$id}-lightboxModal {
+        position: fixed;
+        height: auto;
+        width: 90vw;
+        background:white;
+        top: 50%;
+        left: 50%;
+        padding: 10px;
+        transform: translate(-50%,-50%);
+        display: none;
+        z-index: 999;
+        max-width: 400px;
+        .#{$id}-modalInner {
+            padding: 10px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            h2 {
+                color: $darkBlue;
+                font-weight: 500 !important;
+                font-size: 25px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                color: $grey;
+                font-weight: 300;
+                margin-bottom: 0;
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+        .#{$id}-close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/2E4AB731CC8791F02DB84AB3241508EC75435934AEEC539DE7B8E755D7E19C4A.png?meta=/BO136---Pharmacy-Homepage/noun_Close_1292416.png') no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+        }
+        &.#{$id}-modalShow {
+          display: block;
+        }
+    }
+    .#{$id}-homeContent {
+
+        section {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            @media(min-width: 1280px) {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+        }
+
+        /* General Styling */
+        .#{$id}-container {
+            padding: 0 15px;
+            @media(min-width: 767px) {
+                padding: 0 20px;
+            }
+            @media(min-width: 1024px) {
+                padding: 0 30px;
+            }
+            @media(min-width: 1280px) {
+                padding: unset;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        h1 {
+            font-size: 35px;
+            margin-top: 30px;
+            color: $darkBlue;
+            margin-bottom: 10px;
+            @media(min-width: 767px) {
+                margin-top: 40px;
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+            @media(min-width: 1024px) {
+                font-size: 35px;
+            }
+            @media(min-width: 1280px) {
+                font-size: 40px;
+            }
+        }
+
+        h2 {
+            color: $darkBlue;
+            font-weight: 500 !important;
+            font-size: 25px;
+            @media(min-width: 767px) {
+                margin-bottom: 20px;
+            }
+            @media(min-width: 1280px) {
+                margin: 0 auto;
+                max-width: 80%;
+            }
+        }
+
+        p {
+            color: $grey;
+            font-weight: 300;
+            margin-bottom: 0;
+            font-size: 16px;
+            line-height: 24px;
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        // buttons
+        .#{$id}-cta {
+            padding: 15px 60px;
+            border-radius: 30px;
+            box-sizing: border-box;
+            display: block;
+            text-align: center;
+            max-width: 400px;
+            font-size: 17px;
+            cursor: pointer;
+            @media(min-width: 767px) {
+                max-width: 300px;
+                width: 250px;
+            }
+
+            &.#{$id}-blue {
+                background: $darkBlue;
+                color: white;
+                border: 1px solid $darkBlue;
+            }
+
+            &.#{$id}-white {
+                background: white;
+                border: 1px solid $darkBlue;
+                color: $darkBlue;
+            }
+            @media(min-width: 1024px) {
+                &:hover {
+                    background-color: #0095c8;
+                    border-color: #0095c8;
+                    color: #fff;
+                }
+            }
+        }
+
+        .#{$id}-col-left {
+            width: 100%;
+            @media(min-width: 767px) {
+                width: 45%;
+            }
+            @media(min-width: 1024px) {
+                width: 50%;
+            }
+        }
+        .#{$id}-col-right {
+            width: 100%;
+            @media(min-width: 767px) {
+                width: 50%;
+            }
+            @media(min-width: 1024px) {
+                width: 40%;
+            }
+        }
+
+        /* Top content */
+        .#{$id}-aboveFold {
+
+            .#{$id}-topContent{
+                p {
+                    margin-bottom: 20px;
+                    @media(min-width: 767px) {
+                        margin-bottom: 30px;
+                    }
+                }
+
+                .#{$id}-cta {
+                    margin-bottom: 10px;
+                    margin-top: 15px;
+                    &.#{$id}-login {
+                        @media(min-width: 1280px) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .#{$id}-logo {
+                    height: 40px;
+                    width: 100px;
+                    margin-top: 30px;
+                    background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/D481C5D3F81DC30BD260766376E08E4AA961C19333F03152321CBF882CA2A8A8.png?meta=/BO136---Pharmacy-Homepage/nhs.png') no-repeat center;
+                    background-size: contain;
+                    margin-right: 10px;
+                    margin-left: auto;
+                    @media(min-width: 767px) {
+                        margin-top: 0;
+                    }
+                }
+
+                // boxes
+                .#{$id}-boxes {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    .#{$id}-box {
+                        width: 43%;
+                        box-sizing: border-box;
+                        height: 140px;
+                        margin: 10px;
+                        position: relative;
+
+                        .#{$id}-banner {
+                            position: absolute;
+                            background: #D0021B;
+                            top: 5px;
+                            left: -15px;
+                            padding: 5px;
+                            width: 75%;
+                            text-align: center;
+
+                            span {
+                                color: white;
+                                font-size: 13px;
+                            }
+
+                            &::before {
+                                border-left: 15px solid transparent;
+                                border-top: 15px solid #f16778;
+                                bottom: -15px;
+                                content: "";
+                                left: 0px;
+                                position: absolute;
+                            }
+                        }
+
+                        .#{$id}-box-content {
+                            height: 100%;
+                            width: 100%;
+                            background: $blue;
+                            border-radius: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 10px;
+                            cursor: pointer;
+                            @media(min-width: 1024px) {
+                                &:hover {
+                                    background: #238fde;
+                                }
+                            }
+                            span {
+                                height: 30px;
+                                width: 30px;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+
+                            p {
+                                margin-top: 10px;
+                                font-weight: 500;
+                                color: white;
+                                text-align: center;
+                                font-size: 13px;
+                                line-height: 15px;
+                                margin-bottom: 0;
+                                @media(min-width: 1024px) {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+
+                        &[box-target="click-collect"] {
+                            .#{$id}-box-content {
+                                span {
+                                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/F66A8509048EC7F52143BEB8CED7E42A625D3016B7A8328723F17B438EC4126E.png?meta=/BO136---Pharmacy-Homepage/collect.png');
+                                }
+                            }
+                        }
+
+                        &[box-target="free-delivery"] {
+                            .#{$id}-box-content {
+                                span {
+                                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/CE70F2BAF3D1521D6DD01990A5E31202AFF97FBA2A44FFDBE635E439023965A4.png?meta=/BO136---Pharmacy-Homepage/Delivery.png');
+                                }
+                            }
+                        }
+
+                        &[box-target="access-gp"] {
+                            .#{$id}-box-content {
+                                span {
+                                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/2003CF33A16F1060A05645ED802323E046A1814782D0F780998930BEC6C216A3.png?meta=/BO136---Pharmacy-Homepage/tapicon.png');
+                                }
+                            }
+                        }
+
+                        &[box-target="reminder"] {
+                            .#{$id}-box-content {
+                                span {
+                                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/61C1D8AAAB4E1292E55092C36255F3E80DA35CCC2EB8D880942D6537D8A8B185.png?meta=/BO136---Pharmacy-Homepage/calendar.png');
+                                }
+                            }
+                        }
+                    }
+                }
+                @media(min-width: 767px) {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+            
+        }
+
+        /* How it works */
+        .#{$id}-howItWorks {
+            background: $lightBlue;
+
+            h2 {
+                text-align: center;
+            }
+
+            // steps
+            .#{$id}-steps {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: stretch;
+                text-align: center;
+                margin-top: 20px;
+
+                .#{$id}-step {
+                    margin-bottom: 30px;
+
+                    .#{$id}-number {
+                        padding: 10px;
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 100px;
+                        background: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0 auto;
+                        margin-bottom: 10px;
+                        border: 1px solid #dedede;
+                        box-sizing: border-box;
+
+                        span {
+                            font-size: 30px;
+                            color: $blue;
+                        }
+                    }
+
+                    b {
+                        display: block;
+                    }
+                    @media(min-width: 767px) {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        p {
+                            width: 80%;
+                            text-align: left;
+                        }
+                        br {
+                            &:first-of-type {
+                                display: none;
+                            }
+                        }
+                        b {
+                            display: inline;
+                        }
+                    }
+                    @media(min-width: 1280px) {
+                        max-width: 900px;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                }
+
+                @media(min-width: 767px) {
+                    margin: 0 auto;
+                }
+
+                @media(min-width: 1024px) {
+                    
+                }
+            }
+        }
+
+        /* Image Content block */
+        .#{$id}-details {
+            .#{$id}-contentBlocks {
+                .#{$id}-content {
+                    margin-top: 40px;
+
+                    .#{$id}-col-left {
+                        padding: 0 15px;
+                        padding-top: 300px;
+                        @media(min-width: 375px) {
+                            padding-top: 350px;
+                        }
+                        @media(min-width: 414px) {
+                            padding-top: 380px;
+                        }
+                        @media(min-width: 560px) {
+                            padding-top: 500px;
+                        }
+                        @media(min-width: 700px) {
+                            padding-top: 500px;
+                        }
+                        @media(min-width: 767px) {
+                            padding-top: 0px;
+                            width: 60%;
+                        }
+
+                        h2 {
+                            margin-top: 20px;
+                            margin-bottom: 20px;
+                            margin-left: 0;
+                        }
+                    }
+
+                    @media(min-width: 767px) {
+                        display: flex;
+                        flex-direction: row;
+                        height: 350px;
+                        align-items: center;
+                        justify-content: flex-end;
+                    }
+                    @media(min-width: 1280px) {
+                        height: 450px;
+                        .#{$id}-col-left {
+                            width: 65%;
+                        }
+                    }
+
+                    &.#{$id}-linkKey {
+                        .#{$id}-col-left {
+                            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/638E7542083187450805061794D2834799DA63A95798C9DA5ED31D415040AECF.png?meta=/BO136---Pharmacy-Homepage/Image1Mobile.png') no-repeat;
+                            background-size: contain;
+                            @media(min-width: 767px) {
+                                background: unset;
+                            }
+                        }
+                        @media(min-width: 767px) {
+                            background: url(' https://service.maxymiser.net/cm/images-eu/new-boots-com/817AB1C6E86E9197586C24BBEDE79AB9FFAD5C37230B85F965A8EDAB928EAEB8.png?meta=/BO136---Pharmacy-Homepage/image1.png') no-repeat;
+                            background-size: contain;
+                            background-position: right;
+                            flex-direction: row-reverse;
+                        }
+                        
+                    }
+
+                    &.#{$id}-help {
+                        .#{$id}-col-left {
+                            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/92D95C1FC49F3E6D4F4B0F20E9C197ED2EF6E30715B4F09988D043AE09F20BDE.png?meta=/BO136---Pharmacy-Homepage/Image2Mobile.png') no-repeat;
+                            background-size: contain;
+                            @media(min-width: 767px) {
+                                background: unset;
+                            }
+                        }
+                        @media(min-width: 767px) {
+                            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/957B201A99DC9331A6ADECE944733DB74DD83AD52FCC6933B9BBC90001B02387.png?meta=/BO136---Pharmacy-Homepage/image2.png') no-repeat;
+                            background-size: contain;
+                            background-position: left;
+                        }
+                    }
+                }
+
+                @media(min-width: 767px) {
+                    padding: 0 20px;
+                }
+                @media(min-width: 1280px) {
+                    padding: 0;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        /* Info & faq */
+        .#{$id}-faq {
+            @media(min-width: 767px) {
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+            @media(min-width: 1024px) {
+                margin-bottom: 50px;
+                margin-top: 50px;
+            }
+            [class*="styles__informations"] {
+                padding: 0;
+
+                p {
+                    font-size: 15px;
+                }
+                @media(min-width: 767px) {
+                    margin-top: 0;
+                }
+
+                [class*="styles__infoBox"] {
+                    @media(min-width: 767px) {
+                        width: 60%;
+                    }
+                }
+            }
+
+            [class*="styles__faqContainer"] {
+                display: flex;
+                flex-direction: column;
+                border-bottom: 0px;
+                border-top: 0;
+                @media(min-width: 1024px) {
+                    flex-direction: row;
+                }
+            }
+        }
+
+        /* ready to order */
+        .#{$id}-order {
+            background: $lightBlue;
+            padding: 20px 10px;
+            
+            @media(min-width: 767px) {
+                padding: 30px 10px;
+            }
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .#{$id}-buttons {
+                .#{$id}-cta {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                @media(min-width: 767px) {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    max-width: 600px;
+
+                }
+            }
+        }
+
+        /* smallprint */
+        .#{$id}-care {
+            margin-top: 30px;
+
+            p {
+                margin-bottom: 10px;
+            }
+            [class*="styles__description"] {
+                padding: 0;
+
+                h5 {
+                    color: $darkBlue;
+                }
+            }
+
+            @media(min-width: 767px) {
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 50px;
+                padding-top: 30px;
+            }
+        }
+
+        /* App buttons */
+        .#{$id}-app {
+            text-align: center;
+            h2 {
+                color: $blue;
+                margin-bottom: 10px;
+            }
+            .#{$id}-appbuttons {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+                .#{$id}-appButton {
+                    height: 60px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                    &.#{$id}-appStore {
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/170196D85090E278236C230A4524B4862D37475B54E1139360A346079E82EBF7.png?meta=/BO136---Pharmacy-Homepage/app.png');
+                    }
+                    &.#{$id}-googlePlay {
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/4E4E639DC1961346426F917437DBC7D7013FBD3461945EEDA28613384B1AD456.png?meta=/BO136---Pharmacy-Homepage/google.png');
+                    }
+                }
+                @media(min-width: 767px) {
+                    margin: 0 auto;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    max-width: 600px;
+                    margin-top: 30px;
+                    .#{$id}-appButton {
+                        width: 200px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        /* How it works */
+        .#{$id}-howItWorks {
+            background: $lightBlue;
+
+            h2 {
+                text-align: center;
+            }
+
+            // steps
+            .#{$id}-steps {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: stretch;
+                text-align: center;
+                margin-top: 20px;
+                @media(min-width: 767px) {
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    .#{$id}-step {
+                        flex-direction: column;
+                        width: 30%;
+                        p {
+                            margin-top: 10px;
+                            text-align: center;
+                            width: 90%;
+                        }
+                    }
+                }
+            
+            }
+        }
+    }
+}

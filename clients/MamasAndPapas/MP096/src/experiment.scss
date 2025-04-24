@@ -1,0 +1,300 @@
+@import "scss/carousel.scss"; // Code taken from MP059
+
+$calc: '~"calc(100% - 400px)"';
+
+.MP096-V1 {
+  .mp96-lightbox {
+    z-index: 10000;
+    position: fixed;
+    background: #fafafa;
+    height: 230px;
+    width: 100%;
+    bottom: 0px;
+
+    @media(min-width: 540px) {
+      background: #fff;
+    }
+
+    @media(min-width: 1024px) {
+      left: 10px;
+      width: calc(100% - 400px);
+      width: #{$calc};
+      top: 50%;
+      transform: translateY(-50%);
+      height: 450px;
+    }
+
+    @media(min-width: 1350px) {
+      width: 950px;
+      margin-left: -665px;
+      left: 50%;
+    }
+
+    h2 {
+      display: none;
+
+      @media(min-width: 1024px) {
+        display: block;
+        margin-top: 35px;
+      }
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 12px;
+      margin-top: 10px;
+
+      @media(min-width: 1024px) {
+        font-size: 16px;
+      }
+    }
+
+    .mp96-lightbox__close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+
+      @media(min-width: 1024px) {
+        display: block;
+      }
+    }
+
+    .mp96-lightbox__products {
+      text-align: center;
+      padding: 0 20px;
+
+      @media(min-width: 1024px) {
+        margin: 30px 0;
+        padding: 0 50px;
+      }
+
+      .mp96-pitem {
+        .mp96-pitem__name {
+          font-weight: normal;
+          padding: 0 10px;
+          height: 27px;
+          overflow: hidden;
+          font-size: 11px;
+          line-height: 13px;
+
+          @media(min-width: 1024px) {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 16px;
+            height: 32px;
+          }
+        }
+        .mp96-pitem__imgwrap img {
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          max-height: 50px;
+          margin: 0 auto 3px;
+
+          @media(min-width: 1024px) {
+            max-height: 100px;
+          }
+        }
+
+        .mp96-pitem__addto-btn {
+          border: 0;
+          height: 24px !important;
+          min-height: 24px;
+          line-height: 24px;
+          font-size: 11px;
+
+          @media(min-width: 1024px) {
+            height: 36px !important;
+            min-height: 36px;
+            line-height: 36px;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+    .mp96-lightbox__viewall {
+      margin: 0 auto;
+
+      @media(min-width: 1024px) {
+        margin-top: 15px;
+      }
+
+      .btn {
+        height: 30px !important;
+        min-height: 0;
+        line-height: 30px;
+        font-size: 11px;
+
+        @media(min-width: 1024px) {
+          height: 40px !important;
+          min-height: 0;
+          line-height: 40px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .MP096_next, 
+    .MP096_prev {
+      font-size: 32px;
+      color: #333;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-top: -10px;
+    }
+
+    .MP096_prev {
+      left: 10px;
+      background-image: url('https://dd6zx4ibq538k.cloudfront.net/static/images/4068/23ece728b1cb28173e19470465dae3c8_64_64.png');
+
+      @media(min-width: 1024px) {
+        left: 20px;
+      }
+    }
+
+    .MP096_next {
+      right: 10px;
+      background-image: url('https://dd6zx4ibq538k.cloudfront.net/static/images/4068/9ec4674d7ab410552a389a0908cc9694_64_64.png');
+
+      @media(min-width: 1024px) {
+        right: 20px;
+      }
+    }
+  }
+
+  /* Arrange around lightbox */
+
+  #basket {
+    padding-bottom: 0 !important;
+
+    @media(min-width: 1024px) {
+      padding-bottom: 157px !important;
+    }
+  }
+
+  .basket_title {
+    @media(max-width: 1024px) {
+      padding: 0 20px !important;
+      height: 46px;
+    }
+  }
+
+  .slidePanel_close {
+    @media(max-width: 1024px) {
+      top: 6px;
+    }
+  }
+
+  .js-basketProducts {
+    height: 110px !important;
+    max-height: 110px;
+    overflow-y: scroll;
+
+    @media(min-width: 360px) and (max-width: 480px) and (min-height: 620px) {
+      height: 180px !important;
+      max-height: 180px !important;
+    }
+    @media(min-width: 360px) and (max-width: 480px) and (min-height: 680px) {
+      height: 220px !important;
+      max-height: 220px !important;
+    }
+    @media(min-width: 360px) and (max-width: 480px) and (min-height: 800px) {
+      height: 260px !important;
+      max-height: 260px !important;
+    }
+    @media(min-width: 480px) and (min-height: 600px) {
+      height: 250px !important;
+      max-height: 250px !important;
+    }
+
+    @media(min-width: 1024px) {
+      height: auto !important;
+      max-height: 100% !important;
+    }
+  }
+
+  .js-basketProducts::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: none; /* or add it to the track */
+  }
+
+  .js-basketProducts::-webkit-scrollbar-thumb {
+    background: #aaa;
+  }
+
+  .slidePanel.active .basket_checkout {
+    top: 180px !important;
+    bottom: auto !important;
+
+    @media(min-width: 360px) and (max-width: 480px) and (min-height: 620px) {
+      top: 250px !important;
+    }
+    @media(min-width: 360px) and (max-width: 480px) and (min-height: 680px) {
+      top: 290px !important;
+    }
+    @media(min-width: 360px) and (max-width: 480px) and (min-height: 800px) {
+      top: 330px !important;
+    }
+    @media(min-width: 480px) and (min-height: 600px) {
+      top: 320px !important;
+    }
+    @media(min-width: 1024px) {
+      bottom: 0 !important;
+      top: auto !important;
+    }
+
+    > .p-2:first-of-type {
+      padding: 0 !important;
+
+      @media(min-width: 360px) and (max-width: 480px) and (min-height: 620px) {
+        padding: 10px !important;
+      }
+    }
+
+    .font-size-5 {
+      font-size: 11px !important;
+
+      @media(min-width: 360px) and (max-width: 480px) and (min-height: 680px) {
+        font-size: 14px !important;
+      }
+      @media(min-width: 1024px) {
+        font-size: 16px !important;
+      }
+    }
+
+    .btn {
+      max-height: 40px;
+      line-height: 40px;
+      min-height: 0;
+      height: 40px !important;
+
+      @media(min-width: 1024px) {
+        max-height: 50px;
+        line-height: 50px;
+        height: 50px !important;
+      }
+    }
+  }
+
+  .row.no-gutters.m-2.p-2.basket_productView {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    @media(min-width: 1024px) {
+      margin: 10px !important;
+      padding: 10px !important;
+    }
+  }
+}

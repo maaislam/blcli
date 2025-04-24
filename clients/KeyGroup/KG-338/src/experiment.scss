@@ -1,0 +1,410 @@
+@import './variables';
+
+.#{$id}.#{$id}-expbegins {
+
+    .fca-erc {
+        display: none !important;
+    }
+      
+    .#{$id}-hidden {
+        display: none;
+        visibility: hidden;
+    }
+
+    .hero-banner {
+        display: none;
+    }
+
+    #er-calculator {
+        background: #FFF;
+
+        .hero-banner__button {
+            display: none;
+        }
+    }
+
+    .#{$id}-fixed {
+
+
+        .banner__text {
+            color: #000;
+        }
+
+    }
+
+    .#{$id}-outer-row {
+
+        @media all and (max-width: 900px) {
+            padding: 0 20px;
+        }
+
+        @media all and (max-width: 600px) {
+            margin-top: 20px;
+        }
+    }
+
+    .#{$id}-sidebarcol {
+        margin-left: 0 !important;
+
+        @media all and (max-width: 900px) {
+            padding: 0;
+        }
+
+        .sidebar {
+            border: none;
+            padding: 2rem 2rem 2rem 0;
+
+            @media all and (max-width: 900px) {
+                padding: 20px 0;
+                margin-top: 0;
+            }
+        }
+
+        .#{$id}-er-image {
+            max-width: 100px;
+        }
+    }
+
+    .#{$id}-submitfield {
+        position: absolute;
+        width: calc(100% - 40px);
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .#{$id}-equitycalc {
+
+        border: 1px solid #032240;
+        border-radius: 5px;
+        padding: 20px 20px 90px !important;
+        margin: 65px 0 20px;
+        min-height: 300px;
+        background: #F7F7F7;
+        box-shadow: 2px 2px 0 0 #032240;
+        order: 2;
+
+        legend {
+            display: none;
+        }
+
+        .form__field-wrapper > label,
+        label[for="Address"],
+        label[for="Postcode"] {
+            color: #032240;
+            font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .form__group--postcode {
+
+            margin-bottom: 15px;
+
+            .form__field-wrapper {
+                width: 100%;
+            }
+
+            .form__toggle {
+                text-align: right;
+            }
+        }
+
+        #Address {
+            border-width: 2px;
+            border-style: solid;
+            border-color: #032240;
+        }
+
+        .form__field-wrapper--success #Address {
+            border-color: #0B6027;
+        }
+
+        .form__toggle {
+            color: #032240;
+            text-align: right;
+            font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-decoration: underline;
+        }
+
+        .form__label--secondary {
+            color: #032240;
+                font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+        }
+
+        .#{$id}-postcode-entered {
+            color: var(--primary-navy--primary, #032240);
+            font-family: "Nunito Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-top: 18px;
+            margin-right: auto;
+        }
+
+        button[data-type="postcodefield"] {
+        
+            margin: 0;
+            padding: 12px 5px;
+            width: 125px;
+            text-align: center;
+            font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            border-radius: 4px;
+            color: #FFF;
+            border: 2px solid #0B6027;
+            background: #0B6027;
+            opacity: 1;
+            cursor: pointer;
+
+            &:disabled {
+                opacity: 1;
+                color: #032240;
+                border: 2px solid #032240;
+                background: #C0C0C0;
+            }
+
+            &:hover {
+                opacity: 1;
+                transition: opacity 0.5s ease;
+            }
+        }
+
+        &.#{$id}-stage1 {
+
+            [data-type="postcodefield"],
+            fieldset:nth-of-type(2),
+            .#{$id}-submitfield {
+                display: none;
+            }
+
+        }
+
+        &.#{$id}-stage2 {
+
+            [data-type="pricefield"],
+            fieldset:nth-of-type(2),
+            .#{$id}-submitfield {
+                display: none;
+            }
+
+        }
+
+        &.#{$id}-stage3 {
+
+            fieldset:nth-of-type(1),
+            [data-type="namefield"],
+            [data-type="phonefield"],
+            [data-type="emailfield"],
+            [data-type="dobfield"],
+            .form__gdpr,
+            .form__group--checkbox,
+            .form__privacy-policy,
+            .#{$id}-submitfield {
+                display: none;
+            }
+
+        }
+
+        &.#{$id}-stage4 {
+
+            fieldset:nth-of-type(1),
+            [data-type="titlefield"],
+            [data-type="phonefield"],
+            [data-type="emailfield"],
+            [data-type="dobfield"],
+            .form__gdpr,
+            .form__group--checkbox,
+            .form__privacy-policy,
+            .#{$id}-submitfield {
+                display: none;
+            }
+
+        }
+        &.#{$id}-stage5 {
+
+            fieldset:nth-of-type(1),
+            [data-type="namefield"],
+            [data-type="titlefield"],
+            [data-type="emailfield"],
+            [data-type="dobfield"],
+            // .form__gdpr,
+            // .form__group--checkbox,
+            // .form__privacy-policy,
+            label[for="SuppressEmail"],
+            .#{$id}-submitfield {
+                display: none;
+            }
+
+        }
+        &.#{$id}-stage6 {
+
+            fieldset:nth-of-type(1),
+            [data-type="namefield"],
+            [data-type="titlefield"],
+            [data-type="phonefield"],
+            [data-type="dobfield"],
+            label[for="SuppressSMS"],
+            // .form__gdpr,
+            // .form__group--checkbox,
+            // .form__privacy-policy,
+            .#{$id}-submitfield {
+                display: none;
+            }
+
+        }
+
+        &.#{$id}-stage7 {
+
+            fieldset:nth-of-type(1),
+            [data-type="namefield"],
+            [data-type="titlefield"],
+            [data-type="phonefield"],
+            [data-type="emailfield"],
+            .form__gdpr,
+            .form__group--checkbox,
+            .form__privacy-policy,
+            .#{$id}-equitycalc--button {
+                display: none;
+            }
+
+        }
+
+        &--footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+        }
+
+
+        .#{$id}-equitycalc--title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+
+            h2 {
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                padding-left: 10px;
+            }
+        }
+
+        .#{$id}-equitycalc--stagenum {
+            background: #032240;
+            border-radius: 50%;
+            min-width: 32px;
+            min-height: 32px;
+            color: #FFF;
+            font-size: 14px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .#{$id}-equitycalc--progressbar {
+            width: 100%;
+            height: 4px;
+            border-radius: 5px;
+            background: #C0C0C0;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            position: relative;
+
+            &:before {
+                content: "";
+                width: 33%;
+                height: 4px;
+                border-radius: 5px;
+                background: #032240;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: width 0.5s ease;
+                will-change: width;
+            }
+
+            
+        }
+
+        &.#{$id}-stage1 .#{$id}-equitycalc--progressbar:before {
+            width: 14%;
+        }
+        &.#{$id}-stage2 .#{$id}-equitycalc--progressbar:before {
+            width: 28%;
+        }
+        &.#{$id}-stage3 .#{$id}-equitycalc--progressbar:before {
+            width: 42%;
+        }
+        &.#{$id}-stage4 .#{$id}-equitycalc--progressbar:before {
+            width: 56%;
+        }
+        &.#{$id}-stage5 .#{$id}-equitycalc--progressbar:before {
+            width: 70%;
+        }
+        &.#{$id}-stage6 .#{$id}-equitycalc--progressbar:before {
+            width: 84%;
+        }
+        &.#{$id}-stage7 .#{$id}-equitycalc--progressbar:before {
+            width: 100%;
+        }
+
+
+        .#{$id}-equitycalc--button {
+            width: 100%;
+            background: #0B6027;
+            opacity: 1;
+            color: #FFF;
+            border-radius: 5px;
+            padding: 15px 0;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            transition: opacity 0.5s ease;
+
+            &--secondary {
+                display: none;
+                color: #032240;
+                font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                background: none;
+                border: none;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            &:hover,
+            &.#{$id}-completed {
+                opacity: 1;
+                transition: opacity 0.5s ease;
+            }
+
+        }
+
+    }
+
+
+}

@@ -1,0 +1,284 @@
+@import './variables';
+@import './lib/components/favourites.scss';
+
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+.#{$id} {
+  &.#{$id}-noScroll {
+    overflow: hidden;
+  }
+
+  #header #estore_header_top_row #omniPresentLinksBar #mobileLink_search {
+    left: 59%;
+  }
+
+  .#{$id}-overlay {
+    background: rgba(0, 0, 0, 0.69);
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &-favouritesToggle {
+    position: absolute;
+    left: 73%;
+    float: right;
+    width: 12.7%;
+    height: 38px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding-top: 9px;
+    z-index: 999;
+    cursor: pointer;
+    &.active {
+      display: flex;
+    }
+
+    @media(min-width: 768px) {
+      top: 42px;
+      right: 50px;
+      left: auto;
+      width: 60px;
+      height: auto;
+      flex-direction: column;
+      padding-top: 0;
+    }
+
+    @media(min-width: 1024px) {
+      right: 65px;
+    }
+
+    .fave-icon {
+      height: 30px;
+      width: 30px;
+      background: url('https://boots.scene7.com/is/image/Boots/favourite?scl=1&fmt=png-alpha') no-repeat center;
+      background-size: contain;
+      display: block;
+    }
+
+    span {
+      display: none;
+
+      @media(min-width: 768px) {
+        display: block;
+        font-size: 10px;
+        font-family: "Boots Sharp", "F37 Ginger", sans-serif;
+        color: #4C4C4C;
+      }
+
+      @media(min-width: 1024px) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .quickViewloader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      height: 30px;
+      width: 30px;
+      background: url('https://www.boots.com/wcsstore/eBootsStorefrontAssetStore//images/boots/boots_loader_spinner.gif') no-repeat center;
+      background-size: contain;
+    }
+  }
+
+  .plpFavourtieRedesingIconContainer,
+  #wishListSection {
+    display: none !important;
+  }
+
+
+  #oct-basket-container {
+    @media(min-width: 768px) {
+      top: 42px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .basketName {
+      display: none;
+
+      @media(min-width: 768px) {
+        display: block;
+        font-size: 10px;
+        font-family: "Boots Sharp", "F37 Ginger", sans-serif;
+        color: #4C4C4C;
+      }
+
+      @media(min-width: 1024px) {
+        font-size: 12px;
+      }
+    }
+
+  }
+
+  .grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    min-height: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  // Header styling
+  @media(min-width: 768px) {
+    #searchBar {
+      width: 80% !important;
+    }
+
+    #searchBar #searchBarInput {
+      width: 100% !important;
+    }
+  }
+
+  @media(min-width: 1024px) {
+    #searchBar {
+      width: 83% !important;
+    }
+  }
+
+  @media(min-width: 1280px) {
+    #searchBar {
+      width: 85% !important;
+    }
+  }
+
+  @media(max-width: 601px) {
+
+    .estore_product_container.giftGuide__in-grid-content {
+      height: 98% !important;
+      box-sizing: border-box;
+    }
+
+    .quickBuy .product_listing_container .plp_gridView_redesign .grid_mode .estore_product_container {
+      height: 420px;
+    }
+  }
+  // PLP
+  @media (min-width: 601px) and (max-width: 1280px) {
+    .quickBuy .product_listing_container .plp_gridView_redesign .grid_mode .estore_product_container {
+      height: 520px;
+    }
+    
+
+    // .product_listing_container .plp_gridView_redesign ul.grid_mode li:not(.PLP_in_grid_html) .estore_product_container .product_add {
+    //   padding: 0;
+    //   width: 95%;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+
+    //   .button.primary {
+    //     width: 100%;
+    //   }
+    // }
+  }
+
+  .PLP_in_grid_html {
+
+    .#{$id}-favouriteProduct {
+      display: none !important;
+    }
+  }
+
+  &.#{$id}-2 {
+    .estore_product_container {
+      .product_offer_notify {
+        display: none;
+      }
+    }
+  }
+  &.#{$id}-2,
+  &.#{$id}-3 {
+    .estore_product_container {
+      position: relative !important;
+    }
+
+    @media(max-width: 601px) {
+  
+      .quickBuy .product_listing_container .plp_gridView_redesign .grid_mode .estore_product_container {
+        height: 360px;
+      }
+    }
+
+    #header #estore_header_top_row {
+      overflow: visible;
+    }
+
+    .#{$id}-favouritesToggle {
+      // Usage
+      .usage {
+        position: relative;
+      }
+  
+        .#{$id}-usage {
+          position: absolute;
+          top: 30px;
+          z-index: 9999;
+          right: 0px;
+          width: 280px;
+          display: none;
+          pointer-events: none;
+          .#{$id}-inner {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            
+          }
+
+          span {
+            height: 80px;
+            width: 100px;
+            margin-top: -35px;
+            background: url('https://boots.scene7.com/is/image/Boots/arrowBlue?scl=1&fmt=png-alpha') no-repeat center;
+            background-size: contain;
+            display: block;
+          }
+
+          p {
+            width: 60%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.71);
+            border: 1px solid #D9D7D7;
+            backdrop-filter: blur(4px);
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            font-family: "Boots Sharp", "F37 Ginger", sans-serif;
+            box-shadow: 0px 1px 11px 0px rgba(90, 90, 90, 0.47);
+          }
+        }
+      
+
+      &.usage-active {
+        .#{$id}-usage {
+          display: block;
+        }
+      }
+    }
+  }
+  
+
+}

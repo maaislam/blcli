@@ -1,0 +1,108 @@
+@import './variables';
+@import './lib/MP166/style';
+
+.#{$id} {
+  // Cart styling, basket is sorted within MP166
+
+  #page .row {
+    .MP175-recSlider {
+      width: 45%;
+      padding: 15px 30px 40px;
+      margin: 30px 2%;
+      float: left;
+      border: 2px solid #000000;
+
+      h2 {
+        margin-left: 20px;
+      }
+
+      li {
+        > .border {
+          min-height: 230px;
+          text-align: center;
+
+          .price_section, .cta, .title, .image {
+            display: block;
+            width: 100%;
+            float: none;
+          }
+
+          .title {
+            min-height: 90px;
+            a {
+              font-size: .9em !important;
+            }
+          }
+
+          .cta {
+            .border {
+              margin-right: 0;
+            }
+          }
+        }
+      }    
+    }
+  }
+
+  &.MP175-cart--show {
+    #orderTotals {
+      width: 50%;
+      float: right;
+      clear: none !important;
+    }
+
+    .con-shopping.cartNewButton {
+      width: 51%;
+      float: right;
+
+      > .row .pull-right {
+        width: 100%;
+        float: none !important;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 879px) {
+    #orderTotals, .con-shopping.cartNewButton, .MP175-recSlider {
+      width: 100% !important;
+      float: none !important;
+      display: block;
+      clear: both !important;
+    }
+    .MP175-recSlider {
+      margin: 20px auto !important;
+      border: none !important;
+      padding: 0 !important;
+
+      .image {
+        img {
+          max-height: 220px;
+          width: auto !important;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  // Small mobiles
+  @media only screen and (max-width: 412px) {
+    .MP175-recSlider li > .border {
+      .image, .title, .price_section, .cta {
+        display: block !important;
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+        text-align: center !important;
+      }
+      .price_section div.text-center {
+        text-align: center !important;
+      }
+      .cta .border {
+        margin-right: 0 !important;
+      }
+    }
+    .slidePanel.activeRight .basket {
+      padding-bottom: 200px !important;
+    }
+  }
+}

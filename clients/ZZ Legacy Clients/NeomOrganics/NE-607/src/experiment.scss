@@ -1,0 +1,80 @@
+@import "./variables";
+@import "./lib/promo";
+
+.#{$id} {
+	.NE-606-progress-bar {
+		display: none;
+	}
+
+	.free-gift {
+		display: none;
+	}
+
+	.mini-cart {
+		height: 100% !important;
+		padding: 0 !important;
+
+		& > div[data-cart-view] {
+			height: 100%;
+			overflow: auto;
+			padding: 20px 20px 0 20px !important;
+			background-color: #fff;
+		}
+	}
+	.mini-cart-container {
+		height: unset !important;
+		max-height: unset !important;
+		overflow: unset !important;
+	}
+
+	.mini-cart-footer {
+		position: sticky;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.mini-cart-items {
+		max-height: unset !important;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.#{$id}-delivery {
+		$gap: 10px;
+
+		margin-bottom: 2rem;
+		font-weight: 300;
+		line-height: 1.2;
+
+		ul {
+			position: relative;
+			display: grid;
+			gap: 0.75rem;
+			padding-left: calc($gap * 2.5);
+
+			li {
+				position: relative;
+				font-size: 0.9rem;
+
+				&::before {
+					content: "";
+					position: absolute;
+					width: 1.25rem;
+					height: 1.25rem;
+					transform: translate(-50%, -50%);
+					background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 7c-1.11 0-2 .89-2 2v8h2a3 3 0 0 0 6 0h6a3 3 0 0 0 6 0h2v-4c0-1.11-.89-2-2-2l-3-4H3Zm12 1.5h2.5l1.96 2.5H15V8.5Zm-9 7a1.5 1.5 0 1 1 .0001 3A1.5 1.5 0 0 1 6 15.5m12 0a1.5001 1.5001 0 1 1 0 3.0002A1.5001 1.5001 0 0 1 18 15.5Z' fill='%23000'/%3E%3C/svg%3E");
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: center;
+					top: calc(0.5em * 1.2);
+					left: calc(calc($gap * 1.5) * -1);
+				}
+
+				strong {
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}

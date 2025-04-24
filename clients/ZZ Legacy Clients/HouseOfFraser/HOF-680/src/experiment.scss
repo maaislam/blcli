@@ -1,0 +1,198 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      background: rgba(0,0,0,0.5);
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+
+    }
+
+    @media all and (max-height: 400px) {
+      height: auto;
+      overflow: visible;
+    }
+}
+
+.#{$id} {
+    position: relative;
+
+    .#{$id}-hidden {
+        display: none;
+        visibility: hidden;
+    }
+
+    .#{$id}-subtotal-delivery {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+
+        &--text {
+            font-size: 14px;
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+            font-weight: 400;
+            line-height: 17px;
+
+            @media all and (max-width: 400px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+            }
+
+            &subtotal {
+                padding-right: 15px;
+                border-right: 1px solid #CCC;
+                display: inline-flex;
+                font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+
+                @media all and (max-width: 400px) {
+                    padding-right: 0;
+                    margin-bottom: 5px;
+                    border-right: none;
+                }
+    
+
+                & > span {
+                    font-weight: 600;
+                    margin-left: 5px;
+                }
+            }
+
+            &delcharge {
+                margin-left: 10px;
+                display: inline-flex;
+                font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+                & > span {
+                    font-weight: 600;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        &--icon {
+            margin-left: 5px;
+            position: relative;
+            top: 1px;
+            cursor: pointer;
+        }
+
+
+        &.#{$id}-subtotal-delivery--cartpage {
+
+            display: inline-flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 1.2em;
+            letter-spacing: 0;
+            margin-bottom: 10px;
+
+            &delivery {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            &total {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .#{$id}-subtotal-delivery--icon {
+                margin-left: 2px;
+                top: 2px;
+            }
+
+
+        }
+
+    }
+
+    .#{$id}-spanBagSubTotalValue {
+        font-size: 1.2em;
+        font-weight: 600 !important;
+        color: #000;
+        letter-spacing: .05em;
+    }
+
+    #lblBagSubTotal {
+        font-weight: 600;
+    }
+
+    .#{$id}-modal {
+
+        display: none;
+
+        &.#{$id}-active {
+            display: flex;
+            flex-direction: column;
+            width: 480px;
+            padding: 40px 50px 30px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100001;
+            background: #FFF;
+            
+
+            @media all and (max-width: 600px) {
+                width: 95%;
+                padding: 20px;
+                text-align: center;
+            }
+
+            @media all and (max-height: 550px) {
+                top: 10px;
+                transform: none;
+                left: 10px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: 100%;
+            }
+        }
+
+        h2 {
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        &--deliveryoption {
+            border-bottom: 1px solid #EEE;
+            margin-bottom: 10px;
+
+            &italic {
+                font-style: italic;
+            }
+
+            &:last-of-type {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+        }
+
+        &--price {
+            font-size: 15px;
+        }
+
+        &--close {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            cursor: pointer;
+            background: none !important;
+            border: none !important;
+        }
+
+    }
+
+}

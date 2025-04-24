@@ -1,0 +1,343 @@
+@import "./variables";
+.#{$id} {
+	&-1,
+	&-2 {
+		.mobCbRow.clone-filter-sort {
+			width: 100%;
+			#mobControlBar {
+				position: relative;
+				&::after {
+					position: absolute;
+					content: "";
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					background-color: transparent;
+				}
+			}
+		}
+		body.#{$id}-filter-shown {
+			overflow: hidden !important;
+			position: unset !important;
+
+			#BodyWrap .HeaderTopPromo > .header-promo {
+				z-index: 5915 !important;
+				top: 0 !important;
+				position: fixed !important;
+			}
+			#BodyWrap #HeaderGroup {
+				top: 40px !important;
+				position: fixed !important;
+			}
+			#BodyWrap #divMobSearch {
+				top: 81px;
+				position: fixed;
+			}
+		}
+		&.#{$id}-safari {
+			overflow: hidden !important;
+			body.#{$id}-filter-shown {
+				overflow: unset !important;
+				position: unset !important;
+			}
+		}
+		#SelectedFiltersWrapper li.inlineClearAllFilters {
+			@media screen and (max-width: 767.98px) {
+				display: none;
+			}
+		}
+		#FiltersAndProductsWrapper
+			.globalSelectedFiltersWrapper.sticky-selected-items {
+			@media screen and (max-width: 767.98px) {
+				position: fixed;
+				width: 100%;
+				left: 0;
+				z-index: 9;
+			}
+		}
+	}
+	&-1 {
+		#prdlistinformation {
+			#prdsFound {
+				padding-top: 15px;
+			}
+		}
+		body.#{$id}-filter-shown {
+			.mobCbRow.clone-filter-sort {
+				display: none !important;
+				&.stickyFilterSort {
+					position: sticky !important;
+				}
+			}
+		}
+	}
+	&-2 {
+		body.#{$id}-filter-shown {
+			.HoF-browse #FilterContainer {
+				height: calc(100% - 116px) !important;
+				max-height: calc(100% - 116px) !important;
+			}
+		}
+	}
+	@media screen and (min-width: 1022px) {
+		&-btnDiv {
+			display: none;
+		}
+	}
+	@media (max-width: 1021px) {
+		&-HoF-browse .categorycopyd4 {
+			flex-direction: column;
+			display: flex;
+		}
+		&-HoF-browse #prdlistinformation {
+			order: 2;
+		}
+		&-HoF-browse .mobCbRow {
+			z-index: -5904 !important;
+			transition: top 100ms linear 0s;
+		}
+		&-HoF-browse &-btnDiv {
+			display: flex;
+			justify-content: space-evenly;
+			border-top: solid 1px #ccc;
+			border-bottom: solid 1px #ccc;
+			padding: 5px 0px;
+			align-items: center;
+			width: 96%;
+			margin: 10px auto 15px auto;
+		}
+		&-HoF-browse &-btnDiv .filter {
+			width: 50%;
+			font-size: 14px;
+			font-weight: 500;
+			padding-top: 4px;
+			border-right: solid 1px #ccc;
+			font-family: Montserrat !important;
+			cursor: pointer;
+		}
+		&-HoF-browse &-btnDiv .filter > span::after {
+			content: url("https://api.iconify.design/system-uicons/filtering.svg?height=31&flip=vertical");
+			display: inline-block;
+			vertical-align: middle;
+			padding-top: 2px;
+			padding-left: 14px;
+		}
+		&-HoF-browse &-btnDiv .sort {
+			width: 50%;
+			font-size: 14px;
+			font-weight: 500;
+			font-family: Montserrat !important;
+			cursor: pointer;
+			min-height: 42px;
+			padding-top: 10px;
+		}
+		&-HoF-browse &-btnDiv .sort .sortByText {
+			color: #3d3d3d;
+			display: inline-block;
+			width: 81px;
+			height: 21px;
+			overflow: hidden;
+			padding-top: 6px;
+			text-align: left;
+		}
+		&-HoF-browse &-btnDiv .sort span.FilterCollapseImage.glyphicon::before {
+			font-size: 18px;
+			display: inline-block;
+			width: 26px;
+			height: 16px;
+			content: "";
+			background-image: url("https://www.houseoffraser.co.uk/images/core/hof-sprite-sheet-v8.svg");
+			background-size: 900px 901px;
+			background-position: -285px -252px;
+		}
+		&-HoF-browse &-MobSortSelector {
+			display: none;
+		}
+		&-HoF-browse &-productFilters {
+			display: none;
+		}
+		&-HoF-browse &-mobFiltInnerWrap {
+			display: none;
+		}
+		&-HoF-browse #mobFilterControls li {
+			background: #e10098;
+		}
+		&-HoF-browse .mobApplyFilter.clearFiltersOpen {
+			width: 50%;
+			order: 1;
+		}
+		&-HoF-browse .mobClearFilters {
+			width: 50%;
+			background: #fff !important;
+		}
+		&-HoF-browse #mobFilterControls li#mobclrfltrs span + span {
+			color: #000;
+		}
+		&-HoF-browse #mobFilterControls li#mobclrfltrs span + span::after {
+			content: "";
+			width: 68%;
+			border-bottom: solid 1px black;
+			margin: 0px auto;
+			padding-top: 5px;
+			display: block;
+		}
+		&-HoF-browse div#FiltersHeader {
+			border-bottom: solid 1px #cccccc;
+			padding-bottom: 16px;
+		}
+		&-HoF-browse ul.productFilters > li:after {
+			border-top: solid 1px #cccccc;
+		}
+		&-HoF-browse ul.productFilters > li:last-child:after {
+			border: none;
+		}
+		&-HoF-browse .FilterListItem > span > .SelectableFilter::after {
+			content: "";
+			width: 100%;
+			border-bottom: solid 1px #cccccc;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: -13px;
+		}
+		&-HoF-browse
+			.FilterListItem:last-child
+			> span
+			> .SelectableFilter::after {
+			border: none;
+		}
+		&-HoF-browse .FilterListItem a.FilterAnchor:hover * {
+			text-decoration: none !important;
+			color: #000 !important;
+		}
+		&-HoF-browse .FilterListItem a.FilterAnchor span.SelectableFilter {
+			text-decoration: none !important;
+			color: #000 !important;
+		}
+		&-HoF-browse .FilterListItem a.FilterAnchor span.SelectedFilter * {
+			text-decoration: none !important;
+			color: #e10098 !important;
+			font-weight: 600 !important;
+		}
+		&-HoF-browse
+			.FilterListItem
+			a.FilterAnchor
+			span.SelectedFilter:hover
+			* {
+			text-decoration: none !important;
+			color: #e10098 !important;
+			font-weight: 600 !important;
+		}
+		&-HoF-browse .mobFilterContainer span.mobFilterAppIcon {
+			display: none !important;
+		}
+		&-HoF-browse .MobSortSelector input[type="radio"] {
+			display: block;
+		}
+		&-HoF-browse .productFilterList .FilterListItem {
+			min-height: 35px;
+		}
+		&-HoF-browse .SelectableFilter {
+			margin-top: 0.5px !important;
+		}
+		&-HoF-browse .FilterListItem:nth-child(5) .SelectableFilter {
+			margin-top: 1px !important;
+		}
+		&-HoF-browse .productFilterList > .FilterListItem > span.FilterAnchor {
+			display: flex;
+			align-content: center;
+		}
+		&-HoF-browse &-mobFilterControls#mobFilterControls {
+			display: flex !important;
+			height: 70px;
+			background: #fff !important;
+			padding: 11px 11px 11px 11px;
+			border-top: solid 1px #cccccc;
+		}
+		&-HoF-browse &-mobFilter {
+			opacity: 0;
+		}
+		&-HoF-browse #FilterContainer {
+			max-height: calc(100% - 117px);
+		}
+		&-HoF-browse .stickyFilterSort {
+			background-color: #fff;
+			position: fixed;
+			top: -10px;
+			width: 100%;
+			z-index: 100000;
+		}
+		&-HoF-browse .hidden {
+			display: none !important;
+		}
+		&-HoF-browse .HOF-456-btnDiv.stickyFilterSort.hasHeaderAb {
+			top: 105.5px;
+		}
+		&-HoF-browse #filterlist li {
+			& .glyphicon:before {
+				background-position: -288px -255px;
+			}
+		}
+		// style of v1
+		&-1 {
+			.categorycopyd4 .recognitionStrip {
+				a {
+					display: block;
+					margin-top: 5px;
+				}
+			}
+			.flanProdList .Responsive .mobAppliedFilters {
+				visibility: hidden;
+				display: none !important;
+			}
+		}
+		&-HoF-browse-v1 #FilterContainer {
+			max-height: calc(100% - 117px) !important;
+			width: 100% !important;
+		}
+		&-HoF-browse-v1 .categorycopyd4 .mobCbRow {
+			position: sticky;
+		}
+		&-HoF-browse-v1 .stickyFilterSort {
+			position: fixed !important;
+			top: 0;
+			z-index: 9999 !important;
+		}
+		&-HoF-browse-v1 .hasHeaderAb {
+			top: 116px;
+		}
+		&-2 .hasHeaderAb {
+			top: 95px;
+		}
+		&-HoF-browse-v1
+			.mobCbRow.visible-xs.visible-sm:not(.clone-filter-sort) {
+			display: none !important;
+		}
+		&-HoF-browse-v1 .FilterListItem a.FilterAnchor:hover * {
+			text-decoration: none !important;
+			color: #000 !important;
+		}
+		&-HoF-browse-v1 .FilterListItem a.FilterAnchor span.SelectableFilter {
+			text-decoration: none !important;
+			color: #000 !important;
+		}
+		&-HoF-browse-v1 .FilterListItem a.FilterAnchor span.SelectedFilter * {
+			text-decoration: none !important;
+			color: #e10098 !important;
+			font-weight: 600 !important;
+		}
+		&-HoF-browse-v1
+			.FilterListItem
+			a.FilterAnchor
+			span.SelectedFilter:hover
+			* {
+			text-decoration: none !important;
+			color: #e10098 !important;
+			font-weight: 600 !important;
+		}
+		&-HoF-browse-v1 .mobFilterContainer span.mobFilterAppIcon {
+			display: none !important;
+		}
+	}
+}

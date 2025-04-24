@@ -1,0 +1,177 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+    padding-right: 17px;
+
+    @media all and (max-width: 1021px) {
+        padding-right: 0;
+    }
+    
+}
+
+.#{$id} {
+
+    .searchFocus .overlay {
+        @media all and (max-width: 1021px) {
+            z-index: -1;
+        }
+    }
+
+    .TopNavBar {
+            z-index: auto;
+    }
+
+    .searchFocus #divMobSearch,
+    .searchFocus .#{$id}-promo-holder {
+        @media all and (max-width: 1021px) {
+            position: relative;
+            z-index: 100010;
+        }
+    }
+
+    .#{$id}-active-overlay {
+        display: block;
+        opacity: .6;
+        visibility: visible;
+        transition-delay: 200ms;
+    }
+
+    .#{$id}-suggestions-holder {
+        display: none;
+    }
+
+    .#{$id}-search-box-holder {
+        display: flex;
+        flex-direction: column;
+        max-width: 380px;
+
+        @media all and (max-width: 1021px) {
+            max-width: 100%;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+
+            #MobcmdSearch {
+                top:5px;
+            }
+        }
+        
+        form {
+            border-bottom: 1px solid #CCC;
+            width: 95% !important;
+            margin: 0 auto;
+        }
+
+        input[type='search'] {
+            
+            justify-content: center !important;
+            align-items: center !important;
+
+            @media all and (max-width: 1021px) {
+                text-align: center !important;
+            }
+        }
+
+        .TextBoxClear {
+            display: none !important;
+        }
+
+        .#{$id}-suggestions-holder {
+            display: flex;
+            background: #fff;
+            max-width: 350px;
+            padding: 20px 10px;
+            justify-content: center;
+            flex-direction: column;
+
+            h2 {
+                font-size: 14px;
+                font-family: 'Montserrat-Medium', Arial, Helvetica, sans-serif;
+                text-transform: uppercase;
+                
+            }
+        }
+    }
+
+    .#{$id}-autocomplete {
+        
+        .ui-autocomplete.active {
+            display: flex !important;
+            flex-direction: column;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            width: 100% !important;
+            border: none !important;
+            height: 200px;
+            margin-bottom: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            li {
+                width: 100% !important;
+                text-align: center; 
+            }
+
+            a {
+                width: 100% !important;
+            }
+        }
+
+    }
+
+    .#{$id}-suggested-links-holder {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .#{$id}-suggested-links {
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            .#{$id}-pill {
+                background: #F2F2F2;
+                font-size: 12px;
+                color: #3D3D3D;
+                text-transform: uppercase;
+                padding: 5px 15px;
+                display: flex;
+                width: auto;
+                margin: 0 10px 10px 0;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Montserrat-Medium', Arial, Helvetica, sans-serif;
+                font-weight: bold;
+
+                &:hover {
+                    color: #E10098;
+                }
+            }
+
+        }
+
+    }
+
+    .#{$id}-search-box {
+        display: flex;
+        background: #fff;
+        border: none !important;
+        padding: 5px 0 !important;
+        
+    }
+
+}

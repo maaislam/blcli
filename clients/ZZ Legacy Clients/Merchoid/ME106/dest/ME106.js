@@ -1,0 +1,388 @@
+var ME106 = (function () {
+	var UC=function(a){return a.poller=function(a,b,c){var d={wait:50,multiplier:0,timeout:6000},e=Date.now||function(){return(new Date).getTime()};if(c)for(var f in c)d[f]=c[f];else c=d;for(var g=!!d.timeout&&new Date(e()+d.timeout),h=d.wait,i=d.multiplier,j=[],l=function(c,d){if(g&&e()>g)return!1;d=d||h,function(){var a=typeof c;return"function"===a?c():"string"!==a||document.querySelector(c)}()?(j.push(!0),j.length===a.length&&b()):setTimeout(function(){l(c,d*i)},d)},m=0;m<a.length;m++)l(a[m])},a}(UC||{});
+
+
+// Full Story Integration
+	UC.poller([
+		function() {
+			var fs = window.FS;
+			if (fs && fs.setUserVars) return true;
+		}
+	], function () {
+		window.FS.setUserVars({
+			experiment_str: 'ME106',
+			variation_str: 'Variation 1'
+		});
+	}, { multiplier: 1.2, timeout: 0 });
+
+	$('body').addClass('ME106');
+
+	//getCookie checks cookies to see if a match equal to the value passed in is true otherwise returns nothings
+	function getCookie(c_name) {
+		var i, x, y, ARRcookies = document.cookie.split(";");
+
+		for (i = 0; i < ARRcookies.length; i++) {
+			x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+			y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+			x = x.replace(/^\s+|\s+$/g, "");
+			if (x == c_name) {
+				return unescape(y);
+			}
+		}
+	}
+
+	var sizeSelect = $('#pa_size'),
+		sizeOptions = $('#pa_size option'),
+		sizeOptionFirst = $('#pa_size option:first-child'),
+		scarcityOriginal = $('#merchoid-scarcity-message'),
+		cookieSize, inStock, nextSize, prevSize, nextSizeInStock, prevSizeInStock;
+ 
+	//remove current selected value which is currently based on stock
+	sizeOptions.prop('selected', false);
+  
+	scarcityOriginal.after([
+		'<div class="ME106_scarcity">',
+		'<p><strong>Limited Stock!</strong> Only 1 available for size <span class="ME106_cookie_size"></span></p>',
+		'</div>',
+	].join(''));
+
+	$('.product-usps').append([
+		'<div class="ME106_scarcity_mobile">',
+			'<p><strong>Limited Stock!</strong> Only 1 available for size <span class="ME106_cookie_size"></span></p>',
+		'</div>',
+	].join(''));
+
+	var scarcity = $('.ME106_scarcity'),
+		mobileScarcity = $('.ME106_scarcity_mobile');
+		scarSizeText = $('.ME106_cookie_size');
+
+	if (!!$.cookie('me106_size')) {
+		//if the cookie 'size' exists
+			cookieSize = getCookie('me106_size').toLowerCase();
+		var	obj = $.parseJSON($('[data-product_variations]').attr('data-product_variations'));
+
+
+		switch (true) {
+            case cookieSize == 'xxxs':
+                nextSize = 'xxs';
+                break;
+
+            case cookieSize == 'xxs':
+                nextSize = 'xs';
+                prevSize = 'xxxs';
+                break;
+
+            case cookieSize == 'xs':
+                nextSize = 's';
+                prevSize = 'xxs';
+                break;
+
+            case cookieSize == 's':
+                nextSize = 'm';
+                prevSize = 's';
+                break;
+
+            case cookieSize == 'm':
+                prevSize = 's';
+                nextSize = 'l';
+                break;
+
+            case cookieSize == 'l':
+                prevSize = 'm';
+                nextSize = 'xl';
+                break;
+
+            case cookieSize == 'xl':
+                prevSize = 'l';
+                nextSize = 'xxl';
+                break;
+
+            case cookieSize == 'xxl':
+                prevSize = 'xl';
+                nextSize = 'xxxl';
+                break;
+
+            case cookieSize == 'xxxl':
+                prevSize = 'xxl';
+                break;
+        }
+
+		for (i = 0; i < obj.length;) {
+            var currentObj = obj[i];
+
+            /* 
+            check if the next and prev sizes are in stock
+            if so set variable to true for future use
+            this has to be done seperate and before the actual loop because the attribute_pa_size are not in order
+            this means that in order you can have m,xl,s,xxl,l or any combination of the 5
+            it can then adjust to a larger size then a smaller or as a last resort set it to choose a size
+            */
+
+            if (currentObj.attributes.attribute_pa_size.toLowerCase() == prevSize) {
+                if (currentObj.is_in_stock) {
+                    prevSizeInStock = true;
+                }
+            } else if (obj[i].attributes.attribute_pa_size.toLowerCase() == nextSize) {
+                if (currentObj.is_in_stock) {
+                    nextSizeInStock = true;
+                }
+            }
+            i++;
+        }
+
+		for (i = 0; i < obj.length;) {
+			var currentObj = obj[i];
+			//for each object inside obj which is equal to the available sizes
+
+
+
+			if (currentObj.attributes.attribute_pa_size.toLowerCase() == cookieSize) {
+				if (currentObj.is_in_stock === true) {
+					inStock = true;
+					//if its in stock find the relevant option in the sizing select and set it to selected
+					sizeOptions.each(function () {
+						var el = $(this),
+							thisVal = el.val();
+
+						if (thisVal == cookieSize) {
+							el.prop('selected', 'selected');
+						}
+					});
+					scarSizeText.html(cookieSize.toUpperCase());
+					setTimeout(function () {
+						scarcity.addClass('popoutAnim');
+						mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+					}, 1000);
+
+				} else {
+					//if none of the sizes are in stock based on the cookie size set the option to choose a size
+					 if (nextSizeInStock == true) {
+                        /*
+                        if the original size is out of stock, check if the size up is in stock
+                        if so find relevant option and set to selected
+                        */
+                        sizeOptions.each(function () {
+                            var el = $(this),
+                                thisVal = el.val();
+
+                            if (thisVal == nextSize) {
+                                el.prop('selected', 'selected');
+                            }
+                        });
+                        scarSizeText.html(nextSize.toUpperCase());
+                        setTimeout(function () {
+                            scarcity.addClass('popoutAnim');
+							mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                        }, 1000);
+                    } else if (prevSizeInStock == true) {
+                        /*
+                        if the next size is out of stock also, check if the size down is in stock
+                        if so find relevant option and set to selected
+                        */
+                        sizeOptions.each(function () {
+                            var el = $(this),
+                                thisVal = el.val();
+
+                            if (thisVal == prevSize) {
+                                el.prop('selected', 'selected');
+                            }
+                        });
+                        scarSizeText.html(prevSize.toUpperCase());
+                        setTimeout(function () {
+                            scarcity.addClass('popoutAnim');
+							mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                        }, 1000);
+                    } else {
+                        //if none of the sizes are in stock based on the cookie size set the option to choose a size
+                        sizeOptionFirst.prop('selected', 'selected');
+						scarcityOriginal.addClass('popoutAnim');
+							mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                    }
+					
+				}
+				sizeSelect.trigger('change');
+				console.log('win');
+			}
+			i++;
+		}
+
+		/*
+		On the size select change check if the option is the stored size or its adjacent sizes
+		if so show scarcity otherwise hide it
+		*/
+
+		sizeSelect.on('change', function () {
+			var el = $(this),
+				optionChosen = el.find('option:selected'),
+				optionVal = optionChosen.val();
+
+			if (optionVal.toLowerCase() == cookieSize && inStock === true) {
+				scarcity.addClass('popoutAnim');
+							mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+				scarSizeText.html(cookieSize.toUpperCase());
+			} else if (optionVal.toLowerCase() == nextSize && nextSizeInStock == true) {
+                scarcity.addClass('popoutAnim');
+							mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                scarSizeText.html(nextSize.toUpperCase());
+            } else if (optionVal.toLowerCase() == prevSize && prevSizeInStock == true) {
+                scarcity.addClass('popoutAnim');
+				mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                scarSizeText.html(prevSize.toUpperCase());
+			} else {
+				scarcity.fadeOut(function () {
+					scarcity.removeClass('popoutAnim');
+					mobileScarcity.removeClass('popoutAnim').parent().removeClass('ME_active');
+				});
+			}
+      
+		});
+	} else {
+		$('.ME106_scarcity').after([
+			'<div class="ME106_sizing_bubble">',
+			'<p>',
+			'We\'re running low on stock on selected sizes,<br /> please select your size below to see availability.',
+			'</p>',
+			'</div>'
+		].join(''));
+
+		var bubbleMsg = $('.ME106_sizing_bubble');
+
+		//since the cookie doesn't exist show the select size bubble
+		bubbleMsg.addClass('popoutAnim').delay(8000).queue(function () {
+			$(this).fadeOut('slow').dequeue();
+      console.log('trigger');
+		});
+
+		//change option to the choose an option since its not always default
+		sizeOptionFirst.attr('selected', 'selected');
+
+		/*
+		on select change check if the size cookie exists,
+		if so run through the scarcity size check
+		otherwise create the cookie and set adjacent sizes to the stored size
+		*/
+
+		sizeSelect.on('change', function () {
+			var el = $(this),
+				optionChosen = el.find('option:selected'),
+				optionVal = optionChosen.val();
+
+			if (bubbleMsg.hasClass('popoutAnim')) {
+				bubbleMsg.fadeOut('slow').dequeue();
+			}
+
+			if (!!$.cookie('me106_size')) {
+				if (optionVal.toLowerCase() == cookieSize && inStock === true) {
+					scarcity.addClass('popoutAnim');
+				mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+				 } else if (optionVal.toLowerCase() == nextSize && nextSizeInStock == true) {
+                    scarcity.addClass('popoutAnim');
+				mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                    scarSizeText.html(nextSize.toUpperCase());
+                } else if (optionVal.toLowerCase() == prevSize && prevSizeInStock == true) {
+                    scarcity.addClass('popoutAnim');
+				mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+                    scarSizeText.html(prevSize.toUpperCase());
+                } else {
+					scarcity.fadeOut(function () {
+						scarcity.removeClass('popoutAnim');
+				mobileScarcity.removeClass('popoutAnim').parent().removeClass('ME_active');
+					});
+				}
+			} else {
+				if (el == sizeOptionFirst) {} else {
+					var obj = $.parseJSON($('[data-product_variations]').attr('data-product_variations'));
+					$.cookie("me106_size", optionVal, { expires : 1000, path: '/' });
+					cookieSize = getCookie('me106_size').toLowerCase();
+
+					switch (true) {
+                        case cookieSize == 'xxxs':
+                            nextSize = 'xxs';
+                            break;
+
+                        case cookieSize == 'xxs':
+                            nextSize = 'xs';
+                            prevSize = 'xxxs';
+                            break;
+
+                        case cookieSize == 'xs':
+                            nextSize = 's';
+                            prevSize = 'xxs';
+                            break;
+
+                        case cookieSize == 's':
+                            nextSize = 'm';
+                            prevSize = 's';
+                            break;
+
+                        case cookieSize == 'm':
+                            prevSize = 's';
+                            nextSize = 'l';
+                            break;
+
+                        case cookieSize == 'l':
+                            prevSize = 'm';
+                            nextSize = 'xl';
+                            break;
+
+                        case cookieSize == 'xl':
+                            prevSize = 'l';
+                            nextSize = 'xxl';
+                            break;
+
+                        case cookieSize == 'xxl':
+                            prevSize = 'xl';
+                            nextSize = 'xxxl';
+                            break;
+
+                        case cookieSize == 'xxxl':
+                            prevSize = 'xxl';
+                            break;
+                    }
+
+					for (i = 0; i < obj.length;) {
+                        var currentObj = obj[i];
+                        if (currentObj.attributes.attribute_pa_size.toLowerCase() == prevSize) {
+                            if (currentObj.is_in_stock) {
+                                prevSizeInStock = true;
+                            }
+                        } else if (obj[i + 1]) {
+                            if (obj[i].attributes.attribute_pa_size.toLowerCase() == nextSize) {
+                                if (currentObj.is_in_stock) {
+                                    nextSizeInStock = true;
+                                }
+                            }
+                        }
+                        i++;
+                    }
+
+					for (i = 0; i < obj.length;) {
+						var currentObj = obj[i];
+						//for each object inside obj which is equal to the available sizes
+
+						if (currentObj.attributes.attribute_pa_size.toLowerCase() == cookieSize) {
+							if (currentObj.is_in_stock === true) {
+								inStock = true;
+								scarcity.addClass('popoutAnim');
+								mobileScarcity.addClass('popoutAnim').parent().addClass('ME_active');
+								scarSizeText.html(cookieSize.toUpperCase());
+							} else {
+								scarcityOriginal.addClass('popoutAnim');
+							}
+						}
+						i++;
+					}
+				}
+			}
+		});
+	}
+  
+  if ($('#pa_size').val() === "") {
+		$( '.single_add_to_cart_button' ).addClass( 'disabled wc-variation-selection-needed' );
+	}	
+
+	// $('.single_add_to_cart_button').on('click', function(){
+	// 	$('.variations_form').trigger('woocommerce_variation_select_change');
+	// });
+  
+})();

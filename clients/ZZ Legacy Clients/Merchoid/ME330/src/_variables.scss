@@ -1,0 +1,53 @@
+$id: "--ID--";
+
+$color-grey: #f7f5f5;
+$color-medium-grey: #e3e3e3;
+$color-dark-grey: #2c2c2c;
+$color-blue: #0dbbf4;
+$color-light-blue: #9ce7ff;
+
+$media-mobile: 480px;
+$media-tablet: 768px;
+$media-desktop: 1026px;
+
+@mixin media($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin reset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

@@ -1,0 +1,67 @@
+@import './variables';
+
+
+@mixin button() {
+
+    background-color: #0F7258;
+    max-width: 290px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0A4F38;
+    }
+}
+
+.#{$id} {
+
+    &__btn--container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__toprow--btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+
+        &>div {
+            @include button();
+        }
+
+        &>.trade--btn {
+
+
+            margin-right: 35px;
+
+            @media (max-width: 768px) {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    &__bottomrow--btns {
+        font-size: 16px;
+        text-align: center;
+        color: #0F7258;
+        cursor: pointer;
+
+        &>span {
+
+            &:hover {
+                font-weight: 700;
+                color: #0A4F38;
+            }
+        }
+    }
+}

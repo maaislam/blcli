@@ -1,0 +1,1229 @@
+@import './variables';
+
+.#{$id} {
+    background: #ECECEC;
+
+    &.#{$id}-noScroll {
+        overflow: hidden;
+    }
+
+     /* ----------------
+        General
+     ----------------- */
+     .footer.content { 
+         margin-top: 0;
+     }
+
+     @media(max-width: 767px) {
+     .nav-open .nav-sections,
+     .sections.nav-sections {
+        z-index: 9999;
+     }
+    }
+
+     .#{$id}-slider {
+         padding: 20px;
+         overflow: hidden;
+        .#{$id}-sliderInner{
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+    }
+
+    .#{$id}-carousel {
+        .slick-arrow {
+            height: 20px;
+            width: 20px;
+            background: url('//cdn.optimizely.com/img/6087172626/cd815e11bcc041db9bde7183a198d930.png') no-repeat center;
+            background-size: contain;
+           
+            &::before {
+                display: none;
+            }
+            &.slick-next {
+                right: 0;
+                transform: rotate(180deg) translateY(-50%);
+                top: 20%;
+            }
+            &.slick-prev {
+                left: 0;
+                transform: translateY(-50%);
+                top: 40%;
+            }
+        }
+    }
+    // button
+    .#{$id}-button {
+        box-sizing: border-box;
+        background: #0dbbf4;
+        padding: 10px;
+        color: white;
+        font-weight: 600;
+        border-radius: 4px;
+        font-size: 14px;
+        max-width: 250px;
+        width: 250px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        &:hover {
+            text-decoration: none;
+            background-color: #60d5fb;
+            transition: background-color 0.3s linear;
+        }
+    }
+
+    /* ----------------
+        Content blocks
+     ----------------- */
+     .#{$id}-contentWrapper {
+         position: fixed;
+         width: 100%;
+         background: white;
+         top: 70px;
+         z-index: 100;
+         padding: 10px;
+         height: calc(100% - 70px);
+         overflow-y: scroll;
+         transform: translateX(-5000px);
+         &.#{$id}-active {
+            animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+         }
+
+         .#{$id}-title {
+             text-align: center;
+             padding: 10px;
+             font-size: 20px;
+             color: black;
+             text-transform: uppercase;
+             font-weight: 700;
+             position: relative;
+         }
+
+         .#{$id}-back {
+            background: url('//cdn.optimizely.com/img/6087172626/cd815e11bcc041db9bde7183a198d930.png') no-repeat center;
+            background-size: contain;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 25px;
+            cursor: pointer;
+            span {
+                display: none;
+            }
+         }
+     }
+
+     /* ----------------
+        app style icons
+     ----------------- */
+     .#{$id}-innerBlocks {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+        .#{$id}-block {
+            margin: 10px;
+            width: 26%;
+            text-align: center;
+            .#{$id}-icon {
+                height: 70px;
+                width: 70px;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                border-radius: 15px;
+                box-shadow: 0 2px 9px rgba(0, 0, 0, 0.19);
+                background-size: 50px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: white;
+            }
+            p {
+                font-weight: 100;
+                color: black;
+                font-size: 11px;
+                margin-bottom: 0;
+            }
+
+    
+            &:hover {
+                text-decoration: none;
+                p {
+                    color: #0dbbf4;
+                } 
+            }
+            
+            @media(min-width: 375px) {
+                .#{$id}-icon {
+                    height: 90px;
+                    width: 90px;
+                    background-size: 70px;
+                }
+                p {
+                    font-size: 13px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+
+    /* ----------------
+        Main Homepage
+     ----------------- */
+    .banner-home-slider,
+    .brands-bar-container {
+        display: none;
+    }
+
+    /* Header styling - only on mobile */
+    @media(max-width: 767px) {
+        .header.content {
+            background: black;
+            height: 70px;
+            position: fixed;
+            width: 100%;
+            z-index: 1001;
+            &::after {
+                display: none;
+            }
+            .container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                &::before{
+                    display: none;
+                }
+                &::after {
+                    display: none;
+                }
+                .nav-toggle {
+                    position: relative;
+                    top: unset;
+                    left: unset;
+                    background:url('//cdn.optimizely.com/img/6087172626/35ba39bcc32746108805a42efcc8642e.png') no-repeat center;
+                    background-size: contain;
+                    height: 50px;
+                    width: 50px;
+                    &:before {
+                    display: none;
+                    }
+                    span {
+                        display: none;
+                    }
+                }
+                .logo-wrapper {
+                    background: url('//cdn.optimizely.com/img/6087172626/0bf707bcc92f4eddae0897869f7d0f81.png') no-repeat center;
+                    background-size: contain;
+                    width: 150px;
+                    height: 100%;
+                    margin-right: 20px;
+                    margin-left: 20px;
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .logo {
+                        position: relative;
+                        top: unset;
+                        left: unset;
+                        transform: unset;
+                        
+                        img {
+                            display: none;
+                        }
+                    }
+                    @media(min-width: 414px) {
+                        width: 170px;
+                        height: 100%;
+                        margin-right: 40px;
+                        margin-left: 40px;
+                    }
+                }
+                .header-right-links__cart-links {
+                    position: relative;
+                    top: unset;
+                    left: unset;
+                    right: unset;
+                    transform: unset;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    .#{$id}-search {
+                        span {
+                            display: block;
+                            width: 25px;
+                            height: 25px;
+                            background: url('https://cdn.optimizely.com/img/6087172626/5e4a3a070e774c10a689f3f8b64a2043.png') no-repeat center;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+            @media(min-width: 768px) {
+                border-bottom: 1px solid #10baf4;
+                .nav-toggle {
+                    display: block;
+                }
+                .authorization-link {
+                    display: none;
+                }
+                .logo-subtitle {
+                    display: none;
+                }
+            }
+        }
+    
+        // search
+        .top-search-banner {
+            display: none;
+            background: #e6e6e6;
+            position: fixed;
+            top: 70px;
+            &.#{$id}-searchShow {
+                display: block;
+                padding: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .block.block-search {
+                margin-top: 0;
+            }
+            #custom-search {
+                height: 49px;
+                display: block;
+                border: 1px solid black;
+                box-shadow: none;
+                position: static;
+                font-size: 14px;
+                margin: 0px;
+                font-size: 14px;
+                border-right: 0;
+                &::placeholder {
+                    color: black;
+                }
+            }
+            .block-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                .field.search {
+                    width: 100%;
+                }
+            
+                #search_custom_form_footer{
+                    max-width: unset;
+                    margin: unset;
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    .actions {
+                        .action.search {
+                            display: block;
+                            height: 49px;
+                            width: 45px;
+                            background: #ffffff;
+                            border: 1px solid black;
+                            border-radius: 0;
+                            border-left: 0px;
+                            line-height: 48px;
+                            position: relative;
+                            box-shadow: unset;
+                            right: 0;
+                            bottom: 0;
+                            padding: 0;
+                        }
+                    }
+                } 
+            }
+        }
+    
+
+        // basket in header
+        .minicart-container {
+            float: none;
+            margin: 0;
+            margin-left: 10px;
+            .minicart-wrapper {
+                background: url('//cdn.optimizely.com/img/6087172626/39cc2105852b47d697c1b4098c0f0b77.png') no-repeat center;
+                background-size: contain;
+                height: 50px;
+                width: 50px;
+                margin: 0;
+                position: relative;
+                .action.showcart{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    height: 100%;
+                    width: 100%;
+                    .counter.qty {
+                        background: unset;
+                        border: 0;
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        top: 60%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        &::after {
+                            display: none;
+                        }
+                    }
+                    .counter-label {
+                        display: none;
+                    }
+                }
+            };
+        }
+
+        /* Review Banner*/
+        .review-fans {
+            margin-top: 70px;
+        }
+        .review-banner {
+            .review-banner-text, 
+            .review-banner-conveyor-belt {
+                display: none;
+            }
+
+            // featured bar
+            .as-seen-block {
+                background: #0dbbf4;
+                height: auto;
+                padding: 5px;
+                span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-transform: uppercase;
+                }
+                .review-banner-fade {
+                    vertical-align: middle;
+                    display: inline-block;
+                    width: 50% !important;
+                    padding-bottom: 0;
+                    .label {
+                        display: none;
+                    }
+                    .slick-slide {
+                        img {
+                            width: 85%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$id}-homepageWrapper {
+        background: #ECECEC;
+    }
+
+
+    /* Main banners */
+    .#{$id}-category {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.35);
+        position: relative;
+        border-radius: 5px;
+        cursor: pointer;
+       &.#{$id}-clearance {
+            > a {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+            .#{$id}-catTitle {
+                pointer-events: none;
+            }
+        }
+
+        @media(max-width: 767px) {
+            margin: 0;
+            height: 115px;
+            width: 100%;
+            margin-bottom: 20px;
+            height: 100px;
+            &.#{$id}-brands {
+                background-image: url('//cdn.optimizely.com/img/6087172626/8155dbb0632249fabd5fc499fa55911f.jpg');
+            }
+            &.#{$id}-gifting {
+                background-image: url('//cdn.optimizely.com/img/6087172626/fc373f71c3284ddf95518fc6606d9651.jpg');
+            }
+            &.#{$id}-categories {
+                background-image: url('//cdn.optimizely.com/img/6087172626/b248f6f244d74eb897e56bd4c75e8124.jpg');
+            }
+            &.#{$id}-clearance {
+                background-image: url('//cdn.optimizely.com/img/6087172626/b1ff0570f9de4a498d9a82df72d58824.jpg');
+            }
+            &.#{$id}-christmas {
+                background-image: url('//cdn.optimizely.com/img/6087172626/f8c43e482ba44e8188e396974189cd74.jpg');
+            }
+            &.#{$id}-vday {
+                background-image: url('//cdn.optimizely.com/img/6087172626/91c37dfa6f63457594d887dab9cfbd8a.jpg');
+                a {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 9;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .#{$id}-catTitle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            text-transform: uppercase;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 16px;
+            span {
+                color: white;
+                font-size: 20px;
+                font-weight: 300;
+            }
+            h3 {
+                margin: 0;
+                color: white;
+                font-size: 26px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    /* Products */
+    .page-main {
+        background: white;
+        box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.22);
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        max-width: 100%;
+        .heading-new-products {
+            color: black;
+            font-size: 16px;
+        }
+    }
+    .products.wrapper {
+        .products.list{
+            .product-item-info {
+                margin: 0 auto;
+            }
+            .product.details {
+                padding-bottom: 15px;
+                position: relative;
+                .product-item-name {
+                    width: 100%;
+                    display: block;
+                    border: 0;
+                    float: none;
+                    text-align: left;
+                    padding: 5px 20px 0 0;
+                    a {
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: 300;
+                        line-height: 1.3;
+
+                        .#{$id}-cat-name {
+                            display: block;
+                            font-weight: bold;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .price-box {
+                    width: 100%;
+                    text-align: left;
+                    float: none;
+                }
+                .#{$id}-wasPrice {
+                    text-decoration: line-through;
+                }
+            }
+            .actions-secondary {
+                .action.towishlist {
+                    position: absolute;
+                    top: 0;
+                    opacity: 1;
+                    left: auto;
+                    bottom: auto;
+                    right: -12px;
+                    width: 33px;
+                    &::before {
+                        border-width: 0;
+                        background: #eee;
+                        width: 32px;
+                        height: 32px;
+                        line-height: 34px;
+                        color: #000;
+                    }
+                }
+            }
+        } 
+    }
+
+     /* ----------------
+        Specific styles
+     ----------------- */
+     .#{$id}-contentWrapper[name="categories"] {
+        .#{$id}-icon {
+            background-size: 65px;
+            @media(min-width: 375px) {
+                background-size: 80px;
+            }
+        }
+     }
+
+     // gifting & christmas
+     .#{$id}-contentWrapper[name="gifting"],
+     .#{$id}-contentWrapper[name="christmas"] {
+        background: #ECECEC;
+        padding: 0;
+
+        @media(max-width: 767px) {
+            .#{$id}-categories {
+                padding-top: 5px;
+            }
+            .#{$id}-sliderInner {
+                .#{$id}-category {
+                    margin-bottom: 20px;
+                    height: 115px;
+                    .#{$id}-catTitle {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        position: relative;
+                        transform: unset;
+                        top: unset;
+                        left: unset;
+                        h3 {
+                            font-size: 14px;
+                            color: black;
+                        }
+                        &.#{$id}-desktop {
+                            display: none;
+                        }
+                    }
+
+                    .#{$id}-giftImage {
+                        margin-top: -7px;
+                        margin-bottom: 0;
+                        width: 100px;
+                        height: 120px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    .#{$id}-blockText {
+                        width: 70%;
+                        .#{$id}-button {
+                            margin-bottom: 0;
+                            width: 80%;
+                            margin-top: 10px;
+                            
+                        }
+                    }
+
+                    &.#{$id}-forhim,
+                    &.#{$id}-toys,
+                    &.#{$id}-advent{
+                        .#{$id}-catTitle { 
+                            flex-direction: row-reverse;
+                        }
+                    }
+                }
+        
+            }
+        }
+
+        @media(min-width: 400px) {
+            .#{$id}-sliderInner {
+                .#{$id}-category {
+                    margin-bottom: 20px;
+                    height: 115px;
+                    
+                        .#{$id}-catTitle {
+                            .#{$id}-blockText {
+                                h3 {
+                                    font-size: 16px;
+                                }
+                        }
+                    }
+                }
+            }
+
+        }
+       
+        .#{$id}-title {
+            padding: 20px;
+            padding-bottom: 10px;
+            
+            .#{$id}-back {
+                left: 10px;
+            }
+        }
+        .#{$id}-sliderInner {
+            padding: 10px;
+            padding-top: 20px;
+           
+        }
+
+         .#{$id}-category {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.35);
+            position: relative;
+            background: white;
+            border-radius: 5px;
+            > a {
+                display: none;
+                height: 100%;
+                width: 100%;
+            }
+            @media(min-width: 767px) {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                > a {
+                    display: block;
+                   
+                }
+                &.#{$id}-forher {
+                    background-image: url('//cdn.optimizely.com/img/6087172626/dcbb1067ee3f4787a4734ee08095b0a2.jpg');
+                }
+                &.#{$id}-forhim {
+                    background-image: url('//cdn.optimizely.com/img/6087172626/5f86b332059849a5b02ad5d1a75bf3fe.jpg');
+                }
+                &.#{$id}-toys {
+                    background-image: url('//cdn.optimizely.com/img/6087172626/972d60de08954e5d8a8191ba4d644904.jpg');
+                }
+                &.#{$id}-home {
+                    background-image: url('//cdn.optimizely.com/img/6087172626/8946376345924f4cbf0726a2958136b2.jpg');
+                }
+
+                .#{$id}-catTitle {
+                    display: none;
+                    &.#{$id}-desktop {
+                        pointer-events: none;
+                        display: block;
+                    }
+                }
+            }
+         }
+
+         .#{$id}-section {
+             padding: 10px;
+         }
+         // best sellers
+         .#{$id}-bestSellers {
+            background: white;
+            box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.22);
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+
+            h3 {
+                text-align: center;
+                color: black;
+                font-weight: 900;
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+         }
+
+         .#{$id}-brands {
+            background: #ECECEC;
+            padding-bottom: 20px;
+            h3 {
+                text-align: center;
+                color: black;
+                font-weight: 900;
+                font-size: 16px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+            .#{$id}-carousel {
+                padding-left: 30px;
+                padding-right: 30px;
+                .#{$id}-block {
+                    margin: unset;
+                    p{
+                        font-size: 14px;
+                    }
+                }
+            }
+         }
+     }
+
+     .#{$id}-contentWrapper[name="christmas"] {
+         background-image: url('//cdn.optimizely.com/img/6087172626/474294a01bc64df7b18f890a992b7c22.jpg');
+         background-color: none;
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         @media(min-width: 767px) {
+             background-image: url('//cdn.optimizely.com/img/6087172626/ed0a82c88388495697e1ecca952309fc.jpg');
+         }
+         .#{$id}-sliderInner {
+            .#{$id}-category {
+                margin-bottom: 30px;
+                .#{$id}-giftImage {
+                    margin-top: -7px;
+                    margin-left: -7px;
+                    margin-bottom: 0;
+                    width: 100px;
+                    height: 126px;
+                }
+
+            }
+         }
+         .#{$id}-button {
+            margin-top: 10px;
+        }
+     }
+
+    /* ----------------
+        Tablet styling
+     ----------------- */
+    @media(min-width: 767px) {
+
+        .#{$id}-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .#{$id}-category {
+            .#{$id}-catTitle {
+                padding: 10px;
+            }
+        }
+
+        .top-search-banner {
+            display: none;
+        }
+
+        .#{$id}-contentWrapper {
+            top: 0;
+            z-index: 900;
+            height: 100%;
+            padding: 0;
+           
+               .#{$id}-title {
+                background: black;
+                color: white;
+                margin-top: 0;
+                padding: 20px;
+               }
+            
+        }
+
+        .#{$id}-slider {
+            .#{$id}-sliderInner {
+                width: auto;
+                overflow: hidden;
+                display: block;
+                column-count: 2;
+
+                .#{$id}-category {
+                    margin: 0;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.35);
+                    
+                   
+                    &:nth-child(1),
+                    &:nth-child(4) {
+                     height: 300px;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        height: 200px;
+                    }
+
+                    &.#{$id}-brands {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/d9876f7bfa654ba9a189f6eaf5bfd205.jpg');
+                    }
+                    &.#{$id}-christmas {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/22c6b79a7e6343db80a1c52a4caf1542.jpg');
+                    }
+                    &.#{$id}-gifting {
+                        display: none;
+                        //background-image: url('//cdn.optimizely.com/img/6087172626/6568a3da3b544c54817664fe88c95b6f.png');
+                    }
+                    &.#{$id}-categories {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/8e13bb2e0bd44ed08454d56399e02547.png');
+                    }
+                    &.#{$id}-clearance {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/e0a2965d3e874f22a090d1ada9f68485.png');
+                    }
+                    &.#{$id}-vday {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/7ac4f7dc390e4d1e83d7dbc4492a078f.jpg');
+                        a {
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            z-index: 9;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                   
+                }
+            }
+        }
+
+        .page-main {
+            border-top-right-radius: 40px;
+            border-top-left-radius: 40px;
+            .heading-new-products {
+                font-size: 19px;
+                color: black;
+                text-align: center;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+        }
+
+        .#{$id}-back {
+            height: 30px;
+            width: 30px;
+        }
+
+        .#{$id}-contentWrapper {
+            overflow: auto;
+            .#{$id}-back {
+                background: none;
+                span {
+                    display: block;
+                    position: relative;
+                    padding-left: 30px;
+                    color: white;
+                    font-weight: 100;
+                    font-size: 18px;
+                    &::before {
+                        content: '';
+                        background: url('//cdn.optimizely.com/img/6087172626/1f4cd9db190b47ea93396ae214da3653.png') no-repeat center;
+                        background-size: contain;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        height: 20px;
+                        width: 25px;
+                    }
+                }
+            }
+        }
+
+        .#{$id}-contentWrapper {
+            .#{$id}-title {
+                margin-bottom: 20px;
+                margin-top: 0px;
+                font-size: 25px;
+            }
+        }
+
+        .#{$id}-innerBlocks {
+            .#{$id}-block {
+                width: 19%;
+            }
+        }
+
+        .#{$id}-contentWrapper[name="christmas"] {
+
+            .#{$id}-title {
+                padding-bottom: 20px;
+                margin-top: 0;
+            }
+            .#{$id}-section {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .#{$id}-products {
+                margin-bottom: 20px;
+            }
+
+            .#{$id}-slider {
+                position: relative;
+                &::before {
+                    content: '';
+                    background: white;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100px;
+                    left: 0;
+                }
+                .#{$id}-sliderInner {
+                    flex-direction: row;
+                    column-count: unset;
+                    display: flex;
+                    justify-content: center;
+                    .#{$id}-category {
+                        width: 30%;
+                        height: 300px;
+                        margin: 10px;
+                        &.#{$id}-jumpers {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/9dcf0d7feebe419eaa7f406fe2eb8f47.jpg');
+                        }
+                        &.#{$id}-advent {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/caee4f0262214a65b0d99c65419d0aa2.jpg');
+                        }
+                        &.#{$id}-christmasgifts {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/7a91a73167274c658f534ee1d0ab8216.jpg');
+                        }
+                        .#{$id}-catTitle {
+                            h3 {
+                                color: white;
+                                font-size: 24px;
+                                font-weight: 700;
+                                margin-top: 5px;
+                                line-height: 27px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .#{$id}-bestSellers {
+                text-align: center;
+                padding: 20px;
+                box-shadow: unset;
+                border-radius: unset;
+                h3 {
+                    font-size: 19px;
+                }
+                .#{$id}-container {
+                    .products.wrapper {
+                         .products.list {
+                             .product-item {
+                                width: 25%;
+                             }
+                            .product.details {
+                                .product-item-name {
+                                    padding-right: 0;
+                                }
+                            }
+                         }
+                    } 
+                    
+                }
+            }
+
+            .#{$id}-brands {
+                .#{$id}-container {
+                    max-width: 600px;
+                    h3 {
+                        font-size: 19px;
+                        margin-bottom: 25px;
+                    }
+                    .#{$id}-carousel {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        .#{$id}-contentWrapper[name="gifting"] {
+            display: none;
+        }
+
+    }
+
+    @media(min-width: 1024px) {
+        
+        .#{$id}-container {
+            max-width: 1080px;
+        } 
+        .#{$id}-category {
+            transition: all .3s ease-in-out;
+            background-size: 130%;
+            cursor: pointer;
+           &:hover {
+            background-size: 135%;
+           }
+        }
+
+        .#{$id}-innerBlocks {
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+
+            .#{$id}-block {
+                margin: 15px;
+                width: 13%;
+                .#{$id}-icon {
+                    height: 100px;
+                    width: 100px;
+                    background-size: 80px;
+                }
+                p {
+                    font-size: 17px;
+                    line-height: 18px;
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .#{$id}-slider {
+            .#{$id}-sliderInner {
+                max-width: 1080px;
+                margin: 0 auto;
+            }
+        }
+
+        .#{$id}-contentWrapper[name="categories"] {
+            .#{$id}-block {
+               width: 25%;
+                margin: 20px;
+                .#{$id}-icon {
+                    background-size: 120px;
+                    height: 120px;
+                    width: 130px;
+                    margin-bottom: 10px;
+                }
+            }
+         }
+
+         .#{$id}-contentWrapper[name="christmas"] {
+            .#{$id}-slider{
+                .#{$id}-sliderInner{
+
+                        .#{$id}-category {
+                            height: 350px;
+                            background-size: 100%;
+                            cursor: pointer;
+                           &:hover {
+                            background-size: 110%;
+                           }
+                        }
+                    
+                }
+            }
+
+            .#{$id}-brands {
+                .#{$id}-container {
+                    max-width: 800px;
+                }
+                a {
+                    text-decoration: none;
+                }
+
+                .#{$id}-carousel {
+                    .#{$id}-block {
+                        margin: 10px;
+                        .#{$id}-icon {
+                            width: 110px;
+                            height: 110px;
+                        }
+                    }
+                }
+            }    
+        }
+    }
+    @media(min-width: 1280px) {
+        
+        .#{$id}-container {
+            max-width: 1200px;
+        }
+        .#{$id}-slider{
+            .#{$id}-sliderInner {
+                max-width: 1200px;
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        .#{$id}-slider.#{$id}-mainBanners {
+            .#{$id}-sliderInner {
+                .#{$id}-category {
+                    .#{$id}-catTitle {
+                        span {
+                            color: black;
+                            font-size: 16px;
+                        }
+                        h3 {
+                            font-size: 23px;
+                            color: black;
+                        }
+                        @media(min-width: 767px) {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/fe244e6e034146cd94e4ed96b95d0e02.png');
+                            height: 180px;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: 49% 63%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            backface-visibility: hidden
+                        }
+                        @media(min-width: 1280px) {
+                            background-size: 204px;
+                            background-repeat: no-repeat;
+                            background-position: 49% 63%;
+                        }
+                    }
+                    &.#{$id}-brands {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/90a860da33814534b2a9b7c91048d137.jpg');
+                        @media(min-width: 767px) {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/b5699c8c43e441fdb69e566a8a035489.jpg');
+                        }
+                    }
+                    &.#{$id}-clearance {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/80fe790bd6fe4a96a56719d5b5d463e4.jpg');
+                        @media(min-width: 767px) {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/1d4df345ca6d4fb1b0f810442b907c75.jpg');
+                        }
+                        .#{$id}-catTitle {
+                            h3 {
+                                color: #de3333;
+                            }
+                        }
+                    }
+                    &.#{$id}-christmas {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/a29300d6220c42f79e0b898f9e908803.jpg');
+                        @media(min-width: 767px) {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/2148e5d124eb483ab15e4630cb94bca0.jpg');
+                        }
+                    }
+                    &.#{$id}-categories {
+                        background-image: url('//cdn.optimizely.com/img/6087172626/cc519667b6554314b70f3e6fc832de35.jpg');
+                        @media(min-width: 767px) {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/ca7cc18149104b7590cb32eb0290317b.jpg');
+                        }
+                    }
+                    &.#{$id}-gifting{
+                        background-image: url('//cdn.optimizely.com/img/6087172626/c45a1059b42742e68653ae0cbba8fe82.jpg');
+        
+                    }
+                    @media(min-width: 1024px) {
+                        background-size: cover;
+                    }
+                   
+                }
+            }
+        }
+     
+    }
+}

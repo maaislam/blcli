@@ -1,0 +1,155 @@
+@import './variables';
+@import './components/header-block/header-block.scss';
+@import './components/jump-to/jump-to.scss';
+@import './components/wizard-form/wizard-form.scss';
+@import './components/tab-form/tab-form.scss';
+@import './components/newsletter/newsletter.scss';
+@import './components/modal/modal.scss';
+
+.#{$id} {
+  @at-root #{&}_scrollToTop{
+    display: none;
+    position: fixed;
+    right: 100px;
+    bottom: 27px;
+    background-color: rgb(30, 43, 50);
+    padding: 12px;
+    border: 2px solid #F6E056;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px;
+  }
+  .hint{
+    display: block;
+    margin-bottom: 12px;
+    color:#ED363B;
+    text-align: right;
+    font-size:16px;
+  }
+  @at-root #{&}_contact-page {
+    .post-header {
+      display: none;
+    }
+
+    .tg28-page-title {
+      display: none;
+    }
+
+    .forms {
+      display: none;
+    }
+  }
+
+  &.#{$id}_version-1 {
+    .privacyPolicy {
+      input[type="checkbox"] {
+        position: absolute;
+        left: -25px;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  //old elements
+  @at-root #{&}.#{$id}_version-1 {
+
+    #for-suppliers {
+      padding-bottom: 20px;
+    }
+
+    .filoblu-storelocator-view-holder {
+      display: none !important;
+    }
+
+    .social-menu {
+      left: 0 !important;
+    }
+  }
+
+  .forms {
+    margin-top: 0 !important;
+    margin: 0 auto;
+  }
+
+  .tg28-forms-container {
+    .tg28-sidebar {
+      display: none;
+    }
+
+    .tg28-main {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .filoblu-storelocator-map-container {
+      #search-for-country {
+        left: 0 !important;
+        top: 0 !important;
+      }
+    }
+  }
+  @media screen and (min-width:900px){
+    .filoblu-storelocator-view-holder {
+      width: 680px !important;
+      padding-top: 20px;
+    }
+    .store-to-show {
+      height: 160px !important;
+      width: 50% !important;
+
+      .bottom-part {
+        display: none;
+      }
+
+      .filoblu-grid-address {
+        min-height: auto;
+      }
+    }
+  }
+  @at-root #{&}:not(.#{$id}_version-1){
+    @media screen and (max-width:700px){
+      .privacyPolicy{
+        position: relative;
+        width: 250px;
+        margin: 40px auto;
+        #privacy{
+          position: absolute;
+          top: 3px;
+          left: 0;
+        }
+      }
+    }
+  }
+  @media screen and (min-width:768px){
+    @at-root #{&}:not(.#{$id}_version-1){
+      .privacyPolicy{
+        label{
+          width: 90%;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &.#{$id}-2 #{&}_contact-blockWrap {
+    padding-top: 10px;
+  }
+
+  .#{$id}-sub-loader {
+    z-index: 999;
+    background: rgba(255,255,255,0.8);
+    background-image: url('https://www.technogym.com/skin/frontend/technogym/default/images/loading.gif');
+    background-position: center center;
+    background-size: 64px 64px;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,218 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-navSteps__wrapper {
+    .#{$id}-navSteps__container {
+      padding: 0 2% 0 0;
+      text-align: center;
+      ul.#{$id}-navSteps {
+        list-style: none;
+        margin-left: 0 !important;
+        width: 100%;
+        // width: 95%;
+        // margin: auto !important;
+        margin-bottom: 0;
+        
+        li.#{$id}-step {
+          display: inline-block;
+          width: 22.5%;
+          // border-bottom: 2px solid blue;
+
+          &:nth-of-type(1) {
+            width: 25%;
+          }
+          &.orderMethodSelected {
+            width: 27% !important;
+          }
+
+          span {
+            display: inline-block;
+          }
+          span.#{$id}-text {
+            font: 18px 'Roboto Condensed',sans-serif;
+            position: relative;
+            top: 50%;
+            transform: translateY(-20%);
+            // padding-left: 2.5%;
+            margin-left: -4%;
+            // background-color: lightseagreen;
+            color: #848484;
+
+            &.success {
+              color: #50a684;
+              // font-weight: 800;
+            }
+            &.currentStep {
+              // color: #50a684;
+              font-weight: 700;
+              font-size: 20px;
+            }
+          }
+          span.#{$id}-icon {
+            width: 25px;
+            height: 25px;
+            // background-color: #50a684;
+            // background-color: lightcoral;
+            background-size: 100%;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+
+            &.#{$id}-icon__store {
+              background-image: url('https://editor-assets.abtasty.com/43831/5d4acb49145811565182793.png');
+              // border: 1px solid grey;
+              &.active {
+                background-image: url('https://editor-assets.abtasty.com/43831/5d4ad00a25fd91565184010.png');
+                // background-image: url('https://editor-assets.abtasty.com/43831/5d4bf165d262c1565258085.png');
+                // background-size: 80%;
+              }
+            }
+            &.#{$id}-icon__offers {
+              background-image: url('https://editor-assets.abtasty.com/43831/5d4accc81baeb1565183176.png');
+              &.active {
+                background-image: url('https://editor-assets.abtasty.com/43831/5d4ad0535d10e1565184083.png');
+              }
+            }
+            &.#{$id}-icon__menu {
+              background-image: url('https://editor-assets.abtasty.com/43831/5d4accf4a3bd91565183220.png');
+              &.active {
+                background-image: url('https://editor-assets.abtasty.com/43831/5d4ad071ae6151565184113.png');
+              }
+            }
+            &.#{$id}-icon__basket {
+              width: 23px;
+              background-image: url('https://editor-assets.abtasty.com/43831/5d4c5221848b51565282849.png');
+              &.active {
+                background-image: url('https://editor-assets.abtasty.com/43831/5d4acdae752051565183406.png');
+              }
+            }
+
+            // Success
+            &.success {
+              background-image: url('https://editor-assets.abtasty.com/43831/5d4bf165d262c1565258085.png');
+              background-size: 80%;
+            }
+            // Skipped
+            &.skipped {
+              background-image: url('https://editor-assets.abtasty.com/43831/5d4c247f2b7e11565271167.png');
+              background-size: 80%;
+            }
+          }
+        }
+      }
+
+      /* PROGRESS BAR */
+      ul.#{$id}-navStepsProgress {
+        list-style: none;
+        margin-left: 1% !important;
+        // width: 95%;
+        // margin: auto !important;
+        width: 100%;
+        margin-bottom: 0;
+        
+        li.#{$id}-step {
+          border: 2px solid #e5e9eb;
+          margin-bottom: 20px;
+          display: inline-block;
+          width: 25%;
+          margin-left: -3%;
+          background-color: #e5e9eb;
+          box-sizing: border-box;
+          overflow: hidden;
+          &:nth-of-type(1) {
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 10px;
+            margin-left: 0 !important;
+
+            width: 27% !important;
+          }
+          &:nth-of-type(4) {
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 10px;
+          }
+
+          &.#{$id}-step__store {
+            &.active {
+              border: 2px solid #50a684;
+              background-color: #50a684;
+            }
+            &.skipped {
+              border: 2px dashed #50a684;
+            }
+          }
+          &.#{$id}-step__offers {
+            &.active {
+              border: 2px solid #50a684;
+              background-color: #50a684;
+            }
+            &.skipped {
+              border: 2px dashed #50a684;
+            }
+          }
+          &.#{$id}-step__menu {
+            &.active {
+              border: 2px solid #50a684;
+              background-color: #50a684;
+            }
+            &.skipped {
+              border: 2px dashed #50a684;
+            }
+          }
+          &.#{$id}-step__basket {
+            &.active {
+              border: 2px solid #50a684;
+              background-color: #50a684;
+            }
+            &.skipped {
+              border: 2px dashed #50a684;
+            }
+          }
+        }
+      }
+    }
+
+    // /* PROGRESS */
+    // .#{$id}-progress {
+    //   background-color: #e5e9eb;
+    //   height: 4px;
+    //   position: relative;
+    //   // width: 34em;
+    //   width: 95% !important;
+    //   margin: auto;
+    //   border-radius: 6px;
+    // }
+    // .#{$id}-progress__bar {
+    //   animation-duration: 3s;
+    //   animation-name: width;
+    //   // background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    //   background-color: #50a684;
+    //   background-size: 24em 0.25em;
+    //   height: 100%;
+    //   position: relative;
+    //   border-radius: 6px;
+    // }
+    // @keyframes width {
+    //   0%, 100% {
+    //     transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+    //   }
+    //   0% {
+    //     width: 0;
+    //   }
+    //   100% {
+    //     width: 100%;
+    //   }
+    // }
+  }
+
+  @media screen and (max-width: 320px) {
+    ul.PJ071-navSteps li.PJ071-step span.PJ071-icon {
+      width: 18px !important;
+
+      // &.PJ071-icon__basket {
+      //   width: 16px !important
+      // }
+    }
+    ul.PJ071-navSteps li.PJ071-step span.PJ071-text {
+      font-size: 16px !important;
+    }
+  }
+}

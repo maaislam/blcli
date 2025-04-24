@@ -1,0 +1,416 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-lightbox__wrapper {
+    // display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99999;
+    overflow: hidden !important;
+    top: 0px;
+    transition: .5s opacity;
+    opacity: 1;
+    &.hide {
+      // display: none !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      // background-color: #000;
+      background-color: #FFF;
+      z-index: -2;
+      position: fixed;
+      top: 0;
+      // top: 139px;
+      // top: 70px;
+      opacity: .6;
+    }
+    .#{$id}-lightbox__container {
+      display: block;
+      width: 620px;
+      height: auto;
+      background-color: #FFF;
+      opacity: 1;
+      position: absolute;
+      left: 29.3%;
+      top: 25%;
+      max-width: 620px !important;
+
+      box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.75);
+
+      .#{$id}-lightbox__header {
+        display: block;
+        width: 100%;
+        height: 50px;
+        // background-color: #109ee0;
+        border-bottom: 1px solid #e2e2e2;
+        .#{$id}-lightbox__title {
+          color: #FFF;
+          width: 100%;
+          text-align: center;
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 20px;
+          font-weight: 600;
+
+
+          .logo {
+            transform: scale(1);
+            position: relative;
+            left: 0px !important;
+            width: 33%;
+            /* top: 50%; */
+            /* transform: translateY(0%); */
+            padding: 5px;
+            border: none !important;
+          }
+        }
+        .#{$id}-lightbox__close {
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          color: #FFF;
+          background-image: url('//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/771ffc36010582e4052883e3f458358a_close-button.png');
+          background-size: 100%;
+          background-repeat: no-repeat;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .#{$id}-lightbox__subheader {
+        background-color: #f6f6f6;
+        min-height: 105px;
+        width: 100%;
+        text-align: center;
+        line-height: 25px;
+        .#{$id}-lightbox__contentWrapper {
+          display: block;
+          position: relative;
+          top: 50%;
+          transform: translateY(50%);
+
+          .#{$id}-lightbox__title {
+            display: inline-block;
+            width: 100%;
+            font-size: 1.8em;
+            font-weight: 900;
+          }
+          .#{$id}-lightbox__subtitle {
+            display: inline-block;
+            width: 100%;
+            font-size: 1.2em;
+            font-weight: 400;
+          }
+        }
+        
+      }
+      // .#{$id}-lightbox__content {
+      //   padding: 20px 10px;
+      //   max-height: 380px;
+      //   position: relative;
+      //   .#{$id}-content__left {
+      //     display: inline-block;
+      //     width: 45%;
+      //     // padding-left: 20px;
+
+      //     .#{$id}-product__image {
+      //       width: 90%;
+      //       height: 160px;
+      //       background-size: 80%;
+      //       background-position: 50%;
+      //       background-repeat: no-repeat;
+      //     }
+
+      //     .#{$id}-product__title {
+      //       width: 100%;
+      //       margin: auto;
+      //       text-align: center;
+      //       font-weight: 700;
+      //       margin-bottom: 20px;
+
+      //       &.short {
+      //         white-space: nowrap;
+      //         overflow: hidden;
+      //         text-overflow: ellipsis;
+      //       }
+      //     }
+
+      //     .#{$id}-product__prices.prices {
+      //       margin-bottom: 20px;
+      //       position: relative;
+
+      //       div {
+      //         display: inline-block;
+      //         width: 44%;
+
+      //         p.strong {
+      //           display: none !important;
+      //         }
+      //         small {
+      //           width: 100% !important;
+      //           min-width: 70px;
+      //         }
+      //       }
+      //       .ex-vat, .in-vat {
+      //         display: inline-block;
+      //         width: 44%;
+      //         text-align: center;
+      //         line-height: 16px;
+      //         span {
+      //           display: block;
+      //           font-weight: 700;
+      //           font-size: 1.3rem;
+      //         }
+      //         small {
+      //           display: block;
+      //           width: 100%;
+      //           font-size: .6rem;
+      //           span {
+      //             font-weight: 500 !important;
+      //             font-size: .6rem !important;
+      //           }
+      //         }
+      //       }
+      //       .in-vat {
+      //         display: inline-block;
+      //         position: absolute;
+      //         right: 0px;
+      //       }
+      //     }
+
+      //     .#{$id}-product__ctaBtn {
+      //       width: 100%;
+      //       .#{$id}-ctaBtn {
+      //         width: 100%;
+      //         background-color: #fcef43;
+      //         font-weight: 700;
+      //         color: #000;
+      //         margin: auto;
+      //         padding: 8px 10px;
+      //         text-align: center;
+      //         border-radius: 3px;
+
+      //         &:hover {
+      //           cursor: pointer;
+      //           box-shadow: 0 0 1px 1px #fcef43;
+      //         }
+              
+      //       }
+      //     }
+      //   }
+        
+      //   // .#{$id}-product__separator {
+      //   //   display: inline-block;
+      //   //   width: 5px;
+      //   //   height: 200px;
+      //   //   border-right: 2px solid #109ee0;
+      //   //   margin: 20px;
+      //   // }
+
+      //   .#{$id}-content__right {
+      //     display: inline-block;
+      //     width: 55%;
+      //     position: relative;
+      //     top: 50%;
+      //     // transform: translateY(-15%);
+      //     // transform: translateY(-25%);
+      //     // background-color: lightcoral;
+
+      //     min-height: 200px;
+
+      //     position: absolute;
+      //     top: 50%;
+      //     transform: translateY(-50%);
+      //     min-height: 200px;
+
+      //     margin-top: 12px;
+      //     padding-right: 30px;
+          
+
+      //     // New Elements
+      //     .#{$id}-course__title {
+      //       font-size: 1.1em;
+      //       font-weight: 700;
+      //     }
+      //     .#{$id}-course__location {
+      //       font-size: .95em;
+      //       font-weight: 300;
+      //     }
+      //     .#{$id}-course__dateTime {
+      //       font-size: .95em;
+      //       font-weight: 300;
+      //     }
+      //     .#{$id}-course__viewMore {
+      //       font-size: .95em;
+      //       text-transform: uppercase;
+      //       color: #40a22a;
+      //       border-bottom: .1rem solid #40a22a;
+
+      //       &:hover {
+      //         border-bottom: .2rem solid #40a22a;
+      //       }
+      //     }
+      //   }
+
+      //   // .#{$id}-course__cta-wrapper {
+      //   //   width: 100%;
+      //   //   text-transform: uppercase;
+      //   //   .#{$id}-course__cta {
+      //   //     width: 40%;
+      //   //     background-color: rgb(208, 2, 27);
+      //   //     color: #FFF;
+      //   //     margin: auto;
+      //   //     text-align: center;
+      //   //     padding: 10px;
+
+      //   //     &:hover {
+      //   //       cursor: pointer;
+      //   //       transform: scale(1.009);
+      //   //     }
+      //   //   }
+      //   // }
+      // }
+      .#{$id}-course__cta-wrapper {
+        width: 100%;
+        text-transform: uppercase;
+        // margin-bottom: 20px;
+        text-align: center;
+
+        li.#{$id}-course__cta {
+          display: inline-block;
+          width: 230px;
+          padding: 25px 10px 10px 10px;
+
+          div {
+            display: block;
+            width: 100%;
+            text-transform: none;
+            text-align: left;
+            font-size: 15px;
+            line-height: 17px;
+            padding: 10px 0px;
+          }
+        }
+
+        a {
+          text-decoration: none !important;
+          border-bottom: none;
+
+          &:hover {
+            border-bottom: none !important;
+          }
+
+          button.cta {
+            width: 100%;
+          }
+        }
+        // .#{$id}-course__cta {
+        //   width: 40%;
+        //   background-color: rgb(208, 2, 27);
+        //   color: #FFF;
+        //   margin: auto;
+        //   text-align: center;
+        //   padding: 10px;
+
+        //   &:hover {
+        //     cursor: pointer;
+        //     transform: scale(1.009);
+        //   }
+        // }
+      }
+
+
+      // // --- SLICK ARROWS
+      // button.slick-prev.slick-arrow {
+      //   display: none !important;
+      //   position: absolute;
+      //   left: -60px;
+      //   top: 25%;
+      //   border: none !important;
+      //   background-color: transparent !important;
+      //   color: transparent !important;
+      //   width: 50px;
+      //   height: 60px;
+    
+      //   &:after {
+      //     display: inline-block;
+      //     content: '';
+      //     background-image: url('https://www.printerland.co.uk/Images/VWO/left-chevron.png');
+      //     background-size: 100%;
+      //     background-repeat: no-repeat;
+      //     height: 45px;
+      //     width: 40px;
+      //   }
+      //   &:hover {
+      //     cursor: pointer;
+      //   }
+      //   &:focus {
+      //     // outline: none;
+      //     outline: 0;
+      //   }
+      // }
+      // button.slick-next.slick-arrow {
+      //   position: absolute;
+      //   right: -7px;
+      //   top: 33%;
+      //   border: none !important;
+      //   background-color: transparent !important;
+      //   color: transparent !important;
+      //   width: 50px;
+      //   height: 60px;
+      //   &:after {
+      //     display: inline-block;
+      //     content: '';
+      //     background-image: url('//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/f1f4e331163d42bb0dd789426b023f04_right-chevron_%281%29.png');
+      //     background-size: 100%;
+      //     background-repeat: no-repeat;
+      //     height: 45px;
+      //     width: 40px;
+      //   }
+      //   &:hover {
+      //     cursor: pointer;
+      //   }
+      //   &:focus {
+      //     // outline: none;
+      //     outline: 0;
+      //   }
+      // }
+      // ul.slick-dots {
+      //   display: none !important;
+      // }
+    
+      // // VARIATION 2
+      // .#{$id}-products__wrapper_v2  {
+      //   button.slick-prev.slick-arrow {
+      //     left: -40px !important;
+      //   }
+      //   button.slick-next.slick-arrow {
+      //     right: -30px !important;
+      //   }
+      // }
+    
+      // @media screen and (max-width: 1158px) {
+      //   .#{$id}-lightbox__container {
+      //     left: 20.3% !important;
+      //     top: 30% !important;
+      //   }
+      //   @media screen and (max-width: 960px) {
+      //     .#{$id}-lightbox__container {
+      //       left: 10.3% !important;
+      //     }
+      //   }
+      // }
+      // //-- END OF SLICK ARROWS
+    }
+  }
+}
+

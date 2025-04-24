@@ -1,0 +1,54 @@
+.#{$id} {
+  .#{$id}-filter-marker {
+    @include reset;
+
+    position: relative;
+    display: inline-flex;
+    background-color: transparent;
+    color: $color-dark-grey;
+    font-weight: 300;
+    text-transform: capitalize;
+    border: 1px solid $color-medium-grey;
+    padding-block: 0.3rem;
+    padding-right: 2.5rem;
+    padding-left: 1rem;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.25s ease;
+
+    &:hover {
+      border-color: $color-dark-grey;
+
+      &::before,
+      &::after {
+        background-color: $color-dark-grey;
+      }
+    }
+
+    & + * {
+      margin-left: 1rem;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1.2rem;
+      height: 1px;
+      background-color: rgba($color-dark-grey, 0.5);
+      transition: 0.25s ease;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

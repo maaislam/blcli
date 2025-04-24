@@ -1,0 +1,421 @@
+@import './variables';
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.#{$id} {
+
+    .PSPlacementWrapper,
+    #pnlRecentlyViewedProducts {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-hidden {
+        display: none;
+        visibility: hidden;
+    }
+
+    .#{$id}-recently-viewed {
+
+        display: flex;
+        margin: 60px 0 0;     
+        flex-direction: column;  
+        width: 100%;
+
+        @media all and (max-width: 767px) {
+            padding: 10px 20px;
+        }
+
+        &-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            width: 100%;
+            padding-bottom: 10px;
+
+            @media all and (max-width: 767px) {
+                padding-bottom: 15px;
+                margin-bottom: 5px;
+            }
+
+            &--h2,
+            &--button {
+                display: flex;
+                width: 50%;
+
+                
+
+                &:last-child {
+                    justify-content: flex-end;
+                }
+            }
+
+            &--h2 {
+                @media all and (max-width: 450px) {
+                    width: 75%;
+                }
+            }
+
+            &--button {
+                @media all and (max-width: 450px) {
+                    width: 25%;
+                    position: relative;
+                    top: 2px;
+                }
+            }
+
+            h2 {
+                font-family: 'GTAmerica-ExtendedBlackItalic', Arial, Helvetica, sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                color: #000;
+                letter-spacing: 0.66px;
+                margin-bottom: 0;
+                padding-bottom: 0;
+                text-transform: uppercase;
+                position: relative;
+                top: 3px;
+
+                @media all and (max-width: 767px) {
+                    font-size: 16px;
+                    font-weight: 900;
+                }
+            }
+
+            button {
+                border: none;
+                background: none !important;
+                padding: 10px 0;
+                font-size: 14px;
+                letter-spacing: 0.7px;
+                line-height: 17px; 
+                color: #727272 !important;      
+            
+            }
+        }
+
+    }
+
+    .#{$id}-carousel-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+
+        @media all and (max-width: 767px) {
+            display: none;
+        }
+
+        
+
+        .swiper-pagination-bullet {
+            width: 50px;
+            height:4px;
+            background: #C4C4C480;
+            border-radius: 0 !important;
+            opacity: 1;
+
+            &-active {
+                background: #0000ED;
+            }
+        }
+    }
+
+    .#{$id}-button {
+        position: absolute;
+        top: 50%;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        background-size: 27px 44px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #FFF !important;
+        background-image: url('https://www.sportsdirect.com/images/marketing/sd-lv8lp-white-prev-arrow.jpg') !important;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        left: 5px;
+        background-size: 100% 100%;
+        transition: all 0.3s ease-out;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+        z-index: 100000;
+
+        @media all and (max-width: 767px) {
+            left: 5px;
+        }
+
+        @media all and (max-width: 500px) {
+            display: none;
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: #0000EC !important;
+            background-image: url('https://www.sportsdirect.com/images/marketing/sd-lv8lp-blue-prev-arrow.jpg') !important;
+            transition: all 0.3s ease-out;
+        }
+
+        &.#{$id}-button-next {
+            left: auto;
+            right: 5px;
+            background-image: url('https://www.sportsdirect.com/images/marketing/sd-lv8-swiper-next-arrow.jpg') !important;
+
+            @media all and (max-width: 767px) {
+                right: 5px;
+            }
+
+            &:hover {
+                background-image: url('https://www.sportsdirect.com/images/marketing/sd-lv8lp-blue-next-arrow.jpg') !important;
+            }
+        }
+    }
+
+    .#{$id}-greyed-area {
+        background: rgba(255,255,255, 0.8);
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10000;
+
+        @media all and (max-width: 320px) {
+            right: -3px;
+        }
+    }
+
+    .#{$id}-carousel-holder {
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        max-height: 240px;
+        min-height: 240px;
+
+        
+        &.carousel-additional-info {
+            min-height: 325px;
+            max-height: 325px;    
+
+            @media all and (max-width: 450px) {
+                min-height: 340px;
+                max-height: 340px;
+              }
+
+            .#{$id}-carousel-slide {
+
+                @media all and (max-width: 450px) {
+                    min-height: 0 !important;
+                    max-height: 100% !important;
+                }
+            }
+        }   
+
+        @media all and (max-width: 992px) {
+            min-height: 260px;
+            max-height: 260px;
+        }
+  
+        @media all and (max-width: 450px) {
+            max-height: 220px;
+            min-height: 220px;
+        }
+  
+        .#{$id}-loading-spinner {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 110;
+  
+            svg {
+                animation: spin 1s linear infinite;
+            }
+  
+            p {
+                color: #000;
+            }
+  
+        }
+  
+        &.loading:before {
+            content: "";
+            position: absolute;
+            background: #FFF;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            top: 0;
+            left: 0;
+        }
+  
+        &.loading .#{$id}-loading-spinner {
+            display: flex;
+        }
+  
+  
+        
+  
+        .#{$id}-carousel-inner {
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex !important;
+  
+            .swiper-wrapper {
+              justify-content: center;
+              align-items: center;
+            }
+  
+            &.swiper-active .swiper-wrapper {
+              justify-content: flex-start;
+              align-items: flex-start;
+            }
+  
+            
+  
+            @media all and (max-width: 800px) {
+  
+                padding: 10px 0;
+  
+                
+            }
+        }
+  
+        .#{$id}-carousel-slide {
+            background: #FFFFFF;
+            border: 1px solid #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+
+            .#{$id}-carousel-image {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .#{$id}-carousel-image-element {
+                width: 100%;
+                max-width: 180px;
+                height: auto;
+                margin-bottom: 10px; 
+            }
+
+
+
+            .#{$id}-carousel-product-info {
+                display: none;
+                flex-direction: column;
+                justify-content: flex-start;
+                height: 80px;
+                padding-top: 10px;
+                p {
+                    margin-bottom: 5px;
+                    font-weight: normal;
+                    color: #000;
+                    text-align: left;
+                    font-size: 15px;
+                }
+
+                .#{$id}-product-brand {
+                    font-weight: 700;
+                    margin-bottom: 0;
+                }
+
+                .#{$id}-product-name {
+                    min-height: 40px;
+                    overflow: hidden;
+                }
+
+                .now-price {
+                    margin: 0 5px 0 0;
+                    color: #000;
+                    font-weight: 700;
+                }
+
+                .was-price {
+                    font-weight: normal;
+                    text-decoration: line-through;
+                    margin: 0 5px;
+                    color: #00000080;
+                    font-size: 14px;
+                }
+
+                .equal-prices .was-price {
+                    display: none;
+                }
+
+                .equal-prices .now-price {
+                    color: #333;
+                }
+
+            } 
+
+            &.additional-info .#{$id}-carousel-product-info {
+                display: flex;
+            }
+
+            .#{$id}-carousel-remove-item {
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 3px;
+                background: none !important;
+                z-index: 10000;
+                cursor: pointer;
+
+                svg path {
+                    stroke-width: 1.5px;
+                }
+
+                @media all and (max-width: 1400px) {
+                    display: flex;
+                    top: 5px;
+
+                    svg {
+                        width: 15px;
+                    }
+
+                    path {
+                        fill: #AAA;
+                    }
+                }
+
+                & > * {
+                    pointer-events: none;
+                }
+            }
+
+            &:hover {
+                border: 1px solid #EEE;
+
+                @media all and (max-width: 767px) {
+                    border: none;
+                }
+            }
+
+            &:hover .#{$id}-carousel-remove-item {
+                display: flex;
+                
+            }
+        }
+  
+      }
+
+    
+
+}

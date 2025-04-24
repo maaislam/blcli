@@ -1,0 +1,97 @@
+@import "./../../../variables";
+
+##{$id}-root {
+  .#{$id}-tile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
+
+    &:not(.collapsed) {
+      > li:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+
+      > li:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+
+      > li:nth-child(3) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+      }
+
+      > li:nth-child(4) {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
+
+      > li:nth-child(5) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+      }
+
+      > li:nth-child(6) {
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+      }
+    }
+
+    @media screen and (min-width: $media-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+
+      &:not(.collapsed) {
+        > li:nth-child(1) {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+        }
+
+        > li:nth-child(2) {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
+
+        > li:nth-child(3) {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+
+        > li:nth-child(4) {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+
+        > li:nth-child(5) {
+          grid-column: 1 / 3;
+          grid-row: 3 / 4;
+        }
+
+        > li:nth-child(6) {
+          grid-column: 3 / 4;
+          grid-row: 2 / 4;
+        }
+      }
+    }
+
+    &.collapsed {
+      display: flex;
+      flex-wrap: wrap;
+
+      > li > button > span {
+        display: none;
+      }
+
+      @media screen and (min-width: $media-tablet) {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+
+        > li > button > span {
+          display: block;
+        }
+      }
+    }
+  }
+}

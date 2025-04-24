@@ -1,0 +1,113 @@
+@import "./variables";
+
+.#{$id} {
+	.productRollOverPanel {
+		.swiper-pagination {
+			display: none;
+		}
+	}
+	&-1 {
+		.FlanProdDet #productDetails {
+			padding-top: 5px;
+		}
+		#productImages .ThumbProdWrap {
+			flex-direction: column-reverse;
+		}
+		#productImages #productImageContainer {
+			margin-bottom: 15px;
+		}
+		.productRollOverPanel {
+			.swiper-container {
+				border: 1px solid #eee;
+			}
+		}
+		.#{$id}-slider-container {
+			// margin-right: -26px;
+			.#{$id}-slider {
+				position: relative;
+				.swiper-slide.swiper-slide-active {
+					border: 0.5px solid #666666;
+					padding: 1px;
+				}
+
+				img {
+					width: 100%;
+				}
+
+				span.swiper-pagination-bullet {
+					width: 10%;
+					border-radius: unset;
+					height: 3px;
+					background: #e8e8e8;
+					opacity: 1;
+				}
+				span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+					background: #000;
+				}
+				.swiper-button-next,
+				.swiper-button-prev {
+					display: none;
+				}
+			}
+		}
+	}
+	&-2 {
+		.FlanProdDet #productDetails {
+			padding-top: 25px;
+		}
+		#productImages #productImageContainer {
+			width: 75%;
+		}
+
+		#productImages .ThumbProdWrap {
+			flex-direction: row-reverse;
+		}
+		.#{$id}-slider-container {
+			display: flex;
+			width: 25%;
+			height: 100%;
+			margin-left: 6px;
+			position: relative;
+
+			.#{$id}-slider {
+				position: relative;
+				height: inherit;
+				overflow: hidden;
+				&::after {
+					position: absolute;
+					height: 31%;
+					width: 100%;
+					content: "";
+					background: linear-gradient(
+						0deg,
+						#ffffff 0%,
+						rgba(255, 255, 255, 0) 100%
+					);
+					bottom: 0;
+					z-index: 99;
+					left: 0;
+				}
+				.swiper-slide.swiper-slide-active {
+					border: 0.5px solid #666666;
+					padding: 1px;
+				}
+				.swiper-button-next {
+					position: absolute;
+					bottom: 0;
+					height: 31%;
+					top: unset;
+					width: 100%;
+					background: transparent;
+					z-index: 9999;
+					&::before,
+					&::after {
+						display: none;
+					}
+				}
+			}
+			img {
+				height: 100%;
+			}
+		}
+	}
+}

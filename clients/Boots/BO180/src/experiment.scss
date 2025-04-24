@@ -1,0 +1,97 @@
+@import './variables';
+
+
+@keyframes BOslide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+.#{$id} {
+    .#{$id}-basketbanner {
+        position: fixed;
+        width: 100%;
+        background: #F2F2F2;
+        bottom: 0;
+        z-index: 99999;
+        transform: translateY(1000px);
+        opacity: 0;
+        font-family: "Boots Sharp","F37 Ginger", Arial,sans-serif;
+        box-shadow: 1px 13px 20px 0px #222222;
+        .#{$id}-close {
+            background: url('https://boots.scene7.com/is/image/Boots/close?scl=1&fmt=png-alpha') no-repeat center;
+            background-size: contain;
+            position: absolute;
+            top: -8px;
+            right: 0px;
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border-radius: 20px;
+            border: 1px solid #121154;
+            cursor: pointer;
+            @media(min-width: 375px) {
+                right: 5px;
+            }
+            @media(min-width: 1024px) {
+                top: -10px;
+            }
+        }
+        .#{$id}-inner {
+            padding: 10px;
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            > a {
+                position: absolute;
+                height: 60%;
+                width: 100%;
+                text-decoration: none;
+                &:focus {
+                    outline: none;
+                    border: none;
+                }
+            }
+           
+            @media(min-width: 375px) {
+                padding: 15px;
+            }
+            p {
+                a {
+                    text-decoration: underline;
+                    color: #121154;
+                }
+            }
+            span {
+                height: 35px;
+                width: 35px;
+                margin-right: 10px;
+                background: url('https://boots.scene7.com/is/image/Boots/basket?scl=1&fmt=png-alpha') center no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+
+    &.#{$id}-bannerShow {
+        .#{$id}-basketbanner { 
+            animation: BOslide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        #openChat {
+            bottom: 100px !important;
+            @media(min-width: 375px) {
+                bottom: 150px !important;
+
+            }
+        }
+    }
+}

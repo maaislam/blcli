@@ -1,0 +1,25 @@
+export const categories = {
+  Clothing: 'nav_CMSLinkComponentModel(8801350517820@1)',
+  Newborn: 'nav_CMSNavigationNodeModel(8797601072192@3)',
+  Boys: 'nav_CMSNavigationNodeModel(8797601203264@10)',
+  Girls: 'nav_CMSNavigationNodeModel(8797601137728@11)',
+  Unisex: 'nav_CMSNavigationNodeModel(8797601236032@11)',
+  Collections: 'nav_CMSNavigationNodeModel(8797601170496@10)',
+  Clearance: 'nav_CMSNavigationNodeModel(8797633250368@5)',
+  Furniture: 'nav_CMSNavigationNodeModel(8797371696192@17)',
+  Mattresses: 'nav_CMSNavigationNodeModel(8797371696192@17)',
+  'Bedding & Decor': 'nav_CMSNavigationNodeModel(8797469344832@8)',
+  'Nursery Accessories': 'nav_CMSNavigationNodeModel(8797403907136@18)',
+  Nursery: 'nav_CMSLinkComponentModel(8796111963196@247)',
+  Travel: 'nav_CMSLinkComponentModel(8800848970812@1)',
+  'Toys &amp; Gifts': 'nav_CMSLinkComponentModel(8800848806972@2)',
+  'Shop by Price': 'nav_CMSNavigationNodeModel(8797469312064@9)',
+  'Shop by Occasion': 'nav_CMSNavigationNodeModel(8797436937280@12)',
+  'Shop by Category': 'nav_CMSNavigationNodeModel(8797436970048@11)',
+  Christmas: 'nav_CMSLinkComponentModel(8800848806972@2)',
+  Blankets: 'nav_CMSLinkComponentModel(8800848806972@2)',
+  Feeding: 'nav_CMSLinkComponentModel(8800960218172@3)',
+  'Bath Time': 'nav_CMSLinkComponentModel(8800960218172@3)',
+};
+
+export default categories;

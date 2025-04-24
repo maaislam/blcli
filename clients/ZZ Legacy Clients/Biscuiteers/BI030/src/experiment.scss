@@ -1,0 +1,265 @@
+.BI030 {
+  // Menu
+  .off-canvas {
+    z-index: 10 !important;
+    .lh-1{
+      .p-a{
+        position: relative;
+        .BI030-nav_overlay {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 9;
+          background: rgba(167, 165, 165, 0.45);
+          top: 0;
+          left: 0;
+          display: none;
+          &.BI030-visible{
+            display: block;
+          }
+        }
+      }
+    } 
+  }  
+
+  .BI030-giftFinder__wrapper {
+    .BI030-giftFinder__container {
+      display: block;
+      width: 100%;
+      height: 55px;
+      background-color: #E679A5;
+      text-align: center;
+      margin-top: 5px;
+      // Gift Finder Step 1
+      .BI030-giftFinder__content {
+        width: 60%;
+        height: 40px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: auto;
+
+        span#BI030-giftFinder__icon {
+          display: inline-block;
+          width: 35px;
+          height: 35px;
+          background-image: url('https://cdn-sitegainer.com/7hmbx8m6pmv9dwe.png');
+          background-size: 80%;
+          background-repeat: no-repeat;
+          background-position: center;
+          // position: relative;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+
+          left: -20%;
+        }
+        span.BI030-giftFinder__text {
+          /* display: inline-block;
+          color: #FFF;
+          font-weight: 600;
+          position: relative;
+          bottom: 10px;
+          font-size: 1em; */
+          display: inline-block;
+          color: #FFF;
+          font-weight: 600;
+          position: relative;
+          bottom: 0px;
+          /* bottom: 10px; */
+          font-size: 1em;
+          position: absolute;
+          width: 100%;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+      // Gift Finder Step 2
+      .giftFinder__selectContent {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: auto;
+        z-index: 10;
+        .giftFinder__select {
+          display: inline-block;
+          width: 49%;
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+
+          .BI030-select {
+            display: block;
+            width: 90%;
+            height: 35px;
+            background-color: #FFF;
+            margin: auto;
+            font-size: 0.9em;
+            position: relative;
+
+            div.placeholder {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              font-size: 3.5vw;
+              padding-left: 5px;
+              max-width: 33vw;
+            }
+            div.icon {
+              display: inline-block;
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              background-size: 100%;
+              background-repeat: no-repeat;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 5px;
+
+              &.show-options {
+                background-image: url('https://cdn-sitegainer.com/pafmj30pofbby3r.png');
+              }
+            }
+          }
+          .BI030-options {
+            display: block;
+            position: absolute;
+            background-color: #FFF;
+            z-index: 9999 !important;
+            top: 0;
+            width: 90%;
+            height: 56vh;
+            overflow: hidden;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-left: 7px;
+            // border-bottom: 0.5px solid #A3A3A3;
+
+            &.hidden {
+              display: none !important;
+            }
+
+            &:after {
+              display: block;
+              content: '';
+              width: 100%;
+              height: 50px;
+              background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+              position: absolute;
+              bottom: 0;
+              pointer-events: none;
+            }
+
+            .options-wrapper {
+              height: 100%;
+              box-sizing: border-box;
+              overflow-y: scroll;
+              ul.occasion-options, ul.recipient-options {
+                font-size: 3vw;
+                text-align: left;
+                padding-bottom: 50px;
+                li {
+                  width: 33vw;
+                  margin: auto;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  font-size: 3.5vw;
+                  &.placeholder {
+                    border-bottom: 1px dashed #000 !important;
+                  }
+                  &:nth-last-of-type(1) {
+                    padding-bottom: 15px;
+                  }
+                  &.hidden {
+                    display: none !important;
+                    // background-color: lightblue;
+                  }
+                }
+                span.icon.hide-options {
+                  display: block;
+                  width: 12px;
+                  height: 12px;
+                  background-image: url('https://cdn-sitegainer.com/g0xix62hw13m2sy.png');
+                  background-size: 100%;
+                  background-repeat: no-repeat;
+                  position: absolute;
+                  top: 12px;
+                  right: 10px;
+                }
+              }
+            }
+            .options-wrapper::-webkit-scrollbar {
+              -webkit-appearance: none;
+            }
+            
+            .options-wrapper::-webkit-scrollbar:vertical {
+                width: 5px;
+            }
+            
+            .options-wrapper::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, .4);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Redirect Loader
+  .BI030-loader__wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #F2F2F2;
+    opacity: 0.9;
+    z-index: 999;
+
+    &.hidden {
+      display: none !important;
+    }
+
+    .BI030-loader {
+      &:after {
+        display: block;
+        content: '';
+        width: 60px;
+        height: 60px;
+        background-image: url('https://cdn-sitegainer.com/rpwghk8knoaz8ag.gif');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 45%;
+        left: 40vw;
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  @media (orientation: landscape) { 
+    .BI030-giftFinder__wrapper {
+      // Try Gift Finder text
+      .BI030-giftFinder__text {
+        font-size: 3vw;
+      }
+      // Select Text
+      .BI030-select {
+        .placeholder {
+          font-size: 2.5vw !important;
+        }
+      }
+      // Options Text
+      .BI030-options {
+        height: 56vh !important;
+        li {
+          font-size: 2vw !important;
+        }
+      }
+    }
+  }
+}

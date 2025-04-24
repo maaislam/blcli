@@ -1,0 +1,148 @@
+@import './variables';
+
+.#{$id} {
+  .end-date .date_pickertext:not(.mobileAverageView) {
+    margin-bottom: 35px;
+
+    @include media-query(md) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__active {
+    border: 1px solid #53565a;
+  }
+
+  &__enddate-label {
+    opacity: 0;
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &__hireLonger {
+    position: relative;
+    margin: 35px 0;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #fff;
+
+    @include media-query(md) {
+      margin: 0 -15px;
+      background-color: #f5f5f5;
+    }
+
+    &-header {
+      &-title,
+      &-details {
+        color: #53565a;
+        font-size: 12px;
+        line-height: 14.5px;
+      }
+
+      &-title {
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+
+      &-details {
+        font-weight: 400;
+      }
+    }
+
+    &-options {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    &-option {
+      margin: 0 !important;
+      padding: 8px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      &.add-border {
+        border: 1px solid #53565a;
+      }
+
+      input[type='radio'] {
+        margin: 0 !important;
+        position: relative;
+        cursor: pointer;
+      }
+
+      input[type='radio']::before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background-color: #53565a;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      input[type='radio']::after {
+        content: '';
+        width: 11px;
+        height: 11px;
+        background-color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+      }
+
+      input[type='radio']:checked::after {
+        background-color: #53565a;
+      }
+
+      span {
+        margin: 0 !important;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        cursor: pointer;
+      }
+    }
+
+    &-endDateText {
+      color: #53565a;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14.5px;
+    }
+
+    &-date {
+      color: #53565a;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14.5px;
+    }
+
+    &-offer {
+      width: 100%;
+      max-width: 150px;
+      margin-left: auto;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0089cf;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 18px;
+      border: 2px solid #0089cf;
+      background: #fff;
+    }
+  }
+}

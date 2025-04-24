@@ -1,0 +1,209 @@
+@import './swiper';
+@import './variables';
+
+.#{$id} {
+  .#{$id}__tradeContainer {
+    background: #29292d;
+    padding: 32px 0px 32px 27px;
+    @include media-query(md) {
+      padding: 14px 0px 14px 14px;
+    }
+    .#{$id}__tradeTitle {
+      color: #fff;
+      font-size: 46px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 1.3;
+      margin: 0;
+      @include media-query(md) {
+        font-size: 20px;
+      }
+      span {
+        border-bottom: solid 2px #fff;
+      }
+    }
+    .#{$id}__tradeSubTitle {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.3;
+      margin: 10px 0 20px 0;
+      @include media-query(md) {
+        font-size: 14px;
+      }
+      a {
+        color: #f9ae00;
+      }
+    }
+    .adding {
+      pointer-events: none;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: calc(50% - 50px);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-image: url(https://sb.monetate.net/img/1/581/5102326.png);
+      background-position: center;
+      background-size: cover;
+
+      @include media-query(md) {
+        display: none;
+      }
+
+      &.swiper-button-disabled {
+        display: none;
+      }
+      &::after {
+        display: none;
+      }
+    }
+    .swiper-button-next {
+      right: 0;
+    }
+    .swiper-button-prev {
+      left: 0;
+      transform: scaleX(-1);
+    }
+
+    .#{$id}__tradeProdsList {
+      //display: flex;
+      //gap: 16px;
+      .#{$id}__tradeProdItem {
+        max-width: 250px;
+        border-radius: 3px;
+        background: #fff;
+        padding: 16px;
+        @include media-query(md) {
+          max-width: 144px;
+          padding: 8px;
+        }
+
+        .content-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          text-decoration: none;
+          @include media-query(md) {
+            gap: 8px;
+          }
+        }
+
+        .#{$id}__image {
+          width: 250px;
+          @include media-query(md) {
+            width: 144px;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+        .#{$id}__reviews {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 5px;
+          margin: 4px 0 0 0;
+          .#{$id}__ratingsContainer {
+            color: #606f80;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+        .#{$id}__title {
+          p {
+            display: -webkit-box;
+            line-clamp: 3;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #182d3d;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin: 0;
+            min-height: 51px;
+          }
+        }
+        .#{$id}__originalPriceContainer {
+          color: #606f80;
+          font-family: Lato;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
+          .#{$id}__originalPrice {
+            text-decoration: line-through;
+          }
+        }
+        .#{$id}__tradePriceContainer {
+          max-width: 250px;
+          color: #047258;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 1.3;
+          @include media-query(md) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .#{$id}__counterContainer {
+      display: flex;
+      align-items: center;
+      max-width: 80px;
+      margin-top: 12px;
+      .#{$id}__button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        padding-top: 2px;
+        cursor: pointer;
+      }
+      .#{$id}__quantity-val {
+        width: 40px;
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+    }
+
+    .#{$id}__atcContainer {
+      width: 100%;
+      max-width: 250px;
+      margin-top: 12px;
+      cursor: pointer;
+      button {
+        width: 100%;
+        border: none;
+        padding: 9px 0;
+
+        border-radius: 3px;
+        cursor: pointer;
+        span {
+          color: #25282a;
+          text-align: center;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 1.3;
+          @include media-query(md) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

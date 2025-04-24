@@ -1,0 +1,143 @@
+@import './variables';
+
+.#{$id} {
+
+  .#{$id}-popularSizes__wrapper {
+    padding: 20px 20px 30px 20px;
+    background-color: lightseagreen;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+
+    @media all and (max-width: 400px) {
+      padding: 20px;
+    }
+
+    // --- Desktop Image
+    background-image: url("https://ab-test-sandbox.userconversion.com/experiments/SD-396-desktop.jpg");
+    // --- Mobile Image
+    @media screen and (max-width: 767px) {
+      background-image: url("https://ab-test-sandbox.userconversion.com/experiments/SD-396-mobile.jpg");
+    }
+
+
+    h3 {
+      color: #FFF;
+      text-transform: uppercase;
+      text-align: center;
+      padding-bottom: 10px;
+      font-size: 27px;
+      letter-spacing: 1.5px;
+      font-family: 'GTAmerica-ExtendedBlackItalic', Arial, Helvetica, sans-serif;
+    }
+
+    ul.#{$id}-popularSizes {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 20px 0;
+
+      @media all and (max-width: 1200px) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      @media all and (max-width: 650px) {
+        justify-content: space-between;
+      }
+
+     
+      li.#{$id}-size {
+        background-color: #FFF;
+        // padding: 10px 20px;
+        padding: 15px 30px;
+        transition: all .3s ease-out;
+        border-radius: 5px;
+
+        @media all and (max-width: 1400px) {
+          padding: 15px 20px;
+        }
+
+        @media all and (max-width: 1200px) {
+          margin-bottom: 10px;
+          margin-right: 10px;
+        }
+
+        @media all and (max-width: 650px) {
+          width: 48%;
+          margin-right: 0;
+        }
+
+        @media all and (max-width: 450px) {
+          width: 45%;
+          margin-right: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        div {
+          font-weight: bold !important;
+          font-size: 12px;
+          font-family: 'GTAmerica-ExtendedBold', Arial, Helvetica, sans-serif;
+        }
+
+        &:hover {
+          cursor: pointer;
+          // transform: scale(1.1);
+          color: #fff  !important;
+          background-color: #0000ed !important;
+          // border: 1px solid #0000ed;
+          
+        }
+      }
+
+      @media screen and (max-width: 769px){
+        align-content: stretch;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        li {
+          width: 23%;
+          
+          @media screen and (max-width: 400px) {
+            // width: 120px;
+            width: 33vw;
+          }
+          text-align: center;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    span##{$id}-dismiss {
+      text-decoration: underline;
+      color: #FFF;
+      padding-right: 25px;
+      padding-bottom: 10px;
+      font-size: 14px;
+      float: right;
+      clear: both;
+
+      @media all and (max-width: 1200px) {
+        padding-right: 10px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @media all and (max-width: 450px) {
+        float: left;
+        margin-top: -10px;
+        padding-top: 0;
+        padding-right: 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+}

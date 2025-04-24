@@ -1,0 +1,205 @@
+@import './variables';
+
+.#{$id} {
+  .MP160-hide { display: none !important }
+  // V1
+  &.MP160-1, &.MP160-2 {
+    .panelSlide.slide-panel-left2.cartSlider {
+      top: 100% !important;
+      right: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      transition: ease-in-out all .3s;
+      animation: none !important;
+      &.activeLeft {
+        animation: none !important;
+        top: 0 !important;
+      }
+      .filter_categoryTitle.js-switchCategory {
+        text-align: center;
+        font-size: 22px;
+        text-transform: uppercase;
+      }
+    }
+    .productFilter_footer {
+      max-width: 100%;
+    }
+    .productFilter_select {
+      text-transform: uppercase;
+    }
+    #js-productFilters {
+      // position: fixed;
+      // top: 110px;
+      left: 0; right: 0;
+      width: 100%;
+      z-index: 9999;
+      top: 0 !important;
+      background-color: #fff;
+      // border-bottom: 1px solid #d6d6d6;
+      transition: ease-in-out all .2s;
+      // &.MP160-up {
+      //   top: 65px !important;
+      // }
+      .btnFilter .ico-plus.productFilter_icon:first-of-type {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .fa.fa-filter {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        font-size: 26px;
+      }
+    }
+    .plp-block {
+      padding-top: 70px;
+    }
+    &.MP160-lowFilter {
+      #js-productFilters {
+        top: 230px;
+      }
+      .plp-block {
+        padding-top: 130px;
+      }
+    }
+    // Icons
+    .filter_group {
+      padding-top: 15px;
+      li a.d-block.py-3 {
+        padding: 1.5rem 0 !important;
+        &:after {
+          content: '\E936';
+        }
+      }
+      .checkbox {
+        margin: 5px 0;
+      }
+    }
+    .checkbox_toggle_bordered.cursor-pointer {
+      border-radius: 6px;
+      &:after {
+        background-color: transparent;
+        transition: ease-in-out all .2s;
+      }
+    }
+    .checkbox_toggle_bordered {
+      height: 30px;
+      width: 30px;
+    }
+    .checkbox_toggle_bordered.cursor-pointer.active {
+      overflow: hidden;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 30px;
+        border-radius: 6px;
+        background-color: #323232;
+      }
+    }
+    .checkbox_text {
+      font-size: 13px;
+      text-transform: capitalize;
+    }
+    button.MP160-activeBtn {
+      display: inline-block;
+      vertical-align: middle;
+      background: #F8F8F8;
+      border: 1px solid #F8F8F8;
+      appearance: none;
+      border-radius: 2px;
+      text-transform: capitalize;
+      cursor: pointer;
+      padding: .7rem 1rem;
+      margin: 5px 3px;
+      color: #323232;
+      .ico {
+        color: #47BB9C;
+      }
+    }
+    button.MP160-clear {
+      display: inline-block;
+      vertical-align: middle;
+      float: right;
+      background: #fff;
+      border: 1px solid #323232;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: .5rem 1rem;
+      color: #323232;
+      transition: ease-in-out all .2s;
+    }
+    #MP160-clear {
+      display: inline-block;
+      vertical-align: middle;
+      float: right;
+      background: #fff;
+      border: 1px solid #323232;
+      appearance: none;
+      text-transform: capitalize;
+      cursor: pointer;
+      padding: .5rem 1rem;
+      color: #323232;
+      margin: 5px;
+      display: none;
+      &.MP160-show {
+        display: inline-block;
+      }
+    }
+  }
+  &.MP160-openFilters {
+    #js-productFilters {
+      top: 0;
+      z-index: 99999;
+    }
+  }
+  &.MP160-2 {
+    // Push content down.
+    .panelSlide.slide-panel-left2.cartSlider {
+      max-height: 50%;
+      // overflow-y: scroll; // add styled scrollbars
+      
+    }
+    .filter_category-selected {
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: .8em;
+      }
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+      }
+    }
+    .productFilter_footer {
+      top: 40%;
+      bottom: auto;
+      position: fixed;
+    }
+    .filter_group {
+      padding-bottom: 100px;
+    }
+    .blackout {
+      max-height: 60%;
+    }
+    .MP160-drag {
+      margin: 10px 0;
+      text-align: center;
+      span {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        // border-radius: 50%;
+        background-color: #222;
+        margin: 0 3px;
+      }
+    }
+  }
+}

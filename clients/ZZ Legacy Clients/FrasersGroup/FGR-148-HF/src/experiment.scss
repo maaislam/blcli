@@ -1,0 +1,75 @@
+@import "./variables";
+
+.#{$id} {
+	.Basket #BasketDiv table .itemWasPrice {
+		width: 10.5%;
+		padding-right: 5px;
+		span.money {
+			text-decoration: line-through;
+			color: #636363;
+		}
+	}
+	.Basket #BasketDiv table td.itemWasPrice {
+		line-height: 2.1em;
+		@media screen and (max-width: 767px) {
+			float: left;
+			padding: 3px 0 15px 5px;
+			width: 20%;
+			line-height: 16.92px;
+		}
+		.itemWasPrice-mobile {
+			font-weight: 700;
+			display: block;
+			text-align: right;
+		}
+	}
+	.Basket #BasketDiv table {
+		td.itemWasPrice,
+		td.itemprice,
+		td.itemtotalprice {
+			@media screen and (max-width: 767px) {
+				width: 20%;
+			}
+		}
+		td.itemprice {
+			span {
+				display: block;
+				&.discount-per-unit {
+					color: #b30000;
+				}
+			}
+		}
+		td.itemtotalprice {
+			label.money.discount {
+				display: none;
+			}
+		}
+	}
+	div#SavingsRow {
+		font-size: 1.2em;
+		margin: 0;
+		padding: 5px 0;
+		color: #b30000;
+		& > div {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1021px) {
+			.text-right {
+				text-align: left;
+			}
+		}
+	}
+	div#DiscountRow {
+		color: #b30000;
+	}
+
+	&-2 {
+		.Basket #BasketDiv table td.itemprice.discounted {
+			span.money {
+				color: #b30000;
+			}
+		}
+	}
+}

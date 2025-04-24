@@ -1,0 +1,52 @@
+@import "./variables";
+
+.#{$id} {
+	&-root {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		max-width: 20rem;
+		justify-items: center;
+		margin-right: auto;
+		margin-bottom: 2rem;
+		margin-left: auto;
+
+		div {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.25rem;
+		}
+	}
+
+	.appointment-time {
+		&[data-time="morning"] {
+			.afternoon {
+				display: none;
+			}
+
+			.evening {
+				display: none;
+			}
+		}
+
+		&[data-time="afternoon"] {
+			.morning {
+				display: none;
+			}
+
+			.evening {
+				display: none;
+			}
+		}
+
+		&[data-time="evening"] {
+			.morning {
+				display: none;
+			}
+
+			.afternoon {
+				display: none;
+			}
+		}
+	}
+}

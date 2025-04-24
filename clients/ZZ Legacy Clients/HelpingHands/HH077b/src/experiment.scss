@@ -1,0 +1,247 @@
+@import './variables';
+
+
+.#{$id} {
+
+
+    &__hide {
+        display: none;
+    }
+
+    &__close--icon.fa-times:not(.fa-bars) {
+
+        color: #8AC589;
+    }
+
+    &__mobile--navitems {
+        overflow-y: scroll;
+        height: calc(100vh - 170px);
+
+
+        // @media(max-width: 420px) {
+        //     height: 600px;
+        // }
+
+        // @media(max-width: 380px) {
+        //     height: 500px;
+        // }
+
+        // @media(max-width: 320px) {
+        //     height: calc(100vh - 200px);
+        // }
+    }
+
+    &__menu-overlay {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        height: 100vh;
+        background-color: #fff;
+        opacity: 0.9;
+        z-index: 10;
+    }
+
+    &__menu-top {
+        position: relative;
+        box-shadow: 0px 1px 3px rgba(6, 6, 6, 0.25);
+    }
+
+    &__main-nav {
+        width: 80%;
+        background-color: #F5F5F5;
+        overflow-y: scroll;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+        z-index: 20;
+
+        @media(max-width: 360px) {
+            width: 100%;
+        }
+
+        &>.container {
+            width: 100%;
+        }
+    }
+
+
+
+    &__main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 44px 0 32px;
+
+        height: 100vh;
+    }
+
+    &__menu-item--lvl1 {
+
+        &>div {
+            display: flex;
+            width: 100%;
+            position: relative;
+            margin: 0 !important;
+            font-size: 16px;
+            line-height: 24px !important;
+            font-weight: 400 !important;
+            padding: 16px 32px !important;
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 100%;
+                width: calc(100% - 64px);
+                height: 1px;
+                background-color: #D6D6D6;
+
+            }
+
+            &>span.dropdown-toggle,
+            &>a.dropdown-toggle {
+                width: 90%;
+                color: #3D195B !important;
+                font-weight: 400 !important;
+            }
+
+            &>.caret-arrows {
+                width: 48px;
+                height: 24px;
+                font-size: 22px;
+                text-align: end;
+                color: #3D195B !important;
+            }
+        }
+
+        &.active>div {
+            background-color: #3D195B !important;
+
+            &>span {
+                text-decoration: underline;
+                text-decoration-color: #fff;
+                text-decoration-thickness: 1px;
+            }
+
+            &>span,
+            &>a {
+                //font-weight: 700 !important;
+                color: #fff !important;
+
+            }
+
+            &>.caret-arrows {
+                //font-weight: 700;
+                color: #fff;
+
+            }
+        }
+
+        &:first-child {
+            border-top: 1px solid #F5F5F5;
+        }
+
+        &>ul {
+
+            padding-top: 14px;
+            padding-bottom: 26px;
+            background-color: #EBE8EF;
+
+            &>li {
+                position: relative;
+                list-style: none;
+                margin-bottom: 32px;
+
+
+                &>a {
+                    display: block;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #3D195B;
+
+                    &::after {
+                        position: absolute;
+                        content: '\276F';
+                        font-size: 16px;
+                        color: #3D195B;
+                        right: 32px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &.active-list {
+                & a {
+                    color: #BEB2C8;
+
+                    &::after {
+                        color: #BEB2C8;
+                    }
+
+                    &.active-item {
+                        color: #3D195B;
+
+                        &::after {
+                            color: #3D195B;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+a[title="Our experts and accreditations"] {
+    @media(max-width: 420px) {
+        padding-right: 48px;
+    }
+}
+
+
+.inactive-sibling {
+    color: #BEB2C8 !important;
+}
+
+nav {
+    opacity: 0;
+}
+
+.padding-top-zero {
+    padding-top: 0 !important;
+}
+
+.fade-in {
+    animation: fade-in 300ms ease-out both;
+}
+
+.fade-out {
+    animation: fade-out 300ms ease-out both;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

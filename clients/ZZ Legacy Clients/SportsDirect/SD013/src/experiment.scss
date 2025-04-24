@@ -1,0 +1,112 @@
+@import './variables';
+@import './lib/SD002.scss';
+
+.#{$id} {
+
+    // Show more
+    a.SD-showMore {
+        display: block;
+        text-align: center;
+        padding: 6px;
+        font-size: 1.2em;
+        line-height: 1.3em;
+        text-decoration: underline;
+        margin: 20px auto 30px;
+    }
+
+    // Pswd toggle
+    button#SD-toggle, button#SD-try {
+        appearance: none !important;
+        border: none !important;
+        background-color: transparent !important;
+        text-transform: capitalize;
+        font-size: 1.1em;
+        display: block !important;
+        margin: auto !important;
+        font-weight: bold;
+        color: #636363 !important;
+        font-family: 'Lato',Arial,Helvetica,sans-serif;
+        text-decoration: underline;
+        padding: 20px 5px 5px;
+        &:after {
+            display: none;
+        }
+    }
+
+    button#SD-try {
+        margin-bottom: 40px !important;
+    }
+
+    .field.SignLogIn2 {
+        text-align: center;
+    }
+
+
+    .SD013-show {
+        display: block !important;
+    }
+    
+    
+    .SD010-cart {
+        z-index: 99999;
+        .SD010-cart--bottom {
+            max-width: 740px;
+            margin: auto;
+        }
+    }
+    
+    &.SD002-wrongPsw {
+        button#FL034-guest {
+            display: block !important;
+            margin: 20px auto 10px;
+            transition: ease-in-out all .2s;
+            & + .innerBorder {
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+                padding: 0;
+                transition: ease opacity .3s;
+                &.SD013-show {
+                    opacity: 1;
+                    visibility: visible;
+                    height: auto;
+                    padding: 30px 0 85px;
+                }
+            }
+            &:hover {
+                background-color: darken($color: #0255a3, $amount: 2) !important;
+            }
+        }
+
+    }
+    button#SD-try.SD013-hide {
+        display: none !important;
+    }
+
+    footer.FooterCheck {
+        padding-bottom: 70px;
+    }
+
+    // On guest click, ensure guest box is hidden
+    button[data-choice="no"].FL015-active + .newCustomer.FL015-show, button[data-choice="notsure"].FL015-active + .newCustomer.FL015-show {
+        display: none;
+    } 
+}
+
+
+
+.SD013-2 {
+    button[data-choice="notsure"] {
+        display: none !important;
+    }
+    .newCustomer.FL015-show {
+        display: none !important;
+    }
+}
+.SD002.FL015-yesUser .existingCustomer .SectionTops > h1 + p {
+    display: none;
+}
+
+.SD002.FL015-yesUser #dnn_ContentPane {
+    position: relative;
+}

@@ -1,0 +1,433 @@
+@import './variables';
+
+html.#{$id}.#{$id}-noScroll,
+body.#{$id}-noScroll
+ {
+    overflow: hidden;
+    touch-action: none;
+-ms-touch-action: none;
+}
+
+.#{$id} {
+
+    /* Visual menu */
+    // menu on site
+    .#{$id}-menu {
+        clear: both;
+        box-sizing: border-box;
+        padding-left: 10px;
+        margin-top: 10px;
+        h3 {
+            font-family: DidotLTPro-Roman;
+            font-size: 25px;
+            letter-spacing: 0;
+            margin-bottom: 20px;
+            @media(min-width: 414px) {
+                font-size: 24px;
+            }
+        }
+        .menu-mobile {
+            overflow: auto;
+        }
+        .product-image {
+            margin-bottom: 10px;
+            @media(min-width: 414px) {
+                height: 150px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .descSection3.additional.menu {
+            overflow: hidden;
+            h3 {
+                display: none;
+            }
+            
+            ul {
+                display: -webkit-box;
+                width: 97vw;
+                
+                li {
+                    width: 189px;
+                    margin-right: 10px;
+                    padding-bottom: 20px;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    font-family: GillSansNova-Light;
+                    @media(min-width: 375px) {
+                        width: 200px;
+                        //padding-bottom: 50px;
+                    }
+                    @media(min-width: 414px) {
+                        width: 210px;
+                        //padding-bottom: 50px;
+                    }
+                    @media(min-width: 500px) {
+                        width: 170px;
+                    }
+                    .prod-qty {
+                        display: none;
+                    }
+                    .prod-name {
+                        text-align: center;
+                        font-size: 14px;
+                        min-height: 50px;
+                        @media(min-width: 414px) {
+                            font-size: 15px;
+                            min-height: 30px;
+                        }
+                    }
+                    .quickview {
+                        position: relative;
+                        background: black;
+                        border: 1px solid black;
+                        color: white;
+                        width: 105px;
+                        padding: 5px 10px;
+                        padding-top: 7px;
+                        text-align: center;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        display: block;
+                        span {
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                        }
+                        .icon.search {
+                            height: 20px;
+                            width: 20px;
+                        }
+                    @media(min-width: 414px) {
+                        font-size: 15px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .#{$id}-overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background:rgba(0, 0, 0, 0.8);
+        top: 0;
+        z-index: 99;
+        display: none;
+        &.#{$id}-overlayShow {
+            display: block;
+        }
+    }
+
+    // quick view box
+    .#{$id}-quickViewBox {
+        display: none;
+        z-index: 100;
+        border: 10px solid #d6d6d6;
+        margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: white;
+        border: 10px solid #d6d6d6;
+        margin: 0;
+        width: 90%;
+        max-height: 400px;
+        overflow: hidden;
+        @media(min-width: 414px) {
+            max-height: 550px;
+            
+        }
+        @media(orientation: landscape) {
+            max-height: 250px;
+        }
+        .#{$id}-content {
+            max-height: 380px;
+            overflow: auto;
+            padding: 20px;
+            .button.button-white.view-details {
+                margin-top: 10px;
+            }
+            @media(min-width: 414px) {
+                max-height: 530px;
+                h1 {
+                    font-size: 25px;
+                }
+                .product-desc {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+                .product-col-2.product-detail {
+                    font-size: 16px;
+                    line-height: 21px;
+                    margin-top: 10px;
+                }
+            }
+            @media(min-width: 700px) {
+                .product-col-1.product-image-container {
+                    width: 30%;
+                }
+                .product-col-2.product-detail {
+                    width: 65%;
+                }
+            }
+            @media(orientation: landscape) {
+                max-height: 220px;
+            }
+        }
+        h1 {
+            margin-bottom: 5px;
+        }
+        &.#{$id}-boxShow {
+            display: block;
+        }
+
+        .#{$id}-close {
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/en_GB/v1615803008489/images/svg-icons/x-close-icon.svg') no-repeat center;
+            background-size: contain;
+            top: 5px;
+            right: 5px;
+        }
+        .product-image {
+            height: 150px;
+            width: 150px;
+            margin: 0 auto;
+            @media(min-width: 414px) {
+                height: 180px;
+                width: 180px;
+            }
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .product-col-2.product-detail {
+            margin-bottom: 10px;
+        }
+        .product-tabs {
+            clear: both;
+            
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                a {
+                    background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/en_GB/v1615803008489/images/selectDisabledArrow.png') 98% 12px no-repeat #f1f1f1;
+                }
+                > li {
+                    border: 1px solid #f1f1f1;
+                    box-sizing: border-box;
+                    padding-bottom: 0;
+                    margin: 10px 0 0;
+                    min-height: 36px;
+                    width: 100%;
+                    white-space: normal;
+                    border-top: 1px solid #f1f1f1;
+                    margin: 0;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                    &.active {
+                        .tab-content {
+                            display: block;
+                        }
+                    }
+                    .tab-content {
+                        padding: 0px;
+                        border: 0;
+                        margin-bottom: 0;
+                        @media(min-width: 414px) {
+                            font-size: 16px;
+                            line-height: 21px;
+                        }
+                    }
+                    .descSection2 {
+                        padding: 10px;
+                    }
+                    .descSection3{
+                        margin: 0 !important;
+                        border: 0px;
+                        .col-1 {
+                            padding: 0;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            width: auto;
+                            float: none;
+                            width: 50%;
+                            padding: 5px;
+                        }
+                        .col-2 {
+                            float: none;
+                            width: 50%;
+                            padding: 5px;
+                        }
+                        li {
+                            display: flex;
+                            flex-direction: row;
+                            margin:  0;
+                            padding: 0px;
+                            border-bottom: 0;
+                            border-left: 0px;
+                            border-right: 0px;
+                            justify-content: space-evenly;
+                        }
+                    }
+
+                    #ingredientsdiv {
+                        padding: 10px;
+                    }
+                    .col-1,
+                    .col-2 {
+                        width: auto;
+                    }
+                    a {
+                        color: #929292;
+                        cursor: pointer;
+                        display: inline-block;
+                        float: left;
+                        font-size: 14px;
+                        padding: 10px 4% 6px;
+                        width: 92%;
+                        font-family: GillSansNova-Light;
+                    }
+                }
+            }
+        }
+    }
+
+
+    #thumbnails {
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        .slick-track {
+            display: flex;
+        }
+        .#{$id}-imageBlock {
+            display: flex;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            background:url('https://www.hotelchocolat.com/on/demandware.static/-/Sites-HotelChocolat-Library/default/dwc744c986/680x460px/Praline-1.jpg') no-repeat center;
+            background-size: cover;
+            max-width: 385px;
+            .#{$id}-imageContent {
+                min-height: unset !important;
+                padding: 20px;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.71);
+                border: 3px solid black;
+                box-sizing: border-box;
+                margin: 10px;
+                margin-top: 0;
+                backdrop-filter: blur(5px);
+                h3 {
+                    font-family: DidotLTPro-Roman;
+                    letter-spacing: 0;
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-family: GillSansNova-Light;
+                    letter-spacing: 1px;
+                    font-size: 16px;
+                }
+
+                .#{$id}-imageCTA {
+                    margin: 0 auto;
+                    display: block;
+                    margin-top: 15px;
+                    padding: 10px 10px 8px 10px;
+                    color: white;
+                    text-transform: uppercase;
+                    background: black;
+                    max-width: 180px;
+                    &:active,&:focus {
+                        outline: navajowhite;
+                    }
+                }
+            }
+            @media(min-width: 375px) {
+                .#{$id}-imageContent {
+                    padding: 35px;
+                }
+            }
+        }
+    }
+    &.#{$id}-2 {
+        #thumbnails {
+            .#{$id}-imageBlock {
+                .#{$id}-imageContent {
+                    span {
+                        font-family: GillSansNova-Medium;
+                        letter-spacing: 0;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-3 {
+        #thumbnails .#{$id}-imageBlock {
+
+            .#{$id}-imageContent {
+                background: rgba(255, 255, 255, 0.8);
+            }
+            
+        }
+        .#{$id}-reviewBlock {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            box-sizing: border-box;
+            .#{$id}-stars {
+                height: 20px;
+                background: url('https://editor-assets.abtasty.com/48343/60ba0d1f61a241622805791.png') no-repeat center;
+                background-size: contain;
+                margin-bottom: 20px;
+            }
+            h4 {
+                font-family: DidotLTPro-Roman;
+                letter-spacing: 0;
+                text-align: center;
+                font-size: 19px;
+                line-height: 24px;
+                margin-bottom: 20px;
+            }
+            p {
+                margin-bottom: 0;
+                font-family: GillSansNova-Medium;
+                text-transform: uppercase;
+                text-align: center;
+                span {
+                    text-align: center;
+                    color: #85734F;
+                }
+            }
+            
+        }
+    }
+}
+

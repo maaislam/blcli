@@ -1,0 +1,1125 @@
+@import './variables';
+
+@keyframes SGslide-in-right {
+    0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes SGslide-in-rightDesktop {
+    0% {
+        -webkit-transform: translateX(2000px) translateY(-50%);
+        ;
+        transform: translateX(2000px) translateY(-50%);
+        ;
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        ;
+        opacity: 1;
+    }
+}
+
+
+.#{$id} {
+
+    &.#{$id}-noScroll {
+        overflow: hidden;
+    }
+    /* ----------------
+// Gift Finder
+---------------- */
+    .#{$id}-loader {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
+        .#{$id}-loaderContent {
+            span {
+                height: 100px;
+                width: 100px;
+                display: block;
+                background-size: contain;
+                margin: 0 auto;
+                margin-bottom: 20px;
+                background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/356264674BB8CB3EC1E6D064E4C707CBBFDEFB6F92A3295F375B787A744FD644.gif?meta=/SG114---Valentines-Finder/Heart-1.9s-200px1.gif') center no-repeat;
+                background-size: contain;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-size: 20px;
+            }
+        }
+
+        &.#{$id}-loaderShow {
+            display: flex;
+        }
+    }
+
+    .#{$id}-finderOverlay {
+        position: fixed;
+        top: 0;
+        z-index: 300;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        cursor: pointer;
+        &.#{$id}-overlayActive {
+            display: block;
+        }
+    }
+
+    .#{$id}-finderBox-wrapper {
+        position: fixed;
+        top: 0;
+        z-index: 301;
+        background: white;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+        transform: translateX(1000px);
+
+        &.#{$id}-finderActive {
+            animation: SGslide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        h2, p {
+            color: black;
+            margin-top: 0;
+            font-family: 'Oxygen',sans-serif;
+        }
+
+        // error
+        .#{$id}-error {
+            display: none;
+            color: red;
+            margin: 5px;
+
+            &.#{$id}-errorShow {
+                display: block;
+                width: 100%;
+                position: relative;
+                text-align: center;
+            }
+        }
+
+        .#{$id}-closeFinder {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7964E78C20869214BB7C1729FC3C23AD2471566239D1E7F51736E56085F4B681.png?meta=/SG097---Save-Feature/cross.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 5px;
+            background-position: center;
+            top: 10px;
+            z-index: 999;
+        }
+
+
+        // title
+        .#{$id}-finderTitle {
+            padding: 10px;
+            position: relative;
+            box-shadow: -2px 2px 3px 2px rgba(193, 192, 192, 0.32);
+
+            h2 {
+                font-family: "Oxygen", sans-serif;
+                text-align: center;
+                margin-bottom: 5px;
+
+                @media(min-width: 767px) {
+                    font-size: 30px;
+                }
+            }
+
+            span {
+                height: 40px;
+                width: 40px;
+                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/331D74FDEBDD568CBA92ABF6EC873F41DFAEAB74D1500AC831A86BF5E4532AFC.png?meta=/SG114---Valentines-Finder/heargift.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                left: 10px;
+                margin-right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        .#{$id}-buttons {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            background: white;
+            box-shadow: 1px -1px 3px 2px rgba(193, 192, 192, 0.32);
+
+            &.#{$id}-nextShow {
+
+                .#{$id}-back,
+                .#{$id}-next {
+                    width: 50%;
+                }
+            }
+
+            @media(min-width: 767px) {
+                justify-content: space-between;
+            }
+        }
+
+        // back button 
+        .#{$id}-back,
+        .#{$id}-next {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 8px 10px;
+            width: 100%;
+            margin: 10px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+
+            &.#{$id}-backHide {
+                display: none !important;
+            }
+
+            @media(min-width: 767px) {
+                max-width: 200px;
+                padding: 10px;
+            }
+        }
+
+        .#{$id}-back {
+            &::before {
+                content: '';
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/AF225E536F2B2413B878D3CE5932C9937D9FDE0DC6279DEC1163C32FC18ED9AF.png?meta=/SG096---Homepage-Gift-Finder/backarrow-1.png') no-repeat center;
+                background-size: contain;
+            }
+
+            @media(min-width: 1024px) {
+                position: absolute;
+                border: 0;
+                text-decoration: underline;
+                width: auto;
+                padding-left: 10px;
+                left: 20px;
+
+                &::before {
+                    height: 10px;
+                    width: 10px;
+                    left: -5px;
+                }
+            }
+        }
+
+        .#{$id}-next {
+            background: black;
+            color: white;
+        }
+
+        // options
+        .#{$id}-finderOptions {
+            .#{$id}-optionsTitle {
+                text-align: center;
+                padding: 10px;
+                padding-top: 20px;
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+
+            // inner options
+            .#{$id}-question {
+                height: 78vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+
+                .#{$id}-innerOptions {
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    &.#{$id}-centered {
+                        justify-content: center;
+                    }
+
+                    .#{$id}-answer {
+                        width: 46%;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 5px;
+                        box-sizing: border-box;
+                        margin: 6px;
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        position: relative;
+                        align-items: center;
+                        cursor: pointer;
+
+                        @media(min-width: 1280px){
+                            &:hover {
+                                border: 1px solid black;
+                            }
+                        }
+
+                        .#{$id}-answerImage {
+                            height: 50px;
+                            width: 50px;
+                            margin: 0 auto;
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            margin-bottom: 5px;
+
+                            @media(min-width: 375px) {
+                                height: 70px;
+                                width: 70px;
+                            }
+                        }
+
+                        span {
+                            text-transform: capitalize;
+                            text-align: center;
+                            font-family: "Oxygen", sans-serif;
+                        }
+
+                        // active answer 
+                        &.#{$id}-answer--selected {
+                            border: 1px solid black;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                height: 20px;
+                                width: 20px;
+                                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D34C8BA35246D51066CFA7F4401000813568516940E3A0CA8068E6CEE036F304.png?meta=/SG096---Homepage-Gift-Finder/check.png');
+                                background-size: 15px;
+                                background-position: center;
+                                background-color: white;
+                                border-radius: 30px;
+                                border: 1px solid black;
+                                bottom: -9px;
+                            }
+                        }
+
+                        // Tablet
+                        @media(min-width: 767px) {
+                            width: 31%;
+                            margin: 8px;
+                            padding: 20px;
+                        }
+
+
+                        /* ----------------
+                        // Material Types
+                        ---------------- */
+                        &[data-result="bracelet"],
+                        &[data-result="strap"],
+                        &[data-result="buckle"] {
+                            .#{$id}-answerImage {
+                                height: 70px;
+                                width: 70px;
+                            }
+                        }
+
+                        &[data-result="metal"],
+                        &[data-result="leather"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+                            }
+
+                        }
+
+                        &[data-result="All Metals"],
+                        &[data-result="All"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #6b6b6b 0%, #ffffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+                        &[data-result="Yellow Gold"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #d2b67d 0%, #efe2c6 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Rose Gold"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #e88d82 0%, #efe2c6 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="White Gold"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #d4cfc9 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Platinum"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 5px;
+                                background: linear-gradient(to right, #949494 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Silver"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #D3D3D3 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Two Tone Gold"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #d8be89 0%, #b9b9b9 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Palladium"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #b3b3a5 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Palladium"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #b3b3a5 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Titanium"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #878681 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Stainless Steel"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #c7c7c7 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Cobalt"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #29313a 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                        &[data-result="Rhodium Plated"] {
+                            .#{$id}-answerImage {
+                                border: 1px solid #ecebeb;
+                                border-radius: 50px;
+                                height: 40px;
+                                width: 40px;
+                                margin-bottom: 8px;
+                                background: linear-gradient(to right, #29313a 0%, #ffff 100%);
+
+                                @media(min-width: 375px) {
+                                    height: 60px;
+                                    width: 60px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    height: 40px;
+                                    width: 40px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                width: 17.9%;
+                            }
+                        }
+
+                    }
+                }
+
+                // gender
+                &[step-no="1"] {
+                    height: 90vh;
+
+                    .#{$id}-innerOptions {
+                        flex-direction: column;
+
+                        .#{$id}-answer {
+                            position: relative;
+                            width: auto;
+                            border: unset;
+                            margin: unset;
+                            padding: unset;
+                            margin-bottom: 20px;
+
+                            &:hover {
+                                background: unset;
+                                border: unset;
+                            }
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                background: #f1f1f1;
+                                height: 50%;
+                                width: 100%;
+                                bottom: 5px;
+                                border-top-right-radius: 5px;
+                                border-top-left-radius: 5px;
+                            }
+
+                            .#{$id}-answerImage {
+                                height: 180px;
+                                position: relative;
+                                bottom: 5px;
+                                border-top-right-radius: 5px;
+                                border-top-left-radius: 5px;
+                                width: 90%;
+                                margin: 0 auto;
+                                background-position: center;
+                                background-size: cover;
+                                margin-bottom: 15px;
+
+                                @media(min-width: 375px) {
+                                    height: 230px;
+                                }
+
+                                @media(min-width: 1024px) {
+                                    background-size: 100%;
+                                    transition: all .5s;
+                                    height: 270px;
+                                    &:hover {
+                                        background-size: 105%;
+                                    }
+                                }
+                            }
+
+                            span {
+                                position: absolute;
+                                z-index: 9;
+                                width: 91%;
+                                background: rgba(241, 241, 241, 0.9);
+                                color: black;
+                                bottom: 20px;
+                                text-align: center;
+                                left: 50%;
+                                font-size: 16px;
+                                transform: translateX(-50%);
+                                padding: 10px;
+                            }
+                        }
+
+                        @media(min-width: 767px) {
+                            flex-direction: row;
+
+                            .#{$id}-answer {
+                                width: 47.33%;
+                                margin: 8px;
+                            }
+                        }
+                    }
+                }
+
+                &[step-no="2"] {
+                    .#{$id}-answer {
+                        width: 100%;
+                        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/4ADE7D172B67D04AA25FE2238A9F17964729075B95A69DC59D2AC48618C133CC.jpg?meta=/SG114---Valentines-Finder/vdaycatleft.jpg') no-repeat center;
+                        background-size: cover;
+                        padding: 20px;
+                        padding-left: 120px;
+                        height: 80px;
+                        border: 1px solid white;
+                        span {
+                            font-size: 20px;
+                            @media(min-width: 1024px) {
+                                font-size: 17px;
+                            }
+                        }
+                        @media(min-width: 1280px) {
+                            background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/41354E63F051019092F0EA606C36D92B7D21DE76DC01B1E5E0680864DEB93DBB.jpg?meta=/SG114---Valentines-Finder/vdaycatright.jpg') no-repeat center;
+                            background-size: cover;
+                        }
+                        
+
+                        &:nth-child(odd) {
+                            background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/41354E63F051019092F0EA606C36D92B7D21DE76DC01B1E5E0680864DEB93DBB.jpg?meta=/SG114---Valentines-Finder/vdaycatright.jpg') center no-repeat;
+                            background-size: cover;
+                            padding-right: 120px;
+                            padding-left: 0px;
+                            @media(min-width: 1280px) {
+                                background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/4ADE7D172B67D04AA25FE2238A9F17964729075B95A69DC59D2AC48618C133CC.jpg?meta=/SG114---Valentines-Finder/vdaycatleft.jpg') center no-repeat;
+                                background-size: cover;
+                                
+                            }
+
+                            span {
+                                text-align: center;
+                            }
+                        }
+
+                        .#{$id}-answerImage {
+                            display: none;
+                        }
+
+                        span {
+                            width: 100%;
+                        }
+
+                        @media(min-width: 767px) {
+                            width: 31%;
+                            padding-left: 100px;
+                            &:nth-child(odd) {
+                                padding-left: 10px;
+                                padding-right: 100px;
+                            }
+                        }
+                        @media(min-width: 1280px) {
+                            padding-right: 20px !important;
+                            padding-left: 20px !important;
+                            &:nth-child(odd) {
+                                padding-right: 20px;
+                                padding-left: 20px;
+                            }
+                        }
+                    }
+                }
+
+                &[step-no="4"] {
+                    .#{$id}-answer {
+                       
+                        padding: 20px;
+                        position: relative;
+                        &::after {
+                            content: '';
+                            content: '';
+                            height: 40px;
+                            width: 40px;
+                            position: absolute;
+                            top: -10px;
+                            left: -8px;
+                            background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/767680E9A1AD2817C0C953D1643AC50D27FC83B3A2F551EBD49C5814390F4FE8.png?meta=/SG114---Valentines-Finder/Group2.png') no-repeat;
+                            //background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/CB548F545913BF1EA66BF0A029ACBF3BBFA6446A219D84BE8270AE2A6E9DB2E2.png?meta=/SG114---Valentines-Finder/heart.png') no-repeat;
+                            background-position: center;
+                            background-size: contain;
+                            transform: rotate(-45deg);
+                        }
+                        &:nth-child(2) ,
+                        &:nth-child(3),
+                        &:nth-child(6){
+                            &::after {
+                               display: none;
+                            }
+                        }
+                        &:nth-child(4) {
+                            &::after {
+                                transform: rotate(0deg);
+                                left: auto;
+                                right: -8px;
+                             }
+                        }
+
+                        @media(min-width: 767px) {
+                            &:nth-child(2) ,
+                            &:nth-child(3),
+                            &:nth-child(6){
+                                &::after {
+                                   display: block;
+                                }
+                            }
+                            &:nth-child(4) {
+                                &::after {
+                                    transform: rotate(-45deg);
+                                    left: -8px;
+                                    right: auto;
+                                 }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            @media(min-width: 375px) {
+                .#{$id}-question {
+                    height: 81vh;
+                }
+            }
+
+            @media(min-width: 767px) {
+                .#{$id}-optionsTitle {
+                    font-size: 18px;
+                    padding-bottom: 20px;
+                    padding-top: 25px;
+                }
+            }
+        }
+
+        // desktop 
+        @media(min-width: 1024px) {
+            height: auto;
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(2000px);
+            min-height: 500px;
+            overflow: auto;
+
+            &.#{$id}-finderActive {
+                animation: SGslide-in-rightDesktop 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+
+            .#{$id}-closeFinder {
+                top: 15px;
+                right: 15px;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+            }
+
+            .#{$id}-finderTitle {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .#{$id}-container {
+                    width: 35%;
+                    margin: 0 auto;
+                    box-shadow: unset;
+                    position: relative;
+
+                    span {
+                        height: 40px;
+                        width: 40px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            .#{$id}-finderOptions {
+                .#{$id}-optionsTitle {
+                    padding-bottom: 5px;
+                    font-size: 18px;
+                }
+
+                .#{$id}-question {
+                    height: auto;
+
+                    .#{$id}-innerOptions {
+                        padding: 15px;
+                        overflow: auto;
+                        height: auto;
+
+                        .#{$id}-answer {
+                            width: 22.9%;
+                            margin: 8px;
+                            padding: 10px;
+
+                            .#{$id}-answerImage {
+                                width: 50px;
+                                height: 50px;
+                            }
+                        }
+                    }
+
+                    &[step-no="1"] {
+                        height: auto;
+                    }
+
+                    &[step-no="2"] {
+                        .#{$id}-answer {
+                            width: 31%;
+                            padding-left: 100px;
+                        }
+                    }
+
+                    &[step-no="4"] {
+                        .#{$id}-answer {
+                            width: 31%;
+                            padding: 20px;
+                        }
+                    }
+                }
+            }
+
+            .#{$id}-buttons {
+                position: relative;
+                box-shadow: unset;
+                justify-content: center;
+                padding-bottom: 10px;
+                padding-right: 20px;
+                margin-top: 20px;
+            }
+        }
+
+        @media(min-width: 1280px) {
+            width: 70%;
+            max-width: 1024px;
+
+            .#{$id}-finderTitle {
+                justify-content: center;
+
+                .#{$id}-container {
+                    width: 300px;
+                }
+            }
+        }
+    }
+
+    &.hsamuel {
+        .#{$id}-finderBox-wrapper {
+            .#{$id}-finderTitle {
+                padding-top: 10px;
+                @media(min-width: 767px) {
+                   padding: 20px;
+                }
+                span {
+                    background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/5B4BE96C509F1CF301AE922FB6E1E89B70D5900986CF307DEE25597B95324050.png?meta=/SG114---Valentines-Finder/hsheart.png');
+                    height: 40px;
+                    width: 40px;
+                }
+
+                h2 {
+                    font-family: "Montserrat", sans-serif;
+                    @media(min-width: 767px) {
+                        font-size: 26px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .#{$id}-finderOptions {
+                .#{$id}-optionsTitle {
+                    font-family: "Montserrat", sans-serif;
+                }
+
+                .#{$id}-innerOptions {
+                    .#{$id}-answer {
+                        span {
+                            font-family: "Montserrat", sans-serif;
+                        }
+                    }
+
+                    .#{$id}-answer {
+                        &.#{$id}-answer--selected {
+                            &::after {
+                                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/247B12C1D535503852ED79C0BFFEC0C0BD7BC1E50A139922314076CFB578DCAF.png?meta=/SG096---Homepage-Gift-Finder/hctick.png');
+                                background-repeat: no-repeat;
+                                background-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .#{$id}-next {
+                background: #630c15;
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .#{$id}-back {
+                font-family: "Montserrat", sans-serif;
+            }
+        }
+
+        .#{$id}-loader {
+    
+            .#{$id}-loaderContent {
+                span {
+                    height: 100px;
+                    width: 100px;
+                    display: block;
+                    background-size: contain;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/360D5709F684434EA85981FDFA3DE00224BE0679787FA8D9314E97651B5786D3.gif?meta=/SG114---Valentines-Finder/Heart-1.9s-200px.gif') center no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+        .#{$id}-finderBox-wrapper .#{$id}-finderOptions {
+            .#{$id}-question {
+                &[step-no="4"] {
+                    .#{$id}-answer {
+                        &::after {
+                            content: '';
+                            content: '';
+                            height: 40px;
+                            width: 40px;
+                            position: absolute;
+                            top: -10px;
+                            left: -8px;
+                            background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/CB548F545913BF1EA66BF0A029ACBF3BBFA6446A219D84BE8270AE2A6E9DB2E2.png?meta=/SG114---Valentines-Finder/heart.png') no-repeat;
+                            background-position: center;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

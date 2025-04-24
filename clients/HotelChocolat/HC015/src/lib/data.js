@@ -1,0 +1,92 @@
+export default {
+  // "/uk/shop/christmas/": {
+  //   1: {
+  //     prodUrl: '',
+  //     prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dwf0a83e7e/images/503721.jpg?sw=500&amp;sh=500&amp;sm=fit",
+  //     prodTitle: '<a class="name-link" href="/uk/baton-bundle-gift.html" title="The All About Batons Collection"><span class="product-name-24">Salted Caramel & Clement…</span><span class="product-name-40">Salted Caramel &amp; Clementine Hot Chocola…</span></a>',
+  //     prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£24.00</span><span class="null" title="null"></span></div>',
+  //     prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/joly-penguin-h-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:99%"></div></div></a></div>',
+  //    },
+  //   2: {
+  //     prodUrl: '',
+  //     prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw4f6b6b02/images/310492.jpg?sw=500&amp;sh=500&amp;sm=fit",
+  //     prodTitle: '<a class="name-link" href="/uk/baton-bundle-gift.html" title="The All About Batons Collection"><span class="product-name-24">Jolly Christmas Penguin …</span><span class="product-name-40">Jolly Christmas Penguin – Milk Chocolat…</span></a>',
+  //     prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£24.00</span><span class="null" title="null"></span></div>',
+  //     prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/joly-penguin-h-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:99%"></div></div></a></div>',
+  //   },
+  //   3: {
+  //     prodUrl: '',
+  //     prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw15b870b2/images/503821.jpg?sw=500&amp;sh=500&amp;sm=fit",
+  //     prodTitle: '<a class="name-link" href="/uk/baton-bundle-gift.html" title="The All About Batons Collection"><span class="product-name-24">Salted Caramel Vodka Liqueur…</span><span class="product-name-40">Salted Caramel Vodka Liqueur…</span></a>',
+  //     prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£24.00</span><span class="null" title="null"></span></div>',
+  //     prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/joly-penguin-h-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:99%"></div></div></a></div>',
+  //   },
+  //   4: {
+  //     prodUrl: '',
+  //     prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw9707f275/images/358176.jpg?sw=500&amp;sh=500&amp;sm=fit",
+  //     prodTitle: '<a class="name-link" href="/uk/baton-bundle-gift.html" title="The All About Batons Collection"><span class="product-name-24">The Enrobed Fruits Collection – Figs, C…</span><span class="product-name-40">The Enrobed Fruits Collection – Figs, C…</span></a>',
+  //     prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£24.00</span><span class="null" title="null"></span></div>',
+  //     prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/joly-penguin-h-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:99%"></div></div></a></div>',
+  //   },
+  // },
+  "/uk/shop/collections/products/all-products/": {
+    1: {
+      prodUrl: '/uk/velvetiser-hot-chocolate-maker.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dwab63b057/images/472727-2a.jpg?sw=500&sh=500&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/velvetiser-hot-chocolate-maker.html" title="The Velvetiser - Charcoal Edition"><span class="product-name-24">The Velvetiser - Charcoal Ed…</span><span class="product-name-40">The Velvetiser - Charcoal Ed…</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£99.95</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/velvetiser-hot-chocolate-maker.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:97%"></div></div></a></div>',
+     },
+    2: {
+      prodUrl: '/uk/everything-chocolate-box.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw8ac9cfd0/images/260740-everything-sleekster.jpg?sw=875&sh=875&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/everything-chocolate-box.html" title="The Everything Sleekster Chocolate Gift Box"><span class="product-name-24">The Everything Sleekster Choc…</span><span class="product-name-40">The Everything Sleekster Choc…</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£22.95</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/everything-chocolate-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:98%"></div></div></a></div>',
+    },
+    3: {
+      prodUrl: '/uk/everything-chocolate-collection-hamper.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw8696a82c/images/358074.jpg?sw=875&sh=875&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/everything-chocolate-collection-hamper.html" title="The Everything Chocolate Gift Hamper Collection"><span class="product-name-24">The Everything Chocolate Gift H…</span><span class="product-name-40">The Everything Chocolate Gift H…</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£27.50</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/everything-chocolate-collection-hamper.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:97%"></div></div></a></div>',
+    },
+    4: {
+      prodUrl: '/uk/velvetiser-hot-chocolate-machine.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw426a7268/images/472726-2.jpg?sw=500&sh=500&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/velvetiser-hot-chocolate-machine.html" title="The Velvetiser - Copper Edition"><span class="product-name-24">The Velvetiser - Copper Ed…</span><span class="product-name-40">The Velvetiser - Copper Ed…</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£99.95</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/velvetiser-hot-chocolate-machine.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:97%"></div></div></a></div>',
+    },
+  },
+  "/uk/shop/collections/dietary/vegan-chocolate/": {
+    1: {
+      prodUrl: '/uk/dark-selector-collection-bundle-gift-ws.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw4db554a3/images/358117.jpg?sw=500&sh=500&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/dark-selector-collection-bundle-gift-ws.html" title="The Selectors Collection – High-Cacao"><span class="product-name-24">The Selectors Collection – H…</span><span class="product-name-40">The Selectors Collection – H…</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£20.00</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/dark-selector-collection-bundle-gift-ws.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:99%"></div></div></a></div>',
+     },
+    2: {
+      prodUrl: '/uk/vegan-chocolate-box.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw36b5b0dc/images/263317.jpg?sw=500&sh=500&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/vegan-chocolate-box.html" title="Vegan H-box"><span class="product-name-24">Vegan H-box</span><span class="product-name-40">Vegan H-box</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£12.95</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/vegan-chocolate-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:94%"></div></div></a></div>',
+    },
+    3: {
+      prodUrl: '/uk/luxury-vegan-chocolate-box.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dwd303e4ad/images/263316.jpg?sw=875&sh=875&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/luxury-vegan-chocolate-box.html" title="Vegan Sleekster"><span class="product-name-24">Vegan Sleekster</span><span class="product-name-40">Vegan Sleekster</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£22.95</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/luxury-vegan-chocolate-box.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:96%"></div></div></a></div>',
+    },
+    4: {
+      prodUrl: '/uk/free-from-milk-chocolate-easter-egg.html',
+      prodImg: "https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw80f13aec/images/300718.jpg?sw=875&sh=875&sm=fit",
+      prodTitle: '<a class="name-link" href="/uk/free-from-milk-chocolate-easter-egg.html" title="Free From Milk-Soft Boiled Egg"><span class="product-name-24">Free From Milk-Soft B…</span><span class="product-name-40">Free From Milk-Soft B…</span></a>',
+      prodPrice: '<div class="product-pricing"><span class="product-sales-price" title="Sale Price">£10.00</span><span class="null" title="null"></span></div>',
+      prodStars: '<div class="product-review-links product-review product-review-links-top"><a href="/uk/free-from-milk-chocolate-easter-egg.html" class="review-link"><div class="stars-rating"><div class="stars-rating-base"></div><div class="stars-rating-filled" style="width:94%"></div></div></a></div>',
+    },
+  },  
+};

@@ -1,0 +1,66 @@
+.#{$id} {
+	.#{$id}-hero-banner {
+		margin-top: 40px;
+		margin-bottom: 40px;
+
+		@include media($m-medium) {
+			margin-top: 0;
+			margin-bottom: 60px;
+		}
+	}
+
+	.#{$id}-hero-banner__container {
+		@include reset;
+
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		align-items: center;
+		justify-items: center;
+		text-align: center;
+
+		@include media($m-medium) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 50px;
+			justify-items: left;
+			text-align: left;
+		}
+	}
+
+	.#{$id}-hero-banner__content {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 30px;
+		justify-items: center;
+
+		@include media($m-medium) {
+			gap: 50px;
+			justify-items: left;
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+
+		&-title {
+			@include heading-1;
+		}
+
+		&-subtitle {
+			@include heading-2;
+		}
+	}
+
+	.#{$id}-hero-banner__image {
+		display: none;
+
+		@include media($m-medium) {
+			display: block;
+			height: 100%;
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}

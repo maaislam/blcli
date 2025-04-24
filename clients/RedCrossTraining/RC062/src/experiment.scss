@@ -1,0 +1,220 @@
+@import './variables';
+
+.#{$id} {
+  overflow-x: hidden !important;
+
+  &.#{$id}-homepage {
+    .#{$id}-course-finder-wrapper {
+      background-color: #FFF;
+    }
+  }
+
+  .#{$id}-course-finder-wrapper {
+    padding: 5.5rem 2rem 5rem;
+    text-align: center;
+    background-color: #f6f6f6;
+
+    display: block !important;
+    position: relative;
+
+    .#{$id}-header__wrapper {
+      display: inline-block;
+      width: 100%;
+
+      width: 90%;
+      margin: auto;
+      // padding: 3rem;
+      
+      .#{$id}-header__title{
+        font-weight: 800;
+        font-size: 1.5em;
+        padding: 0 2rem 2rem 2rem;
+      }
+      .#{$id}-header__subtitle{
+        padding: 0 2rem 2rem 2rem;
+      }
+    }
+    .#{$id}-header__error {
+      color: #d0021b !important;
+      font-size: .8em;
+      font-style: italic;
+      position: relative;
+      top: 10px;
+      &.disable {
+        visibility: hidden;
+      }
+    }
+    .course-finder-fields {
+      display: inline-block;
+      width: 50% !important;
+      text-align: right;
+      
+      .course-finder-input {
+        width: 49% !important;
+        max-width: 49% !important;
+        display: inline-block !important;
+      }
+    }
+    
+    .location-search-button {
+      max-width: 30% !important;
+      display: inline-block !important;
+
+      button.cta {
+        a {
+          color: #FFF;
+          text-decoration: none !important;
+          border: none !important;
+
+          // -- Disable a tag
+          &.disabled {
+            pointer-events: none;
+            cursor: default;
+          }
+        }
+        &:hover, &:focus {
+          a {
+            color: #d0021b !important;
+          }
+          
+        }
+      }
+    }
+  }
+
+  // ---- Course Search Page
+  input#location {
+    &.#{$id}-highlight {
+      border: .3rem solid #05853a !important;
+      padding: .8rem 1.9rem !important;
+    }
+  }
+  .location-search-button {
+    .#{$id}-message {
+      position: absolute;
+      color: #05853a;
+      margin-top: 5px;
+      right: 19.5vw;
+    }
+  }
+  // --- MOBILE / TABLET
+  @media screen and (max-width: 604px) {
+    .#{$id}-course-finder-wrapper {
+      .#{$id}-header__wrapper {
+        text-align: left !important;
+        margin-left: -30px;
+
+        .#{$id}-header__title{
+          padding: 0 2rem 2rem 0;
+        }
+        .#{$id}-header__subtitle{
+          padding: 0 2rem 2rem 0;
+        }
+        .#{$id}-header__error {
+          color: #d0021b !important;
+          font-size: .8em;
+          font-style: italic;
+          position: relative;
+          bottom: 10px;
+          &.disable {
+            visibility: hidden;
+          }
+        }
+      }
+
+      .course-finder-fields {
+        width: 100% !important;
+      }
+      .location-search-button {
+        max-width: 100% !important;
+        padding-top: 20px;
+      }
+    }
+    
+
+    // Message
+    .component.venue-list {
+      margin-top: 20px;
+    }
+  }
+
+  // Error Message - Invalid Fields
+  select#productId, input#location {
+    &.error {
+      border: 1.3px solid #d0021b !important;
+    }
+  }
+
+  // Message Bubble
+  form#form-course-finder {
+    position: relative;
+  }
+  .#{$id}-speech-bubble {
+    display: inline-block;
+    background: #f6f6f6;
+    border-radius: .4em;
+    display: block;
+    position: relative;
+    width: auto;
+    max-width: 320px;
+    height: 60px;
+    // bottom: -60px;
+    left: 30%;
+    top: 20px;
+    box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.75);
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-bottom-color: #f6f6f6;
+      border-top: 0;
+      border-left: 0;
+      margin-left: -10px;
+      margin-top: -20px;
+    }
+
+    &.hide {
+      display: none;
+    }
+
+    .#{$id}-speech-bubble__text {
+      position: relative;
+      top: 25%;
+    }
+    .#{$id}-speech-bubble__close {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      position: relative;
+      right: -15px;
+      top: 25%;
+      color: #FFF;
+      background-image: url('//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/771ffc36010582e4052883e3f458358a_close-button.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media screen and (max-width: 604px) {
+    .#{$id}-speech-bubble {
+      left: 1% !important;
+      top: -80px !important;
+      z-index: 9999;
+    }
+
+    @media screen and (max-width: 320px) {
+      .#{$id}-speech-bubble__close {
+        right: -5px !important;
+      }
+    }
+  }
+}

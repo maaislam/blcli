@@ -1,0 +1,163 @@
+@import "../../../_variables";
+
+$component: "#{$id}_VariantSelectorPLP";
+
+.#{$id} {
+  .#{$id}_ctaWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
+
+    .ProductAction {
+      flex-basis: 140px;
+      margin-right: 12px;
+
+      .Quantity {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  .#{$component} {
+    width: 100%;
+    transition: height 0.5s;
+
+    .Border {
+      width: 62px;
+      height: 62px;
+      border: 2px solid silver;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+      border-radius: 50%;
+      padding: 16px 8px;
+      overflow: hidden;
+    }
+
+    .Cropper {
+      border-radius: 8px;
+      background-repeat: no-repeat;
+      background-size: 150%;
+      background-position: 50% 50%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .#{$component}--VariantSelected {
+    .Border {
+      border: 3px solid #7435bd;
+    }
+  }
+
+  .#{$component}selectedVariantLabel {
+    span {
+      font-weight: bold;
+      @media (min-width: 769px) {
+        display: block;
+      }
+    }
+  }
+
+  .#{$component}Variants {
+    list-style-type: none;
+    margin: 0;
+    width: 85%;
+    margin: 0 auto;
+    padding: 5px 0 0;
+    text-align: center;
+    position: relative;
+
+    .#{$component}arrowLeft,
+    .#{$component}arrowRight {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .#{$component}arrowRight {
+      left: auto;
+      right: -20px;
+      top: calc(50% - 8px);
+      transform: rotate(180deg);
+    }
+
+    ul {
+      max-width: 280px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    > ul > li {
+      margin: 0;
+      padding: 0;
+      margin: 4px;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+
+      &.Selected .Border {
+        border: 3px solid #7435bd;
+      }
+    }
+  }
+
+  &.Layout_Tablet {
+    .#{$component}Variants > ul > li {
+      margin: 4px 2px;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component}Variants > ul > li {
+      margin: 5px;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

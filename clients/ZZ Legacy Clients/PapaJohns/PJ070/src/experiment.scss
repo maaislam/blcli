@@ -1,0 +1,257 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-included {
+    // Hide Control Elements
+    select.variationDropDown.ddlVariation {
+      display: none !important;
+    }
+
+    // Hide Add Cta
+    .menuListCont.menuListPRPizza.menuListContH {
+      p.buttons {
+        a.greenButton {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  // --- Show New Elements
+  // ---- only when lightbox is open
+  .#{$id}-included.menuList {
+    // .menuListCont.menuListPRPizza {
+
+    // }
+
+    &.#{$id}-elements {
+      .menuListCont.menuListPRPizza {
+        .pnlFreeDips {
+          display: none;
+        }
+
+        label.#{$id}-quantityLabel.#{$id}-label {
+          display: none;
+        }
+        .quantity {
+          display: none;
+        }
+
+        .#{$id}-addToCart__wrapper {
+          display: none;
+        }
+
+        // background-color: lightcoral;
+
+        &.menuListContH {
+          // background-color: lightblue;
+          .pnlFreeDips {
+            display: block !important;
+          }
+
+          label.#{$id}-quantityLabel.#{$id}-label {
+            display: inline-block !important;
+          }
+          .quantity {
+            display: inline-block !important;
+          }
+
+          .#{$id}-addToCart__wrapper {
+            display: block !important;
+          }
+        }
+      }
+    }
+  }
+
+  // ---------------------------
+
+  .menuItems {
+    padding: 5% !important;
+  }
+  .menuListContH {
+    width: 110% !important;
+  }
+
+  .menuList .quantCustomise .variationDropDown {
+    // font-size: 12px;
+    height: 33px;
+    font-size: .9em;
+    width: 66%;
+
+    option {
+      font-size: .9em;
+    }
+  }
+
+  // Labels
+  .#{$id}-label {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  input.quantity {
+    float: none;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    font-size: .8em;
+    margin-bottom: 1rem;
+  }
+  label.#{$id}-quantityLabel {
+    margin-right: 10px;
+    font-family: 'Roboto Condensed',sans-serif;
+  }
+
+  .#{$id}-pickPortion__label {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+  }
+  .#{$id}-pickPortion__btns {
+    width: 100%;
+    .#{$id}-btn {
+      display: inline-block;
+      width: 45%;
+      // width: 42%;
+      border: 1px solid #F1F1F1;
+      border-radius: 22px;
+      padding: 5px 5px;
+      text-align: center;
+      font-size: .85em;
+      background-color: #FFF;
+      // min-height: 33px;
+      // font-size: .8em;
+
+      &.#{$id}-btn__larger {
+        width: 46%;
+        min-height: 35px;
+        font-size: .8em;
+      }
+      &.selected {
+        background-color: #007a53;
+        color: #FFF;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  // Add to Basket button
+  .#{$id}-addToCart__wrapper {
+    width: 100%;
+    .#{$id}-addToCart {
+      display: block;
+      width: 100%;
+      margin: auto;
+
+      line-height: 30px!important;
+      background-color: #007a53;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: 'Roboto Condensed',sans-serif;
+      text-decoration: none;
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+
+      &.inactive {
+        filter: blur(.6px);
+        opacity: .5;
+
+        &:hover {
+          cursor: not-allowed;
+          transform: scale(1) !important;
+        }
+      }
+    }
+  }
+  .dip-selection-box p.inputs {
+    position: relative;
+
+    &.success {
+      &:before {
+        display: inline-block;
+        content: '';
+        background-image: url('https://editor-assets.abtasty.com/43831/5d710c5d9dfb31567689821.png');
+        width: 15px;
+        height: 15px;
+        // background-color: lightcoral;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 56%;
+        top: 10px;
+      }
+      select.variationDropDown.ddlFreeDip {
+        width: 66% !important;
+        background-color: #007a53;
+        color: #FFF;
+      }
+    }
+    
+  }
+
+
+  // Quantity Input - Tooltip
+  div.#{$id}-input__tooltip {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    // background-color: blue;
+    // position: absolute;
+    // right: 6px;
+    // top: 87%;
+    margin-left: 4px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5cf7e6b7b92b81559750327.png');
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  div.#{$id}-input__tooltip .#{$id}-message {
+    // visibility: hidden;
+    width: 260px;
+    height: auto;
+    background-color: #F1F1F1;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 0;
+    // visibility: visible;
+  
+    /* Position the tooltip */
+    position: absolute;
+    // right: 25%;
+    left: 40%;
+    // bottom: -70px;
+    z-index: 1000 !important;
+
+    p {
+      margin-bottom: 5px !important;
+    }
+    .openingHours {
+      display: block !important;
+      transform: scale(.9) !important;
+      div p {
+        span.day, span.hour {
+          display: inline-block !important;
+          width: auto !important;
+          float: none !important;
+        }
+      }
+    }
+  }
+  
+  div.#{$id}-hours__tooltip:hover .#{$id}-tooltiptext {
+    visibility: visible;
+  }
+  
+}

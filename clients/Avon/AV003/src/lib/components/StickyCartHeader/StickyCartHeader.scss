@@ -1,0 +1,94 @@
+@import '../../../variables';
+
+.#{$id} {
+  .#{$id}_StickyCartHeader {
+    position: static;
+    width: 100%;
+    padding: 10px;
+    background: #ec008c;
+    color: white;
+    z-index: 10;
+    @at-root .mobile #{&}{
+      position: fixed;
+      left:0;
+      bottom:0;
+      top:unset!important;
+      .#{$id}_StickyCartHeader_summary{
+        display:block;
+        width:100%;
+        span:not(.#{$id}_StickyCartHeader_itemCount):not(#AV003_StickyCartHeader_subtotal){
+          display: inline-block;
+          width: calc(50% - 2px);
+          text-align: center;
+          margin:0;
+          font-weight: bold;
+        }
+        h2{
+          display: none;
+        }
+      }
+      .#{$id}_StickyCartHeader_ctas{
+        display:block;
+        width:100%;
+        text-align: center;
+        margin-top:10px;
+        .#{$id}_updateCart, .#{$id}_checkOut{
+          font-family: Arial, Helvetica, sans-serif;
+          font-style: normal;
+        }
+      }
+    }
+    @at-root #{&}--wrap{
+      max-width: 967px;
+      margin: 0 auto;
+      font-size:0;
+    }
+    &.#{$id}_StickyCartHeader--fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .Button:not(.Alt) {
+      border:1px solid #fff;
+    }
+    .Button.Alt{
+      margin-left:10px;
+    }
+    .Button {
+      margin: 0;
+    }
+  }
+
+  @at-root #{&}_paymentBlock{
+    text-align: right;
+    padding-top: 30px;
+  }
+
+  .#{$id}_StickyCartHeader_summary {
+    display: inline-block;
+    vertical-align: middle;
+    width: 66.66666%;
+    > h2,
+    > span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    > h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    > span {
+      margin: 0 20px;
+      font-size: 16px;
+    }
+  }
+
+  .#{$id}_StickyCartHeader_ctas {
+    display: inline-block;
+    vertical-align: middle;
+    width: 33.33333%;
+    text-align: right;
+  }
+}

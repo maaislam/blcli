@@ -1,0 +1,99 @@
+// slick css for any pages that don't contain slick
+// we use the body class we have added to make sure it only runs if slick is not present on the page
+.noslick .slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:0}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir=rtl] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
+
+// hide the original banner
+#header-promo-banner {
+   display: none !important; // important makes it override any styling that is seen as a higher priority
+}
+.uspbar {
+    background-color: #f3e3ad;
+    height: 71px;
+    max-height: 71px; // set min height to 71px
+    margin: 0;
+    box-sizing: border-box; // stops padding making height bigger
+}
+
+.uspbar ul {
+    list-style: none; // removes bullet points
+    padding: 0; // overwrites initial ul styling
+    margin: 0 auto;
+    max-width: 1280px; // stops the usps stretching on larger screen sizes
+    height: 100%;
+
+    // centers the content
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.uspbar ul li {
+    width: 33.33%; // makes the usps equal width and takes up the full parent element
+}
+
+.uspbar ul li a {
+    display: flex !important;  // flex makes it easier to build the layout https://www.w3schools.com/css/css3_flexbox.asp 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+// sets the height and width of the image
+.uspbar ul li span {
+    height: auto;
+    width: 35px;
+    margin-right: 10px; // adds spacing between the image and text
+}
+
+// makes the image fit the full height and width of the parent to avoid the image stretching
+.uspbar ul li span img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+// text styling
+.uspbar ul li p {
+    font-family: 'GillSansNova-Bold';
+    letter-spacing: 1px;
+}
+
+// overwrite slick styling to center the usps
+.uspbar .slick-list {
+    height: 100%;
+}
+.uspbar .slick-track {
+    height: 100%;
+}
+
+
+// Tablet styling
+@media screen and (min-width: 767px) {
+    .uspbar .usps{
+        display: flex; 
+        flex-direction: row;
+    }
+
+    .uspbar ul li p {
+        font-size: 10px; // same as control
+    }
+}
+
+// Large Tablet, Small Desktop styling
+@media screen and (min-width: 1024px) {
+    .uspbar ul li span {
+        width: 50px;
+    }
+    .uspbar ul li p {
+        font-size: 14px; // same as control
+    }
+}
+
+// Desktop Styling
+@media screen and (min-width: 1280px) {
+    .uspbar ul li p {
+        font-size: 16px; // same as control
+    }
+    .uspbar ul li span {
+        width: 60px;
+    }
+}

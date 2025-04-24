@@ -1,0 +1,144 @@
+@import '_mixins.scss';
+.AC025 {
+  .AC025_pop-up_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    background: rgba(#000, 0.7);
+    display: none;
+    box-sizing: border-box;
+    * {
+      box-sizing: border-box;
+    }
+    .AC025_body_click {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    &.AC025_loader-toggle {
+      .AC025_loader {
+        opacity: 0;
+      }
+      .AC025_inner_div {
+        opacity: 1;
+      }
+    }
+    .AC025_loader {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      top: 50%;
+      left: 50%;
+      margin: -70px 0 0 -70px;
+      z-index: 15;
+      opacity: 1;
+      @include anim(400ms, def, (opacity));
+    }
+    .AC025_inner_div {
+      position: absolute;
+      width: calc(100% - 40px);
+      height: auto;
+      left: 50%;
+      top: 50%;
+      max-width: 900px;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 15px 10px 30px 20px;
+      z-index: 20;
+      opacity: 0;
+      @include anim(400ms, def, (opacity));
+      .AC025_overflow_fix {
+        >h2 {
+          text-align: center;
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+        >div {
+          overflow-y: scroll;
+          max-height: 480px;
+          max-height: calc(100vh - 300px);
+          @media (min-width: 768px) {
+            max-height: 800px;
+            max-height: calc(100vh - 300px);
+          }
+          h2 {
+            font-size: 24px;
+          }
+          h3 {
+            font-size: 20px;
+          }
+          h4 {
+            font-size: 17px;
+          }
+        }
+      }
+      .AC025_overflow_fix>div::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+      .AC025_overflow_fix>div::-webkit-scrollbar:vertical {
+        width: 11px;
+      }
+      .AC025_overflow_fix>div::-webkit-scrollbar:horizontal {
+        height: 11px;
+      }
+      .AC025_overflow_fix>div::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid white;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .AC025_overflow_fix>div::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 8px;
+      }
+    }
+    .AC025_close_btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      text-transform: uppercase;
+      background: #000;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      font-size: 14px;
+      text-align: center;
+      font-family: Arial;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+  .AC025_modal-ajax {
+    position: absolute;
+    top: 0;
+    width: 33.3333%;
+    height: 100%;
+    left: 0;
+    z-index: 999;
+    cursor: pointer;
+    &:hover+ {
+      .more-info-link {
+        background: white;
+      }
+    }
+  }
+  .AC025_go-to {
+    background: #136CAA;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    padding: 0 15px;
+    margin: 25px auto 0;
+    display: block;
+    width: 140px;
+  }
+}

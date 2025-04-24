@@ -1,0 +1,264 @@
+@import './variables';
+
+.#{$id} {
+
+  .TopNavBar {
+    z-index: 999;
+  }
+
+  .ToplinksGroup .search #txtSearch {
+    color: transparent;
+  }
+
+  .FL088-searchContainer {
+    position: absolute;
+    top: -2000px;
+    top: -120vh;
+    left: 0; right: 0;
+    height: 100vh;
+    width: 100%;
+    padding: 0 7.5%;
+    z-index: 99;
+    background-color: rgba(000, 000, 000, 0.4);
+    font-family: 'GothamHTF-Book',Arial,Helvetica,sans-serif !important;
+    text-transform: uppercase;
+    visibility: hidden;
+    opacity: 0;
+    transition: ease-in all .3s;
+
+    &.FL088-active {
+      top: 100%;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    .FL088-wrap {
+      padding: 25px 25px 35px;
+      background-color: #fff;
+      position: relative;
+
+      > h2 {
+        text-align: center;
+        margin-top: 25px;
+      }
+
+    }
+
+    .FL088-ib, .FL088-product {
+      display: inline-block;
+      vertical-align: top;
+
+      h2 {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-family: 'GothamHTF-Book',Arial,Helvetica,sans-serif !important;
+      }
+
+    }
+    
+    .FL088-ib {
+      width: calc(100% - 320px);
+      // border-top: 1px solid #000000;
+      margin-top: 20px;
+    }
+    .FL088-ib:last-of-type {
+      width: 300px;
+    }
+
+    @media only screen and (max-width: 769px) {
+      .FL088-ib {
+        display: block;
+        width: 100%;
+        margin: 20px auto;
+      }
+      .FL088-wrap {
+        padding: 15px 20px 30px;
+      }
+    }
+
+    .FL088-product {
+      width: calc(100% / 3 - 20px);
+      text-align: center;
+      position: relative;
+
+      > a {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        margin-top: 15px;
+        #lblProductBrand {
+          font-size: .8em;
+        }
+        span.prodTitle {
+          font-size: .7em;
+          display: block;
+        }
+      }
+      
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    .FL088-brandList {
+      li {
+        display: inline-block;
+        width: calc(100% / 2 - 5px);
+        text-align: center;
+        margin: 20px auto;
+        a {
+          text-transform: uppercase;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .FL088-search {
+      border-bottom: 1px solid #919191;
+      padding-bottom: 30px;
+    }
+
+    .FL088-recentProducts {
+      text-align: center;
+      .FL088-product {
+        margin: 0 8px;
+      }
+    }
+
+    // No storage
+    ul.FL088-noStorage {
+      text-align: center;
+      padding: 20px;
+      li {
+        display: inline-block;
+        width: calc(100% / 3 - 5px);
+        margin-bottom: 18px;
+        a {
+          text-decoration: underline;
+          text-transform: capitalize;
+          font-size: 13px;
+        }
+      }
+    }
+
+    // Search
+    .dvSearch {
+      text-align: center;
+      padding: 20px 10px 0;
+      float: none;
+
+      input[type="search"] {
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #000000;
+        width: 36%;
+        padding: 10px 30px;
+        font-size: 1.2em;
+      }
+
+      #cmdSearch {
+        display: none;
+      }
+
+      .search-icon {
+        background-size: 500px 500px;
+        background-position: -91px -3px;
+        font-size: 11px;
+        height: 30px;
+        width: 30px;
+        background-image: url('https://www.flannels.com/images/core/flannels-new-sheet-v4.svg');
+        background-repeat: no-repeat;
+        position: absolute;
+      }
+
+    }
+
+    @media only screen and (max-width: 769px) { 
+      padding: 0;
+      padding-bottom: 30px;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+       
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+       
+      &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+      }
+      .dvSearch input[type="search"] {
+        width: 80% !important;
+      }
+
+      .FL088-product:last-of-type {
+        display: none;
+      }
+      .FL088-recentProducts {
+        text-align: center;
+        .FL088-product {
+          width: calc(100% / 2 - 4px);
+          margin: 0;
+        }
+      }
+    }
+
+  }
+
+  .FL088-close {
+    position: absolute;
+    background-image: url('https://www.flannels.com/images/core/flannels-new-sheet-v4.svg');
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    top: 10px; right: 15px;
+    background-size: 450px 450px;
+    background-position: -72px -48px;
+    // background-color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    transform: scale(1.5);
+    z-index: 999;
+    // -webkit-transition: all 100ms linear 0s;
+    // -moz-transition: all 100ms linear 0s;
+    // -ms-transition: all 100ms linear 0s;
+    // -o-transition: all 100ms linear 0s;
+    // transition: all 100ms linear 0s;
+  }
+
+
+  @media only screen and (max-width: 479px) {
+    .FL088-searchContainer.FL088-active {
+      top: calc(100% + 35px);
+      background-color: #fff;
+    }
+    .MobSearchDropDown {
+      z-index: 9999 !important;
+    }
+    .FL088-search {
+      display: none;
+    }
+  }
+
+}
+
+
+body.FL088-noScroll {
+  margin: 0; height: 100%; overflow: hidden
+}

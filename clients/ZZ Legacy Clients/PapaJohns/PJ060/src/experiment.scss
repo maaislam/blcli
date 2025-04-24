@@ -1,0 +1,344 @@
+@import './variables';
+
+.#{$id} {
+  .fancybox-inner {
+    overflow: hidden !important;
+  }
+  // Hide - Sign In Control button
+  #ctl00_cphBody_lbSignInPopup {
+    display: none !important;
+  }
+  // Hide - Reset Password Control button
+  #ctl00_cphBody_lbForgottenPassword, #ctl00_cphBody_lbForgottenPass {
+    display: none;
+  }
+  // Hide Captcha
+  #captcha_container {
+    // display: none !important;
+    display: none;
+    position: relative;
+    bottom: 20px;
+    left: 33%;
+
+    &.show {
+      display: block !important;
+    }
+  }
+
+  // Sign In Error message position 
+  #ctl00_cphBody_pnlLoginError {
+    margin-top: -2%;
+    span {
+      //// test
+      // display: none;
+    }
+  }
+
+  #fancySignIn .fancySignInCont {
+    // Not Registered - Right Section
+    .guestPopUp {
+      display: none;
+    }
+    // #ctl00_cphBody_lbGuest  - Continue As Guest
+
+    #ctl00_cphBody_pnlSignInNormal {
+      #ctl00_cphBody_pnlLogin {
+        width: 100%;
+        text-align: center;
+
+        // Email Field
+        .PJ060-email__wrapper {
+          display: none;
+          margin-top: 5%;
+          padding-right: 5%;
+
+          label {
+            &:after {
+              display: inline-block;
+              content: '*';
+              color: #da291c;
+            }
+          }
+          &.show {
+            display: block;
+          }
+
+          &:after {
+            display: block;
+            content: '(for your order confirmation)';
+            padding-left: 5%;
+            padding-top: 1%;
+            font-size: 0.95em;
+          }
+        }
+
+        // Password Field
+        .PJ060-password__wrapper {
+          display: none;
+          margin-top: 5%;
+          padding-right: 5%;
+          position: relative;
+
+          &.show {
+            display: block;
+          }
+          label {
+            &:after {
+              display: inline-block;
+              content: '*';
+              color: #da291c;
+            }
+          }
+          // Show Password
+          span.PJ060-showPwd {
+            display: inline-block;
+            content: '';
+            width: 22px;
+            height: 25px;
+            background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5ca3a204ee6eb1554227716.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            margin-right: 10px;
+            vertical-align: middle;
+            filter: opacity(1);
+            position: absolute;
+            left: 71%;
+            bottom: 6px;
+            z-index: 9;
+
+            &:hover {
+              cursor: pointer;
+            }
+        
+            &.clicked {
+              filter: opacity(.4);
+            }
+          }
+        }
+        
+        // Forgotten Password link
+        .PJ060-forgottenPwd {
+          display: none;
+          color: #000;
+          font-size: 1em;
+          padding-right: 10%;
+
+          &.PJ060-forgottenPwd__errorStep {
+            padding-right: 0px;
+          }
+          &.show {
+            display: block;
+          }
+        }
+
+        // Description
+        .PJ060-description__wrapper {
+          display: none;
+
+          &.show {
+            display: block;
+          }
+          
+          .PJ060-description {
+            font-weight: 600;
+  
+            &.first-line {
+              font-size: 1.4em;
+            }
+            &.second-line {
+              font-size: 1.6em;
+            }
+          }
+        }
+      }
+    }
+    // Continue button - Error Messages
+    #PJ060-LoginError, #PJ060-CaptchaError {
+      display: none;
+      margin-top: 0px;
+      position: relative;
+      top: -10%;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    #PJ060-PwdLoginError {
+      display: none;
+      margin-bottom: 5px !important;
+      margin-top: 10px !important;
+
+      &.show {
+        display: block;
+      }
+    }
+    #PJ060-CaptchaError {
+      top: -7%;
+    }
+    // Step 1 - Continue
+    .PJ060-continue__container {
+      margin-bottom: 10px;
+      margin-top: -20px;
+      .PJ060-continue__btn {
+        width: 204px;
+        background-color: #007a53;
+        color: #FFF;
+        margin: auto;
+        padding: 8px 6px 8px 6px;
+
+        &#PJ060-signInErrorStep {
+          margin-top: 30px;
+        }
+        &:hover {
+          cursor: pointer;
+          opacity: 0.9;
+        }
+      }
+    }
+    // Step 2 - Continue Sign In
+    .PJ060-buttons__container {
+      display: none;
+      border-top: 1px solid #B8B8B8;
+      width: 80%;
+      margin: auto;
+      padding-top: 20px;
+
+      &.show {
+        display: block;
+      }
+
+      .PJ060-continue__signIn {
+        display: inline-block;
+        background-color: #777777;
+        color: #FFF;
+        padding: 8px 25px 8px 25px;
+
+        &:hover {
+          cursor: pointer;
+          opacity: .9;
+        }
+
+        &#PJ060-continueAndRegister {
+          margin-right: 30px;
+        }
+        &#PJ060-continueAsGuest {
+          margin-left: 30px;
+        }
+      }
+    }
+
+    .PJ060-line {
+      display: none;
+
+      &.show {
+        display: block;
+      }
+      p {
+        font-weight: 500;
+      }
+    }
+  }
+
+  // Sign In button
+  a#ctl00_cphBody_lbSignInPopup {
+    // display: none;
+  }
+
+  // Step 2a - Forgotten Password request
+  #ctl00_cphBody_pnlForgottenPassword {
+    width: 100%;
+    text-align: center;
+
+    // Email Input
+    #ctl00_cphBody__txtEmail {
+      margin-top: 5%;
+      padding-right: 5%;
+    }
+
+    // Reset Button
+    .PJ060-reset__btn {
+      width: 204px;
+      background-color: #007a53;
+      color: #FFF;
+      margin: auto;
+      padding: 8px 6px 8px 6px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    }
+
+    // Reset button - Error Messages
+    #PJ060-ResetPwdError {
+      display: none;
+      margin-top: 0px;
+      position: relative;
+      top: -2%;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    // Success Message
+    .PJ060-message__success {
+      display: block;
+      margin: auto;
+      margin-top: 2%;
+      margin-bottom: -2%;
+      border: 2px solid #007A53;
+      border-radius: 6px;
+      padding: 5px 0px 0px 0px;
+      margin-bottom: -3% !important;
+      width: 70% !important;
+
+      &.hidden {
+        display: none;
+      }
+    }
+    // Error Message
+    .PJ060-message__error {
+      display: block;
+      margin-top: 2%;
+      margin-bottom: -2%;
+      color: #da291c;
+
+      &.hidden {
+        display: none;
+      }
+    }
+
+    // Continue Checkout buttons
+    .PJ060-buttons__container {
+      display: block !important;
+      margin-top: 5% !important;
+
+      .PJ060-continue__signIn {
+        &#PJ060-continueAndRegister_2 {
+          margin-right: 30px;
+        }
+        &#PJ060-continueAsGuest_2 {
+          margin-left: 30px;
+        }
+      }
+    }
+
+    // Return to Sign In link
+    #ctl00_cphBody_lbReturnToSignIn {
+      color: #000 !important;
+      font-size: 1em;
+      padding-left: 33%;
+      width: 130px;
+      margin-bottom: 25px;
+    }
+  }
+  
+  #PJ060-signInErrorStep ~ #PJ060-signInErrorStep {
+    display: none !important;
+  }
+  .PJ060-continue__container ~ .PJ060-continue__container {
+    display: none !important;
+  }
+}

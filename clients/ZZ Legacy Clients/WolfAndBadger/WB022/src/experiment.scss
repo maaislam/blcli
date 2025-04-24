@@ -1,0 +1,46 @@
+@import './variables';
+
+.#{$id} {
+
+    // @supports (-webkit-touch-callout: none) {
+    //     .element {
+    //       bottom: 50px;
+    //      }
+    //   }
+
+    .slideout-menu {
+        z-index: 1001 !important;
+    }
+    &__add-to-bag {
+        position: fixed;
+        bottom: 0;
+        z-index: 1000;
+        color: white;
+        background-color: #000000;
+        height: 41px;
+        width: 100%;
+        text-align: center;
+        line-height: 41px;
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-family: futura-pt,sans-serif;
+        letter-spacing: -0.04em;
+        animation: 10s slide-up;
+
+        overflow-y: hidden;
+        max-height: 41px; /* approximate max height */
+
+        transition-property: all;
+        transition-duration: .5s;
+
+        & +.WB022__add-to-bag {
+            display: none;
+        }
+    }
+
+    &__hidden {
+        opacity: 0;
+        transform: translateY(105%);
+    }
+}

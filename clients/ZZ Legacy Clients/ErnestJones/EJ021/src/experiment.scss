@@ -1,0 +1,235 @@
+$id: '--ID--'; // replacement token, specify --id="UCXXX" in GULP if you want another ID
+
+$primary: #bcacd5;
+$secondary: #f5f2fb;
+$text: #000;
+$grey1: #ccc;
+$grey2: #eee;
+$buttonText: $text;
+
+@if $id == 'HS021' {
+  $primary: #a01d29;
+  $text: #222; 
+  $buttonText: #fff;
+}
+
+.#{$id} {
+  #filters-link {
+    z-index: 200;
+  }
+
+  .#{$id}-hide {
+    display: none !important;
+  }
+
+  .#{$id}-btn {
+    background: green;
+    background: $primary;
+    color: $text;
+    padding: 18px 60px;
+    z-index: 100;
+    font-weight: bold;
+    display: block;
+    text-transform: uppercase;
+    box-sizing: border-box;
+  }
+
+  .#{$id}-init-filters {
+    pointer-events: none;
+    opacity: 0;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 50px);
+    transition: 0.5s opacity, 0.3s transform;
+    width: 80%;
+    text-align: center;
+    color: $buttonText;
+  }
+
+  .#{$id}-init-filters--active {
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+  /** Sort Container **/
+
+  .browse__results-and-sort-container {
+    display: block;
+    margin: 10px 0 0;
+
+    .browse__total-result-container {
+      margin-bottom: 5px;
+    }
+
+    .filter-toggle {
+      width: 50%;
+      float: left;
+      background: $primary;
+      border: 1px solid $primary;
+      color: $buttonText;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .browse__sort-relative-container {
+      width: 50%;
+      float: left;
+
+      .select-button__label {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: white;
+        color: $text;
+        border: 1px solid $grey1;
+        border-left: 0;
+      }
+    }
+  }
+
+  /** Tags **/
+
+  .browse__applied-filters__item {
+    background: $secondary;
+    padding: 5px 24px 5px 7px;
+    border-radius: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    position: relative;
+
+    a {
+      text-decoration: none;
+
+      &:after {
+        color: #000;
+        content: "\00D7";
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        font-size: 1.5em;
+        transform: translateY(-50%);
+        font-weight: bold;
+      }
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  /** Filters **/
+
+  .filters-panel__header {
+    background: $primary;
+
+    .filters-panel__inline-button-container {
+      .cta {
+        background: #fff;
+        color: $text;
+        border-color: #fff;
+      }
+
+      .cta--reset {
+        border-color: #fff;
+      }
+    }
+  }
+
+  .filters-panel__refinement-heading {
+    padding-bottom: 12px;
+
+    &.open {
+      border-color: $grey2;
+    }
+  }
+
+  .filters-panel__refinement-heading:after {
+    content: "+";
+    line-height: 18px;
+    color: $primary;
+    background: none !important;
+    margin-top: 0;
+    font-size: 26px;
+  }
+  .filters-panel__refinement-heading.open:after {
+    content: "\2212";
+  }
+
+  &.#{$id}-2 {
+    .#{$id}-has-selected-filters {
+      position: relative;
+      padding-bottom: 50px;
+
+
+      .clearRefinement {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $text;
+
+        &:after {
+          content: "\00D7";
+          font-size: 1.8em;
+          position: relative;
+          top: 4px;
+          color: $primary;
+          padding-left: 5px;
+          margin-top: 5px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .#{$id}-stylized-checkboxes {
+    .styled-checkbox {
+      display: inline-block;
+    }
+    .filters-panel__refinement-link {
+      background: none;
+      padding: 10px 15px;
+      background: white;
+      border: 1px solid $primary;
+
+      &.checked {
+        background: $primary;
+      }
+    }
+    .filters-panel__sub-refinement {
+      display: none;
+    }
+  }
+
+  .#{$id}-filters-demarcation {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: $grey2;
+  }
+}
+
+/* HS overrides */
+
+.HS021 {
+  .filters-panel__refinement-heading:after {
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 5px;
+  }
+
+  .filters-panel__header button[type="reset"] {
+    border-color: #fff;
+    color: #fff;
+    background: none;
+  }
+  .HS021-stylized-checkboxes .filters-panel__refinement-link.checked {
+    color: #fff;
+  }
+}

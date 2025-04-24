@@ -1,0 +1,45 @@
+/**
+ * Add product description
+ */
+
+import shared from "../../shared";
+import { getSiteFromHostname } from "../../services";
+
+export default () => {
+
+    const { ID } = shared;
+    
+    let productDesc;
+
+    if(getSiteFromHostname() === 'hsamuel') {
+        if(document.querySelector('.product-description')) {
+            productDesc = document.querySelector('.product-description').innerText.replace(/Product.code:.\d*/, '');
+        }; 
+    } else {
+        if(document.querySelector('.product-description .s-product-description-markdown p')) {
+            productDesc = document.querySelector('.product-description .s-product-description-markdown').innerHTML;
+        };
+    }
+    const productImage = document.querySelector('.product-gallery__image-container img');
+
+
+    if(productDesc && productImage) {
+        const desc = document.createElement('div');
+        desc.classList.add(`${ID}__descriptionWrapper`);
+        desc.classList.add(`${ID}__row`);
+        desc.innerHTML = `
+        <div class="${ID}__colLeft">
+            <div class="${ID}__blockInner">
+                <div class="${ID}-blockBack">
+                    <div class="${ID}__block" style="background-image:url('${productImage.getAttribute('src')}')"></div>
+                </div>
+            </div>
+        </div>
+        <div class="${ID}__colRight">
+            <h3 class="${ID}__heading">Diamonds as unique as your own love story.</h3>
+            <div class="${ID}__paragraph">${productDesc}</div>
+        </div>`;
+
+        document.querySelector(`.${ID}__description .${ID}__sectionContainer`).appendChild(desc);
+    }
+}

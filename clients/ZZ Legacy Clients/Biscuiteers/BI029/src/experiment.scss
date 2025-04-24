@@ -1,0 +1,439 @@
+$pink: #e679a5;
+$text: #777;
+
+// Pikaday
+$pd-text-color: $text;
+$pd-title-color: $text;
+$pd-title-bg: transparent;
+$pd-picker-bg: #fff;
+$pd-picker-border: #ddd;
+$pd-picker-border-bottom: #ddd;
+$pd-picker-shadow: none;
+$pd-th-color: $pink;
+$pd-day-color: $text;
+$pd-day-bg: #eee;
+$pd-day-hover-color: #fff;
+$pd-day-hover-bg: $pink;
+$pd-day-today-color: $pink;
+$pd-day-selected-color: #fff;
+$pd-day-selected-bg: $pink;
+$pd-day-selected-shadow: none;
+$pd-day-disabled-color: #999;
+$pd-week-color: #999;
+
+$pd-font-family: "Georgia", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@import "./scss/_pikaday.scss";
+
+.BI029 {
+  // Pikaday overrides
+  .pika-single abbr {
+    border: 0px solid;
+  }
+  .pika-single abbr[title] {
+    border: 0;
+    text-decoration: none;
+  }
+
+  .pika-table th {
+    @media(min-width: 992px) {
+      font-size: 14px;
+    }
+  }
+
+  .pika-lendar {
+    width: 240px;
+
+    @media(min-width: 992px) {
+      width: 360px;
+    }
+  }
+  .pika-single {
+    border-width: 2px;
+  }
+
+  .pika-label {
+    @media(min-width: 992px) {
+      font-size: 16px;
+    }
+  }
+
+  .pika-button {
+    box-shadow: inset 0 0 0px 1px #fff;
+    text-align: center;
+
+    @media(min-width: 992px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .is-disabled .pika-button, 
+  .is-outside-current-month .pika-button {
+    opacity: 0.2;
+  }
+
+  // Module
+  .bi29-occasion {
+    border: 2px dotted #e6e6e7;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 0 0 15px;
+
+    h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+      text-transform: lowercase;
+      color: #e679a5;
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      margin: 20px 0;
+      text-align: center;
+      line-height: 1.4em;
+      font-family: Georgia, 'Playfair Display', serif;
+      color: #808385;
+    }
+    
+    // Intro before interaction
+    .bi29-occasion--intro {
+      text-align: center;
+      &.bi29-hide-intro {
+        display: none;
+      }
+    }
+    // Info after interaction
+    .bi29-occasion--info {
+      display: none;
+
+      &.bi29-show-info {display: block}
+
+      > p {
+        text-align: center;
+        margin-bottom: 8px;  
+      }
+      ul {
+        li {
+          padding-left: 30px;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAMxwAADMcBrInqMQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFjSURBVEiJtda/Sh1BFMfxz1HQwkpMEYtbqI2NVnZ2prIUbLQUrHwBn0H0CQRfIIV1mpAqRVIEAjYqaOEtLCwEQUTunRTZyDLs3j9x98BpZn7z/Z3ZObNMpJS0GROt0tsyiIj5iJhqxSAiDtDFz4iYk1JqLLGHPlKR3xrbQUTs4BRRGu41VfkWXkuVJ/zCbBPwTbxk8At8SCl5L3wDzxn8CvNvmnfA1/GUwW/RyXQCR/iBhRHha3jM4F0sVWidlETX+DgEvoqHDH6P5Rq9m0z8G7M14uUCVtY/YHVAQT5VdMF3zGTCRdxlukesDdxxsXgbvWzxF0wV853iAMvzT1gfel6lCvczQMJnrOAyG3/GxkgNkX2GwwqTPF+wOXI7VxzK8QD4K7bGui8VBoGzCngPu2NfyJrWmsR5Cd7H3rjwWoPCZBpfC4OD/4GnlMS/y1AVETHp74/rrlY0JAYaNBGtvyr+APvwQRR4lpK3AAAAAElFTkSuQmCC');
+          background-repeat: no-repeat;
+          background-position: 5px 2px;
+          background-size: 12px;
+          margin-bottom: 7px;
+          &.bi29-no-tick {
+            background-image: none;
+          }
+          &:first-of-type {
+            background-position: 5px 6px;
+          }
+        }
+      }
+      #bi29-week-box {
+        display: inline-block;
+        border: 1px solid #222;
+        padding: 2px 6px;
+        margin: 0 2px;
+        font-weight: 600;
+      }
+      #bi29-bold-date {
+        font-weight: 700;
+        margin: 4px 0;
+        display: block;
+      }
+
+    }
+
+    // Input
+    #bi29-datepicker {
+      span.Zebra_DatePicker_Icon_Wrapper {
+        display: block !important;
+        max-width: 340px;
+        margin: 10px auto !important;
+        border: 1px solid #e6e6e7;
+        position: relative !important;
+        cursor: pointer;
+        &:before {
+          content: "";
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABF1BMVEUAAADmeKTmeaXmeaXld6Xle6fmeaXmeaXneqXjeqbmeqXneaXleqbVgKrmeaXmeaXmeaXmeaXrdp3meKXmeqXneabmeaXkdqTmeqXneqTleKfmeqXfgJ//VarmeaXleKTkd6PneKfmeaXmeqXpeqboe6TleKXmeaTodKLleqXmeqXmeaXmeaXmeaXneqXmeaXqdarmeaXmeqXkeqXmeabmeaXmeaXofKL/gL/me6fmeqXleqXneaXneaXmeaXmeaXmeKbmeaXmeKbjfKXqgKrmeaXmeabmgJnmeaTneaXpfKjjcarneqXmeqTleqbmd6L/ZpnheKXmeKXmeabod6TkeabmeaXfgJ/meaXmd6bmeabmeaUAAADnYLzzAAAAW3RSTlMARsTLTzq61F4usNttBuqckfMN2Kx+/BzBczFHCAP1Vy8g328XOMeHC1iCrfC1iKIYwJcwKNzKIQQ0w4B0k/6lU/hIJQy4UApwaSMJYFpFHgURkGctOfoQ9jzQRi5m2AAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiBAwOKDReeX5EAAABP0lEQVQ4y72S2U7CYBSER1FEcQOUiojiUtkqghYQN2QrS8sOZTnv/x6e/lwICb2SMBffhM6X5oQUmGdr27HDtevcc3HtH7gPsZSj45NTjxfwnZ37JeDCGfBfLglBugpd3yBMt7i7xwPJeIz8rdFYPEGA8pR8phR86eQLvSLtiMei813NEIcFq1iwigVmRhVCluwEylp7Tuz0Bo9VEtxW5fEunubEfSIfn6K+XN9WFX6K4meQhRJR0SZEJSEosImyRiGkqmoZErNSYUgoM0MLQooPVlBlahqjKv6T1FqFWr1eb0BjNpsMDQ1mbUHQDcNooc3sdBhttJj6Zo/syrKch8rs9Rgq8szuguDt9/sRDJjDIWOACNO72SP/9z2MyByv3scmjbj0CSWm4RWZJmiiW2KAbBOYv8qYmatWc2bw+As2J7fs25wdkgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOC0wNC0xMlQxNDo0MDo1MiswMjowMLJNtakAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTgtMDQtMTJUMTQ6NDA6NTIrMDI6MDDDEA0VAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==');
+          background-repeat: no-repeat;
+          background-size: 25px;
+          background-position: center;
+          position: absolute;
+          left: 5px;
+          top: 3px;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+        }
+        input {
+          font-family: Georgia, 'Playfair Display', serif;
+          padding: 9px 14px !important;
+          // padding-left: 15% !important;
+          cursor: pointer;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .Zebra_DatePicker {
+      background: #f1f1f1;
+      border-radius: 4px;
+      box-shadow: 0px 0px 10px #808385;
+      color: #222;
+      font: 13px Georgia, 'Playfair Display', serif;
+      padding: 3px 3px;
+      position: absolute;
+      display: table;
+      *width: 255px;
+      z-index: 1200;
+  } 
+
+  .Zebra_DatePicker *,
+  .Zebra_DatePicker *:after,
+  .Zebra_DatePicker *:before {
+      box-sizing: content-box !important;
+  }
+
+  .Zebra_DatePicker * {
+      padding: 0;
+  }
+
+  .Zebra_DatePicker table {
+      border-collapse: collapse;
+      border-radius: 4px;
+      border-spacing: 0;
+      width: 100%;
+  }
+
+  .Zebra_DatePicker th, .Zebra_DatePicker td {
+      padding: 5px;
+      cursor: pointer;
+      text-align: center;
+      min-width: 25px;
+      width: 25px;
+  }
+
+  .Zebra_DatePicker .dp_body th, .Zebra_DatePicker .dp_body td {
+      border: 1px solid #bfbfbf;
+  }
+
+  .Zebra_DatePicker .dp_body th:first-child, .Zebra_DatePicker .dp_body td:first-child {
+      border-left: none;
+  }
+
+  .Zebra_DatePicker .dp_body th:last-child, .Zebra_DatePicker .dp_body td:last-child {
+      border-right: none;
+  }
+
+  .Zebra_DatePicker .dp_body tr:first-child th,
+  .Zebra_DatePicker .dp_body tr:first-child td {
+      border-top: none;
+  }
+
+  .Zebra_DatePicker .dp_body tr:last-child th,
+  .Zebra_DatePicker .dp_body tr:last-child td {
+      border-bottom: none;
+  }
+
+  .Zebra_DatePicker .dp_body td {
+      background: #e6e5e5;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_weekend {
+      background: #d6d6d6;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_not_in_month {
+      background: #e0e6f2;
+      color: #98acd4;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_current {
+      color: #cc236b;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_selected {
+      background: #e679a5;
+      color: #fff;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_disabled {
+      background: #f2f2f2;
+      color: #cccccc;
+      cursor: text;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_disabled.dp_current {
+      color: #b56a6a;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_hover {
+      color: #fff;
+      background: #88a09e;
+  }
+
+  .Zebra_DatePicker .dp_body .dp_hover.dp_time_control {
+      background-color: #8c8c8c;
+      color: #fff;
+  }
+
+  .Zebra_DatePicker .dp_monthpicker td,
+  .Zebra_DatePicker .dp_yearpicker td,
+  .Zebra_DatePicker .dp_timepicker td {
+      width: 33.3333%;
+  }
+
+  .Zebra_DatePicker .dp_timepicker .dp_disabled {
+      border: none;
+      color: #222;
+      font-size: 39px;
+      font-weight: bold;
+  }
+
+  .Zebra_DatePicker .dp_time_separator div {
+      position: relative;
+  }
+
+  .Zebra_DatePicker .dp_time_separator div:after {
+      content: ":";
+      color: 1px solid #bfbfbf;
+      font-size: 37px;
+      left: 100%;
+      position: absolute;
+      z-index: 1;
+  }
+
+  .Zebra_DatePicker .dp_header {
+      margin-bottom: 3px;
+  }
+
+  @supports (-ms-ime-align: auto) {
+      .Zebra_DatePicker .dp_header {
+          font-family: 'Segoe UI Symbol', Tahoma, Arial, Helvetica, sans-serif;
+      }
+  }
+
+  .Zebra_DatePicker .dp_footer {
+      margin-top: 3px;
+  }
+
+  .Zebra_DatePicker .dp_footer .dp_icon {
+      width: 50%;
+  }
+
+  .Zebra_DatePicker .dp_actions td {
+      border-radius: 4px;
+      color: #222;
+  }
+
+  .Zebra_DatePicker .dp_actions .dp_caption {
+      font-weight: bold;
+      width: 100%;
+  }
+
+  .Zebra_DatePicker .dp_actions .dp_previous,
+  .Zebra_DatePicker .dp_actions .dp_next {
+      *padding: 0 10px;
+  }
+
+  .Zebra_DatePicker .dp_actions .dp_hover {
+      background-color: #8c8c8c;
+      color: #fff;
+  }
+
+  .Zebra_DatePicker .dp_daypicker th {
+      background: #e679a5;
+      cursor: text;
+      color: #fff;
+      font-weight: bold;
+  }
+
+  .Zebra_DatePicker.dp_hidden {
+      display: none;
+  }
+
+  .Zebra_DatePicker .dp_icon {
+      height: 16px;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAdVBMVEUAAAD/gIDneqXkdqTneKbmeaXleabmeaXmeaXle6fneqXmd6LneaTmeaXneqXme6XmeaXmeaXneKfmeqbmeaXmeKXmeaXmeaXofKLmeqTleKbmeaXpeKXleqXpfKjmeaXleKTneqbmeaXneKXneaTmeaUAAAA7157aAAAAJXRSTlMAAogcndxh/d0dYB5f3l4f310gXOBb/OEhWlniIlgj41dW+1VUECZmGwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiBAwONRcDcmMqAAAAs0lEQVQ4y+WQWQ6DMAwFzdaw74Q9QMD3v2KNKtSUBi7A+3rOjKLEAM+IYVrX0DINsNG5NCwHbXgxdD0991xkLwCfjEDHA+L+XkKGkcYIImThp8ZkJGeeEI+PgYz0ZCSpwgEyMnKV58Qz9aBgWCpGXiIrfq+sONbNMTQ18ur8qPZr7Lz9/1bHsR/2MvTIO91iRjIEgCA+6ldLxiTEdMkBZjKIz3CZRSLKBW6ySrnCbbYNHpk3RuINC+Gy3VwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDQtMTJUMTQ6NTM6MjMrMDI6MDA0RtPHAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTA0LTEyVDE0OjUzOjIzKzAyOjAwRRtrewAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=');
+      background-repeat: no-repeat;
+      text-indent: -9999px;
+      *text-indent: 0;
+  }
+
+  .Zebra_DatePicker .dp_icon.dp_confirm {
+      background-position: center -123px;
+  }
+
+  .Zebra_DatePicker .dp_icon.dp_view_toggler {
+      background-position: center -91px;
+  }
+
+  .Zebra_DatePicker .dp_icon.dp_view_toggler.dp_calendar {
+      background-position: center -59px;
+  }
+
+  button.Zebra_DatePicker_Icon {
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAdVBMVEUAAAD/gIDneqXkdqTneKbmeaXleabmeaXmeaXle6fneqXmd6LneaTmeaXneqXme6XmeaXmeaXneKfmeqbmeaXmeKXmeaXmeaXofKLmeqTleKbmeaXpeKXleqXpfKjmeaXleKTneqbmeaXneKXneaTmeaUAAAA7157aAAAAJXRSTlMAAogcndxh/d0dYB5f3l4f310gXOBb/OEhWlniIlgj41dW+1VUECZmGwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiBAwONRcDcmMqAAAAs0lEQVQ4y+WQWQ6DMAwFzdaw74Q9QMD3v2KNKtSUBi7A+3rOjKLEAM+IYVrX0DINsNG5NCwHbXgxdD0991xkLwCfjEDHA+L+XkKGkcYIImThp8ZkJGeeEI+PgYz0ZCSpwgEyMnKV58Qz9aBgWCpGXiIrfq+sONbNMTQ18ur8qPZr7Lz9/1bHsR/2MvTIO91iRjIEgCA+6ldLxiTEdMkBZjKIz3CZRSLKBW6ySrnCbbYNHpk3RuINC+Gy3VwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDQtMTJUMTQ6NTM6MjMrMDI6MDA0RtPHAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTA0LTEyVDE0OjUzOjIzKzAyOjAwRRtrewAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=') no-repeat center top;
+      background-size: cover;
+      border: none;
+      cursor: pointer;
+      display: block;
+      height: 16px;
+      line-height: 0;
+      padding: 0;
+      position: absolute;
+      top: 25% !important;
+      right: 10px !important;
+      text-indent: -9000px;
+      width: 16px;
+  }
+
+  button.Zebra_DatePicker_Icon.Zebra_DatePicker_Icon_Disabled {
+      background-position: center -32px;
+      cursor: default;
+  }
+
+  /**** Amends on top of BI021 (above code taken from BI021.css) ****/
+
+  .bi29-occasion #bi29-datepicker span.Zebra_DatePicker_Icon_Wrapper input {
+    background: #fff;
+  }
+
+	button.Zebra_DatePicker_Icon,
+	.bi29-occasion #bi29-datepicker span.Zebra_DatePicker_Icon_Wrapper:before {
+  	pointer-events: none !important;
+	}  
+
+  .pika-single.is-bound {
+    margin-left: 170px;
+    transform: translateX(-50%);
+
+    @media(max-width: 519px) {
+      margin-left: 0;
+      left: 50% !important;
+    }
+  }
+
+  #bi29-output {
+    display: none;
+
+    &.bi29-output--active {
+      display: block;
+    }
+  }
+
+  .bi29-init-pressie-reminder {
+    text-decoration: underline;
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .bi29-scroller-initialised.bi29-show-scroll::-webkit-scrollbar {
+    width: 5px;
+  }
+  .bi29-scroller-initialised.bi29-show-scroll::-webkit-scrollbar-thumb {
+    background: #ccc;
+  }
+}

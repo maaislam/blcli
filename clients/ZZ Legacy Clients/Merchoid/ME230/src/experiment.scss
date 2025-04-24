@@ -1,0 +1,112 @@
+@import './variables';
+html.#{$id}_Lightbox__noScroll,
+body.#{$id}_Lightbox__noScroll {
+  overflow: hidden;
+}
+
+
+.#{$id} {
+    .#{$id}-sizeGuideLink {
+      text-align: center;
+      margin: 10px;
+      color: #000;
+      border: 1px black solid;
+      cursor: pointer;
+      width: 120px;
+      padding: 8px 5px;
+      margin-left: 0;
+      margin-bottom: 15px;
+      }
+    .#{$id}_Lightbox__overlay {
+        z-index: 99999;
+        position: fixed;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+      }
+    
+      .#{$id}_Lightbox {
+        z-index: 999999;
+        margin: 0px auto;
+        width: 90%;
+        max-width: 880px;
+        height: auto;
+        max-height: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        position: fixed;
+        display: none;
+        box-shadow: 0 0 40px 3px hsla(0,0%,39%,.2);
+        .#{$id}-sizeGuide {
+            height: 450px;
+            margin: 10px;
+            background-image: url('https://merchoidcdn-pveiw4zwh96ot9z.netdna-ssl.com/media/mf_webp/jpg/media/catalog/product/cache/899cf85b6a08df74889d73fb89ce7f4a/j/u/jumper-measurements_8.webp');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        @media screen and (max-width: 400px) {
+          width: 95%;
+        }
+        @media(min-width: 767px) {
+            width: 400px;
+            .#{$id}-sizeGuide {
+                height: 500px;
+                background-size: cover;
+            }
+        }
+      }
+    
+      .#{$id}_Lightbox__content {
+        background-color: #fff;
+        height: auto;
+        max-height: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 3px;
+        border: 1px solid #e5e5e5;
+      }
+      .#{$id}_Lightbox__close {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: #0cbbf4;
+        cursor: pointer;
+        z-index: 1002;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        text-align: center;
+    
+        &:hover {
+          background-color: black;
+          transition: ease .3s all;
+          &::before {
+              color: white;
+          }
+        }
+    
+        &:before {
+          content: '×';
+          font-size: 30px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #000;
+        }
+    
+        @media screen and (max-width: 550px) {
+          right: -5px;
+        }
+      }
+}

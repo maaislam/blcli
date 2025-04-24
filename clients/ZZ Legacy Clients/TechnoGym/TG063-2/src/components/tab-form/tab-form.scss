@@ -1,0 +1,327 @@
+@import '../../_variables.scss';
+.#{$id} {
+  @at-root #{&}_tab-form {
+    max-width: 500px;
+    margin: 0 auto;
+    @at-root #{&}Wrap {
+      padding: 0 10px;
+      margin-top: 20px;
+    }
+    @at-root #{&}__header {
+      font-size: 0;
+      margin-bottom: 30px;
+      @at-root #{&}Item {
+        display: block;
+        font-size: 14px;
+        color: #1B262D;
+        font-weight: normal;
+        cursor: pointer;
+        &.active {
+          &:after {
+            background-color: #D8D8D8;
+          }
+        }
+        &:after {
+          content: '';
+          display: block;
+          width: 17px;
+          height: 17px;
+          margin: 0 auto;
+          border-radius: 50%;
+          box-shadow: 0px 0px 0px 1px #1B262D;
+          border: 2px solid #ffffff;
+        }
+        i {
+          display: block;
+          font-size: 30px;
+          margin-bottom: 5px;
+          pointer-events: none;
+        }
+        @at-root #{&}Wrap {
+          padding: 0 10px;
+          display: inline-block;
+          vertical-align: top;
+          width: 33.33333%;
+          text-align: center;
+        }
+      }
+    }
+    @at-root #{&}__body {
+      max-width: 300px;
+      margin: 0 auto;
+      display: none;
+      @at-root #{&}Wrap {
+        position: relative;
+        input[type="radio"] {
+          position: absolute;
+          display: none;
+          visibility: hidden;
+          &:checked {
+            &~.#{$id}_tab-form__body {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    @at-root #{&}__input {
+      border: 1px solid #1B262D;
+      height: 50px;
+      outline: none;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+      @at-root #{&}Block {
+        position: relative;
+        margin-bottom: 45px;
+        &.hidden {
+          display: none;
+        }
+        &.valid {
+          .#{$id}_tab-form__validate {
+            display: block;
+          }
+        }
+        &.not-valid {
+          .#{$id}_tab-form__error,
+          .#{$id}_tab-form__errorHint {
+            display: block;
+          }
+        }
+      }
+      @at-root #{&}Label {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        width: 200px;
+        left: -220px;
+        text-align: right;
+        strong {
+          font-size: 10px;
+          position: relative;
+          top: -5px;
+          color: orangered;
+        }
+      }
+      @at-root #{&}Textarea {
+        border: 1px solid #1B262D;
+        resize: none;
+        outline: none;
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        color: #1B262D;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+      }
+      @at-root #{&}Select {
+        border: 1px solid #1B262D;
+        height: 50px;
+        outline: none;
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        background: none;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+        }
+        @at-root #{&}--it {
+          border: 1px solid #1B262D;
+          height: 50px;
+          outline: none;
+          padding: 10px;
+          font-size: 16px;
+          width: 100%;
+          background: none;
+          &:hover,
+          &:focus {
+            background-color: transparent;
+          }
+        }
+        @at-root #{&}Wrap {
+          position: relative;
+          margin-bottom: 30px;
+          &.hid.need-business {
+            display: none;
+          }
+          &:not(.hid) {
+            &~.hid.business-name {
+              display: none;
+            }
+          }
+          &.hid.need-freelance {
+            display: none;
+          }
+          &:not(.hid).need-business {
+            &~.hid.need-business {
+              display: block;
+            }
+            &~.hid.business-name {
+              display: block;
+            }
+          }
+          &.need-freelance {
+            &~.hid.need-freelance {
+              display: block;
+            }
+          }
+          &~.#{$id}_tab-form__inputBlock {
+            padding-top: 0;
+          }
+          &:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 5px 0 5px;
+            border-color: #1B262D transparent transparent transparent;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+    @at-root #{&}__error {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -50px;
+      font-size: 35px;
+      color: #872325;
+      display: none;
+      @at-root #{&}Hint {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        color: #872325;
+        font-size: 14px;
+        text-align: left;
+        left: 0;
+        bottom: -30px;
+        display: none;
+      }
+    }
+    @at-root #{&}__validate {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -50px;
+      font-size: 35px;
+      color: #288743;
+      display: none;
+    }
+    @at-root #{&}__submit {
+      display: block;
+      padding: 12px;
+      cursor: pointer;
+      text-align: center;
+      background-color: #565656;
+      color: #fff;
+      width: 300px;
+      height: 50px;
+      border: 1px solid #565656;
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      text-transform: uppercase;
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: #565656;
+        border-bottom: 1px solid #565656;
+      }
+      @at-root #{&}--hidden {
+        display: none;
+      }
+    }
+  }
+  @at-root #{&}_contact-block {
+    color: #1B262D;
+    text-align: center;
+    &>span {
+      font-size: 20px;
+      text-transform: uppercase;
+      display: block;
+    }
+    @at-root #{&}Wrap {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 60px 10px;
+    }
+    @at-root #{&}__title {
+      font-size: 45px !important;
+      letter-spacing: 1px !important;
+      font-weight: bold;
+      @at-root .#{$id}_italian #{&} {
+        font-size: 40px !important;
+      }
+    }
+    @at-root #{&}__text {
+      display: block;
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+  }
+  .privacyPolicy {
+    margin-bottom: 15px;
+    input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      margin-right: 3px;
+    }
+    label {
+      font-size: 11px;
+    }
+  }
+  @media screen and (max-width: 667px) {
+    .#{$id}_tab-form__body .privacyPolicy label {
+      font-size: 11px;
+    }
+    .#{$id}_tab-form__headerItem {
+      font-size: 12px;
+      &:after {
+        position: relative;
+        top: 5px;
+      }
+    }
+    .#{$id}_tab-form__inputLabel {
+      position: static;
+      width: 100%;
+      text-align: left;
+    }
+    .#{$id}_tab-form__input {
+      padding-right: 40px;
+    }
+    .#{$id}_tab-form__validate,
+    .#{$id}_tab-form__error {
+      right: 10px;
+      top: auto;
+      bottom: -10px;
+    }
+    .#{$id}_tab-form__inputBlock {
+      .#{$id}_tab-form__inputTextarea {
+        &~.#{$id}_tab-form__error {
+          bottom: unset;
+          top: calc(50% + 10px);
+        }
+        &~.#{$id}_tab-form__validate {
+          bottom: unset;
+          top: calc(50% + 10px);
+        }
+      }
+    }
+  }
+}

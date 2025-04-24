@@ -1,0 +1,124 @@
+.FL003 {
+  // Keep the top options visible, normally hidden on option selection
+  #dnn_ctr102498_Delivery_DeliveryGroupSelection_DeliveryServiceGroupType {
+    display: block !important;
+  } // Allow options to sit next to each other
+  .DeliveryOptions .deliveryGroupTypeLi {
+    display: inline-block;
+    width: calc(50% - 12px);
+    min-height: 98px;
+    padding: 0 10px;
+    position: relative; // Reduce margin within box
+    .row {
+      width: 100%;
+      margin-left: -10px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    } // Make the delivery text take up full width of box
+    .col-xs-10.col-sm-8.DeliveryNaming {
+      width: 100%;
+      text-align: center;
+    } // Hide arrow
+    .col-xs-2.DelTick {
+      display: none;
+    } // Hide view country list
+    #dnn_ctr102498_Delivery_DeliveryGroupSelection_DeliveryGroupTypeRepeater_LocationSub_0.locationSub {
+      display: none;
+    }
+    &.deliveryGroup_HomeDelivery {
+      margin-right: 10px;
+    }
+    &.deliveryGroup_DeliveryCollection {
+      margin-left: 10px;
+    } // Style selected box
+    &.FL003-Selected {
+      // downward arrow on select
+      border: 1px solid #333;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-bottom: 0;
+        margin-left: -8px;
+        margin-bottom: -8px;
+      }
+      &::before {
+        z-index: 1;
+        bottom: 2px;
+        border-top-color: #FFFFFF;
+      }
+      &::after {
+        border-top-color: #333;
+      }
+    }
+  } // Billing message
+  .FL003-Billing-Address-Wrap {
+    margin-top: 10px;
+    .FL003-Billing-Address-Message {
+      //Hidden by default
+      display: none;
+      text-align: center;
+      position: relative;
+      background-color: #eaeaea;
+      padding: 10px;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-bottom-color: #eaeaea;
+        border-top: 0;
+        margin-left: -8px;
+        margin-top: -8px;
+      }
+    }
+    &.FL003-Show-Message {
+      .FL003-Billing-Address-Message {
+        display: block;
+      }
+    }
+  }
+  // V2 Specific CSS
+  // Hide manual address boxes
+  #div-address-form.FL003-Hide {
+    .form-group.row.divTownCity,
+    .form-group.row.divCountyStates,
+    #divPostCode {
+      display: none;
+    }
+    >.form-group:nth-child(7) {
+      display: none;
+    }
+  }
+  #div-address-form {
+    // Style enter address manually/automatically box
+    >.form-group:nth-child(6) {
+      display: block;
+      width: 100%;
+      max-width: 380px;
+      height: 39px;
+      padding: 10px;
+      font-size: 13px;
+      color: #606060;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #999;
+      margin-left: 0;
+
+      #manuallyAddAddress, #enableAddressSuggestions{
+        font-size: 13px;
+        display: inline-block;
+        width: 100%;
+      }
+    }
+  }
+}

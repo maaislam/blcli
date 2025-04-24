@@ -1,0 +1,105 @@
+@import './variables';
+
+.#{$id} {
+  .item_desc {
+    p.prod_summary.line-clamp.hide {
+      display: none !important;
+      // &.hide {
+       
+      // }
+
+      &.DIY-page {
+        display: none !important;
+      }
+      &.DIY-page + p {
+        display: none !important;
+      }
+    }
+    p.prod_summary.line-clamp  + p {
+      // display: none !important;
+    }
+
+    // p.prod_summary.line-clamp {
+    //   display: none !important;
+    //   // &.hide {
+       
+    //   // }
+
+    //   &.DIY-page {
+    //     display: none !important;
+    //   }
+    //   &.DIY-page + p {
+    //     display: none !important;
+    //   }
+    // }
+  }
+
+  .#{$id}-features__wrapper {
+    ul.#{$id}-features {
+      // list-style-type: disc !important;
+      // margin-left: 15px;
+      padding-bottom: 10px;
+      
+      .#{$id}-feature__wrapper {
+        display: inline-block;
+        width: 50%;
+        min-height: 65px;
+        // background-color: lightcoral;
+        position: relative;
+
+        &:nth-of-type(odd) {
+          padding-right: 3%;
+        }
+
+        &.not-identified {
+          width: 100% !important;
+          min-height: unset !important;
+          &:before {
+            content: none !important;
+          }
+        }
+
+        &:before {
+          display: inline-block;
+          content: '\2022';
+          width: 6px;
+          height: 20px;
+          position: absolute;
+          right: 104%;
+        }
+        
+        li.#{$id}-feature {
+          // list-style-type: disc !important;
+          // display: list-item;
+          // list-style-position: inside;
+          position: absolute;
+          top: 0px;
+          font-size: 1.1em;
+
+          label {
+            max-width: 99%;
+          }
+          p {
+            width: 100%;
+            // padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    .bx-wrapper {
+      display: inline-block;
+      width: 50% !important;
+    }
+    .HSS013-features__wrapper {
+      display: inline-block;
+      width: 50%;
+      position: absolute;
+      padding-left: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@import './variables';
+
+.#{$id} {
+  &-1 {
+    .category-items {
+      .promo-box {
+        .list:not(.#{$id}__list) {
+          & > ul,
+          & > p {
+            display: none;
+          }
+          .claims-ribbon {
+            margin-top: 0px !important;
+            margin-bottom: 30px;
+          }
+        }
+
+        .btn--rounded {
+          margin-top: 0;
+          margin-bottom: 20px;
+        }
+        .service-box {
+          padding-top: 0;
+        }
+        @media screen and (max-width: 768px) {
+          &.promo-box--grey {
+            .#{$id}__list > ul {
+              margin-bottom: 115px;
+            }
+          }
+        }
+      }
+
+      .#{$id}__list {
+        &-title {
+          margin-top: 18px;
+          padding-left: 10px;
+          text-align: left;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        ul {
+          list-style-type: none;
+          margin-top: 8px;
+          padding-left: 10px;
+          li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+
+            & > span:not(:last-child) {
+              margin-right: 8px;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+            .#{$id}__icon {
+              display: flex;
+              margin-top: 3px;
+            }
+            .#{$id}__text {
+              font-size: 16px;
+              line-height: 19px;
+              font-weight: 700;
+              color: #333333;
+            }
+
+            &:not(.#{$id}__active) {
+              .#{$id}__text {
+                color: #666666;
+                font-weight: 400;
+              }
+            }
+
+            &.#{$id}__first-inactive {
+              position: relative;
+              border-top: 1px solid #d1d7db;
+              margin-top: 12px;
+              padding-top: 30px;
+
+              &::before {
+                content: 'Excludes:';
+                position: absolute;
+                top: 6px;
+                left: 0;
+                width: 100%;
+                color: #666666;
+                font-size: 14px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

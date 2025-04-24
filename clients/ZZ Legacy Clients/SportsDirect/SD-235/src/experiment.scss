@@ -1,0 +1,213 @@
+@import './variables';
+
+.#{$id}.#{$id}-experiment-begins {
+  //   .AltProdDet #productDetails .BasketWishContainer .addtoBagWrap a {
+  //     margin-top: 0px;
+  //   }
+  a#aAddToBag.hiddenback {
+    background: none !important;
+  }
+  .addToBasketContainer.addBorder {
+    border: solid 1px #000;
+  }
+  #divBagItems {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .#{$id}-ctc-holder {
+    background: #ffffff;
+    margin: 0 0px 0 0px;
+    display: none;
+    flex-direction: column;
+
+    @media all and (max-width: 992px) {
+      margin: 0;
+    }
+
+    &.active {
+      display: flex;
+    }
+
+    p {
+      font-size: 14px;
+      color: #3d3d3d;
+      letter-spacing: 0;
+      margin-bottom: 0;
+      line-height: 22px;
+    }
+
+    &--inner {
+      padding: 0px 20px 16px 20px;
+    }
+
+    &--buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0px 0px 0px 0px;
+
+      //   @media all and (max-width: 1200px) {
+      //   }
+
+      //   @media all and (max-width: 992px) {
+      //     padding: 20px 5px 0px 5px;
+      //   }
+
+      @media all and (max-width: 450px) {
+        justify-content: space-between;
+      }
+
+      a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+        font-family: 'Montserrat-Medium', Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+        line-height: 18px;
+        text-align: center;
+
+        @media all and (max-width: 450px) {
+          font-size: 13px;
+        }
+
+        &.#{$id}-go-back-link {
+          color: #000;
+          font-weight: bold;
+          position: relative;
+          top: -3px;
+          padding: 13px;
+          border: solid 1px #000;
+          border-radius: 5px;
+          margin-top: 10px;
+
+          @media all and (max-width: 450px) {
+            width: 100%;
+          }
+        }
+
+        &.#{$id}-go-to-bag {
+          color: #fff;
+          background: #64ae63;
+          padding: 14px 0;
+          line-height: 18px;
+          border-radius: 5px;
+
+          @media all and (max-width: 450px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &--countdown {
+      background: #d6e0ec;
+      padding: 0px 0px 10px 20px;
+      color: #000;
+      display: flex;
+      margin-top: 20px;
+      .countdownBox {
+        text-align: center;
+        padding-top: 25px;
+      }
+
+      .countdownText {
+        width: 80%;
+        padding-top: 15px;
+        .nextDayDelivery {
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 22px;
+          font-family: GTAmerica-Regular, Arial, Helvetica, sans-serif;
+          margin-bottom: 10px;
+        }
+        .getItTomorrow {
+          font-family: GTAmerica-Regular, Arial, Helvetica, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 18px;
+        }
+      }
+
+      p {
+        font-size: 15px;
+        margin-bottom: 0;
+        color: #fff;
+        letter-spacing: 0.35px;
+        line-height: 22px;
+        color: #000;
+      }
+
+      span {
+        font-weight: bold;
+
+        &##{$id}-checkout-countdown {
+          display: inline-block;
+          min-width: 100px;
+        }
+
+        &.UC_cd-hours,
+        &.UC_cd-minutes,
+        &.UC_cd-seconds {
+          margin-right: -3px;
+        }
+      }
+    }
+  }
+
+  #aAddToBag {
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media all and (max-width: 767px) {
+    #ulSizes li * {
+      pointer-events: none;
+    }
+
+    #ulSizes li {
+      z-index: 10000;
+      position: relative;
+    }
+  }
+
+  .#{$id}-ctc-slide-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    opacity: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000000;
+    font-family: 'Montserrat-Medium', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.35px;
+
+    svg {
+      margin-right: 10px;
+    }
+
+    &.active {
+      width: 100%;
+      opacity: 1;
+      transition: width 0.5s ease, opacity 1s ease;
+      will-change: width, opacity;
+
+      @media screen and(max-width:450px) {
+        width: 99% !important;
+      }
+    }
+  }
+}

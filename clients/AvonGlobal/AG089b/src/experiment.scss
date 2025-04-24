@@ -1,0 +1,111 @@
+@import './variables';
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v21/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
+    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v21/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
+    U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.#{$id} {
+  #MainContentWrapper {
+    overflow-x: hidden;
+  }
+
+  .#{$id}-root {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: clamp(600px, (9 / 21) * 100%, 100vh);
+    background-size: cover;
+    background-position: center center;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-bottom: 2rem;
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+  }
+
+  .#{$id}-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1080px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .#{$id}-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    align-self: flex-end;
+
+    @media (min-width: 720px) and (min-height: 600px) {
+      align-items: flex-start;
+      align-self: center;
+    }
+
+    > * + * {
+      margin-top: 20px;
+    }
+  }
+
+  .#{$id}-title {
+    background-color: #1b1b1b;
+    color: #fff;
+    padding: 10px;
+
+    h2 {
+      font-size: clamp(18px, 3rem, 38px);
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+
+      @media (min-width: 720px) and (min-height: 600px) {
+        font-size: 4rem;
+        font-size: clamp(18px, 5rem, 48px);
+      }
+    }
+  }
+
+  .#{$id}-cta {
+    display: inline-block;
+    background-color: #1b1b1b;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    transition: background-color 0.4s ease;
+
+    &:hover {
+      background-color: #7f28c4;
+    }
+  }
+}

@@ -1,0 +1,174 @@
+<script>
+  import { promoOfferSelectedProduct } from "../assets";
+  import { checkingValidOffer, orderItemsFunc } from "./apiRequests";
+
+  // button click handler, called from click event
+  let mutationOccured;
+  let validForOffer;
+  export const pageClickHandler = async (e) => {
+    // console.log(e.target);
+    if (e.target.matches(`a[id^="add2CartBtn"]`) || e.target.closest(`a[id^="add2CartBtn"]`)) {
+      // default call to create window[ID] object
+      console.log("default clicked!");
+      let orderItems = await orderItemsFunc();
+      console.log("orderItems from click", orderItems);
+      if (orderItems) promoOfferSelectedProduct(orderItems, (mutationOccured = false));
+      // promoOfferHandler((mutationOccured = false));
+      console.log(e.target);
+      let productContainer = e.target.closest(`.estore_product_container`)
+        ? e.target.closest(`.estore_product_container`)
+        : e.target.closest(`#estore_pdp_trcol`);
+      let entitledItem;
+      console.log(productContainer);
+      if (productContainer?.querySelector(`div[id^="entitledItem"]`)) {
+        console.log(productContainer?.querySelector(`div[id^="entitledItem"]`)?.id);
+        entitledItem = parseInt(productContainer?.querySelector(`div[id^="entitledItem"]`)?.id?.split(/\_/)?.[1]);
+      } else if (productContainer?.previousElementSibling.matches(`div[id^="entitledItem"]`)) {
+        console.log(productContainer?.previousElementSibling);
+        console.log(productContainer?.previousElementSibling?.id);
+        entitledItem = parseInt(productContainer?.previousElementSibling?.id?.split(/\_/)?.[1]);
+      } else {
+        entitledItem = parseInt(document.querySelector(`div[id^="entitledItem"]`)?.id?.split(/\_/)?.[1]);
+      }
+      console.log(entitledItem);
+      // entitledItem is the product key for it's offer information
+      // Checking, is valid for offer (3 for 2)
+      if (entitledItem) {
+        let response = await checkingValidOffer(entitledItem);
+        let responseText = await response.text();
+        console.log("responseText", responseText);
+        validForOffer = responseText.includes("3 for 2");
+        console.log("validForOffer", validForOffer);
+        if (validForOffer) {
+          if (window[ID]?.length == 2) {
+            const prodImage = productContainer?.querySelector(`.product_image img`)?.src?.split(/\?/)?.[0];
+            const imgSrc = prodImage ? prodImage + `?wid=160&amp;hei=160&amp;op_sharpen=1` : "";
+            const name = productContainer?.querySelector(`.product_name a.product_name_link`)?.title;
+            const productInfo = productContainer?.querySelector(`.product_info`);
+            const unitDiscountedPrice = productInfo?.querySelector(`.product_price`).textContent.trim();
+            const unitPrice = productInfo?.querySelector(`.product_savePrice span.was`)?.textContent.trim()?.split(/\s/)?.[1];
+            console.log("From experiment before push");
+            window[ID].push({
+              name,
+              imgSrc,
+              unitPrice,
+              unitDiscountedPrice,
+              internalIdentifier: `${entitledItem}`,
+            });
+            console.log(window[ID]);
+          }
+          // Mutation observer function
+          const mutationFunc = () => {
+            // Mutation
+            const octBasketContainer = document.querySelector(`#oct-basket-container`);
+            let oldCartValueText = octBasketContainer?.querySelector(`span.oct-basket-icon span.oct-text`)?.textContent.trim();
+            console.log("oldCartValueText", oldCartValueText);
+            let oldCartValue = oldCartValueText ? parseInt(oldCartValueText) : 0;
+            const observer = new MutationObserver((mutationList, observer) => {
+              console.log("mutationList", mutationList);
+              mutationList.forEach(async (mutation) => {
+                console.log(mutation);
+                let newCartValueText = octBasketContainer?.querySelector(`span.oct-basket-icon span.oct-text`)?.textContent.trim();
+                let newCartValue = newCartValueText ? parseInt(newCartValueText) : 0;
+                // console.log(addedNodes);
+                // Array.from(addedNodes).forEach((node) => (newCartValue = parseInt(node.innerText.trim())));
+                let isAdded = newCartValue - oldCartValue > 0;
+                console.log(oldCartValue, newCartValue);
+                oldCartValue = newCartValue;
+                console.log(isAdded);
+                if (isAdded) {
+                  // call from mutation
+                  let orderItems = await orderItemsFunc();
+                  console.log("orderItems from click", orderItems);
+                  if (orderItems) promoOfferSelectedProduct(orderItems, (mutationOccured = true));
+                  // promoOfferHandler((mutationOccured = true));
+                }
+              });
+              observer.disconnect();
+            });
+
+            observer.observe(octBasketContainer, { attributes: true, childList: true, subtree: true, characterData: true });
+          };
+          const isPDP = pageContainer.id.includes("productpage");
+          console.log("isPDP", isPDP);
+          if (isPDP) {
+            let colorButton = document.querySelector(`#sizeComboButton_label`);
+            let isColorSelected = colorButton?.querySelector(`.tooltip`)?.textContent?.trim() != "Choose colour first";
+            if (isColorSelected) {
+              console.log("isColorSelected", isColorSelected);
+              mutationFunc();
+            }
+          } else {
+            mutationFunc();
+          }
+        }
+      }
+    }
+  };
+</script>
+
+<div class="${ID}-acc-container">
+  <div class="acc">
+    <div class="acc-head">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="acc-content">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore magnam, nobis consequuntur nemo cupiditate vel sit ducimus quisquam quaerat sint
+        officia ad voluptas consectetur beatae quis illo accusamus vero odit, architecto et.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const productPartNumberStorage = (partNumber) => {
+    let orderItemsPartNumber = localStorage.getItem(`oldBasketProductsPartNumber`) ? JSON.parse(localStorage.getItem(`oldBasketProductsPartNumber`)) : [];
+    if (orderItemsPartNumber.length > 0) {
+      let isAlreadyAdded = orderItemsPartNumber.findIndex((item) => item.partNumber === `${partNumber}`);
+      if (isAlreadyAdded >= 0) {
+        orderItemsPartNumber.push(partNumber);
+        localStorage.setItem(`oldBasketProductsPartNumber`, JSON.stringify(orderItemsPartNumber));
+      }
+    } else {
+    }
+    orderItemsPartNumber.push(partNumber);
+    localStorage.setItem(`oldBasketProductsPartNumber`, JSON.stringify(orderItemsPartNumber));
+  };
+
+  // button click handler, called from click event
+  export const pageClickHandler = async () => {
+    const pageContainer = document.querySelector(`#page div[id$="template_container"]`);
+    const isPDP = pageContainer?.id?.includes("productpage");
+    if (isPDP) {
+      const promotionText = pageContainer.querySelector(`[class$="-promotion-redesign"]`)?.textContent?.trim();
+      const isValidOffer = promotionText?.includes(`3 for 2 on selected No7`);
+      if (isValidOffer) {
+        const colorButton = document.querySelector(`#sizeComboButton_label`);
+        const isColorSelected = colorButton?.querySelector(`.tooltip`)?.textContent?.trim() != "Choose colour first";
+        if (isColorSelected) {
+          let partNumber;
+          if (document.querySelector(`form#variantSelector`)) {
+            partNumber = parseInt(document.querySelector(`#productId`)?.textContent?.trim());
+            console.log(partNumber);
+            productPartNumberStorage(partNumber);
+          } else {
+            partNumber = parseInt(document.querySelector(`#cvosVariantId_1`)?.value);
+            console.log(partNumber);
+            productPartNumberStorage(partNumber);
+          }
+        }
+      }
+    } else {
+      const productContainer = document.querySelector(`.estore_product_container`);
+      const promotionText = productContainer?.querySelector(`[class$="-promotion-redesign"]`)?.textContent?.trim();
+      const isValidOffer = promotionText?.includes(`3 for 2 on selected No7`);
+      if (isValidOffer) {
+        let partNumber;
+        partNumber = productContainer?.getAttribute(`data-productid`) ? parseInt(productContainer?.getAttribute(`data-productid`)) : "";
+        console.log(partNumber);
+        productPartNumberStorage(partNumber);
+      }
+    }
+  };
+</script>

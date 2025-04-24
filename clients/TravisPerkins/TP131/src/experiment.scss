@@ -1,0 +1,405 @@
+.TP131 {
+
+  .TP131_Brick_Calculator_Container {
+    clear: both;
+  }
+
+  .TP131_Brick_Calculator_Header {
+    color: #FFFFFF;
+    background-color: #054731;
+    margin: 0;
+    padding: 10px 0 10px 13px;
+  }
+
+  .TP131_Bold {
+    font-weight: 700;
+  }
+
+  .TP131_Brick_Calculator_Components_Container {
+    border-left: #e0e0e0 1px solid;
+    border-bottom: #e0e0e0 1px solid;
+    border-right: #e0e0e0 1px solid;
+  }
+
+  // Calculation input area
+
+  .TP131_Calculator_Input_Label {
+    margin-right: 5px;
+  }
+
+  .TP131_Calculation_Input_Container {
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+  }
+
+  .TP131_Calculation_Input_Header {
+    font-size: 14px;
+
+    span {
+      display: inline-block;
+      margin: 10px 0;
+    }
+  }
+
+  .TP131_Wrap {
+    max-width: 60%;
+    margin: 20px auto 10px auto;
+  }
+
+  input.TP131_Calculator_Input {
+    border: 1px solid #e0e0e0;
+    border-bottom: 2px solid #bdbdbd;
+    background-color: #FFFFFF;
+    outline: none;
+    width: calc(100% - 35px);
+    font-size: 1em;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    padding: 8px 12px;
+    height: auto;
+    transition: all 0.3s;
+
+    &:focus {
+      border-bottom-color: #F6B112;
+      box-shadow: none;
+    }
+  }
+
+  .TP131_Measurement_Unit {
+    margin-left: 10px;
+    display: inline-block;
+    width: 25px;
+  }
+
+  .TP131_Input_Label_Container {
+    text-align: left;
+  }
+
+  // Hidden by default
+  .TP131_Error_Message {
+    color: #D41B2D;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  // Error Styling
+
+  .TP131_Input_Error {
+    >input {
+      background: #fce8ea !important;
+      border-color: #fce8ea;
+      border-bottom-color: #D41B2D;
+    }
+
+    .TP131_Error_Message {
+      opacity: 1;
+    }
+  }
+
+  // Slider styling - from W3 schools
+
+  /* The switch - the box around the slider */
+  .TP131_Switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    vertical-align: middle;
+    margin: 10px;
+  }
+
+  /* Hide default HTML checkbox */
+  .TP131_Switch input {
+    display: none;
+  }
+
+  /* The slider */
+  .TP131_Slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background-color: #ccc;
+    background-color: #054731;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .TP131_Slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.TP131_Slider {
+    background-color: #f6b112;
+  }
+
+  input:focus+.TP131_Slider {
+    box-shadow: 0 0 1px #f6b112;
+  }
+
+  input:checked+.TP131_Slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .TP131_Toggle_Option {
+    vertical-align: middle;
+  }
+
+  // Check box
+
+  #TP131_Checkbox_Wastage {
+    opacity: 0;
+  }
+
+  #TP131_Checkbox_Wastage:checked+.TP131_Checkbox_Wastage_Label:before {
+    background-color: #0F7258;
+  }
+
+  #TP131_Checkbox_Wastage:checked+.TP131_Checkbox_Wastage_Label:after {
+    color: #FFFFFF;
+    content: '\f00c';
+    font-size: 0.8em
+  }
+
+  .TP131_Checkbox_Wastage_Label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1em;
+    -webkit-transition: .28s ease;
+    transition: .28s ease;
+    user-select: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 4px;
+      width: 20px;
+      height: 20px;
+      line-height: 16px;
+      z-index: 0;
+      transition: .28s ease;
+      color: rgba(255, 255, 255, 0);
+      font-family: "FontAwesome";
+    }
+
+    &:after {
+      font-family: "FontAwesome";
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 4px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      z-index: 0;
+      transition: .28s ease;
+      color: rgba(255, 255, 255, 0);
+      border: 2px solid #bdbdbd;
+    }
+  }
+
+  // Calculation output area
+
+  .TP131_Output_Container {
+    vertical-align: top;
+    text-align: center;
+    display: inline-block;
+    border-left: solid 1px #e0e0e0;
+    box-sizing: border-box;
+    width: calc(50% - 4px);
+  }
+
+  .TP131_Calculation_Output_Header {
+    display: block;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .TP131_Brick_Output {
+    margin-bottom: 10px
+  }
+
+  .TP131_Calculation_Output_Container {
+    padding: 10px 0;
+  }
+
+  .TP131_Brick_Pack_Output,
+  .TP131_Brick_Pack_Output span {
+    font-weight: 700;
+  }
+
+  .TP131_Brick_Output,
+  .TP131_Brick_Pack_Output {
+    display: block;
+    font-size: 24px;
+  }
+
+  .TP131_Add_Delivery {
+    box-sizing: border-box;
+    margin: 22px 0 14px 0;
+    padding: 18px 43px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    background: #F6B112;
+    border-color: #F6B112;
+    transition: background-color 0s;
+    display: inline-block;
+    transition: .2s all;
+
+    &:hover {
+      border-color: #e09b12;
+      background: #e09b12;
+      box-shadow: 0 10px 20px rgba(0,0,0,.11) , 0 6px 6px rgba(0,0,0,.13)!important;
+      background-color: #f4a91f;
+      color: #000;
+    }
+  }
+
+  // If add for delivery button is disabled, adjust styling
+
+  .TP131_Hide_Add_For_Delivery .TP131_Add_Delivery {
+    display: none;
+  }
+
+  .TP131_Hide_Add_For_Delivery.TP131_Output_Container {
+    min-height: 329px; // Match other container height
+    position: relative;
+  }
+
+  .TP131_Hide_Add_For_Delivery .TP131_Split_Packs_Container {
+    // Force content to the bottom
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  // Split pack area
+
+  .TP131_Split_Packs_Container {
+    text-align: center;
+    background: #f5f5f5;
+    padding: 20px 0 35px 0;
+
+    .TP131_Split_Pack_Header {
+      border-bottom: 1px solid #000000;
+      display: inline-block;
+      margin: 14px 0;
+      padding-bottom: 5px;
+    }
+
+    .TP131_Split_Pack_Text {
+      display: block;
+      margin: 0 auto 15px auto;
+      max-width: 60%;
+    }
+  }
+
+  // Taken from style guide
+  .TP131_Split_Pack_Link {
+    display: inline-block;
+    border-radius: 4px;
+    text-transform: capitalize;
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
+    transition: box-shadow 0.5s;
+    color: #333;
+    // background: #eee;
+    background: #F6B112;
+    border: 1px solid #F6B112;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: 500;
+
+    &:hover {
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.5s;
+      text-decoration: none;
+    }
+  }
+
+  // Hide 's' if single pack
+  .TP131_Single>span>.TP131_Pack_Plural {
+    display: none;
+  }
+
+  .TP131_Pack_Plural {
+    display: inline;
+  }
+
+  // Specific styling for add to bag error
+  .TP131_Error_Message.TP131_ATB_Error {
+    display: block;
+    text-align: center;
+    opacity: 1;
+  }
+  .TP131-update {
+    button {
+      box-sizing: border-box;
+      display: inline-block;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      text-transform: capitalize;
+      outline: none;
+      -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      -webkit-transition: -webkit-box-shadow 0.5s;
+      transition: -webkit-box-shadow 0.5s;
+      -o-transition: box-shadow 0.5s;
+      -moz-transition: box-shadow 0.5s, -moz-box-shadow 0.5s;
+      transition: box-shadow 0.5s;
+      transition: box-shadow 0.5s, -webkit-box-shadow 0.5s, -moz-box-shadow 0.5s;
+      color: #333;
+      background: #F6B112;
+      border: 1px solid #F6B112;
+      font-size: 14px;
+      text-align: center;
+      white-space: nowrap;
+      text-decoration: none;
+      padding: 8px 16px;
+      font-weight: 500;
+      // width: 200px;
+      transition: .2s all;
+      &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,.11) , 0 6px 6px rgba(0,0,0,.13)!important;
+        background-color: #f4a91f;
+        color: #000;
+      }
+    }
+  }
+}

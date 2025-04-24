@@ -1,0 +1,307 @@
+@import "./variables";
+
+.#{$id} {
+
+  &_light {
+    background-color: #FAFAFA !important;
+    color: black;
+    &_title {
+      color: #47BE30 !important;
+    }
+    &_text {
+      color: black !important;
+      & > li {
+        color: black !important;
+      }
+    }
+  }
+
+  .#{$id}_hidden {
+    display: none;
+  }
+  &.#{$id}_noscroll {
+    overflow: hidden;
+  }
+  // Popup
+  .#{$id}_popup {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 100000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.37);
+
+    .#{$id}_close {
+      position: absolute;
+      cursor: pointer;
+      padding: 6px;
+      right: 0;
+      top: -40px;
+    }
+
+    &.#{$id}_active {
+      display: block;
+    }
+    h2 {
+      color: white;
+      font-family: "Suisse", sans-serif;
+      font-weight: bold;
+      text-transform: unset;
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+    .#{$id}_content {
+      position: absolute;
+      width: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: #282828;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      max-width: 1128px;
+      margin: 0 auto;
+      padding: 24px 48px;
+
+      @media (max-width: 1000px) {
+        width: 95%;
+        padding: 24px 12px;
+      }
+
+      .#{$id}_flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > * {
+          min-width: 350px;
+          width: calc(50% - 8px);
+          flex-basis: calc(50% - 8px);
+        }
+        @media (max-width: 1000px) {
+          flex-wrap: wrap;
+
+          > * {
+            min-width: auto;
+            width: 100%;
+            flex-basis: 100%;
+          }
+        }
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 19px;
+        color: white;
+        text-align: left;
+        margin: 0;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+
+      ul {
+        padding-left: 24px;
+        li {
+          color: white;
+          list-style-type: disc;
+          display: list-item;
+          text-align: left;
+        }
+      }
+
+      ul,
+      p {
+        margin-bottom: 16px;
+      }
+    }
+
+    .#{$id}_image {
+      img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+    }
+  }
+
+  // New panel
+  .#{$id}_panel {
+    background-color: #282828;
+
+    // @TODO - add styles for the light panel here.
+    &.#{$id}_light {
+
+      &_title {
+        color: black !important;
+      }
+
+      &.#{$id}_popup {
+        color: black !important;
+      }
+
+      &.#{$id}_panel {
+        background-color: #FAFAFA;
+        color: #000000 !important;
+
+        & h2,p,ul,li,span {
+          color: black;
+        }
+
+        .#{$id}_primaryClick {
+          background-color: #47BE30 !important;
+        }
+      }
+      .#{$id}_stepsColor {
+        color: black;
+
+        path {
+          fill: black !important;
+        }
+      }
+    }
+
+    .#{$id}_stepsColor {
+      color: white;
+
+      path {
+        fill: white !important;
+      }
+    }
+
+    .row {
+      align-items: center;
+    }
+    img {
+      max-width: 100%;
+    }
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
+    }
+
+    .#{$id}_content {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 26px;
+      margin-top: 24px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .#{$id}_content {
+        margin-bottom: 48px;
+      }
+      .#{$id}_content,
+      h2 {
+        text-align: center;
+      }
+    }
+
+    .#{$id}_link {
+      text-align: center;
+      display: block;
+      text-decoration: underline;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 6px;
+      margin: 24px 0 36px;
+      color: white;
+    }
+  }
+
+  .#{$id}_usps {
+    flex: 1;
+    margin-top: 12px;
+    @media (max-width: 1200px) {
+      margin-top: 16px !important;
+    }
+    li {
+      color: white;
+      margin: 12px 0;
+
+      @media (max-width: 1200px) {
+        margin-right: 0;
+        line-height: 1.5 !important;
+        margin-bottom: 4px;
+      }
+      &:before {
+        content: url("https://brainlabs-media.s3.eu-west-2.amazonaws.com/cd5/cd_tick.png");
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        padding-top: 4px;
+
+        @media (max-width: 768px) {
+          padding-top: 4px;
+        }
+      }
+    }
+
+    @media (max-width: 991px) {
+      margin-top: 16px !important;
+    }
+  }
+
+  .#{$id}_cta {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+
+    a {
+      font-size: 18px;
+    }
+
+    .#{$id}_primary {
+      background-color: #c80203 !important;
+      margin: 0 !important;
+      text-transform: uppercase;
+      @media (min-width: 992px) {
+        width: 100%;
+        margin-bottom: 8px !important;
+      }
+
+      @media (max-width: 991px) {
+        order: 2;
+        padding-left: 11px;
+        padding-right: 11px;
+        text-transform: none;
+      }
+    }
+    .#{$id}_secondary {
+      background: white !important;
+      text-transform: none;
+    }
+
+    // Sticky to the bottom
+    @media (max-width: 991px) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 15px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      > a {
+        width: 49%;
+        flex-basis: 49%;
+        font-size: 16px;
+        filter: drop-shadow(4px 0px 10px rgba(0, 0, 0, 0.25));
+        border-width: 1px;
+      }
+    }
+  }
+}

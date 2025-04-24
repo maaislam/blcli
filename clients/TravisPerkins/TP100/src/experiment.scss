@@ -1,0 +1,263 @@
+@import '_mixins.scss';
+.TP100 {
+  //Push homepage content down to create room for test content
+  .TP100-Wrapper {
+    margin-bottom: 50px;
+  } // Style middle section
+  //Greeting header
+  .TP100-Greeting {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+  } // Account area wrappers
+  .TP100-Buying-More-Wrapper,
+  .TP100-Check-Account-Wrapper {
+    display: inline-block;
+    text-align: center;
+    width: 33%
+  } // Account area buttons
+  .TP100-Buying-More-Link,
+  .TP100-Check-Account-Link {
+    background-color: #f6b112;
+    color: #000000;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    &:hover {
+      text-decoration: none;
+      background: #e09b12;
+      border-color: #e09b12;
+    }
+  } // Buy more and account headers 
+  .TP100-Buying-More-Text,
+  .TP100-Check-Account-Text {
+    text-align: center; // font-weight: 700; - client amend
+    font-size: 16px;
+    margin-bottom: 25px;
+  } // Buy more button
+  .TP100-Buying-More-Link {
+    padding: 10px;
+  } // Check account button
+  .TP100-Check-Account-Link {
+    padding: 10px 51px;
+  } // Style category section
+  .TP100-Category-Wrapper {
+    display: inline-block;
+    width: 33%;
+    .TP100-Category-Select-Wrapper {
+      margin: 0 auto;
+      position: relative;
+      max-width: 205px;
+      .TP100-Arrow {
+        right: 12px;
+      }
+      &:hover {
+        // display drop down on hover
+        .TP100-Category-Select-Options {
+          display: block;
+          width: 100%;
+        } // Change arrow direction
+        .TP100-Arrow {
+          &::before {
+            @include rotate(-45);
+          }
+          &::after {
+            @include rotate(45);
+          }
+        }
+      }
+    } // Quick question button
+    .TP100-Category-Select-Button {
+      line-height: 16px;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #eee;
+      color: #333333;
+      border: 1px solid #e0e0e0;
+      margin: 0;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+    .TP100-Category-Select-Options {
+      border: 1px solid #e0e0e0;
+      box-sizing: border-box;
+      display: none;
+      position: absolute;
+      z-index: 102;
+      background: #f5f5f5;
+      padding: 10px 0; // Style submit button if option is checked - client amend
+      &.TP100-Selected {
+        >.TP100-Save-Options {
+          background-color: #f6b112;
+          border-color: #f6b112;
+          &:hover {
+            background: #e09b12;
+            border-color: #e09b12;
+          }
+        }
+      }
+    } // Drop down options
+    .TP100-Option-Wrapper {
+      padding: 0;
+      position: relative;
+      >input {
+        cursor: pointer;
+        opacity: 0;
+        margin-left: 5px;
+      }
+      >label {
+        cursor: pointer; // Using style guide CSS
+        padding-left: 7px;
+        line-height: 18px;
+        display: inline-block;
+        width: calc(100% - 35px);
+        &::before {
+          content: '';
+          position: absolute;
+          left: 3px;
+          top: -3px;
+          margin: 4px;
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+          z-index: 0;
+          transition: .28s ease;
+          color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "FontAwesome";
+        }
+        &::after {
+          border: 2px solid #bdbdbd;
+          content: '';
+          position: absolute;
+          left: 3px;
+          top: -3px;
+          margin: 4px;
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+          z-index: 0;
+          transition: .28s ease;
+          color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "FontAwesome";
+        }
+      } // Check box selecetd state
+      input:checked+label:before {
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: -3px;
+        margin: 4px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        z-index: 0;
+        transition: .28s ease;
+        color: rgba(255, 255, 255, 0);
+        background: #0F7258;
+        font-family: "FontAwesome"
+      }
+      input:checked+label:after {
+        content: '\f00c';
+        font-size: 0.77em;
+        text-align: center;
+        color: #FFFFFF;
+        font-family: "FontAwesome";
+      }
+    } // Submit choices button
+    .TP100-Save-Options {
+      margin: 0 10px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      background-color: #eee;
+      color: #333333;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    } // Style saved categories
+    .TP100-Selected-Categories-Wrapper {
+      position: relative; // My catgeories button
+      .TP100-My-Categories-Button {
+        margin: 0;
+        text-align: center;
+        padding: 11px 10px;
+        cursor: pointer;
+        background-color: #eee;
+        color: #333333;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+        &:hover {
+          background-color: #e0e0e0;
+          box-shadow: 0;
+        }
+      } // category links parent, for drop down functionality
+      .TP100-Category-Links-Wrapper {
+        display: none;
+        z-index: 102;
+        padding: 10px 0 5px 0;
+        position: absolute;
+        width: 100%;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+        .TP100-Link-Wrap {
+          // Category options
+          margin-bottom: 5px;
+          .TP100-Category-Link {
+            color: #fff;
+            display: block;
+            border-radius: 4px;
+            padding: 10px 5px;
+            background-color: #0A4F38;
+            text-align: center;
+            margin: 0 10px;
+            line-height: 20px;
+          }
+        }
+      }
+      .TP100-Arrow {
+        right: 20px;
+      }
+      &:hover {
+        >.TP100-Category-Links-Wrapper {
+          display: block;
+        } // Change arrow direction
+        .TP100-Arrow {
+          &::before {
+            @include rotate(-45);
+          }
+          &::after {
+            @include rotate(45);
+          }
+        }
+      }
+    }
+  } // Create downward arrows
+  .TP100-Arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    height: 9px;
+    width: 20px;
+    &::before,
+    &::after {
+      display: inline-block;
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 2px;
+      background: #333333;
+      @include rotate(45);
+      top: 3px;
+      left: 6px;
+    }
+    &::after {
+      @include rotate(-45);
+      left: 12px;
+    }
+  }
+}

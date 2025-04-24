@@ -1,0 +1,150 @@
+@import './variables';
+
+$mob_bg: 'http://sb.monetate.net/img/1/581/3318719.jpg';
+$desktop_bg: 'http://sb.monetate.net/img/1/581/3318720.jpg';
+
+.#{$id} {
+  &-banner {
+    background-color: #000;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    padding-top: 10px;
+
+    &:after {
+      bottom: 100%;
+      left: 87.5%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0, 0, 0, 0);
+      border-bottom-color: #000;
+      border-width: 8px;
+      margin-left: -8px;
+      pointer-events: none;
+
+      @media(min-width: 768px) {
+        left: calc(100% - 8.5rem);
+      }
+      @media(min-width: 1200px) {
+        left: auto;
+        right: calc(0.5 * (100% - 1250px) + 180px);
+      }
+    }
+
+    &:before {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.7);
+      width: 100%;
+      height: 100%;
+      content: "";
+    }
+
+    &__inner {
+      z-index: 3;
+      position: relative;
+      padding: 25px;
+    }
+
+    &__close {
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #fff;
+      border-radius: 50%;
+      color: #000;
+      width: 20px;
+      font-size: 20px;
+      line-height: 1;
+      font-family: arial, sans-serif;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    &__btns {
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media(min-width: 768px) and (max-width: 992px) {
+        flex: none;
+      }
+
+      a {
+        margin: 20px 0 0;
+        display: flex;
+        font-size: 1.6rem;
+        outline: none;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        border-style: solid;
+        line-height: 1.8rem;
+        cursor: pointer;
+        background-color: rgb(255, 195, 20);
+        border-color: rgb(255, 195, 20);
+        border-radius: 2.4rem;
+        padding: 1rem 5rem 1rem;
+        color: rgb(24, 45, 61);
+        text-decoration: none;
+
+        &:hover {
+          background-color: rgb(246, 177, 18);
+          border-color: rgb(246, 177, 18);
+        }
+      }
+    }
+
+    &__text {
+      h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: #FFBB14;
+        font-size: 21px;
+      }
+      h3 {
+        margin-top: 0;
+        margin-bottom: 0.7em;
+        color: #fff;
+        font-weight: 400;
+        font-size: 29px;
+      }
+    }
+
+    &.#{$id}-mobile {
+      background-image: url($mob_bg);
+    }
+
+    &.#{$id}-desktop {
+      background-image: url($desktop_bg);
+
+      .#{$id}-banner__inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 132.4rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .#{$id}-banner__btns {
+        width: 350px;
+        margin-left: 30px;
+        margin-right: 20px;
+      }
+    }
+  }
+}

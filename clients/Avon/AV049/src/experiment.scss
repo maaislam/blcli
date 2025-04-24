@@ -1,0 +1,182 @@
+@import './variables';
+
+.#{$id} {
+  #MarketingTextBar p {
+  }
+  #HamburgerMenuNew {
+    z-index: 5!important;
+  }
+  &.#{$id}_noscroll {
+    overflow: hidden;
+  }
+  .#{$id}_wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    background: white;
+    padding: 15px 30px 30px;
+    color: #181818;
+    overflow-y: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .#{$id}_content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    @media all and (min-width: 370px ) {
+      padding-top: 18px;
+    }
+  }
+
+  .#{$id}_header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .#{$id}_product-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .#{$id}_details-left {
+      flex-basis: 40%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .#{$id}_details-right {
+      border-radius: 36px 2px;
+      width: 158px;
+      height: 158px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .#{$id}_label {
+    font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+
+  .#{$id}_title {
+    font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 16px;
+  }
+
+  .#{$id}_description {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    flex: 1;
+  }
+
+  .#{$id}_product-name {
+    font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 20px;
+    flex: 1;
+  }
+
+  .#{$id}_cta {
+    padding: 1rem;
+    margin: 20px 0 30px;
+  }
+
+  .#{$id}_previousPrice,
+  .#{$id}_currentPrice {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    text-transform: uppercase;
+
+    &.#{$id}_previousPrice {
+      margin-bottom: 4px;
+
+      em {
+        font-style: normal;
+        text-decoration: line-through;
+      }
+    }
+
+    &.#{$id}_currentPrice {
+      font-size: 16px;
+      line-height: 30px;
+
+      em {
+        font-style: normal;
+        font-weight: bold;
+        // font-family: Montserrat-bold, sans-serif;
+      }
+    }
+
+  }
+
+  .#{$id}_scroll-label-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .#{$id}_scroll-label {
+    // font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+
+    span {
+      &:before,
+      &:after {
+        display: inline-block;
+        height: 13px;
+        width: 13px;
+        content: url('https://service.maxymiser.net/cm/images-eu/avon-mas/8A7EA6114A92223873730913BD95F11AFED559B8AC1CDBCC0C722C61993118B7.png?meta=/AV049---Brochure-style-Product-Promotion/arrow_down.png');
+        // content: url('#$(ContentManager:arrow_down.png)!');
+      }
+      &:after {
+        margin-left: 10px;
+      }
+      &:before {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .#{$id}_close-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    content: url('https://service.maxymiser.net/cm/images-eu/avon-mas/E93877C6EFE71C783A69C13CC822E0F170CB2D493AD2B8126B3912E090308DB9.png?meta=/AV049---Brochure-style-Product-Promotion/close.png');
+    // content: url('#$(ContentManager:close.png)!');
+  }
+
+  @-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+  @keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+}

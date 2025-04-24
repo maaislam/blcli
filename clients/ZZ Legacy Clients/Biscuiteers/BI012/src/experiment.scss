@@ -1,0 +1,83 @@
+$pink: #e679a5;
+
+.bi012 {
+    breadcrumbs {
+        display: none;
+    }
+
+    .page-content > .c-3 {
+        display: none; /* Hide filters */
+    }
+
+    .page-content > .c-12-s > .flex {
+        display: none; /* Hide category overview */
+    }
+
+    [ng-text-truncate="category.description"] {
+        display: none;
+    }
+
+    .bi12-page-title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $pink;
+    }
+
+    /* Force hide dupe title (on page resize this happens) */
+    .page-content > .c-12-x > h1 {
+        display: none;
+    }
+    .page-content > .c-12-x > br {
+        display: none;
+    }
+
+    /** Considerations for BI004 which may be running **/
+
+    .bi4-hfilters-heading, .bi4-hfilters, .bi4-toggle-wrap {
+        display: none !important;
+    }
+
+    /** Styling new sections **/
+
+    .bi12-feature {
+        margin-bottom: 20px;
+    }
+
+    .bi12-feature__title {
+        margin: 0 0 40px;
+        text-align: center;
+    }
+
+    /**** Per row ****/
+
+    @media(min-width: 1300px) {
+
+        &.size-l product-list-item.c-3-set,
+        &.size-x product-list-item.c-3-set {
+            width: calc((100% - 20px * 4) * 0.2) !important;
+        }
+
+        &.size-x product-list-item.c-3-set:nth-of-type(4n), 
+        &.size-l product-list-item.c-3-set:nth-of-type(4n) {
+            margin-right: 20px !important;
+        }
+
+        &.size-x product-list-item.c-3-set:nth-of-type(5n), 
+        &.size-l product-list-item.c-3-set:nth-of-type(5n) {
+            margin-right: 0 !important;
+        }
+    }
+
+    /**** MObile hide filters ****/
+
+    .page-content > .c-12-m > .block {
+        display: none;
+    }
+    
+    @media(max-width: 519px) {
+        .page-content > .c-4,
+        .page-content > .c-12-set {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,114 @@
+$id: 'BI039';
+
+@keyframes BI039slide {
+  100% { 
+    left: 0; 
+  }
+}
+@keyframes BI039ballPulseDouble {
+  0%, 100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.#{$id} {
+  &.#{$id}_noScroll {
+    overflow: hidden;
+  }
+  .m-t-8{
+    .bg-col-15.p-t.p-t-5-x.p-b-10.p-b-8-m.p-b-8-s{
+      display: none;
+    }
+  }
+  .p-l-2-x.p-l-2-l{
+    .block.m-t-1 {
+      .button {
+        display: none !important;
+      }
+    }
+  }
+
+  upsell-products,
+  basket-add-notice,
+  product-when-your-occasion{
+    display: none;
+  }
+  
+  .#{$id}_SlideTab { 
+    transition: all 0.5s ease;
+    .#{$id}-slideTitle {
+      .#{$id}-slideClose {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        background-image: url('https://cdn-sitegainer.com/9bmdqatbc8wln8j.png');
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    &.#{$id}-tab_active {
+      animation: BI039slide 0.5s forwards;
+      animation-delay: 2s;
+    }
+  }
+
+  /*Button*/
+  .#{$id}-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.6em;
+    padding: 0 2.6em;
+    width: 100%;
+    color: white;
+    border-radius: 3px;
+    position: relative;
+    &.#{$id}-delivery{
+      background: #9e9fa2;
+    }
+    &.#{$id}-buyButton{
+      background: #e679a5;
+    }
+    .#{$id}-buttonLoader {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      .#{$id}-ball-pulse-double .#{$id}-loader {
+        width: 40px;
+        height: 40px; 
+      }
+        .#{$id}-ball-pulse-double .#{$id}-ball-1, .#{$id}-ball-pulse-double .#{$id}-ball-2 {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        background-color: #FFF;
+        border-radius: 50%;
+        animation: BI039ballPulseDouble 2s ease-in-out infinite;
+        opacity: .5; }
+        .#{$id}-ball-pulse-double .#{$id}-ball-2 {
+        animation-delay: -1s; 
+      }
+      &.#{$id}-loader_show {
+        display: block;
+      }
+    }
+    &.#{$id}-disabled{
+      background-color: #e5e5e5;
+      color: #fff;
+      border-color: #e5e5e5;
+      pointer-events: none;
+    }
+  }
+  &.#{$id}-no_scroll {
+    overflow: hidden;
+  }
+}

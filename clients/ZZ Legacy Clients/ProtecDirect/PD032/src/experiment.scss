@@ -1,0 +1,736 @@
+@import '_mixins.scss';
+.PD032 {
+  // Color body element
+  #body {
+    background-color: #FFFFFF;
+  } // Shared styling, including header and progress bar
+  // Hide old header
+  #header {
+    display: none;
+  } // Style new header
+  .PD032_Header {
+    background-color: #303030;
+    min-height: 60px; // Min height needed else background color won't display
+    padding-bottom: 10px;
+  }
+  .PD032_Header_Image {
+    max-width: calc(40% - 10px);
+    float: left;
+    padding: 10px 0 0 10px;
+  }
+  .PD032_Header_Text {
+    color: #FFFFFF;
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+  } // Style progress bar
+  .PD032_Progress_Bar_Container {
+    // Clear header floats 
+    clear: both; // Center align content
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #FFFFFF;
+  }
+  .PD032_Progress_Bar_Step:visited {
+    color: #303030;
+  } // Style progress bar element
+  .PD032_Progress_Bar_Step {
+    width: 33.3333%;
+    float: left;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: #F1F1F1;
+    height: 50px;
+  } // Styling for active step in progress bar
+  // address page/ add new address
+  &.PD032-Address-Page .PD032_Progress_Bar_Container>.PD032_Progress_Address,
+  &.PD032-Add-Address-Page .PD032_Progress_Bar_Container>.PD032_Progress_Address {
+    background-color: #303030;
+    color: #FFFFFF;
+    position: relative; // Add Triangle
+    &::after {
+      position: absolute;
+      top: 0;
+      right: - 10px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 0 25px 10px;
+      border-color: transparent transparent transparent #303030;
+    }
+  }
+  &.PD032-Delivery-Page .PD032_Progress_Bar_Container>.PD032_Progress_Delivery {
+    background-color: #303030;
+    color: #FFFFFF;
+    position: relative; // Add Two Triangles
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 0 25px 10px;
+      border-color: transparent transparent transparent #F1F1F1;
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      right: - 10px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 0 25px 10px;
+      border-color: transparent transparent transparent #303030;
+    }
+  } // Add triangle before
+  &.PD032-Checkout-Summary .PD032_Progress_Bar_Container>.PD032_Progress_Review {
+    background-color: #303030;
+    color: #FFFFFF;
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 0 25px 10px;
+      border-color: transparent transparent transparent #F1F1F1;
+    }
+  } // Restyle back button
+  .titlePanel {
+    padding-left: 20px;
+    overflow: visible;
+    .ui-title-bar {
+      padding: 0;
+      width: 33.3333%;
+      >a {
+        background-color: #303030;
+        color: #FFFFFF !important;
+        padding: 5px 0 5px 20px;
+        width: calc(100% - 30px);
+        display: inline-block;
+        position: relative; // Create arrow
+        &::before {
+          top: 0;
+          left: -10px;
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 16px 10px 16px 0;
+          ;
+          border-color: transparent #303030 transparent transparent;
+        }
+      }
+    }
+  } // Remove header to content divider
+  .titlePanel>.divider {
+    display: none;
+  } // Clear progress bar floats
+  // Push content down
+  #content {
+    clear: both;
+    padding-top: 10px;
+  } // View bag buttons
+  .container_12>.grid_12>.mar-10 {
+    text-align: center;
+    margin: 10px 5px 0 5px;
+    #orderDetailsToDisplayFlag {
+      display: block;
+      background-color: #303030;
+      padding: 8px 0;
+      >span {
+        color: #FFFFFF;
+      }
+    }
+  } // Restyle the bag
+  #checkout_summary_order_details {
+    // Style products
+    .productListItemDetails {
+      .total {
+        background: none;
+      }
+    }
+    .productlistItem .grid_4 .border {
+      color: #FFFFFF;
+      background-color: #303030;
+    }
+  } // Order totals
+  #cart_totals_div>.order_totals>.ui-grid-a {
+    border: none;
+    margin: 0;
+    padding: 0;
+    .ui-block-a,
+    .ui-block-b {
+      font-size: 14px;
+    }
+  }
+  #cart_totals_div>.order_totals>.grandTotal {
+    background: none;
+    margin-top: 15px;
+    .ui-block-b.grandTotal {
+      font-weight: 700;
+    }
+    .grandTotal {
+      color: #000000;
+      font-size: 14px;
+    }
+  }
+}
+
+// Address Page specific styling
+.PD032.PD032-Address-Page {
+  // Restyle 'Select delivery address' title
+  // Change background color and remove carat symbol
+  #addFilters h4 {
+    a {
+      background: #303030;
+      &::after {
+        display: none;
+      }
+    }
+  } // Remove border from address container
+  #addFilters .ui-collapsible-content.ui-body-inherit {
+    border: none;
+  } // Search for address area
+  // Inserted link
+  .PD032_Address_Search {
+    text-decoration: underline;
+  }
+  .clear_search {
+    overflow: hidden;
+  } // Hide manage my account
+  // Hide "select an existing address" title
+  .delivery_address>.mar-10 {
+    display: none;
+  } // Style address containers
+  #resultsList {
+    margin: 0;
+    li .address {
+      // Style inserted billing address
+      .PD032_Billing_Address {
+        float: right;
+        font-size: 14px;
+        color: #ffffff;
+        margin: 0;
+        position: relative; // Create check mark
+        &::before {
+          margin-left: -15px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: block;
+          width: 4px;
+          height: 10px;
+          border: solid #51AE31;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      } // Remove dividing borders
+      border: none;
+      padding-bottom: 5px; // Add border around address container
+      >.ui-grid-a {
+        border: solid 1px #303030;
+      } // Hide all manage my account from address section
+      .grid_4.align-right.ui-grid-a .ui-block-b .ui-link:last-child {
+        display: none;
+      } // Make address title full width
+      .ui-grid-a>.ui-grid-a>.ui-block-a {
+        width: 100%;
+        >.address_no {
+          background-color: #303030;
+        }
+      } // Resize address details container
+      .address_detail {
+        >span {
+          color: #303030;
+        }
+        width: calc(50% - 10px);
+        padding: 0 0 10px 10px;
+        display: inline-block; // Resize edit and select address
+        +div {
+          display: inline-block;
+          width: calc(50% - 10px);
+          .grid_4.align-right.ui-grid-a {
+            // Allow buttons to take up full container width
+            width: 100%;
+          } // Hide billing address
+          .billing {
+            display: none;
+          } // Edit button container
+          .ui-block-a {
+            float: none;
+            width: 100%;
+            display: block; // Restyle edit address links
+            .edit.ui-link,
+            .edit.ui-link:visited {
+              color: #FFFFFF;
+              text-decoration: none;
+              background-color: #303030;
+              padding: 10px 0; // Allow links to take up full width
+              display: block;
+              text-align: center;
+            }
+          } // Select/Check mark container
+          .ui-block-b {
+            float: none;
+            width: 100%;
+            display: block;
+            margin-top: 10px !important;
+            .select_link,
+            .select_link:visited {
+              display: block;
+              padding: 10px 0;
+              text-decoration: none;
+              background-color: #51AE31;
+              color: #FFFFFF !important;
+              width: 100%;
+              text-align: center;
+            } // Inserted selected button
+            >.PD032_Selected_Address_Link {
+              display: block;
+              line-height: 35px;
+              text-decoration: none;
+              background: #51AE31 !important;
+              color: #FFFFFF !important;
+              width: 100%;
+              text-align: center;
+              margin-left: 0 !important;
+              font-size: 15px !important;
+              padding: 0;
+            } // Hide selected check mark
+            >.tick {
+              display: none;
+            }
+            &::after {
+              content: '';
+              display: table;
+              clear: both;
+            }
+          }
+        }
+      }
+    }
+  } // Style continue section
+  .delivery_address .bdr-b>.mar-10 {
+    // Style add new address button
+    .ui-block-a button {
+      background-color: #303030;
+      height: 35px;
+    } // Style continue button
+    .ui-block-b button {
+      background-color: #51AE31;
+      height: 35px;
+      &::after {
+        margin-top: -14px;
+      }
+    } // Hide bottom manage my account link
+    .ui-block-b .ui-link:last-child {
+      display: none;
+    }
+  }
+}
+
+// Adding/Editing an address page specific styling
+.PD032.PD032-Add-Address-Page {
+  .PD032_Enter_Address_Text {
+    text-decoration: underline;
+    >span {
+      text-decoration: underline;
+    }
+  } // Address search modal - fixing the position and overriding important top property
+  >#colorbox {
+    top: 100px !important;
+    position: fixed;
+  }
+  #content>.checkout h2 {
+    color: #FFFFFF;
+    background-color: #303030;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 10px;
+  } // Align required fields text to the right
+  .checkout.ui-content.multicheckout>.container_12>.grid_12>.mar-10 {
+    text-align: right;
+    margin: 0;
+  } // style add address form 
+  form#addressForm>dl {
+    background: #FFFFFF;
+    border: none;
+  } // Find address form
+  // Search button
+  .ui-block-b>#findAddress {
+    background-color: #303030;
+    height: 35px;
+    color: #FFFFFF;
+  } // Search input
+  .ui-input-text>#findpostcode {
+    height: 35px;
+  } // Functional CSS - Hide address form entry by default, using all siblings after inserted content
+  #addressForm.PD032_Hide_Address {
+    .PD032_Enter_Address_Wrap~.ui-field-contain {
+      display: none;
+    }
+    .PD032_Enter_Address_Automatically_Text {
+      display: none;
+    }
+    .PD032_Enter_Address_Manually_Text {
+      display: inline-block;
+    }
+  }
+  #addressForm:not(.PD032_Hide_Address) {
+    .PD032_Enter_Address_Automatically_Text {
+      display: inline-block;
+    }
+    .PD032_Enter_Address_Manually_Text {
+      display: none;
+    }
+  } // Style buttons below form
+  #addressForm>.ui-grid-a {
+    // element position has been swapped, restyling accordingly
+    .ui-block-a {
+      clear: none;
+      margin-right: 0;
+      margin-left: 1%;
+      button {
+        background-color: #303030;
+        height: 35px;
+      }
+    }
+    .ui-block-b {
+      button {
+        background-color: #51AE31;
+        height: 35px; // Hide carat symbol
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Delivery options page specific styling
+.PD032.PD032-Delivery-Page {
+  // Style selected address 
+  // header
+  h4.selected {
+    background-color: #303030;
+    >a {
+      background: none !important; // change carat into a check mark
+      &::after {
+        background: none;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        content: '';
+        display: block;
+        width: 4px;
+        height: 10px;
+        border: solid #FFFFFF;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+  } // keep the address area displayed
+  #addFilters>.ui-collapsible-content.ui-body-inherit {
+    display: block;
+    background: #FFFFFF;
+    border: none;
+    .delivery_address {
+      border: none;
+      .bdr-b {
+        border: none;
+      }
+    }
+    .address-selected {
+      background: #FFFFFF; // Truncate text to one line with ellipsis
+      .mar-10.address_detail {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // Hide break tags to display address on one line
+        >br {
+          display: none;
+        }
+      } // Allow address and edit link to sit next to each other
+      .ui-grid-a:first-child {
+        display: inline-block; // Cut off text to allow for ellipsis
+        width: 50%;
+      }
+      .ui-grid-a:last-child {
+        float: right;
+        >a {
+          margin: 0;
+          color: #303030;
+          margin: 10px 0 0 0;
+        }
+      }
+    }
+  } // Style delivery method area
+  .container_12>.grid_12>.ui-collapsible-set:first-child+.ui-collapsible-set {
+    // Header
+    .ui-collapsible-heading {
+      background-color: #303030;
+      .ui-collapsible-heading-toggle {
+        background: none;
+        &::after {
+          display: none;
+        }
+      }
+    } // Delivery options
+    // Add border to bottom of each option
+    #delivery_method_item {
+      border-bottom: solid 1px #ebecec;
+    } // Restyle radio buttons to squares
+    // Hide current radio buttons, insert using before
+    #delivery_method_item label::after {
+      display: none;
+    }
+    #delivery_method_item label::before {
+      content: '';
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: #FFFFFF;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -10px;
+      border: solid 1px #303030;
+    } // Selected radio option
+    #delivery_method_item label.ui-radio-on::before {
+      background-color: #303030;
+    } // Inserted delivery options
+    // Display inline-block delivery container to allow price to float right of text
+    .PD032_Delivery_Option_Container {
+      display: inline-block;
+    }
+    .PD032_Delivery_Price {
+      float: right;
+    } // Bolden delivery option, have option and subtext on separate lines
+    .PD032_Delivery_Type {
+      font-weight: 700;
+      display: block;
+    }
+    .PD032_Delivery_Description {
+      display: block;
+    }
+  } // Continue button
+  #chooseDeliveryMethod_continue_button {
+    background-color: #51AE31;
+    height: 35px; // Reposition arrow symbol
+    &::after {
+      margin-top: -13px;
+    }
+  }
+}
+
+// Checkout summary page specific styling
+.PD032.PD032-Checkout-Summary {
+  // keep the address/delivery and payment areas displayed and restyle
+  #addFilters>.ui-collapsible-content.ui-body-inherit {
+    display: block;
+    background: #FFFFFF;
+    border: none;
+  } // Truncate text areas for delivery method and address and float edit links 
+  // Delivery Address
+  #addFilters>.ui-collapsible-content>.mar_10,
+  #addFilters>.ui-collapsible-content>.item_container {
+    display: inline-block;
+    white-space: nowrap;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis; // Hide break tags to display address on one line
+    >br {
+      display: none;
+    }
+  }
+  #addFilters>.ui-collapsible-content>.item_container {
+    display: inline-block;
+    white-space: nowrap;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis; // Hide break tags to display address on one line
+    >br {
+      display: none;
+    }
+  }
+  .red.ui-link {
+    float: right;
+    margin: 0;
+  } // Restyle headers 
+  h4.ui-collapsible-heading {
+    background-color: #303030;
+    >a {
+      background: none !important; // change carat into a check mark
+      &::after {
+        background: none;
+      }
+    }
+  } // Add check mark to all headers apart from last (payment method)
+  .checkout_summary_flow>.ui-collapsible-set:not(:last-of-type) h4.ui-collapsible-heading>a::after {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    content: '';
+    display: block;
+    width: 4px;
+    height: 10px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } // Purchase reference section
+  // Remove text "Please enter your Purchase Order Number"..., remove asterisk
+  #placeOrderForm1 {
+    .mandatory {
+      display: none;
+    } // Checkout summary is moved as part of JS
+    >#checkout_summary_order_details+.mar-10 {
+      display: none;
+    } // Hide continue shopping button, make payment button bigger
+    >.mar-10 .ui-grid-a {
+      .ui-block-a {
+        display: none;
+      }
+      .ui-block-b {
+        width: 100%;
+        .place-order {
+          height: 35px;
+          position: relative;
+          &::after {
+            content: '';
+            display: inline-block;
+            background-image: url('https://www.protecdirect.co.uk/_ui/mobile/theme-protec/images/icons-36-white.png');
+            background-size: 776px 18px;
+            background-repeat: no-repeat;
+            background-position: -108px 50%;
+            margin-top: -6px;
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 28px;
+            height: 25px;
+            right: 0;
+          }
+        }
+      }
+    }
+  } // Restyle payment buttons radio options
+  .checkout_summary_flow .ui-collapsible-set:last-child>#addFilters {
+    // Hide current radio button
+    .ui-radio label::after {
+      display: none;
+    } // Insert own radio option
+    // Unselected
+    .ui-radio label::before {
+      content: '';
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: #FFFFFF;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -10px;
+      border: solid 1px #303030;
+    } // Selected
+    .ui-radio label.ui-radio-on::before {
+      background-color: #303030;
+    }
+  } // Moved order totals
+  #cart_totals_div>.order_totals>.ui-grid-a {
+    border: none;
+    margin: 0;
+    padding: 0;
+    .ui-block-a,
+    .ui-block-b {
+      font-size: 14px;
+    }
+  }
+  #cart_totals_div>.order_totals>.grandTotal {
+    background: none;
+    margin-top: 15px;
+    .ui-block-b.grandTotal {
+      font-weight: 700;
+    }
+    .grandTotal {
+      color: #000000;
+      font-size: 14px;
+    }
+  } // View/Hide Bag
+  #cart_totals_div+.mar-10 {
+    text-align: center;
+    #orderDetailsToDisplayFlag {
+      display: block;
+      background-color: #303030;
+      padding: 8px 0;
+      >span {
+        color: #FFFFFF;
+      }
+    }
+  } // Restyle the bag
+  #checkout_summary_order_details {
+    // Hide second terms and conditions
+    .place-order-bottom {
+      display: none;
+    } // Style products
+    .productListItemDetails {
+      .total {
+        background: none;
+      }
+    }
+    .productlistItem .grid_4 .border {
+      color: #FFFFFF;
+      background-color: #303030;
+    }
+  } // Clear float for bag items
+  #checkout_summary_order_details+.mar-10+.mar-10 {
+    clear: both;
+    padding-top: 10px; // Terms and conditions
+    // Terms and conditions link
+    .ui-link,
+    .ui-link:visited {
+      color: #000000;
+      text-decoration: underline;
+    } // Restyle check box - hide current checkbox, create one
+    label.ui-btn::after {
+      display: none;
+    } // Not selected
+    label.ui-btn::before {
+      content: '';
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: #FFFFFF;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -10px;
+      border: solid 1px #303030;
+    } // Selected
+    label.ui-btn.ui-checkbox-on::before {
+      background-color: #303030;
+    }
+  } // Hide payment options if only pay by card exists
+  #content .checkout .checkout_summary_selector>.checkout_summary_flow>.ui-collapsible-set:last-child>div>div.PD032_Hide {
+    display: none;
+  }
+}

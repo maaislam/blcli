@@ -1,0 +1,38 @@
+.NH040 {
+  // Add position relative to parent, allows predicted  words to sit above form
+  #ctl00_ctl02_pnlKeyword {
+    position: relative;
+  } // Predicted word container
+  .NH040_Predicted_Words_Container {
+    background-color: #FFFFFF;
+    position: absolute; // Narrow prediction container to less than container, margin left to center the container
+    width: calc(100% - 14px);
+    margin-left: 7px;
+    z-index: 1;
+    display: none; // Move predictions up, compensating for margin bottom added to search input
+    margin-top: -9px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    &.NH040_Show_Prediction {
+      display: block;
+    }
+  } // Predicted word
+  .NH040_Predicted_Word {
+    // Hidden by default
+    display: none;
+    color: #878787;
+    cursor: pointer;
+    padding: 5px 0 5px 20px; // Reveal based on JS class adding
+    &.NH040_Predicted_Word_Display {
+      display: block;
+      &:hover {
+        color: #000000;
+        background-color: #FEE1B7;
+      }
+      &.NH040_Active{
+        color: #000000;
+        background-color: #FEE1B7;
+      }
+    }
+  }
+}

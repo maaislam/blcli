@@ -1,0 +1,173 @@
+@import '../../../variables';
+@import '../../../mixins';
+@import 'include-media/dist/_include-media.scss';
+
+.#{$id} {
+  .block__title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  //********************************
+  // Phone & small ipad
+  // 320px and 1024px
+  //********************************
+
+  @include media('>=phone', '<desktop-s') {
+    .grid2x2 {
+      min-height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .box {
+      &:nth-child(-n + 4) {
+        display: flex;
+        flex-basis: calc(50%);
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .img--margin {
+      margin: 10px;
+    }
+  }
+
+  //********************************
+  // Desktop
+  // 1366px window width and more
+  //********************************
+
+  @include media('>=desktop-s') {
+    .img--margin {
+      padding: 20px;
+    }
+
+    .grid2x2 {
+      min-height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .box {
+      padding: 30px;
+      &:nth-child(1) {
+        box-sizing: content-box;
+        border-image: linear-gradient(
+          224deg,
+          #cb2e78 0%,
+          rgba(205, 47, 118, 0) 100%
+        );
+        border-image-slice: 1;
+        border-bottom: 1px solid;
+      }
+      &:nth-child(2) {
+        box-sizing: content-box;
+        border-image: linear-gradient(
+          0deg,
+          #cb2e78 0%,
+          rgba(205, 47, 118, 0) 100%
+        );
+        border-image-slice: 1;
+        border-left: 1px solid;
+      }
+      &:nth-child(3) {
+        box-sizing: content-box;
+        border-image: linear-gradient(
+          180deg,
+          #cb2e78 0%,
+          rgba(205, 47, 118, 0) 100%
+        );
+        border-image-slice: 1;
+        border-right: 1px solid;
+      }
+      &:nth-child(4) {
+        box-sizing: content-box;
+        border-image: linear-gradient(
+          45deg,
+          #cb2e78 0%,
+          rgba(205, 47, 118, 0) 100%
+        );
+        border-image-slice: 1;
+        border-top: 1px solid;
+        margin: -1.5px; // Horrible fix to resolve not being aligned
+      }
+      &:nth-child(-n + 4) {
+        display: flex;
+        flex-basis: calc(50% - 61px);
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  //********************************
+  // Desktop **SAFARI**
+  // 1366px window width and more
+  //********************************
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      .img--margin {
+        padding: 20px;
+      }
+
+      .grid2x2 {
+        min-height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .box {
+        padding: 30px;
+        &:nth-child(1) {
+          box-sizing: content-box;
+          border-image: linear-gradient(
+            325deg,
+            #cb2e78 0%,
+            rgba(205, 47, 118, 0) 35%
+          );
+          border-image-slice: 1;
+          border-bottom: 0.1px solid;
+        }
+        &:nth-child(2) {
+          box-sizing: content-box;
+          border-image: linear-gradient(
+            29deg,
+            #cb2e78 0%,
+            rgba(205, 47, 118, 0) 35%
+          );
+          border-image-slice: 1;
+          border-left: 0.1px solid;
+          margin: -2.2px;
+        }
+        &:nth-child(3) {
+          box-sizing: content-box;
+          border-image: linear-gradient(
+            213deg,
+            #cb2e78 0%,
+            rgba(205, 47, 118, 0) 35%
+          );
+          border-image-slice: 1;
+          border-right: 0.1px solid;
+        }
+        &:nth-child(4) {
+          box-sizing: content-box;
+          border-image: linear-gradient(
+            145deg,
+            #cb2e78 0%,
+            rgba(205, 47, 118, 0) 35%
+          );
+          border-image-slice: 1;
+          border-top: 0.1px solid;
+        }
+        &:nth-child(-n + 4) {
+          display: flex;
+          flex-basis: calc(50% - 66px);
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

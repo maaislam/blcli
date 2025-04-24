@@ -1,0 +1,283 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-lightbox__wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99999;
+    overflow: hidden !important;
+    top: 0px;
+    // top: 139px;
+    // top: 70px;
+    transition: .5s opacity;
+    opacity: 1;
+    &.hide {
+      // display: none !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      // background-color: #000;
+      background-color: #FFF;
+      z-index: -2;
+      position: fixed;
+      top: 0;
+      // top: 139px;
+      // top: 70px;
+      opacity: .6;
+    }
+    .#{$id}-lightbox__container {
+      display: block;
+      width: 50vw;
+      height: auto;
+      background-color: #FFF;
+      opacity: 1;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 15% !important;
+      max-width: 450px !important;
+      // border: 7px solid #007a53;
+      box-sizing: border-box;
+
+      box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.75);
+
+      @media screen and (max-width: 420px) {
+        width: 100%;
+        top: 10% !important;
+      }
+
+      .#{$id}-lightbox__header {
+        display: block;
+        width: 100%;
+        height: 85px;
+        background-color: #FFF38A;
+        @media screen and (max-width: 420px) {
+          height: 100px;
+        }
+        .#{$id}-lightbox__title {
+          // color: #FFF;
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          position: relative;
+          transform: translateX(-50%) translateY(-50%); // or use translate(-50%, -50%)
+          top: 50%;
+          left: 50%;
+          // transform: translateX(-50%);
+          font-size: 1.5em;
+          line-height: 26px;
+          font-weight: 600;
+          font-family: sul-sans, sans-serif;
+
+          @media screen and (max-width: 420px) {
+            // left: unset;
+            width: 85%;
+            padding-left: 3%;
+          }
+
+        }
+        .#{$id}-lightbox__close {
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          right: 15px;
+          top: 0px;
+          color: #FFF;
+          // background-image: url('https://dl.airtable.com/.attachmentThumbnails/169231a8d50e07932f9998fb9d88694a/1c9322f9');
+          background-size: 100%;
+          background-repeat: no-repeat;
+          // transform: rotate(45deg);
+
+          a {
+            color: #15212F;
+            font-size: 30px;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .#{$id}-lightbox__content {
+        padding: 20px 20px 40px 20px;
+        // max-height: 380px;
+        max-height: 415px;
+        position: relative;
+        @media screen and (max-width: 420px) {
+          max-height: unset;
+        }
+
+        b.xthanks {
+          text-align: center;
+          display: block;
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+
+        
+        .#{$id}-dropdown {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+
+          &.hide {
+            display: none;
+          }
+
+          p {
+            margin-bottom: .5rem;
+            margin-top: 1.25rem;
+          }
+
+          button.dropbtn {
+            width: 100%;
+            background-color: #FFF;
+            // color: #D7D2CB;
+            color: #555555;
+            padding: 16px;
+            font-size: 16px;
+            border: 1px solid #D7D2CB;
+            cursor: pointer;
+            text-align: left;
+
+            &:hover, &:focus {
+              // background-color: #2980B9;
+            }
+
+            &.error {
+              border-color: #de0030;
+            }
+
+            .arrow-up {
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 10px solid black;
+              float: right;
+
+              
+            }
+            .arrow {
+              width: 0; 
+              height: 0;   
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 10px solid #d7d2cb;
+              // border-top: none !important;
+              float: right;
+              pointer-events: none;
+              
+
+              &.down {
+                width: 0; 
+                height: 0; 
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: none !important;
+                border-top: 10px solid #d7d2cb;
+                float: right;
+
+                
+              }
+            }
+          }
+
+          ul.dropdown-content {
+            display: none;
+            margin: 0;
+            position: absolute;
+            // background-color: #f1f1f1;
+            background-color: #FFF;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 9;
+
+            &.show {display: block; width: 100%;}
+
+            li {
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+              font-weight: 500;
+              // color: #d7d2cb;
+              color: #15212f;
+
+              &.hide {
+                display: none;
+              }
+    
+              &:hover {
+                background: #f5f4f2;
+                color: #15212F;
+                font-weight: 600;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        
+        
+        
+        // .dropdown a:hover {background-color: #ddd;}
+        
+        .show {display: block; width: 91%;}
+        // --- 
+        .#{$id}-submit {
+          padding: 0 5% 0 5%;
+          margin-bottom: 5%;
+          margin-top: 5%;
+
+          div {
+            background-color:  #15212F;
+            color: #FFF;
+            text-align: center;
+            padding: 4%;
+            font-size: 1.1em;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+        .#{$id}-skip-step {
+          text-align: center;
+          font-family: 'Roboto Condensed',sans-serif;
+          padding: 0vw 0 1vw 0;
+          p {
+            color: #a4a3a2;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            text-decoration: underline;
+            font-family: "sul-sans",helvetica,sans-serif !important;
+
+            &:hover {
+              cursor: pointer;
+              color: #15212f;
+            }
+          }
+          
+        }
+      }
+    }
+  }
+
+  //.af-modal-scroll-wrapper {
+  //  display: none !important;
+  //}
+}
+
+// Fine to do this as the experiment is 100% we don't need to namespace
+#register-modal-variant[class*=open] {
+  display: none !important;
+
+  ~ .reveal-modal-bg {
+    display: none !important;
+  }
+}

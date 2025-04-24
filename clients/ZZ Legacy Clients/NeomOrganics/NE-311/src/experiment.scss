@@ -1,0 +1,283 @@
+@import "./variables";
+
+.#{$id} {
+  ##{$id}-form {
+    label {
+      display: none;
+    }
+
+    .#{$id}-form-submit {
+      display: block;
+      width: 100%;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      border: 0;
+    }
+
+    .#{$id}-email-input__submit-input {
+      border-radius: 0;
+      border: 1px solid #ddd;
+      padding: 5px 20px;
+      min-height: 3em;
+      margin-bottom: 0;
+      font-weight: 300;
+    }
+  }
+
+  .#{$id}-noScroll {
+    overflow: hidden;
+  }
+
+  .#{$id}-close__icon {
+    background-image: url("https://ucds.ams3.digitaloceanspaces.com/ne-310/Vector%20%282%29.png");
+    width: 32px;
+    height: 32px;
+    background-size: 10px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #d9ecf2;
+    border: 1px solid #4a4a4a;
+    border-radius: 20px;
+    padding: 10px;
+
+    position: absolute;
+    top: -40px;
+    right: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // --- Email Sign Up CTA
+  .#{$id}-email-cta__wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 4;
+
+    .#{$id}-email-cta__container {
+      background-color: #d9ecf2;
+      padding: 12px 20px 12px 45px;
+      border-radius: 16px;
+
+      text-transform: uppercase;
+      text-decoration: underline;
+      color: #000;
+
+      background-image: url("https://ucds.ams3.digitaloceanspaces.com/ne-310/Group.png");
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: 20px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      .#{$id}-email-cta__container {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // --- Email Box
+  .#{$id}-email-box__wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 10000;
+
+    @media screen and (max-width: 359px) {
+      right: 0px;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    .#{$id}-email-box__container {
+      background: #d9ecf2;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      padding: 20px 20px;
+      max-width: 320px;
+      text-align: center;
+
+      h2 {
+        font-size: 16px;
+        line-height: 26px;
+        text-transform: uppercase;
+        font-family: function-book, sans-serif;
+        font-weight: 600;
+        color: #363636;
+
+        margin-bottom: 10px;
+      }
+
+      p,
+      a {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22.4px;
+      }
+    }
+
+    a.NE-311-privacy-link {
+      color: #949494;
+      text-decoration: underline;
+      font-size: 14px;
+      margin-top: 8px;
+
+      display: none;
+
+      &.show {
+        display: inline-block;
+      }
+    }
+    .NE-311-signup__btn {
+      color: #000;
+      text-transform: uppercase;
+      text-decoration: underline;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .#{$id}-form-close {
+      display: block;
+      width: 100%;
+      color: #000 !important;
+      background-color: transparent !important;
+      border: 1px solid #000;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 15px 20px;
+    }
+
+    .NE-311-email-input__wrapper {
+      flex-direction: column;
+      margin-top: 20px;
+      display: none;
+
+      &.show {
+        display: flex;
+      }
+
+      input {
+        border: 1px solid #dddddd;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+
+        &.error {
+          // border: 2px solid #D80027;
+          // box-sizing: border-box;
+          box-shadow: inset 0px 0px 1.5px 0px #d80027;
+          border-color: #d80027;
+        }
+      }
+      button {
+        color: #fff;
+        background-color: #000;
+        text-transform: uppercase;
+        border: 1px solid #000;
+        padding: 10px 20px;
+
+        &.close {
+          background-color: transparent;
+          color: #000;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  /**
+  * ----------------------------------------
+  * @animation scale-out-br
+  * ----------------------------------------
+  */
+  @-webkit-keyframes scale-out-br {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-out-br {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+  }
+
+  .scale-out-br {
+    -webkit-animation: scale-out-br 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+      both;
+    animation: scale-out-br 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  /**
+  * ----------------------------------------
+  * animation scale-in-br
+  * ----------------------------------------
+  */
+  @-webkit-keyframes scale-in-br {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-br {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      opacity: 1;
+    }
+  }
+
+  .scale-in-br {
+    -webkit-animation: scale-in-br 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+    animation: scale-in-br 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}

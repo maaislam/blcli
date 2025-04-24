@@ -1,0 +1,181 @@
+@import './variables';
+
+
+
+@keyframes SG35fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes SG35fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.#{$id} {
+    #scarity-message {
+        display: none;
+    }
+    .#{$id}-scarcityMessages {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 100%;
+        width: 100%;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media(min-width: 1280px) {
+            top: 30px;
+        }
+
+        .#{$id}-scarcity {
+            border: 2px solid black;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px;
+            text-align: left;
+            margin-bottom: 10px;
+            color: black;
+            font-size: 14px;
+            padding-left: 45px;
+            position: relative;
+            border-radius: 4px;
+            font-weight: 500;
+            font-family: Oxygen,sans-serif;
+            text-transform: uppercase;
+            opacity: 0;
+            @media(min-width: 767px) {
+                font-size: 15px;
+            }
+            @media(min-width: 1280px) {
+                font-size: 16px;
+                padding-left: 55px;
+            }
+            b {
+                font-weight: 900;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                height: 35px;
+                width: 35px;
+                left: 5px;
+                display: block;
+                background: #ccc;
+                top: 50%;
+                transform: translateY(-50%);
+                @media(min-width: 1280px) {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+
+            &.#{$id}-show {
+                animation: SG35fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            &.#{$id}-fadeOut {
+                animation: SG35fade-out 1s ease-out both;
+            }
+
+            &.#{$id}-first {
+                width: fit-content;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                &::before { 
+                    background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/A9F2B28E3F89C7B4BE6861A13E3F265702581F348E6E71C86E881D92837D47BB.png?meta=/SG132---CTA-section-tidy-up/noun_Hot_18687201.png') no-repeat center;
+                    background-size: contain;
+                }
+                @media(min-width: 767px) {
+                    padding-left: 55px;
+                }
+            }
+            &.#{$id}-second {
+                width: auto;
+                margin: 0 auto;
+                &::before { 
+                    background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/FBFE96A31D926C176E5DD975E951109560E93D8924F21E14219C434472F73E3A.png?meta=/SG132---CTA-section-tidy-up/noun_View_11592211.png') no-repeat center;
+                    background-size: contain;
+                }
+                @media(min-width: 767px) {
+                    padding-left: 55px;
+                    
+                }
+                @media(min-width: 1024px) {
+                    padding-left: 55px;
+                }
+            }
+        }
+    }
+
+  &.hsamuel {
+    .#{$id}-scarcity {
+        border: 2px solid #a01c29;
+        font-family: Montserrat,sans-serif;
+        padding: 8px;
+        padding-left: 45px;
+        @media(min-width: 767px) {
+            width: 100%;
+        }
+        @media(min-width: 1280px) {
+            font-size: 16px;
+            padding-left: 60px;
+            width: 350px;
+        }
+
+        &.#{$id}-first {
+            &::before { 
+                background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/0EE5AC32D3AA92106697A0307BE392E50998A51D5DA8F068420366C654CB5B7B.png?meta=/SG132---CTA-section-tidy-up/noun_Hot_18687202.png') no-repeat center;
+                background-size: contain;
+            }
+        }
+        &.#{$id}-second {
+            &::before { 
+                background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/753EC12863DEAE3913FCDEF6856CEF637E61EB53D39AD23B04ACB956C83E3B17.png?meta=/SG132---CTA-section-tidy-up/noun_View_1159221.png') no-repeat center;
+                background-size: contain;
+            }
+        }
+    }
+  }
+
+  &.#{$id}-2 {
+    .#{$id}-scarcityMessages {
+        .#{$id}-scarcity {
+            font-size: 13px;
+            @media(min-width: 767px) {
+                font-size: 15px;
+            }
+            @media(min-width: 1280px) {
+                font-size: 14px;
+            }
+            &.#{$id}-first {
+                padding-right: 15px;
+                width: fit-content;
+                max-width: 400px;
+                @media(min-width: 767px) {
+                    padding-left: 50px;
+                    width: fit-content;
+                }
+            }
+            &.#{$id}-second {
+                width: fit-content;
+                padding-right: 15px;
+                margin: 0 auto;
+                @media(min-width: 767px) {
+                    padding-left: 50px;
+                }
+                
+            }
+        }
+    }
+  }
+}

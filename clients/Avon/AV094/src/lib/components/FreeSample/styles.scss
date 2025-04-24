@@ -1,0 +1,258 @@
+@import '../../../variables';
+@import 'include-media/dist/_include-media.scss';
+
+$breakpoints: (phone: 320px, tablet: 768px, desktop-s: 1024px, desktop-l: 1440px);
+
+.#{$id} {
+  .basket_error {
+    color: #ff0000;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .product-title-noLink {
+    font-weight: 600;
+  }
+  //********************************
+  // Phone
+  // 576px window width and more
+  //********************************
+
+@include media(">=phone", "<tablet") {
+    .container-wrapper-mobile {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-image: url('https://cdn.shopify.com/s/files/1/0327/1498/1421/files/No_diamond_-_Mobile.png?v=1629665332');
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid #f6f6f6;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        p {
+          margin: 5px;
+        }
+        .title__free {
+          color: #ab8300;
+          font-weight: 600;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+        .title__bold {
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+      .flex-wrapper {
+        display: flex;
+        flex-direction: row;
+        .image-wrapper {
+          margin: 20px 0 0 30px;
+        }
+        svg {
+          margin: 0 auto;
+        }
+        .text-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin: 20px;
+          text-align: center;
+          .text-wrapper__textOne {
+            font-weight: 600;
+            font-size: 14px;
+            padding-bottom: 2px;
+            margin: 0;
+          }
+          .text-wrapper__textTwo {
+            font-weight: normal;
+            font-size: 12px;
+          }
+        }
+      }
+      .addedBasket-wrapper {
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        display: flex;
+        padding: 18px;
+        background-color: #f7f7f7;
+        margin: 0 -10px;
+        .addedBasket-wrapper__text {
+          font-weight: 500;
+          font-size: 12px;
+          margin: 0 auto;
+          .addedBasket-wrapper__text__gold {
+            color: #ab8300;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  //********************************
+  // Tablet - Ipad
+  // 768px window width
+  //********************************
+  @include media(">phone", "<desktop-s") {
+    .container-wrapper {
+      background-size: cover !important;
+    }
+  }
+
+  //********************************
+  // Tablet
+  // between 768px and 1024px
+  //********************************
+
+  @include media(">=tablet", "<=desktop-l") {
+    .container-wrapper {
+      display: flex;
+      flex-direction: row;
+      background-image: url('https://cdn.shopify.com/s/files/1/0327/1498/1421/files/No_diamond_-_Desktop.png?v=1629665332');
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 0px 25px;
+      .title {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: 50%;
+        p {
+          margin: 5px;
+        }
+        .title__free {
+          text-transform: uppercase;
+          color: #ab8300;
+          font-weight: 600;
+          font-size: 16px;
+          font-size: 1em;
+        }
+        .title__bold {
+          font-weight: 600;
+          font-size: 16px;
+          font-size: 1em;
+        }
+        button.btn.btn-primary {
+          width: 250px !important;
+          padding: 0.5rem !important;
+        }
+        .addedBasket-wrapper {
+          border-top: 1px solid #e5e5e5;
+          border-bottom: 1px solid #e5e5e5;
+          display: flex;
+          padding: 5px;
+          margin: 0 auto;
+          .addedBasket-wrapper__text {
+            font-weight: 500;
+            font-size: 12px;
+            .addedBasket-wrapper__text__gold {
+              color: #ab8300;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+      .image-wrapper {
+        margin: 10px;
+        img {
+          height: 90px;
+        }
+      }
+
+      .text-wrapper {
+        margin: 10px;
+        text-align: center;
+        width: 35%;
+        svg {
+          padding: 0;
+          margin: 0;
+        }
+        .text-wrapper__textOne {
+          font-weight: 600;
+          font-size: 14px;
+          padding: 0;
+          margin: -6px;
+        }
+        .text-wrapper__textTwo {
+          font-weight: normal;
+          font-size: 12px;
+          margin: -6px;
+        }
+      }
+    }
+  }
+
+  //********************************
+  // Desktop
+  // 1200px window width and more
+  //********************************
+
+  @include media(">desktop-l") {
+    .container-wrapper {
+      display: flex;
+      flex-direction: row;
+      background-image: url('https://cdn.shopify.com/s/files/1/0327/1498/1421/files/No_diamond_-_Desktop.png?v=1629665332');
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding: 0px 75px;
+      .title {
+        display: flex;
+        flex-direction: column;
+        width: 345px;
+        padding: 20px;
+        p {
+          margin: 5px;
+        }
+        .title__free {
+          text-transform: uppercase;
+          color: #ab8300;
+          font-weight: 600;
+          font-size: 16px;
+        }
+        .title__bold {
+          font-weight: 600;
+          font-size: 16px;
+        }
+        button.btn.btn-primary {
+          width: 290px !important;
+        }
+        .addedBasket-wrapper {
+          border-top: 1px solid #e5e5e5;
+          border-bottom: 1px solid #e5e5e5;
+          display: flex;
+          padding: 15px;
+          .addedBasket-wrapper__text {
+            font-weight: 500;
+            font-size: 12px;
+            .addedBasket-wrapper__text__gold {
+              color: #ab8300;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+      .image-wrapper {
+        margin: 20px;
+      }
+
+      .text-wrapper {
+        margin: 20px;
+        width: 180px;
+        text-align: center;
+        .text-wrapper__textOne {
+          font-weight: 600;
+          font-size: 14px;
+          padding: 0;
+          margin: 0;
+        }
+        .text-wrapper__textTwo {
+          font-weight: normal;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

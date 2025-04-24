@@ -1,0 +1,113 @@
+@import './variables';
+
+@keyframes ME312fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes ME312fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.#{$id} {
+    #scarity-message {
+        display: none;
+    }
+    .#{$id}-scarcityMessages {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 99;
+        @media(min-width: 767px) {
+            width: 80%;
+            max-width: 300px;
+        }
+        @media(min-width: 1280px) {
+            width: 90%;
+            max-width: 310px;
+            top: 20px;
+        }
+
+        .#{$id}-scarcity {
+            border: 2px solid black;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px;
+            text-align: left;
+            margin-bottom: 10px;
+            color: black;
+            font-size: 14px;
+            padding-left: 45px;
+            position: relative;
+            border-radius: 5px;
+            font-weight: 500;
+            opacity: 0;
+            @media(min-width: 767px) {
+                font-size: 15px;
+            }
+            @media(min-width: 1280px) {
+                font-size: 16px;
+                padding-left: 55px;
+            }
+            b {
+                font-weight: 900;
+            }
+            //opacity: 0;
+            &::before {
+                content: '';
+                position: absolute;
+                height: 35px;
+                width: 35px;
+                left: 5px;
+                display: block;
+                background: #ccc;
+                top: 50%;
+                transform: translateY(-50%);
+                @media(min-width: 1280px) {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+
+            &.#{$id}-show {
+                animation: ME312fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            &.#{$id}-fadeOut {
+                animation: ME312fade-out 1s ease-out both;
+            }
+
+            &.#{$id}-first {
+                @media screen and (min-width: 767px){
+                  line-height: 40px;
+                }
+                @media screen and (max-width: 482px){
+                  line-height: 40px;
+                }
+                
+                &::before { 
+                    background: url('//cdn.optimizely.com/img/6087172626/522ba5da905e4636b98fd0a9c5afd2f4.png') no-repeat center;
+                    // https://thenounproject.com/search/?q=christmas&i=1994634
+                    background: url('https://editor-assets.abtasty.com/49254/6124e23c2c8a31629807164.png') no-repeat center;
+                    background-size: contain;
+                }
+            }
+            &.#{$id}-second {
+                &::before { 
+                    background: url('//cdn.optimizely.com/img/6087172626/473da26f0f9442c89ce97e631a69ee3b.png') no-repeat center;
+                    background: url('//cdn.optimizely.com/img/6087172626/5ab415b4169349359309f3ec969bc535.png') no-repeat center;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+      
+}

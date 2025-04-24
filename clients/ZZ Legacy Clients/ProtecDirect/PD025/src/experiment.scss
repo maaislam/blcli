@@ -1,0 +1,91 @@
+.PD025 {
+  // Hide applied filters
+  #facetRefinements-page>div[data-role="collapsibleset"] {
+    display: none;
+  } // Style filter container
+  #facetRefinements-page>.productsList.ui-filter-navigation-bar {
+    border: solid 1px #57595a;
+  } // Style filter options
+  h4.col-sky.ui-collapsible-heading {
+    background-color: #57595a;
+    color: #ffffff;
+    padding-left: 10px;
+  } // Style filter header
+  #facetFilter a {
+    background: none;
+    color: #57595a;
+    font-weight: 700;
+    &::after {
+      // Hide arrows
+      content: none;
+    }
+  } // Reveal all filter options from accordions
+  #facetFilter div[data-role="collapsible"]>div {
+    display: block;
+  } // Style individual filter container
+  #facetValueList>.ui-controlgroup-controls {
+    padding-left: 10px;
+  } // Style individual filter options
+  #facetFilter label.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left {
+    border: none;
+  } // Style check box when checked
+  #facetFilter label.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-on::after {
+    background: #CCCCCC;
+    content: '✕';
+    color: #57595a;
+    text-shadow: none;
+    border: none;
+    text-align: center;
+    line-height: 20px;
+  } // Style applied filters that have been moved
+  .PD025_Applied_Filter:first-child {
+    margin-top: 5px;
+  }
+  .PD025_Applied_Filter {
+    padding-left: 5px;
+  }
+  .productsList .PD025_Applied_Filter .ui-btn.ui-icon-delete {
+    border: none;
+  }
+  .PD025_Applied_Filter button::after {
+    background: #CCCCCC;
+    content: '✕';
+    color: #57595a;
+    text-shadow: none;
+    border: none;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 3px;
+  } // Add plus icon, turn to minus when filters are expanded
+  #facetRefinements-page>.productsList>div>.ui-collapsible >.ui-collapsible-heading {
+     
+      // Plus icon
+      &::before,
+        {
+        height: 5px;
+        width: 15px;
+        content: "";
+        display: inline-block;
+        background: #ffffff;
+        right: 20px;
+        position: absolute;
+        top: 10px;
+        z-index: 1;
+      }
+      &::after {
+        display: none;
+        background: #ffffff;
+        content: "";
+        right: 25px;
+        position: absolute;
+        top: 5px;
+        width: 5px;
+        height: 15px;
+        z-index: 1;
+      }
+  
+    &.ui-collapsible-heading-collapsed::after {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@import './variables';
+@import './slick';
+
+.#{$id} {
+  .#{$id}-brandFilters__wrapper {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    // padding: 0 10px;
+
+    h2 {
+      margin-bottom: 0px;
+      color: #4d4d4f;
+      font-weight: 400;
+    }
+
+    ul.#{$id}-brandOptions {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+      width: 100%;
+      margin-bottom: 0;
+
+      overflow-x: scroll;
+      padding-bottom: 10px;
+      border-collapse: separate;
+      border-spacing: 10px;
+
+      // box-shadow: inset -8px 0 7px -7px rgba(0,0,0,0.4);
+      // box-shadow: inset -8px 0 7px -7px #fff;
+
+      @media screen and (max-width: 683px) {
+        box-shadow: inset -2px -4px 8px -6px;
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: 7px;
+          height: 4px;
+          background-color: #f3f3f7;
+          border-radius: 4px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background-color: rgba(0, 0, 0, .5);
+          background-color: rgba(0, 0, 0, 1.5);
+          box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+      }
+
+      @media screen and (min-width: 684px) {
+        &::-webkit-scrollbar {
+          width: 0;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        &::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+      }
+
+      
+      @media screen and (min-width: 909px) {
+        text-align: center;
+        width: unset;
+      }
+
+      li {
+        border: 1px solid #B4B4B4;
+        border-radius: 6px;
+        width: 100px !important;
+        min-width: 100px;
+        height: 50px;
+        display: table-cell;
+        @media screen and (min-width: 684px) and (max-width: 908px) {
+          display: inline-flex;
+        }
+        
+        margin: 0 10px;
+        padding: 7px;
+        position: relative;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+
+        img {
+          width: 80%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    &.v1 {
+      ul.#{$id}-brandOptions li {
+        border: 1px solid #B4B4B4;
+        border-radius: 6px;
+      }
+    }
+    &.v2 {
+      ul.#{$id}-brandOptions li {
+        background-color: #000;
+        border-radius: 6px;
+        img {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+
+
+  &.hsamuel {
+    // HS-specific styles
+    .seo-intro {
+      padding-bottom: 0px;
+    }
+    .SG086-brandFilters__wrapper {
+      margin-bottom: 10px;
+    }
+
+    ul::-webkit-scrollbar-thumb {
+      background-color: #484849 !important;
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+
+
+
+  .slick-slide {
+    margin-left: -5px;
+  }
+  button.slick-arrow {
+    display: none !important;
+  }
+}

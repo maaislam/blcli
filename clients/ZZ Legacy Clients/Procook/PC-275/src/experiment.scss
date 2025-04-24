@@ -1,0 +1,141 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-cookware-category, .#{$id}-knives-category {
+    &>ul {
+      overflow: hidden;
+
+      div.#{$id}-col_1, div.#{$id}-col_2, div.#{$id}-col_3 {
+        margin-left: 20px;
+        @media screen and (max-width: 992px) {
+          margin-left: 10px;
+        }
+        @media screen and (min-width: 993px) {
+          margin-bottom: 20px;
+        }
+        width: calc(100% - 20px);
+
+        li.loaded {
+          position: relative;
+          @media screen and (max-width: 992px) {
+            &:before {
+              content: "_";
+              display: inline-block;
+              position: absolute;
+              margin-top: 10px;
+              margin-left: -6px;
+            }
+
+            a {
+              span.text {
+                padding-left: 10px;
+              }
+            }
+          }
+        }
+
+        a {
+          border-bottom: none;
+          margin-bottom: 0;
+          font-weight: bold;
+          padding: 20px 0px 10px;
+          font-size: 16px;
+          color: #282829;
+          font-family: arial, sans-serif;
+          line-height: 18px;
+        }
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            @media screen and (max-width: 992px) {
+              padding: 10px;
+              border-bottom: 1px solid #efedee;
+            }
+            
+            a {
+              padding: 6px 0 0px 0;
+              line-height: 20px;
+              font-family: arial, sans-serif;
+              font-size: 14px;
+              font-weight: 400;
+
+              color: #333;
+              border-bottom: 0;
+              position: relative;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            &[data-highlight="true"] {
+              a {
+                color: #1E4771;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+      div.#{$id}-col_3 {
+        @media screen and (max-width: 992px) {
+          border-bottom: 1px solid #efedee;
+        }
+      }
+
+
+      li.col_1.loaded {
+        display: none;
+        &.new_col {
+          display: flex;
+          flex-direction: column;
+          // width: 40% !important;
+          // display: inline-block;
+          min-width: 185px;
+
+          // background-color: lightcoral;
+
+          @media screen and (min-width: 993px) {
+            &:nth-child(3) {
+              padding: 0 !important;
+              margin-left: 15px !important;
+              margin-bottom: 20px !important;
+            }
+          }
+          // @media screen and (min-width: 993px) {
+          //   &#PC-275-shop-accessories {
+          //     background-color: lightblue;
+          //     margin-right: 40px;
+          //   }
+          // }
+          
+          ul {
+            display: flex;
+            flex-direction: column;
+            // display: block;
+            // columns: 2;
+
+            @media screen and (max-width: 992px) {
+              display: none;
+
+              &.active {
+                display: block;
+              }
+            }
+          }
+
+          @media screen and (max-width: 992px) {
+            a.menuCategory {
+              span.text {
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,363 @@
+@import '_mixins.scss';
+.HS009 {
+  .browse__applied-filters .browse__applied-filters__item {
+    display: none!important;
+  }
+  .HS009_open_modal {
+    position: fixed;
+    top: 50%;
+    right: -137px;
+    cursor: pointer;
+    margin: 27px 0 0 0;
+    line-height: 40px;
+    color: #666;
+    display: block;
+    width: 220px;
+    text-align: center;
+    overflow: hidden;
+    transform: rotate(-90deg);
+    z-index: 112;
+    background: #e0e0e0;
+    text-transform: uppercase;
+    padding-top: 2px;
+    @include anim(300ms, def, (right));
+    &.HS009_active {
+      right: -90px;
+    }
+  }
+  .backToTop {
+    margin-top: -148px;
+    padding-left: 6px;
+    z-index: 112;
+  }
+  .HS009_pop-up_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 11111;
+    top: 0;
+    left: 0;
+    background: rgba(189, 185, 185, 0.7);
+    display: none;
+    box-sizing: border-box;
+    * {
+      box-sizing: border-box;
+    }
+    @media (min-width: 830px) {
+      width: 710px;
+      height: 437px;
+      top: 50%;
+      margin-top: -178px;
+      right: 41px;
+      left: auto;
+      -webkit-box-shadow: 0px 0px 34px -1px rgba(0, 0, 0, 0.64);
+      -moz-box-shadow: 0px 0px 34px -1px rgba(0, 0, 0, 0.64);
+      box-shadow: 0px 0px 34px -1px rgba(0, 0, 0, 0.64);
+      @media (min-height: 768px) {
+        margin-top: -62px;
+      }
+    }
+    .HS009_body_click {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    .HS009_inner_div {
+      position: absolute;
+      width: calc(100% - 40px);
+      height: auto;
+      left: 50%;
+      top: 50%;
+      max-width: 900px;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 15px 0 15px 15px;
+      z-index: 20;
+      @media (min-width: 830px) {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+      .HS009_overflow_fix {
+        overflow-y: scroll;
+        max-height: 480px;
+        max-height: calc(100vh - 80px);
+        padding-right: 2px;
+        text-align: center;
+        &::after {
+          content: '';
+          display: table;
+          clear: both;
+        }
+        @media (min-width: 768px) {
+          max-height: 800px;
+          max-height: calc(100vh - 80px);
+        }
+        h2 {
+          position: relative;
+          display: inline-block;
+          padding-bottom: 11px;
+          margin-bottom: 0;
+          &::before {
+            content: '';
+            width: calc(100% - 40px);
+            height: 1px;
+            background: #484849;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          @media(min-width: 700px) {
+            width: 100%;
+            &::before {
+              width: 150px;
+            }
+          }
+        }
+      }
+      .HS009_overflow_fix::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+      .HS009_overflow_fix::-webkit-scrollbar:vertical {
+        width: 11px;
+      }
+      .HS009_overflow_fix::-webkit-scrollbar:horizontal {
+        height: 11px;
+      }
+      .HS009_overflow_fix::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid white;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .HS009_overflow_fix::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 8px;
+      }
+    }
+    .HS009_close_btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      text-transform: uppercase;
+      background: #000;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      font-size: 14px;
+      text-align: center;
+      font-family: Arial;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      @media (min-width: 830px) {
+        left:-15px;
+        right: auto;
+      }
+    }
+  }
+  .HS009_input-wrap,
+  .HS009_price-range {
+    label {
+      text-align: center;
+      display: block;
+      text-transform: uppercase;
+      padding: 20px 0;
+    }
+    @media(min-width: 700px) {
+      width: 50%;
+      float: left;
+      margin-top: 20px;
+      label {
+        font-size: 15px;
+      }
+    }
+    &.HS009_error {
+      .HS009_select {
+        border-color: #e1204d;
+        background: #f9dfe2;
+        &::after {
+          border-color: #e1204d transparent transparent transparent;
+        }
+        &.HS009_placeholder span {
+          color: #111;
+        }
+      }
+    }
+  }
+  .HS009_price-range {
+    label {
+      padding-bottom: 15px;
+    }
+    span {
+      font-size: 12px;
+    }
+    @media(min-width: 700px) {
+      margin-bottom: 20px;
+      .range_min,
+      .range_max {
+        font-size: 14px;
+      }
+    }
+  }
+  .HS009_select {
+    position: relative;
+    width: 215px;
+    border: 1px solid #9a9a9a;
+    background: #fff;
+    margin: 0 auto;
+    height: 42px;
+    &,
+    * {
+      box-sizing: border-box;
+    }
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 4px 0 4px;
+      border-color: #9a9a9a transparent transparent transparent;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      margin-top: -4px;
+    }
+    select {
+      opacity: 0;
+      z-index: 3;
+      position: relative;
+      background: #fff;
+      padding: 10px 2px;
+    }
+    select,
+    span {
+      width: 100%;
+      height: 100%;
+      line-height: 40px;
+      text-align: left;
+    }
+    span {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      color: #111;
+      padding: 0 8px;
+    }
+    &.HS009_placeholder span {
+      color: #c3c3c3;
+    }
+  }
+  .HS009_price-range {
+    padding: 0 20px;
+    input[type="range"] {
+      width: 100%;
+      height: 30px;
+      cursor: pointer;
+      outline: none;
+    }
+    input[type="range"],
+    input[type="range"]::-webkit-slider-runnable-track,
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background: none;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 2px;
+      background: #a01d2a;
+    }
+    input[type="range"]:nth-child(2)::-webkit-slider-runnable-track {
+      background: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      position: relative;
+      height: 22px;
+      width: 22px;
+      margin-top: -10px;
+      background: #b3b3b3;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    input[type="range"]:nth-child(1)::-webkit-slider-thumb {
+      z-index: 2;
+    }
+    .rangeslider {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      display: inline-block;
+      @media(min-width: 700px) {
+        height: 57px;
+      }
+    }
+    .rangeslider input {
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      height: 22px;
+      &:first-child {
+        position: absolute;
+        &::-moz-range-thumb {
+          transform: scale(1);
+          /* FF doesn't apply position it seems */
+          z-index: 6;
+        }
+        &::-moz-range-track {
+          border-color: transparent;
+        }
+      }
+      &+input {
+        position: relative;
+         &::-moz-range-thumb {
+          transform: scale(1);
+        }
+        &::-moz-range-track {
+          border-color: transparent;
+        }
+      }
+    }
+    .rangeslider span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .rangeslider .right {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+    .range_max.max_value::after {
+      content: "+";
+      position: absolute;
+      top: 0;
+      right: -8px;
+      line-height: 16px;
+      @media (min-width: 700px) {
+        right: -11px;
+      }
+    }
+  }
+  .HS009_find-watch {
+    background: #a01d2a;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 40px;
+    cursor: pointer;
+    max-width: 300px;
+    clear: both;
+  }
+}

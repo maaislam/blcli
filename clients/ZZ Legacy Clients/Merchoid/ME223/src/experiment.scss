@@ -1,0 +1,225 @@
+@import './variables';
+
+@keyframes MEheartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+@keyframes MEslide-right {
+    0% {
+        left: 0;
+        //-webkit-transform: translateX(0);
+        //       transform: translateX(0);
+    }
+    100% {
+        left: 60%;
+        //-webkit-transform: translateX(300px);
+                //transform: translateX(300px);
+    }
+}
+
+@keyframes MEslide-rightDesktop {
+    0% {
+        left: 0;
+        //-webkit-transform: translateX(0);
+        //       transform: translateX(0);
+    }
+    100% {
+        left: 80%;
+        //-webkit-transform: translateX(300px);
+                //transform: translateX(300px);
+    }
+}
+
+.#{$id} {
+    #maincontent {
+        padding: 0px;
+    }
+    .column.main{
+        h2 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .product-items {
+            padding: 0;
+            margin: 0;
+            .product-item {
+                padding: 15px;
+            }
+        }
+
+    } 
+    .#{$id}-badge {
+        background: rgba(23, 190, 251, 0.58);
+        color: white;
+        padding: 5px;
+        font-weight: 600;
+        border-radius: 10px;
+        text-align: center;
+        .#{$id}-icon {
+            height: 27px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 2px;
+            width: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        span {
+            text-transform: uppercase;
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &.#{$id}_lowStock_Wrapper {
+            background: rgba(189, 6, 6, 0.95);
+            .#{$id}-icon {
+                background-image: url('//cdn.optimizely.com/img/6087172626/dac9bc846f17443b9ddf09e4d75c84a3.png');
+            }
+        }
+        &.#{$id}_goodStock_wrapper {
+            background: rgba(63, 148, 10, 0.77);
+            .#{$id}-icon {
+                background-image: url('//cdn.optimizely.com/img/6087172626/8130ba1e52a34c6185024f547b400112.png');
+            }
+        }
+        &.#{$id}_sellingFast_wrapper {
+            background: #f4790d;
+
+            .#{$id}-icon {
+                height: 27px;
+                width: 30px;
+                margin-right: 0;
+                background-image: url('//cdn.optimizely.com/img/6087172626/3d7adb54757b4d97918845e380d7a7d0.png');
+            }
+        }
+       
+    }
+
+    .#{$id}_scarcityBanner {
+        padding: 10px;
+        text-align: center;
+        background-image: url('//cdn.optimizely.com/img/6087172626/3a13359f0730449994273c33b34684ca.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        h3 {
+            margin-top: 10px;
+            color: white;
+            font-size: 15px;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            &::after {
+                content: '';
+                width: 50px;
+                height: 4px;
+                background: #0ebbf3;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+            }
+        }
+        p {
+            font-size: 13px;
+            color: white;
+            padding-bottom: 15px;
+        }
+        @media(min-width: 374px) {
+            padding: 20px;
+        }
+    }
+
+    &.#{$id}-2 {
+        .#{$id}_scarcityBanner {
+            h3 {
+                margin-bottom: 5px;
+                &::after {
+                    display: none;
+                }
+            }
+            p {
+                margin-bottom: 10px;
+                padding-bottom: 0px;
+            }
+            .#{$id}-loaderBar {
+                width: 70%;
+                margin: 0 auto;
+                display: block;
+                position: relative;
+                padding-bottom: 50px;
+                margin-bottom: 5px;
+                span{
+                    display: block;
+                    height: 27px;
+                    background: rgb(106,0,7);
+                    background: linear-gradient(90deg, rgba(106,0,7,1) 3%, rgba(189,6,6,1)  33%, rgba(123,193,35,1) 67%, rgba(113,240,107,1) 100%);
+                    padding: 5px;
+                }
+                
+                .#{$id}-stockLevel {
+                    position: absolute;
+                    bottom: 13px;
+                    background-size: contain;
+                    color: white;
+                    left: 50px;
+                    transform: translateX(0);
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    .#{$id}-arrow {
+                        background-position: center;
+                        background-image: url('//cdn.optimizely.com/img/6087172626/436e70ad1a664d9491cfcf9803476758.png');
+                        height: 40px;
+                        width: 45px;
+                        background-size: cover;
+                        margin: 0 auto;
+                        padding: 0px;
+                    }
+                }
+            }
+
+            &.#{$id}-loader_slide {
+                .#{$id}-loaderBar {
+                    //animation: MEheartbeat 2s ease-in-out both;
+                    .#{$id}-stockLevel {
+                        animation:  MEslide-left 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                        @media(min-width: 767px) {
+                            animation:  MEslide-leftDesktop 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

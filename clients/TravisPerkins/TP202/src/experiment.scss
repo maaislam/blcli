@@ -1,0 +1,332 @@
+@import "./variables";
+
+.#{$id} {
+  // Icon styling
+  &__icon {
+    margin-right: 10px;
+    @media all and (max-width: 435px) {
+      display: none;
+    }
+  }
+
+  // First button
+  [data-test-id="highlight"] {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #36705a;
+    width: 300px;
+    height: 43px;
+    box-shadow: 0px 0px 12px rgba(167, 167, 167, 0.25);
+    box-sizing: border-box;
+
+    & > span {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    @media all and (max-width: 435px) {
+      width: 160px;
+    }
+  }
+
+  // Disabled button
+  [class^="basketProductLayout__FulfilmentButtonWrap"] {
+    & > button[disabled] {
+      background-color: #ffffff;
+      border-radius: 5px;
+      border: 1px solid #c4c4c4;
+      width: 300px;
+      height: 43px;
+      box-shadow: 0px 0px 12px rgba(167, 167, 167, 0.25);
+      box-sizing: border-box;
+
+      & > img {
+        display: none;
+      }
+
+      & > span {
+        font-weight: 700;
+        font-size: 16px;
+
+        @media (max-width: 375px) {
+          font-size: 14px;
+        }
+      }
+
+      @media all and (max-width: 435px) {
+        width: 160px;
+      }
+    }
+
+    // Second button
+    & > button {
+      background-color: #ffffff;
+      border-radius: 5px;
+      border: 1px solid #36705a;
+      width: 300px;
+      height: 43px;
+      box-shadow: 0px 0px 12px rgba(167, 167, 167, 0.25);
+      box-sizing: border-box;
+      opacity: 0.8;
+
+      & > span {
+        // font-weight: 700;
+        font-size: 16px;
+      }
+
+      @media all and (max-width: 435px) {
+        width: 160px;
+      }
+    }
+  }
+
+  // Collection Basket styling
+  [class^="BasketEntriesList__BranchTitleWr"] {
+    background-color: #36705a;
+    height: 58px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+    &::before {
+      content: url("http://sb.monetate.net/img/1/581/3628253.png");
+      margin-right: 10px;
+    }
+
+    @media all and (max-width: 435px) {
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+    }
+  }
+
+  [data-test-id="basket-collection-title"] {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  [data-test-id="basket-branch-wr"],
+  [data-test-id="basket-out-stock-title"] {
+    color: #ffffff;
+    display: block;
+
+    > * {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+
+    & > span > h2 {
+      color: #ffffff;
+      font-size: 17px;
+      margin: unset;
+    }
+    & > button {
+      color: #ffffff;
+      margin-left: 6px;
+    }
+
+    @media all and (max-width: 435px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .#{$id}_subtotal {
+    color: white;
+    font-weight: 700;
+    flex: 1;
+    text-align: right;
+    margin-right: 20px;
+    margin-left: 20px;
+    white-space: nowrap;
+    @media (max-width: 600px) {
+      margin-right: 12px;
+      font-size: 16px;
+      margin-left: 16px;
+    }
+  }
+
+  [data-test-id="change-branch"] {
+    & > span {
+      display: none;
+    }
+  }
+
+  // Delivery Basket Styling
+  [class^="BasketEntriesList__DeliveryTitle"] {
+    background-color: #36705a;
+    height: 58px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: unset;
+
+    @media (max-width: 768px) {
+      height: auto;
+      padding: 12px 0 12px 12px;
+    }
+
+    &::before {
+      content: url("http://sb.monetate.net/img/1/581/3628246.png");
+      margin-right: 10px;
+    }
+
+    & > [class^="BasketEntriesList__GroupTitle"] {
+      & > h2 {
+        display: none;
+      }
+    }
+  }
+
+  [data-test-id="basket-delivery-address"] {
+    color: #ffffff;
+    font-size: 18px;
+    @media (max-width: 600px) {
+      font-size: 16px;
+    }
+  }
+
+  [data-test-id="basket-change-delivery-address-button"] {
+    color: #ffffff !important;
+    margin-left: 10px;
+    & > span {
+      opacity: 0;
+      display: none;
+    }
+    @media (max-width: 600px) {
+      margin-left: 4px;
+    }
+  }
+
+  [class^="BasketEntriesList__AddressLine"] {
+    @media all and (max-width: 435px) {
+      flex-direction: row;
+    }
+  }
+
+  [class^="BasketEntriesList__DeliveryAddress"] {
+    @media all and (max-width: 435px) {
+      margin-top: unset;
+    }
+  }
+
+  // Product card styling
+  [class^="basketProductLayout__ProductCard"] {
+    margin-top: unset !important;
+    border-radius: unset !important;
+
+    @media (max-width: 360px) {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+    }
+
+    &::after {
+      border-bottom: 1px solid #f1f1f1;
+      content: "";
+      display: block;
+      width: 100%;
+    }
+  }
+
+  [data-test-id="product-name"] {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  [class^="basketProductLayout__ProductControlsBlock"] {
+    border-top: unset !important;
+  }
+
+  [class^="basketProductLayout__ProductFulfilmentBlock"] {
+    border-top: unset !important;
+    padding-top: 0 !important;
+  }
+
+  .#{$id}_hidden {
+    display: none;
+  }
+
+  .#{$id}_split {
+    margin-top: 0 !important;
+    border: 0;
+    font-size: 15px;
+    text-align: center;
+    padding: 16px 12px;
+    background: #f0f3f6;
+  }
+
+  [class*="basketProductLayout__FulfilmentButtonWrap"] {
+    @media (max-width: 360px) {
+      margin-left: 1.2rem;
+    }
+  }
+
+  [data-test-id="basket-page-wr"] {
+    [data-test-id="basket-out-stock-items"] {
+      order: 5;
+      margin-top: 3.7rem;
+
+      .#{$id}_subtotal {
+        float: right;
+        margin: 0 20px 0;
+        line-height: 58px;
+      }
+
+      [data-test-id="add-to-collection-btn"] {
+        margin-left: 2.4rem;
+        @media (max-width: 600px) {
+          margin-left: 1.4rem;
+        }
+      }
+
+      [data-test-id="basket-out-of-stock-wr"] {
+        display: none;
+      }
+
+      [class*="basketProductLayout__FulfilmentButtonWrap"] {
+        flex-direction: row;
+        width: 100%;
+
+        @media (max-width: 360px) {
+          margin-left: 1.2rem;
+        }
+      }
+
+      [data-test-id="basket-out-stock-title"] {
+        display: block;
+
+        &:before {
+          display: none;
+        }
+        h2 {
+          color: white;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 57px;
+
+          @media (max-width: 600px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    [data-test-id="entries-list-wrapper"] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .#{$id}_hideMobile {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}

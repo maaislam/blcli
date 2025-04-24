@@ -1,0 +1,1372 @@
+@import "./variables";
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+html.#{$id}-noscroll {
+	height: 100%;
+	overflow: hidden;
+
+	// &:before {
+	//     content: "";
+	//     background: rgba(0,0,0,0.5);
+	//     width: 100%;
+	//     height: 100%;
+	//     position: fixed;
+	//     top: 0;
+	//     left: 0;
+	//     z-index: 10000000;
+
+	//     @media all and (max-height: 400px) {
+	//       display: none;
+	//     }
+	// }
+
+	@media all and (max-height: 400px) {
+		height: auto;
+		overflow: visible;
+	}
+
+	.paginationWrapper {
+		display: none;
+	}
+}
+
+.#{$id} {
+	#main-content.#{$id}-url-based-quiz {
+		padding: 0;
+		max-width: 100%;
+	}
+
+	.#{$id}-quiz-entry {
+		background-image: url("https://www.sportsdirect.com/images/marketing/reebok-brand-lp-thumb-training-clo-desk-500x500px.jpg");
+		background-size: cover;
+		background-position: center center;
+		display: inline-block;
+		width: 33.33333%;
+		min-height: 400px;
+		position: relative;
+
+		@media all and (max-width: 767px) {
+			width: 50%;
+		}
+
+		@media all and (max-width: 600px) {
+			width: 100%;
+		}
+
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				180deg,
+				rgba(2, 0, 36, 0) 0%,
+				rgba(0, 0, 0, 1) 85%,
+				rgba(0, 0, 0, 1) 100%
+			);
+		}
+
+		.loading-spinner {
+			display: none;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 10;
+
+			svg {
+				animation: spin 1s linear infinite;
+			}
+
+			p {
+				color: #000000;
+			}
+		}
+
+		&.loading:before {
+			content: "";
+			position: absolute;
+			background: rgba(246, 246, 246, 1);
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			top: 0;
+			left: 0;
+		}
+
+		&.loading .loading-spinner {
+			display: flex;
+		}
+
+		.#{$id}-quiz-entry-text-holder {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px 40px 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			p {
+				font-size: 16px;
+				color: #fff;
+				font-weight: 100;
+				margin-bottom: 10px;
+				max-width: 100%;
+				text-align: center;
+
+				&.smaller-text {
+					font-size: 14px;
+				}
+			}
+
+			button {
+				margin-top: 10px;
+				border: 1px solid #fff;
+				background: none !important;
+				padding: 15px 0;
+				color: #fff !important;
+				font-size: 16px;
+				width: 70%;
+				border-radius: 5px;
+
+				@media all and (min-width: 1200px) {
+					padding: 15px 40px;
+					&:hover {
+						background: #fff !important;
+						color: #000 !important;
+					}
+				}
+			}
+		}
+	}
+
+	.#{$id}-sports-quiz {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
+		background: #fff;
+
+		&.#{$id}-url-based-quiz {
+			position: relative;
+			bottom: auto;
+			left: auto;
+		}
+
+		@media all and (max-width: 767px) {
+			height: 100% !important;
+			padding-bottom: 40px;
+		}
+
+		@media all and (max-height: 700px) {
+			bottom: auto;
+			top: 0;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		&--header {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			background: #f7f7f7;
+		}
+
+		&--headerinner {
+			width: 100%;
+			max-width: 1440px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 15px 40px;
+			position: relative;
+
+			button {
+				background: none !important;
+				color: #000 !important;
+				min-width: 150px;
+				text-align: left;
+				font-size: 16px;
+				opacity: 1;
+
+				&.#{$id}-button-disabled {
+					opacity: 0;
+					pointer-events: none;
+				}
+
+				@media all and (max-width: 600px) {
+					min-width: 0;
+					position: absolute;
+					top: 20px;
+					left: 10px;
+				}
+
+				&.#{$id}-exit-quiz {
+					text-align: right;
+
+					@media all and (max-width: 600px) {
+						left: auto;
+						right: 10px;
+						top: 10px;
+					}
+
+					svg {
+						margin-left: 5px;
+						position: relative;
+						top: 5px;
+					}
+
+					svg path {
+						stroke-width: 2px;
+						stroke: #333;
+					}
+				}
+
+				&.#{$id}-prev-question {
+					svg {
+						margin-right: 5px;
+					}
+
+					svg polyline {
+						stroke-width: 1px;
+						stroke: #333;
+						fill: transparent;
+					}
+				}
+
+				.#{$id}-button-text-inner {
+					@media all and (max-width: 600px) {
+						display: none;
+					}
+				}
+			}
+
+			.#{$id}-display {
+				text-align: center;
+
+				@media all and (max-width: 600px) {
+					width: 100%;
+				}
+
+				p {
+					margin-bottom: 3px;
+					text-transform: uppercase;
+					font-size: 20px;
+					color: #333333;
+					font-style: italic;
+
+					@media all and (max-width: 600px) {
+						font-size: 16px;
+					}
+				}
+
+				h2 {
+					font-size: 20px;
+					padding-bottom: 0;
+					color: #333333;
+					font-size: 28px;
+
+					@media all and (max-width: 600px) {
+						font-size: 22px;
+					}
+				}
+			}
+		}
+
+		&--body {
+			display: flex;
+			flex-direction: row;
+			background: #fff;
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+
+			@media all and (min-width: 767px) {
+				height: 80% !important;
+			}
+
+			@media all and (max-width: 600px) {
+				max-height: 85%;
+			}
+		}
+
+		&--stage {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			display: none;
+
+			&.active {
+				display: flex;
+			}
+		}
+
+		&--stage0 {
+			background-image: url("https://www.sportsdirect.com/images/marketing/sportsquizhero.jpg");
+			background-size: cover;
+			background-position: top center;
+			width: 100%;
+			height: 100%;
+			position: relative;
+
+			@media all and (max-width: 767px) {
+				background-size: cover;
+			}
+
+			&::before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: rgb(2, 0, 36);
+				background: linear-gradient(
+					180deg,
+					rgba(2, 0, 36, 0) 0%,
+					rgba(0, 0, 0, 1) 120%,
+					rgba(0, 0, 0, 1) 100%
+				);
+			}
+
+			&-question {
+				position: absolute;
+				bottom: 40px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: auto;
+				padding: 20px 80px 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				@media all and (max-width: 992px) {
+					padding-left: 0;
+					padding-right: 0;
+					width: 70%;
+				}
+
+				p {
+					font-size: 16px;
+					color: #fff;
+					font-weight: 100;
+					margin-bottom: 20px;
+					max-width: 400px;
+					text-align: center;
+				}
+
+				button {
+					border: 1px solid #fff;
+					background: none !important;
+					padding: 13px 60px;
+					color: #fff !important;
+					font-size: 16px;
+					border-radius: 5px;
+
+					@media all and (min-width: 1200px) {
+						&:hover {
+							background: #fff !important;
+							color: #000 !important;
+						}
+					}
+				}
+			}
+		}
+
+		&--stage1 {
+			@media all and (max-width: 600px) {
+				flex-direction: column;
+			}
+
+			.#{$id}-gender-option {
+				display: flex;
+				width: 32.5%;
+				height: 100%;
+				background: #fff !important;
+
+				align-items: flex-end;
+				justify-content: center;
+				background-position: top center !important;
+				position: relative;
+
+				@media all and (max-width: 600px) {
+					width: 100%;
+					height: 32%;
+				}
+
+				span {
+					text-transform: uppercase;
+					letter-spacing: 0.8px;
+					font-size: 28px;
+					font-style: italic;
+					color: #fff !important;
+					position: absolute;
+					bottom: 20px;
+					left: 50%;
+					transform: translateX(-50%);
+					z-index: 10;
+					padding: 10px 20px 8px 18px;
+					margin-bottom: 60px;
+
+					@media all and (max-width: 600px) {
+						font-size: 18px;
+						margin-bottom: 20px;
+					}
+				}
+
+				&:hover span {
+					background: rgba(0, 0, 0, 0.6);
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+					background: rgb(2, 0, 36);
+					background: linear-gradient(
+						180deg,
+						rgba(2, 0, 36, 0) 0%,
+						rgba(0, 0, 0, 1) 120%,
+						rgba(0, 0, 0, 1) 100%
+					);
+				}
+
+				&:hover:before {
+					opacity: 0;
+					transition: opacity 0.5s ease;
+					will-change: opacity;
+				}
+
+				&.option-mens {
+					background-image: url("https://www.sportsdirect.com/images/marketing/mens-lp-adi-210520-500-500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-ladies {
+					background-image: url("https://www.sportsdirect.com/images/marketing/ladies-lp-thumb-t-shirts-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-kids {
+					background-image: url("https://www.sportsdirect.com/images/marketing/Puma-Kids_Kids-Landing-Page_Essentials_500x500.jpg") !important;
+					background-size: cover !important;
+				}
+			}
+		}
+
+		.force-repaint {
+			transform: translateZ(0);
+		}
+
+		&--stage2 {
+			flex-wrap: wrap;
+
+			align-content: space-between;
+
+			.#{$id}-sport-option {
+				display: flex;
+				width: 24.5%;
+				height: 49%;
+				background: #fff !important;
+				align-items: flex-end;
+				justify-content: center;
+				position: relative;
+				background-position: top center !important;
+
+				@media all and (max-width: 600px) {
+					width: 49%;
+					height: 24%;
+				}
+
+				span {
+					text-transform: uppercase;
+					letter-spacing: 0.8px;
+					font-size: 24px;
+					font-style: italic;
+					color: #fff !important;
+					position: absolute;
+					bottom: 20px;
+					left: 50%;
+					transform: translateX(-50%);
+					z-index: 10;
+					padding: 10px 20px 8px 18px;
+					margin-bottom: 20px;
+
+					@media all and (max-width: 600px) {
+						font-size: 16px;
+						margin-bottom: 10px;
+					}
+				}
+
+				&:hover span {
+					background: rgba(0, 0, 0, 0.6);
+				}
+
+				&:before {
+					content: "";
+					background: rgb(2, 0, 36);
+					background: linear-gradient(
+						180deg,
+						rgba(2, 0, 36, 0) 0%,
+						rgba(0, 0, 0, 1) 120%,
+						rgba(0, 0, 0, 1) 100%
+					);
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+				}
+
+				&:hover:before {
+					opacity: 0;
+					transition: opacity 0.5s ease;
+					will-change: opacity;
+				}
+
+				&.option-football {
+					background-image: url("https://www.sportsdirect.com/images/marketing/football-merchandise-thumb-desk-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-training {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-training-2020-medicine-ball-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-walking {
+					background-image: url("https://www.sportsdirect.com/images/marketing/outdor-mens-fw-eco-update-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-swimming {
+					background-image: url("https://www.sportsdirect.com/images/marketing/swimming-2021-sos-feature-767x600.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-cycling {
+					background-image: url("https://www.sportsdirect.com/images/marketing/cycling-update-road-bikes-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-basketball {
+					background-image: url("https://www.sportsdirect.com/images/marketing/basketball-thumbs-06-d.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-running {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-run-trail-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-golf {
+					background-image: url("https://www.sportsdirect.com/images/marketing/golf-2021-sos-4-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+			}
+		}
+
+		&--stage3 {
+			@media all and (max-width: 600px) {
+				flex-direction: column;
+			}
+
+			.#{$id}-category-option {
+				display: none;
+				width: 32.5%;
+				height: 100%;
+				background: #fff !important;
+				align-items: flex-end;
+				justify-content: center;
+				position: relative;
+				background-position: top center !important;
+
+				@media all and (max-width: 600px) {
+					width: 100%;
+					height: 32%;
+				}
+
+				span {
+					text-transform: uppercase;
+					letter-spacing: 0.8px;
+					font-size: 28px;
+					font-style: italic;
+					color: #fff !important;
+					position: absolute;
+					bottom: 20px;
+					left: 50%;
+					transform: translateX(-50%);
+					z-index: 10;
+					padding: 10px 20px 8px 18px;
+					margin-bottom: 60px;
+
+					@media all and (max-width: 600px) {
+						font-size: 18px;
+						margin-bottom: 20px;
+					}
+				}
+
+				&:hover span {
+					background: rgba(0, 0, 0, 0.6);
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+					background: rgb(2, 0, 36);
+					background: linear-gradient(
+						180deg,
+						rgba(2, 0, 36, 0) 0%,
+						rgba(0, 0, 0, 1) 120%,
+						rgba(0, 0, 0, 1) 100%
+					);
+				}
+
+				&:hover:before {
+					opacity: 0;
+					transition: opacity 0.5s ease;
+					will-change: opacity;
+				}
+
+				&.option-football-shirts-kits {
+					background-image: url("https://www.sportsdirect.com/images/marketing/fb-shirts-thumb-0821-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-football-boots {
+					background-image: url("https://www.sportsdirect.com/images/marketing/fboots-thumb-0821-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-football-training-wear {
+					background-image: url("https://www.sportsdirect.com/images/marketing/trainingwear-thumb-0821-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-training-clothing {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-training-2020-womens-clo-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-training-gymtrainers {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-training-2020-mens-fw-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-training-accessories {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-training-2020-acc-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-walking-clothing {
+					background-image: url("https://www.sportsdirect.com/images/marketing/outdor-mens-clo-eco-update-500x500.jpg") !important;
+					background-size: cover !important;
+
+					&.option-ladies {
+						background-image: url("https://www.sportsdirect.com/images/marketing/sd-outdoor-refresh-ladies-clothing-d.jpg") !important;
+					}
+
+					&.option-kids {
+						background-image: url("https://www.sportsdirect.com/images/marketing/kids-landing-outdoor-500x500-0619.jpg") !important;
+					}
+				}
+
+				&.option-walking-footwear {
+					background-image: url("https://www.sportsdirect.com/images/marketing/outdor-mens-fw-eco-update-500x500.jpg") !important;
+					background-size: cover !important;
+
+					&.option-ladies {
+						background-image: url("https://www.sportsdirect.com/images/marketing/sd-outdoor-refresh-ladies-footwear-d.jpg") !important;
+					}
+
+					&.option-kids {
+						background-image: url("https://www.sportsdirect.com/images/marketing/sd-outdoor-lp-kids-fw-ss18.jpg") !important;
+					}
+				}
+
+				&.option-walking-rucksacks {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-outdoor-refresh-rucksacks-d-v2.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-cycling-clothing {
+					background-image: url("https://www.sportsdirect.com/images/marketing/cycling-update-clothing-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-cycling-shoes {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-lp-cycle-2019-shoes.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-cycling-accessories {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-lp-cycle-2019-accessories.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-running-shoes {
+					background-image: url("https://www.sportsdirect.com/images/marketing/run-update-2021-500x500-1-v2.jpg") !important;
+					background-size: cover !important;
+
+					&.option-ladies {
+						background-image: url("https://www.sportsdirect.com/images/marketing/run-update-2021-500x500-2.jpg") !important;
+					}
+
+					&.option-kids {
+						background-image: url("https://www.sportsdirect.com/images/marketing/sdxnike-365-kids-rlp-02-500-500.jpg") !important;
+					}
+				}
+
+				&.option-running-clothing {
+					background-image: url("https://www.sportsdirect.com/images/marketing/run-update-2021-500x500-2.jpg") !important;
+					background-size: cover !important;
+
+					&.option-ladies {
+						background-image: url("https://www.sportsdirect.com/images/marketing/btq-run-womens-run-clo-500x500.jpg") !important;
+					}
+
+					&.option-kids {
+						background-image: url("https://www.sportsdirect.com/images/marketing/bts-kids-clothing-underarmour-500x500.jpg") !important;
+					}
+				}
+
+				&.option-running-accessories {
+					background-image: url("https://www.sportsdirect.com/images/marketing/running-2021-sos-track-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-golf-clothing {
+					background-image: url("https://www.sportsdirect.com/images/marketing/golf-2021-sos-1-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-golf-shoes {
+					background-image: url("https://www.sportsdirect.com/images/marketing/golf-2021-sos-2-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-golf-accessories {
+					background-image: url("https://www.sportsdirect.com/images/marketing/golf-2021-sos-3-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-swimming-swimwear {
+					background-image: url("https://www.sportsdirect.com/images/marketing/swimming-2021-sos-1-500x500.jpg") !important;
+					background-size: cover !important;
+
+					&.option-ladies {
+						background-image: url("https://www.sportsdirect.com/images/marketing/swimming-2021-sos-2-500x500.jpg") !important;
+					}
+
+					&.option-kids {
+						background-image: url("https://www.sportsdirect.com/images/marketing/swimming-2021-kids-swim-500x500.jpg") !important;
+					}
+				}
+
+				&.option-swimming-goggles-caps {
+					background-image: url("https://www.sportsdirect.com/images/marketing/swimming-2021-sos-3-500x500.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-swimming-pool-shoes {
+					background-image: url("https://www.sportsdirect.com/images/marketing/sd-lp-swim-2019-pool-shoes.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-basketball-shoes {
+					background-image: url("https://www.sportsdirect.com/images/marketing/basketball-thumbs-01-d.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-basketball-clothing {
+					background-image: url("https://www.sportsdirect.com/images/marketing/basketball-thumbs-02-d.jpg") !important;
+					background-size: cover !important;
+				}
+
+				&.option-basketball-jerseys {
+					background-image: url("https://www.sportsdirect.com/images/marketing/basketball-thumbs-05-d.jpg") !important;
+					background-size: cover !important;
+				}
+			}
+
+			&[data-selected-sport="football"] .option-football,
+			&[data-selected-sport="training"] .option-training,
+			&[data-selected-sport="walking"] .option-walking,
+			&[data-selected-sport="cycling"] .option-cycling,
+			&[data-selected-sport="running"] .option-running,
+			&[data-selected-sport="golf"] .option-golf,
+			&[data-selected-sport="swimming"] .option-swimming,
+			&[data-selected-sport="basketball"] .option-basketball {
+				display: flex;
+			}
+
+			&[data-selected-gender="ladies"] .option-mens,
+			&[data-selected-gender="ladies"] .option-kids {
+				display: none;
+			}
+
+			&[data-selected-gender="mens"] .option-ladies,
+			&[data-selected-gender="mens"] .option-kids {
+				display: none;
+			}
+
+			&[data-selected-gender="kids"] .option-mens,
+			&[data-selected-gender="kids"] .option-ladies {
+				display: none;
+			}
+		}
+
+		&--stage4 {
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+
+			&.active {
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+
+			.#{$id}-animated-section {
+				display: none;
+			}
+
+			&.getting-sizes {
+				justify-content: center;
+
+				.#{$id}-animated-section {
+					display: flex;
+				}
+
+				.#{$id}-sizes,
+				.#{$id}-additional-sizes {
+					display: none;
+				}
+			}
+
+			.#{$id}-sizes {
+				display: flex;
+				width: 100%;
+				max-width: 1440px;
+				padding: 20px 80px;
+				justify-content: space-between;
+				flex-direction: row;
+				flex-wrap: wrap;
+
+				&.all-sizes-hidden .#{$id}-size-hidden {
+					display: none !important;
+					visibility: hidden !important;
+				}
+
+				@media all and (max-width: 600px) {
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+			}
+
+			.#{$id}-size-option {
+				display: flex;
+				width: 24%;
+				padding: 20px 0;
+				margin-bottom: 20px;
+				background: #efefef !important;
+				color: #000 !important;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+
+				@media all and (max-width: 600px) {
+					width: 49%;
+				}
+
+				&:hover {
+					background: #0000ed !important;
+					color: #fff !important;
+				}
+
+				&.disabled {
+					opacity: 0.4;
+					pointer-events: none;
+					position: relative;
+					display: none;
+
+					&::after {
+						content: "";
+						width: 120%;
+						height: 1px;
+						border: 1px dashed #aaa;
+						position: absolute;
+						opacity: 0.5;
+						transform: rotate(9deg);
+					}
+				}
+			}
+
+			.#{$id}-additional-sizes {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				&.sizes-available .#{$id}-sizes-available {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+				&.sizes-available .#{$id}-no-sizes-available {
+					display: none;
+				}
+
+				&.no-sizes-available .#{$id}-sizes-available {
+					display: none;
+				}
+				&.no-sizes-available .#{$id}-no-sizes-available {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+
+				h2 {
+					font-size: 18px;
+					font-weight: bold;
+				}
+
+				h3 {
+					margin-top: 20px;
+					font-size: 16px;
+					font-weight: bold;
+				}
+
+				button {
+					margin-top: 10px;
+					border: 1px solid #000;
+					background: #000 !important;
+					text-transform: uppercase;
+					padding: 12px 60px;
+					color: #fff !important;
+					font-size: 12px;
+					border-radius: 2px;
+
+					@media all and (min-width: 1200px) {
+						&:hover {
+							background: #fff !important;
+							color: #000 !important;
+						}
+					}
+				}
+			}
+		}
+
+		&--stage5 {
+			justify-content: center;
+			align-items: flex-start;
+			padding-top: 40px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding-bottom: 40px;
+
+			.#{$id}-animated-section {
+				display: none;
+			}
+
+			&.getting-results {
+				justify-content: center;
+				align-items: center;
+				padding-top: 0;
+
+				.#{$id}-animated-section {
+					display: flex;
+				}
+
+				.#{$id}-results {
+					opacity: 0;
+				}
+			}
+		}
+
+		&--stage6 {
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.#{$id}-retake-quiz {
+		display: none;
+
+		@media all and (max-width: 767px) {
+			display: flex;
+			position: absolute;
+			bottom: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 14px;
+			text-decoration: underline;
+
+			&.disabled {
+				display: none;
+			}
+		}
+	}
+
+	.#{$id}-results {
+		width: 100%;
+		display: flex;
+		max-width: 1440px;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		padding-right: 40px;
+		padding-left: 40px;
+		opacity: 1;
+		position: relative;
+
+		&.no-results .#{$id}-results--carousel:after {
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: "";
+			z-index: 1000;
+		}
+
+		&.no-results .#{$id}-results--carousel:before {
+			background: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			content: "No Results Found";
+			font-size: 24px;
+			z-index: 1001;
+		}
+
+		@media all and (max-width: 600px) {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+
+		&--slide {
+			display: flex;
+			flex-direction: column;
+			padding-top: 20px;
+			justify-content: flex-start;
+			align-items: center;
+			text-align: center;
+			max-width: 20%;
+		}
+
+		.#{$id}-button {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			cursor: pointer;
+			background: none !important;
+			border: none;
+			padding: 0;
+			display: none;
+			z-index: 1000;
+			background: #000 !important;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			align-items: center;
+			justify-content: center;
+
+			@media all and (max-width: 600px) {
+				display: none !important;
+			}
+
+			&-next {
+				right: 0;
+				left: auto;
+			}
+
+			svg {
+				overflow: visible !important;
+			}
+
+			svg polyline {
+				stroke: #fff;
+				fill: none;
+				stroke-width: 1px !important;
+			}
+
+			&.swiper-button-disabled svg polyline {
+				stroke: #333;
+			}
+
+			@media all and (max-width: 550px) {
+				display: none;
+			}
+		}
+
+		.#{$id}-carousel-pagination {
+			display: none;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			align-items: center;
+			justify-content: center;
+
+			.swiper-pagination-bullet {
+				margin: 0 3px;
+				background: #fff;
+				border: 1px solid #000;
+				width: 10px;
+				height: 10px;
+
+				&.swiper-pagination-bullet-active {
+					background: #000;
+				}
+			}
+		}
+
+		&--carousel {
+			width: 100%;
+			display: flex;
+			padding: 20px 30px 40px;
+			position: relative;
+
+			@media all and (max-width: 600px) {
+				overflow: hidden;
+				padding: 0 0 20px;
+			}
+
+			.swiper-wrapper {
+				align-content: center;
+				justify-content: center;
+				align-items: center;
+			}
+
+			&.swiper-active .swiper-wrapper {
+				align-content: initial;
+				justify-content: initial;
+				align-items: initial;
+			}
+
+			&.swiper-active .#{$id}-results--slide {
+				max-width: 100%;
+			}
+
+			&.swiper-active .#{$id}-button,
+			&.swiper-active .#{$id}-carousel-pagination {
+				display: flex;
+			}
+		}
+
+		&--image {
+			max-width: 220px;
+			margin-bottom: 20px;
+			padding: 0;
+
+			@media all and (max-width: 600px) {
+				padding: 0;
+			}
+		}
+
+		&--details {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			padding: 0 10px;
+		}
+
+		&--brand {
+			font-weight: 700;
+			margin-bottom: 2px;
+			font-style: italic;
+			color: #000;
+			text-transform: uppercase;
+		}
+
+		&--name {
+			max-width: 80%;
+			text-align: left;
+		}
+
+		&--price {
+			font-weight: bold;
+			font-size: 14px;
+			&sale {
+				color: #ed0000;
+			}
+		}
+
+		&--priceold {
+			font-weight: normal;
+			text-decoration: line-through;
+			color: #aaa;
+		}
+
+		.#{$id}-see-all-matches {
+			margin-top: 40px;
+			border: 1px solid #000;
+			background: #000 !important;
+			padding: 10px 40px 8px;
+			color: #fff !important;
+			font-size: 14px;
+			width: auto;
+			border-radius: 2px;
+
+			&:hover {
+				background: #fff !important;
+				color: #000 !important;
+			}
+
+			// remove this once figured out filtering thing
+			##{$id}-see-all-matches-count-text {
+				display: none;
+			}
+		}
+	}
+
+	.#{$id}-animated-section {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 300px;
+		justify-content: center;
+
+		.#{$id}-calculating {
+			font-size: 16px;
+			text-decoration: underline;
+			text-transform: uppercase;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.#{$id}-animated-circle {
+			background-image: linear-gradient(#ed0000, #0b0cda);
+			padding: 10px;
+			width: 200px;
+			height: 200px;
+			border-style: solid;
+			border-color: transparent;
+			border-radius: 50%;
+			border-width: 1px;
+			animation: rot 1s linear infinite;
+			padding: 1px;
+
+			div {
+				background: white;
+				height: 199px;
+				width: 199px;
+				border-style: solid;
+				border-color: transparent;
+				border-radius: 50%;
+				border-width: 1px;
+			}
+		}
+	}
+
+	.#{$id}-quiz-footer {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 15px;
+		&.disabled {
+			display: none;
+		}
+
+		&--progressbar {
+			display: flex;
+			width: 100%;
+			background: #cccccc;
+		}
+
+		&--progressinner {
+			text-align: right;
+			background: #000;
+			padding-right: 2px;
+			color: #fff;
+			transition: width 0.5s ease;
+			will-change: width;
+
+			&[data-percent="25"] {
+				width: 25%;
+				transition: width 0.5s ease;
+				will-change: width;
+			}
+
+			&[data-percent="50"] {
+				width: 50%;
+				transition: width 0.5s ease;
+				will-change: width;
+			}
+
+			&[data-percent="75"] {
+				width: 75%;
+				transition: width 0.5s ease;
+				will-change: width;
+			}
+
+			&[data-percent="100"] {
+				width: 100%;
+				transition: width 0.5s ease;
+				will-change: width;
+			}
+
+			&[data-percent="100"] {
+				width: 100%;
+				transition: width 0.5s ease;
+				will-change: width;
+			}
+		}
+	}
+
+	.#{$id}-hidden {
+		display: none !important;
+		visibility: hidden !important;
+	}
+}
+
+@keyframes rot {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(90deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

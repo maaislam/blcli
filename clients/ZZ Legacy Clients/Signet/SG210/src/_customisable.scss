@@ -1,0 +1,153 @@
+/* -----------------
+Main styling file for customisable elements
+-----------------*/
+$id: '--ID--';
+
+/* ----- Variables ------ */
+
+/* Typography */
+$primaryFont: Oxygen,
+Arial,
+Helvetica,
+sans-serif;
+
+
+/* Colours */
+$primaryColour: #101820;
+$secondaryColour: white;
+$keyGrey: #9E9E9E;
+$optionBorder: #C7C7C7;
+$optionBorderHover: #101820;
+
+/* CTAs */
+
+
+/* Icons */
+$closeIcon: 'https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/42dbc560-c085-11ec-8c87-f2121125cfa8';
+$backArrow: 'https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/0d628f2c-3367-11ed-96c2-5e9bb2333af8';
+
+/* ----- Mixins ------ */
+
+/* Headings */
+
+@mixin heading2 {
+  font-size: 26px;
+  font-family: $primaryFont;
+  color: $primaryColour;
+  font-weight: 300;
+  margin-top: 0px;
+  line-height: 34px;
+  text-transform: none;
+}
+
+@mixin bodyText {
+  font-size: 14px;
+  font-family: $primaryFont;
+  color: $primaryColour;
+  @media(min-width: 767px) {
+    font-size: 16px;
+  }
+}
+
+// Optional option text styling
+@mixin optionText {
+  font-size: 14x;
+  font-family: $primaryFont;
+  color: $primaryColour;
+  margin-bottom: 0px;
+  margin-top: 0;
+  @media(min-width: 767px) {
+    font-size: 16px;
+  }
+}
+
+// "question X of X"
+@mixin stepNumber {
+  display: block;
+  color: $keyGrey;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* CTAs */
+@mixin cta {
+  padding: 5px 10px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: $primaryFont;
+  text-decoration: none;
+  height: 50px;
+  max-width: 250px;
+  line-height: 38px;
+  display: block;
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+}
+
+@mixin primaryCTA {
+  @include cta;
+  background-color: $primaryColour;
+  border: 1px solid $primaryColour;
+  color: $secondaryColour;
+
+  &:hover {
+    background-color: $secondaryColour;
+    color: $primaryColour;
+  }
+}
+
+@mixin textLink {
+  font-weight: 500;
+  font-size: 14px;
+  color: $primaryColour;
+  text-decoration: underline;
+}
+
+
+
+/* Banner styling */
+@mixin finderBanner {
+  padding: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  @media(min-width: 767px) {
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  .content {
+    @media(min-width: 767px) {
+      margin-right: 20px;
+      width: 50%;
+      margin-left: auto;
+    }
+  }
+
+
+}

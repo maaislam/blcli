@@ -1,0 +1,106 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}_pollBox {
+        border: 1px solid black;
+        text-align: center;
+        margin: 0;
+        margin-top: 20px;
+        h3 {
+            background: black;
+            margin: 0;
+            color: white;
+            padding: 10px;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 400;
+            border-bottom: 5px solid #0abbf4;
+        }
+        p {
+            padding: 10px;
+        }
+        .#{$id}-poll_question {
+            font-weight: 100;
+            color: black;
+            p {
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            .#{$id}_feedback {
+                padding: 10px;
+            }
+        }
+        .#{$id}-options {
+            padding: 10px;
+            .#{$id}-option {
+                padding: 10px;
+                border: 1px solid black;
+                margin-top: 10px;
+                box-shadow: 1px 1px 1px #ccc;
+                text-align: left;
+                cursor: pointer;
+                &:hover {
+                    background: black;
+                    span {
+                        color: white;
+                    }
+                }
+                span {
+                    padding-left: 50px;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        height: 40px;
+                        width: 40px;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                        background-size: contain;
+                        background-position: center;
+                    }
+                }
+                &:first-of-type {
+                    span {
+                        &::before {
+                            background-image: url('//cdn.optimizely.com/img/6087172626/949d9af994524f9c8c8df5e886186fbf.png');
+                        }
+                    }
+                   
+                }
+                &.#{$id}-last {
+                    span {
+                        &::before {
+                             background-image: url('//cdn.optimizely.com/img/6087172626/b32c6ba64ca948b4ad7971924e3cb223.png');
+                       }
+                    }
+                }
+            }
+        }
+        @media(min-width: 767px) {
+            width: 300px;
+            margin: 0;
+            margin-top: 20px;
+        }
+    }
+    @media(min-width: 1024px) {
+        #maincontent {
+            .columns {
+                width: 50%;
+                display: inline-block;
+            }
+            .#{$id}_pollBox {
+                width: 450px;
+                margin: 0;
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 30px;
+                .#{$id}-poll_question {
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,302 @@
+@import "./variables";
+
+.#{$id} {
+  #MarketingTextBar .LeftBarCenter p {
+    margin: 0;
+    color: white;
+    &:last-child {
+      margin-top: 4px;
+    }
+  }
+  #LogoBar {
+    margin-top: 0 !important;
+  }
+  #HamburgerMenuNew {
+    z-index: 5 !important;
+  }
+  &.#{$id}_noscroll {
+    overflow: hidden;
+  }
+  .#{$id}_wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    background: white;
+    color: #181818;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .#{$id}_content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 15px 30px 30px;
+    overflow-y: scroll;
+
+    @media all and (min-width: 370px) {
+      padding-top: 18px;
+    }
+  }
+
+  .#{$id}_header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .#{$id}_product-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .#{$id}_details-left {
+      flex-basis: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .#{$id}_details-right {
+      border-radius: 36px 2px;
+      width: 146px;
+      height: 146px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .#{$id}_label {
+    font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+
+  .#{$id}_title {
+    font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 16px;
+  }
+
+  .#{$id}_description {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    flex: 1;
+  }
+
+  .#{$id}_product-name {
+    font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 20px;
+    flex: 1;
+    width: 95%;
+    margin-bottom: 16px;
+  }
+
+  .#{$id}_cta {
+    padding: 1rem;
+    margin: 20px 0 30px;
+  }
+
+  .#{$id}_previousPrice,
+  .#{$id}_currentPrice {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    text-transform: uppercase;
+
+    &.#{$id}_previousPrice {
+      em {
+        font-style: normal;
+        text-decoration: line-through;
+      }
+    }
+
+    &.#{$id}_currentPrice {
+      font-size: 16px;
+      line-height: 30px;
+
+      em {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: Montserrat-bold, sans-serif;
+
+        @media (max-width: 320px) {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .#{$id}_scroll-label-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .#{$id}_scroll-label {
+    // font-family: Montserrat-bold, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
+
+    span {
+      &:before,
+      &:after {
+        display: inline-block;
+        height: 13px;
+        width: 13px;
+        content: url("https://service.maxymiser.net/cm/images-eu/avon-mas/8A7EA6114A92223873730913BD95F11AFED559B8AC1CDBCC0C722C61993118B7.png?meta=/AV049---Brochure-style-Product-Promotion/arrow_down.png");
+      }
+      &:after {
+        margin-left: 10px;
+      }
+      &:before {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .#{$id}_close-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    content: url("https://service.maxymiser.net/cm/images-eu/avon-mas/A81E23EB01E895945CED2B1743F29006EBDE36472AD979BD277B29020F5BC962.svg?meta=/AG056a---Product-Promotion-Cards-ZA/close_v2.svg");
+  }
+
+  // Black close button
+  .#{$id}_skincare {
+    .#{$id}_close-button {
+      content: url("https://service.maxymiser.net/cm/images-eu/avon-mas/E93877C6EFE71C783A69C13CC822E0F170CB2D493AD2B8126B3912E090308DB9.png?meta=/AV049---Brochure-style-Product-Promotion/close.png");
+    }
+  }
+
+  .#{$id}_lipstick,
+  .#{$id}_eyeliner {
+    *:not(.Button) {
+      color: white;
+    }
+    // arrow image.
+    span:before,
+    span:after {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Variant 2 changes
+  .#{$id}_wrapper_v2 {
+    overflow-y: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px;
+
+    .#{$id}_content {
+      padding: 0;
+      overflow-y: auto;
+    }
+
+    .#{$id}_product-details {
+      align-items: center;
+      flex-direction: column;
+    }
+    .#{$id}_cta {
+      margin-top: 10vh;
+      margin-bottom: 0;
+      border: none;
+    }
+    .#{$id}_close-button {
+      width: 12px;
+      height: 12px;
+    }
+    .#{$id}_prices {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 32px;
+    }
+
+    .#{$id}_title {
+      font-family: Montserrat, sans-serif;
+      font-weight: normal;
+    }
+
+    .#{$id}_product-name {
+      margin-top: 0;
+      margin-bottom: 32px;
+      text-transform: capitalize;
+    }
+
+    .#{$id}_label {
+      font-size: 16px;
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    .#{$id}_previousPrice,
+    .#{$id}_currentPrice {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0;
+      text-transform: uppercase;
+
+      &.#{$id}_previousPrice {
+        margin-bottom: 0;
+        margin-right: 12px;
+        em {
+          font-weight: 600;
+          font-style: normal;
+          text-decoration: line-through;
+        }
+      }
+
+      &.#{$id}_currentPrice {
+        font-size: 22px;
+        font-family: Montserrat-bold, sans-serif;
+        line-height: 30px;
+
+        em {
+          font-style: normal;
+          font-family: Montserrat-bold, sans-serif;
+        }
+      }
+    }
+  }
+
+  @-webkit-keyframes action {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes action {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-8px);
+    }
+  }
+}

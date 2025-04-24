@@ -1,0 +1,178 @@
+@import './variables';
+
+.#{$id} {
+  .oct-carousel-hero,
+  #cu_2021_pay_day {
+    display: none;
+  }
+
+  .BO105-tiles__wrapper{
+    max-width: 1440px;
+    margin: 15px auto 0;
+    // margin-top: 11px;
+    width: calc(100% - 22px);
+    z-index: 1;
+
+    @media screen and (max-width: 575px) {
+      width: calc(100% - 8px);
+    }
+  }
+
+  .BO105-tiles__container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 16px;
+  }
+  
+  .BO105-tile__item  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    
+    font-size: 1.5em;
+    background-size: cover;
+    background-position: top left;
+    
+    transition: all ease-in-out 300ms;
+    position: relative;
+    z-index: 10;
+    position: relative;
+    .BO105-bg  {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+    
+    &.small {
+      grid-row: span 12;
+      grid-column: span 6;
+    
+      @media screen and (min-width: 767px) {
+        grid-column: span 3;
+      }
+    }
+    
+    &.medium {
+      grid-row: span 15;
+      grid-column: span 12;
+      @media screen and (min-width: 767px) {
+        grid-column: span 6;
+      }
+
+      &.last {
+        grid-row: span 12;
+      }
+
+    }
+
+    &.tall {
+      grid-row: span 18;
+      @media(min-width: 767px) {
+        grid-row: span 28;
+      }
+    }
+    
+      
+    
+  }
+  
+  .BO105-textBlock {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.88);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    &::before {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 1);
+      width: 100%;
+      height: 0%;
+      bottom: 0;
+      left: 0;
+      transition: 0.5s;
+    }
+    h2 {
+      font-family: "Boots Sharp",Arial,sans-serif;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: inherit;
+      letter-spacing: normal;
+      position: relative;
+      @media(min-width: 375px) {
+        font-size: 22px;
+      }
+    }
+    p {
+      font-family: "Boots Sharp",Arial,sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 22px;
+      position: relative;
+      letter-spacing: normal;
+      @media(min-width: 375px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .BO105-tile__item  {
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+      @media(min-width: 1024px) {
+      .BO105-textBlock {
+        transition: 0.5s;
+        
+          
+          &::before {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.BO105-2 {
+    .BO105-tile__item  {
+      &.tall {
+        @media(min-width: 767px) {
+          grid-row: span 30;
+        }
+      }
+    }
+  }
+
+  &.BO105-3 {
+    .BO105-tile__item  {
+      &.tall {
+        @media(min-width: 767px) {
+          grid-row: span 24;
+        }
+        @media(min-width: 1024px) {
+          grid-row: span 36;
+        }
+      }
+      &.small {
+        @media(min-width: 1024px) {
+          grid-row: span 16;
+        }
+      }
+      &.last {
+        @media(min-width: 1024px) {
+          grid-row: span 20;
+        }
+      }
+    }
+  }
+}

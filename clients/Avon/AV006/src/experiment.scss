@@ -1,0 +1,170 @@
+@import './variables';
+
+.#{$id} {
+  #CartPage .Cart_Body .Cart-Product:last-of-type {
+    border-bottom: none;
+  }
+
+  // Free gift
+  .#{$id}_freeGift {
+    display: block;
+    background: #FFF6F9;
+    font-size: 0;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+
+    > span {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.2rem;
+    }
+  }
+
+  .#{$id}_freeGiftLabel {
+    width: 19%;
+    display: inline-flex !important;
+    align-items: center;
+    color: #ec008c;
+    font-weight: bold;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      // background-image: url('https://ab-test-sandbox.userconversion.com/experiments/AV006-gift.png');
+      background-image: url('#$(ContentManager:AV006-gift.png)!');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+  
+  .#{$id}_freeGiftProductImg {
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 4rem;
+    height: 4rem;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      width: auto !important;
+      height: auto !important;
+      display: inline-block;
+    }
+  }
+
+  .#{$id}_freeGiftProductName {
+    width: 22.5%;
+    color: #ec008c;
+  }
+
+  .#{$id}_freeGiftQty {
+    width: 20%;
+    text-align: center;
+    padding-left: 7.5rem;
+  }
+
+  .#{$id}_freeGiftPrice {
+    width: 18%;
+    text-align: right;
+    color: #ec008c;
+    font-size: 2.4rem !important;
+
+    &:last-of-type {
+      width: 14%;
+      position: relative;
+      left: .7rem;  
+    }
+  }
+
+  .#{$id}_freeGiftVariants {
+    font-size: 1.2rem;
+    color: #444444;
+    margin-top: 5px;
+
+    .#{$id}_freeGiftVariantsHeading {
+      display: inline;
+    }
+
+    > ul {
+      list-style-type: none;
+      padding: 0;
+      display: inline;
+
+      > li {
+        display: inline-block;
+        margin-right: 10px;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .#{$id}_freeGiftRemove {
+    color: red;
+    display: block;
+    margin-top: 3px;
+  }
+
+  &.Layout_Tablet {
+    .#{$id}_freeGiftLabel {
+      width: 19%;
+    }
+      
+    .#{$id}_freeGiftProductName {
+      width: 16.5%;
+      color: #ec008c;
+    }
+  
+    .#{$id}_freeGiftQty {
+      padding-left: 0;
+    }
+    
+    .#{$id}_freeGiftQty,
+    .#{$id}_freeGiftPrice {
+      width: 18%;
+    }
+  
+    .#{$id}_freeGiftPrice {  
+      &:last-of-type {  
+        width: 18%;
+      }
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$id}_freeGiftLabel {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+    }
+      
+    .#{$id}_freeGiftProductName {
+      width: 45%;
+      color: #ec008c;
+      padding-left: 10px;
+    }
+
+    .#{$id}_freeGiftQty {
+      width: 15%;
+      padding-left: 0;
+    }
+  
+    .#{$id}_freeGiftPrice {  
+      display: none;
+      width: 25%;
+
+      &:last-of-type {  
+        display: inline-block;
+      }
+    }
+  }
+}

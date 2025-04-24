@@ -1,0 +1,779 @@
+@import './variables';
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+html.#{$id}-noscroll {
+  height: 100%;
+  overflow: hidden;
+}
+
+.#{$id} {
+
+  .basketAd {
+    margin-bottom: 20px !important;
+  }
+
+
+  .HOF_Basket.dy_unit {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .#{$id}-recs-holder {
+    padding: 15px 0;
+    background: #F5F5F5;
+    margin-bottom: 16px;
+
+    .you-may-like {
+      font-size: 15px;
+      line-height: 18px;
+      text-transform: uppercase;
+      font-family: 'GothamHTF-Book', Arial,Helvetica,sans-serif!important;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      
+    }
+  }
+
+  .#{$id}-recs-carousel-holder {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    max-height: 200px;
+    min-height: 200px;
+    background: #f5f5f5;
+    margin-bottom: 8px;
+
+    @media only screen and (min-width: 1024px) {
+      max-height: none;
+    }
+
+    @media all and (max-width: 992px) {
+      min-height: 210px;
+      max-height: 210px;
+    }
+
+    @media all and (max-width: 600px) {
+      min-height: 170px;
+      max-height: 170px;
+      padding: 0 40px;
+    }
+
+    .#{$id}-loading-spinner {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 110;
+      background: #f5f5f5;
+
+      p {
+        color: #000;
+        font-family: $font-family-bold;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      svg {
+        animation: spin 1s linear infinite;
+      }
+    }
+
+    &.loading:before {
+      content: '';
+      position: absolute;
+      background: #f5f5f5;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      top: 0;
+      left: 0;
+    }
+
+    &.loading .#{$id}-loading-spinner {
+      display: flex;
+    }
+
+    .#{$id}-button {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background: #FFF;
+      border: none;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.1);
+      padding: 0;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+
+      @media all and (max-width: 600px) {
+        left: 0;
+        background: none;
+        box-shadow: none;
+      }
+
+      &-next {
+        right: 8px;
+        left: auto;
+
+        @media all and (max-width: 600px) {
+          right: 0;
+        }
+      }
+
+      &-prev {
+        
+
+
+      }
+
+      &.#{$id}-hidden {
+        display: none;
+        visibility: hidden;
+      }
+
+      svg polyline {
+        stroke: #000;
+        fill: none;
+      }
+
+      svg {
+        width: 27px;
+        color: #000;
+      }
+
+      &.swiper-button-disabled {
+        display: none;
+      }
+    }
+
+    .#{$id}-recs-carousel-inner {
+      padding: 10px 0 10px 15px;
+      position: relative;
+      overflow: hidden;
+      display: flex !important;
+
+      @media only screen and (min-width: 1024px) {
+        width: 100%;
+      }
+
+      @media all and (max-width: 600px) {
+        padding: 10px 0;
+      }
+
+      .swiper-wrapper {
+        justify-content: center;
+        align-items: center;
+        margin-left: 4px;
+      }
+
+      &.swiper-active .swiper-wrapper {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+
+    .#{$id}-carousel-slide {
+      background: #ffffff;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      .#{$id}-carousel-image {
+        width: 40%;
+
+        @media all and (max-width: 550px) {
+          padding-right: 10px;
+        }
+      }
+
+      img {
+        max-width: 150px;
+        width: 100%;
+        height: auto;
+
+        @media all and (max-width: 767px) {
+          width: 85%;
+        }
+      }
+
+      .#{$id}-carousel-product-info {
+        flex-direction: column;
+        height: 100%;
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        padding: 0 10px 0 0;
+        text-align: center;
+
+        .#{$id}-product-brand {
+          width: 100%;
+          font-family: $font-family-bold;
+          text-transform: uppercase;
+          font-size: 12px;
+          max-height: 34px;
+          overflow: hidden;
+          margin-bottom: 4px;
+
+        }
+
+        .#{$id}-product-name {
+          width: 100%;
+          font-size: 12px;
+          max-height: 34px;
+          overflow: hidden;
+          margin-bottom: 8px;
+          margin-bottom: 4px;
+          text-transform: uppercase;
+
+        }
+
+        .#{$id}-prices {
+          width: 100%;
+          font-size: 12px;
+          margin-top: auto;
+          margin-bottom: 0;
+
+        }
+
+        .now-price {
+          font-family: $font-family-bold;
+        }
+
+        .was-price {
+          font-weight: normal;
+          text-decoration: line-through;
+          margin-left: 5px;
+          color: #888888;
+          font-size: 10px;
+        }
+
+        .equal-prices .was-price {
+          display: none;
+        }
+
+        .sale-prices .now-price {
+          color: #B30000;
+        }
+      }
+
+      &.additional-info .#{$id}-carousel-product-info {
+        display: flex;
+      }
+    }
+
+    
+
+    .#{$id}-quick-buy-button {
+      margin-top: 8px;
+      background: none;
+      border: none;
+      font-size: 10px;
+      text-transform: uppercase;
+      position: relative;
+      width: 100%;
+      background-color: #000;
+      border: 1px solid #000;
+      color: #fff;
+      padding: 3px 0;
+      font-family: 'GothamHTF-Book', Arial,Helvetica,sans-serif!important;
+      font-size: 10px;
+      line-height: 22px;
+      letter-spacing: 0.4px;
+      max-width: 150px;
+
+      &:hover {
+        background-color: #FFF;
+        border: 1px solid #000;
+        color: #000;
+      }
+    }
+  }
+
+  .#{$id}-carousel-scrollbar {
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    padding: 3px 0;
+    background: #ddd;
+    opacity: 1;
+
+    @media all and (max-width: 600px) {
+      display: none;
+    }
+
+    &.loading {
+      opacity: 0;
+    }
+    
+    .swiper-scrollbar-drag {
+        height: 5px;
+        margin: -3px 0;
+        background: #000;
+        border: solid 1px #000;
+        cursor: pointer;
+        transition: all 0.1s ease-in, transform 0s !important;
+    }
+  }
+
+  .#{$id}-carousel-count {
+    font-size: 12px; 
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px; 
+
+    &.loading {
+      display: none;
+    }
+  }
+
+  // MODAL
+  .#{$id}-quick-buy-modal-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: rgba(#000, 0.5);
+    display: flex;
+    z-index: 999999999;
+    opacity: 0;
+    transition: 0.5s;
+
+    @media only screen and (min-width: 500px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.slowly-show {
+      opacity: 1;
+    }
+
+    &.slowly-hide {
+      opacity: 0;
+    }
+
+    .#{$id}-quick-buy-dropdown {
+      padding: 15px 60px 15px 10px;
+      font-size: 14px;
+      min-width: 200px;
+      text-align: left;
+      font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif;
+      border: 1px solid #D1D1D1;
+      appearance: none;
+
+      
+
+      &--size {
+        width: 150px;
+      }
+    }
+
+    .#{$id}-quick-buy-single {
+      color: #707070;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-family: $font-family-bold;
+    }
+
+    .#{$id}-quick-buy-modal-line-on-top {
+      height: 4px;
+      background: black;
+      width: 90px;
+      position: absolute;
+      top: 10px;
+      z-index: 10;     
+
+      @media only screen and (min-width: 500px) {
+        display: none;
+      }
+    }
+  }
+
+  .#{$id}-quick-buy-modal-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 45px;
+    background: #fff;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 0;
+    overflow-y: scroll;
+    z-index: 100;
+
+    @media (orientation: landscape) {
+      top: 45px;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    & {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    
+
+    @media only screen and (min-width: 500px) {
+      top: 50%;
+      transform: translateY(-50%);
+      bottom: auto;
+      left: auto;
+      width: 420px;
+      max-height: 620px;
+      overflow-y: scroll;
+      border-top-left-radius: 28px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 0px;
+    }
+
+    @media only screen and (max-width: 500px) and (orientation: portrait) {
+      top: auto;
+      bottom: 0;
+    }
+
+    .x-close-button {
+      width: 24px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+
+  .#{$id}-quick-buy-modal-img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 8px;
+
+    @media only screen and (min-width: 414px) and (orientation: portrait) {
+      width: 210px;
+      height: 210px;
+    }
+
+    @media only screen and (max-height: 600px) {
+      display: none;
+    }
+  }
+
+  .#{$id}-quick-buy-modal-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 0 24px;
+
+    .#{$id}-quick-buy-modal-text-name {
+      font-size: 13px;
+      font-weight: 900;
+      font-family: GothamBold, Arial, Helvetica, sans-serif !important;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      max-height: 18px;
+      overflow: hidden;
+    }
+
+    .#{$id}-quick-buy-modal-text-description {
+      font-size: 13px;
+      font-weight: 300;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      max-height: 18px;
+      overflow: hidden;
+    }
+
+    .#{$id}-quick-buy-modal-text-price {
+      font-size: 13px;
+      font-weight: 900;
+      font-family: GothamBold, Arial, Helvetica, sans-serif !important;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+
+      span {
+        margin-left: 4px;
+        font-weight: normal;
+        text-decoration: line-through;
+        color: #888888;
+        font-family: GothamHTF-Book, Arial, Helvetica, sans-serif !important;
+      }
+    }
+
+    .#{$id}-quick-buy-modal-text-view-details {
+      font-size: 11px;
+      text-decoration: underline;
+
+      @media only screen and (min-width: 500px) {
+        display: none;
+      }
+    }
+  }
+
+  // View details on desktop
+  .#{$id}-quick-buy-modal-text-view-details--desktop {
+    display: none;
+    font-size: 11px;
+    text-decoration: underline;
+
+    @media only screen and (min-width: 500px) {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+
+  .#{$id}-quick-buy-modal-select-colour {
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+    margin-bottom: 12px;
+
+    .#{$id}-quick-buy-dropdown {
+      min-width: 240px !important;
+    }
+
+    .#{$id}-quick-buy-modal-select-colour-text {
+      font-size: 13px;
+      font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .#{$id}-quick-buy-modal-select-colour-images {
+      display: flex;
+      overflow-x: scroll;
+
+      position: relative;
+
+      &.multiple-colours:after {
+        background-image: url(https://www.flannels.com/images/marketing/icons/icon-arrow-down-black.svg);
+        background-repeat: no-repeat;
+        background-size: auto 10px;
+        background-position: 50% 50%;
+        border: none;
+        height: 22px;
+        width: 22px;
+        position: absolute;
+        left: 195px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        content: "";
+      }
+
+      @media only screen and (min-width: 500px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        white-space: wrap;
+        overflow-x: hidden;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      & {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      img {
+        width: 62px !important;
+        height: 62px !important;
+        margin-right: 12px;
+        padding: 2px;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        cursor: pointer;
+
+        &.chosen-img {
+          border: 2px solid #000;
+        }
+      }
+    }
+  }
+
+  .#{$id}-quick-buy-modal-select-size {
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+    margin-bottom: 12px;
+
+    @media only screen and (min-width: 500px) {
+      padding-right: 24px;
+    }
+
+    .#{$id}-quick-buy-modal-select-size-text {
+      font-size: 13px;
+      font-family: GothamBold, Arial, Helvetica, sans-serif !important;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .#{$id}-quick-buy-modal-select-size-sizes {
+      display: block;
+      white-space: nowrap;
+      overflow-x: scroll;
+      position: relative;
+
+      &:after {
+        background-image: url(https://www.flannels.com/images/marketing/icons/icon-arrow-down-black.svg);
+        background-repeat: no-repeat;
+        background-size: auto 10px;
+        background-position: 50% 50%;
+        border: none;
+        height: 22px;
+        width: 22px;
+        position: absolute;
+        left: 160px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        content: "";
+      }
+
+      @media only screen and (min-width: 500px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        white-space: wrap;
+        overflow-x: hidden;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      & {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .#{$id}-quick-buy-modal-select-size-single-size {
+        padding: 17px 10px;
+        border: 1px solid #bababa;
+        white-space: nowrap;
+        margin-right: 12px;
+        background: none;
+        display: inline-block;
+        color: #000;
+        min-width: 50px;
+        font-size: 11px;
+        font-weight: 100;
+
+        @media only screen and (min-width: 500px) {
+          margin-bottom: 12px;
+        }
+
+        &.chosen-size {
+          border: 1px solid #000;
+        }
+      }
+    }
+  }
+
+  .#{$id}-add-to-bag-container {
+    margin-top: auto;
+    width: 100%;
+    margin-top: 20px;
+    padding: 0 24px;
+
+    .#{$id}-add-to-bag {
+      width: 100%;
+      padding: 10px 0;
+      color: #fff;
+      background: #000;
+      letter-spacing: 0.4px;
+      font-size: 12px;
+      line-height: 22px;
+
+      border: 1px solid #000;
+
+      &:hover {
+        background-color: #FFF;
+        border: 1px solid #000;
+        color: #000;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    -webkit-transform: translate(0px, 2px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(2px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(2px, 2px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.shake {
+  display: inline-block;
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 0.5s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: 1;
+}

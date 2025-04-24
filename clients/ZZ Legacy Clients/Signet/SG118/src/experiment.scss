@@ -1,0 +1,302 @@
+@import './variables';
+
+.#{$id} {
+  .home-tile-grid {
+    visibility: hidden;
+    filter: blur(8px);
+    min-height: 460px;
+    transition: filter .25s ease;
+
+    .home-tile-grid__picture {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 500px;
+      @media(min-width:1024px) {}
+      img {
+        display: none;
+      }
+
+     
+    }
+    
+
+  }
+  .SG114-textContent {
+    display: none !important;
+  }
+
+  &.hsamuel {
+    // HS-specific styles
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+
+    // --- MOBILE GRID
+    @media screen and (max-width: 560px){
+      .home-tile-grid {
+        margin-bottom: 3.75rem;
+        display: -ms-grid;
+        display: grid;
+        grid-gap: .5rem;
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        max-width: 91.25rem;
+        padding: 0 .85rem;
+      }
+    }
+
+    .#{$id}-ifcMessageBanner {
+      background-color: #000 !important;
+      color: #FFF !important;
+
+      .home-tile-grid__title,
+      .home-tile-grid__cta {
+        display: none;
+      }
+
+      &:before {
+        content: none;
+      }
+
+
+      .SG118-textContent {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #fff;
+        margin: 1.25rem 0px;
+        padding: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        p {
+          // width: 60%;
+          margin: auto;
+          font-weight: 700;
+          font-family: 'Oxygen' !important;
+          font-size: 1.1rem;
+          position: relative;
+          // width: 100%;
+        }
+
+      }
+
+      
+    }
+
+    // --- MAIN BANNER
+    .home-tile-grid__large-tile {
+      a:hover {
+        cursor: default !important;
+      }
+      .home-tile-grid__image-link {
+        position: relative;
+      }
+      .SG118-bannerBtn__wrapper {
+        position: absolute;
+        bottom: 0px;
+        // background-color: #fff;
+        width: 100%;
+        // opacity: 90%;
+        text-align: center;
+        padding: 30px 1rem;
+        @media screen and (max-width: 523px) {
+          padding: 20px 1rem;
+        }
+
+        &:before {
+          display: block;
+          content: '';
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          position: absolute;
+          left: 0px;
+          bottom: 0px;
+          opacity: .8;
+          z-index: 0;
+        }
+
+        .SG118-bannerBtn__container {
+          display: inline-flex;
+          flex-direction: row;
+
+          @media screen and (max-width: 523px) {
+            flex-direction: column;
+          }
+          
+
+          div {
+            font-family: 'Oxygen' !important;
+            font-weight: 700;
+            z-index: 9;
+            color: #000;
+            font-size: 1rem;
+            font-size: 18px;
+          }
+          .label {
+            margin: 0px;
+            // padding: 20px;
+            padding: 5px 20px 5px 0px;
+            // font-size: 20px;
+            font-size: 18px;
+
+            @media screen and (max-width: 523px) {
+              padding: 5px 20px 15px 20px;
+            }
+          }
+
+          a {
+            z-index: 0;
+            text-decoration: none;
+
+            .SG118-btn {
+              background-color: #000;
+              color: #fff;
+              padding: 5px 20px;
+              margin: 0 10px;
+              text-transform: uppercase;
+              min-width: 160px;
+              margin: auto;
+              transition: transform .25s ease;
+  
+              @media screen and (max-width: 523px) {
+                width: 220px !important;
+                &.first {
+                  margin-bottom: 15px !important;
+                }
+              }
+              @media screen and (min-width: 524px) {
+                &.first {
+                  margin-right: 10px !important;
+                }
+              }
+              @media screen and (min-width: 1024px) and (max-width: 1106px) {
+                min-width: 120px;
+              }
+              
+              
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.025);
+              }
+            }
+          }
+          
+          
+
+        }
+        
+      }
+    }
+
+    // --- OTHER TILES
+    .home-tile-grid__small-tile {
+      position: relative;
+      height: 200px;
+      @media(min-width: 767px) {
+        height: 400px;
+      }
+      @media(min-width: 1024px) {
+        height: 300px;
+      }
+      
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      img {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      .SG118-bannerBtn__wrapper {
+        position: absolute;
+        bottom: 0px;
+        // background-color: #fff;
+        width: 100%;
+        // opacity: 90%;
+        text-align: center;
+        padding: 15px 1rem;
+        // padding: .5rem 1rem;
+
+        &:before {
+          display: block;
+          content: '';
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          position: absolute;
+          left: 0px;
+          bottom: 0px;
+          opacity: .8;
+          z-index: 0;
+        }
+
+        .SG118-bannerBtn__container {
+          display: inline-flex;
+          flex-direction: column;
+
+          &.brand {
+            @media screen and (max-width: 523px) {
+              .label {
+                &:before {
+                  content: 'Shop ';
+                }
+              }
+            }
+          }
+          
+
+          div {
+            font-family: 'Oxygen' !important;
+            font-weight: 700;
+            z-index: 9;
+            color: #000;
+            // font-size: 1.1rem;
+          }
+          .label {
+            margin: 0px;
+            // padding: 20px;
+            // padding: 0px 20px 12.5px 20px;
+            padding: 0px 0px 15px 0px;
+            font-size: 17px;
+
+            @media screen and (max-width: 523px) {
+              padding: 0px;
+              font-size: 16px !important;
+            }
+          }
+
+          .SG118-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 20px;
+            margin: 0 10px;
+            text-transform: uppercase;
+            max-width: 140px;
+            min-width: 160px;
+            margin: auto;
+            transition: transform .25s ease;
+
+            @media screen and (max-width: 523px) {
+              display: none;
+            }
+
+            &:hover {
+              cursor: pointer;
+              transform: scale(1.025);
+            }
+          }
+        }
+        
+      }
+    }
+   
+  }
+}

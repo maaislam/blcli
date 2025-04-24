@@ -1,0 +1,54 @@
+.#{$id} {
+  .#{$id}-banner {
+    @include reset;
+
+    display: block;
+    background-color: $color-grey;
+    color: $color-dark-grey;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .#{$id}-banner__container {
+    width: clamp(200px, 80%, 400px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    padding-block: 4rem;
+  }
+
+  .#{$id}-banner__logo {
+    width: clamp(100px, 30%, 200px);
+    margin-inline: auto;
+  }
+
+  .#{$id}-banner__title {
+    text-align: center;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .#{$id}-banner__text {
+    font-weight: 300;
+    text-align: center;
+
+    &[collapsed] {
+      @include line-clamp(2);
+    }
+  }
+
+  .#{$id}-banner__read-more-button {
+    justify-self: center;
+    background-color: transparent;
+    color: inherit;
+    border: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    box-shadow: none;
+  }
+}

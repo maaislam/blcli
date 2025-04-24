@@ -1,0 +1,131 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}__reviewSection {
+    margin-bottom: 0px;
+  }
+  .#{$id}__priceSection {
+    div[data-qaid='product-price'] {
+      border-top: none;
+      padding: 0;
+    }
+    div[data-qaid='pdp-price'] {
+      color: #d0040a;
+    }
+  }
+
+  &__hide {
+    display: none;
+  }
+
+
+  &-2, &-4 {
+    [data-qaid='product-tile'] [data-qaid='pdp-product-bullets'] {
+      display: none;
+    }
+  }
+
+  [data-qaid='product-contents-header'],
+  [data-qaid='product-contents-text'],
+  [data-qaid='downloads-header'],
+  [data-qaid='downloads-links'] {
+    display: none;
+  }
+
+  [data-qaid='pdp-tabs'] {
+    [data-qaid='pdp-tab-2'],
+    [data-qaid='pdp-tab-2-selected'] {
+      display: none;
+    }
+  }
+
+  [data-qaid='product-tile'] + .#{$id}__tableContainer {
+    display: block !important;
+  }
+
+  @mixin header-style {
+    padding: 6px 32px;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #3e70aa;
+
+    @media (max-width: 768px) {
+      padding: 6px 8px;
+    }
+  }
+
+  &__tableContainer {
+    > div {
+      padding: 0 50px 45px 50px;
+
+      @media (max-width: 768px) {
+        padding: 0 10px 45px 10px;
+      }
+    }
+
+    [data-qaid='product-contents-header'] {
+      @include header-style;
+
+      & + [data-qaid='product-contents-text'] {
+        padding: 8px 48px;
+      }
+    }
+
+    thead {
+      th {
+        @include header-style;
+      }
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+
+      tr {
+        display: none;
+        border-bottom: none;
+        padding: 8px 48px;
+
+        @media (max-width: 768px) {
+          padding: 8px;
+        }
+
+        td {
+          padding: 0;
+          flex: 1;
+          text-align: left;
+        }
+
+        td:first-child::after {
+          border-right: 0;
+        }
+      }
+
+      .#{$id}__visibleCell {
+        display: flex;
+      }
+    }
+  }
+
+  &__viewAllBtn {
+    padding: 16px 32px;
+    color: #0053a0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      padding: 16px 12px;
+    }
+  }
+
+  &__evenRow {
+    background-color: #fff !important;
+  }
+
+  &__oddRow {
+    background-color: #f6f6f6 !important;
+  }
+}

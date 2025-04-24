@@ -1,0 +1,143 @@
+@import '../../variables';
+
+html.#{$id}_Lightbox__noScroll,
+body.#{$id}_Lightbox__noScroll {
+  overflow: hidden;
+}
+
+.#{$id} {
+  .#{$id}_Lightbox__overlay {
+    z-index: 99999;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+  }
+
+  .#{$id}_Lightbox {
+    z-index: 999999;
+    margin: 0px auto;
+    width: 90%;
+    max-width: 880px;
+    height: auto;
+    max-height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    position: fixed;
+    display: none;
+    box-shadow: 0 0 40px 3px hsla(0,0%,39%,.2);
+
+    @media screen and (max-width: 400px) {
+      width: 95%;
+    }
+    @media(min-width:767px) {
+      width: 300px;
+    }
+  }
+
+  .#{$id}_Lightbox__content {
+    background-color: #fff;
+    height: auto;
+    max-height: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    padding: 10px;
+    .#{$id}-lightbox_inner {
+      h3 {
+        padding: 0;
+        margin: 10px 0px 5px 0;
+        color: black;
+        font-family: "DINCondensed-Regular","Arial Narrow",Arial,sans-serif;
+        font-weight: normal;
+        font-size: 30px;
+        text-transform: uppercase;
+      }
+      p {
+        margin-bottom: 0px;
+      }
+      .#{$id}-catTitle {
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      @media screen and (max-width: 767px) {
+        max-height: 80%;
+        max-height: 80vh; 
+      }
+      .#{$id}-lbIcon {
+        height: 60px;
+        width: 60px;
+        margin: 0 auto;
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        &.#{$id}-category_icon {
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/C86545855FAFF0EAFA0E09580C791A3FB23D6D524E451730534CDB749F666810/hsamuel-co-uk/HS022---Returning-User-Personalisation/noun_ShoppingBag_26181201.png');
+        }
+        &.#{$id}-basket_icon {
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/ACB7B945845339A8F78C6550D0EA5860BF0CDC3914690B4A61C5F4B23AFEB7CF/hsamuel-co-uk/HS022---Returning-User-Personalisation/noun_ShoppingBag_2618130.png');
+        }
+      }
+      .#{$id}-lightbox_button {
+        background: #a41625;
+        padding: 10px;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        a {
+          display: block;
+          color: white;
+          font-family: "DINCondensed-Regular","Arial Narrow",Arial,sans-serif;
+          text-transform: uppercase;
+          text-decoration: none;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .#{$id}_Lightbox__close {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #a41625;;
+    cursor: pointer;
+    z-index: 1002;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    text-align: center;
+
+    &:hover {
+      background-color: #a41625;
+      transition: ease .3s all;
+    }
+
+    &:before {
+      content: '×';
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+
+    @media screen and (max-width: 550px) {
+      right: -5px;
+    }
+  }
+}

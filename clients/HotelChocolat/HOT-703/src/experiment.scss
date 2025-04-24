@@ -1,0 +1,286 @@
+@import './variables';
+
+.#{$id} {
+  .slide-in-bottom {
+    animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .slide-out-bottom {
+    animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  &-1 {
+    .#{$id}-sticky-container {
+      height: 210px;
+    }
+  }
+
+  &-2 {
+    .#{$id}-sticky-container {
+      height: 248px;
+    }
+
+    .#{$id}-sticky-container:has(.#{$id}__content.active) {
+      height: 314px;
+
+      .#{$id}__minusIcon {
+        display: flex;
+      }
+
+      .#{$id}__plusIcon {
+        display: none;
+      }
+    }
+
+    .#{$id}__orderSummary {
+      width: 100%;
+
+      &-header {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .#{$id}__title {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 23px;
+          color: #000;
+        }
+
+        .#{$id}__minusIcon {
+          display: none;
+        }
+
+        .#{$id}__plusIcon {
+          display: flex;
+        }
+      }
+
+      .order-subtotal,
+      .order-shipping,
+      .empty-space {
+        display: none;
+      }
+
+      .#{$id}__content.active .order-shipping {
+        margin-bottom: 8px;
+      }
+
+      .#{$id}__content.active .order-subtotal,
+      .#{$id}__content.active .order-shipping {
+        display: flex;
+        justify-content: space-between;
+        
+        td {
+          padding: 4px 0 0;
+          font-size: 16px;
+          color: #000;
+        }
+
+        td:first-child {
+          font-weight: 500;
+          line-height: 23px;
+        }
+
+        td:last-child {
+          font-weight: 700;
+          line-height: 24px;
+
+        }
+      }
+
+      .order-totals-table .order-total {
+        margin-bottom: 20px;
+        padding: 4px 0;
+        border-top: 1px solid #D6D6D6;
+        border-bottom: 1px solid #D6D6D6;
+        display: flex;
+        justify-content: space-between;
+
+        td {
+          padding: 0;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 24px;
+          color: #000;
+        }
+      }
+
+      .order-totals-table .empty-space-bottom {
+        display: none;
+      }
+    }
+  }
+
+  &-3 {
+    .#{$id}-sticky-container {
+      height: 180px;
+    }
+  }
+
+  .mobile-buttons {
+    display: none !important;
+  }
+
+  .#{$id}-sticky-container {
+    box-sizing: border-box;
+    padding: 0 8px;
+    position: fixed;
+    z-index: 9999999;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //border-top: 2px solid #000;
+    background: #fff;
+    box-shadow: 0px 4px 4px 6px #87858542;
+
+    .#{$id}-order-total-table {
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #D6D6D6;
+
+      td {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #000;
+      }
+
+      td:last-child {
+        text-align: right;
+      }
+    }
+
+    .#{$id}-express-checkout-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      box-sizing: border-box;
+
+      // .#{$id}__amazonPayBtn {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   width: 100%;
+      //   height: 40px;
+      //   background: linear-gradient(180deg, #F7F8FA 0%, #E7E9EC 75%);
+      //   border: 1px solid #8D9096;
+      //   border-radius: 3px;
+      //   cursor: pointer;
+      //   box-shadow: 0px 1px 0px 0px #00000066 inset;
+
+      //   &:hover {
+      //     background: linear-gradient(to bottom, #E6E9EF, #D9DCE1);
+      //   }
+
+      //   &:focus {
+      //     outline: none;
+      //     border: 1px solid #e77600 !important;
+      //     box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+      //   }
+
+      //   svg {
+      //     width: 100%;
+      //     margin-top: 7px;
+      //   }
+      // }
+    }
+
+    button {
+      text-transform: uppercase;
+      font-family: GillSansNova-Bold;
+      width: 100%;
+      height: 44px;
+    }
+
+    .#{id}-express-checkout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .#{$id}-express-checkout p {
+      position: relative;
+      padding: 14px 0px;
+      background-color: #fff;
+      z-index: 1;
+      color: #000;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .#{$id}-express-checkout p::before,
+    .#{$id}-express-checkout p::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: calc(100% - 12px);
+      /* Length of the line */
+      height: 1px;
+      /* Thickness of the line */
+      background-color: #878585;
+      /* Color of the line */
+    }
+
+    .#{$id}-express-checkout p::before {
+      left: -120px;
+      /* Adjust according to padding and line width */
+      transform: translateY(-50%);
+    }
+
+    .#{$id}-express-checkout p::after {
+      right: -120px;
+      /* Adjust according to padding and line width */
+      transform: translateY(-50%);
+    }
+
+    .#{$id}-express-checkout-paypal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 4px;
+      background-color: #FFC439;
+      height: 40px;
+    }
+
+    .#{$id}-express-checkout-amazon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @keyframes slide-in-bottom {
+    0% {
+      transform: translateY(1000px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-out-bottom {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(1000px);
+      opacity: 0;
+    }
+  }
+}

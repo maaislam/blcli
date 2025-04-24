@@ -1,0 +1,37 @@
+import howItWorks from './howitWork';
+
+const promoMsg = (id, variation) => {
+  const htmlStr = `
+    <div class="${id}__bosch-promo">
+    <div class="${id}__promomsg">
+
+        <div class="${id}__promomsg--copy">
+            Spend over £170 inc VAT on selected Bosch 18V Power tools to recieve a free product from Bosch*
+        </div>
+        <div class="${id}__promomsg--image">
+            <img src="https://ucds.ams3.digitaloceanspaces.com/Screwfix/Bosch-promo-offer.png"
+                 alt="Bosch promo">
+        </div>
+
+    </div>
+    <div class="${id}__terms">
+        <div class="${id}__terms--title">
+            <span>T&Cs apply</span>
+            <span class="${id}__closebtn"></span>
+        </div>
+        <div class="${id}__terms--content">
+            <div class="text-conten">
+            Promotion valid for purchases made between 1st January and the 30th April 2023. For free product
+            choices,
+            T&C’s and details on how to claim the free product from Bosch, see
+            <a class="bosch-toolbag" href="https://www.bosch-professional.com/gb/en/pro360/prodeals/toolbag/">https://www.bosch-professional.com/gb/en/pro360/prodeals/toolbag/</a> by 31/01/2023. Proof of purchase required.
+            This is a manufacturer promotion.</div>
+            ${variation === '2' ? howItWorks(id) : ''}
+        </div>
+    </div>
+</div>`;
+
+  return htmlStr.trim();
+};
+
+export default promoMsg;

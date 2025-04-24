@@ -1,0 +1,176 @@
+@import './variables';
+
+.#{$id} {
+  // --- Hide / Change Control elements
+  .venue-details-section {
+    border: none !important;
+  }
+  .venue-details .venue-details-wrap {
+    padding: 0 !important;
+  }
+  .venue-details .venue-details-map {
+    width: 95%;
+    margin: auto !important;
+  }
+
+  .venue-details-info {
+    padding-right: 3%;
+    border-right: 1px solid #e0e0e0;
+    width: 50%;
+    // background-color: lightcoral;
+  }
+  .venue-details-location {
+    position: relative;
+
+    .icon-location {
+      top: 30px;
+    }
+
+    .#{$id}-location {
+      height: 20px;
+      position: absolute;
+      left: 30px;
+      font-size: 1.6em;
+      font-weight: 700;
+    }
+  }
+  
+  .#{$id}-courses__wrapper {
+    width: 50%;
+    // background-color: lightseagreen;
+    padding-left: 3%;
+
+    .#{$id}-courses__title {
+      text-align: left;
+      width: 80%;
+      margin: auto;
+      a {
+        color: #000;
+        font-size: 1.5em;
+
+        &:hover {
+          color: #000;
+          border-bottom: .2rem solid #000;
+        }
+      }
+    }
+
+    .#{$id}-workplace__wrapper, .#{$id}-public__wrapper {
+      width: 80%;
+      margin: auto;
+
+      .#{$id}-course__image {
+        display: block;
+        width: 100%;
+        height: 200px;
+        // background-color: lightblue;
+        background-size: cover;
+        background-position: 50%;
+        margin-bottom: 10px;
+
+        &.workplace__img {
+          background-image: url('//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/d474c4e391fa934e6b170e42edc302be_workplace_image.jpg');
+        }
+        &.public__img {
+          background-image: url('//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/cc0469bc5bbe8f630ca22ebf741389f3_public_course_image.jpg');
+        }
+      }
+
+      .#{$id}-course__title {
+        font-weight: 800;
+        padding-bottom: 10px;
+        
+        p {
+          font-size: 1.2em !important;
+        }
+      }
+
+      .#{$id}-course__text {
+        text-align: justify;
+        padding-bottom: 10px;
+
+        p {
+          font-size: 1em !important;
+        }
+      }
+      .venue-details-link {
+        margin-left: 0px !important;
+      }
+    } 
+  }
+
+  // --- Get directions
+  p.venue-details-link.venue-details-directions {
+    display: inline-block;
+
+    margin-left: 1rem !important;
+  }
+  .#{$id}-viewMap__wrapper {
+    position: absolute;
+    right: 0px;
+    p {
+      display: inline-block;
+      font-size: 1.9rem;
+      padding-right: 8px;
+    }
+
+    .icon-menu-arrow {
+      svg {
+        transform: rotate(90deg);
+
+        &.mapOpen {
+          transform: rotate(270deg);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .venue-details-info {
+      width: 100%;
+      padding-bottom: 40px;
+      border-right: none !important;
+      border-bottom: 1px solid #e0e0e0;
+
+      .venue-details-section {
+        position: relative;
+
+        .#{$id}-location {
+          position: absolute;
+          left: 0px;
+          font-size: 1.7em !important;
+        }
+
+        .venue-details-location {
+          span.icon-location {
+            top: 45px !important;
+          }
+          p {
+            padding-top: 20px;
+          }
+        }
+      }
+    }
+
+    .#{$id}-courses__wrapper {
+      width: 100%;
+      margin-top: 40px;
+
+      .#{$id}-courses__title {
+        width: 90% !important;
+      }
+      .#{$id}-workplace__wrapper, .#{$id}-public__wrapper {
+        width: 90% !important;
+      }
+    }
+
+    // --- Toggle Map
+    .venue-details-map {
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+  }
+}

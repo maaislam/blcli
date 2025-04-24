@@ -1,0 +1,147 @@
+@import './variables';
+
+.#{$id} {
+  // .#{$id}__quickCategoryLinks {
+  //   display: flex;
+  //   margin-top: 20px;
+  //   gap: 32px;
+
+  //   @media (min-width: 1025px) {
+  //     max-width: 1148px;
+  //     margin: 20px auto 0;
+  //   }
+
+  //   @media (min-width: 641px) and (max-width: 1024px) {
+  //     padding: 0 11px;
+  //   }
+
+  //   @media (max-width: 640px) {
+  //     flex-direction: column;
+  //     margin-left: 18px;
+  //     gap: 13px;
+  //   }
+  // }
+
+  &__quickCategoryLinks {
+    width: 100%;
+    font-family: screwfix_betaregular;
+    letter-spacing: 0.5px;
+    overflow-x: hidden;
+    animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 32px !important;
+
+      @media (max-width: 640px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      & > *:not(:last-child) {
+        margin-right: 32px;
+
+        @media (max-width: 640px) {
+          margin-right: 16px;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    width: 100%;
+    max-width: fit-content;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: screwfix_betabold;
+    text-transform: uppercase;
+    color: #0053a0;
+    margin: 0;
+
+    @media (max-width: 640px) {
+      font-size: 26px;
+
+      .#{$id}__character {
+        display: none;
+      }
+    }
+  }
+
+  .#{$id}__linkLists {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    margin: 0;
+    //gap: 16px;
+    overflow-x: scroll;
+    margin-bottom: 5px;
+
+    @media (max-width: 640px) {
+      overflow-x: scroll;
+    }
+
+    & > *:not(:last-child) {
+      margin-right: 16px;
+    }
+
+    .#{$id}__item {
+      display: flex;
+      align-items: center;
+      padding: 11px 10px;
+      text-transform: uppercase;
+      background-color: #0053a0;
+      color: #fff;
+      // gap: 6px;
+      white-space: nowrap;
+      & > *:not(:last-child) {
+        margin-right: 32px;
+        @media (max-width: 640px) {
+          margin-right: 0;
+        }
+      }
+
+      &-text {
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 17px;
+      }
+      &-icon {
+        display: flex;
+        @media (max-width: 640px) {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        justify-content: center;
+        border-radius: 2px;
+        padding: 5px;
+        min-width: 122px;
+        text-align: center;
+        height: 46px;
+        white-space: normal;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      gap: 8px;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

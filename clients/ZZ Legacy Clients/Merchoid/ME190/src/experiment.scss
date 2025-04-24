@@ -1,0 +1,111 @@
+@import './variables';
+@import './keyframes.scss';
+
+.#{$id} {
+  .large-6.columns.product-gallery {
+    position: relative;
+    .images{
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.5s ease-in-out;
+      height: 0px;
+      max-height: 0px;
+      overflow: hidden;
+      
+      &.#{$id}-main-slider-show {
+        opacity: 1;
+        transition: 1s max-height;
+        height: auto;
+        max-height: 800px;
+        pointer-events: unset;
+        overflow: auto;
+      }
+    }
+  }
+  .#{$id}_productSlider {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: auto;
+    max-height: 800px;
+    opacity: 1;
+    transition: max-height 0.3s;
+    overflow: hidden;
+    &.ME190-removeSlider {
+      max-height: 0px;
+    }
+    .#{$id}_productSlider_inner {
+      .flickity-slider{ 
+        transform: none !important; 
+      }
+      .flickity-slider .ME190-slideImage{
+        left: 0 !important;
+        opacity: 0;
+        transition: 'opacity 0.3s ease-in-out';
+      }
+      .flickity-slider .ME190-slideImage.is-selected{
+          opacity: 1;
+      } 
+    }
+
+    // messages
+    .#{$id}_productMessages {
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 99;
+      width: 100%;
+      .#{$id}_Message-slide {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+        background: rgba(113, 113, 113, 0.75);
+        color: white;
+        text-align: center;
+        border-radius: 2px;
+        box-shadow: -1px 1px 2px 0px #7b7b7b;
+        width: 90%;
+        left: 5%;
+        p {
+          font-weight: bold;
+          margin-bottom: 0px;
+          padding: 10px;
+          span {
+            display: block;
+          }
+          img {
+            height: 25px;
+            display: inline-block;
+            margin-left: 5px
+          }
+        }
+        &:nth-child(1) {
+          -webkit-animation-duration: 1s;
+          -webkit-animation-fill-mode: both;
+          animation-duration: 1s;
+          animation-fill-mode: both;
+          animation-name: ME190zoomInLeft;
+        }
+        &:nth-child(2) {
+          -webkit-animation-duration: 1s;
+          -webkit-animation-fill-mode: both;
+          animation-duration: 1s;
+          animation-fill-mode: both;
+          animation-name: ME190zoomInRight;
+        }
+        &:nth-child(3) {
+          -webkit-animation-duration: 1s;
+          -webkit-animation-fill-mode: both;
+          animation-duration: 1s;
+          animation-fill-mode: both;
+          animation-name: ME190zoomInUp;
+        }
+        &.#{$id}_message-active {
+          display: block;
+        }
+      }
+    }
+  }
+}

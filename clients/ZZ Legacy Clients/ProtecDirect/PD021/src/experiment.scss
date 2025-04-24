@@ -1,0 +1,355 @@
+@import '_mixins.scss';
+.PD021 {
+  #content {
+    margin-top: 20px;
+    
+    .catBanner {
+    //Hide original free delivery information
+    >p {
+      display: none;
+    } //Styles product information - remove background, alignment and display
+    >h2 {
+      background: none;
+      color: #000000;
+      border: none;
+      font-size: 20px;
+      padding: 0;
+      display: inline-block;
+    } //Style branding logo
+    a {
+      display: inline-block;
+      max-height: 50px;
+      > img{
+        position: static;
+        width: auto;
+        height: auto;
+        border: none;
+        top: 0;
+        left: 0;
+        vertical-align: middle;
+      }
+    }
+  } 
+
+}
+  // Style brand title
+  
+  #productDetailUpdateable > .span-9 > .prod > h3 > a{
+    font-size: 16px;
+  }
+  //Style image gallery
+  #productDetailUpdateable>.mainImageHolder {
+    background: none;
+    border: none;
+    margin-right: 0;
+  // Alter image main image if gallery carousel is hidden
+    &.PD021-Main-Image{
+
+      .span-5{
+        width: auto;
+
+        #imageLink{
+          display: block;
+        }
+      }
+
+      #primary_image{
+        position: relative;
+      }
+      .prod_primary_image{
+        height: 300px;
+        width: auto;
+        max-width: none;
+        max-height: none;
+        position: static;
+
+      }
+
+      .details{
+        display: inline-block !important;
+        bottom: 10px !important;
+        right: 5px !important;
+      }
+    }
+  } //Style delivery information
+  #breadcrumb {
+    //Allows breadcrumbs and free delivery text to sit next to each other
+    display: inline-block;
+    padding: 0;
+  }
+  .PD021-Delivery-Wrapper {
+    display: inline-block;
+    .PD021-Delivery-Icon {
+      width: 30px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .PD021-Delivery-Text {
+      display: inline-block;
+      font-size: 16px;
+      text-align: right;
+    }
+  }
+
+  // More information
+
+  .PD021-More-Information{
+    font-size: 16px;
+    position: absolute;
+    cursor: pointer;
+    // More information arrow
+    &::before,
+    &::after {
+      cursor: pointer;
+        content: '';
+        position: absolute;
+        bottom: 12px;
+        width: 10px;
+        height: 2px;
+        left: calc(100% + 14px);
+        @include rotate(45);
+        background: black;
+    }
+    &::after {
+        @include rotate(-45);
+        left: calc(100% + 20px);
+    }
+  }
+
+  // More information circle
+
+  .PD021-Circle-Icon{
+    position: absolute;
+    cursor: pointer;
+    &::after {
+      content: '';
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #000000;
+      position: absolute;
+      left: 134px;
+      top: -3px;
+    }
+  }
+
+  // Restyle datasheets and buying guide section
+
+  .prod_review.brandlogo_datasheets{
+    margin: 50px 0 0px 0;
+    > div{
+      float: none;
+      > label{
+        float: none;
+        > em {
+          display: inline-block;
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  // Restyle add to bag section to match PD003
+
+  #productDetailUpdateable > .span-6 {
+    float: right;
+
+    // Outer box
+
+    .prod {
+      border: 1px solid #ddd;
+      border-radius: 3px;
+
+      // Product Title
+
+      > h3 > label{
+        text-decoration: none;
+      }
+
+      // Ex vat price
+      .big-price{
+        overflow: visible;
+      }
+
+      .prod_add_to_cart{
+        overflow: visible;
+      }
+      // Drop down box
+
+      .variant_options{
+        #variant{
+          background: none !important;
+          // -webkit-appearance: none;
+        }
+      }
+
+      // Quantity section
+
+      .qty{
+
+        // Plus and minus button
+        label {
+          margin: 0;
+        }
+        .plus, .minus{
+          cursor: pointer;
+          display: block;
+          text-align: center;
+          line-height: 30px;
+          background: #eee;
+          float: left;
+          padding: 0 5px;
+
+        }
+        // Input box
+        .qty.profileInputArea{
+          border-radius: 0;
+          display: block;
+          box-sizing: border-box;
+          padding: 5px;
+          text-align: center;
+          height: 30px;
+          border: 1px solid #eee !important;
+          border-width: 1px 0;
+          margin: 0;
+          float: left;
+        }
+      }
+
+      #addToCartForm {
+      // Branding
+
+      > .branding{
+        margin: 10px 0;
+
+        > label{
+          border-radius: 0;
+          background: #022d9f;
+        }
+
+      }
+    
+      // Add to bag button
+      > button{
+        border-radius: 0;
+        background: green;
+        color: #fff;
+        background: #6cab38;
+        border: 0;
+        text-transform: uppercase;
+        box-shadow: none;
+        font-weight: bold;
+        padding: 0 10px 0 10px;
+        font-size: 12px;
+        margin: 0;
+        top: 0;
+        line-height: 30px !important;
+        height: 30px;
+      }
+    }
+
+      // Free delivery link
+
+      > a {
+        display: block;
+        clear: both;
+      }
+
+      .freeDeliveryNotAvlableBtn{
+        clear: both;
+        height: 1px;
+      }
+    }
+
+
+  }
+
+
+  // Style full product information area
+
+  #productDetailUpdateable{
+    margin-bottom: 50px;
+  }
+
+  .PD021-New-Product-Information-Wrapper{
+    position: relative;
+    // Product information
+    clear: both;
+    border-top: 1px solid #000000;
+    > .PD021-Product-Information{
+      display: inline-block;
+      width: 66.6666%;
+      // Header
+      .PD021-Full-Product-Header{
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+
+      // Information container
+
+      #tab-details{
+        box-shadow: none;
+        width: auto;
+      }
+      // Set a minimum height when logo is present
+      &.PD021-Logo{
+        min-height: 260px;
+      }
+    }
+
+    // Manufacturer information
+    .PD021-Manufacturer-Details{
+      display: inline-block;
+      position: absolute;
+      top: 39px;
+      margin-left: 20px; 
+
+      .attrib{
+        padding-left: 0;
+      }
+    }
+
+  }
+
+  // Related products carousel area
+
+  .PD021-Related-Items-Wrapper{
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    // Header
+    .PD021-Related-Items-Header{
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+  #tab-relatedItems{
+    box-shadow: none;
+  }
+
+  // Related items carousel
+
+  .jcarousel.jcarousel-clip.jcarousel-clip-horizontal{
+    height: auto;
+  }
+
+  }
+
+
+  // Hide elements
+  .PD021-Hide{
+    display: none;
+  }
+  // Hide Product details tab
+
+  #tab_01{
+    display: none;
+  }
+
+  // Hide related items tab
+
+  #tab_05{
+    display: none;
+  }
+}

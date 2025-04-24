@@ -1,0 +1,702 @@
+@import './variables';
+
+.#{$id} {
+  &.#{$id}-noScroll {
+    overflow: hidden !important;
+  }
+  
+  // --- PROMO MESSAGE
+  .promotion-messages {
+    z-index: 115 !important;
+  }
+
+
+  #_hj-f5b2a1eb-9b07_feedback[data-state="minimized"] {
+    z-index: 9;
+  }
+  // --- SAVED TAB ---------------------------------------------------
+  .#{$id}-savedItems__wrapper {
+    position: fixed;
+    right: -2px;
+    // bottom: 230px;
+    top: 66%;
+    z-index: 99;
+    padding: 1vw 0vw;
+    // background-color: #141414;
+    // background-color: #A01D29;
+    color: #FFF;
+    border-radius: 6px 0 0 6px;
+    width: 90px;
+    transition: right box-shadow 0.1s ease-in-out;
+
+    // --- MOBILE tab
+    @media screen and (max-width: 420px) {
+      padding: 20px 0 10px 0;
+      // bottom: 120px;
+      bottom: 0px;
+      // transition: none !important;
+      width: 100%;
+      border-radius: 0;
+      // left: 0px;
+      right: -600px !important;
+      // height: 60px;
+      top: unset;
+        bottom: 0px;
+
+      .SG097-savedItems__container {
+        
+      }
+
+      .SG097-savedItems__content {
+        text-align: center;
+
+        .icon {
+          display: inline-block;
+        }
+        .label-text {
+          display: inline-block;
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 16px;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 35px 2px rgba(0,0,0,.24);
+      right: 0px !important;
+      transition-duration: 0.01s !important;
+      // transition-timing-function: linear;
+    }
+
+    &.hidden {
+      // right: -102px;
+      right: -110px;
+      transition-duration: 0.3s;
+    }
+    &.show {
+      right: -2px;
+      transition-duration: 0.3s;
+      transition-timing-function: linear;
+
+      @media screen and (max-width: 420px) {
+        left: 0 !important;
+      }
+    }
+    
+    .#{$id}-savedItems__container {
+      .#{$id}-savedItems__content {
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin: auto;
+          margin-bottom: 5px;
+          background-repeat: no-repeat;
+          background-size: 100%;
+          background-position: 50%;
+
+          &.pin {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/8525D3E827C1F34DEF7238903D0DED36DB43112F80E73B9765111418CE2FA7A0.png?meta=/SG097---Save-Feature/pinwhite.png');
+          }
+          &.heart {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D9ADC1F7CF0BDF802A4984B38683459B94D5BEF3C5FF7B55A931C31C46837A5C.png?meta=/SG097---Save-Feature/whiteheart.png');
+          }
+        }
+        .label-text {
+          font-weight: 500;
+          // width: 50%;
+          text-align: center;
+          line-height: 19px;
+          // margin: 0px;
+        }
+      }
+    }
+  }
+
+  // --- SAVED LIST ---------------------------------------------------
+  .#{$id}-savedItemsList__wrapper {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 999;
+    // right: 0px;
+    /// edw 
+
+    // &.v1 {
+    //   @media screen and (max-width: 420px) {
+    //     ul {
+    //       padding: 53px 2vw !important;
+  
+    //       img {
+    //         // position: unset;
+    //         // top: unset;
+    //         transform: none !important;
+    //       }
+    //     }
+
+    //     .#{$id}-productPrice__wrapper {
+    //       bottom: 40px !important;
+    //     }
+    //   }
+      
+    // }
+    
+
+    .#{$id}-savedItemsList__overlay {
+      transition: display .5s ease-in-out;
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: #000;
+      /* z-index: 999; */
+      opacity: .3;
+    }
+    .#{$id}-savedItemsList__container {
+      transition: right .5s ease-in-out;
+      display: block;
+      width: 35%;
+      min-width: 400px;
+      max-width: 500px;
+      height: auto;
+      // height: 30vw;
+      background-color: #fff;
+      z-index: 999999;
+      position: absolute;
+      // --- Change depending on breakpoint
+      // top: 10vw;
+      top: 0;
+      // top: 1px;
+      right: 0px;
+    ////////
+      padding: 30px 20px 20px 20px;
+
+      // overflow-y: scroll;
+      @media screen and (max-width: 420px) {
+        min-width: unset;
+        width: 100%;
+
+        // padding: 2vw 2vw 2vw 3vw;
+        padding: 0;
+        height: 100%;
+
+        .#{$id}-header__wrapper {
+          display: inline-block;
+          // background-color: #000;
+          width: 100%;
+          text-align: center;
+          padding: 2vw;
+
+          h2 {
+            color: #FFF;
+            font-size: 1.3em;
+          }
+        }
+      }
+      
+      h2 {
+
+      }
+
+      .#{$id}-closeIcon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7964E78C20869214BB7C1729FC3C23AD2471566239D1E7F51736E56085F4B681.png?meta=/SG097---Save-Feature/cross.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        @media screen and (max-width: 420px) {
+          filter: invert(1);
+          top: 20px;
+        }
+      }
+      
+      ul.#{$id}-savedItemsList {
+        list-style: none;
+        padding-left: 0px;
+        // overflow-y: scroll;
+        overflow-y: scroll !important;
+        height: 92.5%;
+        padding-top: 1vw;
+        overflow-x: hidden;
+
+        @media screen and (min-width: 421px) {
+          height: 85vh;
+        }
+      
+      // +++++
+        margin: 0;
+        display: flex;
+        // display: inherit;
+        // flex-direction: row;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        
+        @media screen and (min-width: 420px) {
+          &.v1 {
+            flex-direction: column;
+            flex-wrap: unset;
+            justify-content: unset;
+          }
+        }
+        
+        padding-top: 35px;
+        padding-left: 5px;
+        padding-right: 5px;
+        // max-height: 700px;
+
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: 7px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background-color: rgba(0, 0, 0, .5);
+          box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+
+        @media screen and (max-width: 420px) {
+          padding: 3vw 2vw;
+        }
+
+        li.#{$id}-product__wrapper {
+      // =========== VARIATION   1 ==============
+        @media screen and (min-width: 421px) {
+          &.#{$id}-product__wrapper-v1 {
+            max-width: unset;
+            width: 95%;
+            // min-height: unset;
+            min-height: 185px;
+            // height: auto;
+            // height: 180px;
+            height: 185px;
+            padding: 10px 2px 20px 2px;
+            .SG097-closeIcon__remove {
+              display: none;
+            }
+
+            .SG097-productImg__wrapper {
+              display: inline-block;
+              width: 40%;
+              padding: 5px;
+            }
+            .SG097-productTitle__wrapper {
+              display: inline-block;
+              width: 50%;
+              position: absolute;
+              right: 20px;
+              top: 30px;
+
+              .SG097-productPrice__wrapper {
+                margin-top: 10px; 
+              }
+
+            }
+            .SG097-btn__wrapper {
+              position: unset;
+              transform: none;
+
+              margin-top: 30px;
+              .SG097-btn__remove {
+                //edw
+                display: inline-block;
+                // text-decoration: underline;
+                font-weight: 500;
+                border-bottom: 1px solid #000;
+                margin-left: 5px;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      // =========== VARIATION   2 ==============
+          // &.#{$id}-product__wrapper-v2, &.mobile  {
+            border: 1px solid #E0E0E0;
+            box-sizing: border-box;
+            display: inline-flex;
+            width: 46%;
+            max-width: 180px;
+            margin: auto;
+            position: relative;
+            // line-height: 19px;
+            line-height: 17px;
+            padding: 10px 2px;
+            min-height: 200px;
+            height: 320px;
+            text-align: center;
+            margin-bottom: 20px !important;
+
+
+            // ++++
+            display: flex;
+            flex-direction: column;
+            width: 47%;
+            max-width: 180px;
+            margin: 5px;
+
+            @media screen and (max-width: 320px) {
+              width: 46%;
+            }
+
+            // &:nth-of-type(odd) {
+            //   margin-right: 2.5%;
+            // }
+
+            .#{$id}-closeIcon__remove {
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7964E78C20869214BB7C1729FC3C23AD2471566239D1E7F51736E56085F4B681.png?meta=/SG097---Save-Feature/cross.png');
+              background-size: 55%;
+              background-repeat: no-repeat;
+              background-position: 50%;
+              position: absolute;
+              right: -7px;
+              top: -10px;
+              background-color: #E4E3E3;
+              padding: 7px;
+              border-radius: 36px;
+              z-index: 9;
+      
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            .#{$id}-productImg__wrapper {
+              text-align: center;
+              display: block;
+              width: 100%;
+
+              // ++++
+              text-align: center;
+              display: block;
+              width: 100%;
+              position: relative;
+              height: auto;
+            }
+
+            .#{$id}-productTitle__wrapper {
+              width: 100%;
+              // position: static;
+              // top: unset;
+              &>p {
+
+                font-weight: 500;
+
+              // +++++
+                width: 90%;
+                margin: auto;
+                font-weight: 500;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+              }
+            }
+
+            .#{$id}-productPrice__wrapper {
+            // ?????
+              margin-top: 3px;
+
+              @media screen and (max-width: 320px) {
+                margin-top: 20px;
+              }
+
+              del {
+                display: none;
+              }
+            }
+
+            .#{$id}-btn__wrapper {
+              text-align: center;
+
+              position: absolute;
+              bottom: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              
+              a.#{$id}-btn__shop {
+                // background-color: #000;
+                // background-color: #A01D29;
+                color: #FFF;
+                // padding: .5vw 2vw;
+                font-weight: 600;
+                width: 100%;
+                text-decoration: none;
+              // +++++
+                width: 90%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                padding: 10px 30px;
+
+              }
+              span.#{$id}-btn__remove {
+                display: none;
+              }
+            }
+
+          .#{$id}-productPrice__wrapper {
+            // span {
+            //   font-size: 1.1em;
+            //   font-weight: 600;
+            // }
+            p.product-tile__ifc-monthly-pricing {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.hidden {
+      display: none;
+      
+      .#{$id}-savedItemsList__overlay {
+        display: none;
+        transition-duration: 2s !important;
+      }
+      .#{$id}-savedItemsList__container {
+        right: -1000px;
+        transition-duration: .5s !important;
+      }
+    }
+  }
+
+  // -------  ALL PRODUCTS ------------------------------------------------
+  ol#js-product-list li, .product-gallery__main-container {
+    position: relative;
+
+    .#{$id}-icon__wrapper {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #EAEAEA;
+      border-radius: 70px;
+      position: absolute;
+      z-index: 9;
+      right: 10px;
+      // top: 10px;
+      top: 50%;
+      overflow: hidden;
+
+      &.eventAdded {
+        // background-color: lightcoral !important;
+        // // z-index: 9999;
+        // width: 60px;
+        // height: 60px;
+      }
+
+      @media screen and (max-width: 500px) {
+        top: 45%;
+      }
+      @media screen and (max-width: 500px) {
+        top: 35%;
+      }
+      @media screen and (max-width: 320px) {
+        top: 25%;
+      }
+
+      &:hover {
+        overflow: inherit;
+      }
+
+      .label-text {
+        display: inline-block;
+        position: absolute;
+        width: 130px;
+        text-align: left;
+        background-color: #EAEAEA;
+        border-radius: 20px;
+        top: 0px;
+        padding: 4px 4px 4px 18px;
+        right: 6px;
+        z-index: -2;
+        height: 32px;
+        line-height: 30px;
+        font-weight: 500;
+        font-size: 1.1em;
+        
+        // visibility: hidden;
+      }
+        
+      .#{$id}-icon {
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: 50%;
+
+        &:hover {
+          cursor: pointer;
+          background-size: 55%;
+        }
+        
+      }
+      &.heart {
+        .#{$id}-icon {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/6494986DBE9D81E0010AFA91EADD80A47D2465D15A595D63497325215B5B968B.png?meta=/SG097---Save-Feature/heart.png');
+        }
+      }
+      &.pin {
+        .#{$id}-icon {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/73A93AD720530FB5746DB4B061F1D587CBDD25FA23D84873CBB06AA184984D0C.png?meta=/SG097---Save-Feature/pin.png');
+        }
+      }
+      
+      &.active {
+        // z-index: 999;
+        .label-text {
+          visibility: hidden;
+        }
+        &.heart {
+          .#{$id}-icon {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/56BFC956EC065C39C785694DCD2F4496B83FBF83DA9EE4DE8EC2AE33225F4E0C.png?meta=/SG097---Save-Feature/heartfilled.png');
+          }
+        }
+        &.pin {
+          // background-color: #000;
+          // background-color: #A01D29;
+          .#{$id}-icon {
+            background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/8525D3E827C1F34DEF7238903D0DED36DB43112F80E73B9765111418CE2FA7A0.png?meta=/SG097---Save-Feature/pinwhite.png');
+          }
+        }
+        
+      }
+    }
+    
+  }
+// ---- PDP icon
+  .product-gallery__main-container .SG097-icon__wrapper {
+    top: 0px !important;
+
+    .label-text {
+      width: 160px !important;
+      height: 40px !important;
+    }
+  }
+
+  ol#js-product-list {
+    &.product-tile-list--list-mode {
+      .#{$id}-icon__wrapper {
+        top: 45% !important;
+      }
+    }
+    &.product-tile-list--one-column-mode {
+      .#{$id}-icon__wrapper {
+        top: 45% !important;
+      }
+    }
+  }
+  
+  
+
+// ------ BRAND SPECIFIC STYLE -----------------------------------------------
+  &.hsamuel {
+    // HS-specific styles
+    .#{$id}-savedItems__wrapper {
+      background-color: #A01D29;
+    }
+    a.#{$id}-btn__shop {
+      background-color: #A01D29;
+    }
+    .SG097-icon__wrapper {
+      background-color: #EAEAEA;
+    }
+    .#{$id}-icon__wrapper.active.pin  {
+      background-color: #A01D29 !important;
+    }
+    .SG097-icon__wrapper .label-text {
+      width: 155px !important;
+      height: 40px !important;
+    }
+  // --- PDP icon
+    .product-gallery__main-container .SG097-icon__wrapper {
+      top: 0px !important;
+  
+      .label-text {
+        width: 170px !important;
+        height: 40px !important;
+      }
+    }
+
+    .#{$id}-header__wrapper {
+      @media screen and (max-width: 420px) {
+        background-color: #A01D29;
+      }
+      
+    }
+    
+    li.#{$id}-product__wrapper-v1 {
+      img {
+        transform: none !important;
+      }
+    }
+
+    .#{$id}-productPrice__wrapper {
+      span {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+    // background-color: #141414;
+    .#{$id}-savedItems__wrapper {
+      background-color: #141414 !important;
+    }
+    a.#{$id}-btn__shop {
+      background-color: #141414 !important;
+    }
+    .#{$id}-icon__wrapper.active.pin  {
+      background-color: #141414 !important;
+    }
+    .#{$id}-icon.pin {
+      background-color: #141414;
+    }
+
+  // --- PDP icon
+    .product-gallery__main-container .SG097-icon__wrapper {
+      top: 0px !important;
+  
+      .label-text {
+        width: 170px !important;
+        height: 40px !important;
+      }
+    }
+
+    .#{$id}-header__wrapper {
+      @media screen and (max-width: 420px) {
+        background-color: #141414;
+      }
+      
+    }
+
+    .#{$id}-productPrice__wrapper {
+      span {
+        font-size: 18px !important;
+        font-weight: 600;
+      }
+    }
+  }
+}

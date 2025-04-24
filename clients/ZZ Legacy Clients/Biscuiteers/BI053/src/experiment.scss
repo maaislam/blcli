@@ -1,0 +1,246 @@
+@import './variables';
+
+$pink: #e679a5;
+$white: #ffffff;
+$border: #808385;
+
+.#{$id} {
+
+    #header > .wrap > :not(.flex-top) > .flex {
+        display: none !important;
+    }
+
+    .BI-test {
+        position: relative;
+        z-index: 20;
+        margin: auto;
+        background-color: lighten($border, 44);
+        a, p, span, h2 {
+            color: $border;
+        }
+
+        h2 {
+            margin-bottom: 0;
+            span {
+                font-size: 18px;
+                padding: 10px;
+            }
+        }
+
+        .ng-hide {
+            // display: block;
+            // opacity: 1;
+            // z-index: 1;
+            // pointer-events: initial;
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .BI-res {
+            position: relative;
+        }
+
+
+        .border-right--pink {
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 15%; right: 0;
+                bottom: 15%;
+                height: 70%;
+                width: 2px;
+                background-color: $pink;
+            }
+        }
+
+
+
+        .BI-dropdown {
+            display: none;
+            position: absolute;
+            left: 0; right: 0;
+            margin: auto;
+            z-index: -1;
+            margin-top: -2px;
+            width: 100%;
+            opacity: 0;
+            display: inline-block;
+            background-color: #fff;
+            pointer-events: none;
+            transition: ease all .2s;
+            
+            &.BI-dropdown--single {
+                ul.nav_list__sub {
+                    li {
+                        a {
+                            padding-left: 20px;
+                        }
+                    }
+                    li:first-of-type {
+                        border-top: none;
+                    }
+                    li:last-of-type {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+        }
+
+        a.BI-topLink {
+            display: block;
+            span {
+                color: $pink;
+                font-size: 1.2em;
+            }
+            i {
+                position: relative;
+                display: inline-block;
+                transform: rotate(90deg);
+                right: -5px;
+                transition: ease all .2s;
+            }
+        }
+
+        
+
+        .nav.nav_list__top {
+            li.nav_top__item {
+                display: inline-block;
+                border-bottom: 2px solid transparent;
+                transition: ease all .2s;
+                &:hover {
+                    &:not(.BI-singleLink) {
+                        background-color: $pink;
+                    }
+                    &.BI-singleLink {
+                        border-bottom: 2px solid $pink;
+                        a.BI-topLink span {
+                            color: $pink;
+                        }    
+                    }
+                    a.BI-topLink span {
+                        color: #fff;
+                        i {
+                            color: $white !important;
+                            &:before {
+                                color: $white !important;
+                            }
+                        }
+                    }
+                    .BI-dropdown {
+                        display: block;
+                        opacity: 1;
+                        z-index: 99;
+                        pointer-events: initial;
+                    }
+                }
+            }
+        }
+
+        .BI-lightPink {
+            background-color: lighten($pink, 27);
+            text-align: left;
+            padding: 0 12px;
+            margin-bottom: 35px;
+        }
+
+        .b-p2 {
+            border: 2px solid $pink;
+        }
+
+
+        .t-c {
+            text-align: center;
+        }
+
+
+        .BI-btn {
+            background-color: $pink;
+            // white-space: nowrap;
+            padding: 9px 18px;
+            border: 1px solid $pink;
+            border-radius: 4px;
+            display: block;
+            color: #fff;
+        }
+
+
+        .nav_list__sub { // Sub nav
+            .nav_sub__item {
+                border-top: 1px solid #E5E5E5;
+                transition: ease all .2s;
+                display: inline-block;
+                width: 100%;
+                &:last-of-type {
+                    border-bottom: 1px solid #E5E5E5;
+                }
+
+
+                span.no-links {
+                    padding: 7px;
+                    display: block;
+                }
+
+                a {
+                    transition: ease all .2s;
+                    display: block;
+                    padding: 8px 5px;
+                }
+
+                &:hover, &:focus {
+                    a {
+                        background-color: lighten($border, 40);
+                        color: $pink;
+                    }
+                }
+
+            }
+        }
+
+
+        .BI-menu_cards, .BI-specialBox {
+            p {
+                font-size: .95em;
+            }
+        }
+
+        .BI-specialBox { // Fancy border
+            position: relative;
+            &.b-dotted-t-b, .b-dotted-r-l {
+                &::before, &:after {
+                    opacity: .6 !important;
+                    
+                }
+            }
+            &.b-dotted-t-b {
+                &:before, &:after {
+                    height: 4px !important;
+                }
+            }
+            .b-dotted-r-l {
+                padding: 12px;
+                &:before, &:after {
+                    width: 4px !important;
+                    
+                }
+                &:before {
+                    left: -2px !important;
+                }
+                &:after {
+                    right: -2px !important;
+                }
+            }
+        }
+    }
+
+
+    ul.BI-col-2 {
+        columns: 2;
+    }
+}

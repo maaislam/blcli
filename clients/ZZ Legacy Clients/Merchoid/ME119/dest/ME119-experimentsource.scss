@@ -1,0 +1,83 @@
+@import '_mixins.scss';
+.ME119 {
+    &.ME119_toggle {
+        ul.products {
+            li.product-small {
+                display: none!important;
+                clear: none!important;
+                &.ME119_product-limited {
+                    display: block!important;
+                }
+                &.ME119_clear {
+                    clear: both!important;
+                }
+            }
+        }
+    }
+    .ME119_limited-wrap {
+        clear: both;
+        padding: 20px 0;
+        text-align: center;
+        .ME119_limited-tgl {
+            width: 50px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 4px;
+                margin-top: -2px;
+                background: #ccc;
+                border-radius: 7px;
+            }
+            span {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #0cbbf4;
+                top: 50%;
+                margin-top: -10px;
+                @include anim(300ms, (left))
+            }
+        }
+        >span {
+            line-height: 20px;
+            vertical-align: middle;
+            font-size: 15px;
+            @include anim(200ms, (font-weight));
+            cursor: pointer;
+            display: inline-block;
+            padding-bottom: 1px;
+        }
+        .ME119_all-btn {
+            padding-right: 15px;
+            width: 35px;
+        }
+        .ME119_limited-btn {
+            padding-left: 15px;
+            width: 160px;
+        }
+        &.ME119_left {
+            .ME119_all-btn {
+                font-weight: bold;
+            }
+            .ME119_limited-tgl span {
+                left: 0;
+            }
+        }
+        &.ME119_right {
+            .ME119_limited-btn {
+                font-weight: bold;
+            }
+            .ME119_limited-tgl span {
+                left: calc(100% - 20px);
+            }
+        }
+    }
+}

@@ -1,0 +1,181 @@
+@import "./variables";
+
+.#{$id} {
+  body {
+    padding-top: 102px;
+    &.#{$id}-search-bar-shown #main-header {
+      height: 102px;
+      transition: all 0.4s ease;
+      .hlp-centered-wrapper.main-search-wrapper {
+        top: 42px;
+        transition: all 0.4s ease;
+      }
+    }
+    &.#{$id}-search-bar-hidden #main-header {
+      height: 42px;
+      transition: all 0.4s ease;
+      .hlp-centered-wrapper.main-search-wrapper {
+        top: -100px;
+        transition: all 0.4s ease;
+      }
+    }
+  }
+  #main-header {
+    max-height: 102px;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    top: 0;
+    transition: all 0.4s ease;
+    .hlp-centered-wrapper {
+      padding: 0;
+      &.main-search-wrapper {
+        @media screen and (max-width: 768px) {
+          padding: 0 10px;
+        }
+      }
+      @media only screen and (max-width: 959px) {
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+    .hlp-centered-wrapper.main-search-wrapper {
+      position: fixed;
+      top: 42px;
+      transition: all 0.4s ease;
+    }
+    .primary-logo {
+      display: none;
+    }
+    #navigation {
+      position: fixed !important;
+      top: 0;
+      padding-top: 4px;
+      .mb-grid-item {
+        &.hover {
+          svg {
+            path {
+              fill: black;
+            }
+          }
+          .#{$id}--basket {
+            .minicart-qty {
+              color: #000;
+            }
+          }
+        }
+        &#hamburger-menu {
+          @media only screen and (min-width: 768px) and (max-width: 959px) {
+            display: flex;
+          }
+        }
+        .menu-text {
+          @media only screen and (min-width: 768px) and (max-width: 959px) {
+            display: none;
+          }
+        }
+        &.help-nav {
+          @media only screen and (max-width: 959px) {
+            display: none;
+          }
+        }
+        #my-account-dropdown {
+          position: unset;
+        }
+        .drop-down-options {
+          top: 100%;
+          &.location {
+            left: -1px;
+          }
+          &.my-account,
+          &.cart-bag {
+            left: unset;
+            right: -1px;
+            @media only screen and (min-width: 768px) and (max-width: 959px) {
+              left: unset !important;
+            }
+          }
+        }
+        svg.icon {
+          width: 24px;
+          height: 24px;
+          padding: 0;
+        }
+      }
+      // #hamburger-menu {
+      //   &.hover {
+      //     .icon.menu-icon {
+      //       path {
+      //         fill: black;
+      //       }
+      //     }
+      //   }
+      // }
+    }
+    #header-search {
+      margin-top: 8px;
+      #search-form input[type="text"] {
+        color: #929292;
+      }
+    }
+  }
+
+  .hlp-centered-wrapper.menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    .relax {
+      display: none;
+    }
+    .mb-grid-item:not(.help-nav) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // width: 16.67%;
+      width: auto;
+      margin: 0;
+      padding: 0 10px;
+      &.new-logo-centered {
+        width: 33.67%;
+        img {
+          height: 25px;
+          max-width: 100px;
+        }
+      }
+    }
+    #main-navigation {
+      position: absolute;
+      top: 100%;
+      left: 0px;
+    }
+    .minicart-total-qty {
+      margin-right: 0;
+    }
+  }
+  &-2 {
+    #navigation {
+      // .hlp-centered-wrapper.menu-wrapper .mb-grid-item.location-item {
+      //   visibility: hidden;
+      // }
+      .#{$id} {
+        &--basket {
+          position: relative;
+          // .minicart-total-qty {
+          //   // visibility: hidden;
+          //   display: none;
+          // }
+          .minicart-qty {
+            font-size: 10px;
+            color: #fff;
+            position: absolute;
+            top: 9px;
+            left: 7px;
+            width: 10px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

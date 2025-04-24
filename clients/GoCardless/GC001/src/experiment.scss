@@ -1,0 +1,165 @@
+@import "./variables";
+
+.#{$id} {
+  // sign up & login in nav
+  a[href*="https://manage.gocardless.com"],
+  a[href*="https://manage.gocardless.com/signup"]
+  {
+    display: none;
+  }
+
+  .#{$id}_hidden {
+    display: none !important;
+  }
+  // pink title
+  [data-testid="heroSliceText"] {
+    padding: 0 16px;
+    button {
+      width: 100%;
+    }
+  }
+
+  // image
+  [data-testid="heroSliceMedia"] {
+    .gatsby-image-wrapper {
+      display: none;
+    }
+    .#{$id}-image {
+      img {
+        background: white;
+        max-width: 100%;
+      }
+    }
+  }
+
+  // new heading
+  .#{$id}-heading {
+    h1 {
+      padding: 0;
+      margin: 0;
+      color: #ffffff;
+      font-size: 36px;
+      line-height: 48px;
+      font-weight: 400;
+      text-align: left;
+      line-height: 48px;
+      margin-bottom: 32px;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+      line-height: 28px;
+      text-align: left;
+      font-family: inherit;
+      margin-bottom: 28px;
+    }
+  }
+
+  .#{$id}-heading ~ p,
+  .#{$id}-heading ~ span,
+  .#{$id}-heading ~ h1 {
+    display: none;
+  }
+
+  [data-testid="mediaAndInfoSlice"] {
+    .gatsby-image-wrapper {
+      cursor: pointer;
+    }
+  }
+
+  // video overlay
+  .#{$id}-videoOverlay {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    display: none;
+    cursor: pointer;
+    &.#{$id}-overlayShow {
+      display: block;
+    }
+  }
+  .#{$id}-videoBox {
+    position: fixed;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    display: none;
+    max-width: 600px;
+    &.#{$id}-videoShow {
+      display: block;
+    }
+    .#{$id}-close {
+      color: white;
+      position: absolute;
+      top: -5px;
+      right: 5px;
+      font-size: 30px;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 9999;
+    }
+    .#{$id}-video {
+      position: relative;
+      padding-bottom: 56.25%;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+      }
+    }
+  }
+
+  // Features panel
+  [data-testid="moduleFeaturesSlice"] {
+    padding-bottom: 42px;
+  }
+
+  // download report
+  .#{$id}_videoPanel,
+  .#{$id}_reportLink {
+    a {
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    svg {
+      display: none;
+    }
+  }
+
+  .#{$id}_benchmark1 {
+    background: #02152c;
+    [data-testid="moduleSliceCTALayout"] {
+      h2,
+      p {
+        color: white;
+      }
+    }
+  }
+
+  .#{$id}_benchmark2 {
+    display: none;
+  }
+
+  // buttons
+  @media (max-width: 400px) {
+    button[data-testid="pardotButtonTrigger"],
+    button[data-testid="pardotButtonTrigger"] {
+      padding: 13px 16px;
+    }
+  }
+}

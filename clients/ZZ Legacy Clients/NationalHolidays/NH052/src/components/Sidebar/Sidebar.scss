@@ -1,0 +1,116 @@
+@import './variables';
+
+.#{$id} #Booking {
+  .main-content .content .right {
+    will-change: min-height;
+  }
+
+  .#{$id}_Sidebar {
+    padding: 0;
+    z-index: 2;
+    transform: translate(0, 0); /* For browsers don't support translate3d. */
+    transform: translate3d(0, 0, 0);
+    will-change: position, transform;
+    
+    &.box-with-border.white {
+      display: block !important;
+    }
+
+    &.#{$id}_Sidebar--stick {
+      position: fixed;
+      top: 10px;
+    }
+  
+    &.#{$id}_Sidebar--anchor {
+      position: absolute;
+      bottom: 0;
+      top: auto;
+    }
+    
+    > * {
+      padding: 0 20px;
+    }
+
+    > h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid gainsboro;
+    }
+  }
+
+  .#{$id}_Sidebar-group {
+    border-bottom: 1px solid #c0d4e0;
+    margin-top: 25px;
+    padding-bottom: 25px !important;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .#{$id}_Sidebar-section {
+    margin: 25px 0 0 0;
+    position: relative;
+
+    a.change {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 11px;
+      color: #38A6E6;
+      padding: 4px;
+      background: #F0F5F9;
+    }
+
+    &.#{$id}_Sidebar-section--hide {
+      display: none;
+    }
+  }
+
+  .#{$id}_Sidebar-title {
+    text-align: center;
+    border-bottom: 1px solid #c0d4e0;
+    padding: 20px 10px;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .#{$id}_Sidebar-header {
+    color: #1891d5;
+    font-family: "vag_roundedlight",Arial;
+    font-weight: 400;
+    font-size: 18px;
+    display: block;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .#{$id}_Sidebar-text {
+    font-size: 15px;
+
+    p {
+      color: inherit;
+      font-size: inherit;
+    }
+  }
+
+  .#{$id}_Sidebar-small-header {
+    font-weight: bold;
+    font-size: 12px !important;
+    margin: 10px 0 2px 0;
+
+    &:first-of-type {
+      margin-top: 2px;
+    }
+  }
+ 
+  // Existing elements
+  .right .box-with-border.white {
+    display: none;
+  }
+}

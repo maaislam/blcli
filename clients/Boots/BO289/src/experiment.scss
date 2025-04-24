@@ -1,0 +1,284 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+
+    }
+
+    @media all and (max-height: 400px) {
+        height: auto;
+        overflow: visible;
+    }
+
+    
+}
+
+
+.#{$id} {
+
+    .#{$id}-overlay {
+        position: fixed;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #FFF;
+        border: 4px solid #CC0033;
+        z-index: 1001;
+        width: 500px;
+
+        @media all and (max-width: 550px) {
+            width: 90%;
+            top: 100px;
+        }
+    }
+
+    .#{$id}-close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        background: none;
+        padding: 10px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+
+        @media all and (max-width: 330px) {
+            right: 5px;
+            top: 5px;
+        }
+    }
+
+    .#{$id}-offer {
+        padding: 20px 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+
+        @media all and (max-width: 400px) {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #C03;
+            text-align: center;
+            font-family: "Boots Sharp";
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 32px;
+            /* 133.333% */
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        &--code {
+            color: #05054B;
+            text-align: center;
+            font-family: "Boots Sharp";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            /* 137.5% */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 40px;
+            margin: 20px 0;
+            border-radius: 25px;
+            border: 1px solid #05054B;
+            width: auto;
+            display: inline-flex;
+            position: relative;
+
+            &:after {
+                opacity: 0;
+                transition: all 0.5s ease;
+            }
+
+            &.#{$id}-copied {
+
+                &:after {
+                    content: "Copied!";
+                    opacity: 1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #05054B;
+                    color: #FFF;
+                    display: flex;
+                    font-size: 14px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 25px;
+                }
+            }
+
+            .#{$id}-copy {
+                position: absolute;
+                top: 51%;
+                right: 0;
+                transform: translateY(-50%);
+                background: none;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateY(-50%) scale(1.1);
+                    transition: all 0.5s ease;
+                    will-change: transform;
+                }
+            }
+
+        }
+
+        &--countdown {
+            margin: 10px 0 0;   
+            width: 100%;   
+        }
+
+        .#{$id}-clockdiv {
+            display: flex;
+            flex-direction: row;
+            margin: 10px 0;
+            padding: 15px 40px 0;
+            justify-content: center;
+
+            & > div {
+                display: flex;
+                background: none;
+                justify-content: center;
+                align-items: center;
+                min-width: 55px;
+                position: relative;
+
+                &.#{$id}-seconds {
+                    min-width: 45px;
+                }
+
+                &:not(:last-child):after {
+                    content: ":";
+                    font-size: 36px;
+                    color: #05054B;
+                    position: relative;
+                    top:-1px;
+                }
+
+                span,
+                .smalltext {
+                    color: #05054B;
+                    text-align: center;
+                    font-family: "Boots Sharp";
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 40px;
+                    /* 133.333% */
+                    letter-spacing: 1px;
+                }
+
+                span {
+                    text-align: center;
+                    min-width: 30px;
+                }
+
+                .smalltext {
+                    font-size: 12px;
+                    font-weight: 300;
+                    line-height: 16px;
+                    /* 133.333% */
+                    letter-spacing: 1px;
+                    top: -15px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    position: absolute;
+
+                    &.hours {
+                        left: 3px;
+                        transform: none;
+                    }
+
+                    &.mins {
+                        left: 8px;
+                        transform: none;
+                    }
+                }
+            }
+
+        }
+
+        
+
+        p {
+            color: #05054B;
+            text-align: center;
+            font-family: "Boots Sharp";
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 100%;
+            /* 22px */
+            letter-spacing: 1px;
+
+            .#{$id}-boldtext {
+                font-weight: 700;
+            }
+
+            &.#{$id}-secondary {
+                color: #05054B;
+                text-align: center;
+                font-family: "Boots Sharp";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 22px;
+                /* 137.5% */
+                letter-spacing: 0.16px;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &-cta {
+        background: #CC0033;
+        padding: 20px 16px 16px;
+
+        button {
+            background: #FFF;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            padding: 10px 0;
+            color: #05054B;
+            text-align: center;
+            cursor: pointer;
+            font-family: "Boots Sharp";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+            /* 142.857% */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    }
+
+}

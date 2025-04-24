@@ -1,0 +1,94 @@
+@if(get-value($settings, 'components', 'wizard')==1) {
+    .#{$ID} {
+        @at-root #{&}_wizard{
+            content:'';
+            @at-root #{&}Wrap{
+                padding: 0 10px;
+            }
+            @at-root #{&}__header{
+                margin-bottom: 24px;
+            }
+            @at-root #{&}__body{
+                position: relative;
+                min-height: 350px;
+            }
+            @at-root #{&}__footer{
+                content:'';
+            }
+            @at-root #{&}__list{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                font-size: 0;
+                @at-root #{&}Item{
+                    display: inline-block;
+                    margin-right: 10px;
+                    cursor:pointer;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                    @at-root .#{$ID}_wizard__steps #{&}{
+                        &:after{
+                            content: attr(data-step);
+                            font-size:20px;
+                        }
+                        &.active{
+                            &:after{
+                                
+                            }
+                        }
+                    }
+                    @at-root .#{$ID}_wizard__dots #{&}{
+                        &:after{
+                            content: '';
+                            display: block;
+                            width: 15px;
+                            height:15px;
+                            border-radius:50%;
+                            background-color: #000;
+                            opacity: 0.6;
+                        }
+                        &.active{
+                            &:after{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+            @at-root #{&}__title{
+                text-align: center;
+                font-size: 40px;
+                margin: 0;
+            }
+            @at-root #{&}__steps{
+                content:'';
+            }
+            @at-root #{&}__dots{
+                content:'';
+            }
+            @at-root #{&}__element{
+                position: absolute;
+                z-index: 0;
+                opacity: 0;
+                top: 0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                &.active{
+                    z-index: 1;
+                    opacity: 1;
+                }
+                @at-root #{&}Body{
+                    margin-bottom: 24px;
+                }
+            }
+            @at-root #{&}__button{
+                content:'';
+                @at-root #{&}Wrap{
+                    content:'';
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,336 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    .field-row {
+        select {
+            height: 40px !important;
+        }
+    }
+
+    @at-root #{&}_reset{
+        padding: get-value($settings, 'base', 'baseline') / 2 - 6 get-value($settings, 'base', 'baseline') / 2;
+        background-color: get-value($settings, 'colors', 'ukbPurple');
+        color:#fff;
+        font-weight: bold;
+        border-radius: 5px;
+        text-align: center;
+        @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+        cursor:pointer;
+        &:focus,
+        &:hover {
+            background-color: lighten(get-value($settings, 'colors', 'ukbPurple'), 5%);
+        }
+        @at-root #{&}Wrap{
+            display: inline-block;
+            vertical-align: middle;
+            &:not(:only-child){
+                margin-left:10px;
+            }
+        }
+    }
+
+    @at-root #{&}_infants {
+        content: '';
+
+        @at-root #{&}Wrap {
+            content: '';
+        }
+
+        @at-root #{&}__notice{
+            display:block;
+            text-decoration: underline;
+        }
+
+        @at-root #{&}__body {
+            display: none;
+            margin-top: 12px;
+        }
+
+        @at-root #{&}__trigger {
+            margin: 0;
+            display: inline-block;
+            vertical-align: middle;
+
+            &:checked {
+                &~.#{$ID}_infants__body {
+                    display: block;
+                }
+            }
+        }
+
+        @at-root #{&}__label {
+            display: inline-block;
+            vertical-align: middle !important;
+        }
+    }
+
+    @at-root #{&}_rooms {
+        position:relative;
+
+        @at-root #{&}__addButton {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            padding: 3px 12px;
+            background: get-value($settings, 'colors', 'ukbPurple');
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0;
+
+            &:focus,
+            &:hover {
+                background-color: lighten(get-value($settings, 'colors', 'ukbPurple'), 5%);
+            }
+
+            @at-root #{&}Wrap {
+                content: '';
+            }
+
+            &:before {
+                content: '+';
+                color: #fff;
+                font-size: 21px;
+            }
+        }
+    }
+
+    @at-root #{&}_room {
+        content: '';
+
+        @at-root #{&}Wrap {
+            content: '';
+        }
+
+        @at-root #{&}__label {
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle !important;
+        }
+
+        @at-root #{&}__select {
+            margin-bottom: 0 !important;
+            display: inline-block;
+            vertical-align: middle !important;
+        }
+    }
+
+    @at-root #{&}_info {
+        font-size: 0;
+        @at-root #{&}Wrap {
+            content: '';
+        }
+
+        @at-root #{&}__img {
+            max-width: 45px;
+            display: inline-block;
+            vertical-align: middle !important;
+        }
+
+        @at-root #{&}__content {
+            display: inline-block;
+            vertical-align: middle !important;
+            margin: 0 !important;
+            padding-left: 20px;
+            font-weight: normal;
+            &:only-child{
+                padding-left:0;
+                padding-top:12px;
+            }
+        }
+
+        @at-root #{&}__notice {
+            display: block;
+            font-weight: normal;
+            padding: 12px 0;
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+
+            @at-root #{&}Wrap {
+                position: relative;
+
+                @at-root #{&}--error{
+                    .#{$ID}_dialog__header{
+                        position:relative;
+                        label{
+                            position:absolute;
+                            right:-10px;
+                            top:-40px;
+                            font-size:30px;
+                            cursor:pointer;
+                            text-decoration: none;
+                            &:hover, &:focus{
+                                opacity:0.6;
+                            }
+                        }
+                    }
+                    .#{$ID}_dialog__button{
+                        padding: 6px 10px;
+                    }
+                    label{
+                        display: block;
+                        padding: 5px;
+                        cursor:pointer;
+                        text-decoration: underline;
+                        &:hover, &:focus{
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                input[type="checkbox"] {
+                    display: none;
+                    opacity: 0;
+                    visibility: hidden;
+
+                    &:checked {
+                        &~.#{$ID}_dialogWrap {
+                            opacity: 1;
+                            visibility: visible;
+                            pointer-events: all;
+                            transition: opacity 0.25s, visibility 0.25s;
+
+                            .#{$ID}_dialog {
+                                top: 50%;
+                                opacity: 1;
+                                visibility: visible;
+                                transition: opacity 0.25s, visibility 0.25s, top 0.25s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            label {
+                cursor: pointer;
+                display: inline-block;
+                line-height: inherit !important;
+                vertical-align: middle !important;
+                position: relative;
+                top: -2px;
+                color: get-value($settings, 'colors', 'ukbPurple');
+                font-weight: bold;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    @at-root #{&}_dialog {
+        background-color: #FDF1E1;
+        border: 1px solid lighten(get-value($settings, 'colors', 'ukbOrange'), 5%);
+        border-radius: 5px;
+        position: relative;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s, visibility 0.35s, top 0.35s;
+        max-width: 250px;
+
+        @at-root #{&}Wrap {
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s, visibility 0.25s;
+            text-decoration: none!important;
+        }
+
+        @at-root #{&}__header {
+            text-align: center;
+            &.icon {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        @at-root #{&}__title {
+            color: get-value($settings, 'colors', 'ukbPurple');
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+            margin-bottom:0!important;
+        }
+
+        @at-root #{&}__body {
+            text-align: center;
+        }
+
+        @at-root #{&}__content {
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+            margin: 0 !important;
+        }
+
+        @at-root #{&}__button {
+            vertical-align: unset !important;
+            cursor: pointer;
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+            background-color: get-value($settings, 'colors', 'ukbPurple');
+            color: #fff !important;
+            padding: 10px 25px;
+            border-radius: 5px;
+            &:hover,
+            &:focus {
+                opacity: 0.6;
+            }
+
+            @at-root #{&}Wrap {
+                display: block;
+                margin: 12px 0 !important;
+                @at-root .alert #{&}{
+                    .#{$ID}_dialog__button{
+                        font-size:13px;
+                    }
+                }
+            }
+        }
+    }
+
+    @at-root #{&}_disabled {
+        opacity: 0.4;
+        cursor: not-allowed !important;
+    }
+
+    @media screen and (max-width: 500px){
+        .#{$ID}_room__select{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width:530px){
+        .#{$ID}_info{
+            &.twin{
+                margin-top:10px;
+                .#{$ID}_info__content{
+                    padding:0;
+                    padding-top:10px;
+                }
+            }
+        }
+    }
+}

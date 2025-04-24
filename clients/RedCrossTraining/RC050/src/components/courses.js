@@ -1,0 +1,51 @@
+const courses = [
+  {
+    name: 'Supporting others and yourself',
+    length: '2 hours',
+    size: '6-12 learners',
+    price: 'From £695 ex VAT**',
+    description: 'This course is designed for individuals who want to develop their own awareness of how to support themselves and others to deal with situations that are stressful, upsetting or challenging.',
+    image: '//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/b36cd9c558d5d639a49d82a30113122c_supporting_others_and_yourself.png',
+  },
+  {
+    name: 'Coping with stress',
+    length: '3.5 hours',
+    size: '6-12 learners',
+    price: 'From £695 ex VAT**',
+    description: 'This course is designed for individuals who want to develop their own awareness of stress. This course will help improve individual’s ability to manage stress and optimise their wellbeing at work and in their personal lives.',
+    image: '//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/96efd3e94b8234d455c0d04e4e590717_coping_with_stress.png',
+  },
+  {
+    name: 'Building personal and team resilience',
+    length: '3.5 hours',
+    size: '6-12 learners',
+    price: 'From £695 ex VAT**',
+    description: 'This course is designed for individuals and teams who want to develop their own awareness of stress and build their resilience to reduce its impact. This course will help improve a team’s ability to manage stress and optimise their wellbeing at work and in their personal life.',
+    image: '//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/7990af02281dcd28a94387c95cd49c62_building_personal_and_team_resilience.png',
+  },
+  {
+    name: 'Dealing with distressed callers',
+    length: '3.5 hours',
+    size: '6-12 learners',
+    price: 'From £695 ex VAT**',
+    description: 'This course is designed for call handling staff who want to develop their skills in dealing with distressed callers. This is aimed particularly at those on support lines, insurance companies or services where people have an expectation that is potentially not going to be met.',
+    image: '//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/b13c55a7ae4919e3e8f5e299d7e35537_dealing_with_distressed_callers.png',
+  },
+  {
+    name: 'Leading a resilient team',
+    length: '1 day',
+    size: '6-24 learners',
+    price: 'From £1895 ex VAT**',
+    description: 'This course is for leaders, people managers and individuals who may be responsible for dealing with challenging situations in the workplace. This course will help leaders gain an awareness of mental health problems and develop skills for leading a resilient team.',
+    image: '//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/9b3e8dd1454ebdfd0d08bb4a42c34e5b_leading_a_resilient_team.png',
+  },
+  {
+    name: 'Supporting people through difficult situations',
+    length: '1 day',
+    size: '6-24 learners',
+    price: 'From £1895 ex VAT**',
+    description: 'Aimed at individuals and teams who may need to help people through difficult situations, this course will help develop an awareness of how individuals can support themselves and others through situations that are stressful, upsetting or challenging. This course looks at challenging behaviours and how to deal with them as well as personal and team stress specifically.',
+    image: '//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/908c09de115d6932a6c6f2fb47602dc2_supporting_people_through_difficult_situations.png',
+  },
+];
+export default courses;

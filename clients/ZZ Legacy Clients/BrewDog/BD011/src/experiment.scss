@@ -1,0 +1,320 @@
+@import './variables';
+
+$grey: #f6f6f6;
+$gutter: 15px;
+
+@mixin arrowImage($invert: true) {
+  background-image: url('https://www.brewdog.com/static/version1605193056/frontend/Born/arcticFox/en_US/images/right-arrow-white.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+  filter: invert(1);
+}
+@mixin boxShadow() {
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.#{$id} {
+  #brewdog_mobile_menu {
+    padding: 24px;
+    background: #fff;
+  }
+
+  [class*=nav__lt] {
+    &.bg-grey {
+      > a {
+        background: $grey !important;
+      }
+    }
+
+    > a {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+
+      &:hover, &:active {
+        color: inherit;
+      }
+
+      &:after {
+        @include arrowImage(true);
+        content: "";
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        right: $gutter;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 16px;
+      padding: $gutter 3 * $gutter $gutter $gutter;
+
+      .#{$id}-nav__link-title {
+        font-size: 16px;
+      }
+      .#{$id}-nav__link-desc {
+        font-size: 14px;
+      }
+
+      img {
+        height: 58px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2.5 * $gutter;
+      }
+    }
+
+    &.has-image {
+      > a {
+        min-height: 58px + $gutter;
+
+        padding: $gutter 7 * $gutter $gutter $gutter;
+      }
+    }
+  }
+
+  [class*=nav__lt].xopen {
+    > a {
+      box-shadow: none !important;
+      border: 1px solid #ccc;
+
+      &:after {
+        @include arrowImage(false);
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+  }
+
+  .#{$id}-nav {
+    font-family: neue-haas-grotesk-text;
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    &--list {
+    }
+
+    &__lt2 {
+      > a {
+      }
+    }
+
+    &__lt3 {
+      > a {
+        box-shadow: none !important;
+        border: 0 !important;
+
+        &:after {
+          filter: invert(0);
+        }
+        &:hover,&:active {
+          color: #fff;
+        }
+
+        background-color: #000;
+        color: #fff;
+      }
+
+      &.xstandout {
+        padding: 0;
+      }
+    }
+
+    &__lt4 {
+      > a {
+        border-top: 1px solid green;
+        border-bottom: 1px solid green;
+        background-color: #fff;
+      }
+
+      &.xstandout {
+        //padding: 0 $gutter $gutter $gutter;
+
+        &:last-of-type {
+          padding-bottom: $gutter;
+        }
+
+        .#{$id}-nav__link-title {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &__lt5 {
+      background-color: #000;
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/BD011/bgbubbles.jpg');
+      background-size: cover;
+
+      > a {
+        color: #fff;
+
+        &:after {
+          filter: invert(0);
+        }
+        &:hover,&:active {
+          color: #fff;
+        }
+
+        .#{$id}-nav__link-title {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .#{$id}-nav__boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 1.5 * $gutter;
+  }
+
+  .#{$id}-nav__box {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @include boxShadow();
+
+    padding: 1.5 * $gutter;
+    margin: 0 0.5*$gutter;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    img {
+      width: auto;
+      height: auto;
+      max-height: 80px;
+    }
+
+    span {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  // Top-level
+  .#{$id}-nav--list > [class*=nav__lt] a {
+    @include boxShadow();
+  }
+
+  .#{$id}-nav__block {
+    margin-bottom: 2 * $gutter;
+
+    h2 {
+      margin-bottom: $gutter;
+    }
+  }
+
+  // Submenu
+  .#{$id}-submenu  {
+    max-height: 0;
+    overflow: hidden;
+    background: $grey;
+    transition: 0.3s max-height;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-top: 0;
+
+    [class*=nav__lt] {
+      &:first-of-type {
+        > a {
+          border-top: 0;
+        }
+      }
+
+      &:last-of-type {
+        > a {
+          border-bottom: 1px solid #ccc;
+          margin-bottom: $gutter;
+        }
+      }
+
+      margin: 0.7*$gutter 0;
+
+      padding-left: $gutter;
+      padding-right: $gutter;
+
+      > a {
+        box-shadow: none;
+        border-top: 1px solid #ccc;
+        border-bottom: 0;
+      }
+
+      &.xstandout {
+        > a {
+          border-bottom: 1px solid #ccc;
+        }
+      }
+
+      &:not(.xstandout) + .xstandout {
+        position: relative;
+
+        &:before {
+          display: block;
+          width: 100%;
+          height: 1px;
+          content: "";
+          background: #ccc;
+          position: relative;
+          top: -13px;
+        }
+      }
+    }
+
+    .#{$id}-nav__ltsection {
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      > h2 {
+        padding-top: 1.5 * $gutter;
+        border-top: 1px solid #ccc;
+      }
+    }
+
+
+    [class*=nav__lt2] {
+      margin: 0;  
+
+      > a {
+        padding-left: 0;
+        padding-left: 0;
+        border-left: 0 !important;
+        border-right: 0 !important;
+
+        &:after {
+          right: 3px;
+        }
+      }
+    }
+  }
+
+  .xopen .#{$id}-submenu {
+    max-height: 200vh;
+  }
+
+}

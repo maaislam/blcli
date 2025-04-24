@@ -1,0 +1,727 @@
+@import './variables';
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      background: rgba(0,0,0,0.5);
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100000;
+
+    }
+
+    @media all and (max-height: 400px) {
+      height: auto;
+      overflow: visible;
+    }
+
+    .HeaderWrap {
+      z-index: 100001 !important;
+
+      &:before {
+          content: "";
+          background: rgba(0,0,0,0.7);
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 10000;  
+    
+          @media all and (max-height: 400px) {
+            display: none;
+          }
+      }
+    }
+
+    .#{$id}-mini-basket {
+      z-index: 10005;
+    }
+}
+
+.#{$id} {
+
+  
+  .#{$id}-hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+
+  &.#{$id}-showtest {
+
+    #mp-pusher #mp-menu {
+
+      @media all and (max-width: 767px) {
+        z-index: 10000 !important;
+      }
+
+    }
+
+    .HeaderTopSpacer {
+      height: 202px;
+
+      @media all and (max-width: 992px) {
+        height: 175px; 
+      }
+
+    }
+
+    .flanProdList .headerFix .secondLevelMenuSelected ~ .ContentWrapper .fixed-filters-on {
+      top: 202px;
+    }
+
+    header.secondLevelMenuSelected ~ .HeaderTopSpacer {
+      height: 202px;
+      
+      @media all and (max-width: 992px) {
+        height: 127px;
+      }
+
+      @media all and (max-width: 767px) {
+        height: 175px;
+      }
+    }
+
+    
+  }
+
+  .#{$id}-mini-basket {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #000;
+    border: 1px solid #E0FF01;
+    height: 47px;
+    overflow: hidden;
+    z-index: 1000;
+    position: relative;
+
+    @media all and (max-width: 767px) and (orientation: landscape) {
+      display: none !important;
+    }
+
+    @media all and (max-width: 992px) {
+      position: fixed;
+      top: 111px;
+      height: 40px;
+    }
+
+    &.visible {
+      display: flex;
+    }
+
+    &.active {
+      height: auto;
+    }
+  }
+
+  .#{$id}-mini-basket-trigger {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    position: relative;
+
+    p {
+      color: #FFFFFF;
+      font-size: 15px;
+      font-family: GothamBold, Arial, Helvetica, sans-serif !important;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      min-width: 165px;
+      text-align: right;
+
+      @media all and (max-width: 767px) {
+        font-size: 12px;
+        min-width: 100px;
+      }
+    }
+    
+    svg {
+      margin-left: 30px;
+      width: 18px;
+      transition: transform 0.5s ease;
+
+      @media all and (max-width: 767px) {
+        margin-left: 20px;
+      }
+
+      polyline {
+          fill: none;
+      }
+    }
+
+    &.active .#{$id}-normalsvg {
+      transform: scale(-1);
+      transition: transform 0.5s ease;
+    }
+
+    .#{$id}-closeX {
+      display: none;
+    }
+
+    &.active .#{$id}-closeX {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px;
+      width: 25px;
+      path {
+        fill: #FFF;
+      }
+
+      // @media all and (max-width: 450px) {
+      //   display: none;
+      // }
+    }
+
+    .#{$id}-updatesvg,
+    .#{$id}-updatetext {
+      display: none;
+    }
+
+    .#{$id}-updatesvg {
+      animation: spin 1s linear infinite;
+    }
+
+    &.#{$id}-updating {
+
+      .#{$id}-updatesvg,
+      .#{$id}-updatetext {
+        display: flex;
+      }
+
+      .#{$id}-normalsvg,
+      .#{$id}-normaltext {
+        display: none;
+      }
+
+    }
+
+    &.active {
+
+      .#{$id}-updatesvg,
+      .#{$id}-updatetext {
+        display: none !important;
+      }
+
+      .#{$id}-normalsvg,
+      .#{$id}-normaltext {
+        display: flex !important;
+      }
+
+    }
+
+  }
+
+  .#{$id}-mini-basket-body {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    color: #FFF;
+
+    @media all and (max-width: 1600px) {
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    @media all and (max-width: 767px) {
+      margin-top: 5px;
+    
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .#{$id}-itemscount {
+      color: #FFF;
+      text-align: center;
+      font-size: 15px;
+      font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: 100;
+      margin-bottom: 10px;
+
+      @media all and (max-width: 767px) {
+        font-size: 12px;
+      }
+
+    }
+
+    .#{$id}-mini-bag-item {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      margin-right: 40px;
+      border-right: 1px solid #FFF !important;
+      border-left: none !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      max-width: 410px;
+
+      &:last-child {
+        border-right: none !important;
+      }
+
+      @media all and (max-width: 1300px) {
+        max-width: 100%;
+        width: 33.33%;
+      }
+
+
+
+      &.out-of-stock .bagContentItemWrap:before {
+        content: "Item out of stock, please remove";
+        color: #c00;
+        margin-bottom: 10px;
+      }
+
+      .BaskColr {
+        display: none;
+      }
+
+      &:hover:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+      img {
+        max-width: 150px;
+        height: auto;
+        flex-grow: 1;
+
+        @media all and (max-width: 1200px) {
+          max-width: 100px;
+        }
+
+        @media all and (max-width: 400px) {
+          max-width: 80px;
+        }
+      }
+
+      .bagContentItemWrap {
+        padding-left: 30px;
+        float: none;
+        display: flex;
+        flex-direction: column;
+
+        @media all and (max-width: 767px) {
+          font-size: 10px;
+          padding-left: 10px;
+        }
+
+        & > * {
+          
+
+          &:hover {
+            color: #FFF;
+          }
+        }
+      }
+
+      .PriceandCross {
+        display: none;
+      }
+
+      .BaskName {
+        text-transform: uppercase;
+        max-width: 220px;
+        height: auto;
+        overflow: auto;
+        font-weight: normal;
+        font-family: 'GothamBold', Arial, Helvetica, sans-serif;
+        margin-bottom: 5px;
+
+        @media all and (max-width: 767px) {
+          width: 100%;
+          padding-right: 10px;
+          font-size: 12px;
+        }
+      }
+
+      .ColrandSize {
+        text-transform: uppercase;
+        font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif !important;
+        font-weight: 100;
+        flex-direction: column;
+        height: auto !important;
+        font-size: 12px;
+
+        @media all and (max-width: 767px) {
+          font-size: 12px;
+        }
+
+        .BaskColr,
+        .BaskSize {
+          width: 100%;
+          margin-bottom: 5px;
+
+          @media all and (max-width: 767px) {
+            font-size: 12px;
+          }
+        }
+
+      }
+
+      .BaskQuant {
+        text-transform: uppercase;
+        margin-bottom: 5px;
+
+        @media all and (max-width: 767px) {
+          font-size: 12px;
+        }
+      }
+
+      .maxText {
+        display: none;
+      }
+
+      .BaskPrice {
+        float: left;
+        color: #FFF;
+        font-size: 12px;
+        font-family: 'GothamBold', Arial, Helvetica, sans-serif;
+
+      }
+      
+    }
+
+    .#{$id}-carousel-holder {
+      margin-top: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+
+      @media all and (max-width: 650px) {
+        min-height: 0;
+        max-height: 240px;
+      }
+
+      @media all and (max-width: 450px) {
+        height: 130px;
+      }
+
+      .#{$id}-loading-spinner {
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 110;
+
+          svg {
+              animation: spin 1s linear infinite;
+          }
+
+          p {
+              color: #FFF;
+          }
+
+      }
+
+      &.loading:before {
+          content: "";
+          position: absolute;
+          background: #000;
+          width: 100%;
+          height: 100%;
+          z-index: 100;
+          top: 0;
+          left: 0;
+      }
+
+      &.loading .#{$id}-loading-spinner {
+          display: flex;
+      }
+
+
+      .#{$id}-button {
+        position: absolute;
+        top: 50%;
+        left: -40px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        
+        &-next {
+          right: -40px;
+          left: auto;
+        }
+
+        &.#{$id}-hidden {
+          display: none;
+          visibility: hidden; 
+        }
+
+        svg polyline {
+          stroke: #FFF;
+          fill: none;
+        }
+
+        &.swiper-button-disabled svg polyline {
+          stroke: rgba(255,255,255,0.3);
+        }
+
+        @media all and (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      .#{$id}-carousel-inner {
+          padding: 10px;
+          position: relative;
+          overflow: hidden;
+          display: flex !important;
+
+          @media all and (max-width: 767px) {
+            padding-left: 30px !important;
+          }
+
+          .swiper-wrapper {
+            justify-content: center;
+            align-items: center;
+          }
+
+          &.swiper-active .swiper-wrapper {
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          &.swiper-active .#{$id}-mini-bag-item {
+            border-right: 1px solid #FFF !important;
+            max-width: 100%;
+
+            &:last-child {
+              border: none !important;
+            }
+          }
+
+          .#{$id}-removeitem {
+            color: #FFF;
+            position: relative;
+            right: 30px;
+            cursor: pointer;
+
+            @media all and (max-width: 767px) {
+              right: 10px;
+            }
+          }
+
+          @media all and (max-width: 800px) {
+
+              padding: 10px 0;
+
+              
+          }
+      }
+
+    
+
+    }
+
+  }
+
+  .#{$id}-mini-basket-footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+
+    @media all and (max-width: 767px) {
+      margin-top: 15px;
+    }
+  }
+
+  .#{$id}-mini-basket-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    @media all and (max-width: 400px) {
+      flex-direction: column;
+    }
+
+    a {
+      color: #FFF;
+      font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif !important;
+      &:hover {
+        font-family: 'GothamHTF-Medium', Arial, Helvetica, sans-serif !important;
+      }
+    }
+
+    .#{$id}-checkout-button {
+      position: relative;
+      width: 200px;
+      height: 50px;
+      display: flex;
+      background: #FFF;
+      justify-content: center;
+      align-items: center;
+      background: #FFF;
+
+      @media all and (max-width: 400px) {
+        margin-top: 20px;
+      }
+
+      span {
+        display: flex;
+        color: #000;
+        background: #FFF;
+        width: 100%;
+        height: 100%;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.7px;
+        position: relative;
+        z-index: 10;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000;
+        font-family: 'GothamHTF-Medium', Arial, Helvetica, sans-serif;
+
+        @media all and (max-width: 767px) {
+          font-size: 12px;
+        }
+
+        &:hover {
+          
+          background: #000;
+          color: #FFF;
+          border: 1px solid #FFF;
+        }
+      }
+        
+    }
+  }
+
+  .#{$id}-mini-basket-close-hide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+    a {
+      color: #FFF;
+
+      &:hover {
+        font-family: 'GothamHTF-Medium', Arial, Helvetica, sans-serif !important;
+      }
+    }
+  }
+
+  .#{$id}-total-amount-outer,
+  .#{$id}-view-bag-link {
+    width: 230px;
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: underline;
+
+    @media all and (max-width: 767px) {
+      font-size: 12px;
+    }
+  }
+  
+  .#{$id}-total-amount-outer {
+    font-size: 15px;
+    text-decoration: none;
+    font-family: GothamBold, Arial, Helvetica, sans-serif;
+
+    &.desktop-only {
+
+      @media all and (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    &.mobile-only {
+      display: none;
+
+      @media all and (max-width: 767px) {
+        display: flex;
+        width: 100%;
+        font-size: 14px;
+        justify-content: center;
+        margin-bottom: 13px;
+      }
+    }
+
+    ##{$id}-total-amount-mobile {
+      margin-left: 5px;
+    }
+  }
+
+  .#{$id}-view-bag-link {
+
+    @media all and (max-width: 767px) {
+      max-width: 150px;
+    }
+    
+  }
+
+  .#{$id}-close-hide {
+    text-decoration: underline;
+    font-size: 13px;
+
+    @media all and (max-width: 767px) {
+      font-size: 12px;
+    }
+  }
+
+  .#{$id}-mini-basket {
+
+    @media all and (max-width: 767px) and (orientation: landscape) {
+      display: none;
+    }
+
+  }
+
+  @media all and (max-width: 767px) {
+
+    .#{$id}-mini-basket.visible {
+      display: none;
+    }
+
+    .headerFix .#{$id}-mini-basket.visible {
+      display: flex;
+    }
+
+  }
+
+  
+
+  
+
+
+}

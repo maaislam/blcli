@@ -1,0 +1,168 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    @at-root #{&}_hint {
+        padding: get-value($settings, 'base', 'baseline')/2+4 0;
+        font-size: 0;
+        display: block;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            .#{$ID}_hint__notice {
+                text-decoration: underline;
+            }
+        }
+
+        @at-root #{&}--v2,
+        #{&}--v3 {
+            background-color: get-value($settings, 'colors', 'bravissimoBlue');
+        }
+
+        @at-root #{&}Wrap {
+            margin-top: get-value($settings, 'base', 'baseline')/2;
+        }
+
+        @at-root #{&}__img {
+            height: auto;
+            max-width: 35px;
+
+            @at-root #{&}Wrap {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        @at-root #{&}__notice {
+            color: get-value($settings, 'colors', 'bravissimoRed');
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+            position: relative;
+            padding-left: 38px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                background-image: url('data:image/png;base64,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');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 30px;
+                height: 30px;
+            }
+
+            strong {
+                font-family: 'Born Ready';
+                letter-spacing: 1px;
+                margin-left: 5px;
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 4);
+            }
+
+            @at-root .#{$ID}_hint--v3 #{&} {
+                font-size: 0;
+            }
+
+            @at-root .#{$ID}_hint--v3 #{&} span {
+                font-family: 'Born Ready';
+                letter-spacing: 1px;
+                position: relative;
+                z-index: 1;
+                margin-left: 0;
+                display: inline-block;
+                vertical-align: middle;
+                width: get-value($columns, 'one-sixth');
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 4);
+
+                &:before {
+                    content: '';
+                    border-radius: 50%;
+                    background-color: get-value($settings, 'colors', 'bravissimoRed');
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    top: 2px;
+                    left: 2px;
+                    z-index: -1;
+                }
+            }
+
+            @at-root .#{$ID}_hint--v3 #{&} p {
+                display: inline-block;
+                vertical-align: middle;
+                width: get-value($columns, 'five-sixth');
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+            }
+        }
+    }
+
+    @at-root #{&}_loaderWrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 120;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+    }
+
+    .c-page__main .l-grid__unit:last-child {
+        position: relative;
+    }
+
+    .c-order-summary__main.pulse {
+        border: 2px solid get-value($settings, 'colors', 'bravissimoRed');
+        animation: pulse 1s infinite;
+    }
+
+    
+    .l-grid__unit.#{$ID}_loader:before {
+        content: '';
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .l-grid__unit.#{$ID}_loader.BV008-removeLoader:before {
+      display: none;
+    } 
+
+    @keyframes pulse {
+        0% {
+            border-color: rgba(241, 70, 111, 1);
+        }
+
+        50% {
+            border-color: rgba(241, 70, 111, 0);
+        }
+
+        100% {
+            border-color: rgba(241, 70, 111, 1);
+        }
+    }
+    .#{$ID}_hint__notice.mobile{
+        padding-left: 0;
+        display:block;
+        b {
+            display: block;
+            padding-left: 38px;
+        }
+    }
+}

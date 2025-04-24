@@ -1,0 +1,377 @@
+$id: '--ID--'; // replacement token, specify --id="UCXXX" in GULP if you want another ID
+
+$primary: #bcacd5;
+
+.#{$id} {
+  /* Generic */
+  .#{$id}-hide {
+    display: none !important;
+  }
+  .#{$id}-text-center {
+    text-align: center;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #aaa;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #aaa;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #aaa;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #aaa;
+  }
+
+  /* Checkout form */
+  #checkout {
+    /* General */
+    fieldset [class^="checkoutStep"] {
+      display: none;
+    }
+
+    fieldset {
+      background: none;
+      box-sizing: border-box;
+    }
+
+    label {
+      font-weight: normal;
+    }
+
+    .radioButton input,
+    .checkboxContainer input {
+      /* NOTE */
+      /* This is required because otherwise the browser jumps
+       * when we trigger a faux click on the elements */
+      display: none;
+    }
+
+    .radioButton {
+      border: 0;
+    }
+
+    .requiredMessage {
+      display: none;
+    }
+
+    .#{$id}-section-title {
+      font-size: 1.2em;
+      margin: 1.3em 0;
+      text-align: center;
+    }
+
+    .blockField {
+      font-size: 1.3rem;
+      background: #fff;
+    }
+
+    .#{$id}-step-btn {
+      color: #fff;
+
+      &:hover {
+        border-color: #000;
+        background: #000;
+      }
+    }
+
+    .#{$id}-step-btn--disabled {
+      display: none;
+    }
+
+    .submitButton.fullWidthBtn:focus,
+    .submitButton.fullWidthBtn:active,
+    .submitButton.fullWidthBtn:hover {
+      color: #fff;
+      border-color: #000;
+      background: #000;
+    }
+
+    /* ================================================== */
+    /* GUEST / YOUR DETAILS */
+    /* ================================================== */
+    [data-formname=signInForm] {
+      margin-top: 1em;
+      padding-bottom: 15px;
+
+      input[type=radio] {
+        visibility: hidden;
+      }
+
+      .#{$id}-create-account-button {
+        display: none;
+      }
+
+      .#{$id}-create-account-fields {
+        display: block !important;
+      }
+
+      .#{$id}-create-account-fields--hide {
+        display: none !important;
+      }
+
+      > .paddingWrap {
+        padding-bottom: 0;
+      }
+
+      #email ~ .checkboxContainer {
+        border: 0;
+      }
+      .#{$id}-future-use-checkbox {
+        display: none;
+      }
+      .#{$id}-future-use-label {
+        font-weight: normal;
+        font-size: 0.9em;
+        color: #888;
+        text-transform: none;
+        position: relative;
+        padding-left: 30px;
+
+        &:before {
+          left: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      .#{$id}-future-use-checkbox:checked + .#{$id}-future-use-label:before {
+        transform: translateY(calc(-50% - 2px));
+      }
+
+      .#{$id}-create-account-fields {
+        padding-top: 5px;
+      }
+    }
+
+    /* ================================================== */
+    /* DELIVERY OPTIONS
+    /* ================================================== */
+
+    [data-formname=deliveryOptions] {
+      display: none;
+    }
+
+    .#{$id}-new-delivery-options {
+      padding: 10px 0;
+
+      label {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .#{$id}-text {
+        display: block;
+        margin: 4px 0;
+      }
+      .#{$id}-text--desc {
+        color: #999;
+      }
+
+      .radioButton.#{$id}--active label:before {
+        background-position: bottom left;
+      }
+
+      .#{$id}-bill-address {
+        display: block;
+      }
+
+      label[for=moreLocation] {
+        text-align: center;
+        display: block;
+        font-weight: bold;
+      }
+    }
+
+    &.#{$id}-is-store-delivery {
+      .#{$id}-alt-address {
+        display: none !important;
+      }
+
+      .#{$id}-billing-same-as {
+        display: none !important;
+      }
+
+      fieldset[data-group=cardPayment] {
+        border-top: 1px solid #ccc;
+      }
+
+      .#{$id}-section-title--delivery-address {
+        display: none;
+      }
+    }
+
+    /* ================================================== */
+    /* ADDRESS
+    /* ================================================== */
+
+    .#{$id}-alt-address {
+      display: block !important;
+      border: 1px solid #ccc;
+    }
+
+    .#{$id}-bill-address {
+      display: none;
+      margin-bottom: 0;
+
+      .#{$id}-section-title {
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+    }
+
+    .#{$id}-bill-address--active {
+      display: block;
+    }
+    
+    .#{$id}-gift-recipient-container {
+      margin-top: 20px;  
+
+      label {
+        span {
+          display: block;
+          margin: 5px 0;
+        }
+
+        .#{$id}-sublabel {
+          text-transform: none;
+          color: #999;
+        }
+      }
+
+      input[type=checkbox] {
+        display: none;
+      }
+    }
+
+    .#{$id}-billing-same-as {
+       border-bottom: 0;
+       margin: 0;
+
+       .#{$id}-active:before {
+         background-position: bottom left;
+       }
+    }
+
+    .#{$id}-bill-address {
+      box-sizing: border-box;
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    .#{$id}-new-delivery-options {
+      .#{$id}-bill-address {
+        display: block;
+        border: 0;
+
+        .#{$id}-section-title {
+          display: block;
+        }
+      }
+    }
+
+    .#{$id}-collapsed {
+      display: none;
+    }
+
+    .#{$id}-manual-address-link {
+      a {
+        text-decoration: underline;
+        font-size: 0.9em;
+      }
+    }
+
+    /* ================================================== */
+    /* PAYMENT
+    /* ================================================== */
+    fieldset[data-group=cardPayment] {
+      border-top: 0;
+
+      .radioButton input {
+        display: none;
+      }
+    }
+
+    /* ================================================== */
+    /* CUTOFF
+    /* ================================================== */
+    .#{$id}-cutoff-message {
+      padding: 8px 12px;
+      text-align: center;
+      background: #f4f3f8;
+      border: 1px solid #f4f3f8;
+      
+      p {
+        margin: 8px 0;
+      }
+
+      ##{$id}-countdown-container {
+        color: #777;
+      }
+    }
+
+    /* ================================================== */
+    /* PREVENT IOS ZOOM BY SETTING SUFFICIENTLY
+    /* LARGE FONT SIZE ON INPUTS
+    /* ================================================== */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      select,
+      textarea,
+      input {
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  /* ================================================== */
+  /* STEPS
+  /* ================================================== */
+  &.#{$id}-3, &.#{$id}-4 {
+    #checkout.#{$id}-step-1 {
+      .#{$id}-step-btn-2 ~ * {
+        display: none !important;
+      }
+      .#{$id}-step-btn-2 + .cardIcons {
+        display: block !important;
+        text-align: center;
+      }
+    }
+    #checkout.#{$id}-step-2 {
+      .#{$id}-step-btn-3 ~ * {
+        display: none !important;
+      }
+      .#{$id}-step-btn-3 + .cardIcons {
+        display: block !important;
+        text-align: center;
+      }
+    }
+  }
+
+  #placeOrder {
+    margin-top: 0px;
+  }
+
+  #placeOrder + .cardIcons {
+    text-align: center;
+  }
+
+  .fullWidthBtn + .cardIcons {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+  }
+
+  &.#{$id}-create-account-active {
+    // When the 'create account' checkbox is checked, we're still going
+    // to make it look as if they're checking out as guest 
+    .radioButton input#continueRadio+label:before {
+      background-position: bottom left;
+    }
+  }
+}
+
+.#{$id}-4 {
+  [data-group=cardPayment] .#{$id}-card-icons-wrap.infoPanel {
+    display: none;
+  }
+}

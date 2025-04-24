@@ -1,0 +1,1411 @@
+@import './variables';
+
+.#{$id} {
+    .detail-page__container {
+        display: none;
+    }
+
+    /* Main image carousel */
+    .#{$id}__mainProductSlider {
+        display: flex;
+        position: relative;
+        width: 100%;
+        @media(min-width:767px) {
+            width: 50%;
+        }
+        @media(min-width:1024px) {
+            width: 60%;
+        }
+        .#{$id}__zoomIcon {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 0;
+            right: 0;
+            z-index: 9;
+            background: url('https://service.maxymiser.net/cm/images-us/1/1/2/232CB62F7B90DF4764BFC6016120A26D8816E0A310514804BA19F8AAA7DCD91D/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_ZoomIn_2704026.png') no-repeat center;
+            background-size: contain;
+            @media(min-width: 375px) {
+                right: 10px;
+                top: 10px;
+                height: 50px;
+                width: 50px;
+            }
+        }
+        .#{$id}__swiperArrow {
+            &.swiper-button-next {
+                right: 5px;
+            }
+            &.swiper-button-prev {
+                left: 5px;
+            }
+            @media(min-width: 1024px) {
+                &.swiper-button-next {
+                    right: 25px;
+                }
+                &.swiper-button-prev {
+                    left: 25px;
+                }
+            }
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 350px;
+
+            .#{$id}__slide {
+                background-color: white;
+            }
+
+            .swiper-pagination-bullets {
+                bottom: 10px !important;
+                left: 0;
+                width: 55%;
+                right: 0;
+                left: auto;
+            }
+
+            .swiper-zoom-target {
+                background-repeat: no-repeat;
+                height: 100%;
+                width: 100%;
+                background-size: contain;
+                background-position: center;
+                cursor: zoom-in;
+            }
+
+            .swiper-zoom-target[src] {
+                display: block;
+            }
+
+            @media(min-width: 767px) {
+                height: 100%;
+
+                .swiper-pagination-bullets {
+                    width: 300px;
+                }
+            }
+
+            @media(min-width: 1280px) {
+                height: 600px;
+            }
+        }
+    }
+
+    /* Product information */
+
+    .#{$id}__productDetails {
+        @media(min-width: 1024px) {
+            justify-content: space-between;
+        }
+    }
+
+    .#{$id}__mainProductInfo {
+        position: relative;
+        padding: 10px;
+        width: 100%;
+        @media(min-width: 375px) {
+            padding: 20px;
+        }
+        @media(min-width:767px) {
+            width: 48%;
+        }
+        @media(min-width:1024px) {
+            width: 40%;
+        }
+        @media(min-width: 1280px) {
+            max-width: 600px;
+            padding: 40px;
+        }
+        .detail-page__right-column {
+            text-align: left;
+
+            .product-stock,
+            .product-description-anchor-link__container,
+            .product-quantity__container,
+            .product-messages {
+                display: none;
+            }
+
+            .brand-logo {
+                display: block;
+                margin-top: 10px;
+                display: flex;
+                width: 110px;
+                margin-bottom: 5px;
+                @media(min-width:375px) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .product-name {
+                font-weight: 100;
+                font-size: 18px;
+                line-height: 25px;
+                color: black;
+                @media(min-width:375px) {
+                    font-size: 25px;
+                    line-height: 25px;
+                }
+
+                @media(min-width: 1280px) {
+                    font-size: 22px;
+                    line-height: 30px;
+                    margin-bottom: 5px;
+                }
+
+            }
+
+            .product-customer-rating-summary {
+                font-size: 12px;
+                font-family: $oxygenFont;
+
+                .product-customer-rating-summary__star {
+                    filter: contrast(0%) brightness(0%);
+                }
+            }
+
+            #js-link-reviews {
+                cursor: pointer;
+                line-height: 21px;
+                color: black;
+            }
+
+            .#{$id}__productNo {
+                color: #676767;
+                font-size: 11px;
+                text-align: left;
+                margin-bottom: 10px;
+                @media(min-width:375px) {
+                    font-size: 13px;
+                }
+            }
+
+            // Price Area
+            .product-price,
+            .product-ifc {
+                display: none;
+            }
+
+            .#{$id}__priceSection {
+                padding-top: 10px;
+                padding-bottom: 15px;
+                border-top: 1px solid #F1F1F1;
+                border-bottom: 1px solid #F1F1F1;
+                margin-bottom: 10px;
+                justify-content: flex-start;
+
+                .product-price {
+                    display: flex;
+                    flex-direction: column;
+
+                    .product-price--current {
+                        font-size: 25px;
+                        color: black;
+                        @media(min-width: 375px) {
+                            font-size: 30px;
+                        }
+                    }
+
+                    .product-price-pricing {
+                        display: flex;
+                        flex-direction: row;
+                    }
+
+                    .product-price--copy {
+                        display: none;
+                    }
+
+                    .product-price-history {
+                        margin-left: 10px;
+                    }
+                }
+
+                .product-price-offer {
+                    font-weight: 100;
+                    font-size: 14px;
+                    margin-top: 10px;
+                    br {
+                        display: none;
+                    }
+
+                    a {
+                        display: block;
+                    }
+                }
+
+                .#{$id}__financeBox {
+                    position: relative;
+                    background: #F7F7F7;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    flex-wrap: wrap;
+                    padding: 15px;
+                    text-align: left;
+
+                    p {
+                        margin-bottom: 0;
+
+                        &:first-of-type {
+                            font-weight: 600;
+                            margin-bottom: 5px;
+                            @media(min-width: 375px) {
+                                margin-bottom: 8px;
+                            }
+                        }
+
+                        b {
+                            font-weight: 600;
+                        }
+                        @media(min-width: 375px) {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .#{$id}__textLink {
+                        color: black;
+                        position: absolute;
+                        right: 10px;
+                        bottom: 7px;
+                        @media(min-width: 375px) {
+                            font-size: 16px;
+                            bottom: 13px;
+                        }
+                        @media(min-width: 767px) {
+                            position: relative;
+                            bottom: auto;
+                            left: auto;
+                            right: auto;
+                            margin-top: 5px;
+                        }
+                        @media(min-width: 1024px) {
+                            position: absolute;
+                            right: 10px;
+                            bottom: 7px;
+                        }
+                    }
+
+                    @media(min-width: 1024px) {
+                        p {
+                            font-size: 14px;
+                        }
+
+                        .#{$id}__textLink {
+                            font-size: 12px;
+                            right: 15px;
+                        }
+                    }
+
+                    @media(min-width: 1280px) {
+                        padding: 15px;
+
+                        .#{$id}__textLink {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+
+            // sizing
+            .product-ring-size,
+            .product-step-up-down__container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border: 0;
+                .product-ring-size__will-it-fit {
+                    display: none;
+                }
+
+                .product-ring-size__text {
+                    align-content: center;
+                    flex-direction: column;
+                    @media(min-width: 1024px) {
+                        flex-grow: unset;
+                        align-content: center;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+
+                .product-ring-size__heading,
+                .product-step-up-down__heading {
+                    margin-bottom: 0;
+                    font-weight: 500;
+                    color: black;
+                    font-size: 16px;
+                    align-content: center;
+                    font-weight: 100;
+                    @media(min-width: 375px) {
+                        font-size: 18px;
+                    }
+                }
+                .product-step-up-down__text{
+                    align-self: center; 
+                }
+
+                .product-ring-size__data,
+                .product-step-up-down__data {
+                    width: 70%;
+
+                    select {
+                        margin-bottom: 0;
+                        border-radius: 0;
+                        border: 1px solid #E1E1E1;
+                        padding: 10px;
+                        width: 100% !important;
+                        max-width: 100%;
+                        @media(min-width: 1024px) {
+                            flex-direction: row;
+                            background-position: calc(100% - 17px) center;
+                        }
+                    }
+                    @media(min-width: 1024px) {
+                        flex-grow: unset;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+            }
+
+            .product-buy-now {
+                text-align: center;
+                button { 
+                    font-size: 18px;
+                    line-height: 23px;
+                }
+                .product-buy-now__icon {
+                    display: none;
+                }
+                @media(min-width: 960px) {
+                    button {
+                        justify-content: center;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    margin-top: 20px;
+                    button {
+                        text-align: center;
+                    }
+                }
+            }
+
+
+            .#{$id}__hintAnchor {
+                font-size: 15px;
+                text-align: center;
+                position: relative;
+                margin-bottom: 10px;
+
+                span {
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        height: 20px;
+                        width: 20px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 10px;
+                        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/153E16FD3FCF5B83F3AC9201722C9C312A5BC3B897AFF30AE2681C7821DE81C7/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_newsletter_3004701copy.png');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                }
+                @media(min-width: 375px) {
+                    font-size: 18px;
+                    margin-top: 5px;
+                    span {
+                        &::before {
+                            height: 30px;
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+            @media(min-width: 1280px) {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            z-index: 9;
+            top: 0;
+            bottom: auto;
+            box-shadow: 2px -3px 6px 1px rgba(187, 187, 187, 0.56);
+            pointer-events: none;
+            @media(min-width: 767px) {
+                box-shadow: -4px -1px 5px 1px rgba(214, 214, 214, 0.56);
+            }
+        }
+    }
+
+    /* USPS */
+    .#{$id}__usps {
+        background: #F3F3F7;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        position: relative;
+
+        span {
+            height: 35px;
+            width: 35px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            @media(min-width: 375px) {
+                height: 50px;
+                width: 50px;
+            }
+            @media(min-width: 767px) {
+                height: 30px;
+                width: 30px;
+            }
+        }
+
+        h4 {
+            margin-bottom: 5px;
+            font-family: $oxygenFont;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            vertical-align: middle;
+            @media(min-width: 375px) {
+                font-size: 16px;
+            }
+            @media(min-width: 767px) {
+                font-size: 14px;
+            }
+        }
+
+        p {
+            font-size: 13px;
+            color: black;
+            margin-bottom: 0;
+            line-height: 22px;
+            font-family: $oxygenFont;
+            width: 80%;
+            margin: 0 auto;
+            @media(min-width: 375px) {
+                font-size: 15px;
+            }
+            @media(min-width: 767px) {
+                font-size: 13px;
+                line-height: 17px;
+            }
+        }
+
+        @media(min-width: 767px) {
+            margin-top: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            .swiper-container {
+                width: 100%;
+            }
+
+            .#{$id}-uspBlock {
+                width: 33%;
+
+                span {
+                    display: flex;
+                    width: 100%;
+                }
+            }
+        }
+
+        @media(min-width: 1024px) {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            .swiper-container {
+                span {
+                    height: 25px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+        @media(min-width: 1280px) {
+            .swiper-container {
+                max-width: 1000px;
+            }
+        }
+    }
+
+    /* Specs */
+     .#{$id}__specs {
+        .#{$id}__sectionContainer {
+            padding-left: 0;
+            padding-right: 0;
+        
+            .#{$id}__accordionItem {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+
+                .#{$id}__accordionHeading {
+                    font-family: $oxygenFont;
+                    padding: 15px;
+                    position: relative;
+                    text-align: left;
+                    border-bottom: 1px solid #eceaea;
+                    font-size: 18px;
+                    cursor: pointer;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        background: url('https://service.maxymiser.net/cm/images-us/1/1/2/1834C2EC0BD57961E57F47038412402C8817CB202E4679E26C23605ACEB13A7D/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_Plus_651046Copy3.png') no-repeat center;
+                        height: 20px;
+                        right: 10px;
+                        width: 20px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-size: contain;
+                    }
+                }
+
+                .#{$id}__accordionContent {
+                    background: #FBFBFB;
+                    transition: all 0.3s ease;
+                    overflow: hidden;
+                    padding: 0 1em;
+                    max-height: 0;
+                    opacity: 0;
+                    .#{$id}__spec {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-between;
+                        padding: 10px;
+                        p {
+                            color: #636262;
+                            margin-bottom: 0;
+                            padding-bottom: 5px;
+                            padding-top: 5px;
+                        }
+                    }
+                }
+
+                &.#{$id}__open {
+                    .#{$id}__accordionHeading {
+                        border-bottom: 0px;
+                        &::after {
+                            background: url('https://service.maxymiser.net/cm/images-us/1/1/2/101856D2B560D8219E4ED98520020FDF86404C8A3923FC74A884F90F14DFA1A7/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_Plus_651046.png') no-repeat center;
+                            background-size: contain;
+                        }
+                        @media(min-width: 1024px) {
+                            border-bottom: 1px solid #eceaea;
+                        }
+                    }
+                    .#{$id}__accordionContent {
+                        flex-direction: column;
+                        max-height: 500px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .#{$id}__specificationImage {
+            height: 300px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-top: 70px;
+        }
+
+        @media(min-width: 1024px) {
+            .#{$id}__sectionContainer {
+                max-width: 900px;
+                margin: 0 auto;
+                margin-bottom: 70px;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                .#{$id}__heading {
+                    margin-bottom: 30px;
+                }
+                .#{$id}__specification_wrapper {
+                    display: flex;
+                    width: 400px;
+                    flex-direction: column;
+                    .#{$id}__heading {
+                        text-align: left;
+                    }
+                    .#{$id}__accordionHeading {
+                        padding-left: 0;
+                        font-size: 18px;
+                    }
+                    .#{$id}__accordionContent{
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .#{$id}__specificationImage {
+                    display: flex;
+                    width: 50%;
+                    flex-wrap: nowrap;
+                    background-size: 80%;
+                    background-position: center;
+                    height: 350px;
+                }
+            }
+        }
+        @media(min-width: 1280px) {
+           .#{$id}__sectionContainer {
+                max-width: 1024px;
+                .#{$id}__specificationImage {
+                    width: 60%;
+                    background-position: center;
+                    height: 500px;
+                    margin: 0;
+                    background-size: 86%;
+                }
+            }
+         
+        }
+    }
+
+    /* Four c's */
+    .#{$id}__fourcs {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background: #F3F3F7;
+        }
+
+        .#{$id}__innerBox {
+            background: white;
+            box-shadow: 1px 1px 1px #ccc;
+            padding: 20px;
+            position: relative;
+            .#{$id}__cRow {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                font-family: $oxygenFont;
+                border-bottom: 1px solid #dddddd;
+
+                &:last-of-type {
+                    border: 0;
+                    padding-bottom: 0px;
+                    margin-bottom: 0px;
+                }
+
+                p {
+                    font-family: $oxygenFont;
+                    margin-bottom: 0;
+                    font-size: 17px;
+
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                        height: 15px;
+                        width: 15px;
+                        margin-left: 5px;
+                        background: url('https://service.maxymiser.net/cm/images-us/1/1/2/6EBF2C930FFD64BFF289374C9175890A454B893A6F98D207497E8E90283DEE71/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/questionmark.png') no-repeat center;
+                        background-size: contain;
+                        cursor: pointer;
+                    }
+                    @media(min-width: 375px) {
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+                    }
+                }
+                .#{$id}__cData{
+                    font-size: 17px;
+                   
+                    @media(min-width: 375px) {
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+                    }
+                }
+
+                .#{$id}__tooltip {
+                    position: absolute;
+                    background: white;
+                    left: 50%;
+                    padding: 20px;
+                    font-size: 14px;
+                    line-height: 22px;
+                    border: 1px solid #ccc;
+                    width: 90%;
+                    transform: translateX(-50%);
+                    display: none;
+                    z-index: 1;
+                    &.#{$id}__active {
+                        display: block;
+                    }
+
+                    .#{$id}__close {
+                        height: 10px;
+                        width: 10px;
+                        right: 10px;
+                        position: absolute;
+                        background: url('https://service.maxymiser.net/cm/images-us/1/1/2/13781E9427F6FDD166462264B21C943859F2EA1D05DAC5CAB02641575C6BACFA/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_Cross_1776318Copy.png') no-repeat center;
+                        top: 10px;
+                        background-size: contain;
+                        cursor: pointer;
+                    }
+                    @media(min-width: 1024px) {
+                        max-width: 400px;
+                        left: 0;
+                        transform: unset;
+                    }
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            .#{$id}__innerBox {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 30px;
+            }
+        }
+    }
+
+    /* Product Desc */
+    .#{$id}__description {
+        .#{$id}__descriptionWrapper {
+            display: flex;
+            flex-direction: column-reverse;
+            padding-bottom: 40px;
+            @media(min-width: 1024px) {
+                flex-direction: row;
+            }
+        }
+        @media(min-width: 1024px) {
+            .#{$id}__paragraph {
+                width: 100%;
+            }
+            .#{$id}__block,
+            .#{$id}-blockBack {
+                height: 350px;
+            }
+        }
+    }
+
+    .#{$id}__parallax {
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/3D4D78FBB94A7F4F6CFEE6EE15E7C31142D126B59F8C3C21AD46B60F9D4C1B7F/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/banner2.png');
+    }
+
+    .#{$id}__origin {
+        .#{$id}__paragraph {
+            margin-bottom: 0;
+        }
+        @media(min-width: 1024px) {
+            .#{$id}__heading {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    /* Drop hint section */
+    .#{$id}__hint {
+        background: #f3f3f7;
+
+        .#{$id}__hintIcon {
+            height: 50px;
+            width: 50px;
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/153E16FD3FCF5B83F3AC9201722C9C312A5BC3B897AFF30AE2681C7821DE81C7/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_newsletter_3004701copy.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        .#{$id}__paragraph {
+            margin-bottom: 20px;
+        }
+        .#{$id}__contentLink {
+            margin: 0 auto;
+        }
+        .#{$id}__colLeft {
+            display: none;
+            @media(min-width: 1024px) {
+                display: inline-flex;
+                .#{$id}__block {
+                    right: 20px;
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            background: none;
+            .#{$id}__colRight {
+                margin-right: 70px;
+                margin-left: 0;
+                .#{$id}__heading,
+                .#{$id}__paragraph{
+                    text-align: center;
+                }
+            }
+            .#{$id}-blockBack {
+                height: 350px;
+                width: 100%;
+            }
+            .#{$id}__block {
+                background-size: cover;
+                height: 350px;
+            }
+        }
+    }
+
+    /* Buying Guides */
+    .#{$id}__buyingGuides {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            width: 100%;
+            height: 50%;
+            background: #F3F3F7;
+        }
+
+        .#{$id}__article {
+            margin-bottom: 50px;
+
+            .#{$id}__image {
+                height: 230px;
+                width: 100%;
+                margin: 0 auto;
+                background-size: cover;
+                margin-bottom: 30px;
+                @media(min-width: 767px) {
+                    height: 300px;
+                }
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            @media(min-width: 1024px) {
+                display: flex;
+                flex-wrap: nowrap;
+                text-align: left;
+                justify-content: center;
+                margin-bottom: 70px;
+                .#{$id}__image {
+                    width: 100%;
+                    height: 330px;
+                }
+    
+                .#{$id}__paragraph {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                &:last-of-type {
+                    flex-direction: row-reverse;
+                    .#{$id}__colRight {
+                        margin-left: 0px;
+                        margin-right: 50px;
+                    }
+                }
+                &::before {
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+
+    /* Reviews */
+    .#{$id}__reviews {
+        position: relative;
+
+        .#{$id}__textLink {
+            color: black;
+        }
+
+        .product-reviews__rating__review-aggregate-rating {
+            display: none;
+        }
+
+        .product-reviews__overview {
+            display: none;
+        }
+
+        .#{$id}__reviewStars {
+            position: relative;
+            margin-bottom: 20px;
+
+            .product-reviews__rating__review-star-rating:first-of-type {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            .#{$id}__reviewCount {
+                text-align: center;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+            @media(min-width: 1024px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        .product-reviews__rating__review-star-rating--star-large,
+        .product-reviews__rating__review-star-rating--star-small {
+            filter: contrast(0%) brightness(0%);
+            margin-bottom: 0;
+        }
+
+        .product-reviews__rating__review-star-rating--star-small {
+            width: 15px;
+        }
+
+        .product-reviews__reviews__container {
+            display: flex;
+            border: 0;
+            background: white;
+            margin-bottom: 15px;
+            position: relative;
+            flex-direction: column;
+
+            &::before {
+                content: '';
+                height: 90%;
+                width: 90%;
+                top: 0;
+                background: #F3F3F7;
+                position: absolute;
+                left: 0;
+            }
+
+            .product-reviews__reviews__review {
+                box-shadow: 0px 2px 4px rgba(199, 199, 199, 0.5);
+                background: white;
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+                margin-left: 15px;
+                margin-top: 15px;
+                text-align: left;
+                height: 100%;
+            }
+
+            .product-reviews__reviews__would-recommend,
+            .product-reviews__vote-mini,
+            .product-reviews__reviewer,
+            .product-reviews__vote,
+            .product-reviews__reviews__would-not-recommend {
+                display: none;
+            }
+        }
+
+        .product-reviews__star-ratings {
+            margin-bottom: 0;
+            position: absolute;
+            right: 0;
+            top: 20px;
+        }
+
+        .product-reviews__header--review-title {
+            font-family: $oxygenFont;
+            font-size: 15px;
+            line-height: 19px;
+            max-width: 63%;
+            @media(min-width: 375px) {
+                font-size: 18px;
+                max-width: 67%;
+            }
+        }
+
+        .product-reviews__review-desc {
+            font-weight: 100;
+            font-size: 13px;
+            @media(min-width: 375px) {
+                font-size: 16px;
+            }
+        }
+
+        .product-reviews__reviews__author {
+            font-size: 14px;
+        }
+
+        .product-reviews__reviews__date {
+            font-weight: 100;
+            font-size: 14px;
+        }
+
+        .product-reviews {
+            &.#{$id}-moreThanTwo {
+                .product-reviews__reviews__container {
+                    display: none;
+
+                    &:nth-child(-n+2) {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 767px) {
+            .#{$id}__sectionContainer {
+                max-width: 800px;
+
+                .product-reviews {
+                    .product-reviews__reviews {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .product-reviews__reviews__container {
+                            display: flex;
+                            margin: 10px;
+                            width: 47%;
+                        }
+                    }
+
+                    &.#{$id}-moreThanTwo {
+                        .product-reviews__reviews__container {
+                            display: none;
+
+                            &:nth-child(-n+4) {
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &::after {
+                height: 500px;
+            }
+        }
+
+        @media(min-width: 1024px) {
+            .#{$id}__sectionContainer {
+                max-width: 900px;
+
+                .product-reviews {
+                    .product-reviews__reviews {
+                        .product-reviews__reviews__container {
+                            @media(min-width: 1024px) {
+                                margin: 20px;
+                                width: 45%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 1280px) {
+            .#{$id}__sectionContainer {
+                max-width: 1024px;
+
+                .product-reviews__reviews {
+                    .product-reviews__reviews__container {
+                        margin: 15px;
+                        width: 46%;
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$id}__story {
+        position: relative;
+        @media(min-width: 767px) {
+            .#{$id}__textLink {
+                display: none;
+            }
+        }
+        @media(min-width: 1024px) {
+            .#{$id}__paragraph {
+                width: 100%;
+                max-width: 700px;
+            }
+        }
+    }
+
+    /* Offer */
+    .#{$id}__offer {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background: #F3F3F7;
+        }
+
+        .#{$id}-blockBack {
+            width: 95%;
+            margin: 0 auto;
+            height: auto;
+        }
+
+        .#{$id}__block {
+            position: relative;
+            top: auto;
+            right: auto;
+            height: auto;
+            padding: 20px;
+            @media(min-width: 767px) {
+                padding: 30px;
+            }
+        }
+
+        .email-sign-up {
+            background: white;
+
+            .email-sign-up__form {
+                padding: 0px;
+            }
+
+            .email-sign-up__text {
+                font-size: 16px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            .email-sign-up__text--small {
+                width: auto;
+                margin: 0 auto;
+                margin-bottom: 15px;
+            }
+
+            .email-sign-up__title {
+                font-size: 25px;
+                @media(min-width:375px) {
+                    font-size: 35px;
+                }
+                @media (min-width: 1280px) {
+                    font-size: 40px;
+                }
+            }
+
+            .email-sign-up__email-input {
+                border-radius: 12px;
+                padding: 10px;
+                font-size: 14px;
+                @media(min-width: 767px) {
+                    width: 300px;
+                    margin: 0 auto;
+                    padding: 15px 10px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+            }
+
+            .email-sign-up__link,
+            .email-sign-up__unsubscribe {
+                display: none;
+            }
+
+            .email-sign-up__policy-label {
+                a {
+                    color: black;
+                }
+            }
+            .button.email-sign-up__submit {
+                border-radius: 0px;
+                padding: 10px;
+                color: white;
+                font-family: $oxygenFont;
+                font-weight: 600;
+            }
+        }
+        @media(min-width: 1024px) {
+            .email-sign-up__policy-label {
+                display: block;
+            }
+            .#{$id}-blockBack {
+               background: transparent;
+            }
+            .#{$id}__block {
+                max-width: 600px;
+            }
+        }
+    }
+    &.#{$id}-2 {
+        .#{$id}__offer{
+            &::before {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        .#{$id}__blockInner {
+            padding-bottom: 0px;
+        }
+    }
+
+    &.#{$id}-3 {
+
+        .#{$id}__descriptionWrapper {
+            @media(min-width: 1024px) {
+                flex-direction: column-reverse;
+                .#{$id}__colLeft {
+                    margin: 0 auto;
+                    width: 60%;
+                }
+                .#{$id}__colRight {
+                    margin: 0 auto;
+                    width: auto;
+                    .#{$id}__heading,
+                    .#{$id}__paragraph{
+                        text-align: center;
+                    }
+                    .#{$id}__paragraph {
+                        width: auto;
+                    }
+                }
+                .#{$id}-blockBack {
+                    width: auto;
+                    height: 370px;
+                }
+                .#{$id}__block {
+                    height: 420px;
+                }
+            }
+        }
+
+        /* Four c's */
+        .#{$id}__fourcs {
+            &::before {
+                height: 250px;
+                @media(min-width: 1024px) {
+                    height: 400px;
+                }
+            }
+            .#{$id}__fourCDesc-wrapper {
+                margin-top: 50px;
+                .#{$id}__row {
+                    flex-direction: column-reverse;
+                    margin-bottom: 40px;
+                    &:nth-child(1),
+                    &:nth-child(2){
+                        .#{$id}__block {
+                            background-size: cover;
+                        }
+                    }
+                    .#{$id}_weights {
+                        margin-top: 10px;
+                        display: block;
+                        li {
+                            display: block;
+                            list-style: none;
+                            font-size: 19px;
+                            font-weight: 100;
+                            line-height: 22px;
+                        }
+                    }
+                    
+                    @media(min-width: 767px) {
+                        .#{$id}_weights {
+                            li {
+                                display: block;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                    @media(min-width: 1024px) {
+                        flex-direction: row;
+                        margin-top: 20px;
+                        &:last-of-type {
+                            margin-bottom: 20px;
+                        }
+                        &#carat,
+                        &#clarity {
+                            flex-direction: row-reverse;
+                            .#{$id}__colRight {
+                                margin-left: 0;
+                            }
+                        }
+                        .#{$id}__subHeading,
+                        .#{$id}__paragraph {
+                            text-align: left;
+                        }
+                        .#{$id}__paragraph {
+                            margin-left: 0;
+                            margin-right: 0;
+                            margin-bottom: 0;
+                            width: 90%;
+                        }
+                        .#{$id}_weights {
+                            display: block;
+                            list-style: none;
+                            margin-top: 8px;
+                            li {
+                                font-size: 27px;
+                                line-height: 33px;
+                            }
+                        }
+                    }
+                }
+                .#{$id}__heading {
+                    margin-bottom: 0px;
+                }
+                .#{$id}__subHeading {
+                    font-family: "Georgia,Times", "Times New Roman", serif;
+                     color: #4F4F4F;
+                     font-size: 27px;
+                     margin-bottom: 10px;
+                }
+                .#{$id}-blockBack {
+                    width: 90%;
+                    margin-bottom: 50px;
+                    margin-left: 5px;
+                    @media(min-width: 1024px) {
+                        .#{$id}__block {
+                            height: 300px;
+                        }
+                    }
+                }
+            }
+            @media(min-width: 1024px) {
+                .#{$id}__innerBox {
+                    margin-bottom: 70px;
+                }
+                .#{$id}__subHeading {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}

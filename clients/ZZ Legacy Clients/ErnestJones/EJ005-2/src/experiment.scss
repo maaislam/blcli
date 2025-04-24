@@ -1,0 +1,261 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+
+@keyframes EJHSballPulseDouble {
+  0%, 100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } 
+  }
+//Old elements reset and changes
+.#{$ID} {
+  // loader 
+  .#{$ID}-loader-container {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    z-index: 999;
+    transform: translateY(-50%);
+    .#{$ID}-loader {
+      width: 40px;
+      height: 40px; 
+    }  
+    &.#{$ID}-ball-pulse-double .#{$ID}-ball-1, 
+    &.#{$ID}-ball-pulse-double .#{$ID}-ball-2 {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        border-radius: 50%;
+        animation: EJHSballPulseDouble 2s ease-in-out infinite;
+        opacity: .5; 
+      }
+      &.#{$ID}-ball-pulse-double .#{$ID}-ball-2 {
+        animation-delay: -1s; 
+      }
+    &.#{$ID}-loader_show {
+      display: block;
+    }
+  }
+  .#{$ID}_button{
+    &:hover, &:focus, &:active {
+      .#{$ID}-loader-container {
+        border:0px;
+        box-shadow: unset;
+        outline: unset;
+        &.#{$ID}-ball-pulse-double .#{$ID}-ball-1, 
+        &.#{$ID}-ball-pulse-double .#{$ID}-ball-2 {
+          background-color: #bcacd5;
+          &:focus {
+            outline: unset;
+          }
+        }
+        &.#{$ID}-loader_show {
+          display: block;
+        }
+        .#{$ID}-loader {
+          &:focus {
+            outline: unset;
+          }
+        }
+      }
+    }
+  }
+
+  .#{$ID}_notification__button {
+    &:hover {
+      color: #BCADD4;
+      border: 1px solid #BCADD4;
+      a{
+        color: #BCADD4;
+      }
+    }
+  }
+
+  // basket icon
+  .basket-icon .basket-icon__counter {
+    padding: 2px .25em;
+    position: absolute;
+    top: -4px;
+    font-size: 13px;
+  }
+
+    @at-root #{&}_button {
+        display: block;
+        width: 100%;
+        position: relative;
+
+        @at-root #{&}Wrap {
+            width: 50%;
+            float: right;
+
+            &~#buy {
+                display: none;
+            }
+        }
+    }
+
+    @at-root #{&}_notification {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        width: 100%;
+        left: 0;
+        top: -76px;
+        z-index: 0;
+        font-size: 0;
+        text-align: center;
+        padding: 0 get-value($settings, 'base', 'baseline');
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        transition: opacity 0.25s, visibility 0.25s, top 0.25s ease-in-out;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+            top: 1px;
+            transition: opacity 0.25s, visibility 0.25s, top 0.25s ease-in-out;
+        }
+
+        @at-root #{&}Wrap {
+            position: relative;
+        }
+
+        @at-root #{&}__content {
+            position: relative;
+            max-width: calc(1200px - -24px);
+            margin: 0 auto;
+            padding: get-value($settings, 'base', 'baseline') 0;
+        }
+
+        @at-root #{&}__text {
+            font-weight: normal;
+            margin: 0;
+            text-transform: none;
+
+            small {
+                color: #000;
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 3);
+            }
+
+            &:before {
+                content: '';
+                display: inline-block;
+                position: relative;
+                top: 1px;
+                width: 15px;
+                height: 15px;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAnFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jUzeAAAAM3RSTlMABfvv8w3iQ/bVFLI6NSzq587KIwm4q6SdjHthJyAR3MWYg35xWlM+HL2QaUswGMCJahqd3o5fAAABcklEQVRYw+3V2ZKCMBBA0UBYBBV32VQURBx11vz/v401NSXdRMAOj3ofLU8oE0mzV0/dJvuadfE2F8Io1P3AENd6tqofXn2XFd65+M8YqnhvJG5NFPxqLMo43a8tAdqR/TGBfmtSvetAP+3oJxuqN6fQO243n3xQ/fwTemtN9dqio+9DP1qR/RJ5j+x96Dn9Hdo1e9ekeGNQPR5f6FmjD6Hv2Xe3N23wKfT6peZ49rU+Qv5Qe7xxjd8jn7NKJ7y23Dfy8lM42h25WMDOTGoinQ8q16G/t08F/Ab3GO6AfNS+x2M87y7Ip4/8S6wjHIA9ATqxugJ8T8EBCApa3lT5ph1y5B+/a97mtwFYttQIt2VfKwcY+Ihw3/uMzZBfaO0Ty0IrxJb0o9rCjxQKA9DjmNEH2MCge5ytCzmHMsByeYXkh1E6A6o2wLKKnzFqoTQAqQXyAKQPUfoAxK8mviDpzbd/V3TBlHMdfMXTM6PQY6+eqV9mr5/yQAukHwAAAABJRU5ErkJggg==');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                margin-right: get-value($settings, 'base', 'gutter');
+            }
+        }
+
+        @at-root #{&}__button {
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 4);
+            font-weight: bold;
+            display: block;
+            cursor: pointer;
+            background-color: get-value($settings, 'colors', 'ejPurple');
+            border: 1px solid get-value($settings, 'colors', 'ejPurple');
+            color: #fff;
+            padding: get-value($settings, 'base', 'baseline')/ 2 get-value($settings, 'base', 'baseline');
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                color: #000;
+            }
+
+            @at-root #{&}Wrap {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: get-value($settings, 'base', 'baseline')/2;
+            }
+        }
+    }
+
+    .pdpContent,
+    .container {
+        position: relative;
+    }
+
+    .main-site-header__styles {
+        position: relative;
+        z-index: 1;
+    }
+
+    .u-container.u-container--icons.desktop-header {
+        // position: relative;
+        z-index: 1;
+    }
+
+    @media screen and (min-width:1024px) {
+        .u-container.u-container--icons.desktop-header {
+            background: #fff;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .#{$ID}_notification__buttonWrap {
+            display: none;
+        }
+
+        .#{$ID}_notification {
+            top: -10px;
+
+            &.visible {
+                top: 0px;
+            }
+        }
+    }
+}
+
+body.hsamuel{
+    .#{$ID}_notification__button{
+        background-color: get-value($settings, 'colors', 'hsRed');
+        border: 1px solid get-value($settings, 'colors', 'hsRed');
+    }
+    .#{$ID}_button{
+      &:hover, &:focus, &:active {
+        .#{$ID}-loader-container {
+          border:0px;
+          box-shadow: unset;
+          outline: unset;
+          &.#{$ID}-ball-pulse-double .#{$ID}-ball-1, 
+          &.#{$ID}-ball-pulse-double .#{$ID}-ball-2 {
+            background-color: #a01d29;
+            &:focus {
+              outline: unset;
+            }
+          }
+          &.#{$ID}-loader_show {
+            display: block;
+          }
+          .#{$ID}-loader {
+            &:focus {
+              outline: unset;
+            }
+          }
+        }
+      }
+    }
+}

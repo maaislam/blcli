@@ -1,0 +1,127 @@
+.PU013 {
+  /*COMPONENTS*/
+  // ~ Steps
+  .PU013_StepsContainer {
+    padding: 10px 0;
+    margin: 0 auto 20px auto;
+    max-width: 500px;
+    // border-top: 1px solid white;
+    // border-bottom: 1px solid white;
+
+    @media (min-width: 768px) {
+      margin: 0 auto 40px auto;
+    }
+  }
+
+  .PU013_Steps {
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    position: relative;
+    user-select: none;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 90%;
+      left: 5%;
+      background: #d0d0d0;
+      top: 18px;
+
+      @media (min-width: 380px) {
+        width: 80%;
+        left: 10%;
+      }
+    }
+  }
+
+  .PU013_Step {
+    text-align: center;
+    display: inline-block;
+    width: 20%;
+
+    .PU013_Step__icon {
+      height: 35px;
+      width: 35px;
+      background: white;
+      border-radius: 50%;
+      color: #2e4b77;
+      font-weight: 500;
+      text-align: center;
+      position: relative;
+      font-size: 20px;
+      margin: 0 auto 5px auto;
+
+      span {
+        line-height: normal;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    > p {
+      display: block;
+      text-align: center;
+      font-size: 9px;
+      margin: 0;
+
+      @media (min-width: 380px) {
+        font-size: 11px;
+      }
+    }
+  }
+
+  .PU013_Step.PU013_Step--active {
+    .PU013_Step__icon {
+      background: #2f4b77;
+      color: white;
+      box-shadow: 0px 0px 0px 2px #ffffff;
+      border: 2px solid #2e4b78;
+    }
+  }
+
+  .PU013_Step__label {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .PU013_Step__progress {
+    margin-top: 5px;
+    font-size: 14px;
+    color: white;   
+    text-align: center;
+  }
+
+  /*EXISTING ELEMENTS*/
+  &.bodyBlueBackground .shoppingCart-wrapper {
+    @media (min-width: 768px) {
+      margin-top: -30px;
+    }
+  //   margin-bottom: 0;
+  //   border-bottom: none;
+  }
+
+  /*VARIATION DIFFERENCES*/
+  &.PU013-V1 {
+    .PU013_Step__label {
+      display: none;
+    }
+    .PU013_Step__progress {
+      display: none;
+    }
+  }
+
+  &.PU013-V2 {
+    .PU013_Steps {
+      display: none;
+    }
+    .PU013_Step > p {
+      display: none;
+    }
+  }
+}

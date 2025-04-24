@@ -1,0 +1,383 @@
+@import './variables';
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.#{$id} {
+  
+  .FilterAnchor * {
+      pointer-events: none;
+  }
+
+  .SD-321-brand-filter-holder {
+
+    background: #ECF1F7;
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2px 20px;
+    margin-bottom: 20px;
+    position: relative;
+
+    @media all and (max-width: 767px) {
+      flex-direction: column;
+      padding: 15px 20px 10px 0;
+    }
+
+    @media all and (max-width: 600px) {
+      padding: 10px;
+    }
+
+    .brand-filter-header {
+      display: flex;
+      width: 10%;
+
+      @media all and (max-width: 767px) {
+        width: 100%;
+      }
+
+      h2 {
+        display: flex;
+        margin: auto;
+        font-weight: bold;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0;
+        position: relative;
+        top: 1px;
+
+        @media all and (max-width: 767px) {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .loading-spinner {
+      display: none;
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: rgba(236, 241, 247, 0.7);
+
+      .loading-spinner-inner {
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      svg {
+        animation:spin 1s linear infinite;
+      }
+
+      p {
+        color: #000000;
+        text-align: center;
+        margin: 0;
+        padding-right: 10px;
+      }
+    }
+
+    &.loading {
+
+      .loading-spinner {
+        display: flex;
+      }
+
+    }
+
+    #brand-filter-arrow-left {
+      position: relative;
+      right: 10px;
+
+      @media all and (max-width: 767px) {
+        right: -5px;
+      }
+    }
+
+    .brand-filter-carousel-holder {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      @media all and (max-width: 767px) {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .swiper-wrapper {
+        @media all and (max-width: 767px) {
+          height: 100% !important;
+        }
+      }
+
+      .brand-filter {
+
+        
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:last-of-type {
+          border-right: none;
+        }
+
+
+
+        .brand-filter-button {
+          background: #FFF !important;
+          padding: 12px 5px 10px;
+          width: 90%;
+          color: #000;
+          font-size: 14px;
+          line-height: 14px;
+          opacity: 1;
+          display: flex;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #D6D7D9;
+          color: #707070;
+          border-radius: 10px;
+          max-height: 70px;
+
+          @media all and (max-width: 767px) {
+            font-size: 12px;
+          }
+
+          & * {
+            pointer-events: none;
+          }
+
+          &.fading {
+            opacity: 0;
+            transition: opacity 1s ease;
+            will-change: opacity;
+          }
+
+          &:hover {
+            font-weight: 700;
+            color: #FFF;
+            background: #2429ED !important;
+            transition: all 0.5s ease;
+
+            .inner-content.svg {
+
+              svg * {
+                fill: #FFF !important;
+              }
+
+
+            }
+
+
+
+          }
+
+          .promoted-crown {
+            height: 13px;
+
+            @media all and (max-width: 767px) {
+              height: 16px;
+            }
+
+            svg path {
+              fill: rgba(70, 176, 89, 1);
+            }
+          }
+        }
+
+        .inner-content.svg {
+          padding: 10px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            width: 50px;
+            
+            & * {
+              fill: #000;
+              opacity: 1;
+            }
+          }
+        }
+
+
+
+        #svg-lee-cooper,
+        #svg-gelert,
+        #svg-slazenger,
+        #svg-under-armour {
+          width: 70px;
+        }
+
+        #svg-jack-and-jones,
+        #svg-firetrap,
+        #svg-soulcal,
+        #svg-donnay,
+        #svg-no-fear {
+          width: 80px;
+        }
+
+        #svg-muddyfox,
+        #svg-pierre-cardin,
+        #svg-kappa,
+        #svg-calvin-klein,
+        #svg-dunlop,
+        #svg-character,
+        #svg-skechers {
+          width: 100px;
+        }
+
+        #svg-salomon {
+          position: relative;
+          top: 5px;
+        }
+
+        &.has-svg .brand-filter-button {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        &.active-filter {
+          display: none;
+        }
+
+        &.brand-active {
+
+          a {
+            font-weight: 700;
+            font-weight: 700;
+            color: #FFF;
+            background: #2429ED !important;
+          }
+
+          .inner-content.svg {
+
+            svg * {
+              fill: #FFF;
+            }
+          }
+
+          a .inner-content:after {
+            content: "✓";
+            font-weight: bold;
+            margin-left: 5px;
+            background: #FFF;
+            border-radius: 50%;
+            color: #2429ED;
+            padding: 4px 4px 2px 4px;
+            font-size: 14px !important;
+          }
+
+
+          .brand-filter-button:hover .inner-content:after {
+            content: "X";
+            padding: 4px 5px 2px 5px;
+
+            @media all and (max-width: 767px) {
+              display: none;
+            }
+          }
+
+        }
+
+              
+
+        @media all and (max-width: 767px) {
+          &.brand-promoted {
+            align-items: flex-start;
+          }
+        }
+
+        
+
+        &.brand-promoted .brand-filter-button {
+          color: rgba(70, 176, 89, 1);
+        }
+        
+        .brand-number {
+          display: none;
+        }
+
+        
+
+      }
+
+      .brand-filter-carousel-inner.loading {
+        opacity: 0;
+      }
+
+      .brand-filter-carousel-inner {
+        padding: 5px 0;
+        width: 85%;
+        opacity: 1;
+
+        @media all and (max-width: 600px) {
+          width: 100%;
+        }
+
+        .swiper-wrapper {
+          align-items: center;
+        }
+
+      }
+
+      .brand-filter-arrow {
+        width: 4%;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @media all and (max-width: 600px) {
+          display: none;
+        }
+
+        a {
+
+          svg path {
+            fill: #555;
+          }
+
+          &:hover svg path {
+            fill: #000;
+          }
+
+          &.swiper-button-disabled svg path {
+            fill: #AAA;
+          }
+        }
+
+        
+
+        svg {
+          position: relative;
+          top: 7px;
+        }
+
+        &.arrow-right {
+
+          justify-content: center;
+
+          svg {
+            transform: scaleX(-1);
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+}

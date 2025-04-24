@@ -1,0 +1,431 @@
+@import '../../../variables';
+
+.#{$id} {
+  #customisation_left {
+    #existing_personalisation {
+      display: none;
+
+      label[for="personalisation_new"] {
+        display: none;
+      }
+
+      label[for="personalisation_previous"] {
+        display: none;
+      }
+
+      &.#{$id}_options_show {
+        display: block;
+      }
+
+      @media(min-width: 767px) {
+        h2 {
+          padding-left: 20px;
+        }
+      }
+    }
+
+    .#{$id}_custom-options {
+      .#{$id}_custom-option {
+        cursor: pointer;
+
+        .logo_contact {
+          display: none !important;
+        }
+
+        @media(min-width: 767px) {
+          width: 32%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          overflow: hidden;
+          .#{$id}-existing_logos {
+            clear: both;
+            overflow-y: scroll;
+            height: 220px;
+            text-align: left;
+            .personalisation {
+              display: inline-block;
+              float: none;
+              width: 20%;
+              vertical-align: top;
+              margin: 10px;
+            }
+            .personalisation:nth-of-type(4n) {
+              clear: none;
+            }
+            &::-webkit-scrollbar-track{
+              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+              border-radius: 10px;
+              background-color: #F5F5F5;
+            } 
+            &::-webkit-scrollbar{
+              width: 12px;
+              background-color: #F5F5F5;
+            }
+            
+            &::-webkit-scrollbar-thumb{
+              border-radius: 10px;
+              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+              background-color: $orange;
+            }
+          }
+        }
+
+        .#{$id}_custom-option_box {
+          border: 1px solid #e4e1e1;
+          margin-bottom: 15px;
+          margin-top: 15px;
+
+          @media(min-width: 767px) {
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+
+          // triangle for when box is active
+          .#{$id}_custom-option_triangle {
+            display: none;
+            width: 84px;
+            top: 100%;
+            height: 20px;
+            position: absolute;
+            overflow: hidden;
+            box-shadow: 0 16px 10px -17px rgba(0, 0, 0, 0.5);
+            transform: translate(-50%) rotate(180deg);
+            left: 50%;
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 50%;
+              left: 50%;
+              background: white;
+              transform: translate(-50%) rotate(45deg);
+              box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.5);
+              border-left: 1px solid $orange;
+              border-top: 1px solid $orange;
+            }
+          }
+
+          .#{$id}_custom-option_logo {
+            display: inline-block;
+            width: 100px;
+            height: 95px;
+            margin-right: 10px;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            vertical-align: middle;
+
+            @media(min-width: 767px) {
+              width: 100%;
+              display: block;
+              height: 120px;
+              background-size: 30%;
+            }
+          }
+
+          .#{$id}_custom-option_text {
+            display: inline-block;
+            vertical-align: middle;
+            width: 60%;
+
+            h3 {
+              margin-bottom: 5px;
+            }
+
+            p {
+              margin-bottom: 10px;
+              color: #a5a5a5;
+              font-weight: 100;
+              font-size: 14px;
+            }
+
+            @media(min-width: 767px) {
+              display: block;
+              width: auto;
+              padding: 10px;
+              text-align: center;
+              margin: 0px;
+              height: 110px;
+
+              h3 {
+                width: auto;
+              }
+            }
+          }
+        }
+
+        &:nth-of-type(1) {
+          .#{$id}_custom-option_logo {
+            background-color: rgba(249, 143, 0, 0.13);
+          }
+        }
+
+        &:nth-of-type(2) {
+          .#{$id}_custom-option_logo {
+            background-color: rgba(204, 204, 204, 0.15);
+            height: 110px;
+            @media(min-width: 767px) {
+              height: 120px;
+            }
+          }
+        }
+
+        .#{$id}_custom-option_content {
+          display: none;
+
+          @media(min-width: 767px) {
+            position: absolute;
+            width: 100%;
+            bottom: auto;
+            left: 0;
+          }
+        }
+
+        // logo upload
+        #logo_upload {
+          text-align: center;
+          br {
+            display: none;
+          }
+          h2,
+          .logo_or {
+            display: none;
+          }
+
+          textarea {
+            width: 92%;
+            margin: 10px;
+            border: 1px solid #ccc;
+            @media(min-width: 767px) {
+              width: 96%;
+              height: 50px;
+            }
+          }
+
+          label:last-of-type {
+            text-align: left;
+            font-size: 14px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 10px;
+          }
+
+          .#{$id}-file_icon {
+            background-image: url('https://cdn-sitegainer.com/w316lvicvl4sxrl.png');
+            height: 70px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            margin: 10px;
+            background-size: 17%;
+            background-repeat: no-repeat;
+            background-position: 50% 20%;
+            position: relative;
+            padding-bottom: 20px;
+            cursor: pointer;
+
+            @media(min-width: 767px) {
+              margin-top: 20px;
+              height: 100px;
+              background-position: 50% 35%;
+              background-size: 10%;
+            }
+
+            span {
+              position: absolute;
+              left: 50%;
+              top: 73%;
+              transform: translate(-50%, -50%);
+              font-weight: 100;
+
+              @media(min-width: 767px) {
+                top: 76%;
+              }
+            }
+
+            .logo_upload {
+              margin-bottom: 15px;
+
+            }
+          }
+
+          #logo_uploadz {
+            display: none;
+          }
+
+          // image uploaded 
+          .#{$id}-image_uploaded {
+            text-align: left;
+            padding: 10px;
+            padding-bottom: 5px;
+            p {
+              font-family: 'raleway', Arial, Helvetica, sans-serif;
+              margin-bottom: 5px;
+            }
+
+            img {
+              display: inline-block;
+              width: 50px;
+              height: 50px;
+              border: 1px solid #ccc;
+              padding: 5px;
+              vertical-align: middle;
+            }
+
+            span {
+              display: inline-block;
+              vertical-align: middle;
+              font-size: 13px;
+              margin-left: 10px;
+            }
+          }
+          @media(min-width: 767px) {
+            p {
+              display: inline-block;
+              margin-right: 20px;
+            }
+          }
+        }
+
+        &.#{$id}_option_active {
+          .#{$id}_custom-option_box {
+            border: 1px solid $orange;
+            box-shadow: 0px 2px 3px #ccc;
+            position: relative;
+            background: white;
+
+            .#{$id}_custom-option_triangle {
+              display: block;
+            }
+          }
+
+          .#{$id}_custom-option_content {
+            display: block;
+          }
+
+          #logo_upload {
+            display: block !important;
+          }
+
+          @media(min-width: 767px) {
+            margin-bottom: 350px;
+          }
+        }
+
+        &:nth-of-type(3) {
+          .#{$id}_custom-option_logo {
+            background-color: rgba(98, 190, 19, 0.13);
+          }
+
+          &.#{$id}_option_active {
+            .#{$id}_custom-option_triangle {
+              display: none;
+            }
+          }
+        }
+
+        .#{$id}_noUploads {
+          p {
+            text-align: center;
+            margin-bottom: 15px;
+            margin-top: 20px;
+          }
+        }
+        .#{$id}_uploadNew {
+          width: 50%;
+          margin: 0 auto;
+          background: #f98f00;
+          color: white;
+          text-align: center;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 13px;
+          margin-top: 20px;
+          @media(min-width: 767px) {
+            width: 29%;
+            padding: 10px;
+            font-size: 15px;
+          }
+        }
+
+        &.#{$id}-existing-logo-upload {
+          .#{$id}_custom-option_content {
+            @media(min-width: 767px) {
+              top: 46%;
+              bottom: auto;
+            }
+          }
+
+          .#{$id}-existing_logos {
+            .personalisation {
+              display: none;
+
+              &.#{$id}-previous_active {
+                display: inline-block;
+                text-align: center;
+                width: 50%;
+                vertical-align: top;
+                img {
+                  display: block;
+                  float: none;
+                  margin: 0 auto;
+                  margin-bottom: 10px;
+                }
+                input, br {
+                  display: none;
+                }
+                span {
+                  display: block;
+                }
+                @media(min-width: 767px) {
+                  width: 25%;
+                }
+              }
+              &.#{$id}-prev-logo_active {
+                span {
+                  font-weight: bold;
+                }
+                img {
+                  border: 1px solid #f78f23;
+                }
+              }
+            }
+            @media(min-width: 767px) {
+              padding: 20px;
+            }
+          }
+          &.#{$id}-noMatchingUploads{
+            @media(min-width: 767px) {
+              &.#{$id}_option_active{
+              margin-bottom: 160px;
+                .#{$id}_custom-option_content {
+                  top: 63%;
+                }
+              }
+            }
+          }
+        }
+
+        &.#{$id}-email-later {
+          @media(min-width: 767px) {
+            margin-bottom: 0px;
+          }
+        }
+      }
+
+      @media(min-width: 767px) {
+        position: relative;
+        text-align: center;
+      }
+    }
+
+
+    @media(min-width: 767px) {
+      .logo_upload {
+        width: 100%;
+      }
+    }
+  }
+}

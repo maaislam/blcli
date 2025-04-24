@@ -1,0 +1,315 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-ageCheckSubscription {
+        display: none;
+    }
+    &.#{$id}-alcohol {
+        #add-to-cart,
+        .sub-product-item.add-to-cart,
+        .button-fancy-large.add-all-to-cart {
+            display: none;
+        }
+        .impulse-upsell-wrapper {
+            display: none;
+            margin-top: 20px !important;
+        }
+    
+
+    // CTAs
+        .#{$id}-ageCheck,
+        .#{$id}-button {
+            background: #000;
+            border: 1px solid #000;
+            color: #fff;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            outline: 0;
+            display: block;
+            letter-spacing: .05rem;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            padding: 0 5px;
+            font-family: GillSansNova-Medium;
+            font-size: .75rem;
+            float: left;
+            margin-bottom: 10px;
+            width: 100%;
+            cursor: pointer;
+            &.#{$id}-disabled {
+                pointer-events: none;
+                opacity: 0.5;
+            }
+            @media(min-width: 1024px) {
+                &:hover {
+                    background: white;
+                    color: black;
+                }
+            }
+        }
+        .#{$id}-ageCheckSubscription {
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid black;
+            box-sizing: border-box;
+            clear: both;
+            margin-bottom: 10px;
+            display: block;
+        }
+    }
+
+
+    .#{$id}-back {
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: underline;
+        margin-top: 20px;
+        display: block;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        clear: both;
+    }
+
+    .#{$id}-overlay {
+        position: fixed;
+        z-index: 9999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        background-color: rgba(80, 80, 80, 0.7);
+        @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+           
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            
+        }
+        @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+
+            background-color: rgba(36, 35, 35, 1);
+            
+          }
+       
+        &.#{$id}-overlayHide {
+            display: none;
+        }
+    }
+
+    .#{$id}-ageBox {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        z-index: 99999;
+        width: 90%;
+        box-sizing: border-box;
+        max-width: 450px;
+        border: 5px solid black;
+        padding: 15px;
+        @media(orientation: landscape) {
+            max-height: 90%;
+            overflow: auto; 
+        }
+        @media(min-width: 1024px) {
+            max-height:unset;
+            overflow: unset;
+            padding: 20px;
+        }
+        &.#{$id}-modalHide {
+            display: none;
+        }
+
+        .#{$id}-close {
+           height: 20px;
+           width: 20px;
+           background: url('https://editor-assets.abtasty.com/48343/614c9faeddbc71632411566.png') no-repeat center;
+           background-size: contain;
+           position: absolute;
+           top: 5px;
+           right: 5px;
+           cursor: pointer;
+           @media(min-width: 1024px) {
+               height: 30px;
+               width: 30px;
+           }
+            
+        }
+        .#{$id}-modalInner {
+            h3 {
+                width: auto;
+                letter-spacing: 0.5px;
+                font-family: GillSansNova-Medium;
+                text-transform: uppercase;
+                font-size: 16px;
+                position: relative;
+                padding: 10px;
+                padding-bottom: 8px;
+                padding-left: 40px;
+                line-height: 24px;
+                padding-left: 35px;
+                @media(min-width: 1024px) {
+                    font-size: 18px;
+                    padding: 15px;
+                    padding-bottom: 13px;
+                    padding-left: 40px;
+                }
+            
+                &::before {
+                    content: '';
+                    height: 30px;
+                    width: 30px;
+                    position: absolute;
+                    left: 0px;
+                    background: url('https://editor-assets.abtasty.com/48343/614c967a8407e1632409210.png') no-repeat center;
+                    background-size: contain;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    @media(min-width: 1024px) {
+                        height: 35px;
+                        width: 35px;
+                    }
+                }
+                &::after {
+                    content: '';
+                    height: 1px;
+                    background: black;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+            .#{$id}-question {
+                margin-top: 10px;
+                display: none;
+                &.#{$id}-active {
+                    display: block;
+                }
+                p {
+                    font-size: 16px;
+                    font-family: GillSansNova-light;
+                    line-height: 22px;
+                    @media(min-width: 767px) {
+                        margin-top: 15px;
+                    }
+                }
+                .#{$id}-options {
+                    margin-top: 10px;
+            
+                    
+                    p {
+                        font-family: GillSansNova-Medium;
+                    }
+                    .#{$id}-radio {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        font-size: 15px;
+                        font-family: GillSansNova-light;
+                        color: black;
+                        padding: 10px;
+                        border: 1px solid #cdcdcd;
+                        box-sizing: border-box;
+                        margin-top: 10px;
+                        cursor: pointer;
+                        .#{$id}-radio__input {
+                            display: flex;
+                            margin-right: 10px;
+                            input {
+                              opacity: 0;
+                              width: 0;
+                              height: 0;  
+                              border: 0px;                           
+                            }
+                          }
+
+
+                        .#{$id}-radio__control {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 50px;
+                            border: 0.1em solid black;
+                            transform: translateY(-0.05em);
+                        }
+                    
+                        input + .#{$id}-radio__control::before {
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            background: #a48b69;
+                            border-radius: 50px;
+                            transition: 180ms transform ease-in-out;
+                            transform: scale(0);
+                        }
+                    
+                        input:checked + .#{$id}-radio__control::before {
+                            transform: scale(1);
+                        }
+                    }
+                      
+                    .#{$id}-radio__label {
+                        line-height: 1;
+                        transition: 180ms all ease-in-out;
+                        opacity: 0.8;
+                        padding-top: 2px;
+                    }
+                    
+                    .#{$id}-boxes {
+                        display: flex;
+                        flex-direction: column;
+                        @media(min-width: 767px) {
+                            flex-direction: row;
+                            justify-content: space-between;
+                            .#{$id}-radio {
+                                flex-grow: 1;
+                                margin: 10px;
+                                padding: 12px;
+                                &:first-of-type{
+                                    margin-left: 0;
+                                }
+                                &:last-of-type{
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+                    }   
+        
+                }
+
+                &.#{$id}-restrictedBox {
+                    p {
+                        margin-top: 15px;
+                        margin-bottom: 10px;
+                        color: #db2121;
+                    }
+                }
+                .#{$id}-button {
+                    margin-top: 10px;
+                    &.#{$id}-hidden {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-noRestriction {
+        #add-to-cart {
+            display: block;
+        }
+        .#{$id}-ageCheck{
+            display: none;
+        }
+    }
+}

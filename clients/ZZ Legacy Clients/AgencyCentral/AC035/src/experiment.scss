@@ -1,0 +1,470 @@
+.AC035 {
+  left: 0;
+  right: 0;
+  margin: auto;
+  
+  #contact-form-container {
+
+    // Main positioning of popup
+    .contact-body {
+      display: none;
+      height: auto;
+      margin: auto;
+      max-width: 690px;
+      max-height: 590px;
+      overflow: auto;
+      width: auto;
+      top: 5%;
+      padding: 0;
+      padding-bottom: 30px;
+      background-color: #FAFAFA;
+      &.visible {
+        display: block;
+        left: 0;
+      }
+      // Close
+      i.fa.fa-times {
+        z-index: 999;
+        color: #fff !important;
+        top: 10px !important;
+        padding: 0 !important;
+      }
+      // Reset
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    // General Styles
+    .AC035-form-header, .title-section {
+      background-color: #2F6BA5;
+      padding: 13px 40px 13px 20px;
+      h1 {
+        font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #fff;
+        margin: 0;
+        font-size: 18px;
+        line-height: 26px;
+        i {
+          margin-right: 20px;
+          font-size: 28px;
+        }
+      }
+      .horizontal-separator { display: none }
+    }
+    .AC035-form-field {
+      outline: #E8E8E8;
+      color: #B8B8B8;
+      &:focus {
+        outline: #E8E8E8;
+        color: #000;
+      }
+      &:active {
+        color: #000;
+      }
+    }
+    .AC035-form-cta {
+      background-color: #F95D2D;
+      color: #fff;
+    }
+    .AC035-required { text-align: right; }
+    // Order circles
+    .stage-indicator-container, .stage-indicator-container + h2 { display: none }
+    // Overlay
+    .contact-overlay {
+      background: rgba(0,0,0,0.6);
+    }
+    #contact-form {
+      position: relative;
+      .AC035-required {
+        position: absolute;
+        top: 0; right: 20px;
+      }
+    }
+
+
+    // User choice styles
+    &.AC035-user-type {
+      .contact-body {
+        max-width: 350px;
+        .selection {
+          // Image
+          .col-lg-3.col-md-4.col-sm-5.col-xs-5 {
+            text-align: center;
+            span {
+              margin: 0 auto; 
+              padding: 5px 15px;
+              border: 1px solid #b4b4b4;
+              box-sizing: border-box;
+              border-radius: 6px;
+              width: 64px;
+              height: 64px;
+              svg {
+                width: 30px;
+                height: 55px;
+              }
+            }
+          }
+          // Text 
+          span.center {
+            margin-top: 0 !important;
+            font-size: 16px;
+            color: #686868;
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+
+    // Location styles
+    &.AC035-location {
+      .contact-body {
+        max-width: 350px;
+        .horizontal-separator { display: none }
+        .branch-selection {
+          h2 {
+            display: inline-block;
+            padding-left: 30px;
+            position: relative;
+            cursor: pointer;
+            &:before {
+              content: "";
+              position: absolute;
+              left: 0; top: 3px;
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 10px 0 10px 15px;
+              border-color: transparent transparent transparent #2F6BA5;
+            }
+            &.active {
+              &:before {
+                transform: rotate(90deg);
+              }
+            }
+          }
+          .row {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    // Email Enquiry Form
+    &.AC035-email-enquiry {
+
+      // EMPLOYER 
+      .AC035-is-emp {
+
+        .horizontal-separator { display: none }
+
+        // Form Inputs and labels
+        input#contact-form-contact-name, label[for="contact-form-contact-name"], input#contact-form-telephone-number, label[for="contact-form-telephone-number"], input#contact-form-job-location, label[for="contact-form-job-location"], select#contact-form-employment-type, label[for="contact-form-employment-type"], input#contact-form-first-name, label[for="contact-form-first-name"], input#contact-form-surname, label[for="contact-form-surname"], input#contact-form-preferred-job-role, label[for="contact-form-preferred-job-role"], input#contact-form-preferred-location, label[for="contact-form-preferred-location"] {
+          display: block;
+          width: 45%;
+          float: left;
+          clear: left;
+        }
+
+        input#contact-form-telephone-number, label[for="contact-form-telephone-number"], select#contact-form-employment-type, label[for="contact-form-employment-type"], input#contact-form-surname, label[for="contact-form-surname"], input#contact-form-preferred-location, label[for="contact-form-preferred-location"] {
+          float: right;
+          clear: right;
+          position: relative;
+          top: -28px;
+        }
+
+        input[type="submit"] {
+          display: block;
+          margin: auto;
+        }
+
+        // Textarea re add padding / margin
+        textarea#contact-form-enquiry {
+          width: calc(100% - 30px);
+          margin: auto;
+        }
+        label[for="contact-form-enquiry"] {
+          margin-left: 15px;
+        }
+
+        // Your details
+        .AC035-your-detials {
+          > h2 {
+            margin-top: 0;
+          }
+        }
+
+        // Job Details
+        .AC035-job-detials {
+          > h2 { display: none }
+
+          input#contact-form-job-spec-file {
+            visibility: hidden;
+            height: 0;
+          }
+          label[for="contact-form-job-spec-file"] {
+            display: block !important;
+            text-align: center;
+            vertical-align: top;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #686868;
+            background-color: #ffffff;
+            border: 0;
+            box-shadow: 0 2px #a2a2a2;
+            border-radius: 4px;
+            outline: none;
+            padding: 6px 12px;
+            max-width: 200px;
+            border: 1px solid #ccc;
+            width: 100%;
+            cursor: pointer;
+            transition: ease-in all .2s;
+            // &:hover {
+            //   box-shadow: 0 2px #fff;
+            // }
+          }
+
+        }
+
+        // Options container
+        .well.form-group.col-md-12.checkbox-row-container {
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+          padding-top: 0;
+          padding: 0 20px;
+          > h3 {
+            display: none;
+          }
+        }
+
+      }
+
+      // CANDIDATE
+      .AC035-is-cnd {
+        .horizontal-separator { display: none }
+
+        .title-section {
+          h3 { display: none }
+        }
+
+        // Input layout
+        input#contact-form-first-name, label[for="contact-form-first-name"], input#contact-form-surname, label[for="contact-form-surname"], input#contact-form-email-address, label[for="contact-form-email-address"], input#contact-form-telephone-number, label[for="contact-form-telephone-number"], input#contact-form-preferred-job-role, label[for="contact-form-preferred-job-role"], input#contact-form-preferred-location, label[for="contact-form-preferred-location"] {
+          display: block;
+          width: 45%;
+          float: left;
+          clear: left;
+        }
+
+        input#contact-form-surname, label[for="contact-form-surname"], input#contact-form-telephone-number, label[for="contact-form-telephone-number"], input#contact-form-preferred-location, label[for="contact-form-preferred-location"] {
+          float: right;
+          clear: right;
+          position: relative;
+          top: -28px;
+        }
+
+        label[for="contact-form-job-title"] {
+          margin-top: 20px;
+        }
+
+        h2 { display: none }
+
+        h3 { 
+          margin-top: 20px; 
+          clear: both;
+        }
+
+        .AC035-cnd-cv {
+
+          input#contact-form-cv-file {
+            visibility: hidden;
+            height: 0;
+          }
+          label[for="contact-form-cv-file"] {
+            display: block !important;
+            text-align: center;
+            vertical-align: top;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #686868;
+            background-color: #ffffff;
+            border: 0;
+            box-shadow: 0 2px #a2a2a2;
+            border-radius: 4px;
+            outline: none;
+            padding: 6px 12px;
+            max-width: 250px;
+            border: 1px solid #ccc;
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+
+        .AC035-cnd-job {
+          br { display: none }
+
+          label[for="contact-form-salary-expectation-annual"] {
+            margin-right: 20px;
+          }
+          label[for="contact-form-salary-expectation-value"] {
+            display: none;
+          }
+        }
+
+        // Textarea re add padding / margin
+        textarea#contact-form-email-content {
+          width: calc(100% - 30px);
+          margin: auto;
+        }
+        label[for="contact-form-email-content"] {
+          margin-left: 15px;
+        }
+
+        // Options container
+        .well.form-group.col-md-12.checkbox-row-container {
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+          padding-top: 0;
+          padding: 0 20px;
+          > h3 {
+            display: none;
+          }
+        }
+
+        input[type="submit"] {
+          display: block;
+          margin: auto;
+        }
+
+      }
+    }
+
+    // Call Company Form
+    &.AC035-display-number, &.AC035-visit-site {
+
+      .AC035-is-emp {
+        h2, .horizontal-separator, br { display: none }
+
+        .v2st-whyask-1 {
+          text-align: center;
+          max-width: 550px;
+          margin: auto;
+          margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+          display: block;
+          margin: auto;
+        }
+
+      }
+
+      .AC035-is-cnd {
+
+        form#contact-form {
+          margin-top: 20px;
+        }
+
+        // Input layout
+        input#contact-form-first-name, label[for="contact-form-first-name"], input#contact-form-surname, label[for="contact-form-surname"], input#contact-form-email-address, label[for="contact-form-email-address"], input#contact-form-telephone-number, label[for="contact-form-telephone-number"] {
+          display: block;
+          width: 45%;
+          float: left;
+          clear: left;
+        }
+
+        input#contact-form-surname, label[for="contact-form-surname"], input#contact-form-telephone-number, label[for="contact-form-telephone-number"] {
+          float: right;
+          clear: right;
+          position: relative;
+          top: -28px;
+        }
+
+        label[for="contact-form-job-title"] {
+          display: block;
+          clear: both;
+        }
+
+        h2, .horizontal-separator, br { display: none }
+
+        .v2st-whyask-1 {
+          text-align: center;
+          max-width: 550px;
+          margin: auto;
+          margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+          display: block;
+          margin: auto;
+        }
+
+        .AC035-cnd-banner {
+          text-align: center;
+          background-color: #2F6BA5;
+          padding: 4px 12px;
+          margin: 20px 0;
+          p {
+            margin: 0;
+            color: #fff;
+            font-size: 12px;
+          }
+        }
+
+        .gdpr-div {
+          display: block;
+          clear: both;  
+        }
+
+        .v2st-whyask-1 { display: none }
+
+        input[type="submit"] {
+          margin-top: 20px;
+        }
+
+      }
+
+    }
+
+    // User choice dependant styles
+    .inner-contact-body {
+  
+      
+  
+      // Employer styles
+      .AC035-is-emp {
+  
+      }
+  
+      // Candidate styles
+      .AC035-is-cand {
+  
+      }
+  
+    }
+
+  }
+
+  #search-results-container .candidate-assist-panel.row { display: none }
+
+  @media only screen and (min-width: 991px) {
+    // Make everything full width.
+    #contact-form-container {
+      form#contact-form {
+        .col-md-12 .col-md-6 {
+          width: 100%;
+        }
+      }
+      .col-lg-12 .col-lg-4 {
+        width: 100%;
+      }
+    }
+  }
+} 

@@ -1,0 +1,156 @@
+@import './variables';
+
+.#{$id} {
+
+    .products-services:not(.#{$id}__extraServicesSection),
+    .offer-box:has(img.feature-left[alt*="An EV charger"]),
+    .offer-box:has(img[alt*="Engineer working"]),
+    .offer-box:has(img.feature-left[alt*="A child trying"]) {
+        display: none;
+    }
+
+    .offer-box {
+        .offer-container {
+            margin: 15px 84px !important;
+            align-items: stretch;
+
+            @include media-query(lg) {
+                margin: 15px 0 !important;
+            }
+
+            .offer-content {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+
+                .btn--rounded {
+                    margin-top: auto !important;
+                    margin-bottom: 2em !important;
+    
+                    @include media-query(sm) {
+                        margin: 1em 0 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &__extraServicesSection {
+        .#{$id}__cardsWrapper {
+            padding: 0 !important;
+
+            @include media-query(sm) {
+                width: 90% !important;
+                left: 5% !important;
+
+                h2 {
+                    margin: 0px 0 16px 0 !important;
+                    font-size: 24px !important;
+                }
+            }
+        }
+
+        .promo-box {
+            padding: 32px 28px 20px !important;
+
+            @include media-query(sm) {
+                padding: 20px !important;
+
+                a.btn--rounded {
+                    margin: 0 !important;
+                }
+
+                h3 {
+                    margin-top: 10px !important;
+                }
+
+                p {
+                    font-size: 14px !important;
+                }
+            }
+
+            &:first-child,
+            &:nth-child(2) {
+
+                h3,
+                p,
+                a {
+                    max-width: 152px;
+
+                    @include media-query(sm) {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            &:last-child {
+                h3 {
+                    text-wrap: nowrap;
+                }
+            }
+        }
+
+        a.btn--rounded {
+            font-size: 14px !important;
+            padding: 7.5px 4px !important;
+        }
+
+        .page {
+            .grid {
+                grid-gap: 15px !important;
+            }
+
+            p {
+                font-weight: 600 !important;
+            }
+        }
+    }
+
+    a.btn--rounded {
+        color: #fff;
+        background-color: #E62419;
+
+        &:hover {
+            background-color: #a2241f !important;
+            border-color: #a2241f !important;
+        }
+    }
+
+    &__plumbingCard {
+        .offer-image {
+            
+            //min-width: 415px !important;
+            height: auto !important;
+            //position: relative;
+
+            // .bubble {
+            //     position: absolute;
+            //     top: -12% !important;
+            //     right: 8%;
+            // }
+
+            @include media-query(sm) {
+                height: 205px !important;
+            }
+
+            @include media-query(lg) {
+                // min-width: auto !important;
+                // .bubble {
+                //     position: absolute;
+                //     top: -25% !important;
+                //     right: 0;
+                // }
+
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .offer-content {
+        @include media-query(sm) {
+            margin: 8px 16px 0 !important;
+        }
+    }
+}

@@ -1,0 +1,129 @@
+.#{$id} {
+  .#{$id}-specs {
+    display: none;
+    gap: 15px;
+    background-color: #fff;
+    border: 1px solid $color-grey;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 15px;
+    margin-top: 20px;
+
+    @include media($media-tablet) {
+      gap: 0;
+      display: block;
+    }
+
+    h3 {
+      //   padding: 10px;
+      padding: 10px 10px 15px 10px;
+      text-align: center;
+    }
+
+    ul {
+      --visible-cols: 1;
+      --col-gap: 20px;
+      --col-hint: 100px;
+      --scroller-padding: 10px;
+      --col-size: calc((100% / var(--visible-cols)) - var(--col-gap) - var(--col-hint));
+
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: var(--col-size);
+      grid-auto-columns: var(--col-size);
+      overflow-x: auto;
+      overflow-y: hidden;
+      grid-gap: var(--col-gap);
+      padding-bottom: var(--scroller-padding);
+      scroll-snap-type: x mandatory;
+
+      @include media($media-mobile) {
+        --visible-cols: 2;
+        --col-hint: 50px;
+      }
+
+      @include media($media-tablet) {
+        --visible-cols: 3;
+      }
+
+      @include media($media-desktop) {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    li {
+      scroll-snap-align: center;
+
+      .#{$id}-specs__image {
+        position: relative;
+        // padding-top: 75%;
+        height: 45px;
+        margin-bottom: 20px;
+        display: none;
+
+        @include media($media-tablet) {
+          display: block;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          //   width: 55%;
+          //   height: 55%;
+          width: 100%;
+          height: 100%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &:nth-child(1) .#{$id}-specs__image::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath fill='%230dbbf4' d='M448 288c35.3 0 64 28.7 64 64v96c0 35.3-28.7 64-64 64H64C30.86 512 3.608 486.8.33 454.5.113 452.4 0 450.2 0 448V64C0 28.65 28.65 0 64 0h96c35.3 0 64 28.65 64 64v224h224zm-256-96v-64h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16h64V64c0-17.67-14.3-32-32-32H64c-17.67 0-32 14.33-32 32v384c0 1.1.06 2.2.17 3.3C33.8 467.4 47.45 480 64 480h384c17.7 0 32-14.3 32-32v-96c0-17.7-14.3-32-32-32h-32v64c0 8.8-7.2 16-16 16s-16-7.2-16-16v-64h-64v64c0 8.8-7.2 16-16 16s-16-7.2-16-16v-64h-64v64c0 8.8-7.2 16-16 16s-16-7.2-16-16v-64h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16h64v-64h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16h64z'/%3E%3C/svg%3E");
+      }
+
+      &:nth-child(2) .#{$id}-specs__image::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath fill='%230dbbf4' d='M208 320H80c-8.84 0-16 7.2-16 16s7.16 16 16 16h128c8.838 0 16-7.164 16-16s-7.2-16-16-16zm96-96H80c-8.84 0-16 7.2-16 16s7.16 16 16 16h224c8.8 0 16-7.2 16-16s-7.2-16-16-16zm0-96H80c-8.84 0-16 7.2-16 16s7.16 16 16 16h224c8.8 0 16-7.2 16-16s-7.2-16-16-16zM320 0H64C28.65 0 0 28.65 0 64v384c0 35.35 28.65 64 64 64h256c35.35 0 64-28.65 64-64V64c0-35.35-28.7-64-64-64zm32 448c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V64c0-17.64 14.36-32 32-32h256c17.64 0 32 14.36 32 32v384z'/%3E%3C/svg%3E");
+      }
+
+      &:nth-child(3) .#{$id}-specs__image::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath fill='%230dbbf4' d='M448 96H272l-45.3-45.25C214.7 38.74 198.5 32 181.5 32H64C28.65 32 0 60.66 0 96v320c0 35.34 28.65 64 64 64h384c35.35 0 64-28.66 64-64V160c0-35.3-28.7-64-64-64zm32 320c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V96c0-17.64 14.36-32 32-32h117.5c8.549 0 16.58 3.328 22.63 9.375L258.7 128H448c17.64 0 32 14.36 32 32v256zM352.1 232c-4.438-7.656-14.22-10.31-21.86-5.844l-15.56 8.98C304.3 222.4 289.3 213.1 272 209.6V192c0-8.844-7.156-16-16-16s-16 7.2-16 16v17.62c-17.3 3.48-32.3 12.78-43.6 25.48l-15.5-8.9c-7.7-4.5-17.5-1.9-21.9 5.8s-1.8 17.4 5.9 21.8l15.5 9c-2.6 8-4.4 16.4-4.4 25.2s1.785 17.2 4.445 25.16l-15.59 8.996C157.2 326.6 154.6 336.3 159 344c2.1 5.1 8.3 8 13.9 8a15.77 15.77 0 0 0 7.984-2.156l15.56-8.98c11.29 12.71 26.31 22 43.58 25.52V384c0 8.844 7.156 16 16 16s16-7.156 16-16v-17.62c17.27-3.52 32.3-12.81 43.58-25.52l15.56 8.98C333.7 351.3 336.4 352 339.1 352c5.531 0 10.9-2.875 13.87-8 4.422-7.656 1.8-17.44-5.856-21.84L331.6 313.2c2.6-8 4.4-16.4 4.4-25.2s-1.785-17.2-4.445-25.16l15.59-8.996C354.8 249.4 357.4 239.7 352.1 232zM256 336c-26.47 0-48-21.53-48-48s21.5-48 48-48 48 21.53 48 48-21.5 48-48 48z'/%3E%3C/svg%3E");
+      }
+
+      &:nth-child(4) .#{$id}-specs__image::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath fill='%230dbbf4' d='M641.5 256c0 3.1-1.7 6.1-4.5 7.5L547.9 317c-1.4.8-2.8 1.4-4.5 1.4-1.4 0-3.1-.3-4.5-1.1-2.8-1.7-4.5-4.5-4.5-7.8v-35.6H295.7c25.3 39.6 40.5 106.9 69.6 106.9H392V354c0-5 3.9-8.9 8.9-8.9H490c5 0 8.9 3.9 8.9 8.9v89.1c0 5-3.9 8.9-8.9 8.9h-89.1c-5 0-8.9-3.9-8.9-8.9v-26.7h-26.7c-75.4 0-81.1-142.5-124.7-142.5H140.3c-8.1 30.6-35.9 53.5-69 53.5C32 327.3 0 295.3 0 256s32-71.3 71.3-71.3c33.1 0 61 22.8 69 53.5 39.1 0 43.9 9.5 74.6-60.4C255 88.7 273 95.7 323.8 95.7c7.5-20.9 27-35.6 50.4-35.6 29.5 0 53.5 23.9 53.5 53.5s-23.9 53.5-53.5 53.5c-23.4 0-42.9-14.8-50.4-35.6H294c-29.1 0-44.3 67.4-69.6 106.9h310.1v-35.6c0-3.3 1.7-6.1 4.5-7.8 2.8-1.7 6.4-1.4 8.9.3l89.1 53.5c2.8 1.1 4.5 4.1 4.5 7.2z'/%3E%3C/svg%3E");
+      }
+
+      &:nth-child(5) .#{$id}-specs__image::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath fill='%230dbbf4' d='M192 400c8.8 0 16 7.2 16 16s-7.2 16-16 16c-61.9 0-112-50.1-112-112.9 0-7.9 7.16-16 16-16 8.8 0 16 8.1 16 16 0 45.1 35.8 80.9 80 80.9zm176-80.9c0 98.1-78.8 176.9-176 176.9S16 417.2 16 319.1c0-73.2 102.3-229.67 150.9-299.8 12.3-17.715 37.9-17.715 50.2 0C265.7 89.43 368 245.9 368 319.1zm-46.5-55.7c-9.7-24.5-23.3-51.8-38.7-79.7-30.4-54.9-66.7-109.57-90.8-144.38-24.1 34.81-60.4 89.48-90.8 144.38-15.43 27.9-29.03 55.2-38.69 79.7C52.57 288.5 48 307.6 48 319.1 48 399.5 112.5 464 192 464s144-64.5 144-144.9c0-11.5-4.6-30.6-14.5-55.7z'/%3E%3C/svg%3E");
+      }
+
+      &:nth-child(6) .#{$id}-specs__image::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.--%3E%3Cpath fill='%230dbbf4' d='M255.1 32c-53 0-96 42.98-96 96 0 8.8-6.3 16-16 16-7.9 0-16-7.2-16-16 0-70.69 58.2-128 128-128C326.7 0 384 57.31 384 128c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-53.02-43-96-96.9-96zM320 189.2l239.6-27.7c14.1-1.6 27.6 6.2 33.1 19.2l32 74.6c9.9 22.9-3.5 49.1-28.6 54.7l-158.4 36.8c-18.9 4.4-38.5-3.1-49.8-18.9l-68.8-95-67 95c-11.3 15.8-30.9 23.2-49.9 18.9L43.04 310c-24.29-5.6-37.593-31.8-27.77-54.7l31.99-74.6c5.58-13 19.03-20.8 33.09-19.2L320 189.2zM44.68 267.9c-1.96 4.6.7 9.8 5.55 11l159.17 36.7c6.3 1.5 12.9-1 16.7-6.3l65.1-91.2-214.53-24.8-31.99 74.6zm369.22 41.4c3.8 5.3 10.3 7.8 16.7 6.3l159.2-36.7c4.8-1.2 7.5-6.4 5.5-11l-32-74.6-214.5 24.8 65.1 91.2zM576 339.6v70.9c0 22-15 41.2-36.4 46.6l-208 52c-8.5 1.9-15.6 1.9-23.2 0l-208-52c-21.41-5.4-37.3-24.6-37.3-46.6v-70.9l32 9.1v61.8c0 7.4 5 13.8 13 15.5l195 49V336c0-8.8 8.1-16.9 16-16.9 9.7 0 16.9 8.1 16.9 16.9v139l195.9-49c7.1-1.7 11.2-8.1 11.2-15.5v-61.8l32.9-9.1zM463.2 133.1c-2.8 8.3-11.9 12-20.3 10.1-8.3-2.8-12.9-11.9-10.1-20.3l32-95.96c2.8-8.38 11.9-12.91 20.3-10.12 8.3 2.8 12 11.86 10.1 20.24l-32 96.04z'/%3E%3C/svg%3E");
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        font-weight: 700;
+        // border: 4px solid $color-blue;
+        border: 2px solid $color-blue;
+        background-color: transparent;
+        // padding: 10px 20px;
+        padding: 0 20px;
+        height: 45px;
+        cursor: pointer;
+        border-radius: 999px;
+        transition: 0.25s ease;
+
+        &:hover {
+          background-color: $color-blue;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,796 @@
+@import './variables';
+
+
+@keyframes SGslide-in-left {
+  0% {
+    -webkit-transform: translateX(-4000px);
+    transform: translateX(-4000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.#{$id} {
+  .seo-text-block {
+    margin-bottom: 20px;
+  }
+
+  .#{$id}-bannerWrap {
+    margin-bottom: 20px;
+
+  }
+
+  .#{$id}-categoryBanner {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  // main banners
+  .#{$id}-bannerInner {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    border: 1px solid black;
+    box-sizing: border-box;
+    @media(min-width: 1280px) {
+      transition: all .3s ease-in-out;
+      background-size: 100%;
+      &:hover {
+          background-size: 110%;
+      }
+    }
+    &[data-target="diamonds"] {
+      background-position: bottom;
+    }
+    
+
+    .#{$id}-title {
+      position: absolute;
+      bottom: 0;
+      background: white;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid black;
+
+      span {
+        font-family: "Oxygen", sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        position: relative;
+
+        &:after {
+          background: none repeat scroll 0 0 transparent;
+          bottom: -5px;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: black;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+      }
+    }
+
+
+    &.#{$id}-active {
+      border: 1px solid white;
+
+      span {
+        &::after {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  // sub categories
+  .#{$id}-bannerCategories {
+    background: #F3F3F7;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+    height: 0;
+
+
+
+    &.#{$id}-catActive {
+      height: 125px;
+
+      @media(min-width: 767px) {
+        height: 135px;
+      }
+
+      &[cat-data="diamonds"] {
+        height: 150px;
+
+        @media(min-width: 767px) {
+          height: 160px;
+        }
+      }
+
+      &[cat-data="watches"] {
+        @media(min-width: 767px) {
+          height: 150px;
+        }
+      }
+    }
+
+    .#{$id}-catInner {
+      padding: 15px 10px;
+      display: -webkit-box;
+      overflow-x: auto;
+      width: 99vw;
+
+      .#{$id}-subCategory {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .#{$id}-catImage {
+          width: 70px;
+          height: 70px;
+          margin: 0 auto;
+          border-radius: 100px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          background-color: white;
+          background-size: 80%;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          @media(min-width: 375px) {
+            width: 80px;
+            height: 80px;
+          }
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        span {
+          font-size: 13px;
+          color: black;
+          font-family: "Oxygen", sans-serif;
+          line-height: 19px;
+          display: flex;
+          margin-top: 5px;
+
+        }
+      }
+    }
+  }
+
+  /*
+  * Tablet styling
+  */
+  @media(min-width: 767px) {
+
+    /* Slick styling */
+    .slick-slider {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -khtml-user-select: none;
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 0
+    }
+
+    .slick-list:focus {
+      outline: 0
+    }
+
+    .slick-list.dragging {
+      cursor: pointer;
+      cursor: hand
+    }
+
+    .slick-slider .slick-list,
+    .slick-slider .slick-track {
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0)
+    }
+
+    .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .slick-track:after,
+    .slick-track:before {
+      display: table;
+      content: ''
+    }
+
+    .slick-track:after {
+      clear: both
+    }
+
+    .slick-loading .slick-track {
+      visibility: hidden
+    }
+
+    .slick-slide {
+      display: none;
+      float: left;
+      height: 100%;
+      min-height: 1px
+    }
+
+    [dir=rtl] .slick-slide {
+      float: right
+    }
+
+    .slick-slide img {
+      display: block
+    }
+
+    .slick-slide.slick-loading img {
+      display: none
+    }
+
+    .slick-slide.dragging img {
+      pointer-events: none
+    }
+
+    .slick-initialized .slick-slide {
+      display: block
+    }
+
+    .slick-loading .slick-slide {
+      visibility: hidden
+    }
+
+    .slick-vertical .slick-slide {
+      display: block;
+      height: auto;
+      border: 1px solid transparent
+    }
+
+    .slick-arrow.slick-hidden {
+      display: none
+    }
+
+    /*# sourceMappingURL=slick.min.css.map */
+
+    .#{$id}-bannersContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      @media(min-width: 1024px) {
+        max-width: 78rem;
+        margin: 0 auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .#{$id}-bannerInner {
+        border: 0px;
+        height: 300px;
+        cursor: pointer;
+
+        .#{$id}-title {
+          border: 0px;
+        }
+      }
+    }
+
+    .slick-arrow {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      height: 100%;
+      padding: 0;
+      position: absolute;
+      text-indent: -9999px;
+      width: 40px;
+      z-index: 1;
+      background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/E9ABA4127AFF7985ED4C1BD6C9C8D69DA90B9A08A2C306B2324C1D51B24EABC3.png?meta=/SG103---Homepage-Navigational-Element/E9ABA4127AFF7985ED4C1BD6C9C8D69DA90B9A08A2C306B2324C1D51B24EABC3.png');
+      z-index: 9;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &.slick-prev {
+        left: -15px;
+        transform: rotate(-180deg) translateY(50%);
+      }
+
+      &.slick-next {
+        right: -15px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .slick-track {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: center;
+      // width: 100% !important;
+    }
+
+
+
+    .#{$id}-bannerCategories {
+      overflow-y: hidden;
+
+      .#{$id}-catInner {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        max-width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+
+        .#{$id}-subCategory {
+          width: auto;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          margin-left: 20px;
+          margin-right: 20px;
+
+          a {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width: 1024px) {
+    .#{$id}-bannerCategories {
+      .#{$id}-catInner {
+        max-width: 900px;
+      }
+    }
+  }
+
+
+  &.hsamuel {
+    .#{$id}-bannerCategories {
+      background: #f3f3f3;
+    }
+
+    .#{$id}-bannerInner {
+      .#{$id}-title {
+        span {
+          font-family: "Montserrat", sans-serif;
+
+          &::after {
+            background: #a01d29;
+          }
+        }
+      }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+
+  &.#{$id}-2 {
+    @media(max-width: 767px) {
+      .#{$id}-bannerWrap {
+
+        .#{$id}-bannersContainer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+
+          .#{$id}-categoryBanner {
+            width: 100%;
+
+            .#{$id}-bannerInner {
+              margin-left: 0;
+              margin-right: 0;
+              height: 170px;
+              border: 1px solid white;
+
+              .#{$id}-title {
+                border: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.#{$id}-3 {
+
+    &.#{$id}-noScroll {
+      overflow: hidden;
+  }
+
+    .#{$id}-topBanners {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        max-width: 1200px;
+        margin: 0 auto;
+        .#{$id}-bannerInner {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 10px;
+            .#{$id}-textcontent {
+                line-height: 35px;
+                span {
+                    color: white;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                h3 {
+                    font-size: 40px;
+                    padding: 10px;
+                    color: white;
+                }
+            }
+            &.#{$id}-elFirst {
+                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/8C267B591BD2FD224B2522852ED52F708F993740419BF4ED04D589BD0EE6AE83.jpg?meta=/SG103---Homepage-Navigational-Element/EJDiamonds.jpg');
+                background-position: center;
+            }
+            &.#{$id}-elSecond {
+                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/0A2A8FFC0DAF529F222047DF55D708A5B2392162688A984111D1E7F094062501.jpg?meta=/SG103---Homepage-Navigational-Element/EJWatches.jpg');
+            }
+            &.#{$id}-elThird {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/F1BD98A14EACA850085B743DCBCD1FE016926D2887FAE7DED75447D11E3A3D7A.jpg?meta=/SG103---Homepage-Navigational-Element/56618646_2228810270712540_6318921722082359535_n1.jpg');
+            }
+            &.#{$id}-elFourth {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/E98B68697EEC824002474FC3B0F97B311C6DD9455E8880DB722305F2450F0FD9.jpg?meta=/SG103---Homepage-Navigational-Element/EJJewellery.jpg');
+            }
+        }
+            
+      }
+      @media(min-width: 767px) {
+        .#{$id}-topBanners {
+          flex-direction: row;
+          margin-bottom: 30px;
+            .#{$id}-bannerInner {
+                width: 25%;
+                cursor: pointer;
+                box-sizing: border-box;
+                margin: 10px;
+                height: 200px;
+            }
+          }
+      }
+      @media(min-width: 1024px) {
+        .#{$id}-topBanners {
+          .#{$id}-bannerInner {
+              height: 280px;
+              transition: all .3s ease-in-out;
+              background-size: 100%;
+              &:hover {
+                  background-size: 110%;
+              }
+          }
+        }
+      }
+      @media(min-width: 1400px) {
+        .#{$id}-topBanners {
+          .#{$id}-bannerInner {
+            height: 300px;
+          }
+        }
+      }
+    }
+
+    .#{$id}-contentWrapper {
+        position: fixed;
+        width: 100vw;
+        background: white;
+        top: 0px;
+        z-index: 999;
+        height: 100vh;
+        transform: translateX(-4000px);
+        overflow: hidden;
+        @media(min-width: 767px) {
+            overflow: auto;
+        }
+        &.#{$id}-active {
+            animation: SGslide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        .#{$id}-innerBlocks {
+            height: calc(100vh - 58px);
+            overflow-y: auto;
+            padding-top: 20px;
+            padding-bottom: 0px;
+            &::-webkit-scrollbar-track
+            {
+                
+                background-color: #F5F5F5;
+                border-radius: 8px;
+            }
+    
+            &::-webkit-scrollbar
+            {
+                width: 5px;
+                background-color: #F5F5F5;
+                border-radius: 8px;
+            }
+    
+            &::-webkit-scrollbar-thumb
+            {
+                background-color:#ccc;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+            }
+            @media(min-width: 767px) {
+                overflow: hidden;
+                height: auto;
+                padding-bottom: 20px;
+            }
+        }
+        .#{$id}-title {
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            position: relative;
+            text-transform: capitalize;
+            font-family: "Oxygen", sans-serif;
+            background: black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            @media(min-width: 767px) {
+                font-size: 25px;
+            }
+            @media(min-width: 1280px) {
+                padding: 20px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .#{$id}-back {
+          background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/BFB291DCC473B7D2CEF82BB9BCA54C29141A6132C4311FE8F26D9B0EFA812B52.png?meta=/SG103---Homepage-Navigational-Element/noun_Left_3491183.png') no-repeat center;
+          background-size: 30px;
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 20px;
+          width: 20px;
+          cursor: pointer;
+          span {
+              display: none;
+          }
+          @media(min-width: 767px) {
+            left: 20px;
+          }
+        }
+
+        .#{$id}-innerBlocks {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            .#{$id}-block {
+                margin: 10px;
+                width: 43%;
+                text-align: center;
+            }
+            .#{$id}-lineBreak {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .#{$id}-icon {
+                height: 100px;
+                width: 100%;
+                max-width: 110px;
+                margin: 0 auto;
+                border-radius: 20px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                box-shadow: 1px 1px 15px 4px rgba(47, 47, 47, 0.10);
+                margin-bottom: 10px;
+                @media(min-width: 375px) {
+                    height: 95px;
+                    margin-bottom: 20px;
+                }
+                @media(min-width: 414px) {
+                    height: 105px;
+                }
+                @media(min-width: 1024px) {
+                    transition: all .3s ease-in-out;
+                    background-size: 100%;
+                    &:hover {
+                        background-size: 110%;
+                    }
+                }
+            }
+            p {
+                margin-top: 10px;
+                font-family: "Oxygen", sans-serif;
+                color: black;
+                text-decoration: none;
+            }
+            a {
+              text-decoration: none;
+            }
+        }
+        .#{$id}-button {
+            background: #000;
+            border: 1px solid #000;
+            color: #fff;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            outline: 0;
+            display: block;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            font-family: "Oxygen", sans-serif;
+            text-decoration: none;
+            padding: 0 5px;
+            font-size: 14px;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 150px;
+            max-width: 250px;
+            &:hover {
+                background: white;
+                color: black;
+            }
+        }
+        @media(min-width: 767px) {
+            .#{$id}-innerBlocks {
+                max-width: 1024px;
+                margin: 0 auto;
+                .#{$id}-block {
+                    width: 28%;
+                }
+                .#{$id}-button {
+                    margin-bottom: 30px;
+                    height: auto;
+                    padding: 10px;
+                    line-height: auto;
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 20px;
+                }
+                p {
+                    text-transform: capitalize;
+                    font-size: 14px;
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            .#{$id}-innerBlocks {
+                .#{$id}-block {
+                    width: 18%;
+                    margin: 15px;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+        @media(min-width: 1200px) {
+            .#{$id}-innerBlocks {
+                .#{$id}-block {
+                    width: 17%;
+                }
+            }
+        }
+    }
+    &.hsamuel {
+
+      .#{$id}-topBanners {
+        .#{$id}-bannerInner {
+          border: 1px solid white;
+            &.#{$id}-elFirst {
+                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/389C1205120E0643ABABF0D1D0D479B481A4B3A7AD9ECAABFC88D2BBA561E5DB.jpg?meta=/SG103---Homepage-Navigational-Element/HSRings.jpg');
+                background-position: center;
+            }
+            &.#{$id}-elSecond {
+                background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/98335A622E3E2D74842CF531B29005CAA55AD262C8A23001E8CC1F01C0F5BED8.jpg?meta=/SG103---Homepage-Navigational-Element/HSWatches.jpg');
+            }
+            &.#{$id}-elThird {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/77D84C59EC0B8367A6816167C7A686B48E5E0BC9F33CE495E0CA580DF48322D9.jpg?meta=/SG103---Homepage-Navigational-Element/HSJewellery.jpg');
+            }
+            &.#{$id}-elFourth {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/F797E672E4F7487712FD7D1B76A2DD8BDE4B92F8A7CAA5E3ECF63040587CD589.jpg?meta=/SG103---Homepage-Navigational-Element/119792782_943985212763642_3810276379956314164_n.jpg');
+            }
+            .#{$id}-title {
+              border-top: 0px;
+            }
+        }
+      }
+      .#{$id}-contentWrapper {
+        .#{$id}-title {
+          background: #a01d29;
+          font-family: "Montserrat", sans-serif;
+          border-top: 0px;
+        }
+
+        .#{$id}-button {
+          background: #a01d29; 
+          border: 1px solid #a01d29;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 500;
+        }
+
+        .#{$id}-innerBlocks {
+          .#{$id}-block {
+            p {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      [data-target="diamonds"] {
+        background-position: center;
+      }
+      .#{$id}-bannerInner {
+        @media(min-width: 360px) {
+          height: 280px;
+        }
+        @media(min-width: 1024px) {
+          height: 350px;
+        }
+      }
+    }
+}

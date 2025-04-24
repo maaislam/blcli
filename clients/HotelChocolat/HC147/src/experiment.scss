@@ -1,0 +1,61 @@
+@import './variables';
+
+.#{$id}.#{$id}-pulsing-bag {
+
+    .menu-title .icon.bag {
+	    animation: heartbeat 2s ease-in-out infinite both;
+        will-change: transform, animation-timing-function;
+
+        @media all and (min-width: 1200px) {
+            animation: heartbeat 1.3s ease-in-out infinite both;
+        }
+    }
+        
+
+    .menu-title:hover {
+        .icon.bag {
+            animation: none;
+            will-change: transform, animation-timing-function;
+        }
+    }
+
+}
+
+.#{$id} {
+    .mini-cart-header {
+        color: #000;
+        font-size: 13px;
+    }
+}
+
+
+
+@keyframes heartbeat {
+  from {
+
+            transform: scale(1) translateZ(0);
+            transform-origin: center center;
+            animation-timing-function: ease-out;
+
+  }
+  10% {
+
+            transform: scale(0.91) translateZ(0);
+            animation-timing-function: ease-in;
+  }
+  17% {
+
+            transform: scale(0.98) translateZ(0);
+            animation-timing-function: ease-out;
+  }
+  33% {
+
+            transform: scale(0.87) translateZ(0);
+            animation-timing-function: ease-in;
+  }
+  45% {
+
+            transform: scale(1) translateZ(0);
+            animation-timing-function: ease-out;
+  }
+}

@@ -1,0 +1,141 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-priceBox {
+        padding: 15px;
+        background: #F1F1F1;
+        margin-bottom: 10px;
+        @media(min-width: 1024px) {
+            padding: 20px;
+        }
+        .#{$id}-topRow {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+            @media(min-width: 767px) {
+                flex-wrap: wrap;
+            }
+
+            .#{$id}-reviews {
+                margin-left: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                @media(min-width: 400px) {
+                    margin-left: 15px;
+                }
+                @media(min-width: 767px) {
+                    margin-left: 0px;
+                }
+                @media(min-width: 1280px) {
+                    margin-left: 15px;
+                }
+                .review-link {
+                    margin-top: 0;
+                }
+                .product-review-links {
+                    margin-bottom: 0;
+                }
+                .bv-off-screen {
+                    display: none;
+                }
+            }
+            .stars-rating {
+                margin-right: 10px;
+                @media(min-width: 767px) {
+                    width: 100px;
+                    .stars-rating-filled,
+                    .stars-rating-base {
+                        background-size: 100px;
+                    }
+                }
+            }
+            .price-wrapper {
+                margin: 0;
+                margin-top: 5px;
+            }
+            .price-sales {
+                font-size: 30px;
+            }
+            .stars-rating-filled {
+                filter: brightness(60%) contrast(0.5);
+            }
+            .bv-rating-ratio-count {
+                display: none;
+            }
+            .#{$id}-reviewCount {
+                display: flex;
+                flex-direction: row;
+                margin-top: 5px;
+                p, span {
+                    color: black;
+                    font-family: GillSansNova-Medium;
+                }
+                span {
+                    margin-right: 5px;
+                }                
+            }
+        }
+
+        .#{$id}-priceUsps {
+            list-style: none;
+            li {
+                padding-left: 40px;
+                font-family: GillSansNova-Medium;
+                font-size: 14px;
+                margin-bottom: 20px;
+                position: relative;
+                @media(min-width: 400px) {
+                    font-size: 15px;
+                }
+                @media(min-width: 767px) {
+                    font-size: 13px;
+                }
+                @media(min-width: 1024px) {
+                    margin-bottom: 25px;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    height: 30px;
+                    width: 30px;
+                    transform: translateY(-50%);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+
+                &.#{$id}-gift {
+                    margin-bottom: 20px;
+                    @media(min-width: 1024px) {
+                        margin-bottom: 10px;
+                    }
+                    &::before {
+                        background-image: url('https://editor-assets.abtasty.com/48343/5f96c471d4f3e1603716209.png');
+                    }
+                }
+                &.#{$id}-stock {
+                    &::before {
+                        background-image: url('https://editor-assets.abtasty.com/48343/5f96c49950b0b1603716249.png');
+                    }
+                }
+                &.#{$id}-nextDay,
+                &.#{$id}-nominated {
+                    &::before {
+                        background-image: url('https://editor-assets.abtasty.com/48343/5f96c4c02953e1603716288.png');
+                    }
+                }
+                &.#{$id}-clickCollect {
+                    &::before {
+                        background-image: url('https://editor-assets.abtasty.com/48343/5f96c4cfc51351603716303.png');
+                    }
+                }
+            }
+        }
+    }
+}

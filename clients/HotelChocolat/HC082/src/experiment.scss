@@ -1,0 +1,136 @@
+@import './variables';
+
+.#{$id} {
+  .HC082-gift-filters__wrapper {
+    background-color: #000;
+    color: #FFF;
+    padding: 10px;
+    margin-bottom: 20px;
+    .HC082-gift-filters__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      @media(min-width: 767px) {
+        flex-direction: row;
+      
+      }
+
+      > span {
+        font-family: GillSansNova-Light;
+        font-size: 1rem;
+        margin-bottom: 5px;
+        @media(min-width: 767px) {
+          margin-bottom: 0px;
+        }
+      }
+      .HC082-buttons {
+        display: flex;
+        flex-direction: row;
+      }
+      button {
+        border-color: #FFF;
+        margin: 5px;
+        box-sizing: border-box;
+        width: 130px;
+
+        @media(min-width: 1024px) {
+          width: 200px;
+        }
+
+        .HC082-shortName {
+          display: block;
+          @media(min-width: 1024px) {
+            display: none;
+          }
+        }
+        .HC082-longName {
+          display: none;
+          @media(min-width: 1024px) {
+            display: block;
+          }
+        }
+        &.active {
+          background-color: #FFF;
+          color: #000;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  // --- PRODUCTS
+  .HC082-grid-tile {
+    background-color: #f1f1f1;
+    position: relative;
+    overflow: hidden;
+
+    .HC082-banner__wrapper {
+      background-color: #000;
+      position: absolute;
+      z-index: 9;
+      width: 110px;
+      transform: rotate(-35deg);
+      left: -30px;
+
+      .HC082-banner {
+        text-align: center;
+        padding: 3px 0 1px 0;
+      }
+    }
+
+    // --- Hide Quickbuy
+    .quickview.quickviewbutton {
+      display: none;
+    } 
+  }
+
+  .#{$id}-badge {
+    position: absolute;
+    bottom: -8px;
+    background: #f3e9c6;
+    // border-top-right-radius: 5px;
+    // border-top-left-radius: 5px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+
+    span {
+        padding: 5px;
+        padding-top: 9px;
+        padding-left: 25px;
+        padding-right: 10px;
+        position: relative;
+        color: black;
+        display: block;
+        font-family: GillSansNova-Medium;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 12px;
+        &::before {
+            content: '';
+            //background: url('https://editor-assets.abtasty.com/48343/6149ab717b3251632217969.png') no-repeat center;
+            background: url('https://editor-assets.abtasty.com/48343/6149c93bb296a1632225595.png') no-repeat center;
+            background-size: contain;
+            height: 25px;
+            width: 25px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        @media(min-width: 414px) {
+           font-size: 13px;
+           padding-left: 28px;
+           &::before {
+            height: 28px;
+            width: 28px;
+           }
+        }
+    }
+  }
+}

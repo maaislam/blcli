@@ -1,0 +1,124 @@
+@import './variables';
+
+.#{$id} {
+
+  // Shared styling
+  .HH026_Container {
+    position: fixed;
+    min-width: 250px;
+    transition: all 0.5s ease;
+    z-index: 15;
+  }
+
+  .HH026_Container_Toggle {
+    cursor: pointer;
+    position: relative;
+    background-color: #4285c7;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+
+    // Create an arrow using website styling
+    &::after {
+      content: "\e258";
+      font-family: "Glyphicons Halflings", sans-serif;
+      position: absolute;
+      right: 45px;
+      color: #ffffff;
+      transform: rotate(-90deg);
+      padding: 0;
+      top: 50%;
+      font-size: 15px;
+      transition: transform 0.5s ease;
+      margin-top: - 10px;
+    }
+  }
+
+  .HH026_Link_Container {
+    background-color: #deedf8;
+  }
+
+  .HH026_Link {
+    color: #555555;
+    display: block;
+    padding: 10px 20px;
+    font-weight: 600;
+
+    a {
+      color: #555;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #555;
+      }
+    }
+
+    &.HH026_Non-Link:hover {
+      text-decoration: none !important;
+      cursor: default;
+    }
+  }
+
+  .HH026_Icon {
+    display: inline-block;
+    margin-right: 10px;
+    width: 28px;
+    height: auto;
+  }
+
+  // Mobile/Tablet styling 
+  @media (max-width: 991px) {
+    // Change properties as conatiners have rotated
+    .HH026_Container {
+      top: 55%;
+      right: -230px;
+      transform: rotate(-90deg);
+      height: 294px;
+    }
+
+    .HH026_Container_Toggle {
+      width: 186px;
+      margin: 0 auto 31px auto;
+
+      &::after {
+        right: 20px;
+      }
+    }
+
+    .HH026_Link_Container {
+      transform: rotate(90deg);
+    }
+
+    .HH026_Container.HH026_Display {
+      right: 19px;
+
+      .HH026_Container_Toggle::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Desktop Styling
+  @media (min-width: 992px) {
+    .HH026_Container {
+      bottom: -191px;
+      left: 4%;
+    }
+  }
+
+  .HH026_Container.HH026_Display {
+    bottom: 0;
+
+    .HH026_Container_Toggle::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  .HH026_Container_Toggle {
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.23);
+  }
+}

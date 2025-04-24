@@ -1,0 +1,279 @@
+@import "./variables";
+
+.#{$id} {
+  #store-information-group_store-details_section {
+    .store-map-section {
+      width: 100%;
+    }
+  }
+
+  .store-overview-group__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    @include media(768px) {
+      grid-template-columns: 50% 50%;
+      align-items: center;
+    }
+
+    & > * {
+      width: 100%;
+      padding: 20px;
+
+      @include media(768px) {
+        padding: 40px 20px;
+      }
+
+      @include media(992px) {
+        padding: 60px 40px;
+      }
+    }
+  }
+
+  .store-voucher {
+    max-width: unset;
+
+    &__title {
+      margin-bottom: 0;
+      font-size: 24px;
+      line-height: 1.25;
+
+      & + h4 {
+        margin-top: 8px;
+        margin-bottom: 0;
+        font-size: 0.95em;
+      }
+
+      @include line-clamp(2);
+
+      @include media(992px) {
+        font-size: 32px;
+      }
+    }
+
+    &__smallprint,
+    &__print,
+    &__code {
+      display: none;
+    }
+
+    &__bottom-section {
+      &::before,
+      &::after {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+
+  .#{$id}-root {
+    .store-map-section {
+      margin-right: -20px;
+      margin-left: -20px;
+      margin-bottom: -20px;
+    }
+  }
+
+  .#{$id}-slider {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @include media(768px) {
+      margin-bottom: 0;
+      max-width: 450px;
+      margin-right: 0;
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .swiper-nav-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .#{$id}-swiper-button-prev,
+  .#{$id}-swiper-button-next {
+    button {
+      background-color: transparent;
+      border: 0;
+      font-family: SpecsaversWeb, "Source Sans Pro", Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #016c42;
+      cursor: pointer;
+      padding: 0;
+      transition: opacity 0.25s ease;
+
+      &.swiper-button-disabled {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .#{$id}-swiper-button-next {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .swiper-pagination {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    opacity: 0.5;
+    margin: 0 5px;
+
+    &-active {
+      opacity: 1;
+      background-color: #016c42;
+    }
+  }
+
+  .store-page__section:not(.store-map-section) {
+    @include media(992px) {
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+
+    .store-map-section {
+      margin-top: 36px;
+    }
+  }
+
+  #store-overview-group_store-map-interactive {
+    min-height: 220px;
+
+    @include media(768px) {
+      min-height: 300px;
+    }
+  }
+
+  .specs-star-rating.general-information__rating {
+    margin-bottom: 0;
+  }
+
+  .general-information__tooltip {
+    margin-top: 8px;
+  }
+
+  #store-overview-group_general-information_cta,
+  .book-appointment-button__cta-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    justify-items: center;
+    margin-top: 36px;
+    padding: 20px;
+
+    @include media(992px) {
+      margin-top: 36px;
+      justify-items: start;
+      padding: 0;
+    }
+  }
+
+  .#{$id}-slider-info {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 16px;
+
+    @include media(768px) {
+      max-width: 450px;
+      margin-left: auto;
+    }
+
+    p {
+      font-family: SpecsaversWeb, "Source Sans Pro", Arial, sans-serif;
+      color: #016c42;
+      font-weight: 400;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m17.1717 4.39056.4857-.48438L14.7431.999917 1.14288 14.5625l2.91433 2.9063.48572-.4844c.38646-.3854.91062-.6019 1.45716-.6019s1.0707.2165 1.45716.6019c.38646.3854.60358.9081.60358 1.4531 0 .5451-.21712 1.0678-.60358 1.4532l-.48572.4843 2.91432 2.9063L23.486 9.71872l-2.9143-2.90627-.4857.48438c-.3865.3854-.9106.60191-1.4572.60191-.5465 0-1.0707-.21652-1.4571-.60191-.3865-.38539-.6036-.9081-.6036-1.45313s.2171-1.06774.6036-1.45314ZM13.7716 17.4688l-.9714.9687-.9715-.9687.9715-.9688.9714.9688Zm-1.9429-1.9375-.9714.9687-.97145-.9687.97145-.9688.9714.9688Zm-1.94285-1.9376-.97144.9688-.97144-.9688.97144-.9687.97144.9687Zm-1.94288-1.9375-.97144.9688-.97144-.9688.97144-.9687.97144.9687Z' fill='%23016C42'/%3E%3C/svg%3E");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .store-page__section.vouchers {
+    display: none;
+  }
+
+  #vouchers-modal_header_title {
+    font-size: 24px;
+  }
+
+  #vouchers-modal_body_additional-notes p {
+    line-height: 1.6;
+  }
+
+  .#{$id}-print-button,
+  .#{$id}-voucher-code-text {
+    margin-top: 20px;
+    position: relative;
+    font-family: SpecsaversWeb, "Source Sans Pro", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #016c42;
+    padding: 0;
+    padding-left: 28px;
+    background-color: transparent;
+    border: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .#{$id}-print-button {
+    cursor: pointer;
+
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.3069 6.04737h-2.6883V1.65825c0-.40084-.3249-.725633-.7256-.725633H5.10701c-.40074 0-.72563.324793-.72563.725633v4.38912H1.69315C.759593 6.04737 0 6.80687 0 7.74051v9.30989c0 .9335.759593 1.6931 1.69315 1.6931h2.68823v3.5995c0 .4008.32489.7256.72563.7256H18.8929c.4007 0 .7256-.3248.7256-.7256v-3.5995h2.6883c.9335 0 1.6931-.7596 1.6931-1.6931V7.74051c.0001-.93355-.7595-1.69314-1.693-1.69314ZM5.83264 2.38388H18.1673v3.66349H5.83264V2.38388ZM18.1673 21.6173H5.83264v-7.1986H18.1673v7.1986Zm4.3814-4.5669c0 .1311-.1107.2419-.2418.2419h-2.6883V13.693c0-.4008-.3249-.7256-.7256-.7256H5.10701c-.40074 0-.72563.3248-.72563.7256v3.5993H1.69315c-.1311 0-.24188-.1108-.24188-.2419V7.74051c0-.13119.11078-.24187.24188-.24187H22.3068c.1311 0 .2418.11068.2418.24187v9.30989h.0001Z' fill='%23016C42'/%3E%3Cpath d='M18.8929 11.265c.57 0 1.0321-.4621 1.0321-1.0322 0-.57001-.4621-1.03212-1.0321-1.03212-.5701 0-1.0322.46211-1.0322 1.03212 0 .5701.4621 1.0322 1.0322 1.0322ZM15.3012 15.8496H8.69853c-.40074 0-.72563.3248-.72563.7256 0 .4009.32489.7257.72563.7257h6.60267c.4008 0 .7257-.3248.7257-.7257 0-.4007-.3248-.7256-.7257-.7256ZM15.3012 18.7351H8.69853c-.40074 0-.72563.3248-.72563.7256 0 .4009.32489.7257.72563.7257h6.60267c.4008 0 .7257-.3248.7257-.7257 0-.4008-.3248-.7256-.7257-.7256Z' fill='%23016C42'/%3E%3C/svg%3E");
+    }
+  }
+
+  .#{$id}-voucher-code-text {
+    span {
+      background-color: #016c42;
+      color: #fff;
+      font-weight: 500;
+      padding: 8px 16px;
+      font-size: 1.2em;
+      margin-left: 8px;
+      border-radius: 4px;
+    }
+
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m17.1717 4.39056.4857-.48438L14.7431.999917 1.14288 14.5625l2.91433 2.9063.48572-.4844c.38646-.3854.91062-.6019 1.45716-.6019s1.0707.2165 1.45716.6019c.38646.3854.60358.9081.60358 1.4531 0 .5451-.21712 1.0678-.60358 1.4532l-.48572.4843 2.91432 2.9063L23.486 9.71872l-2.9143-2.90627-.4857.48438c-.3865.3854-.9106.60191-1.4572.60191-.5465 0-1.0707-.21652-1.4571-.60191-.3865-.38539-.6036-.9081-.6036-1.45313s.2171-1.06774.6036-1.45314ZM13.7716 17.4688l-.9714.9687-.9715-.9687.9715-.9688.9714.9688Zm-1.9429-1.9375-.9714.9687-.97145-.9687.97145-.9688.9714.9688Zm-1.94285-1.9376-.97144.9688-.97144-.9688.97144-.9687.97144.9687Zm-1.94288-1.9375-.97144.9688-.97144-.9688.97144-.9687.97144.9687Z' fill='%23016C42'/%3E%3C/svg%3E");
+    }
+  }
+}

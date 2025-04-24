@@ -1,0 +1,298 @@
+@import './variables';
+
+@keyframes HCslide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+@keyframes HCslide-out-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+}
+
+@keyframes HCslide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+@keyframes HCslide-out-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+  }
+  
+
+.#{$id} {
+
+    &.#{$id}-stickyShow {
+        @media(max-width: 400px) {
+        #wo_online_image {
+            bottom: 99px;
+        }
+        }
+
+    }
+    .#{$id}-stickyCTA {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        opacity: 0;
+        background: white;
+        padding: 10px;
+        box-sizing: border-box;
+        box-shadow: 1px 4px 4px 4px rgba(0,0,0,0.25);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        z-index: 99;
+        @media(min-width: 375px) {
+            padding: 15px;
+        }
+       
+        &.#{$id}-fixed {
+            animation: HCslide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        &.#{$id}-hidden {
+            transform: translateY(0px);
+            animation: HCslide-out-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+        .#{$id}-container {
+            display: flex;
+            flex-direction: column;
+            .#{$id}-details {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                .#{$id}-name {
+                    p {
+                        display: none;
+                    }
+                    .#{$id}-productName {
+                        font-family: DidotLTPro-Roman;
+                        letter-spacing: unset;
+                        font-size: 18px;
+                        width: 220px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        @media(min-width: 375px) {
+                            font-size: 20px;
+                            width: 250px;
+                        }
+                    }
+                }
+                .#{$id}-productprice {
+                    font-weight: 500;
+                    font-size: 20px;
+                    font-family: GillSansNova-Light;
+                    @media(min-width: 375px) {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+        .#{$id}-button {
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            outline: 0;
+            display: block;
+            letter-spacing: 0.5;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            padding: 0 5px;
+            background: black;
+            color: white;
+            cursor: pointer;
+            @media(min-width: 375px) {
+                height: 38px;
+                line-height: 38px;
+            }
+            @media(min-width: 1200px) {
+                height: 40px;
+                &:hover {
+                    background: white;
+                    border: 1px solid black;
+                    color: black;
+                }
+            }
+        }
+
+        @media(min-width: 767px) {
+            background: white;
+            border-radius: 0px;
+            transform: translateY(-1000px);
+            bottom: unset;
+            top: 0;
+            box-shadow: rgba(0, 0, 0, 0.252) 1px -2px 4px 4px;
+            padding: 10px;
+            &.#{$id}-fixed {
+                animation: HCslide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+            &.#{$id}-hidden {
+                animation: HCslide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            }
+            .#{$id}-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                .#{$id}-details {
+                    width: 70%;
+                    align-items: center;
+                    margin-bottom: 0;
+                    margin-right: 30px;
+                    justify-content: space-between;
+                  
+                    .#{$id}-name {
+                        margin-right: 20px;
+                        .#{$id}-productName {
+                            width: 90%;
+                            font-size: 20px;
+                            line-height: 26px;
+                            margin-right: 0;
+                        }
+                        p {
+                            display: block;
+                            font-family: GillSansNova-Light;
+                            font-size: 14px;
+                            letter-spacing: 0.5;
+                            width: 70%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+                .#{$id}-button {
+                    width: 40%;
+                    line-height: 39px;
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            background: #f1f1f1;
+            border-radius: 0px;
+            .#{$id}-container {
+                max-width: 920px;
+                margin: 0 auto;
+                padding: 10px;
+                .#{$id}-details {
+                   p {
+                    width: 80%;
+                   }
+                }
+            }
+        }
+        @media(min-width: 1280px) {
+            background: white;
+            border-radius: 0px;
+            .#{$id}-container {
+                max-width: 1230px;
+                margin: 0 auto;
+                padding: 10px;
+                .#{$id}-details {
+                    margin-right: 10px;
+                    width: 74%;
+                    .#{$id}-name {
+                        margin-right: 0px;
+                        .#{$id}-productName {
+                            width: 100%;
+                            font-size: 23px;
+                            margin-bottom: 3px;
+                            h3 {
+                                width: 100%;
+                                
+                            }
+                        }
+                        p {
+                            font-size: 16px;
+                            
+                        }
+                    }
+                    .#{$id}-productprice {
+                        font-size: 22px;
+                        font-family: GillSansNova-Light;
+                    }
+                }
+                .#{$id}-button {
+                    max-width: 300px;
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        #wo_online_image {
+            bottom: 86px;
+            @media(min-width: 375px){
+                bottom: 99px;
+            }
+            @media(min-width: 767px) {
+                bottom: 65px;
+            }
+        }
+        .#{$id}-stickyCTA {
+            opacity: 1;
+            bottom: 0;
+            transform: unset;
+            @media(min-width: 767px) {
+                top: unset;
+                bottom: 0;
+                box-shadow: 1px 4px 4px 4px rgba(0,0,0,0.25);
+            }
+            @media(min-width: 1280px) {
+                .#{$id}-button {
+                    height: 38px;
+                }
+            }
+        }
+    }
+    &.#{$id}-3 {
+        .#{$id}-stickyCTA {
+            .#{$id}-container {
+                .#{$id}-button {
+                    background: #118f40;
+                    border: 1px solid #118f40;
+                    @media(min-width: 1200px) {
+                        &:hover {
+                            background:white;
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+}

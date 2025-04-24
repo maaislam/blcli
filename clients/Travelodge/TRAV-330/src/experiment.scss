@@ -1,0 +1,307 @@
+@import './variables';
+
+.#{$id} {
+  .container .hotel-card.#{$id}__existing-hotel {
+    .well {
+      @media screen and (max-width: 991px) {
+        padding-bottom: 0 !important;
+        border: 1px solid #e5e5e5 !important;
+        & > .row {
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        position: relative;
+      }
+    }
+    .#{$id}__card {
+      display: none;
+
+      .qa-night-count {
+        display: none;
+      }
+      @media screen and (max-width: 768px) {
+        position: static !important;
+        display: block;
+        width: 100%;
+        background-color: unset;
+        border: none;
+        padding: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 0;
+        .#{$id}__expressWrapper {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .#{$id}__availableButtonWrapper {
+          display: flex !important;
+          margin-bottom: 10px;
+        }
+
+        &.open {
+          .#{$id}__message {
+            display: block;
+            position: absolute;
+            width: 99.5%;
+            background: #fff;
+            z-index: 99;
+            bottom: 56px;
+            border: solid 1px #027bc7;
+            border-bottom: 0;
+            border-radius: 5px 5px 0 0;
+            padding-bottom: 12px;
+
+            h2 {
+              padding-left: 20px;
+              margin: 14px 0 10px;
+            }
+
+            .#{$id}__message-item {
+              padding-left: 27px;
+            }
+          }
+        }
+
+        .qa-book-now-url span {
+          font-size: 20px;
+        }
+      }
+
+      @media screen and (max-width: 360px) {
+        .qa-book-now-url span {
+          font-size: 16px;
+        }
+      }
+
+      .#{$id}__availableButtonWrapper {
+        @media screen and (max-width: 375px) {
+          width: 100%;
+          justify-content: flex-start;
+          margin-left: 0;
+        }
+      }
+
+      .lead-price {
+        display: none;
+      }
+    }
+
+    .card:not(.#{$id}__card) {
+      display: none;
+
+      @media screen and (min-width: 992px) {
+        & > .align--xs {
+          height: 130px !important;
+          box-sizing: border-box;
+        }
+      }
+      @media screen and (min-width: 769px) {
+        display: block;
+        border: none !important;
+        padding: 0 !important;
+
+        .urgency-msg {
+          display: block;
+          margin: 5px auto 0;
+          text-align: center;
+          font-size: 16px;
+          font-family: fs-albert-bold;
+          color: #027bc7;
+        }
+
+        &::after {
+          content: '';
+          display: none !important;
+        }
+
+        & > .align--xs {
+          border: solid 1px #027bc7;
+          border-bottom: 0;
+          border-radius: 5px 5px 0 0;
+          padding: 9px 0 10px;
+          height: 124px;
+          box-sizing: border-box;
+        }
+
+        .qa-book-now-url span {
+          font-size: 18px;
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        display: block;
+        padding: 0;
+        background-color: unset;
+        border: none !important;
+      }
+
+      @media screen and (max-width: 768px) {
+        .#{$id}__expressWrapper {
+          display: none;
+        }
+        .#{$id}__availableButtonWrapper {
+          display: none;
+        }
+        .#{$id}__message {
+          display: none !important;
+        }
+        & .lead-price.price {
+          text-align: right;
+        }
+      }
+
+      .qa-book-now-url {
+        @media screen and (min-width: 1025px) {
+          min-width: 170px;
+          box-sizing: border-box;
+        }
+      }
+
+      &.open {
+        user-select: none;
+        .lead-price.price {
+          pointer-events: none;
+          display: none;
+        }
+        .qa-night-count {
+          display: none;
+        }
+
+        .#{$id}__availableButtonWrapper {
+          pointer-events: none;
+          display: none;
+        }
+
+        .#{$id}__message {
+          display: block;
+          //animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+      }
+    }
+  }
+
+  .qa-night-count {
+    & + .#{$id}__availableButtonWrapper {
+      transform: translateY(-8px) !important;
+    }
+  }
+
+  .#{$id}__availableButtonWrapper {
+    display: flex;
+    align-items: center;
+    // width: calc(100% + 16px);
+    // margin-left: -8px;
+    .#{$id}__expressIcon {
+      opacity: 0;
+    }
+
+    @media screen and (max-width: 991px) {
+      justify-content: center;
+
+      a.qa-book-now-url {
+        min-width: 265px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  .#{$id}__expressWrapper {
+    background-color: #e5e5e5;
+    // width: calc(100% + 16px);
+    // margin-left: -8px;
+    border-radius: 0 0 5px 5px;
+  }
+  .#{$id}__expressContent {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 9px 0;
+    border: solid 1px #027bc7;
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+    @media screen and (max-width: 991px) {
+      justify-content: center;
+    }
+    @media screen and (max-width: 768px) {
+      border: none;
+    }
+    @media screen and (max-width: 375px) {
+      justify-content: flex-start;
+    }
+  }
+  .#{$id}__expressIcon {
+    padding: 0 8px;
+  }
+  .#{$id}__expressButton {
+    .#{$id}__button {
+      border: solid 1px #027bc7;
+      border-radius: 20px;
+      display: inline-block;
+      font-family: fs-albert-regular, 'arial', 'sans-serif';
+      font-size: 18px;
+      line-height: 1.2;
+      padding: 7px 18px;
+      text-align: center;
+      text-decoration: none;
+      color: #171a1c;
+      box-sizing: border-box;
+      background-color: #fff;
+      cursor: pointer;
+
+      @media screen and (min-width: 1025px) {
+        min-width: 170px;
+      }
+
+      @media screen and (max-width: 991px) {
+        min-width: 265px;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: 360px) {
+        font-size: 16px;
+      }
+
+      &[disabled] {
+        pointer-events: none;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .#{$id}__message {
+    pointer-events: none;
+    display: none;
+
+    h2 {
+      text-align: left;
+      padding-left: 14px;
+      margin: 8px 0 10px;
+    }
+
+    .#{$id}__message-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .#{$id}__message-item {
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+
+      .#{$id}__text {
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 18px;
+        padding-left: 10px;
+      }
+    }
+  }
+}

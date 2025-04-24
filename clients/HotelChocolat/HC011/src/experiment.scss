@@ -1,0 +1,147 @@
+@import './variables';
+
+.#{$id} {
+    .toggle-information.delivery-options {
+        display: none;
+    }
+    .#{$id}-deliveryBoxes {
+        clear: both;
+        .#{$id}-box {
+            padding: 15px;
+            background: #F1F1F1;
+            text-align: center;
+            .#{$id}-icon {
+                margin: 0 auto;
+                height: 35px;
+                width: 35px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 21px;
+                max-width: 70%;
+                margin: 0 auto;
+                margin-top: 10px;
+                span {
+                    font-family: GillSansNova-Bold;
+                }
+            }
+
+            &:nth-child(1) {
+                margin-bottom: 20px;
+                .#{$id}-icon {
+                    background-image: url('https://editor-assets.abtasty.com/48343/5f7b1dd2730231601904082.png');
+                }
+            }
+            &:nth-child(2) {
+                .#{$id}-icon {
+                    background-image: url('https://editor-assets.abtasty.com/48343/5f7b1def242fe1601904111.png');
+                }
+            }
+        }
+        @media(min-width: 767px) {
+            display: flex;
+            flex-direction: row;
+            .#{$id}-box {
+                flex: 1 1 0px;
+                margin: 5px;
+                margin-bottom: 0px;
+                p {
+                    font-size: 14px;
+                    max-width: 100%;
+                    line-height: 18px;
+                }
+                &:nth-child(1) {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            .#{$id}-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                .#{$id}-icon {
+                    margin: unset;
+                    background-size: 30px;
+                }
+                p {
+                    margin-top: 0;
+                    max-width: 80%;
+                }
+            }
+        }
+        @media(min-width: 1280px) {
+            .#{$id}-container {
+                max-width: 75%;
+                margin: 0 auto;
+                .#{$id}-icon {
+                    width: 45px;
+                }
+                p {
+                    max-width: unset;
+                    font-size: 15px;
+                    max-width: 250px;
+                    text-align: center;
+                    line-height: 19px;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    @media(min-width: 767px) {
+        #add-coupon {
+            margin: 0;
+        }
+    }
+
+    &.#{$id}-2 {
+        .#{$id}-deliveryBoxes {
+            margin-bottom: 10px;
+            .#{$id}-guarantee {
+                position: relative;
+            }
+            .#{$id}-infoBox {
+                display: none;
+                position: absolute;
+                width: auto;
+                margin-top: 0;
+                top: 100%;
+                background: white;
+                max-width: 100%;
+                left: 0;
+                padding: 15px;
+                border: 1px solid black;
+                .#{$id}-toolClose {
+                    position: absolute;
+                    right: 7px;
+                    top: 3px;
+                    font-weight: 100;
+                    font-size: 20px;
+                    font-family: GillSansNova-Light;
+                    @media(min-width: 1280px) {
+                        display: none;
+                    }
+                }
+                &.#{$id}-infoActive {
+                    display: block;
+                }
+            }
+        }
+        .#{$id}-tooltip {
+            height: 20px;
+            width: 20px;
+            background: url('https://editor-assets.abtasty.com/48343/5f7ee890e655d1602152592.png') no-repeat center;
+            background-size: contain;
+            display: inline-block;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 5px;
+           
+        }
+    }
+}

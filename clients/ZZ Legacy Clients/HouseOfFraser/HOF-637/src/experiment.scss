@@ -1,0 +1,711 @@
+@import "./variables";
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.#{$id} {
+	&-1 {
+		&.HOF-795.HOF-795-experiment-begins .HOF-795-quiz--placebutton {
+			margin-top: 0px;
+			margin-bottom: 40px;
+		}
+	}
+	&.#{$id}-personalised-page-shown
+		.bsheaderIcons
+		#topLinkMenu
+		.TopLinkDrop
+		.TopSubLinkMenu {
+		z-index: 10000;
+	}
+
+	.#{$id}-personalised-page {
+		padding: 0 0 160px 0 !important;
+		margin: 0 !important;
+		width: 100% !important;
+		max-width: 100% !important;
+
+		@media all and (max-width: 992px) {
+			padding-bottom: 20px !important;
+		}
+	}
+
+	.#{$id}-personalised {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+
+		&--header {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			height: 399px;
+			background-color: #fff;
+			background-image: url("https://www.houseoffraser.co.uk/images/marketing/dy-assets/hof-jfy-dec22-d.jpg");
+			background-repeat: no-repeat;
+			background-position: top center;
+			background-size: cover;
+			text-align: center;
+			margin-bottom: 60px;
+
+			@media all and (max-width: 992px) {
+				height: 250px;
+			}
+
+			@media all and (max-width: 600px) {
+				background-image: url("https://www.houseoffraser.co.uk/images/marketing/dy-assets/hof-jfy-dec22-m.jpg");
+			}
+
+			@media all and (min-width: 1920px) {
+				background-size: initial;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				//background: rgba(0,0,0,0.1);
+				z-index: 1;
+			}
+
+			h1 {
+				display: flex;
+				flex-direction: column;
+				text-transform: uppercase;
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				text-align: left;
+				padding: 30px 15px 25px 20px;
+				z-index: 10;
+				text-align: center;
+				min-width: 550px;
+				background: rgba(255, 255, 255, 0.7);
+
+				@media all and (max-width: 767px) {
+					padding: 20px;
+					width: 100%;
+				}
+			}
+
+			&line1 {
+				font-size: 22px;
+				line-height: 26px;
+				color: #000;
+
+				@media all and (max-width: 767px) {
+					font-size: 16px;
+					line-height: 20px;
+				}
+			}
+
+			&line2 {
+				font-size: 32px;
+				line-height: 40px;
+				color: #000;
+
+				@media all and (max-width: 767px) {
+					font-size: 26px;
+					line-height: 32px;
+				}
+			}
+
+			h2 {
+				font-size: 14px;
+				line-height: 30px;
+				color: #fff;
+				font-family: "Montserrat", Arial, Helvetica, sans-serif;
+				font-weight: 400 !important;
+			}
+		}
+
+		&--products {
+			display: flex;
+			max-width: 1440px;
+			flex-direction: column;
+			align-items: center;
+			margin: 0 auto;
+			width: 100%;
+			overflow: visible;
+			position: relative;
+
+			@media all and (max-width: 1500px) {
+			}
+
+			&carousel {
+				display: block;
+				position: relative;
+				width: 100%;
+				margin-bottom: 40px;
+
+				&.#{$id}-carousel-hidden {
+					display: none;
+				}
+			}
+
+			&loader {
+				width: 100%;
+				display: none;
+				min-height: 1000px;
+				height: 100%;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 100;
+				background: #fff;
+
+				&::after {
+					content: "";
+					position: absolute;
+					height: 1000px;
+					width: 200px;
+					right: -200px;
+					top: 0;
+					z-index: 100;
+					background: #fff;
+				}
+
+				&::before {
+					content: "";
+					position: absolute;
+					height: 1000px;
+					width: 200px;
+					left: -200px;
+					top: 0;
+					z-index: 100;
+					background: #fff;
+				}
+
+				svg {
+					width: 100px;
+					height: 100px;
+					animation: spin 1s linear infinite;
+				}
+
+				p {
+					font-size: 14px;
+					line-height: 30px;
+					font-family: "Montserrat", Arial, Helvetica, sans-serif;
+					font-weight: 400 !important;
+				}
+			}
+
+			&.loading .#{$id}-personalised--productsloader {
+				display: flex;
+			}
+		}
+
+		.#{$id}-personalised--carouselholder,
+		.#{$id}-personalised--carouselbrandholder {
+			position: relative;
+			overflow: visible;
+		}
+
+		.#{$id}-personalised--carousel {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
+			background: #f5f5f5;
+			padding: 20px 0;
+
+			&.#{$id}-personalised--carousel--brands {
+				height: auto;
+				background: #f5f5f5;
+				padding: 20px 30px 10px;
+
+				h3 {
+					font-size: 16px;
+					text-transform: uppercase;
+					text-align: center;
+					font-family: "Montserrat", Arial, Helvetica, sans-serif;
+					font-weight: 400;
+					padding: 0 0 25px 0;
+				}
+
+				.swiper-wrapper {
+					display: flex;
+					justify-content: space-around;
+				}
+			}
+
+			h3 {
+				font-size: 16px;
+				text-transform: uppercase;
+				text-align: center;
+				font-family: "Montserrat", Arial, Helvetica, sans-serif;
+				font-weight: 500;
+				padding: 0 0 15px 0;
+			}
+
+			&item {
+				background: #fff;
+				text-align: center;
+				justify-content: center;
+				padding: 0;
+
+				img {
+					margin-bottom: 20px;
+					max-width: 296px;
+				}
+
+				p {
+					text-transform: initial;
+					font-size: 14px;
+					color: #000;
+					margin-bottom: 2px;
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+
+				.#{$id}-product-link {
+					padding: 20px;
+				}
+
+				&--price {
+					font-size: 13px;
+					color: #000;
+					font-family: "Montserrat", Arial, Helvetica, sans-serif !important;
+					font-weight: bold;
+					margin-top: 20px;
+				}
+
+				&--name {
+					height: 40px;
+					overflow: hidden;
+				}
+			}
+
+			&branditem {
+				display: flex;
+				justify-content: center;
+				height: 44px;
+				padding: 0 24px;
+				border: 1px solid #000;
+				font-size: 14px;
+				line-height: 42px;
+				font-weight: 500;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: #000;
+				background-color: #fff;
+				cursor: pointer;
+				box-sizing: border-box;
+				text-align: center;
+				font-family: GothamHTF-Medium, Arial, Helvetica, sans-serif;
+				transition: 0.25s background-color ease, 0.25s border-color ease,
+					0.25s color ease;
+
+				&:hover {
+					background-color: #e10098;
+					color: #fff;
+					border-color: #e10098;
+				}
+
+				svg {
+					height: 75px;
+				}
+			}
+		}
+
+		.#{$id}-checkout-button {
+			font-size: 13px;
+			text-align: center;
+			color: #fff;
+			background: #e10098;
+			width: 100%;
+			padding: 15px 0;
+			border: 2px solid #e10098;
+			text-transform: uppercase;
+			font-weight: 700;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			max-width: 200px;
+			margin: 30px auto 0;
+
+			@media all and (max-width: 1200px) {
+				padding-left: 3px;
+				padding-right: 3px;
+			}
+
+			&--text {
+				display: flex;
+			}
+
+			&--icon {
+				display: flex;
+				margin-left: 5px;
+				svg {
+					max-width: 18px;
+				}
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.#{$id}-carousel-button {
+			background: transparent !important;
+			border: none !important;
+
+			z-index: 10;
+			position: absolute;
+			top: 136px;
+			left: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+			@media all and (max-width: 900px) {
+				display: none;
+			}
+
+			&.right {
+				left: auto;
+				right: 10px;
+			}
+
+			&.swiper-button-disabled {
+				opacity: 0.35;
+			}
+		}
+
+		.#{$id}-carousel-scrollbar {
+			margin: 30px 0 25px 0;
+			background: #fff;
+			cursor: pointer;
+			width: 75%;
+			max-width: 600px;
+			transform: translateX(-50%);
+			left: 50%;
+			position: relative;
+			bottom: 3px;
+			z-index: 50;
+			height: 5px;
+
+			.swiper-scrollbar-drag {
+				height: 20px;
+				top: -10px;
+				background: #000;
+				left: 0;
+				position: relative;
+				width: 13px !important;
+				height: 25px;
+				border-radius: 0px;
+			}
+		}
+
+		.#{$id}-carousel-pagination {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin: 20px 0 0;
+
+			&##{$id}-itemsinbasket-pagination {
+				display: inline-flex;
+				position: relative;
+				top: 3px;
+
+				@media all and (max-width: 767px) {
+					display: none;
+				}
+			}
+
+			.swiper-pagination-bullet {
+				width: 25px;
+				height: 20px;
+				background: transparent;
+				border-radius: 0;
+				margin: 0 10px;
+				position: relative;
+				opacity: 1;
+
+				&:before {
+					content: "";
+					width: 100%;
+					height: 3px;
+					background: #aaa;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					transform: translateY(-50%);
+				}
+
+				&.swiper-pagination-bullet-active {
+					&:before {
+						height: 3px;
+						border-radius: 1px;
+						background: #000;
+					}
+				}
+			}
+		}
+
+		.#{$id}-rvbrands-carouselcontainer {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap !important;
+			justify-content: center !important;
+			align-items: center;
+			padding-bottom: 10px;
+
+			@media all and (max-width: 1080px) {
+				justify-content: flex-start !important;
+				overflow-y: hidden;
+				padding-bottom: 20px;
+			}
+
+			.#{$id}-personalised--carouselbranditem {
+				margin: 0 10px;
+				white-space: nowrap;
+			}
+		}
+
+		.#{$id}-personalised--carouselbrandholder {
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+	}
+
+	#topMenuWrapper {
+		position: relative;
+	}
+
+	nav#topMenu {
+		display: flex;
+		margin: 0 auto;
+		justify-content: center;
+
+		##{$id}-jfy-link {
+			height: 100%;
+
+			@media all and (max-width: 1600px) {
+				display: flex;
+				min-width: 170px;
+				justify-content: center;
+			}
+		}
+
+		ul.RootGroup {
+			margin: 0;
+		}
+	}
+
+	.#{$id}-jfy-link {
+		height: 100%;
+		display: flex;
+		font-size: 14px;
+		font-family: "Montserrat", Arial, Helvetica, sans-serif !important;
+		display: flex !important;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		color: #e10098;
+		position: relative;
+
+		&:after {
+			content: "";
+			background-image: url(https://www.houseoffraser.co.uk/images/core/hof-sprite-sheet-v8.svg);
+			height: 23px;
+			background-position: -373px -144px;
+			background-size: 700px 700px;
+			top: 10px;
+			right: 15px;
+			position: absolute;
+			display: block;
+			width: 20px;
+			padding: 0;
+			font-size: 11px;
+			box-sizing: border-box;
+
+			@media all and (min-width: 1020px) {
+				display: none;
+			}
+		}
+
+		&:hover {
+			font-weight: bold !important;
+			transition: none;
+
+			&:before {
+				content: "";
+				width: 100%;
+				height: 2px;
+				background: #000;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
+		@media all and (max-width: 1020px) {
+			color: #000;
+		}
+
+		&--pill {
+			font-weight: normal;
+			font-family: "Montserrat-Medium", Arial, Helvetica, sans-serif;
+			background: #e10098;
+			border-radius: 3px;
+			color: #fff;
+			font-size: 11px;
+			flex-direction: row;
+			margin-left: 5px;
+			align-items: center;
+			padding: 3px;
+			line-height: 13px;
+
+			@media all and (max-width: 1020px) {
+				display: flex;
+			}
+		}
+	}
+	#mp-menu .#{$id}-jfy-link {
+		justify-content: flex-start;
+	}
+
+	.#{$id}-jfy-dot {
+		position: relative;
+
+		&:after {
+			content: "";
+			background: #e10098;
+			width: 13px;
+			height: 13px;
+			position: absolute;
+			border: 2px solid #fff;
+			top: 6px;
+			right: 2px;
+			border-radius: 50%;
+		}
+	}
+
+	##{$id}-itemsinbasket-carousel .#{$id}-personalised--carouselholder {
+		padding: 0 50px;
+		overflow: hidden;
+		width: 100%;
+
+		@media all and (max-width: 900px) {
+			padding: 0 0 0 10px;
+		}
+	}
+
+	.quickview-button > * {
+		pointer-events: none;
+	}
+
+	#hotspotModal #addHotspotToBag > * {
+		pointer-events: none;
+	}
+
+	.#{$id}-justforthem {
+		&--header {
+			position: relative;
+			background-image: url("https://blcro.fra1.digitaloceanspaces.com/HOF-637/HOF-637-justforthem-desktop.jpg");
+			background-size: cover !important;
+			background-position: center center;
+			background-repeat: no-repeat;
+			height: 400px;
+			display: flex;
+			width: 100%;
+			max-width: 1920px;
+			margin: 0 auto;
+
+			@media all and (max-width: 1800px) {
+				height: 325px;
+			}
+
+			@media all and (max-width: 992px) {
+				height: 250px;
+			}
+
+			@media all and (max-width: 768px) {
+				background-image: url("https://blcro.fra1.digitaloceanspaces.com/HOF-637/HOF-637-justforthem-mobile.jpg");
+			}
+
+			@media all and (min-width: 1920px) {
+				background-size: initial;
+			}
+
+			&:before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.3);
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+
+			&section {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 700px;
+				background: rgba(255, 255, 255, 0.8);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 15px 0;
+				z-index: 10;
+
+				&1 {
+					font-family: "Montserrat";
+					font-style: normal;
+					font-weight: 500;
+					font-size: 26px;
+					line-height: 34px;
+					display: flex;
+					align-items: center;
+					text-align: center;
+					text-transform: uppercase;
+					color: #000000;
+
+					@media all and (max-width: 767px) {
+						font-size: 16px;
+						line-height: 20px;
+					}
+				}
+
+				&2 {
+					font-family: "Montserrat";
+					font-style: normal;
+					font-weight: 600;
+					font-size: 28px;
+					line-height: 34px;
+					display: flex;
+					align-items: center;
+					text-align: center;
+					text-transform: uppercase;
+					color: #000000;
+
+					@media all and (max-width: 767px) {
+						font-size: 26px;
+						line-height: 32px;
+					}
+				}
+			}
+		}
+
+		&--carousels {
+			max-width: 1440px;
+			margin: 40px auto 0;
+			width: 100%;
+		}
+	}
+}

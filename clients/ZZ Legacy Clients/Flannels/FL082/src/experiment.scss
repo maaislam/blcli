@@ -1,0 +1,270 @@
+@import './variables';
+
+@keyframes shrink {
+  0% {
+    width: auto !important;
+  }
+  100% {
+    width: 0 !important;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.#{$id} {
+  .siblingLinks {
+    display: none;
+  }
+  .FL082-remove {
+    display: none;
+  }
+  
+  .FL082-brands {
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 12px;
+    background-color: #f1f1f1;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -50%;
+      width: 300%;
+      height: 100%;
+      // background-color: #f1f1f1;
+    }
+
+    
+    > p {
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      font-weight: 400;
+      // font-family: 'GothamHTF-Medium',Arial,Helvetica,sans-serif !important;
+      font-family: 'GothamHTF-Book',Arial,Helvetica,sans-serif !important;
+      letter-spacing: .1em;
+    }
+
+    @media only screen and (max-width: 1109px) {
+      > p {
+        padding: 5px 8px;
+        background: #f1f1f1;
+        z-index: 99;
+        top: 6px;
+      }
+    }
+  }
+  .FL082-brands--list {
+    padding-left: 160px;
+    text-align: center;
+    
+    ul {
+      display: flex;
+      flex-direction: row;
+      // align-items: stretch;
+      align-items: center;
+      justify-content: center;
+      @media only screen and (max-width: 767px) {
+        padding-left: 150px;
+      }
+    }
+
+    li {
+      display: inline-block;
+      flex: 1;
+      vertical-align: top;
+      padding: 7px 5px;
+      margin: 5px 2px;
+      position: relative;
+      background-color: #f1f1f1;
+      &:not(:last-of-type) {
+        border-right: 1px solid #ccc;
+      }
+      
+      button {
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        color: #000;
+        font-family: 'GothamHTF-Book',Arial,Helvetica,sans-serif !important;
+        letter-spacing: 1px;
+        font-size: 1em;
+        padding: 0;
+        text-transform: uppercase;
+        position: relative;
+        font-weight: 700;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          right: 100%;
+          height: 2px;
+          background-color: #000;
+          border-radius: 2px;
+          transition: ease-in-out all .2s;
+        }
+        &:hover, &:focus {
+          &:before {
+            right: 0;
+          }
+        }
+      }
+
+      &:last-of-type {
+        button {
+          transition: ease-in-out all .2s;
+          &:hover {
+            font-weight: 700;
+            &:before {
+              right: 100%;
+            }
+          }
+          &:before {
+            display: none !important;
+          }
+        }
+      }
+
+
+    }
+
+    @media only screen and (max-width: 1109px) {
+      // width: 1000px;
+      white-space: nowrap;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        height: 3px;
+        border-radius: 6px;
+      }
+      
+      &::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          border-radius: 6px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+        border-radius: 6px;
+      }
+    }
+  }
+  
+  input#txtBrandSearch {
+    // transition: ease-in-out all .2s;
+    // transition-delay: 1s;
+      
+  }
+
+  &.FL082-showFilter {
+    h2.FiltersTitle {
+      span.refineIco {
+        background-position: -82px -177px;
+      }
+    } 
+    #ToggleFiltersContainer {
+      .toggleFilterInner {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+  #FilterContainer.FL082-mobileShow {
+    height: 80%;
+  }
+
+  .FL082-hide {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    padding: 0 !important;
+    flex: none !important;
+  }
+
+  &.FL082-noBrands {
+    .siblingLinks {
+      display: block;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    #ViewMoreCopy.collapse {
+      display: block;
+      .textDesc {
+        display: none !important;
+      }
+    }
+    
+    .topSection .viewMore, .catTemplate .viewMore {
+      display: none !important;
+    }
+
+    #FL082-moreBrands {
+      // content: "";
+      // position: absolute;
+      // display: block;
+      // height: 30px;
+      // width: 30px;
+      // pointer-events: none;
+      // background-size: 750px 750px;
+      // background-position: -404px -105px;
+      // top: -2px;
+      // background-image: url('https://www.flannels.com/images/core/flannels-new-sheet-v4.svg');
+      // background-repeat: no-repeat;
+    } 
+
+    .FL082-brands {
+      margin: 10px auto 20px;
+      // background-color: transparent;
+      > p {
+        display: block;
+        background-color: transparent;
+        position: static;
+        margin-bottom: 5px;
+        padding-left: 0;
+        padding-top: 10px;
+        text-align: center;
+      }
+      .FL082-brands--list {
+        padding-left: 0;
+        background-color: #f1f1f1;
+        ul {
+          padding-left: 0;
+          display: block;
+        }
+      }
+      // .FL092-rightChev {
+      //   background-color: transparent;
+      //   position: absolute;
+      //   right: 0; top: 5px;
+      //   img {
+      //     max-width: 15px;
+      //     height: auto;
+      //   }
+      // }
+    }
+  }
+
+  .FL082-shine {
+    background-color: #f1f1f1;
+  }
+
+  // Hide OG Refine
+  // .flanProdList .refineByLeftHeader h2 {
+  //   display: none;
+  // }
+}

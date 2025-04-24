@@ -1,0 +1,104 @@
+@import './variables';
+
+.#{$id} {
+
+    &__hide {
+        display: none !important;
+    }
+
+
+    &__variants {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 32px;
+
+        &-headline {
+            font-size: 14px;
+            line-height: 17px;
+            color: #556264;
+        }
+
+
+
+        &-dp {
+            position: relative;
+
+            &--title {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                font-size: 15px;
+                line-height: 18px;
+                color: #999999;
+                border: 1px solid #AAAAAA;
+                border-radius: 3px 3px 0 0;
+                cursor: pointer;
+
+                span.arrow {
+                    display: flex;
+                    margin-left: auto;
+
+                    &.up {
+                        transform: scaleY(-1);
+                    }
+                }
+            }
+        }
+
+        &-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px 10px 20px 0;
+            border: 1px solid #AAAAAA;
+            border-radius: 0 0 3px 3px;
+            border-top: none;
+            background-color: #fff;
+
+            &>div:not(:last-child) {
+                margin-bottom: 14px;
+            }
+        }
+
+    }
+
+    &__variant {
+        width: 100%;
+        padding: 5px 10px;
+        font-size: 15px;
+        line-height: 18px;
+
+        a {
+            display: flex;
+        }
+
+        &:hover {
+            background: #F7F9F9;
+            border-radius: 3px;
+        }
+
+        &--out-of-stock {
+            display: flex;
+            justify-content: space-between;
+
+            &>span:last-child {
+                display: block;
+                margin-left: auto;
+                text-align: right;
+                color: rgba(92, 75, 97, 0.9);
+
+                font-size: 12px;
+            }
+        }
+    }
+
+
+}

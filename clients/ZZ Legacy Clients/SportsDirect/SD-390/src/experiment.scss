@@ -1,0 +1,122 @@
+@import './variables';
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.#{$id} {
+
+  .#{$id}-departmentalised-nav-holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #23282B;
+    padding: 0 10px 10px;
+
+    .#{$id}-nav-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      position: relative;
+      padding: 5px;
+
+      img {
+        display: flex;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .#{$id}-button {
+        position: absolute;
+        bottom: 20px;
+        width: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0E03DB;
+        padding: 15px 10px;
+        color: #FFF;
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+
+        @media all and (max-width: 500px) {
+          font-size: 12px;
+          padding: 10px 0;
+        }
+
+        @media all and (max-width: 350px) {
+          font-size: 11px;
+          padding: 10px 0;
+        }
+      }
+    }
+
+    &.variation1 {
+
+      .#{$id}-button {
+        position: absolute;
+        bottom: 10px;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0E03DB;
+        padding: 5px;
+        color: #FFF;
+        font-size: 11px;
+        line-height: 14px;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+
+        @media all and (max-width: 350px) {
+          font-size: 10px;
+        }
+      }
+
+    }
+
+    &.variation2 {
+
+      .#{$id}-button {
+        position: static;
+        left: 0;
+        transform: none;
+        width: 100%;
+      }
+
+    }
+
+    &.variation3 {
+
+      flex-wrap: nowrap;
+
+      .#{$id}-nav-item-inner {
+        position: relative;
+        width: 100%;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(35, 40, 43, 0.4); 
+        }
+      }
+
+      .#{$id}-button {
+        background: none;
+        bottom: 0px;
+
+
+      }
+
+    }
+
+  }
+
+}

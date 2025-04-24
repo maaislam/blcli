@@ -1,0 +1,210 @@
+.MP112 {
+  /* Product Page Product Detail */
+  .productDetail .yCmsContentSlot.add-to-cart,
+  .productDetail .yCmsContentSlot.add-to-cart + .yCmsContentSlot {
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 0 !important;
+  }
+
+  .productDetail .yCmsContentSlot.add-to-cart .addToCartButton {
+    // max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .productDetail .yCmsContentSlot .pickupInStoreBtn {
+    border: 0;
+    height: auto !important;
+    text-decoration: underline;
+    width: auto !important;
+    min-height: 0;
+    padding: 0 !important;
+
+    &:hover {
+      background: #fff !important;
+      color: #323232 !important;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.MP112-v2 {
+  /* Hide find in store button for v2 */
+
+  .productDetail .yCmsContentSlot .pickupInStoreBtn {
+    display: none !important;
+  }
+}
+
+$calc: '~"calc(100% - 129px)"'; /* Qubit uses LESS */
+
+.MP112-v1 { /* V1 only changes to store picker */
+
+  /* Store finder search box */
+  .storepick {
+    margin-bottom: 20px !important;
+
+    #locationForSearch {
+      // width: #{$calc};
+      width: 100%;
+      border: 1px solid #323232 !important;
+      border-right: 0 !important;
+      padding-bottom: 7px !important;
+    }
+
+    #pickupstore_search_button {
+			height: auto !important;
+			padding: 9px 12px !important;
+			min-height: 0 !important;
+			line-height: 1;
+      // margin-left: -3px !important;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    #find_pickupStoresNearMe_button {
+			height: auto !important;
+			padding: 0 !important;
+			min-height: 0 !important;
+			line-height: 1;
+    }
+
+  }
+
+  /* Title */
+
+  #cboxContent .storeFinder h2.detail-product {
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 50px;
+      max-height: 50px;
+      margin-right: 15px;
+    }
+  }
+
+  /* Store finder items */
+  #pickup_store_results {
+    .storeFinder {
+
+      /* Applies to all... */
+      .storeFinder_title {
+        margin-bottom: 2px !important;
+
+        + .storeFinder_distance {
+          font-weight: 400;
+          margin-bottom: 15px;
+
+          .ico {
+            display: none;
+          }
+        }
+      }
+
+      /* Applies to first, nearest store... */
+
+      &:first-of-type {
+        padding: 20px;
+        background: #eee;
+        position: relative;
+        overflow: hidden;
+
+        // Amend 
+        .storeFinder_details {
+          padding-top: 20px;
+        }
+
+        .add_to_cart_storepickup_form {
+          text-align: center;
+          display: block;
+          width: 100%;
+
+          .btn-primary {
+            margin-left: 5px;
+            float: none !important;
+            display: inline-block;
+          }
+        }
+
+        .collect-in {
+          background: url('//dd6zx4ibq538k.cloudfront.net/static/images/4068/6f152152fb46098a4b321a381431af27_74_80.png');
+          background-position: 5px center;
+          margin: -10px 0 5px;
+          background-repeat: no-repeat;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          background-size: 50px 50px;
+          padding-left: 65px;
+          min-height: 60px;
+        }
+      }
+
+      &:first-of-type:before {
+        content: '';
+        color: #fff;
+        line-height: 12px;
+        position: absolute;
+        background: #000;
+        // top: -63px;
+        top: -70px;
+        right: -63px;
+        width: 125px;
+        height: 125px;
+        transform: rotate(45deg);
+      }
+
+      &:first-of-type:after {
+        content: "Your \A nearest store";
+        white-space: pre;
+        text-align: center;
+        font-size: 11px;
+        color: #fff;
+        line-height: 12px;
+        position: absolute;
+        // top: 16px;
+        top: 14px;
+        // right: -2px;
+        right: -5px;
+        transform: rotate(45deg);
+      }
+
+      /* Applies to all but first, other stores... */
+
+      &:nth-of-type(n+2) {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 35px;
+        margin-bottom: 30px !important;
+
+        .collect-in {
+          width: 40%;
+          margin-right: 10%;
+          float: left;
+        }
+
+        .add_to_cart_storepickup_form {
+          width: 50%;
+          float: left;
+        }
+      }
+
+    }
+  }
+  // Amends - Hide new elements
+  .col-md-6.col-xs-12.modal-find-stores-body-button-group strong {
+    margin-left: 6px;
+  }
+  .col-md-6.col-xs-12.modal-find-stores-body-button-group div {
+    span.p-3, button#find_pickupStoresNearMe_button {
+      display: none;
+    }
+  }
+  #pickup_store_results .storeFinder {
+    min-width: 230px !important;
+  }
+}

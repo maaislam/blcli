@@ -1,0 +1,31 @@
+const elementTypes = {
+    Promotions: 'Promotions',
+    Video: 'Video',
+    Page_template: 'Page template',
+    Timer: 'Timer',
+    Header_navigation: 'Header navigation',
+    Footer_navigation: 'Footer navigation',
+    Global_navigation: 'Global navigation',
+    Product_carousel: 'Product carousel',
+    Promotions_carousel: 'Promotions carousel',
+    Icons: 'Icons',
+    Checklist: 'Checklist',
+    Filters: 'Filters',
+    Variant_Selector: 'Variant Selector',
+    Copy: 'Copy',
+    Progress_Bar: 'Progress Bar',
+    Quantity_selector: 'Quantity selector',
+    Chatbot: 'Chatbot',
+    CTA: 'CTA',
+    Pop_up: 'Pop-up',
+    Modal: 'Modal',
+    Reviews: 'Reviews',
+    Interactive_tool: 'Interactive tool',
+    Social_Proof: 'Social Proof',
+    Search: 'Search',
+    Scroller: 'Scroller',
+    Thumbnail: 'Thumbnail',
+    Link: 'Link'
+};
+
+export default elementTypes;

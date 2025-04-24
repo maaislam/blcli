@@ -1,0 +1,440 @@
+$break-med: 1000px;
+
+.EJ001 .EJ001_Header {
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+  .js body.EJ001 {
+    &:not(.instorePortalBody) {
+      padding-top: 113px;
+    }
+
+    .siteHeader,
+    .siteNavigation,
+    .footerNav {
+      display: none;
+    } 
+  }
+
+  .EJ001 {
+    /* COLUMNS */
+    .EJ001_navRow {
+      [class^="EJ001_col-"] {
+        vertical-align: top;
+        // border-right: 1px solid black;
+        box-sizing: border-box;
+        float: left;
+
+        &:last-of-type {
+          border-right: none;
+        }
+      }
+    }
+
+    .EJ001_col-12 {
+      width: 100%;
+    }
+
+    .EJ001_col-11 {
+      width: 91.66666667%;
+    }
+
+    .EJ001_col-10 {
+      width: 83.33333333%;
+    }
+
+    .EJ001_col-9 {
+      width: 75%;
+    }
+
+    .EJ001_col-8 {
+      width: 66.66666667%;
+    }
+
+    .EJ001_col-7 {
+      width: 58.33333333%;
+    }
+
+    .EJ001_col-6 {
+      width: 50%;
+    }
+
+    .EJ001_col-5 {
+      width: 41.66666667%;
+    }
+
+    .EJ001_col-4 {
+      width: 33.33333333%;
+    }
+
+    .EJ001_col-3 {
+      width: 25%;
+    }
+
+    .EJ001_col-2 {
+      width: 16.66666667%;
+    }
+
+    .EJ001_col-1 {
+      width: 8.33333333%;
+    }
+
+    .EJ001_col-5ths {
+      width: 20%;
+    }
+
+    .EJ001_col-2-5ths {
+      width: 40%;
+    }
+
+    /* COMPONENTS */
+    // Header
+    .EJ001_Header {
+      display: block;
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      top: 0;
+
+      // Logo
+      .logo {
+        float: none;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        path {
+          fill: black !important;
+        }
+      }
+
+      // Search
+      .mainSearch {
+        border: 1px solid #ccc;
+        float: none;
+        width: 100%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        #ui-id-1 {
+          width: 100% !important;
+          max-height: 500px;
+          max-height: 80vh;
+          overflow-y: scroll;
+        }
+      }
+
+      .js-reveal {
+        display: none !important;
+      }
+
+      .searchButton {
+        background: #bbacd5;
+      }
+    }
+
+    // TopBar
+    .EJ001_topBarContainer {
+      background: #bbacd5;
+    }
+
+    .EJ001_topBar {
+      max-width: 1200px;
+      width: 95%;
+      margin: 0 auto;
+      text-align: right;
+      background: #bbacd5;
+      font-size: 13px;
+
+      a {
+        color: #000;
+      }
+
+      ul {
+        list-style-type: none;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: inline-block;
+          border-right: 1px solid black;
+
+          a {
+            margin: 0 15px;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+
+      .basketIcon {
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    // Navigation
+    .EJ001_pageOverlay {
+      position: fixed;
+      display: none;
+      z-index: 9;
+      background: rgba(0, 0, 0, 0.6);
+      height: 100%;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .EJ001_navRowContainer {
+      border-bottom: 1px solid #ccc;
+      background: #fff;
+    }
+
+    .EJ001_navRow {
+      max-width: 1200px;
+      width: 95%;
+      margin: 0 auto;
+      padding: 0;
+      height: 70px;
+      margin-bottom: -1px; // To account for border
+
+      > div {
+        height: 100%;
+      }
+    }
+
+    .EJ001_Navigation {
+      height: 100%;
+
+      .EJ001_Navigation-submenu {
+        max-width: 1200px;
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+
+        > div {
+          border-right: 1px solid black;
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+
+      .EJ001_Navigation-l1 {
+        list-style-type: none;
+        padding: 0;
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 40px;
+        text-align: center;
+
+        @media screen and (max-width: $break-med) {
+          padding: 0 20px;
+        }
+
+        > li:first-of-type .EJ001_Navigation-submenuContainer {
+          // display: block !important;
+        }
+
+        // Link Hover
+        .EJ001_Navigation-l1--active {
+          > a:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            right: 0;
+            left: 0;
+            background: black;
+          }
+
+          .EJ001_Navigation-submenuContainer {
+            display: block;
+          }
+        }
+
+        > li {
+          display: inline-block;
+          margin: 0 18px; 
+          height: 100%;
+          text-align: left;
+
+          @media screen and (max-width: 1079px) {
+            margin: 0 10px;
+          }
+
+          > a {
+            display: block;
+            height: 100%;
+            line-height: 70px;
+            position: relative;
+            // padding: 0 10px;
+            color: black !important;
+
+            &:active, &:hover {
+              color: black !important;
+            }
+          }
+
+          &.EJ001_linkRed {
+            > a,
+            > a:active,
+            > a:hover {
+              color: red !important;
+            }
+          }
+        }
+      }
+    }
+    
+    .EJ001_Navigation-submenuContainer {
+      display: none;
+      background: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 40px 0;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      max-height: 590px;
+      max-height: 80vh;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+          background-color: #bbb;
+          border-radius: 6px;
+      }
+
+      .EJ001_Navigation-submenu > div:last-of-type ul.EJ001_navListing {
+        border-right: none;
+      }
+
+      ul.EJ001_navListing {
+        list-style-type: none;
+        // border-right: 1px solid #333;
+        padding: 0;
+        height: 100%;
+        padding: 0 30px;
+
+        @media screen and (max-width: $break-med) {
+          padding: 0 15px;
+        }
+
+        > li {
+          display: block;
+          margin: 15px 0;
+
+          > a {
+            transition: ease color .3s;
+            color: #333;
+
+            &:hover {
+              color: #797979;
+              text-decoration: underline;
+              transition: ease color .3s;
+            }
+          }
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          &.EJ001_heading {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .EJ001_linkRed > a {
+      color: red !important;
+    }
+
+    .EJ001_fullWidthBanner {
+      width: 100%;
+      height: auto;
+      margin: 3px auto;
+      padding: 0 40px;
+      box-sizing: border-box;
+
+      @media screen and (max-width: $break-med) {
+        padding: 0 20px;
+      }
+
+      > a {
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      &.EJ001_fullWidthBanner--fullHeight {
+        padding: 0 0 0 10px;
+      }
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .EJ001.EJ001-2 {
+    .EJ001_navRowContainer {
+      background: #bbacd5;
+    }
+
+    .EJ001_Navigation .EJ001_Navigation-l1 > li.EJ001_linkRed > a {
+      color: #e00000 !important;
+      
+      &:hover {
+        color: #e00000 !important;
+      }
+
+      &:active {
+        color: #e00000 !important;
+      }
+    }
+  
+    .EJ001_topBarContainer,
+    .EJ001_topBar {
+      background: white;
+
+      .basketIcon svg path {
+        fill: #bbacd5 !important;
+      }
+    }
+  }
+}

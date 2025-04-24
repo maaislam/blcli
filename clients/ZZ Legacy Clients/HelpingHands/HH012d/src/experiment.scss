@@ -1,0 +1,143 @@
+$id: 'HH012d';
+
+body.#{$id} {
+
+  // Replicating website hover functionality
+  #menu-item-728>.HH012d_Container {
+    display: none;
+    width: 1000px;
+    // Set all text colour to white by default
+    color: #FFFFFF;
+
+    // Restyle links
+    .HH012d_Service_Link {
+      line-height: 20px;
+      padding: 0;
+      border: none;
+
+      &:hover {
+        background: none;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .HH012d_Service_Link:first-child,
+    .HH012d_Service_Link:last-child {
+      background: #6d51a7;
+    }
+
+    .HH012d_Service_Link:nth-child(2) {
+      background: #42c08f;
+      margin: 10px 0;
+    }
+  }
+
+  #menu-item-728:hover {
+
+    // Hide current navigation
+    >ul {
+      display: none;
+    }
+
+    // Show test content
+    .HH012d_Container {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      background-color: #FFFFFF;
+    }
+  }
+
+  // Style subcontainers, sit next to each other
+  .HH012d_Sub_Container {
+    display: inline-block;
+    width: calc(33.3334% - 5px);
+    vertical-align: top;
+    padding: 10px 5px;
+  }
+
+  .HH012d_Sub_Container_Header {
+    color: #6d51a7;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  // Style first subsection, contains 3 contains stacked on each other
+  .HH012d_Our_Services_Container {
+
+    .HH012d_Service_Block {
+      // Padding right to create space for the arrow
+      padding: 10px 40px 10px 10px;
+      position: relative;
+
+      // Taken from website, after element for arrow
+      &::after {
+        color: #FFFFFF;
+        content: "\e258";
+        font-family: "Glyphicons Halflings", sans-serif;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        margin-top: -10px;
+        font-size: 30px;
+      }
+    }
+
+    .HH012d_Service_Header {
+      display: block;
+      font-weight: 700;
+      border-bottom: #FFFFFF solid 1px;
+    }
+
+    .HH012d_Service_Text {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+  }
+
+
+  // Style link containers in other areas
+
+  #main-nav .HH012d_Container>.HH012d_Sub_Container>ul.HH012d_Link_Container {
+    position: static;
+    padding: 0;
+    // Resetting styling
+    top: 0;
+    width: auto;
+
+    >li {
+      float: none;
+      width: auto;
+      border-bottom: solid 1px #6d51a7;
+
+      >a {
+        background: #FFFFFF;
+        color: #6d51a7;
+        padding: 0 10px 0 0;
+        line-height: 30px;
+        font-weight: 700;
+
+        // Reposition arrow
+        &::after {
+          top: 10px;
+          font-size: 20px;
+        }
+      }
+
+      // Style rendered nav text
+      .HH012d_Nav_Link_Text {
+        font-size: 12px;
+        display: block;
+        line-height: 15px;
+        color: #555555;
+        padding: 0 0 10px 10px;
+        font-weight: 400;
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@import './variables';
+
+@keyframes SGswing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg) translateX(-50%);
+            transform: rotateX(-100deg) translateX(-50%);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateX(-50%);
+            transform: rotateX(0deg) translateX(-50%);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes SGswing-out-top-bck {
+  0% {
+    -webkit-transform: rotateX(0deg) translateX(-50%);
+            transform: rotateX(0deg) translateX(-50%);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateX(-100deg) translateX(-50%);
+            transform: rotateX(-100deg) translateX(-50%);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+}
+
+.#{$id} {
+
+  .browse__filter-toggle-container {
+    position: relative;
+    top: unset;
+  }
+  .#{$id}-filterMessage {
+    position: absolute;
+    background: white;
+    border: 2px solid #000000;
+    text-align: center;
+    font-family: "Oxygen",sans-serif;
+    padding: 10px;
+    bottom: -83px;
+    border-radius: 5px;
+    max-width: 280px;
+    left: 50%;
+    width: 100%;
+    z-index: 99;
+    transform: translateX(-50%) rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+    &.#{$id}-show {
+      animation: SGswing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    }
+    &.#{$id}-hide {
+      animation: SGswing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+    }
+
+   
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+      font-size: 15px;
+    }
+    &:after, &:before {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+    
+    &:after {
+      border-color: rgba(235, 235, 235, 0);
+      border-bottom-color: white;
+      border-width: 10px;
+      margin-left: -10px;
+    }
+    &:before {
+      border-color: rgba(0, 0, 0, 0);
+      border-bottom-color: #000000;
+      border-width: 13px;
+      margin-left: -13px;
+    }
+
+    @media(min-width: 1024px) { 
+      left: 50%;
+      bottom: -97px;
+      p {
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  @media(min-width: 1024px) {
+    #refinement-material {
+      position: relative;
+    }
+  }
+
+  &.hsamuel {
+    .#{$id}-filterMessage {
+      border: 2px solid #a01d29;
+      font-family: Montserrat,sans-serif;
+      color: black;
+      bottom: -46px;
+      &:after, &:before {
+        left: 50px;
+      }
+      &:before {
+        border-bottom-color: #a01d29;
+      }
+      @media (min-width: 500px) {
+        left: 25%;
+        &:after, &:before {
+          left: 50%;
+        }
+      }
+      @media (min-width: 1024px) {
+        left: 50%;
+        bottom: -111px;
+        padding: 10px 8px;
+         p {
+          line-height: 19px;
+         }
+      }
+        
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

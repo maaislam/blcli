@@ -1,0 +1,21 @@
+$id: '--ID--';
+
+$media: (xsm:360px,
+    sm: 600px,
+    md: 991px,
+    lg: 1087px,
+    xl: 1280px,
+    xxl: 1440px
+);
+
+@mixin media-query($breakpoint) {
+
+    @each $breakpoints,
+    $size in $media {
+        @if $breakpoint==$breakpoints {
+            @media screen and (max-width: $size) {
+                @content;
+            }
+        }
+    }
+}

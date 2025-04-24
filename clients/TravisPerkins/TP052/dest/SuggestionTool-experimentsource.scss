@@ -1,0 +1,358 @@
+$green-default: #054731;
+
+.tphhh {
+    /** Force hide basket popup when our own is active **/
+    &.tphhh-popup-active #cart_popup {
+        display: none !important;
+    }
+
+    /** Lightbox based on https://codepen.io/ScottTaylor96/pen/eRvdBR **/
+    .tphhh-lightbox {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 2147483648;
+        top: 0;
+        left: 0;
+        background: rgba(#000, 0.7);
+        display: none;
+        box-sizing: border-box;
+        * {
+          box-sizing: border-box;
+        }
+        > div {
+          position: absolute;
+          width: 100%;
+          height: 500px;
+          width: calc(100% - 40px);
+          left: 50%;
+          top: 50%;
+          max-height: 570px;
+          max-width: 900px;
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          background: #fff;
+          padding: 15px 0 15px 15px;
+          .tphhh-overflow_fix {
+            overflow-y: scroll;
+            height: 100%;
+            width: 100%;
+            padding-right: 2px;
+            padding-top: 0px;
+            padding-bottom: 20px;
+            box-sizing: border-box;
+          }
+          .tphhh-overflow_fix::-webkit-scrollbar {
+            -webkit-appearance: none;
+          }
+          .tphhh-overflow_fix::-webkit-scrollbar:vertical {
+            width: 11px;
+          }
+          .tphhh-overflow_fix::-webkit-scrollbar:horizontal {
+            height: 11px;
+          }
+          .tphhh-overflow_fix::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            border: 2px solid white;
+            background-color: rgba(0, 0, 0, .5);
+          }
+          .tphhh-overflow_fix::-webkit-scrollbar-track {
+            background-color: #fff;
+            border-radius: 8px;
+          }
+          ul {
+            padding: 0;
+            li {
+              font-size: 12px;
+              line-height: 18px;
+              padding-left: 20px;
+              position: relative;
+              & + li {
+                margin-top: 10px;
+              }
+              &::before {
+                content: '';
+                position: absolute;
+                left: 9px;
+                top: 6px;
+                width: 5px;
+                height: 5px;
+                background: #000;
+              }
+            }
+            & + p {
+              color: red;
+              padding-left: 19px;
+              line-height: 18px;
+              margin-top: 20px;
+              strong {
+                color: #000;
+                display: block;
+                font-size: 12px;
+              }
+            }
+          }
+          h2 {
+            font-size: 18px;
+            font-weight: 500;
+            padding: 0;
+            & + * {
+              margin-top: 20px;
+            }
+          }
+        }
+        .tphhh-close_btn {
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          text-transform: uppercase;
+          background: #000;
+          color: #fff;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border-radius: 50%;
+          font-size: 14px;
+          text-align: center;
+          font-family: Arial;
+          font-weight: 700;
+          text-decoration: none;
+        }
+    }
+
+    .tphhh-lightbox__preloader {
+        margin: 50px 0;
+        text-align: center;
+    }
+
+    .tphhh-added-to-basket {
+        font-size: 16px;
+        font-weight: bold;
+        color: $green-default;
+        text-align: center;
+        margin-bottom: 25px;
+        background: #f7f4ed;
+        padding: 20px;
+    }
+
+    .tphhh-lightbox__content {
+
+    }
+
+    /** Tabs **/
+
+    .tphhh-tabs-title {
+        color: #054731;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+
+        strong {
+            font-weight: bold;
+        }
+        em {
+            color: #999;
+        }
+    }
+
+    .tphhh-tabs__headings {
+        border-bottom: 2px solid $green-default;
+    }
+
+    .tphhh-tabs__tab {
+        display: inline-block;
+        padding: 8px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-right: 3px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        background: #eee;
+        font-weight: bold;
+
+        &:hover,
+        &--active {
+            background: $green-default;
+            color: #fff;
+        }
+    }
+
+    .tphhh-tabs__content {
+        padding: 20px 0;
+    }
+
+    .tphhh-tabs__content-item {
+        display: none;
+
+        &--active {
+            display: block;
+        }
+    }
+
+    /** Products **/
+
+    .tphhh-tabs__product {
+        width: 33.33%;
+        float: left;
+        padding: 0 7.5px;
+
+        .tphhh-tabs__product-inner {
+            box-shadow: 0 0 3px #ccc;
+            padding: 15px;
+            position: relative;
+        }
+    }
+
+    .tphhh-tabs__product-preloader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .tphhh-tabs__product-success {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-weight: 14px;
+        font-weight: bold;
+        color: $green-default;
+    }
+
+    .tphhh-tabs__product-addto {
+        margin-top: 15px;
+    }
+
+    .tphhh-tabs__product-main {
+
+        img {
+            float: left;
+            width: 25%;
+        }
+    }
+
+    .tphhh-tabs__product-title {
+        float: left;
+        width: 75%;
+        height: auto;
+        line-height: 1.4;
+        box-sizing: border-box;
+        padding-left: 10px;
+        min-height: 76px;
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            display: block;
+            font-style: normal;
+            color: #999;
+        }
+    }
+
+    .tphhh-tabs__product-quantity {
+        float: left;
+        width: 55%;
+        box-sizing: border-box;
+        padding: 0 5px;
+
+        label {
+            display: inline-block;
+            font-weight: bold;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        input {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 5px;
+            width: 60px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 0;
+        }
+    }
+
+    .tphhh-tabs__product-addto-button {
+        box-sizing: border-box;
+        float: left;
+        clear: both;
+        margin-top: 15px;
+        width: 100%;
+
+        button {
+            background: #f4a91f;
+            color: #000;
+            border: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            width: 100%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            border-radius: 4px;
+            height: 50px;
+            cursor: pointer;
+        }
+    }
+
+    .tphhh-tabs__product-price {
+        float: left;
+        width: 45%;
+        box-sizing: border-box;
+        padding: 0 5px;
+        text-align: left;
+
+        .tphhh-tabs__product-price-price {
+            display: block;
+            font-weight: bold;
+
+            em {
+                font-size: 0.85em;
+                font-style: normal;
+                font-weight: bold;
+            }
+        }
+        .tphhh-tabs__product-unit {
+            display: block;
+            color: #999;
+            font-weight: bold;
+        }
+    }
+
+    /**** Other ****/
+
+    .tphhh-bottom-links {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 20px;
+
+        a {
+            padding: 0 20px;
+            text-decoration: underline;
+            background: $green-default;
+            margin: 0 10px;
+            padding: 10px 27px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+            &:hover {
+                color: #fff;
+                background: #013121;
+            }
+        }
+    }
+
+}

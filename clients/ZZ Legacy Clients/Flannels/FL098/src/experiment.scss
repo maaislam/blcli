@@ -1,0 +1,94 @@
+@import './variables';
+
+.#{$id} {
+    .FL-hide { display: none !important; }
+
+    li#FL-newSortBy {
+        &.FL-show {
+            .productFilterList {
+                display: block;
+            }
+            .productFilterTitleBox .glyphicon:before {
+                font-size: 18px;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                content: "";
+                background-size: 750px 750px;
+                background-position: -86px -187px;
+            }
+        }
+    }
+
+
+    .MobSortSelector {
+        .FilterClosed {
+            h3.productFilterTitle:before {
+                right: 100% !important;
+            }
+        }
+        div:not(.FilterClosed) {
+            h3.productFilterTitle:before {
+                right: 0;
+            }
+        }
+    }
+
+
+    li.productFilter.FilterClosed {
+        background-color: transparent !important;
+        button.FL-viewAll {
+            display: none;
+        }
+    }
+
+    .productFilterList .FilterAnchor {
+        padding: 6px 30px !important;
+    }
+
+    // BRANDS
+    ul#filterlist li.FL-isBrand {
+        background-color: #f1f1f1;
+        &:not(.FilterClosed) {
+            // margin-bottom: 50px;
+        }
+        .productFilterList {
+            max-height: 260px;
+            overflow-y: scroll;
+        }
+        .productFilterTitleBox {
+            background-color: transparent;
+        }
+        &.FL-expand {
+            .productFilterList {
+                overflow-y: scroll;
+            }
+            button.FL-viewAll {
+                display: none;
+            }
+        }
+    }
+
+    button.FL-viewAll {
+        appearance: none;
+        background-color: transparent;
+        color: #000000;
+        text-decoration: underline;
+        margin-left: 40px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        letter-spacing: .1em;
+    }
+}
+
+.FL098-1 {
+    // BRANDS
+    ul#filterlist li:first-of-type {
+        .productFilterList {
+            overflow-y: hidden;
+            &.FL-show {
+                overflow-y: scroll;
+            }
+        }
+    }
+}

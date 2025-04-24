@@ -1,0 +1,636 @@
+@import './variables';
+
+
+html.#{$id}.#{$id}-noScroll,
+body.#{$id}.#{$id}-noScroll {
+    overflow: hidden;
+    position: sticky;
+}
+.#{$id} {
+  @keyframes SGtoggle {
+    0% {
+      bottom: -100px;
+    }
+    100% {
+      bottom: 62px;
+    }
+  }
+  @keyframes SGslide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes SGslide-out-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes SGslide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px) translateY(-50%);
+              transform: translateX(1000px) translateY(-50%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) translateY(-50%);
+              transform: translateX(0) translateY(-50%);
+      opacity: 1;
+    }
+  }
+  @keyframes SGslide-out-right {
+    0% {
+      -webkit-transform: translateX(0) translateY(-50%);
+              transform: translateX(0) translateY(-50%);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(1000px) translateY(-50%);
+              transform: translateX(1000px) translateY(-50%);
+      opacity: 0;
+    }
+  }
+  
+  .product-price-offer {
+    text-align: left;
+    line-height: 22px;
+    color: red;
+    font-size: 15px;
+    a {
+      color: black;
+    }
+  }
+
+  .usp.usp--at-top,
+  .product-stock,
+  .product-description-anchor-link__container,
+  .usp {
+    display: none;
+  }
+ 
+  .product-messages {
+    display: none !important;
+  }
+
+  .js-live-chat-toggle {
+    &.#{$id}-ctaShow {
+      &.js-live-chat-toggle--visible {
+        animation: SGtoggle 0.3s cubic-bezier(0.5, 0, 0, 1.25) both;
+        animation-delay: 0.5s;
+      }
+    }
+  }
+
+  // badge
+  .#{$id}-badge {
+    background: black;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    height: 80px;
+    width: 80px;
+    box-sizing: border-box;
+    border-radius: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    @media(min-width: 767px) {
+      right: 10px;
+    }
+
+    span {
+      padding: 8px;
+      color: white;
+      font-family: Oxygen, sans-serif;
+      text-align: center;
+      font-size: 13px;
+      text-transform: capitalize;
+      line-height: 18px;
+    }
+  }
+
+
+  // product title
+  .product-name {
+    text-align: left;
+    font-size: 21px;
+  }
+
+  // price
+  .product-price {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media(min-width: 767px) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      .product-customer-rating-summary {
+        margin-bottom: 0;
+      }
+    }
+    @media(min-width: 1024px) {
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: row;
+    }
+
+    .product-price-pricing {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      .product-price--copy {
+        margin-left: 10px;
+        margin-right: 5px;
+      }
+
+      .product-price-history {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .product-price--current {
+        font-size: 21px;
+      }
+    }
+  }
+
+  // reviews
+  .product-customer-rating-summary {
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  // top description
+  .#{$id}-topDescription {
+    margin-top: 10px;
+
+    .#{$id}-inner {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      margin-bottom: 0;
+      @media(min-width: 767px) {
+        line-height: 22px;
+        font-size: 15px;
+      }
+    }
+
+    .#{$id}-readMore {
+      text-decoration: underline;
+      font-size: 14px;
+      cursor: pointer;
+      @media(min-width: 767px) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  // USPS
+  .#{$id}-usps {
+    background: #F3F3F7;
+    margin-top: 15px;
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      padding: 10px;
+
+      .#{$id}-usp {
+        margin-bottom: 15px;
+        padding-left: 40px;
+        position: relative;
+        @media(min-width: 1280px) {
+          padding-left: 50px;
+        }
+
+        .#{$id}-icon {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          height: 35px;
+          width: 35px;
+          transform: translateY(-50%);
+          background-size: contain;
+          @media(min-width: 1280px) {
+            height: 40px;
+            width: 40px;
+          }
+        }
+
+        p {
+          margin-bottom: 0;
+          font-size: 14px;
+          font-weight: 600;
+          @media(min-width: 767px) {
+            line-height: 22px;
+            font-size: 15px;
+          }
+
+          span {
+            display: block;
+            text-decoration: underline;
+            font-weight: 100;
+            cursor: pointer;
+          }
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // finance styling
+
+  .#{$id}-financeOptions {
+    padding: 10px;
+    background: #f7f7f7;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    @media(min-width: 1280px) {
+      padding: 20px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 0;
+      @media(min-width: 767px) {
+        line-height: 22px;
+        font-size: 15px;
+      }
+    }
+
+    .product-clearpay {
+      font-size: 14px;
+      text-align: center;
+      justify-content: center;
+      font-weight: 600;
+      @media(min-width: 767px) {
+        font-size: 15px;
+      }
+
+      .product-clearpay__button {
+        display: none;
+      }
+
+      .product-clearpay__icon {
+        height: 25px;
+      }
+    }
+
+    .#{$id}-title {
+      font-weight: 600;
+      display: block;
+    }
+
+    .#{$id}-ifcLink {
+      text-decoration: underline;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    .#{$id}-ifcPrice {
+      font-weight: 600;
+    }
+
+    .#{$id}-allFinance {
+      .#{$id}-title {
+        display: inline-block;
+      }
+    }
+
+    .#{$id}-or {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      text-transform: uppercase;
+
+      +.#{$id}-clearpay {
+        .product-clearpay {
+          font-weight: 100;
+        }
+      }
+    }
+
+    .#{$id}-paypal {
+      display: inline-block;
+      vertical-align: middle;
+      height: 24px;
+      width: 50px;
+      margin-left: 3px;
+      margin-right: 3px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/4B18CBAB5BA259BCE9323BFD8E4B143BBCC84549CFE72E7EC252CF0EFFABBF13.png?meta=/SG132---CTA-section-tidy-up/paypal.png') no-repeat center;
+      background-size: contain;
+    }
+
+  }
+
+  // book appointment
+  .book-appointments-section {
+    padding: 10px;
+    p {
+      margin-bottom: 15px;
+    }
+    .book-appointments-section__title {
+      margin-bottom: 5px;
+    }
+    .product-book-appointment,
+    .product-virtual-appointment {
+      a {
+        padding: 10px;
+      }
+    }
+    .product-book-appointment__label,
+    .product-virtual-appointment__label {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  // fixed CTA
+  .#{$id}-stickyCTA {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 9999;
+    padding: 15px;
+    box-shadow: 1px 4px 4px 4px rgba(0,0,0,0.25);
+    background: black;
+    color: white;
+    transform: translateY(1000px);
+    opacity: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    animation: SGslide-out-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    &.#{$id}-hidden {
+      animation: none;
+    }
+    &.#{$id}-fixed {
+      transform: translateY(0);
+      opacity: 1;
+      animation: SGslide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+  }
+
+  // options
+  .#{$id}-required {
+    border: 1px solid red;
+  }
+
+  @media(min-width: 767px) {
+    .product-summary {
+      margin-top: 20px;
+    }
+  }
+  @media(min-width: 1024px) {
+    .product-summary {
+      margin-top: 20px;
+    }
+  }
+  @media(min-width: 1280px) {
+    .product-summary {
+      margin-top: 15px;
+    }
+  }
+
+  &.#{$id}-2 {
+
+    @media(min-width: 1280px) {
+      .detail-page__upper-row {
+          max-width: 86.625rem; 
+          margin: auto;
+      }
+      .detail-page__container {
+        max-width: unset;
+      }
+    }
+
+    .book-appointments-section  {
+      display: none;
+    }
+    .SG117-watchBanner {
+      @media(min-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+    }
+    // usps
+    .#{$id}-usps {
+      background: white;
+      .#{$id}-usp {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+        margin-bottom: 20px;
+        .#{$id}-icon {
+          position: relative;
+          top: unset;
+          left: unset;
+          height: 60px;
+          width: 60px;
+          background-color: #F3F3F7;
+          border-radius: 50px;
+          transform: unset;
+          margin-bottom: 10px;
+        }
+        p {
+          text-align: center;
+        }
+      }
+      @media(min-width: 767px) {
+        box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.07);
+        padding-bottom: 20px;
+        padding-top: 20px;
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          max-width: 1024px;
+          margin: 0 auto;
+          .#{$id}-usp {
+            width: 33%;
+            margin: 10px;
+            box-sizing: border-box;
+            p {
+              max-width: 50%;
+              margin: 0 auto;
+            }
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    // booking tab
+    .#{$id}-bookTab {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      background: #F3F3F7;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      padding: 5px;
+      z-index: 99;
+      box-shadow: 0px 1px 9px 0px rgba(0, 0, 0, 0.19);
+      transform: translateX(1000px) translateY(-50%);
+      opacity: 0;
+      cursor: pointer;
+      .#{$id}-date {
+        height: 40px;
+        width: 40px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/22762A59B6F53D170BEE2573CEF0DA9F589CD95595D681536FE8CBFD702CE15F.png?meta=/SG132---CTA-section-tidy-up/noun_event_1826627.png') no-repeat center;
+        background-size: contain;
+      }
+      &.#{$id}-tabOpen {
+        animation: SGslide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+      @media(min-width: 767px) {
+        .#{$id}-date {
+          height: 60px;
+          width: 60px;
+        }
+      }
+    }
+    
+
+    .#{$id}-bookBox {
+      position: fixed;
+      padding: 10px;
+      background: #F3F3F7;
+      transform: translateX(1000px) translateY(-50%);
+      opacity: 0;
+      top: 60%;
+      width: 95%;
+      max-width: 350px;
+      right: 0;
+      z-index: 999;
+      text-align: center;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+      &.#{$id}-open {
+        animation: SGslide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+      &.#{$id}-hidden{
+        animation: SGslide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+      }
+
+      .#{$id}-icon {
+        margin: 0 auto;
+        height: 60px;
+        width: 60px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/22762A59B6F53D170BEE2573CEF0DA9F589CD95595D681536FE8CBFD702CE15F.png?meta=/SG132---CTA-section-tidy-up/noun_event_1826627.png') no-repeat center;
+        background-size: contain;
+      }
+      h3 {
+        line-height: 21px;
+        margin-bottom: 10px;
+        color: #4D4D4F;
+        font-size: 18px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+      span {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #4D4D4F;
+      }
+      .#{$id}-close {
+        position: absolute;
+        cursor: pointer;
+        right: 10px;
+        top: 10px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7AC239CB8E06349D2589F379BF9BBC301F76D14C2F4FC1951138CBFA3B6E81EB.png?meta=/SG132---CTA-section-tidy-up/cross.png') no-repeat center;
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+      }
+      .#{$id}-buttons {
+        display: flex;
+        flex-direction: row;
+        @media(min-width: 767px) {
+          margin-top: 10px;
+        }
+        .#{$id}-button {
+          padding: 5px 10px;
+          background: #BCACD5;
+          color: black;
+          text-transform: uppercase;
+          width: 50%;
+          box-sizing: border-box;
+          border: 1px solid #BCACD5;
+          margin: 5px;
+          font-weight: 700;
+          cursor: pointer;
+          &:hover {
+            background: white;
+          }
+        }
+      }
+    }
+
+    .#{$id}-overlay {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.25);
+      z-index: 998;
+      top: 0;
+      left: 0;
+      display: none;
+      cursor: pointer;
+      &.#{$id}-overlayShow {
+        display: block;
+      }
+    }
+  }
+
+
+
+  &.hsamuel {
+    // HS-specific styles
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

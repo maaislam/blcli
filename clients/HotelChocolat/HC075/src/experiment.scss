@@ -1,0 +1,142 @@
+@import './variables';
+
+.#{$id} {
+  // --- ALL VARIATIONS
+  .#{$id}-valueMessages__wrapper {
+    // padding: 10px 0;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 767px) {
+      padding: 0 20px;
+    }
+
+    .#{$id}-valueMessages__container {
+
+      ul.#{$id}-valueMessages__content {
+        list-style: none;
+        padding-left: 0px;
+        position: relative;
+
+        text-align: center;
+
+        li.#{$id}-usp-msg {
+          min-height: 40px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+          padding: 5px 0;
+
+          position: relative;
+
+          background-repeat: no-repeat;
+          background-size: 40px;
+          background-position: 0 50%;
+
+          // --- Images
+          &#HC075-usp-2 {
+            background-image: url('https://editor-assets.abtasty.com/48343/60d9cd471d6711624886599.png');
+          }
+          &#HC075-usp-1 {
+            background-image: url('https://editor-assets.abtasty.com/48343/60d9cdb8787a61624886712.png');
+          }
+          &#HC075-usp-3 {
+            background-image: url('https://editor-assets.abtasty.com/48343/60d9cd76f096e1624886646.png');
+          }
+          &#HC075-usp-4 {
+            background-image: url('https://editor-assets.abtasty.com/48343/60d9cd94678df1624886676.png');
+          }
+          
+          div.#{$id}-usp__msg {
+            padding: 10px 0;
+            z-index: 0;
+            text-align: left;
+
+            // display: inline-block;
+            padding: 0 0 0 50px;
+
+            span {
+              font-family: GillSansNova-Medium;
+              font-size: 14px;
+              color: #8D734C;
+            }
+          }
+          
+
+        }
+
+      }
+
+    }
+
+    // --- V2 ONLY
+    &.v2 {
+      margin: 20px 0 20px 0 !important;
+      @media screen and (max-width: 767px) {
+        max-width: 85vw;
+        @media screen and (max-width: 320px) {
+          max-width: 80vw;
+        }
+        margin: auto;
+      }
+
+      li.#{$id}-usp-msg {
+        padding: 5px 15px !important;
+
+        background-position: 25px 50% !important;
+
+        div.#{$id}-usp__msg {
+          padding: 0 2.5px 0 60px !important;
+        }
+      }
+    }
+
+  }
+
+
+  // --- SLICK
+  .slick-arrow {
+    background-color: rgba(255,255,255, 0.7);
+    // background-color: transparent;
+    border: 1px solid transparent;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50px;
+    z-index: 99;
+    
+    top: 46%;
+    transform: translateY(-50%);
+    z-index: 9;
+    &::before {
+      font-size: 40px;
+      top: 50%;
+      left: 55%;
+      transform: translate(-50%,-50%);
+      height: 100%;
+      width: 100%;
+    }
+    &.slick-disabled {
+      display: none !important;
+    }
+
+    &.slick-next {
+      right: -13px;
+      
+    }
+
+    &.slick-prev {
+      left: -15px;
+      &::before {
+        left: 50%;
+      }
+    }
+
+    &.slick-next:before,
+    &.slick-prev:before {
+      color: #85734f !important;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+}

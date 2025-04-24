@@ -1,0 +1,127 @@
+@import './swiper';
+@import './variables';
+
+.#{$id} {
+  .#{$id}__headline-wrapper {
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+    .title {
+      margin-bottom: 14px;
+      font-family: GillSansNova-Medium;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-family: GillSansNova-Light;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+  }
+
+  .component-toolbar {
+    display: none;
+  }
+  .component-wrapper {
+    position: relative;
+  }
+  .component-wrapper .component-content ul {
+    overflow: visible;
+    li.swiper-slide {
+      width: 160px;
+      height: 200px;
+      margin-right: 0;
+      margin-bottom: 0;
+      padding: 10px 10px;
+      border-radius: 5px;
+      box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.06);
+
+      &.slide-before-active--1,
+      &.slide-after-active--1 {
+        background-color: $first-slide-color;
+
+        .product-image {
+          background-color: $first-slide-color !important;
+        }
+      }
+      &.slide-before-active--2,
+      &.slide-after-active--2 {
+        background-color: $second-slide-color;
+
+        .product-image {
+          background-color: $second-slide-color !important;
+        }
+      }
+      &.slide-before-active--3,
+      &.slide-after-active--3 {
+        background-color: $third-slide-color;
+
+        .product-image {
+          background-color: $third-slide-color !important;
+        }
+      }
+      &.slide-before-active--4,
+      &.slide-after-active--4 {
+        background-color: $fourth-slide-color;
+
+        .product-image {
+          background-color: $fourth-slide-color !important;
+        }
+      }
+      &.slide-before-active--5,
+      &.slide-after-active--5 {
+        opacity: 0;
+
+        .product-image {
+          background-color: $fourth-slide-color !important;
+        }
+      }
+
+      img {
+        display: inline;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: multiply;
+      }
+      &.swiper-slide-active {
+        background-color: rgb(249, 249, 249);
+        box-shadow: 0px 40px 40px 0px rgba(0, 0, 0, 0.078);
+        .product-image {
+          background-color: rgb(249, 249, 249) !important;
+        }
+      }
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: calc(50% + 30px);
+    right: -15px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9.75" transform="rotate(-180 10 10)" fill="white" stroke="black" stroke-width="0.5"/><path d="M9 13L12 10L9 7" stroke="black" stroke-width="0.5"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev {
+    left: -15px;
+    transform: scaleX(-1);
+  }
+}

@@ -1,0 +1,227 @@
+@import './variables';
+
+.#{$id} {
+  .product-summary {
+    h1 {
+      font-size: 24px;
+      line-height: 29px;
+      @media(min-width: 1280px) {
+        font-size: 26px;
+        line-height: 32px;
+      }
+    }
+    .product-price {
+      display: none;
+    }
+    .product-stock {
+      display: none;
+    }
+  }
+  
+
+  .#{$id}-price {
+    font-family: Oxygen, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    color: #9F0F0F;
+    margin-top: 20px;
+
+    span {
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+
+  .#{$id}-addvoucher-box {
+    display: flex;
+    flex-direction: row;
+    font-family: Oxygen, sans-serif;
+    align-items: center;
+    align-items: stretch;
+    justify-content: stretch;
+    margin-top: 20px;
+
+    .#{$id}-voucherFlag {
+      background: black;
+      padding: 5px 10px;
+      padding-right: 30px;
+      @media(min-width: 767px) {
+        padding-right: 5px;
+      }
+      @media(min-width: 1024px) {
+        padding-right: 30px;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 11px;
+        color: white;
+        text-transform: uppercase;
+      }
+    }
+
+    .#{$id}-voucherInput {
+      font-size: 14px;
+      border-right: 0px;
+      height: auto;
+      flex-grow: 1;
+      @media(min-width: 767px) {
+        font-size: 13px;
+      }
+      @media(min-width: 1024px) {
+        font-size: 14px;
+        flex-grow: unset;
+      }
+
+      .normalText {
+        display: none;
+        @media(min-width: 375px) {
+          display: inline;
+          b {
+            font-weight: 700;
+          }
+        }
+        @media(min-width: 767px) {
+          display: none;
+        }
+        @media(min-width: 1024px) {
+          display: inline;
+        }
+      }
+      .smallMobile {
+        @media(min-width: 375px) {
+          display: none;
+        }
+        @media(min-width: 767px) {
+          display: inline;
+        }
+        @media(min-width: 1024px) {
+          display: none;
+        }
+      }
+      
+
+      .inner {
+        position: relative;
+        border: 1px solid black;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 8px;
+        padding-left: 0;
+        box-sizing: border-box;
+      }
+
+      .inner:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 21px 21px 21px 0;
+        border-color: transparent #ffffff transparent transparent;
+        position: absolute;
+        left: -21px;
+        @media(min-width: 767px) {
+          display: none;
+        }
+        @media(min-width: 1024px) {
+          display: block;
+        }
+      }
+
+
+      input {
+        padding: 0;
+        height: initial;
+        width: initial;
+        margin-bottom: 0;
+        display: none;
+        cursor: pointer;
+        
+
+        &:checked+label:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 5px;
+          left: 9px;
+          width: 6px;
+          height: 14px;
+          border: solid #000000;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          @media(min-width: 767px) {
+            left: 13px;
+          }
+          @media(min-width: 1024px) {
+            left: 9px;
+          }
+        }
+      }
+
+      label {
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          -webkit-appearance: none;
+          background-color: transparent;
+          border: 1.5px solid black;
+          padding: 10px;
+          box-sizing: border-box;
+          border-radius: 5px;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+          cursor: pointer;
+          margin-right: 8px;
+          @media(min-width: 767px) {
+            margin-left: 5px;
+          }
+          @media(min-width: 1024px) {
+            margin-left: 0px;
+            margin-right: 10px;
+          }
+
+        }
+      }
+    }
+
+  }
+
+  .#{$id}-finance-msg {
+    background: #F0F0F0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+    @media(min-width: 1280px) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      color: black;
+      margin-bottom: 0;
+      font-family: Oxygen,sans-serif;
+      span {
+        font-weight: 600;
+      }
+      a {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

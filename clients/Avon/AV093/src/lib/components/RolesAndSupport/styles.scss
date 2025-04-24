@@ -1,0 +1,101 @@
+@import '../../../variables';
+@import '../../../mixins';
+@import 'include-media/dist/_include-media.scss';
+
+// Required Core Stylesheet
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+
+// Optional Theme Stylesheet
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
+
+.#{$id} {
+  hr {
+    color: #e3e3e3;
+  }
+
+  .colour--purple {
+    color: #702283;
+  }
+
+  //********************************
+  // Desktop
+  // 1366px window width and more
+  //********************************
+
+  @include media('>=desktop-s') {
+    .WMNcolumn-group.WMNtwoSup {
+      gap: 20px !important;
+      margin: 0 120px !important;
+    }
+  }
+
+  .glide__bullets {
+    z-index: 0 !important;
+    bottom: -2%;
+
+    button {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 8px;
+      height: 8px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      -webkit-transition: all 300ms ease-in-out;
+      transition: all 300ms ease-in-out;
+
+      &:hover {
+        border: 2px solid white;
+      }
+    }
+
+    .glide__bullet {
+      background: #252525;
+      opacity: 0.3;
+    }
+
+    .glide__bullet--active {
+      opacity: 1;
+    }
+  }
+
+  .roles-and-support__wrapper {
+    background: #fff;
+    padding: 20px;
+  }
+
+  .PTop__cross-out {
+    text-decoration: line-through;
+    font-weight: normal;
+  }
+
+  .circularImg {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .title__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .title_block {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    text-align: left;
+    h4 {
+      text-align: left;
+    }
+  }
+}

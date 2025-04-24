@@ -1,0 +1,410 @@
+@import '_mixins.scss';
+body.PD013,
+body.PD013_Mobile {
+    @media(max-width: 767px) {
+        //Default developing for mobile
+        div.brandingDesc {
+            display: none;
+        }
+        div.brandingInput {
+            display: none;
+        }
+        div.freeDeliveryBlock {
+            width: auto;
+        }
+        .PD013_ReviewMarkup {
+            float: left;
+            margin-top: 15px;
+            background-color: #f6f1f1;
+            padding: 5px;
+            margin-top: 15px;
+            box-sizing: border-box;
+            width: 100%;
+            .PD013_ReviewWrapper .PD013_ReviewName {
+                font-weight: 700;
+            }
+            .PD013_ReviewWrapper .PD013_ReviewText {
+                font-style: italic;
+                margin: 0;
+                font-size: 12px;
+            }
+            .PD013_ReviewHeader {
+                margin-top: 1px;
+            }
+        }
+
+        .PD013_Branding_Icon_Link{
+            float: none;
+        }
+
+        .PD013_Branding_Icon{
+            max-height: 55px;
+        }
+
+        .PD013_QualityMarkup{
+           background-color: #f6f1f1;
+           padding: 1px 0 1px 5px;
+           display: inline-block;
+           width: 100%;
+           margin: 10px 0;
+        }
+        
+        .PD013_Branding_Wrapper {
+            display: inline-block;
+            position: relative;
+
+            > span {
+                font-size: 14px;
+                vertical-align: bottom;
+                border: 1px solid #000;
+                width: 18px;
+                height: 18px;
+                text-align: center;
+                line-height: 17px;
+                border-radius: 50%;
+                box-sizing: border-box;
+                right: -10px;
+                position: absolute;
+                top: 0;
+            }
+        }
+           
+        .PD013_Branding_Modal_Markup {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 0;
+            z-index: 2;
+            border-style: solid;
+            border-width: 1px;
+            background-color: #FFFFFF;
+
+            //Create modal arrow
+            &::before,
+            &::after {
+                //content: '';
+                position: absolute;
+                bottom: -16px;
+                width: 20px;
+                height: 4px;
+                left: calc(50% - 16px);
+                @include rotate(45);
+                background: black;
+            }
+            &::after {
+                @include rotate(-45);
+                left: calc(50% - 4px);
+            }
+            &+.ui-link {
+
+                color: #808080;
+                background-color: #FFFFFF;
+                text-decoration: none;
+                padding: 10px 15px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                float: right;
+                border: 1px solid #808080;
+                
+            }
+        }
+        .PD013_Branding_Modal_Text {
+            padding: 17px 15px 15px 15px;
+            margin: 0;
+        }
+          
+        &.PD013_info_modal {
+            .PD013_Branding_Modal_Markup {
+                display: block;
+                max-width: 285px;
+            }
+        }
+        .moreInfoBranding {
+            width: 100%;
+            position: relative;
+            &+.grid_8 {
+                display: none;
+            }
+        }
+        .PD013_QualityHeader {
+            position: relative;
+            display: inline-block;
+            margin-left: 30px;
+
+            //Create arrow for quality accordion
+            &::before,
+            &::after {
+                //content: '';
+                position: absolute;
+                bottom: 8px;
+                width: 10px;
+                height: 2px;
+                left: calc(100% + 7px);
+                @include rotate(45);
+                background: black;
+            }
+            &::after {
+                @include rotate(-45);
+                left: calc(100% + 13px);
+            }
+        }
+        .PD013_QualityText {
+            .PD013_QualityText {
+                display: block;
+                padding-right: 5px; 
+            }
+            .PD013_QualityHeader {
+                &::before,
+                &::after {
+                    @include rotate(-45);
+                }
+                &::after {
+                    @include rotate(45);
+                }
+            }
+        }
+        .PD013_Mobile_Quality_Icon {
+            &::before {
+                position: absolute;
+                top: 1px;
+                left: -20px;
+                content: '';
+                display: block;
+                width: 4px;
+                height: 10px;
+                border: solid #000000;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+            &::after {
+                content: '';
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 2px solid #000000;
+                position: absolute;
+                top: 50%;
+                left: -29px;
+                margin-top: -12px;
+            }
+        }
+        div.variant_options.bottomMargin {
+            margin-bottom: 20px;
+        }
+        div.qty_widget.ui-field-contain.qty {
+            margin-top: 20px;
+        }
+        button.positive.add-to-basket.ui-btn.ui-icon-shop.ui-btn-icon-left.ui-shadow.ui-corner-all.ui-mini {
+            margin-top: 20px;
+        }
+    } 
+    
+    
+    
+    
+    
+    
+    //Tablet and Desktop styling
+    @media(min-width:768px) {
+
+        .PD013_QualityMarkup{
+            background-color: #f6f1f1;
+            padding: 10px 10px 1px 10px;
+        }
+
+        div.branding {
+            display: none;
+            padding-top: 10px;
+        }
+        &.PD013_Branding_Available {
+            div.branding {
+                display: block;
+                margin-top: 0;
+                height: auto;
+                position: relative;
+
+                .PD013_Branding_Wrapper{
+                    display: inline-block;
+                    position: relative;
+
+                }
+
+                label {
+                    display: none!important;
+                }
+
+                > a {
+                    color: #808080;
+                    background-color: #FFFFFF; 
+                    text-decoration: none;
+                    font-size: 14px;
+                    margin-top: 10px;
+                    padding: 5px 10px;
+                    border: 1px solid #808080;
+                    cursor: pointer;
+                }
+
+            }
+        }
+        .freeDeliveryBtn {
+            top: auto;
+            right: auto;
+            bottom: auto;
+            float: right;
+            margin-top: 10px;
+        }
+        .buynow {
+            &::after {
+                content: "\0020";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+                overflow: hidden;
+            }
+        }
+        .PD013_ReviewMarkup {
+            float: left;
+            margin-top: 15px;
+            background-color: #f6f1f1;
+            padding: 5px;
+            margin-top: 15px;
+            box-sizing: border-box;
+            width: calc(100% - 5px);
+        }
+        .PD013_ReviewName {
+            font-weight: 700;
+        }
+        .PD013_ReviewWrapper .PD013_ReviewText {
+            font-style: italic;
+            margin: 0;
+            font-size: 12px;
+        }
+        .prod_add_to_cart {
+            overflow: visible;
+            &::after {
+                content: "\0020";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+                overflow: hidden;
+            }
+        }
+        .PD013_Branding_Modal_Markup {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 7px);
+            right: 0;
+            z-index: 2;
+            border-style: solid;
+            border-width: 1px;
+            background-color: #FFFFFF;
+
+            //Create modal arrow
+            &::before,
+            &::after {
+                //content: '';
+                position: absolute;
+                bottom: -16px;
+                width: 20px;
+                height: 4px;
+                left: calc(33% - 16px);
+                @include rotate(45);
+                background: black;
+            }
+            &::after {
+                @include rotate(-45);
+                left: calc(33% - 4px);
+            }
+        }
+        .PD013_Branding_Modal_Text {
+            padding: 17px 15px 15px 15px;
+            margin: 0;
+        }
+
+        img.PD013_Branding_Icon{
+            max-height: 55px;
+        }
+
+        .PD013_Branding_Icon_Link {
+            cursor: pointer;
+            position: relative;
+            margin: 0;
+            float: none;
+        
+         + span {    
+            top: 0;
+            right: -20px;
+            position: absolute;
+            font-size: 14px;
+            vertical-align: bottom;
+            border: 1px solid #000;
+            width: 18px;
+            height: 18px;
+            text-align: center;
+            line-height: 17px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            cursor: pointer;
+         }
+        }
+
+
+        &.PD013_info_modal {
+            .PD013_Branding_Modal_Markup {
+                display: block;
+            }
+        }
+        .PD013_QualityHeader {
+            padding-left: 35px;
+            position: relative;
+
+            //Create quality icon
+            &::before {
+                position: absolute;
+                top: 2px;
+                left: 9px;
+                content: '';
+                display: block;
+                width: 4px;
+                height: 10px;
+                border: solid #000000;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+            &::after {
+                content: '';
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 2px solid #000000;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -12px;
+            }
+        }
+        a.PD013_Modal_Close {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            color: #000000;
+            font-size: 14px;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

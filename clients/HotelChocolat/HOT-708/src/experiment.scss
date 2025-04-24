@@ -1,0 +1,362 @@
+@import './variables';
+
+.#{$id} {
+    #page_heading {
+        padding: 20px 0 10px;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 0 10px;
+
+        @include media-query(xlg) {
+            max-width: 940px;
+        }
+    }
+
+    .input-text::placeholder {
+        opacity: 1 !important;
+        font-size: 16px !important;
+        font-weight: 500;
+        line-height: 24px;
+        color: #00000066 !important;
+        text-transform: unset !important;
+    }
+
+    &__hide,
+    .form-field-tooltip,
+    #dwfrm_profile_login_password-error {
+        display: none !important;
+    }
+
+    &__orderSummary {
+        width: 250px;
+        // position: absolute;
+        right: 80px;
+        z-index: 999;
+
+        @include media-query(md) {
+            position: relative;
+            width: 100%;
+            right: 0;
+        }
+
+        .#{$id}__orderSummaryHeading {
+            td {
+                padding-top: 20px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                color: #000;
+                text-transform: uppercase;
+            }
+
+            @include media-query(md) {
+                display: none;
+            }
+        }
+
+        .order-subtotal td {
+            @include media-query(md) {
+                padding-top: 0;
+            }
+        }
+
+        .order-subtotal td,
+        .order-shipping td,
+        .order-shipping-discount td {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 21.5px;
+            color: #000000;
+        }
+
+        .order-total {
+            border-top: 1px solid #00000066;
+
+            td {
+                font-family: 'GillSansNova-Bold';
+                padding-top: 14px;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 21.5px;
+                color: #000000;
+            }
+        }
+    }
+
+    &__textDisable {
+        opacity: 0.4;
+    }
+
+    &__headingTexts {
+        .#{$id}__headingText {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+    }
+
+    &__matchPasswordLists {
+        margin-top: 8px;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            span {
+                display: flex;
+            }
+
+            .#{$id}__text {
+                font-size: 14px;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__newNameRow {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .#{$id}__firstName,
+        .#{$id}__lastName {
+            flex: 0 0 48%;
+        }
+    }
+
+    &__deliveryAddressText {
+        margin: 12px 0 0 0;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        color: #000;
+    }
+
+    fieldset label,
+    &__enterManually {
+        font-size: 16px !important;
+        font-weight: 500;
+        line-height: 24px;
+        text-transform: unset !important;
+        letter-spacing: 0 !important;
+        color: #000 !important;
+    }
+
+    &__newErrorMsg {
+        margin-top: 8px;
+    }
+
+    &__newErrorMsg,
+    #dwfrm_multishipping_editAddress_userInfo_customer_email-error,
+    #dwfrm_multishipping_editAddress_addressFields_firstName-error,
+    #dwfrm_multishipping_editAddress_addressFields_lastName-error,
+    #dwfrm_addressy_addressFind-error,
+    #dwfrm_multishipping_editAddress_addressFields_phone-error {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: #BC0031 !important;
+    }
+
+    .#{$id}__accordion {
+        display: none;
+        box-shadow: 0px 4px 4px 0px #F1F1F1;
+
+        @include media-query(md) {
+            display: block;
+            min-height: 48px;
+        }
+    }
+
+    .#{$id}__accordion-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 10px 12px;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    .#{$id}__accordion-title {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: #000;
+    }
+
+    .#{$id}__accordion-content {
+        padding: 0 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+
+        // @include media-query(md) {
+        //     padding-bottom: 8px;
+        // }
+    }
+
+    .#{$id}__accordion-content.open {
+        max-height: 300px;
+        padding-bottom: 6px;
+    }
+
+    .#{$id}__accordion-content p {
+        padding: 15px;
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    &__accordion-icon {
+        &.minus-icon {
+            display: none;
+        }
+    }
+
+    &__accordion-header.open {
+        .#{$id}__accordion-icon {
+            &.minus-icon {
+                display: flex;
+            }
+
+            &.plus-icon {
+                display: none;
+            }
+        }
+    }
+
+    &__inputField {
+        font-size: 16px !important;
+    }
+
+    &__passwordRow {
+        .field-wrapper {
+            position: relative;
+        }
+
+        .#{$id}__passwordIcon {
+            position: absolute;
+            top: 12px;
+            right: 8px;
+        }
+    }
+
+    &__phoneTerms {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        color: #000;
+    }
+
+    .pca .pcaautocomplete .pcalist {
+        max-width: 100% !important;
+    }
+
+    .complete-address {
+        margin-top: 0 !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        border: 1px solid #000;
+
+        .pcadescription {
+            padding: 16px !important;
+            border: 0;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+            color: #000000;
+        }
+
+        .edit-adressy {
+            font-size: 14px !important;
+            border-top: 0 !important;
+            color: #000 !important;
+            padding: 0 0 0 16px !important;
+            margin: 0 !important;
+            text-transform: capitalize !important;
+            text-decoration: underline;
+        }
+    }
+
+    .html-slot-container {
+        p {
+            font-size: 14px !important;
+            font-weight: 400;
+            line-height: 20px;
+            color: #2A2A2A;
+        }
+    }
+
+    // remove search icon from the address field 
+    #dwfrm_addressy_addressFind {
+        background: transparent;
+        padding: 0 11px;
+    }
+
+    .new-customer .fieldset-wrapper,
+    .new-customer fieldset,
+    .new-field-style .fieldset-wrapper,
+    .new-field-style fieldset {
+        width: 450px;
+        margin-left: 0;
+        padding-top: 0;
+
+        @include media-query(md) {
+            width: 100%;
+        }
+    }
+
+    .new-customer .fieldset-wrapper .form-row label.visually-hidden,
+    .new-customer fieldset .form-row label.visually-hidden {
+        text-align: left;
+        margin: 10px 0 2px;
+    }
+
+    #wrapper #main {
+        max-width: 686px;
+        padding-left: 134px;
+
+        @include media-query(md) {
+            padding: 0 10px;
+        }
+    }
+
+    .fieldset-wrapper {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .enter-manually,
+    .opt-in-title p,
+    .html-slot-container p,
+    .new-customer fieldset .form-row .field-wrapper .input-text,
+    .new-customer fieldset .form-row .field-wrapper select.input-select {
+        text-align: left !important;
+    }
+
+    .registration-actions,
+    .guest-checkout-actions {
+        margin-top: 0 !important;
+
+        .opt-in-title,
+        .in-one-row {
+            padding-left: 0 !important;
+        }
+
+        .in-one-row {
+            justify-content: flex-start !important;
+
+            .email,
+            .post {
+                padding-right: 24px !important;
+            }
+        }
+    }
+}

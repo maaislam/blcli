@@ -1,0 +1,90 @@
+@import './variables';
+
+.#{$id} {
+    .algolia-ac-product-main {
+        width: calc(100% - 50px);
+    }
+    .#{$id}-searchContent {
+        background: white;
+        display: block;
+        .#{$id}-resultContent {
+            h3 {
+                display: none;
+                padding-left: 20px;
+                padding-bottom: 12px;
+                padding-top: 12px;
+                padding-right: 20px;
+                font-size: 16px;
+            }
+            .#{$id}-resultsInner {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+               
+                .#{$id}-resultBlock {
+                    a {
+                        padding: 8px 20px;
+                        display: flex;
+                        flex-direction: row;
+                        .#{$id}-resultImage {
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            height: 30px;
+                            width: 65px;
+                            margin-right: 15px;
+                            @media(min-width: 1200px) {
+                                margin-right: 40px;
+                            }
+                        }
+                        .#{$id}-resultName {
+                            display: flex;
+                            align-content: center;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.#{$id}-2 {
+        .#{$id}-searchContent {
+            .#{$id}-resultContent {
+                .#{$id}-resultsInner {
+                     .#{$id}-resultBlock {
+                        a {
+                            .#{$id}-resultImage {
+                                display: none;
+                                @media(min-width: 1200px) {
+                                    display: inline-flex;
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    height: 60px;
+                                    width: 60px;
+                                    margin: 0;
+                                }
+                            }
+                            .#{$id}-resultName { 
+                                text-decoration: underline;
+                                color: #333;
+                                @media(min-width: 1200px) {
+                                    width: 70%;
+                                    margin-left: 10px;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                        &:hover {
+                            background-color: #d5e6f7;
+                            a {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

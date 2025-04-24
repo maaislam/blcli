@@ -1,0 +1,162 @@
+@import './variables';
+
+@keyframes shrink {
+  0% {
+    width: auto !important;
+  }
+  100% {
+    width: 0 !important;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.#{$id} {
+
+  .HOME_BRANDS {
+    display: none;
+  }
+
+  .top-pick-carousel {
+
+    background: #23282B;
+    padding: 20px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .loading-spinner {
+      display: none;
+      margin: 0 auto;
+
+      p {
+        color: #FFFFFF;
+        text-align: center;
+      }
+    }
+
+    .top-pick-carousel--list {
+      display: flex;
+      flex-direction: row;
+      max-width: 1440px;
+      margin: 0 auto;
+      justify-content: space-between;
+
+      .swiper-pagination {
+        display: none;
+      }
+
+      .top-pick {
+        display: flex;
+        width: 20%;
+        border-right: 1px solid #FFFFFF;
+        text-align: center;
+
+        &:last-of-type {
+          border-right: none;
+        }
+      }
+
+      a {
+        display: flex;
+        text-align: center;
+        padding: 10px 20px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+        text-align: center;
+        span {
+          width: 100%;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          font-size: 12px;
+
+          &:first-of-type {
+            font-weight: bold;
+          }
+        }
+
+        &:hover {
+
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      &.swiper-active {
+         padding-bottom: 30px;
+         position: relative;
+
+         
+
+         .swiper-pagination {
+            display: inline-block;
+
+            .swiper-pagination-bullet {
+              width: auto;
+              height: auto;
+              line-height: 15px; 
+              margin: 0 5px;
+            }
+
+            .swiper-pagination-bullet:before {
+              width: 8px !important;
+              height: 8px !important;
+              background: #919395;
+              border: none;
+            }
+
+            .swiper-pagination-bullet.swiper-pagination-bullet-active:before {
+              background: #fff;
+            }
+         }
+      }
+
+
+    }
+
+
+    h2 {
+      color: #FFFFFF;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    &.loading {
+
+      .loading-spinner {
+        display: flex;
+        flex-direction: column;
+        
+        svg {
+          animation:spin 1s linear infinite;
+        }
+
+      }
+
+      .top-pick-carousel--list {
+        display: none;
+      }
+
+    }
+
+
+
+  }
+
+}

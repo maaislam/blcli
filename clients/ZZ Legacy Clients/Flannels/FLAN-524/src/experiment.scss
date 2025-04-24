@@ -1,0 +1,209 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    #divBagItems {
+        display: none !important;
+    }
+
+    &:before {
+        content: "";
+        background: rgba(0,0,0,0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;  
+  
+        @media all and (max-height: 400px) {
+          display: none;
+        }
+    }
+
+    @media all and (max-height: 400px) {
+      height: auto;
+      overflow: visible;
+    }
+
+    .HeaderWrap {
+        z-index: 100001 !important;
+
+        &:before {
+            content: "";
+            background: rgba(0,0,0,0.5);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;  
+      
+            @media all and (max-height: 400px) {
+              display: none;
+            }
+        }
+    }
+}
+
+
+.#{$id} {
+
+    .#{$id}-hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-bag-alert {
+
+        .#{$id}-section-close-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            line-height: 1;
+        }
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 10px 15px 10px;
+            border-color: transparent transparent #fff transparent;
+            position: absolute;
+            top: -15px;
+            right: 26px;
+
+            @media all and (max-width: 992px) {
+                right: 13px;
+            }
+        }
+
+        position: absolute;
+        width: 300px;
+        background: #FFF;
+        border-radius: 10px;
+        z-index: 100001;
+        top: 120%;
+        right: -10px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+
+        @media all and (max-width: 992px) {
+            right: 10px;
+        }
+
+        @media all and (max-width: 350px) {
+            width: 250px;
+        }
+
+        &-detail {
+            display: flex;
+            flex-direction: row;
+
+            &--text {
+                width: 70%;
+                text-align: left;
+                justify-content: flex-start;
+
+                h2 {
+                    font-size: 15px;
+                    font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+                    text-transform: uppercase;
+                    color: #000;
+                    margin: 0 0 15px;
+                    font-weight: bold;
+                    padding: 0;
+                }
+
+                .#{$id}-sellingtext {
+                    font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+                    color: #000;
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                }
+
+                p {
+                    font-size: 12px;
+                    font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif !important;
+                    margin-bottom: 0;
+                    line-height: 16px;
+                }
+
+            }
+
+            &--image {
+                width: 30%;
+                padding-right: 10px;
+            }
+
+            &--image img {
+                width: 100%;
+                max-width: 80px;
+                height: auto;
+            }
+
+
+        }
+
+        &-links {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            a {
+                width: 100%;
+                padding: 14px 0;
+                text-align: center;
+                background: #000;
+                border: 1px solid #000;
+                color: #fff;
+                line-height: 1;
+                font-size: 12px;
+                text-transform: uppercase;
+                margin-top: 10px;
+
+
+                
+            }
+
+            .#{$id}-bag-alert-links--primary {
+                &:hover {
+                    font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+                }
+            }
+
+            .#{$id}-bag-alert-links--secondary {
+                background: #fff;
+                color: #000;
+                padding: 12px 0;
+
+                &:hover {
+                    box-shadow: inset 0 0 0 1px #000;
+                }
+            }
+
+            .#{$id}-bag-alert-links--tertiary {
+                padding: 0;
+                text-transform: initial;
+                background: none;
+                border: none;
+                color: #000;
+                text-decoration: underline;
+
+            }
+
+            
+        }
+
+
+    }
+
+
+
+
+}

@@ -1,0 +1,203 @@
+$light-pink: rgba(249, 242, 243, 0.4);
+$light-pink-hover: rgb(249, 242, 243);
+$light-grey: #e6e6e7;
+$extra-light-grey: #f4f4f4;
+$site-pink: #e679a5;
+$white: #fff;
+
+.bi003 {
+    .bi3_menu-list {
+        z-index: 10;
+    }
+    .bi3_menu-list__level1 {
+        margin: 0 0 20px;
+        font-size: 1.1em;
+    }
+    .bi3_level1 {
+        display: flex;
+        position: relative;
+
+        &:after {
+            background: url(//www.biscuiteers.com/images/dotted-line.png);
+            content: '';
+            height: 4px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+    }
+    .bi3_level1-link {
+        flex-grow: 1;
+
+    }
+    .bi3_level1-link > a {
+        display: block;
+        text-align: center;
+        padding: 15px 0;
+        position: relative;
+
+        &:after {
+            background-color: $site-pink;
+            content: '';
+            display: block;
+            height: 0.625em;
+            position: absolute;
+            right: 0;
+            width: 1px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 15;
+        }
+    }
+    .bi3_level1-link:last-child > a:after {
+        display: none;
+    }
+
+    .bi3_menu-list__level2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        right: 0;
+        overflow: hidden;
+        pointer-events: none;
+
+        &.bi3_menu-list--active {
+            pointer-events: auto;
+        }
+    }
+
+    .bi3_menu-list--active {
+        z-index: 15;
+    }
+
+    .bi3_level2 {
+        background: $white;
+        overflow: hidden;
+        height: auto;
+        min-height: calc(100% - 20px);
+        box-sizing: content-box;
+        border: 1px solid $light-grey;
+        padding: 20px;
+        font-size: 1rem;
+
+        transform: translateY(-100%);
+        transition: 0.4s transform ease, 0.4s margin-top ease;
+    }
+
+    .bi3_level2--active {
+        transform: translateY(0);
+    }
+
+    .bi3_menu-list__level3 {
+        display: none;
+    }
+    .bi3_level2-link > a {
+        width: 230px;
+        box-sizing: border-box;
+        display: block;
+        background: $white;
+        padding: 15px 10px;
+        position: relative;
+        border-bottom: 1px solid $extra-light-grey;
+        z-index: 20;
+    }
+    .bi3_level2-link:last-child > a,
+    .bi3_level2-link:nth-last-child(2) > a {
+        border-bottom: 0;
+    }
+
+    .bi3_level2-link > a:active,
+    .bi3_level2-link > a:focus,
+    .bi3_level2-link > a:hover,
+    .bi3_level2-link--active > a {
+        background: $light-pink;
+    }
+    .bi3_level2-link > a:after {
+        content: ">";
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        color: $site-pink;
+    }
+
+    .bi3_level2-link--view-all a {
+        margin-top: 30px;
+        background: $site-pink;
+        color: $white;
+        width: 200px;
+        margin-left: 15px;
+        text-align: center;
+        transition: 0.3s all;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background: #000;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .bi3_menu-list__level3 {
+        z-index: 19;
+    }
+    .bi3_level2-link--active .bi3_menu-list__level3 {
+        background: $light-pink;
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: calc(100% - 270px);
+        padding: 10px;
+        padding: 0px 15px;
+        height: auto;
+        min-height: calc(100% - 40px);
+    }
+
+    .bi3_level3 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .bi3_level3-link {
+        margin: 6px 10px;
+        float: left;
+        width: 30%;
+
+        a {
+            display: block;
+            position: relative;
+            padding-right: 20px;
+            padding-bottom: 1px;
+            padding: 10px 20px 10px 3px;
+            border-bottom: 1px solid transparent;
+
+            &:hover {
+                background: $light-pink-hover;
+            }
+            &:after {
+                position: absolute;
+                top: 40%;
+                right: 5px;
+                transform: translateY(-50%);
+                content: ">";
+                color: $site-pink;
+            }
+            &:hover:after {
+            }
+        }
+    }
+}
+
+.bi3-checkout .bi3_menu-list {
+    display: none;
+}

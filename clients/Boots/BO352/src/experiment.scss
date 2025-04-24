@@ -1,0 +1,111 @@
+@import './variables';
+
+.#{$id} {
+    .oct-template .toggle-facet_container_text {
+        color: #333333;
+
+        @include media-query(md) {
+            color: #5C5C5C;
+        }
+    }
+
+    ul.oct-listers-facets {
+        display: flex;
+        flex-direction: column;
+
+        @include media-query(md) {
+            .oct-listers-facets__list {
+                display: flex;
+                flex-direction: column; 
+            }
+        }
+    }
+
+    .oct-template &__filterByContainer.oct-listers-facets__item {
+        border-top: 0 !important;
+        order: -2;
+    }
+
+    .oct-listers-facets__item--inStock {
+        border-bottom: 1px solid #d8d8d8;
+        order: -1;
+    }
+
+    &-1, &-3 {
+        .oct-template .toggle-facet_container_text {
+            width: auto;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 22px;
+            margin-right: 0;
+        }
+
+        .oct-template .toggle-facet_container {
+            justify-content: space-between;
+        }
+
+        .oct-template .oct-toggle__slider {
+            width: 44px;
+            position: relative;
+        }
+
+        .oct-template .oct-toggle__checkbox:checked+.oct-toggle__slider:before {
+            left: 22px;
+        }
+
+        .oct-template .toggle-facet_container .oct-toggle {
+            margin: 9px 0 7px 0;
+        }
+    }
+
+    &-2, &-3 {
+        .#{$id}__toggleStatusText {
+            &::before {
+                content: 'On';
+                font-size: 14px !important;
+                font-weight: 700;
+                position: absolute;
+                top: 50%;
+                left: 4px;
+                color: #fff;
+            }
+        }
+        
+        .oct-toggle__slider.oct-toggle__slider--unselected .#{$id}__toggleStatusText {
+            &::before {
+                content: 'Off';
+                right: 4px;
+                left: auto;
+                color: #333333;
+            }
+        }
+    }
+
+    &-2 {
+        .oct-template .toggle-facet_container_text {
+            width: auto;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 22px;
+            margin-right: 0;
+        }
+    }
+
+    &-3 {
+        .oct-template .toggle-facet_container_text {
+            font-size: 14px;
+        }
+        .oct-template .oct-toggle__slider {
+            width: 48px;
+            position: relative;
+        }
+        .oct-template .oct-toggle__checkbox:checked+.oct-toggle__slider:before {
+            left: 26px;
+        }
+        .#{$id}__toggleStatusText {
+            &::before {
+                font-size: 13px !important;
+            }
+        }
+    }
+}

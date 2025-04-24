@@ -1,0 +1,873 @@
+@import './variables';
+
+
+html.#{$id}-noScroll {
+    overflow: hidden;
+}
+
+.#{$id} {
+
+    // general styling
+    .#{$id}-hidden {
+        display: none;
+    }
+
+    .#{$id}-continue {
+        background-color: #004990;
+        border-radius: 3px;
+        font-family: 'F37 Ginger Bold', Tahoma, Arial, sans-serif;
+        width: 100%;
+        line-height: 36px;
+        min-height: 36px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 1.25em;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-appearance: none;
+        border: 1px solid transparent;
+        outline: none;
+        font-size: 17px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        max-width: 200px;
+        cursor: pointer;
+
+        &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @media(min-width: 1024px) {
+            &:hover {
+                background: #1B355C;
+            }
+        }
+
+        @media(min-width: 600px) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+
+    #errorMessage {
+        max-width: 600px;
+        text-align: left;
+        padding-left: 0px;
+        margin: 0 auto !important;
+        position: relative;
+        margin-top: 20px !important;
+        margin-bottom: 30px !important;
+        @media(min-width: 767px) {
+            padding-left: 40px;
+        }
+
+        .warning_icon {
+            display: none;
+
+            @media(min-width: 767px) {
+                left: 0 !important;
+                display: block;
+            }
+        }
+    }
+
+    // radios
+    .#{$id}-radioContainer {
+        padding-bottom: 30px;
+
+        h3 {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .#{$id}-radios {
+            margin-top: 10px;
+        }
+
+        .#{$id}-radio {
+            margin-bottom: 15px;
+            margin-top: 15px;
+            font-family: "F37 Ginger Light", Tahoma, Arial, sans-serif;
+            font-size: 14px;
+
+            input {
+
+                &:checked,
+                &:not(:checked) {
+                    position: absolute;
+                    left: -9999px;
+                }
+
+                &:checked+label,
+                &:not(:checked)+label {
+                    position: relative;
+                    padding-left: 28px;
+                    cursor: pointer;
+                    line-height: 20px;
+                    display: inline-block;
+                    color: #666;
+
+                    @media(min-width: 600px) {
+                        padding-left: 40px;
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 18px;
+                        height: 18px;
+                        border: 1px solid #979797;
+                        border-radius: 100%;
+                        background: #fff;
+                    }
+
+                    &::after {
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        background: #E0377D;
+                        position: absolute;
+                        top: 36%;
+                        transform: translateY(-50%);
+                        left: 4px;
+                        border-radius: 100%;
+                        -webkit-transition: all 0.2s ease;
+                        transition: all 0.2s ease;
+                    }
+                }
+
+                &:not(:checked)+label:after {
+                    opacity: 0;
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                }
+
+                &:checked+label:after {
+                    opacity: 1;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .#{$id}-loginText {
+            font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .#{$id}-continue {
+            margin: 0 auto;
+            margin-top: 30px;
+            @media(min-width: 600px) {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    // ------ Main form
+
+    #eStore_registration_form.adcard_form.adcard_form_redesign.digiCardEnabled {
+        max-width: 100%;
+        width: 100%;
+
+        @media(min-width: 601px) {
+            max-width: 100%;
+        }
+
+        .form {
+            >.content .align {
+                min-height: unset;
+            }
+        }
+
+        #marketingServiceError {
+            padding: 0 !important;
+        }
+
+        .formInputDesc.needRepublicAddcard {
+            display: none;
+        }
+
+        #addCardSignupPageHeading {
+            display: none;
+        }
+
+        .sign_in_registration {
+            .title {
+                display: block;
+            }
+        }
+
+        // DOB
+        #registrationDateOfBirthMonth {
+            width: 116px;
+            min-width: 116px;
+            
+            @media(min-width: 767px) {
+                width: 133px;
+            }
+        }
+
+        #ACFRegistrationForm {
+            margin: 0 10px;
+        }
+
+        .form_row_redesign {
+            padding: 25px 0 0 0;
+
+            @media(min-width: 601px) {
+                align-self: center;
+            }
+
+            [type="checkbox"]~span {
+                border: 2px solid #004990;
+            }
+        }
+
+        .entetAddressManuallyLink {
+            text-align: left;
+            padding-top: 5px;
+            font-size: 14px;
+        }
+
+        #searchAddressResultContainer,
+        #country {
+            font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+        }
+
+
+        // gender
+        #registrationGenderLabel {
+            span {
+                width: auto;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: relative;
+
+                .dropdown_arrow {
+                    top: 0% !important;
+                }
+            }
+        }
+
+
+        // Advantage card section
+
+        .#{$id}-adInfo {
+            margin-top: 10px;
+            font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+            color: #333333;
+            font-size: 12px;
+        }
+
+        .tempAddCardContainer_redesign {
+            border: 0px;
+            margin-top: 5px;
+
+            h5 {
+
+                font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+                font-weight: 500;
+
+            }
+
+            .form_row_redesign {
+                padding-top: 20px;
+
+                @media(min-width: 600px) {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .radio_primary:checked+.radio_primary_label:after,
+        .radio_primary.dijitRadioChecked+.radio_primary_label:after {
+            background-color: #E0377D;
+        }
+
+        #tempAdCardNoPrefix {
+            background: #FFF9FC;
+        }
+
+        #error_termsAndConditions {
+            margin-top: 10px;
+        }
+
+        // offer block
+        .healthClubPref_redesign {
+            // margin-top: 20px !important;
+
+            #acfConsentHeader {
+                background: #FFF9FC;
+                text-align: center;
+                padding: 20px 10px;
+                margin-top: 10px;
+
+                @media(min-width: 767px) {
+                    margin-top: 30px;
+                    max-width: 400px;
+                }
+
+                h2 {
+                    padding: 0;
+                    margin-bottom: 5px;
+                    font-size: 16px;
+
+                    br {
+                        display: none;
+                    }
+                }
+
+                p {
+                    font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .button_footer_line {
+            @media(min-width: 601px) {
+                text-align: left;
+                margin-top: 30px;
+
+                .button {
+                    margin-left: 0;
+                }
+            }
+
+            .button {
+                text-decoration: none;
+            }
+        }
+
+        // points section
+        .additionalOptions {
+
+            .adcardOver_60_redesign,
+            .adcard_parenting_club_redesign {
+                border: 0px !important;
+                background: white;
+
+                @media(min-width: 601px) {
+                    padding-left: 0 !important;
+                }
+
+                .adcard_parenting_club_desc_redesign {
+                    font-size: 14px;
+                }
+
+                p,
+                .checkbox_space {
+                    font-family: "F37 Ginger Light", Tahoma, Arial, sans-serif;
+                    font-size: 14px !important;
+                }
+
+                h2 {
+                    font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+                    font-weight: 500;
+                    font-size: 16px !important;
+                    margin-bottom: 5px;
+                }
+
+                .checkboxfield {
+                    margin-right: 0;
+
+                    @media(min-width: 600px) {
+                        margin-right: 53px;
+                    }
+                }
+
+                .checkboxfield .chckbox {
+                    border: 2px solid #004990;
+                }
+
+                [type="checkbox"]+span {
+                    border: 2px solid #004990 !important;
+                }
+            }
+        }
+
+        #eStore_SignUp_Preferences {
+            .form_row_redesign {
+                padding-top: 0;
+                &:last-of-type {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    #eStore_registration_form.adcard_form.adcard_form_redesign .labelSpan,
+    #eStore_registration_form.adcard_form.adcard_form_redesign .column .column_label {
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    // consent
+    .addCarTtermsAndConditionRedesign {
+        padding-top: 10px;
+        margin-top: 10px !important;
+
+    }
+
+    .emailConsentContainerRedesign {
+        border: 0px !important;
+
+        #form_row_redesign_con {
+            .form_row_redesign {
+                padding: 25px 0 0 0 !important;
+            }
+
+            .form_row_redesign {
+                .form_row_redesign {
+                    @media(min-width: 601px) {
+                        margin-top: 20px;
+                        padding-top: 0;
+                        margin-bottom: 20px;
+                    }
+
+                    .preferences_con {
+                        @media(min-width: 601px) {
+                            margin-bottom: 20px;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
+    // step bar
+    .#{$id}-stepBar {
+        background: #FFF9FC;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .#{$id}-step {
+            flex-grow: 1;
+            text-align: center;
+            font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+            font-size: 14px;
+            padding: 9px 0px;
+            margin: 0 5px;
+            border-bottom: 5px solid #E0377D;
+            opacity: 0.3;
+
+            &.#{$id}-active {
+                opacity: 1;
+            }
+
+            &.#{$id}-complete {
+                opacity: 1;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    height: 15px;
+                    width: 15px;
+                    bottom: -10px;
+                    border-radius: 20px;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #E0377D;
+                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/123AAA3FFFCFDA637E1F1364D046B85F345D8445EA1B97BA35B8AF830EA35706.png?meta=/Image-Upload/tick.png');
+                    background-repeat: no-repeat;
+                    background-size: 20px;
+                    background-position: center;
+                }
+            }
+        }
+    }
+
+    // sections
+    .#{$id}-section {
+        display: none;
+
+        &.#{$id}_step--active {
+            display: block;
+            margin-bottom: 40px;
+
+            @media(min-width: 767px) {
+                display: flex;
+            }
+        }
+
+        @media(min-width: 767px) {
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+
+            .#{$id}-fields {
+
+                @media(min-width: 601px) {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+
+                    >div {
+                        width: 100%;
+                    }
+
+                }
+            }
+        }
+
+        // text
+        h3 {
+            text-align: center;
+            font-size: 24px;
+            color: #004990;
+            font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+            @media(min-width: 601px) {
+                margin-top: 30px;
+            }
+        }
+
+        a {
+            font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+            text-decoration: underline;
+        }
+
+        label,
+        .column_label,
+        .formInputDesc {
+            font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+            font-weight: 500;
+            color: #333333;
+        }
+
+        .formInputDesc {
+            margin-top: 10px;
+        }
+
+
+        input {
+            font-family: "F37 Ginger Light", Tahoma, Arial, sans-serif;
+            border-radius: 4px;
+            border-color: #E7E7E7;
+            background: white;
+
+
+            &[type='text'],
+            &[type='password'] {
+
+                @media(min-width: 600px) {
+                    width: 100% !important;
+                }
+            }
+        }
+
+        select {
+            background: white !important;
+            border-color: #E7E7E7;
+            border-radius: 4px;
+            -webkit-appearance: none;
+            margin-bottom: 5px !important;
+        }
+
+
+    }
+
+    .#{$id}-info {
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/A75B5BD1ACF7BAE928D0CBE25F964FAAC2AC232F99619947E5A850B0BCFF9951.png?meta=/Image-Upload/noun_Info_223370.png') no-repeat center;
+        background-size: contain;
+        background-position: center;
+        margin-left: -15px;
+        margin-top: -5px;
+        cursor: pointer;
+    }
+
+    // lightbox
+    .#{$id}-lightbox {
+        display: none;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        box-sizing: border-box;
+        z-index: 9999;
+
+        .#{$id}-overlay {
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        .#{$id}-content {
+            background: white;
+            z-index: 99;
+            padding: 30px 10px;
+            box-sizing: border-box;
+            text-align: center;
+            font-family: "F37 Ginger Light", Tahoma, Arial, sans-serif;
+            margin: 10px;
+            position: relative;
+
+            @media(min-width: 767px) {
+                max-width: 700px;
+                margin: 0 auto;
+
+            }
+
+            .#{$id}-close {
+                position: absolute;
+                top: 5px;
+                cursor: pointer;
+                right: 5px;
+                height: 20px;
+                width: 20px;
+                background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/AE110F92E9A93557897B5FCFFAF811C5BA1544319FC25B58E4CE06DC266DA9F9.png?meta=/Image-Upload/noun_Close_2726743.png') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        &.#{$id}-visible {
+            display: flex;
+        }
+    }
+
+    
+    &.#{$id}-2 {
+
+        #eStore_registration_form.adcard_form.adcard_form_redesign.digiCardEnabled {
+            #addCardSignupPageHeading {
+                display: block;
+                font-size: 23px;
+                margin-bottom: 20px;
+
+                @media(min-width: 1024px) {
+                    font-size: 28px;
+                    margin-top: 20px;
+                }
+            }
+
+           
+
+            #ACFRegistrationForm {
+                margin: 0;
+            }
+
+
+
+            .healthClubPref_redesign#eStore_SignUp_Preferences {
+                @media(min-width: 601px) {
+                    width: 100% !important;
+
+                    #acfConsentHeader {
+                        max-width: 100% !important;
+                    }
+                }
+            }
+        }
+
+
+        .#{$id}-section {
+            display: flex;
+            flex-direction: column;
+            opacity: 0.5;
+
+            @media(min-width:600px) {
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                background: #FFF9FC;
+                text-align: left;
+                font-size: 18px;
+                padding: 10px 20px;
+                margin-top: 0;
+                width: 100%;
+            }
+
+
+            &.#{$id}-welcome {
+
+                .#{$id}-fields {
+                    >div>.column.form_row_redesign {
+                        padding-top: 5px !important;
+                    }
+                }
+
+            }
+
+            .#{$id}-sectionContainer {
+                max-height: 0;
+                transition: max-height 0.15s ease-out;
+                overflow: hidden;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin: 0 10px;
+                width: auto;
+
+                @media(min-width: 767px) {
+                    width: 100%;
+                }
+            }
+
+            &.#{$id}_step--active {
+                opacity: 1;
+                margin-bottom: 20px;
+
+                .#{$id}-continue {
+                    display: block;
+                }
+
+                .#{$id}-sectionContainer {
+                    max-height: 1000px;
+                    transition: max-height 0.25s ease-in;
+
+                }
+            }
+
+            &.#{$id}-sectionOpen {
+                opacity: 1;
+
+                .#{$id}-continue {
+                    display: none;
+                }
+
+                .#{$id}-sectionContainer {
+                    max-height: 1000px;
+                    transition: max-height 0.25s ease-in;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    margin: 0 10px;
+                }
+            }
+
+            &.#{$id}_step--complete {
+                opacity: 1;
+
+                h3 {
+                    position: relative;
+                    cursor: pointer;
+
+                    &::after {
+                        content: '';
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 20px;
+                        position: absolute;
+                        right: 20px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-color: #E0377D;
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/123AAA3FFFCFDA637E1F1364D046B85F345D8445EA1B97BA35B8AF830EA35706.png?meta=/Image-Upload/tick.png');
+                        background-repeat: no-repeat;
+                        background-size: 30px;
+                        background-position: center;
+                    }
+                }
+
+                .#{$id}-continue {
+                    display: none;
+                }
+            }
+        }
+
+        &.#{$id}-allOpen {
+            .#{$id}-section {
+                .#{$id}-sectionContainer {
+                    max-height: 1000px;
+                    transition: max-height 0.25s ease-in;
+
+                }
+            }
+        }
+    }
+
+    &.#{$id}-3 {
+        #eStore_registration_form.adcard_form.adcard_form_redesign.digiCardEnabled {
+            #addCardSignupPageHeading {
+                display: block;
+                font-size: 28px;
+                margin: 0 10px;
+                border-bottom: 2px solid #E0377D;
+
+                @media(min-width: 600px) {
+                    max-width: 600px;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .#{$id}-section {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+
+            .#{$id}-continue {
+                display: none;
+            }
+
+            .#{$id}-sectionContainer {
+                width: auto;
+
+                @media(min-width: 767px) {
+                    width: 100%;
+                    .healthClubPref_redesign#eStore_SignUp_Preferences {
+                        width: 100% !important;
+                        .emailConsentContainerRedesign {
+                            border: 0px !important;
+                        }
+                    }
+                }
+            }
+
+            &.#{$id}-welcome {
+                h3 {
+                    display: none;
+                }
+
+                .#{$id}-fields {
+
+                    >div>.column.form_row_redesign {
+                        padding-top: 5px !important;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+
+}

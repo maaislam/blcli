@@ -1,0 +1,574 @@
+@import '../../../variables';
+
+$component: '#{$id}_ProductBox';
+
+/* GENERAL STYLES */
+.#{$id} {
+  .#{$component}_mostPopular {
+    margin: 20px auto;
+    max-width: 976px;
+  }
+
+  .#{$component}_mostPopularTitle {
+    padding: 0 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .#{$component}_mostPopularProducts {
+    font-size: 0;
+    display: flex;
+  }
+
+  .#{$component}_wrap {
+    display: inline-block;
+    vertical-align: top;
+    width: 33.333%;
+    padding: 10px;
+
+    &:nth-child(even) .#{$component} {
+      background-color: #F6F6F6;
+      border: 1px solid #F6F6F6;
+    }
+  }
+  
+  .#{$component} {
+    background-color: white;
+    border: 1px solid #EEEEEE;
+    padding: 18px 15px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .#{$component}_modalLink--fullWidth {
+    display: none;
+  }
+
+  .#{$component}_titleBlock {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 0;
+  }
+
+  .#{$component}_title {
+    font-size: 1.6rem;
+    display: inline-block;
+    width: 70%;
+  }
+
+  .#{$component}_priceBlock {
+    font-size: 1.6rem;
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+  }
+
+  .#{$component}_wasPrice {
+    color: black;
+    font-weight: normal;
+    font-size: 1.1rem;
+    display: inline-block;
+    text-decoration: line-through;
+  }
+
+  .#{$component}_price {
+    display: inline-block;
+  }
+
+  .#{$component}_reviewStars {
+    margin: 8px 0 5px 0;
+    transform: scale(1.2);
+    transform-origin: left;
+    display: inline-block;
+
+    .Rating .FullStars .Star {
+      color: #EC018C;
+    }
+  }
+
+  .#{$component}_detailsBlock {
+    flex: 1;
+    display: flex;
+  }
+
+  .#{$component}_productImage {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    height: 200px;
+
+    > img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .#{$component}_details {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 55%;
+    vertical-align: middle;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .#{$component}_bullets {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+    margin-bottom: 20px;
+    color: #6d6d6d;
+
+    > li {
+      padding: 0;
+      margin: 12px 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: '';
+        font-size: 1.3rem;
+        // background-image: url('https://ab-test-sandbox.userconversion.com/experiments/AV014-tickicon.png');
+        background-image: url('#$(ContentManager:tickicon.png)!'); // Maxymiser reference
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 12px;
+        width: 12px;
+        margin-top: 3px;
+        margin-right: 6px;
+        color: #ec008c;
+        float: left;
+      }
+
+      p {
+        margin: 0;
+        display: block;
+        overflow: hidden;
+        font-size: 1.3rem;
+        line-height: 1.7rem;
+      }
+    }
+  }
+
+  .#{$component}_ctaBlock {
+    font-size: 1.4rem;
+  }
+
+  .#{$component}_ctaUvp {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .#{$component}_cta {
+    display: block;
+    font-weight: bold;
+    padding: 15px 2px;
+    text-align: center;
+    color: white;
+    background-color: #EC018C;
+    white-space: nowrap;
+
+    &:hover,
+    &:active {
+      color: white;
+      background-color: #a60063;
+    }
+  }
+
+  .#{$component}--mobileOnly {
+    display: none;
+  }
+
+  .#{$component}--desktopOnly {
+    display: block;
+  }
+
+  &.Layout_Tablet {
+    .#{$component}_ctaBlock {
+      font-size: 1.1rem;
+    }
+
+    .#{$component}_title {
+      font-size: 1.4rem;
+      width: 60%;
+    }
+  
+    .#{$component}_priceBlock {
+      font-size: 1.4rem;
+      width: 40%;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component}_wrap {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+
+    .#{$component} {
+      background-color: #F6F6F6;
+      border: 1px solid #F6F6F6;
+    }
+
+    .#{$component}_ctaBlock .#{$component}_cta {
+      display: none;
+    }
+
+    .#{$component}--mobileOnly {
+      display: block;
+
+      .#{$component}_cta {
+        display: block;
+        width: 100%;
+        max-width: 70%;
+        margin: 10px auto 0 auto;
+        font-size: 1.4rem;
+      }
+    }
+
+    .#{$component}--desktopOnly {
+      display: none;
+    }
+
+    .ProductListModule .ProductList {
+      border-top: none;
+    }
+  }
+}
+
+/* PLP STYLES ONLY */
+.#{$id}--plp {
+  &.Layout_Tablet,
+  &.Layout_Phone {
+    .#{$component} {
+      position: relative;
+      padding: 28px 15px 18px;
+
+      &:before {
+        content: 'Top Rated';
+        background: black;
+        display: inline-block;
+        width: auto;
+        position: absolute;
+        top: 0;
+        left: 15px;
+        color: white;
+        padding: 7px 10px;
+        margin-top: -15px;
+      }
+    }
+  }
+ }
+
+/* SEARCH PAGE STYLES ONLY */
+.#{$id}--search {
+  .#{$component}_cta--modal {
+    display: none;
+  }
+
+  &.Layout_Phone {
+    .#{$component} {
+      position: relative;
+    }
+    
+    .#{$component}_mostPopular {
+      .#{$component}_mostPopularTitle {
+        display: none;
+      }
+
+      .#{$component}_mostPopularProducts {
+        flex-direction: column;
+      }
+
+      .#{$component}_wrap:nth-child(even) .#{$component} {
+        background-color: #FFF;
+        border: 1px solid #FFF;
+      }
+
+      .#{$component} {
+        padding: 15px 5px;
+        height: 100px;
+        align-items: center;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+        flex-direction: row;
+
+        @media screen and (max-width: 340px) {
+          padding: 10px 5px;
+        }
+      }
+
+      .#{$component}_productImage.#{$component}_productImage--rotate {
+        width: 35%;
+        display: inline-block;
+        transform: rotate(90deg) translate(-50%, 0);
+        transform-origin: top left;
+        align-self: flex-start;
+        position: relative;
+        top: 50%;
+        left: 35%; // Must be the same as the width
+        padding: 5px 0px 55px 0;
+
+        > img {
+          max-width: none;
+        }
+      }
+
+      .#{$component}_titleBlock {
+        width: 30%;
+        display: inline-block;
+        margin: 0;
+        padding: 0 5px;
+      }
+
+      .#{$component}_title {
+        width: 100%;
+        font-size: 1.4rem;
+        color: #EC018C;
+        margin-bottom: 5px;
+      }
+      
+      .#{$component}_priceBlock {
+        width: 100%;
+        text-align: left;
+        font-size: 1.4rem;
+      }
+
+      .#{$component}_reviewStars {
+        transform: none;
+      }
+
+      .#{$component}_detailsBlock {
+        width: 35%;
+        padding: 0 0 0 5px;
+
+        .#{$component}_productImage {
+          display: none;
+        }
+      }
+
+      .#{$component}_details {
+        width: 100%;
+        display: block;
+        padding: 0;
+      }
+
+      .#{$component}_bullets {
+        display: none;
+      }
+
+      .#{$component}_ctaBlock {
+        font-size: 1.2rem;
+
+        .#{$component}_cta {
+          padding: 12px 2px;
+
+          &.#{$component}_cta--modal {
+            display: block;
+          }
+        }
+      }
+
+      .#{$component}_ctaUvp {
+        font-weight: normal;
+      }
+    }
+
+    .#{$component}_modal {
+      .#{$component} {
+        display: block;
+        background-color: white;
+        border: none;
+        padding: 0;
+      }
+
+      .#{$component}_titleBlock {
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+
+      .#{$component}_title {
+        width: auto;
+        display: block;
+      }
+
+      .#{$component}_reviewStars {
+        width: auto;
+        display: block;
+      }
+
+      .#{$component}_detailsBlock {
+        display: block;
+      }
+
+      .#{$component}_details {
+        display: block;
+        width: auto;
+        padding: 0;
+        text-align: center;
+      }
+
+      .#{$component}_bulletsWrap {
+        background-color: #F6F6F6;
+        padding: 15px 20px;
+        margin: 10px 0;
+
+        @media screen and (max-width: 340px) {
+          padding: 6px 20px;
+          margin: 5px 0;
+        }
+      }
+      
+      .#{$component}_bullets {
+        margin: 0 auto;
+        text-align: left;
+
+        > li {
+          margin: 6px 0;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          p {
+            font-size: 1.4rem;
+          }
+
+          @media screen and (max-width: 340px) {
+            margin: 8px 0;
+
+            &:first-of-type {
+              margin-top: 0;
+            }
+  
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      .#{$component}_wasPrice {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      .#{$component}_priceBlock {
+        width: auto;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+        font-weight: bold;
+
+        @media screen and (max-width: 340px) {
+          margin: 6px 0;
+        }
+      }
+      
+      .#{$component}_ctaUvp {
+        margin: 10px 0;
+        font-weight: normal;
+
+        @media screen and (max-width: 340px) {
+          margin: 6px 0;
+        }
+      }
+      
+      .#{$component}_ctaBlock .#{$component}_cta {
+        display: block;
+        margin: 10px 0;
+        margin-bottom: 0;
+
+        @media screen and (max-width: 340px) {
+          margin: 6px 0 0 0;
+        }
+      }
+
+      carousel {
+        max-width: 42vh;
+
+        @media screen and (max-height: 750px) {
+          max-width: 270px;
+          max-width: 42vh;
+        } 
+
+        @media screen and (max-width: 340px) {
+          max-width: 215px;
+          max-width: 42vh;
+        }
+      }
+
+      .CanScroll .CarouselNext,
+      .CanScroll .CarouselPrevious {
+        transition: opacity .5s ease;
+        display: block;
+        position: absolute;
+        margin-top: -3rem;
+        top: 50%;
+        height: 4.5rem;
+        width: 4rem;
+
+        svg-icon {
+          width: 2.5rem;
+          height: 2.5rem;
+          position: absolute;
+          top: 1rem;
+        }
+
+        &.Active {
+          cursor: pointer;
+          opacity: .8;
+          background-color: #fff;
+        }
+      }
+
+      .CanScroll .CarouselPrevious {
+        left: 0;
+
+        svg-icon {
+          left: .5rem;
+        }
+      }
+      
+      .CanScroll .CarouselNext {
+        right: 0;
+
+        svg-icon {
+          right: .5rem;
+        }
+      }
+    }
+
+    .#{$component}_modalLink--fullWidth {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}

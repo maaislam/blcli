@@ -1,0 +1,863 @@
+@import './variables';
+
+.#{$id} {
+  &__hide {
+    display: none !important;
+  }
+
+  &__advantageIcon-afterBody {
+    height: 0;
+    display: block;
+  }
+
+  #adcardQuickLink {
+    padding: 6px 15px !important;
+
+    @include media-query(md) {
+      padding: 0 !important;
+    }
+  }
+
+  &__loggedIn {
+    #adcardQuickLink {
+      display: flex !important;
+      align-items: center;
+    }
+
+    .#{$id}__advantageIcon svg {
+      width: 25px;
+      height: 18px;
+
+      @include media-query(md) {
+        width: 29px;
+        height: 22px;
+      }
+    }
+
+    .#{$id}__advantageCardWrapper {
+      top: 27px;
+
+      @include media-query(md) {
+        top: 50px;
+      }
+    }
+  }
+
+  &__loggedIn.#{$id}__accountView {
+    #adcardQuickLinkGuestContainer {
+      @include media-query(md) {
+        display: none !important;
+      }
+    }
+
+    #adcardQuickLinkContainer:not(.#{$id}__hide),
+    #adcardQuickLink {
+      display: none !important;
+
+      @include media-query(md) {
+        display: flex !important;
+      }
+    }
+
+    a#adcardQuickLink {
+      display: none !important;
+    }
+
+    #adcardQuickLinkGuest {
+      display: flex !important;
+      align-items: center;
+      padding: 7px 15px 5px !important;
+
+      @include media-query(md) {
+        display: block !important;
+        padding: 0 0 0 20px !important;
+      }
+    }
+
+    .#{$id}__primary-btn {
+      height: 40px;
+      box-sizing: border-box;
+    }
+  }
+
+  &__myAccount {
+    .#{$id}__pointsWrapperContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .#{$id}__primary-btn {
+        display: none;
+
+        @include media-query(md) {
+          display: flex;
+        }
+      }
+
+      @include media-query(md) {
+        margin-top: 16px;
+        // background: #FFE7F4 !important;
+        padding: 8px 0 !important;
+      }
+
+    }
+
+    .#{$id}__pointsWrapper--account {
+      margin: 10px 0;
+    }
+  }
+
+  &__shopPriceAdvantage {
+    span {
+      font-family: 'Boots Sharp';
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      color: #E41C68;
+    }
+  }
+
+  &__advantageCardWrapper {
+    position: absolute;
+    top: 28px;
+    right: 5px;
+    z-index: 9999;
+    min-width: 375px;
+    list-style: none;
+
+    @include media-query(md) {
+      top: 49px;
+      right: 0;
+      min-width: 100%;
+    }
+
+    .#{$id}__overlay {
+      display: none;
+
+      @include media-query(md) {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  &__adCardQuickLink:not(#mobileLink_locator) {
+    display: flex !important;
+    align-items: center;
+    padding: 6px 15px !important;
+
+    @include media-query(md) {
+      padding-top: 0 !important;
+    }
+  }
+
+  &__advantageIcon {
+    display: flex;
+    width: 28px;
+    height: 17px;
+
+    @include media-query(md) {
+      width: 29px;
+      height: 22px;
+    }
+
+    +#storeLocatorQuickLink {
+      @include media-query(md) {
+        display: none;
+      }
+    }
+
+    svg {
+      height: 100%;
+      width: 100%;
+
+      @include media-query(md) {
+        width: 29px;
+        height: 22px;
+      }
+    }
+  }
+
+  &__accountArea {
+    max-width: 375px;
+    width: 100%;
+    padding: 10px 13px;
+    background-color: #ffe7f4;
+  }
+
+  &__accountAreaInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin: 8px 8px 20px;
+    background-color: #fff;
+    border-radius: 2px;
+
+    .#{$id}__icon {
+      display: flex;
+    }
+
+    .#{$id}__text {
+      font-family: 'Boots Sharp';
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 26px;
+      text-align: center;
+      color: #05054b;
+      margin-left: 8px;
+    }
+  }
+
+  &__cardWithPointsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 132px;
+    width: 100%;
+    padding: 5px 0;
+    border: 1px solid #E41B68;
+    border-radius: 3px;
+    background-color: #FFE7F6;
+
+    @include media-query(md) {
+      height: 30px;
+      max-width: 126px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      box-sizing: border-box;
+    }
+
+    .#{$id}__icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .#{$id}__points {
+      font-family: 'Boots Sharp';
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      text-align: center;
+      margin-left: 6px;
+      color: #05054B;
+    }
+  }
+
+  .#{$id}__pointsWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 306px;
+    max-width: 306px;
+    padding: 7px 9px;
+    margin-left: 11px;
+    margin-bottom: 11px;
+    box-sizing: border-box;
+    border: 1px solid #E12869;
+    background: #FFE7F4;
+    border-radius: 5px;
+    // background-color: #ffe7f4;
+
+    @include media-query(md) {
+      max-width: 100%;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    // .border-bottom-right {
+    //   &::before {
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 0;
+    //     height: 75%;
+    //     width: 0;
+    //     border-left: 6px solid #E41B68;
+    //   }
+
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 0;
+    //     height: 20px;
+    //     width: 100%;
+    //     border-bottom: 6px solid #E41B68;
+    //   }
+    // }
+
+    // .border-left-right {
+    //   &::before {
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     height: 25%;
+    //     width: 0;
+    //     border-left: 6px solid #E41B68;
+    //   }
+
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     height: 15%;
+    //     border-left: 6px solid #F18BB3;
+    //     border-radius: 0 4px 0 0;
+
+    //     // @include media-query(md) {
+    //     //   border-color: #f18bb3;
+    //     // }
+    //   }
+    // }
+
+    .#{$id}__pointsContainer {
+      .#{$id}__text {
+        font-size: 16px !important;
+        line-height: 26px !important;
+      }
+    }
+  }
+
+  // .#{$id}__pointsWrapper::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   height: 20px;
+  //   width: 100%;
+  //   border-top: 6px solid #F18BB3;
+  //   border-radius: 5px 5px 0 0;
+
+  //   // @include media-query(md) {
+  //   //   border-color: #f18bb3;
+  //   // }
+  // }
+
+  // .#{$id}__pointsWrapper::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   height: 65%;
+  //   width: 20px;
+  //   border-left: 6px solid #F18BB3;
+  //   border-radius: 5px 0 0 0;
+
+  //   // @include media-query(md) {
+  //   //   border-color: #F18BB3;
+  //   // }
+  // }
+
+  .#{$id}__pointsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background: #fff;
+
+    @include media-query(md) {
+      .#{$id}__primary-btn {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px !important;
+      }
+    }
+
+    .#{$id}__icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .#{$id}__text {
+      font-family: 'Boots Sharp';
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 26px;
+      text-align: center;
+      margin-left: 8px;
+      color: #E12869;
+    }
+  }
+
+  .#{$id}__noAccountWrapper {
+    max-width: 375px;
+
+    @include media-query(md) {
+      max-width: 100%;
+    }
+
+    .no-account-price-advant {
+      margin-top: 10px;
+    }
+  }
+
+  .#{$id}__noAccountContainer {
+    a.#{$id}__primary-btn {
+      padding: 8px !important;
+    }
+
+    .#{$id}__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffe7f4;
+
+      h1 {
+        font-family: 'Boots Sharp';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+        color: #E12869;
+        padding: 17px 15px 17px 8px;
+      }
+    }
+
+    .#{$id}__content {
+      padding: 25px 16px 15px;
+      background: #fff;
+
+      h2 {
+        font-family: 'Boots Sharp';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        color: #05054B;
+        padding-bottom: 15px;
+      }
+
+      .#{$id}__lists {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .#{$id}__item {
+        display: flex;
+        align-items: center;
+        padding-bottom: 17px;
+        text-wrap: auto !important;
+
+        .#{$id}__icon {
+          display: flex;
+          align-items: center;
+          padding: 0 10px 0 0;
+
+          // svg {
+          //   width: 58px;
+          //   height: 50px;
+          // }
+        }
+
+        .#{$id}__text {
+          font-family: 'Boots Sharp';
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 19.2px;
+          letter-spacing: -0.011em;
+          text-align: left;
+          color: #05054B;
+          //padding-left: 12px;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .#{$id}__buttons {
+      background: #fff;
+      padding: 0 13px 25px;
+    }
+  }
+
+  .#{$id}__onlyAccountWrapper {
+    max-width: 375px;
+
+    @include media-query(md) {
+      max-width: 100%;
+    }
+  }
+
+  .#{$id}__offerIcon {
+    svg {
+      width: 34px;
+    }
+  }
+
+  .#{$id}__onlyAccountContainer {
+    .#{$id}__continue {
+      margin-top: 10px;
+    }
+
+    .#{$id}__header {
+      background-color: #ffe7f4;
+
+      h1 {
+        font-family: 'Boots Sharp';
+        padding: 16px 13px 12px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        color: #000;
+      }
+    }
+
+    .#{$id}__pointsBox {
+      .#{$id}__pointsContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 8px;
+        border-radius: 2px;
+      }
+
+      .#{$id}__icon {
+        display: flex;
+        align-items: center;
+      }
+
+      .#{$id}__points {
+        padding-left: 8px;
+        font-family: 'Boots Sharp';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+        text-align: center;
+        color: #000;
+      }
+
+      .#{$id}__sign {
+        padding: 0 6px;
+      }
+
+      .#{$id}__sign,
+      .#{$id}__money {
+        font-family: 'Boots Sharp';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+        text-align: center;
+        color: #E12869;
+      }
+
+      .#{$id}__pointsText {
+        padding: 9px 13px 12px;
+        font-family: 'Boots Sharp';
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 14px;
+        letter-spacing: -0.011em;
+        text-align: center;
+        color: #05054B;
+        text-wrap: auto;
+      }
+    }
+
+    .#{$id}__content {
+      padding: 16px 16px 14px;
+      background: #fff;
+
+      h2 {
+        padding-bottom: 15px;
+        font-family: 'Boots Sharp';
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        color: #05054B;
+      }
+
+      .#{$id}__lists {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .#{$id}__item {
+        display: flex;
+        align-items: center;
+        padding-bottom: 16px;
+        text-wrap: auto !important;
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+
+        .#{$id}__icon {
+          display: flex;
+          align-items: center;
+          padding-right: 10px;
+
+          svg {
+            width: 30px;
+          }
+        }
+
+        .#{$id}__text {
+          font-family: 'Boots Sharp';
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 22px;
+          letter-spacing: -0.011em;
+          color: #05054B;
+          //padding-left: 12px;
+        }
+      }
+    }
+
+    .#{$id}__buttons {
+      padding: 0 12.5px 16px;
+      background: #fff;
+    }
+  }
+
+  .#{$id}__accountWrapper {
+    max-width: 375px;
+
+    @include media-query(md) {
+      max-width: 100%;
+    }
+  }
+
+  .#{$id}__accountContainer {
+    .#{$id}__header {
+      padding: 0 13px;
+      background-color: #FFE7F4;
+
+      h1 {
+        padding: 16px 13px;
+        font-family: 'Boots Sharp';
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        color: #000;
+      }
+    }
+
+    .#{$id}__pointsBox {
+      .#{$id}__pointsContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 8px 4px;
+        // margin: 8px;
+        // background-color: #fff;
+        border-radius: 2px;
+      }
+
+      .#{$id}__icon {
+        display: flex;
+        align-items: center;
+      }
+
+      .#{$id}__points {
+        font-family: 'Boots Sharp';
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 26px;
+        padding-left: 4px;
+        text-align: center;
+        color: #E12869;
+      }
+
+      .#{$id}__sign {
+        font-family: 'Boots Sharp';
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 26px;
+        text-align: center;
+        padding: 0 18px;
+        color: #05054b;
+      }
+
+      .#{$id}__money {
+        margin-left: 8px;
+        font-family: 'Boots Sharp';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+        text-align: center;
+        color: #E12869;
+      }
+
+      .#{$id}__pointsText {
+        font-family: 'Boots Sharp';
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 14px;
+        letter-spacing: -0.011em;
+        text-align: center;
+        padding: 7px 0 14px;
+        color: #05054B;
+        text-wrap: auto;
+      }
+    }
+
+    .#{$id}__content {
+      padding: 16px 12.5px 15px;
+      background: #fff;
+
+      h2 {
+        padding-bottom: 15px;
+        font-family: 'Boots Sharp';
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1;
+        color: #05054B;
+        text-align: center;
+      }
+
+      .#{$id}__lists {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .#{$id}__item {
+        display: flex;
+        align-items: center;
+        text-wrap: auto !important;
+
+        &:last-child {
+          padding-top: 17px;
+        }
+
+        .#{$id}__icon {
+          display: flex;
+          align-items: center;
+          padding-right: 10px;
+        }
+
+        .#{$id}__text {
+
+          p {
+            font-family: 'Boots Sharp';
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+            letter-spacing: -0.011em;
+            text-align: left;
+            color: #05054b;
+          }
+
+          strong {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .#{$id}__buttons {
+      padding: 0 13px 21px;
+      background: #fff;
+    }
+  }
+
+  .#{$id}__primary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Boots Sharp';
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 24px !important;
+    text-align: center;
+    background-color: #E12869;
+    border-radius: 5px;
+    padding: 6px;
+    color: #fff;
+  }
+
+  .#{$id}__secondary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Boots Sharp';
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 24px !important;
+    text-align: center;
+    color: #E41B68;
+    padding: 6px;
+    border: 2px solid #E41B68;
+    border-radius: 5px;
+    // text-transform: uppercase;
+  }
+
+  .#{$id}__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    font-family: 'Boots Sharp';
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 24px !important;
+    text-align: center;
+    border: 2px solid #E41B68;
+    color: #E41B68;
+    border-radius: 5px;
+  }
+
+  .#{$id}__btn-normal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Boots Sharp';
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 24px !important;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #05054b;
+    padding: 8px;
+  }
+
+  .#{$id}__gap {
+    margin-top: 10px;
+  }
+
+  &__plp {
+    .#{$id}__pointsContainer {
+      justify-content: flex-start;
+
+      @include media-query(md) {
+        margin-top: 12px;
+        justify-content: center;
+      }
+
+      .#{$id}__pointsWrapper {
+        @include media-query(md) {
+          margin-bottom: 0;
+          width: 330px;
+          padding: 8px;
+        }
+      }
+
+      .#{$id}__primary-btn {
+        display: none;
+      }
+    }
+  }
+
+  &__shop-price-advantage.#{$id}__primary-btn {
+    margin-top: 8px;
+    border: 2px solid #E41B68 !important;
+    background-color: transparent !important;
+    color: #E41B68 !important;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+  }
+}

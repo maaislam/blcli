@@ -1,0 +1,94 @@
+@import './variables';
+
+.#{$id} {
+    .product-info-main {
+        .price-box.price-final_price {
+           display: none !important;
+        }
+        
+    }
+    .#{$id}-priceMessage {
+        padding: 10px;
+        background: #f0f0f0;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        .#{$id}-priceWrapper {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #dadada;
+            padding-bottom: 10px;
+            @media(min-width: 767px) {
+                //border: 0;
+                //padding-bottom: 0;
+            }
+            h3 {
+                font-weight: 600;
+                font-size: 25px;
+                color: black;
+                display: inline-block;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+            span {
+                text-decoration: line-through;
+                font-weight: 100;
+                display: inline-block;
+            }
+        }
+
+        .#{$id}-message {
+            padding-left: 40px;
+            position: relative;
+            &::before {
+                content: '';
+                height: 30px;
+                width: 30px;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url('//cdn.optimizely.com/img/6087172626/cfd2fbb0b96c443cb68c6e4a06de9992.png') no-repeat center;
+                background-size: contain;
+            }
+            p {
+                font-weight: 100;
+                color: black;
+                margin-bottom: 0;
+                b {
+                    font-weight: 600;
+                }
+            }
+            @media(min-width: 1024px) {
+               max-width: 90%;
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        .#{$id}-priceMessage {
+            .#{$id}-message {
+                font-size: 13px;
+                b {
+                    display: block;
+                }
+                @media(min-width: 375px) {
+                    font-size: 14px;
+                }
+                @media(min-width: 400px) {
+                    font-size: 15px;
+                }
+                @media(min-width: 767px) {
+                    font-size: 14px;
+                }
+                @media(min-width: 1024px) {
+                    max-width: 90%;
+                    padding-left: 45px;
+                    font-size: 16px;
+                    &::before{
+                        left: 3px;
+                    }
+                }
+            }
+        }
+
+    }
+}

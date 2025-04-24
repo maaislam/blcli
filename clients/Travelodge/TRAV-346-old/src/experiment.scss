@@ -1,0 +1,904 @@
+@charset "UTF-8";
+@import './variables';
+@import './lib/components/searchInput/searchInput.scss';
+@import './lib/components/searchSuggestions/searchSuggestions.scss';
+@import './lib/components/popularDestinations/popularDestinations.scss';
+@import './lib/components/searchResults/searchResults.scss';
+@import './lib/components/stayAgain/stayAgain.scss';
+@import './lib/components/modal/modal.scss';
+
+.#{$id} {
+  &:has(.#{$id}__open) {
+    overflow: hidden;
+  }
+
+  .searchWidget,
+  &__hide {
+    display: none !important;
+  }
+
+  .searchResultsPage {
+    .search-page {
+      .search-form--container {
+        display: none;
+      }
+    }
+    .#{$id}__wrapper {
+      width: 100%;
+      max-width: 1110px;
+      margin: 0 auto 20px;
+      box-sizing: border-box;
+    }
+
+    .#{$id}__popularDestinations-item {
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .#{$id}__content p {
+      margin: 0 !important;
+    }
+
+    .#{$id}__customLabel::before {
+      right: 8px;
+    }
+
+    label,
+    .#{$id}__titles,
+    .#{$id}__search-input,
+    .#{$id}__title, 
+    .#{$id}__title p, 
+    .#{$id}__destinationTitle,
+    .#{$id}__stayAgain-list p,
+    .#{$id}-checkin,
+    .#{$id}-checkout,
+    .#{$id}__bic-nightBubbles--bubble span,
+    .datepicker__month-name,
+    .datepicker__week-name,
+    .datepicker__month-day,
+    .datepicker__clear-button,
+    .datepicker__close-button,
+    .#{$id}__roomSelectorTitles,
+    .#{$id}__roomLabel,
+    .#{$id}__rooms p,
+    .#{$id}__room .#{$id}__title,
+    .#{$id}__control input,
+    .#{$id}__roomsControl input,
+    .#{$id}__mainSearchBtn,
+    .adult-setting label p,
+    .children-setting label p,
+    .adult-setting label p.ages,
+    .children-setting label p.ages,
+    .children-setting label p,
+    .#{$id}__resetBtn,
+    .#{$id}__searchBtn {
+      font-family: 'fs-albert-light' !important;
+    }
+
+    .#{$id}__bic-datepicker {
+      label[for=calendar-input] {
+        display: block;
+        padding: 0 0px 8px;
+      }
+    }
+  }
+
+  .hotelDetailsPage {
+    .miniSearch {
+      display: none;
+    }
+    .#{$id}__wrapper {
+      width: 100%;
+      max-width: 1144px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .mini-search #default-date-message-desktop {
+      width: 1144px;
+    }
+
+    .#{$id}__container {
+      padding: 18px 8px;
+    }
+
+    .#{$id}__popularDestinations-item {
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .datepicker,
+    .#{$id}__bic-datepicker:has(.datepicker--open) .#{$id}___bic-datepicker--daterange {
+      width: 590px;
+      max-width: 590px;
+    } 
+  }
+
+  &__divider {
+    border: 2px solid #e9e9e9;
+    width: 100%;
+    margin: 16px 0;
+  }
+
+  &__wrapper {
+    @include media-query(sm) {
+      width: 100%;
+      padding: 21px 16px;
+    }
+  }
+
+  &__container {
+    padding: 24px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    box-shadow: 0px 0px 15px 0px #1280c126;
+
+    @include media-query(sm) {
+      flex-direction: column;
+      padding: 24px 16px;
+      border-radius: 12px;
+    }
+  }
+
+  &__searchContainer {
+    position: relative;
+    flex: 25%;
+
+    .#{$id}__titles {
+      padding-bottom: 8px;
+      font-family: 'FS Albert Light';
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 19px;
+      color: #353535;
+    }
+
+    @include media-query(sm) {
+      width: 100%;
+    }
+  }
+
+  /* =============================================================
+ * BASE STYLES
+ * ============================================================*/
+  .datepicker {
+    padding-top: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: absolute;
+    width: 260px;
+    z-index: 1;
+
+    @include media-query(sm) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .datepicker--inline {
+    position: relative;
+  }
+
+  .datepicker__inner {
+    overflow: hidden;
+  }
+
+  .datepicker__month {
+    border-collapse: collapse;
+    text-align: center;
+    width: 280px;
+    font-size: 12px;
+
+    @include media-query(md) {
+      width: 100%;
+    }
+  }
+
+  .datepicker__month--month2 {
+    display: none;
+
+    @include media-query(md) {
+      display: table;
+    }
+  }
+
+  .datepicker__month-day--valid {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .datepicker__month-day--lastMonth,
+  .datepicker__month-day--nextMonth {
+    visibility: hidden;
+  }
+
+  .datepicker__month-button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .datepicker__info--feedback {
+    display: none;
+  }
+
+  .datepicker__info--error,
+  .datepicker__info--help {
+    display: none;
+  }
+
+  .datepicker__buttons {
+    -webkit-user-select: none;
+    user-select: none;
+
+    @include media-query(sm) {
+      display: flex;
+      margin-top: 10px;
+    }
+  }
+
+  .datepicker__close-button,
+  .datepicker__clear-button {
+    cursor: pointer;
+  }
+
+  .datepicker__tooltip {
+    position: absolute;
+  }
+
+  /* =============================================================
+ * THEME
+ * ============================================================*/
+  .datepicker {
+    background-color: #fff;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0px 12px 15px 0px #1280c126;
+    color: #000;
+    font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    width: 616px;
+    z-index: 999;
+    border: 1px solid #e9e9e9;
+    border-top: none;
+  }
+
+  .datepicker__inner {
+    padding: 16px 8px;
+  }
+
+  .datepicker__month-caption {
+    // border-bottom: 1px solid #dcdcdc;
+    height: 2.5em;
+    vertical-align: middle;
+  }
+
+  .datepicker__month-name {
+    padding: 0 0 16px 0;
+    font-family: 'FS Albert Light';
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 19px;
+    text-align: center;
+  }
+
+  .datepicker__week-days {
+    display: table-row;
+    height: 2em;
+    vertical-align: middle;
+  }
+
+  .datepicker__week-name {
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 17px;
+    text-align: center;
+  }
+
+  .datepicker__month-day {
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #333;
+    position: relative;
+    padding: 7px;
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    @include media-query(sm) {
+      height: 34px;
+      width: 20px;
+      padding: 8px;
+    }
+  }
+
+  .datepicker__month-day:focus {
+    outline: none;
+    // background-color: #ffe684;
+  }
+
+  .datepicker__month-day--no-checkin {
+    position: relative;
+  }
+
+  .datepicker__month-day--no-checkin:before {
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid red;
+    border-right: 8px solid transparent;
+  }
+
+  .datepicker__month-day--no-checkout {
+    position: relative;
+  }
+
+  .datepicker__month-day--no-checkout:before {
+    top: 0;
+    content: '';
+    display: block;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-top: 8px solid red;
+    border-left: 8px solid transparent;
+  }
+
+  .datepicker__month-day--no-checkin.datepicker__month-day--no-checkout:before {
+    content: none;
+  }
+
+  .datepicker__month-day--today {
+    // background-color: #000;
+    position: relative;
+    color: #333;
+  }
+
+  .datepicker__month-day--today:focus {
+    color: #fff;
+  }
+
+  .datepicker__month-day--today::before {
+    content: 'Today';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    font-family: 'FS Albert Light';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 15px;
+    color: #1280c1;
+  }
+
+  .datepicker__month-day--invalid {
+    color: #9a9a9a;
+  }
+
+  .datepicker__month-day--disabled {
+    color: #9a9a9a;
+    position: relative;
+  }
+
+  .datepicker__month-day--disabled:after {
+    content: '×';
+    left: 50%;
+    position: absolute;
+    color: red;
+    font-size: 16px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .datepicker__month-day--no-checkin,
+  .datepicker__month-day--no-checkout,
+  .datepicker__month-day--day-of-week-disabled {
+    background-color: rgba(232, 235, 244, 0.5);
+  }
+
+  .datepicker__month-day--selected {
+    background-color: #1280c140;
+    color: #fff;
+  }
+
+  .datepicker__month-day--selected:after,
+  .datepicker__month-day--selected:before {
+    display: none;
+  }
+
+  .datepicker__month-day--hovering {
+    // border-radius: 6px;
+    color: #fff;
+    // font-family: 'FS Albert Light';
+    // font-size: 16px;
+    // font-weight: 300;
+    // line-height: 17px;
+    background-color: #1280c140;
+  }
+
+  .datepicker__month-day--first-day-selected,
+  .datepicker__month-day--last-day-selected {
+    position: relative;
+    background-color: #008dc8;
+    color: #fff;
+    border-radius: 24px;
+  }
+
+  .datepicker__month-day--first-day-selected::before {
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #1280c140;
+    border-radius: 999px 0px 0px 999px !important;
+  }
+
+  .datepicker__month-day--last-day-selected::before {
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1280c140;
+    border-radius: 0px 999px 999px 0px !important;
+  }
+
+  .datepicker__month-button {
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    text-indent: -9999px;
+    padding: 5px;
+  }
+
+  .datepicker__month-button::after {
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    text-indent: 0;
+    content: '>';
+    width: 32px;
+    height: 32px;
+    background: #f5f5f5;
+  }
+
+  .datepicker__month-button--next,
+  .datepicker__month-button--prev {
+    margin-bottom: 16px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: #f5f5f5;
+    border-radius: 20px;
+  }
+
+  .datepicker__month-button--prev:after {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background: transparent;
+    background-repeat: no-repeat;
+    content: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.07271 1.48389L1.92871 7.49989L8.07271 13.5159' stroke='%23E9E9E9' stroke-width='2.08372' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  }
+
+  .datepicker__month-button--next:after {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background: transparent;
+    background-repeat: no-repeat;
+    content: url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0 0 10 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.92826 14.0159L8.07227 7.99987L1.92827 1.98387' stroke='%231280C1' stroke-width='2.08372' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  }
+
+  .datepicker__topbar {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .datepicker--topbar-bottom .datepicker__topbar {
+    margin-bottom: 0;
+    padding-top: 20px;
+    border-top: 1px solid #dcdcdc;
+
+    @include media-query(sm) {
+      padding-top: 10px;
+    }
+  }
+
+  .datepicker__info-text {
+    font-size: 13px;
+  }
+
+  .datepicker__info--selected {
+    display: none;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .datepicker__info--selected-label {
+    color: #333;
+  }
+
+  .datepicker__info-text--selected-days {
+    font-size: 11px;
+    font-style: normal;
+  }
+
+  .datepicker__info--error {
+    color: red;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .datepicker__info--help {
+    color: #333;
+    font-style: italic;
+  }
+
+  .datepicker__close-button,
+  .datepicker__clear-button,
+  .datepicker__submit-button {
+    transition-duration: 0.2s;
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // background-color: #3858e9;
+    border-radius: 6px;
+    border: none;
+    box-shadow: none;
+    font-size: 10px;
+    margin-top: 20px;
+    padding: 7px 13px;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+  }
+
+  .datepicker--topbar-top .datepicker__close-button,
+  .datepicker--topbar-top .datepicker__clear-button,
+  .datepicker--topbar-top .datepicker__submit-button {
+    margin-top: 0;
+  }
+
+  .datepicker__close-button:hover,
+  .datepicker__clear-button:hover,
+  .datepicker__submit-button:hover {
+    // background-color: #1281c1;
+    // color: #ffffff;
+  }
+
+  .datepicker__close-button:disabled,
+  .datepicker__close-button[disabled],
+  .datepicker__clear-button:disabled,
+  .datepicker__clear-button[disabled],
+  .datepicker__submit-button:disabled,
+  .datepicker__submit-button[disabled] {
+    // background-color: #c8c9d0;
+    // background-color: #fff;
+    // color: #fff;
+    cursor: not-allowed;
+    // border: none;
+  }
+
+  .datepicker__close-button {
+    width: 147px;
+    height: 42px;
+    margin-left: 10px;
+    color: #fff;
+    background-color: #1280c1;
+    border: 1px solid #1280c1;
+    padding: 12px 50px;
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 17px;
+
+    @include media-query(sm) {
+      width: calc(50% - 8.5px);
+      margin-left: 17px;
+      margin-top: 0;
+    }
+  }
+
+  .datepicker__clear-button + .datepicker__submit-button {
+    margin-left: 10px;
+  }
+
+  .datepicker__clear-button {
+    width: 147px;
+    height: 42px;
+    padding: 12px 50px;
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 17px;
+    background: #fff;
+    border: 1px solid #1280c1;
+    color: #1280c1;
+
+    @include media-query(sm) {
+      width: calc(50% - 8.5px);
+      margin-top: 0;
+    }
+  }
+
+  .datepicker__clear-button:hover {
+    background-color: #1280c1;
+    color: #fff;
+  }
+
+  .datepicker__close-button:hover {
+    opacity: 0.8;
+  }
+
+  .datepicker__clear-button:disabled {
+    background: #fefefe;
+    border: 1px solid #e9e9e9;
+    color: #c0ced1;
+    cursor: not-allowed;
+  }
+
+  .datepicker__submit-button {
+    width: auto;
+  }
+
+  .datepicker__tooltip {
+    margin-top: -5px;
+    padding: 4px;
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 17px;
+    color: #fff;
+    background-color: #1280c1;
+    border-radius: 6px;
+  }
+
+  .datepicker__tooltip:after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #1280c1;
+    bottom: -4px;
+    content: '';
+    left: 50%;
+    margin-left: -4px;
+    position: absolute;
+  }
+
+  .datepicker__months {
+    height: 300px;
+    overflow-y: auto;
+  }
+
+  // @media (min-width: 320px) {
+  //   .datepicker,
+  //   .#{$id}__bic-datepicker {
+  //     // width: 320px;
+  //   }
+  // }
+
+  @media (min-width: 480px) {
+    .datepicker {
+      width: 460px;
+    }
+
+    .datepicker__months {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .datepicker__month {
+      width: 200px;
+    }
+
+    .datepicker__month--month1 {
+      float: left;
+    }
+
+    .datepicker__month--month2 {
+      display: table;
+      float: right;
+    }
+
+    .datepicker__month-button--disabled {
+      visibility: hidden;
+    }
+
+    // .datepicker__months:before {
+    //   background: #dcdcdc;
+    //   bottom: 0;
+    //   content: '';
+    //   display: block;
+    //   left: 50%;
+    //   position: absolute;
+    //   top: 0;
+    //   width: 1px;
+    // }
+  }
+
+  @media (min-width: 768px) {
+    .datepicker {
+      width: 616px;
+    }
+
+    .datepicker__month {
+      width: 280px;
+    }
+
+    .datepicker--topbar-has-close-button .datepicker__info,
+    .datepicker--topbar-has-clear-button .datepicker__info,
+    .datepicker--topbar-has-submit-button .datepicker__info {
+      max-width: 325px;
+    }
+
+    .datepicker__buttons {
+      margin-top: 0;
+      margin-left: auto;
+      width: max-content;
+      // position: absolute;
+      // right: 0;
+      // top: 50%;
+      // transform: translateY(-50%);
+    }
+  }
+
+  .#{$id}__bic-datepicker {
+    flex: 25%;
+    position: relative;
+    height: max-content;
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 4px;
+    // box-shadow: 8px 8px 40px 5px rgba(0, 0, 0, 0.08);
+    // box-shadow: 0px 0px 15px 0px #1280C126;
+    z-index: 999;
+
+    label[for='calendar-input'] {
+      padding: 0 8px 8px;
+      font-family: 'FS Albert Light';
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 19px;
+      color: #353535;
+    }
+
+    .#{$id}___bic-datepicker--daterange {
+      width: 100%;
+      max-width: 300px;
+      height: 50px;
+      padding: 14px 8px;
+      font-family: 'FS Albert Light';
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 17px;
+      color: #353535;
+      border: 1px solid #e9e9e9;
+      border-radius: 6px;
+      cursor: pointer;
+      box-sizing: border-box;
+
+      @include media-query(sm) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &:has(.datepicker--open) .#{$id}___bic-datepicker--daterange {
+      width: 616px;
+      max-width: 616px;
+      border: 1px solid #e9e9e9;
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+      background: #fff;
+
+      @include media-query(sm) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .#{$id}-checkin {
+      color: #353535;
+      font-family: 'FS Albert Light';
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 17px;
+    }
+
+    .#{$id}-separator {
+      margin: 0 16px;
+    }
+
+    .#{$id}-checkout {
+      color: #1280c1;
+      font-family: 'FS Albert Light';
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 17px;
+    }
+
+    #calendar-input {
+      display: none;
+    }
+
+    .#{$id}__bic-nightBubbles {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 0 8px;
+
+      @include media-query(md) {
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+
+      &--container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      &--bubble {
+        min-width: 88px;
+        padding: 8px 16px;
+        background: #fff;
+        border: 1px solid #e9e9e9;
+        cursor: pointer;
+        border-radius: 25px;
+        text-align: center;
+
+        span {
+          font-family: 'FS Albert Light';
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 17px;
+          color: #353535;
+        }
+
+        &.selected {
+          background: #008dc8;
+
+          span {
+            color: #fff;
+          }
+        }
+
+        &.disabled {
+          pointer-events: none;
+        }
+      }
+    }
+
+    @include media-query(sm) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

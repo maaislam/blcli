@@ -1,0 +1,178 @@
+@import './variables';
+
+@keyframes HCfade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes HCfade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.#{$id} {
+    .tagg-reset.tagg-balloon {
+       display: none !important;
+    }
+   
+    .#{$id}-taggMessages {
+        position: relative;
+        height: 60px;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        clear: both;
+        @media(min-width: 767px) {
+            height: 50px;
+        }
+        .#{$id}-message {
+            background: #F8EBDD;
+            padding: 10px;
+            font-family: GillSansNova-Light;
+            border-radius: 8px;
+            padding-left: 40px;
+            position: absolute;
+            font-size: 13px;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            @media(min-width: 375px) {
+                font-size: 15px;
+                padding-left: 45px;
+            }
+            @media(min-width: 767px) {
+                top: 0%;
+                transform: unset;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                height: 25px;
+                width: 25px;
+                background: url('https://editor-assets.abtasty.com/48343/60c76aeda30311623681773.png') no-repeat center;
+                background-size: contain;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                @media(min-width: 414px) {
+                    left: 7px;
+                }
+            }
+            strong {
+                font-family: GillSansNova-Medium;
+                text-transform: uppercase;
+                display: block;
+                margin-right: 3px;
+                @media(min-width: 767px) {
+                    display: initial;
+                }
+            }
+
+            &.#{$id}-first {
+                width: 75%;
+            }
+            &.#{$id}-second {
+                padding-bottom: 7px;
+                @media(min-width: 375px) {
+                    padding-top: 13px;
+                    padding-bottom: 10px;
+                }
+            }
+
+            &.#{$id}-show {
+                animation: HCfade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            &.#{$id}-fadeOut {
+                animation: HCfade-out 1s ease-out both;
+            }
+
+        
+            @media(min-width: 414px) {
+                &.#{$id}-first,
+                &.#{$id}-second {
+                    width: auto;
+                    padding: 15px;
+                    padding-left: 45px;
+                    padding-bottom: 11px;
+                    font-size: 16px;
+                }
+            }
+            @media(min-width: 767px) {
+                &.#{$id}-first,
+                &.#{$id}-second {
+                    font-size: 13px;
+                    left: 0;
+                    padding-left: 40px;
+                    &::before {
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
+            @media(min-width: 1280px) {
+                &.#{$id}-first,
+                &.#{$id}-second {
+                    font-size: 13px;
+                    left: 0;
+                    &::before {
+                        left: 7px;
+                    }
+                }
+
+                &.#{$id}-second {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        .#{$id}-taggMessages {
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+    }
+
+    &.#{$id}-3 {
+       .product-primary-image {
+           margin-bottom: 20px;
+           @media(min-width: 414px) {
+            margin-bottom: 30px;
+           }
+       }
+
+       .#{$id}-taggMessages {
+           .#{$id}-message {
+                @media(min-width: 767px) {
+                    
+                    left: 50%;
+                    transform: translateX(-50%);
+                    &.#{$id}-first { 
+                        width: fit-content;
+                        strong {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+
+                @media(min-width: 1280px) {
+                   padding-left: 50px;
+                   padding-right: 20px;
+                   &::before {
+                       left: 10px;
+                   }
+                }
+           }
+           @media(min-width: 767px) {
+               margin-bottom: 10px;
+           }
+       }
+    }
+}

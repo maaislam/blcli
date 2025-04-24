@@ -1,0 +1,201 @@
+@if(get-value($settings, 'components', 'tab')==1) {
+    .#{$ID} {
+        @at-root #{&}_tab {
+            background-color: #fff;
+            border: 1px solid get-value($settings, 'colors', 'tabColor');
+            border-radius: 0 3px 3px 3px;
+
+            @at-root #{&}:not([data-mode="accordion"]) {
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+            }
+
+            @at-root #{&}[data-mode="accordion"] {
+                &:not(.active) {
+                    border: 0;
+
+                    .#{$ID}_tab__body {
+                        display: none;
+                    }
+                }
+
+                border-radius: 3px;
+                margin-bottom: 10px;
+            }
+
+            @at-root #{&}Wrap {
+                position: relative;
+
+                &~ {
+                    .search-options {
+                        float: none !important;
+                        display: block !important;
+                        position: absolute !important;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+
+                #trigger {
+                    position: absolute;
+                    left: -666rem;
+                }
+            }
+
+            @at-root #{&}__title {
+                font-size: 22px;
+                color: get-value($settings, 'colors', 'text');
+                font-weight: normal;
+
+                @at-root [data-mode="accordion"] #{&} {
+                    margin-bottom: 12px;
+                    margin-top: 0;
+                }
+            }
+
+            @at-root #{&}__header {
+                font-size: 0;
+
+                @at-root [data-mode="accordion"] #{&} {
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        right: 12px;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfjBRUPIS0xP+X6AAAAN0lEQVRIx2NgwAv+H/5/GL8KJgYKwagBowaMGkAlAxgJZFc9BgaGSzR1AQEwWqCMGjBqwNAxAADM8QoG5Td04gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wNS0yMVQxMzozMzo0NSswMjowML6nKI8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDUtMjFUMTM6MzM6NDUrMDI6MDDP+pAzAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==');
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+                }
+
+                @at-root [data-mode="accordion"] .#{$ID}_tab.active #{&} {
+                    &:after {
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMAw3T+XjIAAAARSURBVAjXY6Ai+A8EEIJ6AAB+Pgf5M+5KGQAAAABJRU5ErkJggg==');
+                    }
+                }
+
+                @at-root #{&}Item {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-right: 3px;
+                    position: relative;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    @at-root [data-mode="accordion"] #{&} {
+                        display: block;
+                    }
+                }
+
+                @at-root #{&}Content {
+                    font-size: 20px;
+                    padding: 19px 12px;
+                    display: block;
+                    border-bottom: 1px solid #fff;
+                    background-color: get-value($settings, 'colors', 'tabColor');
+                    color: #fff;
+                    border-radius: 3px;
+                    cursor: pointer;
+
+                    &:hover,
+                    &:focus {
+                        background-color: lighten(get-value($settings, 'colors', 'tabColor'), 4%);
+                    }
+                    &.active {
+                        border: 1px solid get-value($settings, 'colors', 'tabColor');
+                        border-radius: 3px 3px 0 0;
+                        background-color: #fff;
+                        color: #000;
+
+                        @at-root [data-mode="accordion"] #{&} {
+                            border: 0;
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @at-root #{&}__body {
+                position: relative;
+                padding: 0 12px;
+                overflow: hidden;
+            }
+
+            @at-root #{&}__list {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                width: 100%;
+                font-size: 0;
+                padding-top: 24px;
+                padding-bottom: 12px;
+
+                @at-root #{&}Item {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 20%;
+                    margin-bottom: 10px;
+
+                    @at-root [data-mode="accordion"] #{&} {
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
+
+                    @at-root body:not([data-mode="accordion"]) #{&} {
+                        @media screen and (min-width: 768px) and (max-width: 900px) {
+                            width: 33.33333%;
+                        }
+
+                        @media screen and (min-width: 480px) and (max-width: 768px) {
+                            width: 50%;
+                        }
+                    }
+                }
+
+                @at-root #{&}Content {
+                    content: '';
+                }
+            }
+
+            @at-root #{&}__checkbox {
+                -webkit-appearance: none;
+                margin: 0;
+                background: rgb(238, 248, 250);
+                border: 1px solid rgb(161, 161, 161);
+                height: 35px;
+                width: 35px;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                cursor: pointer;
+
+                &:checked {
+                    &~.checkmark {
+                        display: block;
+                    }
+                }
+            }
+
+            @at-root #{&}__label {
+                display: block;
+                font-size: 16px;
+                position: relative;
+                cursor: pointer;
+            }
+        }
+    }
+}

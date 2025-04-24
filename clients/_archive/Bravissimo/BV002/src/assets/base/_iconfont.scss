@@ -1,0 +1,23 @@
+@if(get-value($settings, 'components', 'iconfont')==1) {
+  $fontName: get-value($settings, 'base', 'icon-font');
+  @font-face {
+    font-family: get-value($settings, 'base', 'icon-font');
+    src: url('../iconfont/#{$fontName}.ttf?om5pmw') format('truetype'),
+    url('../iconfont/#{$fontName}.woff?om5pmw') format('woff'),
+    url('../iconfont/#{$fontName}.svg?om5pmw##{$fontName}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .icon {
+    @include icon-font(data-icon);
+    &[data-iconPosition="after"] {
+      &:before {
+        display: none;
+      }
+      &:after {
+        @include init-icon-font;
+        content: attr(data-icon);
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import './variables';
+
+.#{$id} {
+  &-1 {
+    .#{$id}__first-step {
+      .extras-choice-text-container {
+        &::after {
+          content: 'Meals available for your stay' !important;
+        }
+      }
+
+      .#{$id}__extras-choice-summary-button {
+        padding: 4px 0;
+        margin: 5px 0;
+        & + .extras-choice-summary-button {
+          display: none;
+        }
+        @media screen and (max-width: 767px) {
+          margin-bottom: 15px;
+        }
+      }
+
+      .#{$id}__extras-choice-button-skip {
+        & + .extras-choice-button-skip {
+          display: none;
+        }
+      }
+      .#{$id}__secondStepContent {
+        height: 0 !important;
+        visibility: hidden;
+      }
+      .#{$id}__extras-choice-button-skip {
+        width: 113px !important;
+        height: 33px !important;
+        float: right;
+        font-size: 1.4em;
+        border-color: #d3d3d3 !important;
+        color: gray !important;
+        cursor: pointer;
+
+        &:hover {
+          background: #d3d3d3 !important;
+        }
+      }
+    }
+
+    .#{$id}__second-step {
+      .extras-choice-text-container {
+        &::after {
+          content: 'More extras available for your stay' !important;
+        }
+      }
+      #extras-choice-skip {
+        visibility: visible !important;
+        &.hidden-skip-button {
+          visibility: hidden !important;
+        }
+      }
+      &.hidden-skip-button {
+        #extras-choice-skip {
+          visibility: hidden !important;
+        }
+      }
+      .#{$id}__secondStepContent {
+        height: auto;
+        visibility: visible;
+      }
+      .#{$id}__firstStepContent {
+        height: 0 !important;
+        visibility: hidden;
+      }
+      .#{$id}__extras-choice-summary-button {
+        display: none;
+      }
+
+      .#{$id}__extras-choice-button-skip {
+        display: none;
+      }
+    }
+  }
+}

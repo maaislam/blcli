@@ -1,0 +1,415 @@
+@import './variables';
+
+.#{$id} {
+  // --- Hide Original Menu
+  ul#main-navigation {
+    display: none !important;
+  }
+  // --- Hide Control Overlay
+  .uiLayerIndicator {
+    display: none !important;
+  }
+  // --- No Scroll
+  body.#{$id}-noScroll {
+    overflow: hidden;
+  }
+  font-family: GillSansNova-Light;
+
+  // --- MENU CTA
+  .mb-grid-item.hover {
+    background: #000;
+
+    svg.icon.menu-icon {
+      fill: #FFF !important;
+    }
+
+  }  
+  // --- MENU CONTAINER ---
+  .HC063-menu__wrapper {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: none;
+
+    -webkit-tap-highlight-color: transparent !important;
+
+    &.show {
+      display: block;
+    }
+
+    .#{$id}-overlay {
+      width: 100%;
+      height: 100vh;
+      background-color: #000;
+      position: relative;
+      top: 0px;
+      opacity: .3;
+      z-index: 9999;
+    }
+    // --- MENU HEADER ---
+    .HC063-menu-header__wrapper {
+      .HC063-menu-header {
+        width: 100vw;
+        height: 60px;
+        background-color: #E8E8E8;
+        z-index: 99999;
+        position: fixed;
+        top: 0px;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: stretch;
+        justify-content: space-around;
+        align-items: center;
+
+        box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.35);
+
+        a.HC063-button {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          // padding-left: 30px;
+
+          font-family: GillSansNova-Light;
+          font-size: 15px;
+          color: #000;
+          span.HC063-icon {
+            width: 30px;
+            height: 30px;
+            padding-right: 5px;
+            background-position: 50%;
+            background-repeat: no-repeat;
+
+            &.account {
+              background-size: 20px;
+              background-image: url('https://editor-assets.abtasty.com/48343/60eea778ecdc71626253176.png');
+            }
+            &.locations {
+              background-size: 27px;
+              background-image: url('https://editor-assets.abtasty.com/48343/60eeabbcead641626254268.png');
+            }
+          }
+        }
+        a.close-menu {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .#{$id}-closeIcon {
+            position: absolute;
+            right: 20px;
+            width: 25px;
+            height: 25px;
+            background-size: 100%;
+            background-image: url('https://editor-assets.abtasty.com/48343/60e5965ce9cdc1625658972.png');
+          }
+        }
+      }
+    }
+    // --- MENU HEADER END ---
+
+    // --- MENU CONTENT ------
+    .HC063-menu-content {
+      width: 90vw;
+      height: calc(100vh - 60px);
+      z-index: 9999;
+      display: block;
+      position: absolute;
+      top: 60px;
+      background-color: #E8E8E8;
+
+      overflow-y: scroll !important;
+      
+      // --- Menu Section
+      .HC063-menu-section {
+        margin-bottom: 7px;
+
+        &.HC063-info {
+          padding-bottom: 60px;
+        }
+
+        .HC063-section-title {
+          background-color: #000;
+          padding: 10px;
+          color: #FFF;
+          font-family: GillSansNova-Medium;
+          font-size: 15px;
+
+          position: relative;
+
+          &:after {
+            display: inline-block;
+            content: '+';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 20px;
+
+            font-family: GillSansNova-Light;
+            font-size: 20px;
+          }
+          &.visible {
+            &:after {
+              display: inline-block;
+              right: 22px;
+              font-size: 25px;
+              content: '-';
+            }
+          }
+        }
+
+        // .HC063-menu__container {
+          ul.HC063-menu {
+            padding-left: 0;
+            padding: 0 16px 0 16px;
+
+            display: none;
+            &:after {
+              display: inline-block;
+            }
+            &.visible {
+              display: block;
+            }
+
+            &.scrolling {
+              &:after {
+                display: inline-block;
+                content: '';
+                background: transparent;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 40px;
+                opacity: .2;
+              }
+            }
+
+            li {
+              // display: none;
+              position: relative;
+              &.HC063-top-level {
+                display: block;
+                // display: flex;
+                // flex-direction: column;
+
+                // edw
+                // & > svg, & > a {
+                //   pointer-events: none;
+                // }
+
+                &:last-of-type {
+                  border: none;
+                }
+              }
+              
+              padding: 15px 10px;
+              padding: 15px 0 15px 10px;
+              border-bottom: 1px solid #d6d6d6;
+
+              a {
+                font-family: GillSansNova-Light !important;
+                font-size: 15px;
+                color: #000;
+
+                // width: 100%;
+                // width: calc(100% - 30px);
+                padding-left: 30px; 
+                display: inline-block;
+
+                background-color: unset !important;
+
+              }
+              svg.icon.arrow-right {
+                fill: #000;
+                position: absolute;
+                right: 0;
+                top: 20px;
+                // top: 50%;
+                // transform: translateY(-50%);
+                transition: transform .25s linear;
+
+                &.show {
+                  transform: rotate(90deg);
+                }
+                background-color: transparent !important;
+
+              }
+              
+              // --- Menu Icons
+              background-repeat: no-repeat;
+              background-size: 25px;
+              background-position: 0 10px;
+              &.about-us {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eea71b1c9521626253083.png');
+              }
+              &.alcohol {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eea799232f51626253209.png');
+                
+                background-position: 0 8px;
+              }
+              &.beauty {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eea7c5893411626253253.png');
+              }
+              &.chocolate {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eea7e90c5931626253289.png');
+                
+                background-position: 0 8px;
+              }
+              &.coffee {
+                background-image: url('https://editor-assets.abtasty.com/48343/611b846ec86dd1629193326.png');
+                
+                background-size: 26px;
+              }
+              &.customer-services {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eea844082be1626253380.png');
+              }
+              &.delivery {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eea873ca3391626253427.png');
+                
+                background-size: 30px;
+                background-position: 0 12px;
+              }
+              &.gift-ideas {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeab374a1231626254135.png');
+              }
+              &.corporate-gifts {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeab567ed7d1626254166.png');
+                
+                background-size: 34px;
+                svg {
+                  display: none;
+                }
+              }
+              &.hot-chocolate {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeab92a6be91626254226.png');
+              }
+              &.locations {
+                display: none;
+                // background-size: 27px;
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeabbcead641626254268.png');
+              }
+              &.returns {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeabf5b66271626254325.png');
+              
+                background-position: 0 8px;
+              }
+              &.sale {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeac2d1cb981626254381.png');
+
+                svg {
+                  display: none;
+                }
+              }
+              &.subscriptions {
+                background-image: url('https://editor-assets.abtasty.com/48343/60eeac4e972bb1626254414.png');
+
+                background-position: 0 8px;
+                svg {
+                  display: none;
+                }
+              }
+              &.vip {
+                background-image: url('https://editor-assets.abtasty.com/48343/611ab92b9ec041629141291.png');
+                background-size: 60px;
+                background-position: -16px -7px;
+              }
+
+
+              // --- SUB-MENU -------
+              ul.sub-level {
+                padding: 0;
+                margin-top: 10px;
+                list-style: none;
+                display: none;
+
+                // min-width: 240px;
+                &.show {
+                  display: block;
+                }
+                
+                li.sub-level-item {
+                  border: none;
+                  // margin-left: 20px;
+                  padding-left: 0px !important;
+
+                  a {
+                    font-family: GillSansNova-Medium !important;
+
+                  }
+                  
+
+                  .sub-level-content, >svg {
+                    display: none;
+                  }
+
+                  // --- THIRD LEVEL SUB-MENU -------
+                  a.has-sub-menu-level-2 {
+                    display: flex;
+                    height: 15px;
+                    justify-content: space-between;
+                    pointer-events: all !important;
+
+                    svg.icon {
+                      width: 40px;
+                      fill: #000;
+                      font-size: 20px;
+                      transform: scale(1.5);
+
+                      pointer-events: all !important;
+
+                      &.minus {
+                        display: none;
+                      }
+                    }
+                  }
+                  .sub-level-content {
+                    margin-top: 10px !important;
+                    ul.third-level-items ul {
+                      padding: 0;
+                      list-style: none;
+
+                      li {
+                        padding-left: 0;
+                        // &:last-of-type {
+                        //   border: none;
+                        // }
+                        
+                        a {
+                          padding-left: 0;
+                          font-family: GillSansNova-Light !important
+                        }
+                      }
+                    }
+
+                    img {
+                      display: none;
+                    }
+                  }
+                  // --- THIRD LEVEL SUB-MENU END ---
+                }
+
+                
+              }
+              // --- SUB-MENU END ---
+            }
+          }
+        // }
+      }
+    }
+    // --- MENU CONTENT END ---
+
+    a.has-sub-menu {
+      display: block;
+      // width: 100%;
+      width: 95%;
+    }
+  }
+  
+  
+  
+  
+}

@@ -1,0 +1,181 @@
+@import './variables';
+@import './lib/HSS031/HSS031.scss';
+
+.#{$id} {
+  // --- Hide "Price excl. VAT"
+  .netprice-pdp {
+    display: none !important;
+  }
+  .day_price {
+    overflow: visible !important;
+  }
+  .price-row {
+    overflow: visible !important;
+    .price-blk {
+      border-right: 2px solid #FFF;
+      border-left: 2px solid #FFF;
+      &:first-of-type {
+        border-right: 2px solid #FFF;
+        border-left: none;
+      }
+      &:last-of-type {
+        border-left: 2px solid #FFF;
+        border-right: none;
+      }
+      &.replace-this {
+        display: none;
+      }
+    }
+  }
+
+  
+
+  .#{$id}-most-popular {
+    border: 2px solid #0089CF !important;
+    box-sizing: border-box;
+    padding: 10px;
+    border-top: 0;
+    position: relative;
+    overflow: visible;
+
+    border-right: 2px solid #0089CF !important;
+    border-left: 2px solid #0089CF !important;
+
+    div.banner {
+      background-color: #0089CF;
+      color: #FFF;
+      position: absolute;
+      width: calc(100% + 4px);
+      left: -2px;
+      top: -24px;
+      
+      padding: 5px 0;
+
+      div {
+        margin-top: 0 !important;
+        font-size: 1rem;
+        padding-right: 12px;
+
+        span.tooltiptext {
+          visibility: hidden;
+          width: calc(100% + 80px);
+          background-color: #FFF;
+          color: #53565a;
+          text-align: left;
+          font-size: 12px;
+          font-weight: 200;
+          border-radius: 4px;
+          padding: 5px 5px 5px 10px;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          // left: -60%;
+          // left: -48%;
+          right: 2px;
+          // margin-left: -100px;
+          opacity: 0;
+          transition: opacity 0.3s;
+
+          box-shadow: 0px 0px 10px -5px #000000;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        &:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      
+      &.active .tooltiptext {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/Group%205%20%281%29.png');
+      background-repeat: no-repeat;
+      background-size: 10px;
+      background-position: calc(100% - 8px) 50%;
+
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.HSS037-2 {
+    .price-row {
+      flex-wrap: wrap;
+
+      .price-blk {
+        width: 50%;
+        padding: 25px 5px 12px 5px !important;
+        &:nth-of-type(1) {
+          // border-right: 2px solid #FFF !important;
+          border-right: none !important;
+          border-bottom: 2px solid #FFF;
+          border-left: none !important;
+        }
+        &:nth-of-type(2) {
+          border-left: 2px solid #FFF !important;
+          border-bottom: 2px solid #FFF;
+          border-right: none !important;
+        }
+        &:nth-of-type(3) {
+          border-right: none !important;
+          // border-right: 2px solid #FFF !important;
+          border-left: none !important;
+        }
+        &:nth-of-type(4) {
+          border-left: 2px solid #FFF !important;
+          border-right: none !important;
+        }
+
+        &.#{$id}-most-popular {
+          border: none !important;
+          border-left: 2px solid #FFF !important;
+
+          .banner {
+            padding: 3px 0;
+            // top: -2px !important;
+            top: 0;
+            left: 0;
+            width: calc(100% + 2px);
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  
+  &.HSS037-1 {
+    .price-blk {
+      &:nth-of-type(1) {
+        // border-right: 2px solid #FFF !important;
+        border-right: 2px solid #FFF !important;
+        border-left: none !important;
+      }
+      &:nth-of-type(2) {
+        border-left: none !important;
+        border-right: none !important;
+      }
+      &:nth-of-type(3) {
+        border-right: none !important;
+        // border-right: 2px solid #FFF !important;
+        border-left: none !important;
+      }
+
+      div.banner {
+        top: -22px;
+      }
+      &.#{$id}-most-popular {
+        // border-left: 2px solid #FFF !important;
+        border: 2px solid #0089CF !important;
+      }
+    }
+  }
+
+
+  
+}

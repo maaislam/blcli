@@ -1,0 +1,153 @@
+.#{$id} {
+  .#{$id}-accordion {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    details {
+      background-color: #fff;
+      border: 1px solid #e7e7e7;
+      border-radius: 0 8px 0 8px;
+
+      & + * {
+        margin-top: 12px;
+      }
+
+      summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        list-style: none;
+        font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+        color: #05054b;
+        cursor: pointer;
+      }
+
+      &[open] summary .#{$id}-cross {
+        transform: rotate(90deg);
+
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+
+    .#{$id}-icon {
+      display: inline-block;
+      width: 50px;
+      margin-right: 30px;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .#{$id}-cross {
+      position: relative;
+      display: block;
+      width: 15px;
+      height: 15px;
+      transition: 0.25s ease;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 2px;
+        background-color: #05054b;
+        transition: opacity 0.1s ease;
+      }
+
+      &::after {
+        width: 2px;
+        height: 100%;
+      }
+    }
+
+    .#{$id}-content {
+      padding: 20px;
+      border-top: 1px solid #e7e7e7;
+      overflow: hidden;
+
+      .bv-cleanslate {
+        padding: 1rem !important;
+      }
+      .bv-inline-histogram-header,
+      .bv-histogram-filter-helper,
+      .bv-content-data,
+      .bv-content-details-container,
+      .bv-content-actions-container.bv-active-feedback,
+      .bv-content-actions-container,
+      .bv-content-badges-container,
+      .bv-secondary-content-comment.bv-secondary-content-item,
+      [itemprop="reviewBody"] + *,
+      [itemprop="reviewBody"] + * + * {
+        display: none !important;
+      }
+
+      .bv-content-details-offset-on {
+        width: 100% !important;
+      }
+
+      .#{$id}-ghost-button {
+        display: block !important;
+        margin-inline: auto !important;
+        margin-block: 1rem !important;
+        font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif !important;
+        font-size: 14px !important;
+        padding: 0.65rem 2rem !important;
+        text-transform: uppercase !important;
+        background-color: #fff !important;
+        border: 1px solid #05054b !important;
+        color: #05054b !important;
+        border-radius: 5px !important;
+        cursor: pointer !important;
+        transition: 0.25s ease !important;
+
+        &:hover {
+          background-color: #05054b !important;
+          color: #fff !important;
+        }
+      }
+
+      .#{$id}-recent-reviews {
+        display: grid !important;
+        gap: 1rem;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        padding: 1rem !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+
+        &::before {
+          display: none !important;
+        }
+
+        > li {
+          scroll-snap-align: center;
+          margin: 0 !important;
+          padding: 0 !important;
+
+          > div {
+            height: 100% !important;
+            border: 1px solid #e7e7e7 !important;
+            border-radius: 3px !important;
+            padding: 1rem !important;
+          }
+        }
+      }
+    }
+  }
+}

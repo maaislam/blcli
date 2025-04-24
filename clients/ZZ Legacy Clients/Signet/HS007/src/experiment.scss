@@ -1,0 +1,112 @@
+@import './variables';
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.#{$id} {
+  .#{$id}_VoucherTab_Content {
+    width: 100%;
+    transform: none;
+    left: 0;
+    .UC_fb-tab {
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 15px 15px;
+      text-align: center;
+      transform: none;
+      font-size: 14px;
+      left: 0;
+      background: #a01d29;
+      color: white;
+      &::after {
+        content: '';
+        position: absolute;
+        background: url('//cdn.optimizely.com/img/6087172626/f83ce90bd32e409985ffbbb8da9a953a.png');
+        right: 15px;
+        background-position: center;
+        background-size: cover;
+        top: 50%;
+        display: block;
+        height: 15px;
+        width: 15px;
+        transform: translateY(-50%) rotate(180deg);
+      }
+      &.#{$id}-tab_show{
+        &::after {
+          transform: translateY(-50%) rotate(0deg);
+        }
+        @media(min-width: 1024px) {
+          .UC_fb-tab__inner { 
+            animation: none;
+          }
+        }
+      }
+      @media(min-width: 1024px) {
+        height: auto;
+        width: 35% !important;
+        right: 0;
+        left: auto;
+        border-top-left-radius: 5px;
+        .UC_fb-tab__inner { 
+          animation-name: pulse;
+          animation-iteration-count: infinite;
+          animation-duration: 1s;
+        }
+      }
+    }
+    .UC_fb-content {
+      padding: 0px;
+      max-width: 100% !important;
+      height: auto !important;
+      
+      .UC_fb-content__inner {
+        height: 100%;
+        .#{$id}_VoucherTab {
+          height: 100%;
+          .email-sign-up-popup {
+            position: relative;
+            transform: unset;
+            opacity: 1;
+            box-shadow: 0px 0px 0px;
+            height: 100%;
+            border: 0px;
+            transition: none;
+            bottom: auto;
+            top: auto;
+            left: auto;
+            right: auto;
+            .page-overlay__close-button {
+              display: none;
+            }
+          }
+        }
+      }
+      @media(min-width: 1024px) {
+        max-width: 35% !important;
+        height: auto !important;
+        max-height: 250px !important;
+        right: auto;
+        left: 0;
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+    .UC_fb-tab__close {
+      display: none;
+    } 
+  }
+}

@@ -1,0 +1,67 @@
+@import './variables';
+
+.#{$id} {
+
+  .#{$id}-restricted-height {
+    overflow: hidden !important;
+    position: relative !important;
+    &:after {
+      content: "";
+      background: rgb(255,255,255);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      z-index: 100;
+    }
+  }
+
+  .#{$id}-fully-closed {
+    overflow: hidden !important;
+    height: 0 !important;
+  }
+
+  .#{$id}-hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .#{$id}-loadmore {
+    
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 101;
+
+    @media all and (max-width: 992px) {
+      margin-top: 0 !important;
+    }
+
+    .#{$id}-loadmore-button {
+      background: #FFF !important;
+      border: 1px solid #7F7F7F !important;
+      padding: 10px 80px !important;
+      color: #000 !important;
+      font-weight: bold !important;
+      font-size: 14px !important;
+      font-family: 'Lato', Arial, Helvetica, sans-serif !important;
+
+      &:hover {
+        background: #0000ED!important;
+        color: #FFF !important;
+        text-decoration: none !important;
+      }
+
+      &.#{$id}-show-fewer {
+        margin: 20px 0 !important;
+      }
+
+    }
+
+  }
+
+}

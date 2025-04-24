@@ -1,0 +1,108 @@
+@import "../../RC035/src/experiment";
+
+$id: '--ID--'; // replacement token, specify --id="UCXXX" in GULP if you want another ID
+
+$breakpoint: '982px';
+
+.#{$id} {
+  .RC035-courseItem_no {
+    display: none;
+  }
+
+  .#{$id}-state-1 {
+    .#{$id}-btn-step1 ~ * {
+      display: none !important;
+    }
+  }
+  .#{$id}-state-2 {
+    .#{$id}-btn-step1 {
+      margin-top: 20px;
+      display: none;
+    }
+  }
+
+  .#{$id}-text-center {
+    text-align: center;
+  }
+
+  .#{$id}-btn-step1 {
+    @media(max-width: $breakpoint) {
+      margin-top: 20px;
+    }
+  }
+
+  .#{$id}-btn {
+    padding: 15px 30px;
+    background: #000;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+    text-decoration: none;
+    transition: 0.3s all;
+    cursor: pointer;
+
+    &:hover {
+      background: #ee332b;
+    }
+  }
+
+  .#{$id}-or-wrapper {
+    text-align: center;
+
+    .#{$id}-or {
+      font-size: 16px;
+    }
+
+    .#{$id}-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .checkout-login-panel-button {
+    padding: 12px 20px;
+  }
+
+  &.#{$id}-user-is-logged-in .checkout-login-panel-button {
+    display: none;
+  }
+
+  .#{$id}-toggler {
+    color: #000;
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .checkout-form-container > div > .checkout-startclosure p:last-of-type {
+    display: none;
+  }
+
+  /* Basket contents */
+
+  .purchasenav-mini-basket .purchasenav-basket-contents.RC035-basket_showing {
+    display: block !important;
+  }
+
+  /* Edit Basket */
+  .checkout-heading .#{$id}-edit-basket-link {
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    top: 0;
+    width: auto;
+    font-size: 14px!important;
+    text-decoration: underline!important;
+    line-height: 14px!important;
+    display: block!important;
+    color: #98192a!important;
+    transform: none;
+    margin-right: 20px;
+
+    &:before {
+      transform: rotate(0deg);
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@import "../../variables";
+
+.#{$id}-accordion {
+  background: white;
+  padding: 8vh 0;
+
+  .#{$id}-accordion-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100vw;
+    padding: 0px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: 576px) {
+      max-width: 540px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+    @media (min-width: 768px) {
+      max-width: 90vw;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+    @media (min-width: 1600px) {
+      max-width: 1360px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+  }
+
+  .#{$id}-accordion-content {
+    position: relative;
+    margin-left: 3rem;
+    @media (min-width: 768px) {
+      margin-left: 4rem;
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .#{$id}-accordion-label {
+    position: absolute;
+    left: -3rem;
+    top: 0;
+    margin: 0;
+    color: #505255;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    font-family: "Simplon Mono", Monaco, "Consolas", "Andale Mono WT",
+      "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
+      "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono",
+      "Nimbus Mono L", "Courier New", Courier, monospace;
+    @media (min-width: 1600px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  .#{$id}-accordion-title {
+    color: #505255;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    font-family: inherit;
+    @media (min-width: 1600px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  .#{$id}-accordion-copy {
+    padding: 24px 0 36px;
+    margin: 0;
+    color: #505255;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: inherit;
+    @media (min-width: 1600px) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  .#{$id}-accordion-content-wrapper,
+  .#{$id}-accordion-images-wrapper {
+    overflow-y: hidden;
+    @media (min-width: 768px) {
+      flex-basis: 45%;
+      max-width: 45%;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.5;
+
+      @media (min-width: 1200px) {
+        font-size: 36px;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .#{$id}-accordion-images-wrapper {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  .#{$id}-accordion-image {
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    &.#{$id}-active {
+      max-height: 800px;
+      opacity: 1;
+    }
+  }
+
+  .#{$id}-accordion-item {
+    cursor: pointer;
+    opacity: 0.5;
+    padding: 24px 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid #a8a9aa;
+    }
+
+    .#{$id}-accordion-body {
+      max-height: 0;
+      overflow-y: hidden;
+
+      @media (max-width: 767px) {
+        margin-left: -3rem;
+      }
+    }
+
+    &.#{$id}-active {
+      opacity: 1;
+
+      .#{$id}-accordion-body {
+        cursor: default;
+        max-height: 800px;
+        @media (min-width: 768px) {
+          transition: max-height 0.3s ease-in;
+        }
+      }
+    }
+  }
+}

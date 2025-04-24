@@ -1,0 +1,125 @@
+@import './variables';
+
+@keyframes fade {
+  0% { opacity: 0 }
+  50% { opacity: .5 }
+  100% { opacity: 1 }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1 }
+  50% { opacity: .5 }
+  100% { opacity: 0 }
+}
+
+.#{$id} {
+
+  .SD011-returnMessage {
+    position: absolute;
+    top: 110%;
+    left: 0; right: 0;
+    margin: auto;
+    max-width: 395px;
+    font-size: 11px;
+    opacity: 1;
+    animation: fade .5s linear;
+    border: 1px solid #000000;
+    background-color: #fff;
+    z-index: 99999;
+    &.toRemove {
+      animation: fadeOut .2s linear;
+    }
+
+    .SD-wrap {
+      padding: 15px 20px;
+      text-align: center;
+      position: relative;
+
+
+      .SD-arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: auto;
+        bottom: 100%;
+        left: 0; right: 0;
+        border-style: solid;
+        border-width: 0 15px 15px 15px;
+        border-color: transparent transparent #000 transparent;
+      }
+
+    }
+
+    
+    button, a {
+      padding: 18px 8px!important;
+      width: 49%;
+      font-size: 1.1em;
+      float: left;
+      line-height: 12px;
+      height: auto;
+
+      &.SD-stay {
+        background-color: #46b05a !important;
+        &:hover, &:focus {
+          background-color: #3da34d !important;
+        }
+      }
+    }
+
+    button:nth-of-type(2) {
+      float: right;
+    }
+
+    a {
+      background-color: #0255a3!important;
+      color: #fff;
+      float: right !important;
+      text-decoration: none;
+      &:hover, &:focus {
+        background-color: #0460b6 !important
+      }
+    }
+
+
+  }
+  
+  @media only screen and (max-width: 479px) {
+    .SD011-returnMessage {
+      min-width: 320px;
+    }
+    .LogoCheck .SD011-returnMessage {
+      min-width: 320px;
+      left: -55px;
+    }
+  }
+
+
+  // Edit/Cont
+  .ExitLinks {
+    .SD011-returnMessage {
+      bottom: 110%;
+      top: auto;
+      .SD-arrow {
+        bottom: auto;
+        top: 100%;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+}
+
+.SD011 .SD011-returnMessage .SD-links:before, .SD011 .SD011-returnMessage .SD-links:after {
+
+  content: " ";
+
+  display: table;
+
+}
+
+.SD011 .SD011-returnMessage .SD-links:after {
+
+  clear: both;
+
+}

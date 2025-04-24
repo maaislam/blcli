@@ -1,0 +1,300 @@
+//Column Width Calculation
+@mixin elWidth($unit, $device, $gutter: true){
+
+  @if $device == mobile{
+    width: 100%  / get-value($settings, 'base', 'mobileColumns') * $unit;
+  } @else if $device == tablet{
+    width: 100%  / get-value($settings, 'base', 'tabletColumns') * $unit;
+  } @else{
+    width: 100%  / get-value($settings, 'base', 'columns') * $unit;
+  }
+
+  @if $gutter == true{
+    padding-right: get-value($settings, 'base', 'gutter');
+    padding-left: get-value($settings, 'base', 'gutter');
+  } @else if $gutter == left{
+    padding-left: get-value($settings, 'base', 'gutter');
+  } @else if $gutter == right{
+    padding-right: get-value($settings, 'base', 'gutter');
+  }
+
+}
+
+// Valign
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Perfect Center align (parent element must be relative)
+@mixin center-align{
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+// List
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+// inline list
+@mixin list-inline {
+  @include list-reset;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+}
+
+// Hiding
+@mixin hide-block {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// SR text hiding
+@mixin hide-text {
+  //	font: 0/0 a;
+  //	text-shadow: none;
+  //	color: transparent;
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  line-height: 1px;
+  overflow: hidden;
+}
+
+// Hero block style
+@mixin hero{
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background: no-repeat center center;
+}
+//-------------
+//Mixin from https://engageinteractive.co.uk/blog/top-10-scss-mixins//
+//------------
+
+// Before & After style
+// div::after {
+//  @include pseudo;
+//  top: -1rem; left: -1rem;
+//  width: 1rem; height: 1rem;
+//}
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// Clear any float
+// div{
+//  @include clearfix;
+// }*/
+@mixin clearfix{
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+
+@mixin mediaQuery($breakpoint){
+  $breakpoints:(
+    large: get-value($settings, 'wrapper', 'large'),
+    desktop: get-value($settings, 'wrapper', 'desktop'),
+    tablet: get-value($settings, 'wrapper', 'tablet'),
+    mobile: get-value($settings, 'wrapper', 'mobile')
+  );
+  @if $breakpoint == mobile {
+    @media screen and (max-width: #{get-value($breakpoints, mobile)}) { @content; }
+  } @else if $breakpoint == tablet {
+    @media screen and (max-width: #{get-value($breakpoints, tablet)}) { @content; }
+  } @else if $breakpoint == desktop {
+    @media screen and (min-width: #{get-value($breakpoints, desktop)}) { @content; }
+  } @else if $breakpoint == large {
+    @media screen and (min-width: #{get-value($breakpoints, large)}) { @content; }
+  }
+}
+
+// Images & BG-Images ratio
+// div {
+//  @include img-ratio(16,9);
+// }*/
+@mixin img-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+// Triangle Generator
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+  @include pseudo($pos: $position);
+  width: 0;
+  height: 0;
+  @if $round {
+    border-radius: 3px;
+  }
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+    margin-top: 0 - round( $size / 2.5 );
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    margin-bottom: 0 - round( $size / 2.5 );
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    margin-right: -$size;
+  } @else if  $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    margin-left: -$size;
+  }
+}
+
+//Retina Devices Mixin
+// .element {
+//		@include retina {
+//			background-image: url(../img/background@2x.png);
+//		}
+//	}
+@mixin retina{
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  //only screen and (-moz-min-device-pixel-ratio: 1.5),
+  only screen and (-o-min-device-pixel-ratio: 3 / 2),
+  only screen and (min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 1.5dppx) {
+    @content;
+  }
+}
+
+// Long Paragraph Truncate
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+ * a small mixin for easy use of rem with px as fallback
+ * usage: @include calc-rem(font-size, 14px)
+ * usage: @include calc-rem(marign, 0 12px 2 1.2)
+ * usage: @include calc-rem(padding, 1.5 24px)
+ *
+ * thanks to Eric Meyer for https://github.com/ericam/susy
+ * and Hans Christian Reinl for http://drublic.de/blog/rem-fallback-sass-less/
+ */
+@mixin calc-rem($property, $values, $important: false) {
+  // Create a couple of empty lists as output buffers.
+  $base-font-size: get-value($settings, 'base', 'font-size'); // should be consistent with your html/body font-size
+  $px-values: ();
+  $rem-values: ();
+  $hasImportant: null;
+  // Loop through the $values list
+  @each $value in $values {
+    // For each property value, if it's in rem or px, derive both rem and
+    // px values for it and add those to the end of the appropriate buffer.
+    // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 or $value == 0px {
+      // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      // px value given - calculate rem value from base-font-size
+      $new-rem-value: $value / $base-font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else if $value == auto or $value == inherit {
+      // auto or inherit - don't add px or rem
+      $px-values: join($px-values, $value);
+      $rem-values: join($rem-values, $value);
+    } @else {
+      // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $base-font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+  // output the converted rules
+  @if $important == true or $important == important{
+    $hasImportant: #{'!'}#{'important'};
+  }
+    #{$property}: $px-values $hasImportant;
+    #{$property}: $rem-values $hasImportant;
+}
+
+  @mixin init-icon-font {
+    font-family: get-value($settings, 'base', 'icon-font') !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1; // Enable Ligatures
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga"; // Better Font Rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @mixin icon-font($icon:'', $color:'', $font-size:16px, $direction:before) {
+    @if $direction==after {
+      &:after {
+        @include init-icon-font;
+        @if $icon==data-icon {
+          content: attr(data-icon);
+        }
+        @else {
+          content: quote($icon);
+          color: $color;
+          font-size: $font-size;
+        }
+        @content;
+      }
+    }
+    @else {
+      &:before {
+        @include init-icon-font;
+        @if $icon==data-icon {
+          content: attr(data-icon);
+        }
+        @else {
+          content: quote($icon);
+          color: $color;
+          font-size: $font-size;
+        }
+        @content;
+      }
+    }
+  }

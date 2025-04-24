@@ -1,0 +1,82 @@
+@import "./variables";
+
+.#{$id} {
+	&-social-notification {
+		width: 100%;
+		margin-top: 12px;
+		opacity: 1;
+		z-index: 5005;
+		&.#{$id}-imageContainer {
+			margin: 25px auto;
+			width: 100%;
+			margin-bottom: 10px;
+			padding: 0 15px;
+		}
+		.#{$id}-social-notification-holder {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: 9px;
+			background-color: #0000ee;
+			height: 35px;
+			@media screen and (min-width: 768px) and (max-width: 900px) {
+				padding: 9px 5px;
+			}
+			@media screen and (max-width: 374px) {
+				padding: 9px 5px;
+			}
+		}
+
+		&.fading {
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+		p {
+			font-family: "GTAmerica-ExtendedRegular", Arial, Helvetica,
+				sans-serif;
+			font-style: italic;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 20px;
+			letter-spacing: 1px;
+			margin-bottom: 0;
+			margin-left: 10px;
+			color: #fff;
+			@media screen and (min-width: 768px) and (max-width: 900px) {
+				margin-left: 5px;
+				font-size: 11px;
+			}
+			@media screen and (max-width: 374px) {
+				margin-left: 5px;
+				font-size: 13px;
+			}
+		}
+		.#{$id}-text-bold {
+			font-weight: 700;
+			font-family: "GTAmerica-ExtendedBold";
+		}
+	}
+	&-1 .#{$id}-social-notification {
+		p {
+			line-height: 17px;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		.#{$id}-addToBasket {
+			display: block;
+		}
+		.#{$id}-imageContainer {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 767px) {
+		.#{$id}-addToBasket {
+			display: none;
+		}
+		.#{$id}-imageContainer {
+			display: block;
+		}
+	}
+}

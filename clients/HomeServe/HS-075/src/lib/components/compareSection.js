@@ -1,0 +1,5 @@
+const compareSection = () => {
+  const html = `
+        
+    `;
+};

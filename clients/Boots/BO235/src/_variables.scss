@@ -1,0 +1,100 @@
+$id: "--ID--";
+// color
+$white_primary: #fff;
+$blue_cta_primary: #05054b;
+$dark-grey: #333333;
+$light-grey: #fbfbfb;
+$light-grey-secondary: #d0d0d0;
+$light-grey-border: #f0f0f0;
+$black-primary: #000;
+
+// color opacity
+$grey-opacity25: rgba(226, 226, 226, 0.25);
+$black_opacity32: rgba(0, 0, 0, 0.32);
+$black-halfOpacity: rgba(0, 0, 0, 0.5);
+
+// mixins
+@mixin scrollbarCustom {
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: $black-primary;
+  }
+}
+
+// @mixin commonSection {
+//   position: relative;
+//   width: 100%;
+//   margin-top: 100px !important;
+//   margin-bottom: 50px !important;
+//   background-color: $light-grey;
+//   height: 480px;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+@mixin swiperCss {
+  .swiper {
+    position: unset !important;
+    .swiper-button-next,
+    .swiper-button-prev {
+      &::after {
+        display: none;
+      }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .swiper-wrapper {
+    display: flex;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    transition: all 0.4s ease;
+    height: auto;
+    // &.swiper-slide-prev {
+    //   transform: translateX(15%);
+    // }
+    // &.swiper-slide-next {
+    //   transform: translateX(-15%);
+    // }
+  }
+  .swiper-scrollbar {
+    margin-bottom: 15px;
+    .swiper-scrollbar-drag {
+      background: #d0d0d0;
+      cursor: pointer;
+      &:hover,
+      &:active {
+        background: #333;
+      }
+    }
+  }
+}
+
+@mixin swiperButton($top: 50%) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: $top;
+  }
+  .swiper-button-next {
+    right: 25px !important;
+  }
+  .swiper-button-prev {
+    left: 25px !important;
+  }
+}

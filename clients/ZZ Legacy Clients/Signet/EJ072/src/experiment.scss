@@ -1,0 +1,543 @@
+@import './variables';
+@import './lib/noui';
+
+.#{$id} {
+    &.#{$id}-1 {
+
+        // fix for the slider width issue
+        * {
+            min-width: 0;
+            min-height: 0;
+        }
+
+        .seo-intro {
+            display: none;
+        }
+
+        #refinement-price {
+            display: none;
+        }
+        @media(max-width: 1024px) and (min-width:767px) {
+            .browse__sort-container {
+                display: block;
+                width: 50%;
+                left: 0;
+            }
+        }
+
+        /* Slick CSS */
+        .#{$id}-filterBlock {
+            .slick-slider {
+                position: relative;
+                display: block;
+                box-sizing: border-box;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-touch-callout: none;
+                -khtml-user-select: none;
+                -ms-touch-action: pan-y;
+                touch-action: pan-y;
+                -webkit-tap-highlight-color: transparent
+            }
+
+            .slick-list {
+                position: relative;
+                display: block;
+                overflow: hidden;
+                margin: 0;
+                padding: 0
+            }
+
+            .slick-list:focus {
+                outline: 0
+            }
+
+            .slick-list.dragging {
+                cursor: pointer;
+                cursor: hand
+            }
+
+            .slick-slider .slick-list,
+            .slick-slider .slick-track {
+                -webkit-transform: translate3d(0, 0, 0);
+                -moz-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0)
+            }
+
+            .slick-track {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
+                margin-left: auto;
+                margin-right: auto
+            }
+
+            .slick-track:after,
+            .slick-track:before {
+                display: table;
+                content: ''
+            }
+
+            .slick-track:after {
+                clear: both
+            }
+
+            .slick-loading .slick-track {
+                visibility: hidden
+            }
+
+            .slick-slide {
+                display: none;
+                float: left;
+                height: 100%;
+                min-height: 1px
+            }
+
+            [dir=rtl] .slick-slide {
+                float: right
+            }
+
+            .slick-slide img {
+                display: block
+            }
+
+            .slick-slide.slick-loading img {
+                display: none
+            }
+
+            .slick-slide.dragging img {
+                pointer-events: none
+            }
+
+            .slick-initialized .slick-slide {
+                display: block
+            }
+
+            .slick-loading .slick-slide {
+                visibility: hidden
+            }
+
+            .slick-vertical .slick-slide {
+                display: block;
+                height: auto;
+                border: 1px solid transparent
+            }
+
+            .slick-arrow.slick-hidden {
+                display: none
+            }
+        }
+
+        .browse-banner,
+        .page-heading,
+        .browse__filter-toggle-container{
+            display: none;
+        }
+
+        .#{$id}-categoryHeader {
+            text-align: center;
+
+            h1 {
+                font-weight: 500;
+                font-size: 22px;
+            }
+
+            p {
+                display: none;
+            }
+
+            @media(min-width: 767px) {
+                max-width: 60rem;
+                margin: 0 auto;
+                padding: 20px;
+
+                p {
+                    display: block;
+                }
+            }
+
+            @media(min-width: 1024px) {
+                padding: 30px;
+
+                h1 {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .#{$id}-filterBlock {
+            .#{$id}-filters-inner {
+                padding: 10px;
+
+                .#{$id}-category {
+                    border-top: 1px solid #EEE7E7;
+                    padding-bottom: 20px;
+
+                    h3 {
+                        text-align: center;
+                        font-weight: 100;
+                        font-weight: 16px;
+                    }
+
+                    .#{$id}-cat-filters {
+                        font-family: 'Oxygen', sans-serif;
+
+                        // slick custom style
+                        .#{$id}-next {
+                            position: absolute;
+                            right: -10px;
+                            top: 30%;
+                            transform: translateX(-50%) rotate(-180deg);
+                            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/F65A07956A47ABE0A1D2C12419A5EAA0EA718F900DBD3FB4C41983D5366E76CE/ernestjones-co-uk/EJ072---Headline-Filters/noun_ArrowLeft_1343224.png');
+                            height: 20px;
+                            width: 20px;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            background-color: transparent;
+                            border: 0;
+                            z-index: 999;
+                            padding: 0;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            @media(min-width: 767px) {
+                                top: 20%;
+                            }
+
+                            @media(min-width: 1024px) {
+                                right: -15px;
+                            }
+                        }
+
+                        .slick-prev {
+                            display: none !important;
+                        }
+
+                        .js-accordion-trigger {
+                            display: none;
+                        }
+
+                        .filters-panel__refinement-controls {
+                            display: none;
+                        }
+
+                        .filters-panel__products-found-for-refinement {
+                            display: none;
+                        }
+
+                        //filter dropdown
+
+                        .#{$id}-categoryLink {
+                            display: flex;
+                            background: unset;
+                            padding: 0;
+                            margin: 0;
+                            flex-wrap: nowrap;
+                            flex-direction: column-reverse;
+
+                            &.checked {
+                                .filters-panel__swatch {
+                                    position: relative;
+
+                                    &::after {
+                                        content: '';
+                                        position: absolute;
+                                        height: 20px;
+                                        background-position: center;
+                                        width: 20px;
+                                        left: 50%;
+                                        background-size: cover;
+                                        bottom: -5px;
+                                        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/1E429C2BD75C7D3CAEF438E4A2E9B3970FF842DFCEA47C0B80B93DEE3513BA70/ernestjones-co-uk/EJ072---Headline-Filters/tick.png');
+                                    }
+                                }
+
+                                .filters-panel__refinement-title {
+                                    font-weight: 600;
+                                }
+                            }
+
+                            // number
+                            .filters-panel__products-found-for-refinement {
+                                display: none;
+                            }
+
+                            // icon
+                            .filters-panel__swatch {
+                                height: 50px;
+                                width: 50px;
+                                padding: 0;
+                                position: relative;
+                                margin: 0 auto;
+                                margin-bottom: 10px;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: 25px;
+
+                                .#{$id}-icon {
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    height: 100%;
+                                    width: 100%;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
+
+                                img {
+                                    display: none;
+                                }
+                            }
+                        }
+
+
+                        .filters-panel__refinement-title {
+                            line-height: 19px;
+                            color: black;
+                            font-size: 13px;
+                            text-align: center;
+
+                            @media(min-width: 1024px) {
+                                font-size: 14px;
+                            }
+                        }
+
+                        // stone shape
+                        .#{$id}-stoneType {
+                            .filters-panel__swatch {
+                                border: 1px solid #F3F3F3;
+                                border-radius: 50px;
+                            }
+
+                            .checked {
+                                .filters-panel__swatch {
+                                    border: 1px solid black;
+                                }
+                            }
+                        }
+                    }
+
+                    &.#{$id}-priceFilter {
+                        padding-bottom: 0;
+                    }
+                }
+
+                @media(min-width: 767px) {
+                    padding: 10px;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    //justify-content: space-between;
+                    flex-direction: row;
+                    border-top: 1px solid #F9F9F9;
+                    padding-bottom: 20px;
+
+                    .#{$id}-category {
+                        width: 30%;
+                        border: 0px;
+                    }
+                }
+
+                @media(min-width: 1024px) {
+                    padding: 30px 2rem;
+                    padding-bottom: 35px;
+                    max-width: 1300px;
+                    margin: 0 auto;
+
+                    .#{$id}-category {
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        position: relative;
+
+                        h3 {
+                            padding-left: 20px;
+                            margin-top: 0;
+                            font-size: 15px;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            height: 120px;
+                            width: 2px;
+                            background: #F9F9F9;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+
+                        &:last-of-type {
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // more filters link
+        .#{$id}-moreFilters {
+            background: #F3F3F7;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+            span {
+                font-family: 'Oxygen', sans-serif;
+                position: relative;
+                line-height: 20px;
+
+                &::after {
+                    content: '';
+                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/04A6355070CB3F9533BF95724AE9843A96C3835238F0367F46A8701CE65A7F65/ernestjones-co-uk/EJ072---Headline-Filters/noun_Plus_2476856.png');
+                    height: 19px;
+                    width: 19px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-left: 10px;
+                }
+            }
+
+            @media(min-width: 1024px) {
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+                span {
+                    font-size: 17px;
+                }
+            }
+        }
+
+        // price slider 
+        .#{$id}-nouislider-wrap .noUi-origin {
+            left: 100%;
+        }
+
+        .#{$id}-priceslider-wrapper {
+            width: 100%;
+            overflow: hidden;
+            padding: 10px 0;
+            clear: both;
+            position: relative;
+
+            /* noUiSlider overrides */
+            .noUi-horizontal {
+                height: 9px;
+                border-color: transparent;
+            }
+
+            .noUi-connects {
+                background: #F3F3F7;
+            }
+
+            .noUi-horizontal .noUi-handle {
+                top: -5px;
+                width: 18px;
+                height: 18px;
+                border-radius: 17px;
+                background: black;
+                border: 1px solid black;
+                outline: none;
+                left: 0;
+                box-shadow: unset;
+                right: 0;
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+
+            .noUi-horizontal .noUi-tooltip {
+                bottom: -28px;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                font-size: 12px;
+                color: black;
+                font-family: 'Oxygen', sans-serif;
+
+                @media(min-width: 1024px) {
+                    bottom: -35px;
+                    font-size: 14px;
+                }
+            }
+
+            .noUi-handle {
+                &:last-of-type {
+                    .noUi-tooltip {
+                        @media(min-width: 767px) {
+                            transform: translate(-60%, 0);
+                        }
+                    }
+                }
+            }
+
+            .noUi-connect {
+                background: #F3F3F7;
+            }
+
+            .#{$id}-nouislider-wrap {
+                width: 90%;
+                padding-bottom: 50px;
+                float: none;
+                margin: 0 auto;
+                box-sizing: border-box;
+                padding-right: 15px;
+                padding-bottom: 43px;
+
+                .#{$id}-priceslider {
+                    display: block;
+                    width: calc(100% - 220px);
+                    margin-left: 20px;
+                    margin-top: 8px;
+                    float: left;
+
+                    @media(max-width: 1024px) {
+                        width: 80%;
+                        margin-left: 10px;
+                    }
+                }
+
+                @media(min-width: 1024px) {
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        @media(min-width: 1024px) {
+            .browse__header-section {
+                display: none;
+                padding-top: 0;
+
+                &.#{$id}_filterShow {
+                    display: block;
+
+                    .filters-panel__refinement-accordion-container:nth-child(5)~.filters-panel__refinement-accordion-container {
+                        max-height: unset;
+                        margin-bottom: 10px;
+                        overflow: visible;
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            .desktop-filter-toggle {
+                display: none;
+            }
+        }
+    }
+}

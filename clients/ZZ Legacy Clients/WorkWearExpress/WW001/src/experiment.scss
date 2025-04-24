@@ -1,0 +1,272 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    @at-root #{&}_product-image {
+        .#{$ID}_removeWrap {
+            .#{$ID}_remove {
+                color: #f6851f;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        &~td:nth-child(6) {
+            strong {
+                font-weight: normal;
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3, important);
+            }
+        }
+
+        &~td:nth-child(7) {
+            font-weight: bold;
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 4, important);
+        }
+    }
+
+    @at-root .pers-feeWrap {
+        strong {
+            font-style: italic;
+        }
+    }
+
+    @at-root #{&}_costumisation-text {
+        text-decoration: underline;
+        @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 2);
+        font-weight: bold;
+        padding: get-value($settings, 'base', 'baseline') / 2 - 6 0;
+    }
+
+    @at-root .mobile #{&} {
+        .productrow {
+            .#{$ID}_price {
+                &:before {
+                    display: none !important;
+                }
+            }
+        }
+
+        .#{$ID}_subtotalWrap {
+            border: 0;
+            margin: 0;
+            border-top: 1px solid #eee;
+        }
+
+        .customisationrow {
+            td:nth-child(2) {
+                &:before {
+                    display: none !important;
+                }
+            }
+        }
+
+        #basket_left table tbody tr {
+            border-bottom: 0;
+        }
+    }
+
+    .productrow {
+        td:nth-child(5) {
+            @include hide-block;
+        }
+
+        .#{$ID}_price {
+            @at-root #{&}Wrap {
+                margin-left: 26%;
+                padding-left: 0 !important;
+                text-align: left;
+                position: relative;
+            }
+        }
+
+        .tot-price,
+        .price-each {
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3);
+            color: get-value($settings, 'colors', 'text');
+
+            strong {
+                color: get-value($settings, 'colors', 'wwOrange');
+            }
+        }
+
+        .tot-price {
+            padding-top: 5px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+        }
+    }
+
+    .customisationrow {
+        td:nth-child(4) {
+            .pers-fee {
+                text-align: left;
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 5);
+                margin-top: get-value($settings, 'base', 'baseline') / 2 - 6;
+                span{
+                    display:block;
+                }
+            }
+        }
+        td:nth-child(5) {
+            text-align: left!important;
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3, important);
+            padding-right: 0!important;
+        }
+    }
+
+    #basket {
+        @include clearfix;
+    }
+
+    #basket_summary {
+        tbody:not(.#{$ID}_basketBody){
+            tr:nth-child(1){
+                th,
+                td {
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 1);
+                }
+            }
+            tr:nth-child(2), tr:nth-child(3){
+                th,
+                td {
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3, important);
+                }
+            }
+            tr:nth-child(3){
+                border-bottom: 1px solid #000;
+            }
+            tr:last-child {
+                th,
+                td {
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 3);
+                    padding: 0;
+                    padding-top: get-value($settings, 'base', 'baseline') / 2;
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                td {
+                    text-align: right;
+                }
+            }
+        }
+        tbody.#{$ID}_basketBody {
+
+            .#{$ID}_subTotal {
+                th,
+                td {
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 1);
+                }
+            }
+
+            .#{$ID}_delivery,
+            .#{$ID}_vat,
+            .#{$ID}_setupCharge,
+            .#{$ID}_discount,
+            .#{$ID}_persTot {
+                th,
+                td {
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3, important);
+                }
+            }
+
+            .#{$ID}_vat{
+                th, td{
+                    padding:0;
+                    padding-top: 3px;
+                    padding-bottom: get-value($settings, 'base', 'baseline') / 2 - 6;
+                }
+            }
+
+            .#{$ID}_delivery{
+                th, td{
+                    padding:0;
+                    padding-top: get-value($settings, 'base', 'baseline') / 2 - 6;
+                    padding-bottom: 3px;
+                }
+            }
+
+            .#{$ID}_setupCharge{
+                border-top: 1px solid #000;
+                th, td{
+                    padding:0;
+                    padding-top: get-value($settings, 'base', 'baseline') / 2 - 6;
+                    padding-bottom: 3px;
+                }
+            }
+            .#{$ID}_persTot{
+                th, td{
+                    padding:0;
+                    padding-top: 3px;
+                    padding-bottom: get-value($settings, 'base', 'baseline') / 2 - 6;
+                }
+            }
+
+
+
+            .#{$ID}_vat,
+            .#{$ID}_persTot {
+                border-bottom: 1px solid #000;
+            }
+
+            tr:last-child {
+                th,
+                td {
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 3);
+                    padding: 0;
+                    padding-top: get-value($settings, 'base', 'baseline') / 2;
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                td {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    @at-root #{&}_subtotal {
+        text-align: right;
+
+        @at-root #{&}Wrap {
+            padding: get-value($settings, 'base', 'baseline') / 2 0;
+            margin: get-value($settings, 'base', 'baseline') / 2 0;
+            border-top: 3px solid get-value($settings, 'colors', 'wwGrey');
+        }
+
+        @at-root #{&}__title {
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 4);
+            margin: 0;
+
+            strong {
+                margin-left: get-value($settings, 'base', 'baseline') / 2;
+            }
+        }
+
+        @at-root #{&}__info {
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3);
+        }
+    }
+
+    .zopim {
+        position: fixed !important;
+        bottom: 20px;
+        right: 20px;
+    }
+}

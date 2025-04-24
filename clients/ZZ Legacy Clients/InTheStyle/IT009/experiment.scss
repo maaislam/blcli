@@ -1,0 +1,103 @@
+@mixin anim($speed, $type...) {
+    -webkit-transition-property: $type;
+    -moz-transition-property: $type;
+    -o-transition-property: $type;
+    transition-property: $type;
+    -webkit-transition-duration: $speed;
+    -moz-transition-duration: $speed;
+    -o-transition-duration: $speed;
+    transition-duration: $speed;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.IT009 {
+    .success-msg p:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .alert-box p {
+        position: relative;
+        padding: 0 25px;
+    }
+    .alert-box .close {
+        top: 15px;
+        margin-top: 0;
+    }
+    .right-off-canvas-menu .block-cart .actions-top {
+        margin-top: 10px;
+        .right-off-canvas-toggle {
+            display: none;
+        }
+    }
+    .right-off-canvas-menu .block-cart .actions-top .actions {
+        margin-bottom: 20px;
+    }
+    .right-off-canvas-menu .right-off-canvas-toggle {
+        margin-bottom: 20px;
+    }
+    #cart-sidebar {
+        display: none;
+    }
+    .right-off-canvas-menu .block-cart .subtotal {
+        text-align: center;
+    }
+    .right-off-canvas-menu .block-cart .subtotal .label {
+        float: none;
+        font-size: 16px;
+    }
+    .right-off-canvas-menu .block-cart .empty {
+        text-align: center;
+    }
+    .right-off-canvas-menu .block-cart .subtotal .price {
+        font-size: 16px;
+    }
+    .IT_free_delivery {
+        text-align: center;
+        padding: 20px 15px 20px;
+        border-bottom: 1px solid #EEEDEC;
+        border-top: 1px solid #EEEDEC;
+        margin-top: 20px;
+        >div {
+            border: 1px solid #111;
+            padding: 13px;
+        }
+        .IT_progress_bar {
+            width: 100%;
+            background: #EEEDEC;
+            height: 15px;
+            position: relative;
+            span {
+                position: absolute;
+                width: 0;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: #d13b95;
+                z-index: 1;
+                @include anim(600ms, (width));
+                -webkit-animation-delay: 1ms;
+                /* Safari 4.0 - 8.0 */
+                animation-delay: 1ms;
+            }
+        }
+        .IT_progress_complete {
+            display: none;
+        }
+        .IT_progress_price {
+            font-size: 11px;
+            margin-top: 10px;
+        }
+    }
+    .right-off-canvas-menu {
+        right: -100%;
+        width: 100%;
+    }
+    .right-off-canvas-menu .right-off-canvas-toggle {
+        width: calc(100% - 30px);
+        margin: -.625rem .9375rem 0;
+    }
+}

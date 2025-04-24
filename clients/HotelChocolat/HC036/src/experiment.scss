@@ -1,0 +1,92 @@
+@import './variables';
+
+.#{$id} {
+    #check-store-stock {
+        display: none;
+    }
+    .availability-block {
+        display: none;
+    }
+
+    .#{$id}-oosMessage {
+        background: #CAE9FF;
+        padding: 10px;
+        padding-left: 40px;
+        position: relative;
+        margin-bottom: 20px;
+        &::before {
+            content: '';
+            height: 28px;
+            width: 28px;
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            background: url('https://editor-assets.abtasty.com/48343/5fce1390d53051607340944.png') no-repeat center;
+            background-size: contain;
+        }
+        p {
+            span {
+                font-family: GillSansNova-Bold;
+            }
+        }
+        @media(min-width: 1024px) {
+            padding-left: 50px;
+            &::before {
+                left: 10px;
+                top: 10px;
+            }
+        }
+    }
+
+    .#{$id}-colourBlock {
+        h3 {
+            text-transform: uppercase;
+            font-family: GillSansNova-Medium;
+            font-size: 13px;
+            letter-spacing: 0;
+        }
+        .#{$id}-colours {
+           display: flex;
+           flex-direction: row;
+           justify-content: flex-start;
+           .#{$id}-colour {
+               height: 70px;
+               width: 70px;
+               margin: 10px;
+               cursor: pointer;
+               background-color: white;
+               background-position: bottom;
+               background-size: 90%;
+               border: 1px solid #ccc;
+               background-repeat: no-repeat;
+               margin-left: 0;
+               transition: background-size 0.2s ease-in;
+               a {
+                   display: block;
+                   height: 100%;
+                   width: 100%;
+               }
+                &.#{$id}-white {
+                    background-image: url('https://editor-assets.abtasty.com/48343/5fce14bf1101f1607341247.png');
+                }
+                &.#{$id}-copper {
+                    background-image: url('https://editor-assets.abtasty.com/48343/5fce1533462901607341363.png');
+                }
+                &.#{$id}-charcoal {
+                    background-image: url('https://editor-assets.abtasty.com/48343/5fce1525227d21607341349.png');
+                }
+                &.#{$id}-active {
+                    border: 1px solid black;
+                    background-color: #efefef;
+                }
+                &:hover {
+                    background-size: 100%; 
+                }
+                @media(min-width: 767px) {
+                    width: 60px;
+                    height: 60px;
+                }
+           }
+        }
+    }
+}

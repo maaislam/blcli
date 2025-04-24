@@ -1,0 +1,128 @@
+@import './variables';
+
+// Hide the AB Tasty weather widget
+#listing-container > abtasty-weather,
+.c-container__main > abtasty-weather {
+  display: none !important;
+}
+
+// Core web vitals
+.c-page::before {
+  display: block;
+  content: "";
+  height: 50px;
+  width: 100%;
+}
+
+.#{$id} {
+  .c-page::before {
+    height: 0;
+    display: none;
+  }
+  &-weather {
+    min-height: 50px;
+    background: $teal;
+    color: $white;
+    font-size: 1rem;
+    padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 0;
+
+    @media(min-width: 760px) {
+      font-size: 1.2rem;
+    }
+
+    @media(min-width: 1024px) {
+      font-size: 1.3rem;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    &[href] {
+      text-decoration: none;
+      color: #fff;
+
+      &:hover,&:active,&:focus {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    &__intro {
+      margin-bottom: .5rem;
+      text-align: center;
+
+      @media(min-width: 1024px) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__link {
+      margin-bottom: .75rem;
+
+      > span {
+        text-decoration: underline;
+        transition: 0.3s color;
+
+        &:hover,&:active,&:focus {
+          color: $darkteal;
+        }
+      }
+
+      @media(min-width: 1024px) {
+        margin-bottom: 0;
+        margin-left: 1rem;
+      }
+    }
+
+    &__meta {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+
+      @media(min-width: 1024px) {
+        flex-basis: 30%;
+      }
+    }
+
+    &__temp {
+      display: flex;
+      align-items: center;
+
+      > img {
+        height: 1.4rem;
+        width: auto;
+        display: inline-block;
+        margin-right: 5px;
+
+        @media(min-width: 767px) {
+          height: 1.6rem;
+        }
+      }
+    }
+
+    &__location {
+      padding: 0 0 0 1.2em;
+      background: url('data:image/gif;base64,R0lGODlhHgAqANU/AMrr65/S0qXa2pXNzbfk5FyxsWm8vEKxsazc3Pj8/FmtrYHDw/3+/qLV1XnFxZ7Z2XO9vWO7u9vt7Uarq93y8mrFxb3c3FSqqu34+EK1tdjw8IjS0prPz9Tm5rzW1un390uurvr9/cPp6Xu8vEa1tUGlpUazs/T7+5HGxvb8/EO4uEm0tNvy8vv+/uf29uP19dnx8ZvGxtfw8GSvr9Du7sfi4mqysuXx8XSxsU+7u7Xa2uPy8lu7u63h4f///0K5uSH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDQyNTU4NDZDQzA5MTFFQTg3NkJDOUE0QTZBOTFDMEUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDQyNTU4NDdDQzA5MTFFQTg3NkJDOUE0QTZBOTFDMEUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpENDI1NTg0NENDMDkxMUVBODc2QkM5QTRBNkE5MUMwRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpENDI1NTg0NUNDMDkxMUVBODc2QkM5QTRBNkE5MUMwRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAD8ALAAAAAAeACoAAAb/wJ9wSPzxegBXgiJ6mIrQ6GGku6USDF8rceogFJkoNAN5+c7o9DlUK4iHE4B6rm4NwtGJhs5Pc/BEJjR9hGcDUASFig5EBoqKLiBCBzKPig9CEIQhHigoMR2EJys/DX0SFypDBzgJfTM5O3wuE1E2WXQIGyd0DIxiPXw0ArxzGIBQjnQsIq5zHm8/JSF0LgDUcxbR03QfBM5qH6piFXwvD8VqDG5iAXwwFRh8GJJQI30iGTWnEUQqC+nmjPjBgVAKAA82INhDyM0FXJb6UHiSwUJEQgOFFMB2UQ2MA0RMdUyzrsgKCiPRIIiyMSULkFEEjGxh4M0BGB0DRPthgKMiTAokdhK0FILdThIsHgkQOkQBOD4vmQ55sKmm1Ek4+Ry6OiTCUzRAuRJBMSeBArFESGRFsxQtEadooroNeSaB1bmr9qDACyUCgCdCgwAAOw==');
+      background-size: 0.8em;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+  }
+}
+
+// For BV039, hide the weather link
+.BV039 .#{$id}-weather__link {
+  display: none !important;
+}
+
+.BV039-weather__link { display: none !important }
+.BV039-weather + .BV039-weather { display: none; }

@@ -1,0 +1,168 @@
+.GD026 {
+
+  // Shared Styling
+
+  // Hide current error message
+  .basket-errors.message.message--error {
+    display: none;
+  }
+
+  // Taking button styling from button found on website - Update options button
+  .GD026_Update_Options_Link {
+    color: #fff;
+    background-color: #0a64cd;
+    border-color: #0a64cd;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.15s ease-in-out;
+    vertical-align: middle;
+
+    &:hover {
+      background-color: #074997;
+      border-color: #074997;
+    }
+
+    // Add pseudo state using website styling
+    &:before {
+      display: inline-block;
+      font-family: "GD Icons";
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "";
+      margin-right: 15px;
+    }
+  }
+
+  // Inline Error text
+  .GD026_Error {
+    color: #fa4530;
+  }
+
+  // Style options
+
+  // Validation passed - green circle with check mark
+  // give all basket details the same  padding 
+  #basket-products .cf>.product-details>.product-detail {
+    padding: 0;
+  }
+
+  // Not targeting frames - Validation passed
+  .product-details>.product-component:not(.product-detail--error):not(.product-frames) {
+    position: relative;
+
+    // Create checkmark
+    // Create circle
+    &:before {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: #4db690;
+      border-radius: 10px;
+      content: '';
+      margin: 2px 0 0 -1px;
+      position: absolute;
+    }
+  }
+
+  #basket-products .product-component:not(.product-frames) .detail-name {
+    margin-left: 25px // Make room for icons
+  }
+
+  // Check mark
+  .GD026_Check_Mark {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 4px;
+    height: 8px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-top: 8px;
+    margin-left: 7px;
+  }
+
+  // Error
+  .product-details>.product-detail--error {
+    position: relative;
+
+    // Using pencil icon from website
+    &:before {
+      display: inline-block;
+      font-family: "GD Icons";
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "";
+      // Changing the styling to fit in the circle icon
+      color: #ffffff;
+      position: absolute;
+      z-index: 1;
+      font-size: 12px;
+      font-weight: 700;
+      background-color: #fa4530;
+      border-radius: 50%;
+      padding: 4px;
+      margin-top: 2px;
+    }
+  }
+
+  // Mobile Specifc Styling
+
+  &.GD026_Mobile {
+    #basket-products .product-component:not(.product-frames) .detail-name {
+      display: block;
+    }
+
+    .GD026_Update_Options_Link {
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+
+
+  // Desktop/Tablet sharing styling
+  &.touch-device:not(.GD026_Mobile),
+  &.non-touch-device:not(.GD026_Mobile) {
+
+    // Error message text
+    .GD026_Error_Message {
+      display: inline-block;
+      width: 71%;
+      vertical-align: middle;
+    }
+
+    // Copying width from existing container styling
+    .GD026_Container {
+      width: 65%;
+      display: inline-block;
+      padding: 10px 0;
+    }
+  }
+
+  .GD026_Update_Options_Link {
+    padding: 10px 30px;
+
+    &:hover {
+      background-color: #074997;
+      border-color: #074997;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+@import '../../../variables';
+
+$component: '#{$id}_VariantHover';
+
+.#{$id} {
+  .ProductDetail {
+
+    .TopPanel {
+      > div.RatingAndShare,
+      .Shades .GroupHeader {
+        z-index: 2;
+        position: relative;
+      }
+
+      > .Details {
+        z-index: 3;
+      }
+
+      // Share links must be above others
+      > div.RatingAndShare {
+        z-index: 3;
+      } 
+
+      .SharingOverlayDesktop {
+        white-space: nowrap;
+      }
+    }
+
+    div.Shades .Group {
+      div.Selector {
+        position: relative;
+        box-sizing: border-box;
+
+        > div.Border {
+          margin-top: 0;
+          border-radius: 50%;
+        }
+
+        .#{$component} div.Border {
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          margin: 0 auto;
+          border: 4px solid #ec008c;
+        }
+      }
+
+      .Short {
+        padding: 200px 60px 0 60px;
+        margin: -200px -60px 0 -60px;
+        box-sizing: content-box;
+        position: relative;
+        height: 5.5rem;
+      }
+    }
+  }
+
+  .#{$component} {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    z-index: 999999;
+    background: white;
+    border: 1px solid #e0e0e0;
+    padding: 10px 5px;
+    width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    box-shadow: 0px 7px 10px -5px rgba(0, 0, 0, 0.35);
+    margin-bottom: 7px;
+  }
+
+  .#{$component}Triangle {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 18px 18px 0 18px;
+    border-color: #e0e0e0 transparent transparent transparent;
+    display: block;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 17px 17px 0 17px;
+      border-color: #ffffff transparent #522f2f00 transparent;
+    }
+  }
+
+  .#{$component}Image {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 0 auto;
+  }
+
+  .#{$component}Name {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.7rem;
+    margin-top: 10px;
+  }
+
+  .#{$id}_Variants--hover .#{$component} {
+    display: block;
+  }
+
+  &.Layout_Desktop,
+  &.Layout_Tablet {
+    #MainContentWrapper {
+      overflow: hidden;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component} {
+      display: none !important;
+    }
+
+    .ProductDetail div.Shades .Group .Short {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  // Fix social media sharing links
+  &.Layout_Tablet,
+  &.Layout_Phone {
+    .SharingOverlayDesktop {
+      white-space: normal;
+
+      .SharingOverlay div.Container {
+        height: auto;
+        width: auto;
+        display: block;
+        padding: 10px 7px;
+        box-sizing: border-box;
+  
+        svg-icon {
+          margin: 4px 0;
+          padding: 8px 0;
+          display: block;
+          height: 35px;
+          width: 35px;
+          
+
+          &[icon="social-ok"],
+          &[icon="social-vk"] {
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+  }
+}

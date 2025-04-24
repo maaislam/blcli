@@ -1,0 +1,45 @@
+@import './variables';
+
+.#{$id} {
+
+    &__message {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        margin-bottom: 15px;
+
+        & + .TP195__message {
+            display: none;
+        }
+
+        &--mobile {
+            margin-top: 20px;
+            @media all and (min-width: 435px) {
+                grid-template-columns: 40% 60% !important;
+
+                & > .TP195__message__img {
+                    justify-self: right !important;
+                    margin-right: 20px;
+                }
+                & > .TP195__message__text {
+                    justify-self: left !important;
+                }
+            }
+        }
+
+        &__img {
+            align-self: center;
+            justify-self: center;
+        }
+
+        &__text {
+            font-size: 16px;
+            align-self: center;
+            justify-self: center;
+        }
+
+        &__bold {
+            font-weight: 700;
+            color: rgb(15, 114, 88);
+        }
+    }
+}

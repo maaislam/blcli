@@ -1,0 +1,84 @@
+@import '_mixins.scss';
+.TP128d {
+  .tpInfoWrapper .productPrice .prices_holder {
+    display: none!important;
+  }
+  .TP128d_perpack {
+    font-size: 14px;
+    margin: -5px 0 15px;
+  }
+  .TP128d_price_wrap {
+    position: relative;
+    padding-top: 34px;
+    margin-bottom: 10px;
+    width: 100%;
+    .TP128d_ex-vat-price,
+    .TP128d_vat-price {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      @include anim(200ms, def, (opacity, color));
+      .TP128d_pre-price {
+        font-size: 14px;
+        text-decoration: line-through;
+        margin-right: 50px;
+        display: inline-block;
+        &+span {
+          color: red;
+        }
+      }
+    }
+    .TP128d_ex-vat-price.TP128d_active,
+    .TP128d_vat-price.TP128d_active {
+      opacity: 1;
+    }
+  }
+  .TP128d_toggle-wrap {
+    >span {
+      font-size: 13px;
+      line-height: 22px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .TP128d_toggle-innerwrap {
+    position: relative;
+    display: inline-block;
+    width: 41px;
+    height: 22px;
+    vertical-align: middle;
+    margin: 0 5px;
+    .TP128d_toggle {
+      display: none;
+    }
+  }
+  .TP128d_toggle-pin {
+    cursor: pointer;
+    background-color: #fb081f;
+    border: 1px solid #000;
+    border-radius: 50px;
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    @include anim(200ms, cubic-bezier(0.55, 0.09, 0.68, 0.53), (background-color));
+    &::before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 0;
+      top: 0;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 1px solid #000;
+      @include anim(200ms, cubic-bezier(0.55, 0.09, 0.68, 0.53), (left));
+    }
+    &.TP128d_active {
+      background-color: #13a246;
+      &::before {
+        left: calc(100% - 22px);
+      }
+    }
+  }
+}

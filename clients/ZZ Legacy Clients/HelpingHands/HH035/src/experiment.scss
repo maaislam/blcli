@@ -1,0 +1,261 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+@import './components/lib/Tab/tab';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    @media (min-width: 1880px) {
+        .#{$ID}_stickyNav{
+            .logo-large{
+                display:none!important;
+            }
+            .logo-medium{
+                display:inline-block!important;
+            }
+            #top-nav .logo-block .logo-30yrs{
+                position: static!important;
+                left:unset;
+                top:unset;
+            }
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        @at-root #{&}_stickyNav {
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            top: -100px;
+            opacity: 0;
+            left: 0;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+            background-color: #fff;
+            transition: top 0.25s ease-in-out, opacity 0.25s;
+            @at-root #{&}.sticky {
+                top: 0;
+                opacity:1;
+                transition: top 0.25s ease-in-out, opacity 0.25s;
+                padding: 10px 0;
+            }
+            #main-nav {
+                display: none;
+            }
+
+            #top-nav {
+                padding: 0;
+                padding-left: 20px;
+
+                .contact {
+                    padding-left: 0 !important;
+                }
+            }
+
+            .logo-block {
+                a {
+                    position: relative;
+                    top: -5px;
+                }
+
+                .logo-medium.img-responsive {
+                    max-width: 155px;
+                }
+
+                .logo-30yrs {
+                    max-width: 80px;
+                }
+            }
+
+            .navbar.navbar-default {
+                margin-bottom: 0;
+            }
+
+            #menu-top-menu {
+                @include clearfix;
+            }
+        }
+
+        @at-root #{&}_timeTooltip {
+            position: absolute;
+            z-index: 999999;
+            background-color: lighten(get-value($settings, 'colors', 'hhPurple'), 10%);
+            color: #fff;
+            left: 20px;
+            top: 25px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s, top 0.25s;
+            transform: translateX(-50%);
+            padding: 12px;
+            min-width: 250px;
+            box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.35);
+
+            &:before {
+                content: '';
+                position: absolute;
+                z-index: 999999;
+                top: -10px;
+                right: 30px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 7px 10px 7px;
+                border-color: transparent transparent lighten(get-value($settings, 'colors', 'hhPurple'), 10%) transparent;
+            }
+
+            @at-root #{&}Wrap {
+                position: relative;
+
+                #tooltipTrigger {
+                    position: absolute;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    &:checked {
+                        &~ {
+                            .#{$ID}_timeTooltip {
+                                opacity: 1;
+                                top: 35px;
+                                pointer-events: all;
+                                transition: opacity 0.25s, top 0.25s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @at-root #{&}__label {
+                color: get-value($settings, 'colors', 'hhPurple');
+                display: block;
+                cursor: pointer;
+                font-weight: bold;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+
+                    &~.#{$ID}_timeTooltip {
+                        opacity: 1;
+                        top: 35px;
+                        pointer-events: all;
+                        transition: opacity 0.25s, top 0.25s;
+                    }
+                }
+            }
+        }
+    }
+
+    @at-root .mobile #{&} {
+        padding-top: 145px;
+
+        #main-nav .menu-wrapper.clicked {
+            max-height: 387px;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+
+        .HH008_mobile {
+            color: #000;
+        }
+
+        @at-root #{&}_stickyNav {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            @at-root #{&}.open{
+                .mobile-call-us.active{
+                    #mobile-call-block {
+                        min-height: 278px!important;
+                        box-shadow: 0px -2px 5px 0px rgba(0,0,0,0.15);
+                        z-index: 9999!important;
+                        top: -278px!important;
+                        opacity:1;
+                    }
+                }
+                .mobile-call-us:not(.active){
+                    #mobile-call-block{
+                        opacity:0;
+                    }
+                }
+            }
+            @at-root #{&}.sticky {
+                position: fixed;
+                z-index: 100;
+                width: 100%;
+                left: 0;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+                animation-name: reveal;
+                animation-duration: 0.25s;
+
+                #search-body {
+                    top: 104px;
+                }
+
+                .navbar-header {
+                    position: relative;
+
+                    .navbar-toggle,
+                    .search-btn {
+                        margin: 0;
+                    }
+                }
+
+                .logo-block.logo-mobile {
+                    padding-top: 0 !important;
+
+                    .logo-mobile {
+                        &:only-child {
+                            padding: 0;
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            max-width: 100px;
+                            height: auto;
+                        }
+                    }
+                }
+
+                .logo-block.anniversary {
+                    position: relative;
+                    top: -5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    .logo-mobile {
+                        height: auto;
+                        max-width: 100px;
+                    }
+
+                    .logo-30yrs {
+                        height: auto;
+                        max-width: 55px;
+                    }
+                }
+
+                #mobile-cta-block {
+                    .col-xs-6 {
+                        background-color: get-value($settings, 'colors', 'hhGreen');
+                        color: #fff;
+
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @keyframes reveal {
+        from {top:-130px}
+        to {top:0}
+    }
+}

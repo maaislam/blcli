@@ -1,0 +1,224 @@
+@import '_mixins.scss';
+.WB068 .tableholder {
+  width: 100%;
+  float: left;
+  display: block;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.WB068 .WB068heading {
+  font-size: 16px!important;
+  margin: 18px 0 -9px!important
+}
+
+.WB068 .tableholder::-webkit-scrollbar {
+  height: 8px;
+}
+
+.WB068 .tableholder::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.WB068 .tableholder::-webkit-scrollbar-thumb {
+  background: #C1C1C1;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.WB068 .tableholder::-webkit-scrollbar-thumb:window-inactive {
+  background: #CCCCCC;
+}
+
+.WB068 .wab-table {
+  display: inline-block;
+  width: 46%;
+  width: auto;
+  overflow-x: scroll;
+  margin-left: 25%;
+  width: 75%;
+  &.WB068_alt-style-table {
+    margin-left: 0!important;
+    width: 100%!important;
+  }
+}
+
+.WB068 .wab-table td,
+.WB068 .wab-table th {
+  min-width: 90px;
+  padding: 8px 5px;
+  border: none;
+  text-align: center;
+}
+
+.WB068 .wab-table th:nth-of-type(2n + 2) {
+  background: #BBBBBB;
+}
+
+.WB068 .wab-table tr:nth-of-type(2n + 1) {
+  background: #E3E3E3;
+}
+
+//.WB068 .wab-table tr > td:first-of-type,
+//.WB068 .wab-table tr > th:first-of-type {
+//text-align: left;
+//  min-width: 150px; }
+.WB068 .variant-row {
+  border: 1px solid #CCCCCC;
+  padding: 20px;
+}
+
+.WB068 .uc32-tooltip {
+  position: relative;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 10px;
+  float: left;
+  width: auto;
+}
+
+.WB068 .uc32-tooltipmessage {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 10px;
+  width: 202px;
+}
+
+.WB068 .uc32-tooltipmessage.active {
+  display: block;
+}
+
+.WB068 a.caps.size-guide {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.WB068 .WB068-countrySize {
+  display: inline-block;
+  background: #fff;
+  vertical-align: top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  overflow: hidden;
+}
+
+.WB068 .WB068-countrySize p:nth-of-type(1) {
+  font-weight: bold;
+}
+
+.WB068 .WB068-countrySize p {
+  text-align: left;
+  min-width: 150px;
+  padding: 8px 10px;
+  margin-bottom: 0px !important;
+}
+
+.WB068 .WB068-countrySize p:nth-of-type(2n+1) {
+  background: #E3E3E3;
+}
+
+@media(max-width: 400px) {
+  .WB068 .WB068-countrySize {
+    width: 41%;
+  }
+  .WB068 .wab-table {
+    margin-left: 41%;
+    width: 59%;
+  }
+}
+
+@media(min-width: 767px) {
+  .WB068 .WB068-countrySize {
+    width: 37%;
+  }
+  .WB068 .wab-table {
+    margin-left: 37%;
+    width: 63%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  #sizeGuideModal {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-left: 0;
+    overflow: auto;
+  }
+  #sizeGuideModal .modal-body {
+    width: 900px;
+  }
+}
+
+@media(max-width: 768px) {
+  .WB068 .low-stock-notice {
+    margin-top: 10px !important;
+  }
+}
+
+@media(min-width: 1000px) {
+  .WB068 .WB068-countrySize {
+    width: 25%;
+  }
+}
+
+body.WB068 {
+  .WB068_branding-header {
+    clear: both;
+    margin: 20px 0 0 0;
+    font-size: 16px;
+    text-transform: none;
+    text-align: center;
+    background: #e3e3e3;
+    line-height: 40px;
+    & + .accordion-inner {
+      clear: both;
+      padding: 20px 0 0;
+    }
+  }
+  .WB068_sizing-wrap {
+    display: none;
+    
+  }
+  a.WB068_show-guide {
+    display: block;
+    background: #EDEDED;
+    color: #111;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 20px;
+    font-size: 16px;
+    position: relative;
+    &.active span::before {
+      opacity: 0;
+    }
+    span {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -1px;
+      height: 2px;
+      width: 18px;
+      background: #111;
+      &::before {
+        content: '';
+        height: 18px;
+        width: 2px;
+        position: absolute;
+        background: #111;
+        top: -8px;
+        left: 8px;
+        opacity: 1;
+        @include anim(300ms, def, (all));
+      }
+    }
+  }
+}

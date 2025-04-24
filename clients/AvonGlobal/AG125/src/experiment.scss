@@ -1,0 +1,332 @@
+@import './swiper';
+@import './variables';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.#{$id} {
+  body {
+    overflow-x: hidden;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__carousel__wrapper {
+    position: relative;
+    width: 100%;
+    margin: 25px auto;
+    padding: 12px;
+    background-color: #f6f9f9;
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100%;
+      transform: translateX(100%);
+      background-color: #fff;
+      z-index: 999;
+    }
+    &::before {
+      left: 0;
+      background-color: #fff;
+      transform: translateX(-100%);
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 30px;
+      height: 30px;
+      background-image: url(https://blcro.fra1.digitaloceanspaces.com/AG125/ag125-arrow.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .swiper {
+      overflow: visible !important;
+    }
+
+    .swiper-button-next {
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+    .swiper-button-prev {
+      left: 0;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      display: none;
+    }
+  }
+
+  &__carousel-title {
+    position: relative;
+    margin-bottom: 30px;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: calc(50% + 40px);
+      height: 1px;
+      transform: translateX(-50%);
+      background-color: #dedede;
+    }
+  }
+
+  &__carousel-item {
+    padding: 10px 0;
+    background-color: #fff;
+  }
+
+  &__carousel-content {
+    font-family: Montserrat;
+
+    &__title {
+      min-height: 50px;
+      margin: 10px 0 0;
+      padding: 0 4px 10px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 17px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #000;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      @include media-query(sm) {
+        min-height: 34px;
+        margin-bottom: 10px;
+        padding: 0 4px;
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+      }
+    }
+
+    &__price {
+      margin-bottom: 10px;
+      //color: #000;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+      letter-spacing: 0em;
+      text-align: center;
+    }
+  }
+
+  &__product-atc {
+    width: 100%;
+    // max-width: 200px;
+    //margin: 0 auto;
+    padding: 10px 0;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e5004b;
+    }
+
+    @include media-query(sm) {
+      font-size: 12px;
+      margin-top: auto;
+    }
+  }
+
+  .#{$id}__carousel-buttons {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 24px);
+    margin: 0 auto;
+    gap: 8px;
+
+    @include media-query(sm) {
+      flex-direction: column;
+
+      min-height: 80px;
+    }
+    .#{$id}__variant-dropdown-wrapper {
+      cursor: pointer;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+
+      &::after {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' aria-hidden='true' class='icon icon--wide icon-chevron-down' viewBox='0 0 10 6'%3E%3Cpath d='M5 6 0 1.203 1.254 0 5 3.602 8.746 0 10 1.203 5 6z'%3E%3C/path%3E%3C/svg%3E");
+        @include media-query(sm) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__selected-variatn-image {
+    width: 20px;
+    height: 20px;
+    border: 0.096205rem solid silver;
+    border-radius: 50%;
+    padding: 2px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  &__selected-variatn-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  &__variant-list {
+    background: white;
+    position: absolute;
+    width: 189px;
+    left: 0;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 205px;
+    overflow-y: auto;
+    border: 1px solid #e3e3e3;
+    box-sizing: border-box;
+    width: calc(100% + 24px);
+    left: -12px;
+    top: 40px;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__variant-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+
+    &.selected {
+      .#{$id}__variant-image {
+        border: 0.096205rem solid #7f28c4;
+      }
+    }
+
+    &:hover .#{$id}__variant-image {
+      border: 0.096205rem solid #7f28c4;
+    }
+  }
+
+  &__variant-image {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 2px;
+    border-radius: 50%;
+    border: 0.096205rem solid silver;
+  }
+
+  &__variant-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__variant-dropdown-wrapper[aria-expanded='false'] &__variant-list {
+    display: none;
+  }
+}
+
+.#{$id}__mobile-variant-selector-wrapper {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  position: fixed;
+  background: #00000052;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  .#{$id}__mobile-variant-list-wrapper {
+    max-height: 40vh;
+    background-color: #fff;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.3);
+
+    & > div {
+      display: flex;
+    }
+  }
+
+  .#{$id}__heading {
+    padding: 16px;
+    gap: 24px;
+  }
+  .#{$id}__variant-item-mobile {
+    padding: 8px 10px 8px 17px;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+
+    &.selected {
+      .#{$id}__variant-item-image-mobile {
+        border: 0.096205rem solid #7f28c4;
+      }
+    }
+  }
+  .#{$id}__variant-item-image-mobile {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    box-sizing: border-box;
+    border: 0.096205rem solid silver;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .#{$id}__close-icon {
+    margin-left: 6px;
+  }
+}

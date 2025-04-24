@@ -1,0 +1,344 @@
+@import './variables';
+@import '../../../../node_modules/swiper/swiper-bundle.min.css';
+
+
+@keyframes slide-progress {
+    0% {
+        transform: translateX(-100%);
+        // width: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        // width: 100%;
+    }
+}
+
+.#{$id} {
+
+    /* Circles */
+    .#{$id}-socialCircles {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+
+        .#{$id}-container {
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+
+            @media(min-width: 767px) {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        // circle
+        .#{$id}-circle {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            flex-shrink: 0;
+
+            @media(min-width: 1024px) {
+                margin: 10px 30px;
+            }
+
+            .#{$id}-icon {
+                height: 80px;
+                width: 80px;
+                background-color: #ccc;
+                border-radius: 50px;
+                background-size: cover;
+                position: relative;
+                margin-bottom: 10px;
+                border: 2px solid #333;
+                box-sizing: border-box;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    height: 100%;
+                    width: 100%;
+                    transform: translate(-50%, -50%);
+                    background: url('https://boots.scene7.com/is/image/Boots/Playbutton?scl=1&fmt=png-alpha') no-repeat center;
+                    background-size: cover;
+                    opacity: 0.9;
+                }
+
+                @media(min-width: 1024px) {
+                    height: 90px;
+                    width: 90px;
+                }
+            }
+
+            p {
+                font-family: "Boots Sharp", Arial, sans-serif;
+                color: #333;
+                font-weight: 300;
+                text-transform: capitalize;
+
+                @media(min-width: 1024px) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    /* Carousel */
+    .#{$id}-overlay {
+        position: fixed;
+        background: rgba(18, 18, 18, 0.8);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: none;
+        cursor: pointer;
+
+        .#{$id}-close {
+            position: absolute;
+            top: 10px;
+            background: url('https://boots.scene7.com/is/image/Boots/noun%2Dclose%2D392992%2DFFFFFF?scl=1&fmt=png-alpha') no-repeat center;
+            background-size: contain;
+            height: 30px;
+            width: 30px;
+            right: 10px;
+            cursor: pointer;
+    
+            @media(min-width: 1024px) {
+                height: 40px;
+                width: 40px;
+                right: 10px;
+            }
+        }
+    
+
+        &.#{$id}-overlayShow {
+            display: block;
+        }
+    }
+
+   
+    .#{$id}-carouselModal {
+        position: fixed;
+        height: 85vh;
+        width: 85vw;
+        background: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 99999;
+        max-width: 350px;
+        max-height: 600px;
+        border-radius: 10px;
+        overflow: hidden;
+
+        &.#{$id}-modalShow {
+            display: block;
+        }
+
+        .#{$id}-modalInner {
+            height: 100%;
+
+            .#{$id}-slide {
+                height: 100%;
+                width: 100% !important;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: relative;
+                font-family: "Boots Sharp", Arial, sans-serif;
+            }
+
+            .#{$id}-infoBar {
+                position: absolute;
+                bottom: 0;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.64);
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                @media(min-width: 1280px) {
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+                .#{$id}-slideLink {
+                    background: #05054b;
+                    padding: 9px 20px;
+                    font-family: "Boots Sharp", Arial, sans-serif;
+                    color: white;
+                    text-transform: uppercase;
+                    border-width: 1px solid #05054b;
+                    flex-shrink: 0;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    letter-spacing: 1px;
+                    font-size: 12px;
+                    line-height: 14px;
+                    margin-top: 5px;
+                    @media(min-width: 767px) {
+                        font-size: 14px;
+                        line-height: 21px;
+                    }
+                    @media(min-width: 1280px) {
+                        margin-left: 5px;
+                    }
+
+                    @media(min-width: 1024px) {
+                        &:hover {
+                            transition: all 400ms ease-in-out;
+                            background: white;
+                            color: #05054b;
+                        }
+                    }
+                }
+
+                h4 {
+                    font-family: "Boots Sharp", Arial, sans-serif;
+                    color: white;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    line-height: 20px;
+
+                    @media(min-width: 767px) {
+                        font-size: 14px;
+                        margin-bottom: 3px;
+                    }
+                    @media(min-width: 1280px) {
+                        font-size: 16px;
+                    }
+                }
+
+                p {
+                    font-family: "Boots Sharp", Arial, sans-serif;
+                    color: white;
+                    font-weight: 300;
+                    font-size: 14px;
+                    margin-bottom: 0;
+                }
+            }
+
+            .#{$id}-topBar {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                left: 0px;
+                z-index: 99;
+                padding: 5px 15px;
+                box-sizing: border-box;
+
+                // pagination        
+                .#{$id}-progessPagination {
+                    position: relative;
+                    text-align: left;
+                    line-height: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    max-width: 80%;
+
+                    .swiper-pagination-bullet {
+                        flex-grow: 1;
+                        height: 2px;
+                        border-radius: 0;
+                        position: relative;
+                        overflow: hidden;
+                        margin-right: 10px;
+                        background: rgb(215 215 215);
+                        opacity: 1;
+                        
+                        &::before {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background: rgb(215 215 215);
+                        }
+                    }
+
+                    .swiper-pagination-bullet-active {
+                        background: #cfcfcf;
+
+                        &::before {
+                            background-color: #cb2c2c;
+                            animation: slide-progress 5s cubic-bezier(.3, 0, .3, 1) forwards;
+                        }
+                    }
+                }
+
+                .#{$id}-socialTitle {
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 15px;
+                    align-items: center;
+                    text-transform: capitalize;
+
+                    span {
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 50px;
+                        background-size: contain;
+                        border: 1px solid #05054b;
+                        box-sizing: border-box;
+                    }
+
+                    p {
+                        font-family: "Boots Sharp", Arial, sans-serif;
+                        color: #05054b;
+                        font-weight: 600;
+                        margin-left: 10px;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            // arrows
+            .#{$id}-swiperNext,
+            .#{$id}-swiperPrev {
+                height: 25px;
+                width: 25px;
+                border-radius: 50px;
+                background-color: white;
+                background-image: url('https://boots.scene7.com/is/image/Boots/bootArr1?scl=1&fmt=png-alpha');
+                background-repeat: no-repeat;
+                background-size: 15px;
+                background-position: center;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            .#{$id}-swiperPrev {
+                transform: rotate(-180deg);
+            }
+
+        }
+
+    }
+
+    // pause animation
+    .#{$id}-carouselModal .#{$id}-modalInner.swiper-paused .#{$id}-topBar .#{$id}-progessPagination .swiper-pagination-bullet-active::before {
+        animation-play-state: paused !important;
+    }
+}

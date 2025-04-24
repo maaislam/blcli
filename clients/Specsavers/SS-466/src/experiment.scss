@@ -1,0 +1,88 @@
+@import "./variables";
+
+.#{$id} {
+	.sib-home div[data-module="alert-bar"] {
+		display: none;
+	}
+	.sib-home section[data-module="cta-cards"] {
+		display: none;
+	}
+	a.ss-nav__book-btn-desktop {
+		visibility: hidden;
+	}
+	&-1 {
+		.#{$id}-service-banner {
+			background: #e2efdd;
+			height: 51px;
+
+			.banner-carousel_wrapper.carousel {
+				display: flex;
+				align-items: center;
+				height: inherit;
+
+				@media screen and (max-width: 767px) {
+					display: block;
+				}
+
+				.carousel-cell.slide.banner-slide {
+					display: flex;
+					width: calc(100% / 3);
+					justify-content: center;
+					position: relative;
+					&:not(:last-child)::after {
+						content: "";
+						position: absolute;
+						height: 34px;
+						width: 1px;
+						background: #c5d6be;
+						right: -0.5px;
+						top: 50%;
+						transform: translateY(-50%);
+						@media screen and (max-width: 768px) {
+							display: none;
+						}
+					}
+					@media screen and (max-width: 768px) {
+						width: 100%;
+					}
+				}
+				.banner-slide-content {
+					display: block;
+					width: 100%;
+				}
+				a.banner-slide-links {
+					display: flex;
+					width: 100%;
+					padding: 0 5px;
+					text-align: center;
+					transition: all 0.2s ease;
+					height: 51px;
+					align-items: center;
+					justify-content: center;
+
+					img.banner-slide-icon {
+						max-height: 24px;
+						width: auto;
+						margin-right: 10px;
+						display: flex;
+						@media screen and (min-width: 768px) and (max-width: 991px) {
+							max-height: 20px;
+						}
+					}
+					span.banner-slide-title {
+						color: #222;
+						font-size: 18px;
+						font-weight: 600;
+						margin-top: 2px;
+						@media screen and (max-width: 767px) {
+							font-size: 16px;
+						}
+						@media screen and (min-width: 768px) and (max-width: 991px) {
+							font-size: 13px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

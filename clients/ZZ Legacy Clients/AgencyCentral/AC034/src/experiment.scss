@@ -1,0 +1,166 @@
+.AC034 {
+  // Shared styling
+  .AC034_Container.AC034_Hide {
+    display: none;
+  }
+  #search-bar-header {
+    z-index: 2;
+    position: relative;
+  } // Change search box positioning to position text elements
+  #search-bar-container {
+    position: relative;
+  } // style added search box
+  .AC034_Container {
+    border: 1px solid #000000;
+    background-color: #FFFFFF; // Using search box height
+    min-height: 173px; // Allow the added search box to cover the website search box
+    z-index: 2;
+    width: 100%;
+    position: absolute;
+  }
+  .AC034_Sub_Header {
+    display: block;
+    text-align: center;
+    text-transform: uppercase; // Create space between header and search elements
+    padding: 35px 0;
+  } // Center search box elements
+  .AC034_Search-Container {
+    text-align: center;
+  } // Search input
+  #AC034_Search_Input::placeholder {
+    text-transform: uppercase;
+  } // Search button
+  .AC034_Search_Button {
+    color: #FFFFFF;
+    background-color: #136CAA;
+    padding: 10px 50px;
+    margin-left: 10px;
+    position: relative;
+    text-transform: uppercase; // Create triangle for button
+    &::after {
+      right: 5px;
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 8.7px;
+      border-color: transparent transparent transparent #ffffff;
+      top: 50%;
+      margin-top: -5px;
+    }
+  } // Style error message
+  // Message container
+  .AC034_Error_Message_Container {
+    // Hidden by default
+    opacity: 0;
+    background-color: #FFF2F2;
+    border: solid 1px #D95959;
+    border-radius: 25px;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+  } // Error message
+  .AC034_Error_Message {
+    display: block;
+    text-align: center;
+    color: #000000;
+    padding: 5px;
+    z-index: 3;
+  } // Error message animation
+  .AC034_Error_Fade {
+    animation: AC034ErrorFade 10s; // Allow the message to appear for the majority of 10s
+    @keyframes AC034ErrorFade {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      95% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  } // Fade out animation
+  .AC034_Fade {
+    animation: AC034Fade 1s;
+    @keyframes AC034Fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        display: none;
+      }
+    }
+  } // Mobile specific styling
+  @media (max-width: 767px) {
+    // Search input and button on separate lines
+    #AC034_Search_Input {
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #d2d2d2;
+      width: 80%;
+    }
+    .AC034_Search_Button {
+      display: block;
+      margin: 10px auto;
+    } // Move error message to above the search area
+    .AC034_Error_Message_Container {
+      top: -50px
+    } // Fix for normal search box being hidden behind new search box
+    #search-bar-body.AC034_Hide {
+      display: block;
+      height: 232px;
+      overflow: hidden;
+      margin-top: -48px;
+    }
+    #search-bar-body:not(.AC034_Hide) {
+      height: auto;
+      margin-top: 0;
+      overflow: visible;
+    }
+  } // Tablet specific styling
+  @media (min-width: 768px) {
+    // Styling class to hide elements
+    .AC034_Hide {
+      display: none;
+    }
+    #AC034_Search_Input {
+      display: inline-block;
+    }
+    .AC034_Search_Button {
+      display: inline-block;
+    }
+    #AC034_Search_Input {
+      width: 40%; // Match height of button
+      padding: 9px 0 9px 10px;
+      border: 1px solid #d2d2d2;
+    }
+    .AC034_Search_Button {
+      margin-left: 10px;
+    }
+    .AC034_Error_Message_Container {
+      top: -5px;
+    } // Fix for normal search box being hidden behind new search box
+    #search-bar-body.AC034_Hide {
+      display: block;
+      height: 218px;
+      overflow: hidden;
+      margin-top: -48px;
+    }
+    #search-bar-body:not(.AC034_Hide) {
+      height: auto;
+      margin-top: 0;
+      overflow: visible;
+    }
+  } // Desktop styling
+  @media (min-width: 992px) {
+    .AC034_Error_Message_Container {
+      top: 10px;
+    }
+  }
+}

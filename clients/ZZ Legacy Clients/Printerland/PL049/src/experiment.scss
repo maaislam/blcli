@@ -1,0 +1,281 @@
+@import './variables';
+
+.#{$id} {
+  &.#{$id}-1 {
+    .header-top-container .logo-container {
+      width: 20%;
+    }
+    .header__search {
+      margin: 0 5px;
+    }
+
+    .header-top-container .search-container {
+      width: 50%;
+    }
+
+    .ais-SearchBox .ais-SearchBox-input-custom {
+      padding: .6em 50px .6em 140px;
+      // --- PL049 
+      padding: 0.6em 50px 0.6em 20px;
+    }
+    .ais-SearchBox .ais-Searchbutton {
+      left: auto;
+      background: #05C2F5;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      height: 42px;
+      padding: 8px 10px;
+
+      svg {
+        fill: white;
+        margin-left: -3px;
+      }
+    }
+
+    .consumables-cartridge-searcher-container {
+      button.ais-SearchBox-submit.ais-Searchbutton.cartridge-search-submit {
+        background-color: transparent;
+      }
+      .ais-SearchBox .ais-Searchbutton {
+        svg {
+          fill: #F0459C !important;
+          margin-left: -3px;
+        }
+      }
+    }
+    .ais-SearchBox-reset {
+      right: 60px;
+      margin-top: -2px;
+    }
+  }
+
+  &-dropdown {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    z-index: 1000;
+    font-size: 14px;
+
+    &__init {
+      cursor: pointer;
+      width: 120px;
+      font-weight: bold;  
+      height: 43px;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      border-right: 3px solid #05C2F5;
+      font-size: 13px;
+
+      &:after {
+        display: block;
+        width: 12px;
+        height: 6px;
+        content: "";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMS4yNTAxIDAuNzVIMC43NTAwNTVDMC4zMzc1NTUgMC43NSAwLjIzODU1NSAwLjk4ODUgMC41MzAzMDUgMS4yODAyNUw1LjQ2OTggNi4yMTk3NUM1Ljc2MTU1IDYuNTExNSA2LjIzODU1IDYuNTExNSA2LjUzMDMgNi4yMTk3NUwxMS40Njk4IDEuMjgwMjVDMTEuNzYxNiAwLjk4ODUgMTEuNjYyNiAwLjc1IDExLjI1MDEgMC43NVoiIGZpbGw9IiMwOEI5RjIiLz4KPC9zdmc+Cg==");
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &__options {
+      display: none;
+      background: #fff;
+      border: 3px solid #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+      text-align: left;
+      color: #000;
+      margin-left: -10px;
+      min-width: 250px;
+      position: absolute;
+      top: auto;
+      left: auto;
+    }
+
+    &__option {
+      margin: 10px 0;
+      padding-right: 20px;
+      cursor: pointer;
+      position: relative;
+
+      &--active {
+        font-weight: bold;
+
+        &:after {
+          content: "";
+          width: 18px;
+          height: 12px;
+          display: block;
+          position: absolute;
+          right: 0px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNi42NiAyLjQyTDYuNTYwMDEgMTIuNjZDNi4yMjAwMSAxMy4wMiA1LjY0MDAxIDEzLjAyIDUuMzAwMDEgMTIuNjZMMS4xNDAwMSA4LjRDMC44MDAwMSA4LjA0IDAuODAwMDEgNy40OCAxLjE0MDAxIDcuMTJDMS40ODAwMSA2Ljc2IDIuMDYwMDEgNi43NiAyLjQwMDAxIDcuMTJMNS45NDAwMSAxMC43NEwxNS40MiAxLjE0QzE1Ljc2IDAuNzc5OTk1IDE2LjM0IDAuNzc5OTk1IDE2LjY4IDEuMTRDMTcuMDIgMS41IDE3LjAyIDIuMDYgMTYuNjYgMi40MloiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  &-dropdown--active {
+    .#{$id}-dropdown__init {
+
+      &:after {
+        transform: rotate(180deg) translateY(50%);
+      }
+    }
+
+    .#{$id}-dropdown__options {
+      display: block;
+    }
+  }
+
+  // Cats
+  &.#{$id}-2 {
+    .al-search.active .searchresults {
+      padding-top: 0;
+    }
+    .al-search .categories_container {
+      background: #fff;
+      margin-bottom: 0;
+      padding: 15px 15px 30px;
+      margin-top: 0;
+
+      @media(min-width: 942px) {
+        background: none;
+      }
+    }
+  }
+
+  &-cats {
+    padding: 15px 0 0;
+
+    @media(min-width: 500px) {
+      padding: 15px 0;
+    }
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+      text-align: left;
+
+      @media(min-width: 500px) {
+        text-align: center;
+      }
+    }
+
+    &__cat {
+      cursor: pointer;
+      max-width: 50%;
+      width: 300px;
+      background: #fff;
+      border: 1px solid #d1d1d1;
+      border-radius: 15px;
+      padding: 10px 8px;
+      margin: 0 4px;
+
+      @media(min-width: 500px) {
+        margin: 0 15px;
+        padding: 15px 30px;
+      }
+
+      &.xactive {
+        border: 3px solid #000;
+      }
+
+      img,
+      span {
+        display: block;
+      }
+
+      img {
+        height: 30px;
+        width: auto;
+        margin: 0 auto 10px;
+
+        @media(min-width: 400px) {
+          margin: 0 auto 15px;
+          height: 40px;
+        }
+      }
+      span {
+        font-weight: bold;
+        font-size: 12px;
+
+        @media(min-width: 500px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  // --- PL049 Style
+  div#aisSearchContainer.active {
+    border: none;
+  }
+  div#al-searchresults.active {
+    padding-top: 0;
+  }
+  .categories_container {
+    padding: 10px 0 30px;
+    padding: 10px 0 0 0;
+    margin-top: 0;
+
+    #departmentLinks {
+      padding-bottom: 10px;
+      .ais-Hits {
+        width: 100%;
+
+        ol.ais-Hits-list {
+          width: 100%;
+          @media screen and (max-width: 1204px) {
+            overflow-x: scroll;
+          }
+          
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: row;
+
+          li.ais-Hits-item {
+            min-width: 260px;
+
+            a span {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+
+    .PL049-cats {
+      @media screen and (max-width: 1204px) {
+        background-color: #FFF;
+      }
+      
+      padding: 20px 10px 25px 10px;
+
+      @media screen and (max-width: 1204px) {
+        border-bottom: 1px #ccc solid;
+      }
+      
+    }
+  }
+}

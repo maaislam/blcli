@@ -1,0 +1,279 @@
+@import './variables';
+
+.#{$id} {
+  // Remove floating elements
+
+  #intro,
+  #team,
+  #manager {
+    float: none;
+  }
+
+  #rest-of-page hr {
+    display: none;
+  }
+
+  #manager:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+
+  // Global styling
+
+
+  .HH024_Container {
+    clear: both;
+  }
+
+  .HH024_Button {
+    color: #FCFCFC;
+  }
+
+  // Remove all padding
+  .HH024_Box_Elements {
+    border: solid 1px #000000;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    >* {
+      padding: 10px;
+    }
+  }
+
+  .HH024_Box_Elements>h2:after,
+  .HH024_Box_Elements>div>h2:after,
+  .HH024_Box_Elements>p:after,
+  .HH024_Box_Elements>div>p:after, {
+    bottom: 0;
+    margin-left: 10px;
+  }
+
+  .HH024_Box_Elements>#intro,
+  .HH024_Box_Elements>#manager,
+  .HH024_Box_Elements>#team,
+  .HH024_Box_Elements>.additional-details>p {
+    padding: 0 !important;
+  }
+
+  .HH024_Box_Elements>p,
+  .HH024_Box_Elements>div>p {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .HH024_Box_Elements #intro h2 {
+    padding-top: 0;
+  }
+
+  .HH024_Box_Elements {
+    h2, p.p2 {
+      margin: 10px 0 5px 0 !important;
+      padding: 10px;
+      clear: both;
+    }
+
+    >h2:first-of-type,
+    >p.p2:first-of-type {
+      margin-top: 0 !important;
+    }
+  }
+
+  .HH024_Box_Elements>hr {
+    display: none;
+  }
+
+  .HH024_Box_Elements>div>* {
+    padding-top: 0;
+  }
+
+  .HH024_Box_Elements>#manager {
+    padding-bottom: 0;
+
+    >p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .HH024_Box2 .HH024_Box_Elements {
+    >.pull-quote.quotation {
+      margin-bottom: 20px;
+    }
+
+    >*:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .HH024_Box_Elements>div>hr {
+    display: none;
+  }
+
+  .HH024_Box_Elements .pull-quote {
+    margin: 0 10px;
+  }
+
+  .HH024_Box_Elements>#team {
+    >p {
+      padding: 0;
+
+      &.p2 {
+        padding: 10px;
+      }
+    }
+
+    .child-pages {
+      margin-top: 10px;
+    }
+  }
+
+  .HH024_Box_Elements ul {
+    margin-left: 30px;
+    padding: 0;
+  }
+
+  .HH024_Button_Container:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+
+  .HH024_Box_Elements>#manager {
+    >p.p2:first-of-type,
+    >h2:first-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  .video {
+    margin-top: 15px;
+  }
+
+  .btn+.video {
+    margin-top: 0;
+  }
+
+  // Mobile, tablet
+  @media (max-width: 991px) {
+    #rest-of-page > a.btn {
+      margin: 5px 0 !important;
+
+      &:first-of-type {
+        margin-top: 0 !important;
+      }
+
+      &:last-of-type {
+        margin-bottom: 25px !important;
+      }
+    }
+
+    .HH024_Container {
+      padding: 25px 15px;
+    }
+
+    .HH024_Button_Container {
+      display: none;
+    }
+
+    .HH024_Button.HH024m {
+      background-color: #533F89;
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+
+      &::before {
+        content: "\e258";
+        font-family: "Glyphicons Halflings", sans-serif;
+        position: absolute;
+        right: 15px;
+        padding-right: 15px;
+        color: #ffffff;
+        transform: rotate(90deg);
+        padding: 0;
+        top: 50%;
+        font-size: 25px;
+        transition: transform 0.5s ease;
+        margin-top: -18px;
+      }
+    }
+
+    .HH024_Button.HH024m.HH024_Open::before {
+      transform: rotate(-90deg);
+    }
+
+    // Visibility Controlled by jQuery
+    .HH024_Box_Elements {
+      display: none;
+    }
+
+    .HH024_Box2 {
+      margin: 10px 0;
+    }
+
+    .HH024_Box_Elements .table.table-striped {
+      display: block;
+      overflow-x: scroll;
+    }
+  }
+
+  // Tablet/Desktop
+  @media (min-width: 992px) {
+    .HH024_Box_Elements>table {
+      width: calc(100% - 20px);
+      margin: 0 auto;
+    }
+
+    .HH024m {
+      display: none;
+    }
+
+    .HH024_Box_Elements {
+      padding: 20px;
+    }
+
+    // Controlled by class in JS
+    .HH024_Box {
+      display: none;
+    }
+
+    .HH024_Box_Container {
+      clear: both;
+    }
+
+    .HH024_Button.HH024d {
+      text-align: center;
+      background-color: #EFE8F6;
+      color: #4A4A4A;
+      float: left;
+      padding: 10px 20px;
+      width: 33.33%;
+      cursor: pointer;
+      transition: 1s ease background-color;
+      transition: 1s ease color;
+
+      &:hover {
+        background-color: #533F89;
+        color: #FCFCFC;
+      }
+    }
+
+    .HH024_Button2.HH024d {
+      margin: 0 5px;
+      width: calc(33.33% - 10px);
+    }
+
+    .HH024_Box.HH024_Active {
+      display: block;
+    }
+
+    .HH024_Button.HH024d.HH024_Active {
+      background-color: #533F89;
+      color: #FCFCFC;
+    }
+  }
+}

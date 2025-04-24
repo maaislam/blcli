@@ -1,0 +1,40 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    @at-root #{&}_button{
+        text-align: center;
+        padding: 20px;
+        // padding: get-value($settings, 'base', 'baseline') / 2;
+        background-color: get-value($settings, 'colors', 'ejPurple');
+        color: #fff;
+        font-weight: bold;
+        @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 9);
+        text-transform: uppercase;
+        @at-root .hsamuel #{&}{
+            background-color: get-value($settings, 'colors', 'hsRed');
+        }
+        @at-root #{&}Wrap{
+            position: fixed;
+            z-index: 3;
+            bottom:0;
+            left:0;
+            width: 100%;
+            box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.25);
+        }
+    }
+    .browse__sort-container.mobile-and-tablet-only .js-modal-trigger{
+        display:none;
+    }
+}
+
+

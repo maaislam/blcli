@@ -1,0 +1,213 @@
+@import '../../variables';
+@import '../../../../../../lib/components/Lightbox/Lightbox.scss';
+
+$sm: '768px';
+$xs: '350px';
+
+html.#{$id}_Lightbox__noScroll,
+body.#{$id}_Lightbox__noScroll {
+  overflow: hidden !important;
+}
+
+.#{$id} {
+  .#{$id}_SizingPopup {
+    padding: 50px 40px 10px 40px;
+
+    h2 {
+      color: #2D3746;
+      font-family: Balto, sans-serif;
+      margin: 0 0 25px 0;
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: 400;
+
+      @media screen and (max-width: $xs) {
+        font-size: 23px;
+        margin: 0 0 15px 0;
+      }
+    }
+
+    p {
+      display: inline-block;
+      margin: 20px 0;
+      font-size: 16px;
+      
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      em {
+        font-weight: 600;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    ul > li {
+      p {
+        display: block;
+        overflow: hidden;
+      }
+
+      &:before {
+        content: '-';
+        margin-right: 5px;
+        float: left;
+      }
+    }
+
+    @media (max-width: 500px) {
+      padding: 40px 20px;
+    }
+  }
+
+  .#{$id}_SizingPopup-trigger-wrap {
+    text-align: center;
+  }
+  
+  .#{$id}_SizingPopup-trigger {
+    margin: 10px auto 0 auto;
+  }
+
+  .#{$id}_SizingPopup-trigger-size {
+    display: block;
+    text-align: center;
+    margin: 20px auto 5px auto;
+    font-size: 15px;
+
+    em {
+      font-weight: 800;
+    }
+
+    @media screen and (max-width: $sm) {
+      margin: 5px auto 5px auto;
+    }
+  }
+
+  .#{$id}_SizingPopup-section {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 30px 0;
+    font-size: 0;
+
+    p, li {
+      font-size: 16px;
+    }
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+
+    &:last-of-type {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    &:nth-child(2) {
+      padding-right: 70px;
+
+      @media screen and (max-width: $sm) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .#{$id}_SizingPopup-section--size {
+    .#{$id}_sizeImageWrap,
+    .#{$id}_sizeTextWrap {
+      width: 50%;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    @media screen and (max-width: 500px) {
+      .#{$id}_sizeImageWrap {
+        display: block;
+        width: 100%;
+        padding: 0;
+        max-width: 230px;
+        margin: 0 auto;
+      }
+
+      .#{$id}_sizeTextWrap {
+        width: 100%;
+        margin: 20px 0 0 0;
+      }
+    }
+  }
+
+  .#{$id}_SizingPopup-sizeImage {
+    padding: 0 30px 0 0;
+
+    @media screen and (max-width: 500px) {
+      padding: 0 20px 0 0;
+    }
+  }
+
+  // Canvas
+  ##{$id}_Measurements {
+    display: block;
+    margin: 30px auto 0 auto;
+    width: 100%;
+
+    // @media (max-width: 500px) {
+    //   width: calc(100% + 20px);
+    //   margin-left: -10px;
+    // }
+  }
+
+  // Lightbox component style overrides
+  .#{$id}_Lightbox {
+    max-width: 780px;
+    width: 98%;
+
+    @media (min-width: 500px) {
+      max-height: 95%;
+      width: 95%;
+    }
+  }
+  
+  .#{$id}_Lightbox__content {
+    border: none;
+    border-radius: 0;
+
+    @media (min-width: 500px) {
+      max-height: 95vh;
+    }
+  }
+  
+  .#{$id}_Lightbox__close {
+    background: none;
+    top: 1px;
+    right: 10px;
+    border-radius: 0;
+
+    @media screen and (max-width: $sm) {
+      background: #fbfbfb;
+      right: 0;
+    }
+
+    &:before {
+      position: static !important;
+      top: 0 !important;
+      right: 0 !important;
+      font-size: 56px;
+      font-weight: 200;
+      transform: none !important;
+    }
+
+    &:hover {
+      background: none;
+    }
+
+    &:hover:before {
+      color: #afafaf;
+    }
+  }
+}

@@ -1,0 +1,406 @@
+@import '../../variables';
+
+.#{$id} {
+  &.Layout_Desktop,
+  &.Layout_Tablet {
+    // Mobile components
+    .#{$id}_heroSlider,
+    .#{$id}_miniProductInfo {
+      display: none;
+    }
+
+    // Image gallery
+    #ProductMediaContainer,
+    .#{$id}_bottomInfo__left {
+      width: 42rem;
+    }
+
+    [ng-controller="MediaGalleryController"] {
+      .MediaGallery,
+      > .CenterElement {
+        display: none;
+      }
+
+      img.SmallImageGallery {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    // Mark. product title
+    .#{$id}_titleBrand {
+      font-style: normal;
+      font-family: Arial,Gotham,"Helvetica Neue",Helvetica,sans-serif;
+      color: #333;
+      font-weight: 800;
+      font-size: 4.6rem;
+      line-height: normal;
+    }
+  
+    .#{$id}_titleName {
+      line-height: normal;
+      margin-bottom: 10px;
+      font-style: normal;
+      font-family: Arial,Gotham,"Helvetica Neue",Helvetica,sans-serif;
+      color: #333;
+    }
+
+    #ProductDetails {
+      .Prices {
+        padding-top: 0;
+      }
+  
+      .Price {
+        display: inline-block;
+      }
+  
+      .savings {
+        display: block;
+      }
+    }
+
+    #ProductDetailContainer #ProductDetailForm .ProductInformation {
+      margin-bottom: 0;
+    }
+
+    // Bullet points
+    .#{$id}_uvpList {
+      list-style-type: none;
+      font-size: 1.6rem;
+      margin-top: 10px;
+  
+      li {
+        margin: 3px 0;
+        padding: 0;
+  
+        &:first-of-type {
+          margin-top: 0;
+        }
+  
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        
+        &:before {
+          content: '•';
+          margin-right: 7px;
+          color: #ec008c;
+        }
+      }
+    }
+
+    // Sticky product info
+    .#{$id}_topInfoWrap {
+      will-change: min-height;
+    }
+
+    .#{$id}_topInfo {
+      transform: translate(0, 0); /* For browsers don't support translate3d. */
+      transform: translate3d(0, 0, 0);
+      will-change: position, transform;
+
+      &.#{$id}_topInfo--stuck {
+        position: fixed;
+        top: 0;
+      }
+
+      &.#{$id}_topInfo--stuck.#{$id}_topInfo--bottomedOut {
+        position: absolute;
+        top: initial;
+        bottom: 0;
+      }
+
+      .ProductName {
+        font-size: 3.2rem;
+        position: relative;
+        top: 1.2rem;
+        color: #333;
+        font-family: 'Lato', Arial, Gotham,"Helvetica Neue", Helvetica, sans-serif !important;
+        font-style: normal;
+      }
+      
+      .Prices {
+        .Price {
+          font-size: 2.8rem;
+          color: #ec008c;
+        }
+
+        .savings {
+          margin-bottom: 5px;
+        }
+
+        .ListPrice {
+          font-size: 1.4rem;
+          color: #999;
+
+          span:first-child {
+            position: relative;
+            display: inline-block;
+
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              border-top: solid .2rem #ec008c;
+              top: .8rem;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      // Anchor
+      .#{$id}_productInfoAnchor {
+        margin-top: 1.25rem;
+        padding: .75rem;
+        text-align: center;
+        user-select: none;
+        font-family: 'Roboto', 'Lato', Arial, Gotham,"Helvetica Neue", Helvetica, sans-serif !important;
+        font-style: normal;
+
+        span {
+          padding: .5rem 2rem;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .ProductDetails {
+      position: relative;
+    }
+
+    // Static product info
+    .#{$id}_bottomInfo {
+      padding: 60px 0;
+
+      .ShadeSwatches .ShadeGroup {
+        .ShadeGroupName {
+          font-size: 1.3rem;
+        }
+
+        ul {
+          *zoom: 1;
+          margin-top: 0;
+          margin-bottom: .5rem;
+          width: 95%;
+          
+          &:after {
+            clear: both;
+          }
+
+          &:before,
+          &:after {
+            display: table;
+            content: "";          
+          }
+
+          li {
+            display: inline-block;
+            cursor: pointer;
+
+            img {
+              width: 100%;
+              display: block;
+            }
+
+            .OverlayContainer {
+              color: #ec008c;
+              padding-bottom: .3rem;
+              cursor: default;
+              position: relative;
+
+              .Overlay {
+                display: none;
+                margin-bottom: 1rem;
+                -webkit-box-shadow: 0.2rem 0.2rem 0.2rem 0 rgba(0,0,0,.25);
+                -moz-box-shadow: .2rem .2rem .2rem 0 rgba(0,0,0,.25);
+                box-shadow: 0.2rem 0.2rem 0.2rem 0 rgba(0,0,0,.25);
+                text-transform: none;
+                text-align: center;
+                width: 12rem;
+                border: 1px solid #f5f5f5;
+                border-bottom-color: #ec008c;
+                position: absolute;
+                z-index: 9980;
+                padding: 1rem 1rem 0 1rem;
+                background-color: #fff;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -6rem;
+
+                .VariantImageOverlay {
+                  cursor: pointer;
+                  width: 10rem;
+                  height: auto;
+                  border: none;
+                  z-index: 9989;
+                }
+              }
+
+              .VariantName {
+                font-size: 1.1rem;
+                color: #000;
+                padding-bottom: 1.5rem;
+                white-space: pre-line;
+              }
+
+              .VariantLineNumber {
+                font-size: 1.1rem;
+                color: #000;
+                position: absolute;
+                padding-left: 3.4rem;
+                margin-top: -1rem;
+              }
+
+              .VariantClickToSelect {
+                font-size: 1.1rem;
+                color: #ec008c;
+              }
+
+              .RotatedCaret45Overlay {
+                display: none;
+                margin-top: -1rem;
+                margin-left: -1rem;
+                position: absolute;
+                left: 50%;
+                z-index: 9980;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 1.6rem .9rem 0 .9rem;
+                border-color: #ec008c transparent transparent transparent;
+              }
+
+              .RotatedCaret45 {
+                display: none;
+                margin-top: -1.2rem;
+                margin-left: -1rem;
+                position: absolute;
+                left: 50%;
+                z-index: 9990;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 1.6rem .9rem 0 .9rem;
+                border-color: #fff transparent transparent transparent;
+              }
+
+              .VariantImage {
+                margin-right: .4rem;
+
+                img {
+                  height: 2.5rem;
+                  width: auto;
+                }
+              }
+
+              .Active {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      
+      .ShadeDropdown {
+        .SelectedRepeat {
+          margin-bottom: .2rem;
+
+          .SelectedVariant {
+            display: table-cell;
+            pointer-events: none;
+            cursor: default;
+
+            img {
+              vertical-align: top;
+              padding-top: .3rem;
+              height: 2.5rem;
+            }
+          }
+
+          .SelectedVariantQuantity {
+            display: table-cell;
+            padding-left: 1rem;
+
+            .Quantity {
+              display: inline-table;
+            }
+
+            .RemoveLink {
+              padding-left: 1.5rem;
+              font-size: 1.2rem;
+              color: red;
+            }
+          }
+        }
+
+        &.ShadeSelectedDropdown {
+          padding-bottom: 0;
+
+          .SelectedRepeat {
+            padding-bottom: .5rem;
+          }
+
+          &.FormField>div>div.SelectedVariant>div>a>span:nth-child(2)>span {
+            padding-left: 5.5rem;
+          }
+        }
+      }
+
+      #ProductNameAndRating h1.ProductName {
+        padding-top: 0;
+        font-family: 'Lato', Arial, Gotham,"Helvetica Neue", Helvetica, sans-serif !important;
+      }
+
+      .#{$id}_shadesHeading {
+        font-weight: bold;
+        font-family: 'Roboto', 'Arial', 'Gotham', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+        font-size: 1.8rem;
+        margin: 10px 0 15px 0;
+      }
+    }
+
+    .#{$id}_bottomInfo__left,
+    .#{$id}_bottomInfo__right {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .#{$id}_bottomInfo__left {
+      padding-top: 30px;
+    }
+    
+    .#{$id}_bottomInfo__right {
+      padding-left: 4rem;
+
+      #ProductDetails .ProductActions {
+        margin-top: 0;
+
+        .AddToCart .Button {
+          width: 21rem;
+          text-align: center;
+          font-family: 'Roboto', 'Arial', 'Gotham', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+          font-style: normal;
+        }
+      }
+
+      .#{$id}_shadeSelections {
+        margin: 20px 0 0 0;
+      }
+
+      .ShadeSelectionDropdown {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &.Layout_Desktop {
+    &.AV005 {
+      .#{$id}_bottomInfo__right .AV005_DeliveryMessaging {
+        margin: 0 0 3rem 0;
+      }
+    }
+  }
+}
+
+

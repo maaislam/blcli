@@ -1,0 +1,66 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+@import './components/lib/Tab/tab';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    @at-root #{&}-viewed{
+        position: relative;
+        @at-root #productlistcontainer #{&}{
+            .MainImage{
+                opacity:0.7;
+            }
+            .#{$ID}-visited {
+                position: absolute;
+                top:10px;
+                left: 10px;
+                padding: 5px 10px;
+                border-radius:3px;
+                background-color: #000;
+                pointer-events: none;
+                p {
+                    color: #ffffff;
+                    margin: 0;
+                    font-size: 16px;
+                }
+                @media screen and (max-width:768px){
+                    top:unset;
+                    bottom:30px;
+                    left:50%;
+                    transform: translateX(-50%);
+                    width:calc(100% - 10px);
+                }
+                @media screen and (min-width:768px) and (max-width:1024px){
+                    top:unset;
+                    bottom:30px;
+                    left:50%;
+                    transform: translateX(-50%);
+                    width:calc(100% - 20px);
+                }
+            }
+    
+            .s-producttext-top-wrapper {
+                //padding: 0 5px;
+            }
+        }
+    }
+}
+
+.FL071-2 {
+  li.FL071-viewed {
+    .FL071-visited {
+      display: none;
+    }
+    .MainImage {
+      opacity: 1 !important;
+    }
+  }
+}

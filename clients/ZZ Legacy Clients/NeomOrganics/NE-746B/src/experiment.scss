@@ -1,0 +1,63 @@
+@import './variables';
+
+.#{$id} {
+    @media screen and (min-width: 769px) {
+        .#{$id}-background {
+            background-position: center center;
+            background: linear-gradient(270deg, rgba(72, 45, 45, 0.39) 0%, rgba(72, 45, 45, 0.00) 22.31%),
+                url(https://blcro.fra1.digitaloceanspaces.com/NE-746/NE746-phase2-banner-desktop.png);
+            background-size: cover;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .#{$id}-background {
+            background: linear-gradient(180deg, rgba(72, 45, 45, 0.39) 48.74%, rgba(72, 45, 45, 0.00) 100%),
+                url(https://blcro.fra1.digitaloceanspaces.com/NE-746/NE746-phase2-banner-mobile.png);
+            background-position: center center;
+            background-size: cover;
+        }
+    }
+
+    .#{$id}-banner {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include media-query(sm) {
+            justify-content: center;
+            min-height: 426px;
+        }
+
+        &-content {
+            max-width: 290px;
+            display: grid;
+            text-align: center;
+
+            @include media-query(sm) {
+                margin-bottom: 80px;
+            }
+
+            .title {
+                margin-bottom: 22px;
+                color: #FFF;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 28px;
+            }
+
+            .subTitle {
+                margin-bottom: 19px;
+                color: #FFF;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 19px;
+            }
+        }
+    }
+}

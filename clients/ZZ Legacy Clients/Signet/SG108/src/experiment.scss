@@ -1,0 +1,843 @@
+@import './variables';
+@import './keyframes.scss';
+
+.#{$id} {
+  &.productListPage {
+    .browse-banner  {
+      display: none;
+    }
+  }
+  .home-tile-grid {
+    margin-bottom: 25px;
+  }
+
+  &.#{$id}-noScroll {
+    overflow: hidden;
+  }
+
+  .#{$id}-finderBanner {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 25px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      background: #ebebeb;
+      height: 80%;
+      z-index: -1;
+      bottom: 0;
+    }
+    
+    
+    
+
+    .#{$id}-image {
+      height: 200px;
+      width: 85%;
+      background: url('https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/29061342-7d06-11ec-854f-ca431accb13e') no-repeat center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .#{$id}-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    h3 {
+      font-family: "Oxygen",sans-serif;
+      margin-bottom: 0;
+      font-size: 20px;
+      margin-top: 0;
+      @media(min-width: 375px) {
+        font-size: 23px;
+        margin-bottom: 3px;
+      }
+    }
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+      @media(min-width: 375px) {
+        font-size: 16px;
+      }
+    }
+    .#{$id}-ctaBanner {
+      border: 1px solid black;
+      padding: 10px 20px;
+      font-family: "Oxygen",sans-serif;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 17px;
+      background-color:black;
+      color: white;
+      width: 200px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  /*---------------------
+  Finder
+  ---------------------*/
+
+  .#{$id}-ringFinder {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 999999;
+    top: 0;
+    transform: translateX(-2000px);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    @media screen and (orientation:landscape) {
+      overflow-y: scroll;
+    }
+
+    &.#{$id}-finderActive {
+      animation: SGslide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    /*---------------------
+      General Styling
+    ---------------------*/
+    // Typography
+    h1 {
+      font-weight: 700;
+      font-size: 20px;
+      color: #090909;
+      font-family: Oxygen, sans-serif;
+      margin-top: 0;
+      margin-bottom: 5px;
+
+      @media(min-width: 375px) {
+        font-size: 23px;
+      }
+    }
+
+    h2 {
+      line-height: 24px;
+      color: #090909;
+      font-family: Oxygen, sans-serif;
+      margin-bottom: 0px;
+      background: #f3f3f3;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 5px 0px;
+      max-width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      text-align: left;
+      letter-spacing: 0.3px;
+      height: 35px;
+
+      @media(min-width: 375px) {
+        font-size: 17px;
+        margin-bottom: 0px;
+      }
+
+      @media(min-width: 410px) {
+        font-size: 20px;
+      }
+
+      @media(min-width: 375px) and (min-height: 700px) {
+        font-size: 19px;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: #575858;
+      font-family: Oxygen, sans-serif;
+
+      @media(min-width: 375px) {
+        font-size: 16px;
+      }
+    }
+
+    // Buttons
+    .#{$id}-button {
+      padding: 0;
+      height: 50px;
+      line-height: 50px;
+      max-width: 80%;
+      margin: 0 auto;
+      box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: center;
+      font-family: Oxygen, sans-serif;
+      letter-spacing: 0.5px;
+      font-size: 17px;
+      &.start {
+        background: black;
+        color: white;
+      }
+    }
+
+    .#{$id}-circle-button {
+      height: 60px;
+      width: 60px;
+      background: white;
+      box-shadow: 0px 2px 7px rgba(64, 64, 63, 0.25);
+      border: 0px;
+      border-radius: 50px;
+
+      &.product_yes {
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/77AB7D213B56C9235B9467236B95C028F2778995F47DAA888E5A9050DB5CB32B.png?meta=/SG108---Engagement-Ring-Finder-Tool/heart.png') no-repeat center;
+        background-size: 28px;
+        filter: sepia(0.4);
+      }
+
+      &.product_no {
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7AC239CB8E06349D2589F379BF9BBC301F76D14C2F4FC1951138CBFA3B6E81EB.png?meta=/SG108---Engagement-Ring-Finder-Tool/cross.png') no-repeat center;
+        background-size: 25px;
+      }
+
+      @media(min-width: 375px) {
+        // height: 70px;
+        // width: 70px;
+
+        &.product_yes {
+          background-size: 35px;
+        }
+
+        &.product_no {
+          background-size: 25px;
+        }
+      }
+      @media(min-width: 414px) {
+        height: 80px;
+        width: 80px;
+      }
+    }
+
+    .#{$id}-btn {
+      display: block;
+      border: 1px solid black;
+      padding: 5px 20px;
+      font-family: "Oxygen",sans-serif;
+      font-weight: bold;
+      font-size: 15px;
+      background-color:black;
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: unset;
+      margin: 0 auto;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+
+    // Icons
+    .#{$id}-finder-close {
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      right: 10px;
+      z-index: 9;
+      top: 10px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7AC239CB8E06349D2589F379BF9BBC301F76D14C2F4FC1951138CBFA3B6E81EB.png?meta=/SG108---Engagement-Ring-Finder-Tool/cross.png') no-repeat center;
+      background-size: contain;
+    }
+
+  }
+
+  /*---------------------
+  Intro Content
+  ---------------------*/
+  .#{$id}-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    @media screen and (orientation:landscape) {
+      height: 500px;
+    }
+
+    .#{$id}-container,
+    .#{$id}-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    p {
+      max-width: 80%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+
+    .#{$id}-intro-image {
+      position: relative;
+    }
+
+    .#{$id}-image-bg {
+      height: 47vh;
+      width: 300px;
+      background: url('https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/431a0fc2-7d10-11ec-ae60-be4db3966d25') center no-repeat;
+      background-size: contain;
+      margin: 0 auto;
+
+     @media(min-height: 375px) {
+       width: 320px;
+     }
+    }
+
+    .#{$id}-image.swipeAnimate {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      animation: SGtiltImage infinite 6s;
+      transform: translateX(-50%);
+      height: 48vh;
+      width: 270px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/2927D1368337F82222359C0C2C1C5DED810DE80A5AFBFFDF07C2EBE305B5912E.png?meta=/SG108---Engagement-Ring-Finder-Tool/animatedImage.png') center no-repeat;
+      background-size: contain;
+      margin: 0 auto;
+      @media(min-height: 800px) {
+       top: 15px;
+      }
+    }
+
+    .#{$id}-icon.hand {
+      position: absolute;
+      bottom: 0;
+      height: 50px;
+      width: 50px;
+      left: 50%;
+      animation: SGswayIcon infinite 6s;
+      transform: translateX(-50%);
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/B58A8BE3254AA02E579E6B4A477DD5F76E9E2B057A438902321D6BF17ACE9210.png?meta=/SG108---Engagement-Ring-Finder-Tool/handIcon.png') center no-repeat;
+      background-size: contain;
+    }
+
+    .#{$id}-bottom-content {
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  }
+
+
+
+  /*---------------------
+  Product Section content
+  ---------------------*/
+
+  .#{$id}-swiper-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    top: 0px;
+    z-index: 100;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: translateX(-2000px);
+
+    &.#{$id}-swiper-active {
+      animation: SGslide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .#{$id}-finder-close {
+      background: url('https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/cb302de8-7d0f-11ec-a3a3-fa55deced51e') no-repeat center;
+      background-size: contain;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 70%;
+      max-height: 500px;
+      width: 100%;
+      background: url('https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/7e89e024-7d0f-11ec-bf98-12c99814c353') center no-repeat;
+      background-size: cover;
+      top: 0;
+      left: 0;
+    }
+
+    // fake product in background
+    .productback {
+      position: absolute;
+      background: white;
+      border-radius: 5px;
+      top: 40px;
+      width: 83%;
+      height: 65vh;
+      opacity: 1;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0px 2px 13px rgba(123, 123, 123, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      overflow: hidden;
+      @media(min-width: 375px) {
+        height: 66vh;
+      }
+      @media screen and (orientation:landscape) {
+        height: 500px;
+      }
+     
+      &:nth-child(1) {
+        width: 80%;
+        opacity: 0.5;
+        top: 35px;
+        height: 50px;
+      }
+
+      &:nth-child(2) {
+        z-index: 1;
+      }
+
+      .#{$id}-productback_image {
+        padding: 10px;
+        position: relative;
+        width: 100%;
+        height: 250px;
+        display: flex;
+        margin: 0 auto;
+        border-radius: 5px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+        filter: blur(6px);
+        @media(min-width: 375px) {
+          height: 100%;
+        }
+      }
+
+      .#{$id}-product_backInfo {
+        padding: 10px;
+        display: flex;
+        background: #f3f3f3;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        filter: blur(5px);
+
+        .#{$id}-productBackTitle {
+          margin: 0 auto;
+          margin-bottom: 5px;
+          font-size: 14px;
+          text-align: left;
+
+          @media(min-width: 375px) {
+            font-size: 16px;
+          }
+
+          @media(min-width: 410px) {
+            font-size: 17px;
+            line-height: 25px;
+          }
+
+          @media(min-width: 375px) and (min-height: 700px) {
+            font-size: 18px;
+            line-height: 25px;
+          }
+
+        }
+
+        .#{$id}-productBackPrice {
+          font-weight: 700;
+          color: #090909;
+          font-size: 18px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          text-align: left;
+
+          @media(min-width: 375px) {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 20px;
+          }
+
+          @media(min-width: 410px) {
+            font-size: 23px;
+          }
+
+          @media(min-width: 375px) and (min-height: 700px) {
+            font-size: 23px;
+          }
+        }
+
+        @media(min-width: 375px) {
+          padding: 15px;
+        }
+      }
+    }
+
+    .#{$id}-mainproduct {
+      padding-top: 45px;
+
+      .#{$id}-product-card {
+        height: 65vh;
+        width: 85%;
+        margin: 0 auto;
+        position: relative;
+        background: white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0px 2px 13px rgba(123, 123, 123, 0.5);
+        transform-origin: 50% 100%;
+        z-index: 2;
+        // like/dislike effect on drag
+        .#{$id}-product__card__choice {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          z-index: 99;
+          background: #3c3c3c;
+          border-radius: 5px;
+
+          &::after {
+            content: '';
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            @media(min-width: 375px) {
+              height: 90px;
+              width: 90px;
+            }
+          }
+
+          &.m--like {
+            &::after {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/E0919AD2A8D1F9771CBB9BDD76860E7D4A9D0BE3D85F708186D4078881BDBA7F.png?meta=/SG108---Engagement-Ring-Finder-Tool/noun_Heart_78806.png');
+            }
+
+          }
+
+          &.m--reject {
+            &::after {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7331DF2C1ABB2809085A20B71A15E747B95D1BDF74C97AB5DD92034C69554F6D.png?meta=/SG108---Engagement-Ring-Finder-Tool/noun_Cross_613962.png');
+            }
+          }
+        }
+
+        &.reset {
+          transition: transform 0.3s;
+          transform: translateX(0) !important;
+
+          .product__card__choice {
+            transition: opacity 0.3s;
+            opacity: 0 !important;
+          }
+        }
+
+        &.inactive {
+          transition: transform 0.3s;
+        }
+
+        &.to-left {
+          transform: translateX(-30rem) rotate(-30deg) !important;
+        }
+
+        &.to-right {
+          transform: translate(30rem) rotate(30deg) !important;
+        }
+
+        &.below {
+          z-index: 1;
+        }
+
+        .#{$id}-product_image {
+          padding: 10px;
+          position: relative;
+          width: 100%;
+          height: 258px;
+          margin: 0 auto;
+          display: flex;
+          border-radius: 5px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-size: 90%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          overflow: hidden;
+          box-sizing: border-box;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+          @media screen and (orientation:landscape) {
+            background-size: 70%;
+          }
+          @media(min-width: 375px){
+            height: 100%;
+            width: 100%;
+          }
+          
+        }
+
+        // product info
+        .#{$id}-product_information {
+          padding: 10px;
+          background: #f3f3f3;
+          border-radius: 5px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          display: flex;
+          flex-direction: column;
+
+          p {
+            max-width: 90%;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-align: left;
+            margin-top: 5px;
+
+            @media(min-width: 375px) {
+              font-size: 17px;
+            }
+
+            @media(min-width: 410px) {
+              font-size: 17px;
+              line-height: 25px;
+            }
+
+            @media(min-width: 375px) and (min-height: 700px) {
+              font-size: 18px;
+              line-height: 25px;
+            }
+          }
+
+          .#{$id}-productPrice {
+            font-weight: 700;
+            color: #090909;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            @media(min-width: 375px) {
+              margin-top: 15px;
+              margin-bottom: 15px;
+              font-size: 20px;
+            }
+
+            @media(min-width: 410px) {
+              font-size: 23px;
+            }
+
+            @media(min-width: 375px) and (min-height: 700px) {
+              font-size: 23px;
+            }
+          }
+
+          @media(min-width: 375px) {
+            padding: 15px;
+          }
+        }
+
+        @media(min-width: 375px) {
+          height: 66vh;
+        }
+        @media screen and (orientation:landscape) {
+          height: 500px;
+        }
+      }
+
+      // yes/no buttons
+      .#{$id}-buttons-wrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        justify-content: space-between;
+        max-width: 60%;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 8px;
+
+        .lineBreak {
+          height: 30px;
+          width: 1px;
+          background: #d0cfcf;
+        }
+
+        @media(min-width: 375px) and (min-height: 700px) {
+          margin-top: 20px;
+        }
+      }
+    }
+    @media screen and (orientation:landscape) {
+      height: 500px;
+      overflow-y: scroll;
+    }
+
+  }
+  
+
+  &.navbar-hidden {
+    .#{$id}-intro,
+    .#{$id}-swiper-wrapper {
+      .productback,
+      .#{$id}-product-card {   
+          height: 70vh;
+          @media(min-width: 375px) {
+            height: 73vh;
+          }
+      }
+    }
+    .#{$id}-swiper-wrapper {
+      &::before {
+        height: 75%;
+      }
+    }
+  }
+  /*---------------------
+    Loader
+  ---------------------*/
+  .#{$id}-loading-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url('https://storage.googleapis.com/exp-app-storage/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/media/original/7e89e024-7d0f-11ec-bf98-12c99814c353') no-repeat center;
+    background-size: cover;
+    z-index: 103;
+
+    .#{$id}-loading-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      text-align: center;
+
+      .#{$id}-loader-icon {
+        height: 60px;
+        width: 60px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/3BDCDD1ADE4A19B571B721BC746414D209B51CA1978C67A0C694CD5C6B9845DF.gif?meta=/SG108---Engagement-Ring-Finder-Tool/Eclipse-1s-200px2.gif') no-repeat center;
+        background-size: cover;
+        margin: 0 auto;
+        filter: brightness(0);
+      }
+
+      span {
+        margin-top: 20px;
+        display: block;
+        color: black;
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+
+    &.#{$id}-loaderActive {
+      display: block;
+    }
+  }
+
+  &.hsamuel {
+    // HS-specific styles
+    .#{$id}-finderBanner {
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/A108BABCDB920633C0FA62C0464D7C9F36EF9DFDBE4AEDF0A0C8EE0B81F704CC.jpg?meta=/SG108---Engagement-Ring-Finder-Tool/HSvday.jpg') no-repeat center;
+      background-size: cover;
+      height: 160px;
+    @media(min-width: 375px) {
+      height: 170px;
+    }
+      h3 {
+        font-family: "Montserrat",sans-serif;
+        margin-bottom: 5px;
+      }
+      p {
+        font-family: "Montserrat",sans-serif;
+      }
+      .#{$id}-ctaBanner {
+        font-family: "Montserrat",sans-serif;
+        border: 1px solid #A01D29;
+        background-color: #A01D29;
+        
+      }
+    }
+
+
+    .#{$id}-intro {
+      .#{$id}-image-bg {
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/952659D2979F426A07855CB7C208163262899C16799A622BBF468CDDA5856AB8.png?meta=/SG108---Engagement-Ring-Finder-Tool/HSback.png');
+      }
+      .#{$id}-bottom-content {
+        h1 {
+          font-family: "Montserrat",sans-serif;
+        }
+        p {
+          font-family: "Montserrat",sans-serif;
+        }
+      }
+    }
+
+    .#{$id}-ringFinder {
+      .#{$id}-button {
+        background: #A01D29;
+        font-family: "Montserrat",sans-serif;
+      }
+      h2 {
+        font-family: "Montserrat",sans-serif;
+        font-size: 20px;
+        line-height: 25px;
+        margin-bottom: 5px;
+        height: 40px;
+      }
+      p {
+        font-family: "Montserrat",sans-serif;
+        line-height: 21px;
+        font-size: 16px;
+      }
+      .#{$id}-circle-button {
+        &.product_yes {
+          background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/515BCACA79AA65718F9D6A98DE75CCA9A8F40688FD6D9D90569A75D605490955.png?meta=/SG108---Engagement-Ring-Finder-Tool/HSHeart.png') no-repeat center;
+          background-size: 40px;
+        }
+      }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

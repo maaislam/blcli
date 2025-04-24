@@ -1,0 +1,90 @@
+.#{$id} {
+  .#{$id}-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba($color-black, 0.1);
+    transition: opacity $transition;
+
+    &.#{$id}-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  .#{$id}-item__image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .#{$id}-item__content {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: calc(#{$space-edge} / 2);
+    padding: $space-edge;
+  }
+
+  .#{$id}-item__content-text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    h3 {
+      @include line-clamp(2);
+
+      font: $font-heading;
+    }
+
+    small {
+      @include line-clamp(2);
+
+      line-height: 1.2;
+      color: $color-grey;
+      font-size: 15px;
+      margin-block: 5px;
+    }
+
+    span {
+      @include line-clamp(1);
+
+      line-height: 1.2;
+    }
+  }
+
+  $control-button-size: 25px;
+
+  .#{$id}-item__content-controls {
+    display: grid;
+    grid-template-columns: $control-button-size 1fr $control-button-size;
+    align-items: center;
+  }
+
+  .#{$id}-item__content-controls-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $control-button-size;
+    height: $control-button-size;
+    background-color: $color-green;
+    border: 0;
+    border-radius: 2px;
+    transition: background-color $transition;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      background-color: darken($color-green, 5);
+    }
+  }
+
+  .#{$id}-item__content-controls-display {
+    text-align: center;
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,81 @@
+export const casestudyCopy = {
+  uk: {
+    heroImage: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casetudy.png',
+    heroImageMob: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-mob.png',
+    heroReview:
+      '“When I found GoCardless it seemed miles ahead of anything else. We took a closer look and its simplicity and usability shone through.”',
+    reviewer: 'Adam Cozens, Perky Blenders Co-founder',
+    subheadline: 'Key Benefits',
+    keyBenefits: [
+      '<b>£20,000</b> saved on admin costs by automating payment collections.',
+      '<b>2 days</b> of operational work per week eliminated for busy founders.',
+    ],
+    button1Text: 'Sign Up',
+    button1Url: 'https://manage.gocardless.com/sign-up',
+    button2Text: 'Read More Customer Stories',
+    button2Url: '/stories/?page=1',
+    brandLogo: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/perkyblenders.png',
+  },
+  au: {
+    heroImage: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-au.png',
+    heroImageMob: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-mob-au.png',
+    heroReview:
+      '"Rather than having to collect recurring payments by manual methods like bank transfer or cheque, GoCardless enables Re-Leased to collect automated international payments through Direct Debit.”',
+    reviewer: 'Sam Caulton, Chief Financial Officer',
+    subheadline: 'Key Benefits',
+    keyBenefits: ['DCO <b>reduced by 33%</b>, from 45-50 days to 30.', '<b>$10,000</b> a month saved on bank transfer fees.'],
+    button1Text: 'Sign Up',
+    button1Url: 'https://manage.gocardless.com/sign-up?lang=en-AU',
+    button2Text: 'Read More Customer Stories',
+    button2Url: '/stories/?page=1',
+    brandLogo: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/released.png',
+  },
+  usa: {
+    heroImage: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-us.png',
+    heroImageMob: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-mob-us.png',
+    heroReview:
+      '“GoCardless has saved us about $1,200 a month in fees, and that money can be reused to better support staff, our services, and our clients.”',
+    reviewer: 'Matthew Rydzfski, Managing Partner',
+    subheadline: 'Key Benefits',
+    keyBenefits: [
+      'Reduced PremierePC’s fee structure by <b>85%</b>.',
+      'Credit cards went from over 85% of payment revenue to <b>less than 3%</b>.',
+    ],
+    button1Text: 'Sign Up',
+    button1Url: 'https://manage.gocardless.com/sign-up?lang=en-US',
+    button2Text: 'Read More Customer Stories',
+    button2Url: '/stories/?page=1',
+    brandLogo: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/premierepc.png',
+  },
+  fr: {
+    heroImage: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-fr.png',
+    heroImageMob: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-mob-fr.png',
+    heroReview:
+      '“GoCardless nous permet d’automatiser nos processus de paiement, ce qui nous fait gagner du temps et évite à nos clients la corvée de devoir nous régler manuellement ou de gérer des paiements par carte bancaire.”',
+    reviewer: 'Anne Sturtzer, Finance Operations Manager',
+    subheadline: 'Bénéfices principaux',
+    keyBenefits: [
+      'Une économie d’environ un ETP de 2 000 à <b>3 000 €</b> par mois.',
+      '<b>99 %</b> des clients paient automatiquement à la facturation.',
+    ],
+    button1Text: "S'inscrire",
+    button1Url: 'https://manage.gocardless.com/sign-up?lang=fr',
+    button2Text: 'Lire plus de témoignages',
+    button2Url: '/fr-fr/temoignages/',
+    brandLogo: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/payfit.png',
+  },
+  de: {
+    heroImage: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-fr.png',
+    heroImageMob: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/casestudy-mob-fr.png',
+    heroReview:
+      '“Vorher durfte ich mich zu jedem Monatsbeginn an den Computer setzen und jede Buchung einzeln eingeben. Das war tatsächlich unglaublich viel Arbeit.”',
+    reviewer: 'Tino Petke - Geschäftsführer',
+    subheadline: 'Hauptvorteile',
+    keyBenefits: ['5 Stunden Zeitersparnis pro Monat.', 'Automatischer Einzug von Mitgliedsbeiträgen.'],
+    button1Text: 'Registrieren',
+    button1Url: 'https://manage.gocardless.com/sign-up?lang=fr',
+    button2Text: 'Weiteres von unseren Kunden',
+    button2Url: '/fr-fr/temoignages/',
+    brandLogo: 'https://ucds.ams3.digitaloceanspaces.com/GoCardless/GCOR019/payfit.png',
+  },
+};

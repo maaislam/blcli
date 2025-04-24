@@ -1,0 +1,111 @@
+@import './variables';
+
+.#{$id} {
+
+    &__hide {
+        display: none !important;
+    }
+
+    // &__delivery--bar {
+    //     display: none !important;
+
+    //     @include mediaQuery(sm) {
+    //         display: block !important;
+    //     }
+    // }
+
+
+    &__uspbanner {
+        position: relative;
+        margin: 16px 0;
+        background-color: #F6F9F9;
+        overflow-x: hidden;
+
+        @include mediaQuery(sm) {
+            margin: 12px 0;
+        }
+
+        & .title {
+            @include font-size(15, 16, 700)
+        }
+
+        & .paragraph {
+            @include font-size(15, 18, 400)
+        }
+
+
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-color: #F6F9F9;
+
+            @include mediaQuery(sm) {
+                display: none;
+            }
+        }
+
+        &.#{$id}__variation2::before,
+        &.#{$id}__variation2::after {
+            @include mediaQuery(sm) {
+                display: block;
+            }
+        }
+
+        &::before {
+            left: -100%;
+        }
+
+        &::after {
+            right: -100%;
+        }
+
+        &.#{$id}__variation2 {
+            & .#{$id}__swiper-wrapper {
+                display: flex;
+                flex-direction: column;
+
+                &>div:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+            }
+        }
+
+    }
+
+    &__swiper-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        background-color: #F6F9F9;
+    }
+
+    &__uspbanner--container {
+        max-width: 976px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+
+    &__swiper--slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        & img {
+            width: 32px;
+            height: auto;
+        }
+
+        & .text-content {
+            margin-left: 14px;
+        }
+    }
+
+
+}

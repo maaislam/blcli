@@ -1,0 +1,124 @@
+@import './variables';
+
+.#{$id} {
+    & {
+        .deliverySection .radioOptionsGroup.radio-active:not(.forStoresList, .FinalOptions, .show-radio)>ul {
+
+            li:not(.selectedRadioGroup),
+            li.selectedRadioGroup .selectionRadio,
+            li.selectedRadioGroup .selectionOptions {
+                display: none;
+            }
+
+            li.selectedRadioGroup {
+
+                .innerRadio {
+                    background-color: #fff;
+                    padding: 0;
+                }
+
+                .sectionContent {
+
+                    .innerContent {
+                        padding-top: 0;
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    &__radioToggle {
+        display: flex;
+        width: 100%;
+        padding-bottom: 20px;
+
+        li.newRadio {
+            width: 50%;
+
+
+            .innerRadio {
+                background-color: #fff;
+                padding: 15px;
+                border: 1px solid #ddd;
+
+                @media (max-width: 340px) {
+                    padding: 15px 5px;
+                }
+            }
+
+            .selectionOptions {
+                width: calc(100% - 30px);
+
+                .deliveryPrice {
+                    padding-top: 3px;
+                }
+
+                .deliveryPriceActual {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        li.newRadio.deliveryRadio {
+            .innerRadio {
+                border-radius: 5px 0 0 5px;
+                border-right: 1px solid #ddd;
+            }
+        }
+
+        li.newRadio.collectRadio {
+            .innerRadio {
+                border-radius: 0 5px 5px 0;
+                border-left: 1px solid #ddd;
+
+            }
+        }
+
+        li.newRadio.selectedRadioGroup {
+
+            .innerRadio {
+                background: #e8e8ff;
+                border: 1px solid #0000ed;
+            }
+
+            .selectionDescription {
+
+                h3,
+                .deliveryPriceFrom,
+                .deliveryPriceActual {
+                    color: #0000ed;
+                }
+            }
+
+            .selectionRadio {
+                span {
+                    background-image: url("https://blcro.fra1.digitaloceanspaces.com/SD-1047/radio_selected.svg");
+                    background-repeat: no-repeat;
+                    background-size: 17px;
+                    background-position: center;
+                }
+            }
+        }
+    }
+
+    &__newSpendVoucher {
+        display: none;
+    }
+
+    &__newSpendVoucher.showVoucher {
+        display: block;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 15px;
+        background-color: #f8f8f8;
+        color: #707070;
+        border-radius: 5px;
+
+        span {
+            font-weight: 700;
+        }
+    }
+}

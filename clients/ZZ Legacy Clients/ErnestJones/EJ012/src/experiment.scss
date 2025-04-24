@@ -1,0 +1,283 @@
+.EJ012 {
+  #js-confirmationDialog {
+    display: none;
+  }
+  .EJ012-finance_box {
+    display: none;
+    .EJ012-overlay {
+      position: fixed;
+      background: rgba(128, 128, 128, 0.63);
+      z-index: 999;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+    .EJ012-lightbox_content {
+      border: 1px solid black;
+      background: white;
+      width: 90%;
+      padding: 10px;
+      z-index: 999;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow-y: scroll;
+      .EJ012-logo {
+        text-align: center;
+        margin: 10px;
+      }
+      .EJ012-subheading {
+        text-align: center;
+        padding-left: 20px;
+        font-weight: bold;
+        line-height: 20px;
+        padding-right: 20px;
+        margin-bottom: 20px;
+        span {
+          display: block;
+        }
+      }
+      .EJ012-exit {
+        text-align: right;
+        font-size: 28px;
+        position: absolute;
+        right: 9px;
+        top: 0;
+        cursor: pointer;
+      }
+      .EJ012-label {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        span {
+          display: inline-block;
+          width: 50%;
+        }
+        .EJ012-month {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          background: #fff;
+          width: 50%;
+          height: 38px;
+          cursor: pointer;
+        }
+        &.EJ012-deposit {
+          position: relative;
+
+          &.EJ012-deposit--failed {
+            .EJ012-deposit_text {
+              // display: none !important;
+
+              &.EJ012-deposit_text--error {
+                display: inline-block !important;
+              }
+            }
+          }
+          .EJ012-depositAmountField {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+            width: 50%;
+            display: inline-block;
+            height: auto !important;
+            box-sizing: border-box;
+          }
+          .EJ012-depositAmountField__prefix {
+            width: 20% !important;
+            display: inline-block;
+            background: #e0e0e0;
+            font-weight: bold;
+            height: 38px;
+            vertical-align: top;
+            text-align: center;
+
+            > span {
+              text-align: center;
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+          .EJ012-depositAmount {
+            border: none;
+            padding: 0 5px;
+            display: inline-block;
+            width: 80%;
+            box-sizing: border-box;
+            height: 38px;
+            border-radius: 3px;
+
+            &.EJ012-depositAmount--failed {
+              border: 2px solid red;
+            }
+          }
+          .EJ012-deposit_text {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+            width: 100%;
+
+            &.EJ012-deposit_text--error {
+              display: none;
+              background: #ad2020;
+              color: white;
+              border-radius: 5px;
+              padding: 5px 10px;
+              box-sizing: border-box;
+              width: auto;
+              position: absolute;
+              right: 0;
+              margin: 3px 0 0 0;
+
+              &:before {
+                content: '';
+                display: block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 8px 8px 8px;
+                border-color: transparent transparent #ad2020 transparent;
+                position: absolute;
+                bottom: 100%;
+                right: 10px;
+              }
+
+              em {
+                font-style: normal;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+      .EJ012-slider {
+        text-align: center;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &:after {
+          content: '';
+          clear: both;
+          display: block;
+        }
+        span {
+          font-size: 12px;
+        }
+        .EJ012-slider_bar {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 7px;
+          background: #d3d3d3;
+          outline: none;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #bbacd5;
+            border-radius: 50px;
+            cursor: pointer;
+          }
+          &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #bbacd5;
+            cursor: pointer;
+          }
+        }
+        .EJ012-minamount,
+        .EJ012-maxamount {
+          display: inline-block;
+        }
+        .EJ012-maxamount {
+          text-align: right;
+          float: right;
+        }
+        .EJ012-minamount {
+          text-align: left;
+          float: left;
+        }
+      }
+    }
+    .EJ012-calculate {
+      text-align: center;
+      background: #bbacd5;
+      padding: 10px;
+      color: white;
+      width: 50%;
+      margin: 0 auto;
+      text-transform: uppercase;
+      cursor: pointer;
+      &.EJ012-calculate_nobutton {
+        text-decoration: underline;
+        display: block;
+        padding: 0px;
+        background: 0px;
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
+        user-select: none;
+      }
+    }
+    .EJ012-addToBag {
+      text-align: center;
+      background: #bbacd5;
+      padding: 10px;
+      color: white;
+      width: 50%;
+      margin: 0 auto;
+      text-transform: uppercase;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    .EJ012-payment_summary {
+      display: none;
+      padding: 10px;
+      .EJ012-payment_row {
+        .EJ012-pay_label {
+          display: inline-block;
+          width: 50%;
+        }
+        .EJ012-finalAmount {
+          display: inline-block;
+          width: 50%;
+          font-weight: bold;
+          text-align: right;
+        }
+      }
+      &.EJ012-payment_showing {
+        display: block;
+      }
+    }
+    .EJ012-centre {
+      text-align: center;
+    }
+    .EJ012-tcs {
+      text-decoration: underline;
+      display: inline-block;
+      margin: 15px auto 0 auto;
+      text-align: center;
+      color: black;
+    }
+    &.EJ012-box_active {
+      display: block;
+    }
+  } // TABLET
+  @media(min-width: 767px) {
+    .EJ012-finance_box {
+      .EJ012-lightbox_content {
+        width: 400px;
+        padding: 20px;
+        .EJ012-slider {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import './variables';
+
+.#{$id} {
+  &:not([class*=control]) {
+    .product-add-form > p.copy,
+    #product_addtocart_form + p.copy {
+      // Rather than display: none, set zero height to ensure intersection
+      // observer fires for checking 'in view' behaviour
+      visibility: hidden;
+      overflow: hidden;
+      height: 0; 
+      margin-top: 0 !important;
+    }
+  }
+}

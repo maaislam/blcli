@@ -1,0 +1,83 @@
+$tooltip-arrow-dimensions: 20px;
+
+.#{$id}-tooltip-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    border: none;
+    background-color: $color-grey;
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+    flex-shrink: 0;
+    font-weight: bold;
+    color: white;
+    transition: $transition background-color;
+    .has-tooltip & {
+        background-color: $color-green;
+    }
+    &:before {
+        content: 'i';
+    }
+    &__tooltip {
+        position: absolute;
+        background-color: $color-grey-light;
+        opacity: 0;
+        visibility: hidden;
+        width: 300px;
+        padding: 16px 20px;
+        z-index: 10;
+        color: #262626;
+        font-size: 14px;
+        top: -$tooltip-arrow-dimensions / 2 + -5px;
+        left: calc(100% + #{$tooltip-arrow-dimensions});
+        border-radius: 6px;
+        border-right: 10px solid $color-green;
+        transition: $transition visibility,
+        $transition opacity,
+        $transition-medium transform;
+        @include bp-small-to {
+            top: -100%;
+            transform: translateY(-100%);
+            left: auto;
+            right: 0;
+            padding: 10px 14px;
+            border-right-width: 6px;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -$tooltip-arrow-dimensions / 2;
+            width: $tooltip-arrow-dimensions;
+            height: $tooltip-arrow-dimensions;
+            background-color: $color-grey-light;
+            transform: rotate(45deg);
+            z-index: -1;
+            @include bp-small-to {
+                top: auto;
+                left: auto;
+                right: $tooltip-arrow-dimensions / 2;
+                bottom: -$tooltip-arrow-dimensions / 2;
+            }
+        }
+        .has-tooltip & {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &__tooltip-title {
+        display: block;
+        color: $color-green;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        @include bp-small-to {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+    }
+}

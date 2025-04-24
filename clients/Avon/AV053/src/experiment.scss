@@ -1,0 +1,378 @@
+@import "./variables";
+
+.#{$id} {
+  .ProductListModule .ProductList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: 32px;
+    &::after {
+      content: "" !important;
+      flex: auto !important;
+      margin-left: 30px;
+    }
+
+    .ProductListCell {
+      width: calc(33.33% - 16px);
+      float: none;
+      margin-top: 16px;
+      margin-right: 8px;
+      margin-left: 8px;
+      position: relative;
+
+      .#{$id}_modalButton {
+        position: absolute;
+        right: 12px;
+        top: 160px;
+        font-size: 12px;
+        width: 112px;
+        text-align: center;
+        font-family: "Montserrat-Bold";
+        padding: 8px 6px;
+        border: 2px solid #7f28c4;
+        border-radius: 3px;
+        color: #7f28c4;
+        background: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+
+        &:before {
+          //@TODO
+          //content: url("#$(ContentManager:AV053-zoom.svg)!");
+        }
+      }
+
+      // Allows us to grow content to fill up the space of the box.
+      .ProductListItem,
+      .ProductDetails {
+        display: flex !important;
+        flex-direction: column;
+      }
+      .ProductDetails,
+      .ProductDetailsTop {
+        flex: 1;
+      }
+
+      .ProductDetails {
+        padding-left: 0;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .ProductDetailsTop {
+        padding-bottom: 0 !important;
+      }
+
+      .ProductListItem {
+        height: 100%;
+        display: block;
+        background: #ffffff;
+        box-shadow: 0px 2px 24px #e1e1e1;
+        border-radius: 8px;
+        padding: 0;
+
+        .ProductImage {
+          width: 100% !important;
+          display: block;
+
+          img {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+          }
+        }
+
+        .ProductName {
+          min-height: 72px;
+        }
+
+        .Prices {
+          margin-top: 29px;
+          &.#{$id}_hasListPrice {
+            margin-top: 0;
+          }
+
+          .Price {
+            color: #7f28c4;
+            font-weight: 600;
+            font-size: 22px;
+            margin-bottom: 0 !important;
+          }
+
+          .PriceDiscount {
+            color: #e5231b !important;
+          }
+
+
+          // Hide 'regular price' label
+          .ListPrice {
+            color: #a2acae;
+            font-weight: 600;
+            span:not(.ng-binding) {
+              display: none;
+            }
+          }
+        }
+
+        .product-badge {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          border-radius: 23px;
+          background: #bae1e9;
+          border: none;
+          font-size: 12px;
+          font-weight: 700;
+          text-align: center;
+          color: #181818;
+          width: auto;
+          padding: 4px 12px;
+          font-family: "Montserrat-Bold", Arial;
+
+          &.#{$id}_badgeBlack {
+            background: #181818;
+            color: white;
+            border-radius: 14px 0 14px 0;
+            max-width: none;
+            left: 12px;
+            right: auto;
+          }
+        }
+
+        .product-options {
+          display: none;
+        }
+      }
+    }
+
+    .#{$id}_ghostOffer {
+      content: "";
+      height: 20px;
+      display: none !important;
+      &.#{$id}_hideGhost {
+        display: none;
+      }
+    }
+
+    .ProductAction {
+      margin-bottom: 6px;
+
+      &.#{$id}_ctaTopSpace {
+        padding-top: 64px;
+      }
+
+      .Button {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      .Quantity {
+        margin: 1rem auto !important;
+      }
+    }
+
+    .ExclusiveOfferButton {
+      & > * {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .Modal {
+    width: 724px;
+
+    .ModalClose {
+      span {
+        display: none;
+      }
+      > svg-icon {
+        width: 16px;
+        height: 16px;
+        color: #7f28c4;
+      }
+    }
+
+    .AddToCart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .Quantity {
+        margin: 0;
+      }
+      .Button {
+        font-size: 16px;
+        margin: 0;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-left: 12px;
+        min-width: 120px;
+
+        @media(min-width: 375px) {
+          min-width: 150px;
+        }
+      }
+    }
+  }
+
+  .ProductListCell,
+  .Modal {
+    // New quantity selector styles. <quantityselector>
+    .Quantity {
+      input {
+        border: 1px solid #e4eded;
+        box-sizing: border-box;
+        border-radius: 5px;
+        width: 45px;
+        height: 45px;
+        margin: 0 6px;
+        font-size: 14px;
+        font-family: "Montserrat-Bold", Arial;
+      }
+    }
+    .QtyDown {
+      display: table-cell !important;
+
+      svg {
+        display: none;
+      }
+      content: "";
+      border: 1px solid #e4eded;
+      box-sizing: border-box;
+      border-radius: 5px;
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        background-color: #7f28c4;
+        border-radius: 2px;
+      }
+
+      /* horizontal line */
+      &:after {
+        top: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 13px;
+        height: 2px;
+        margin-top: -1px;
+      }
+    }
+
+    .QtyUp {
+      display: table-cell !important;
+
+      svg {
+        display: none;
+      }
+      content: "";
+      border: 1px solid #e4eded;
+      box-sizing: border-box;
+      border-radius: 5px;
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+      position: relative;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        background-color: #7f28c4;
+        border-radius: 2px;
+      }
+      /* Vertical line */
+      &:before {
+        top: 16px;
+        left: 50%;
+        width: 2px;
+        height: 12px;
+        margin-left: -1px;
+      }
+
+      /* horizontal line */
+      &:after {
+        top: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 13px;
+        height: 2px;
+        margin-top: -1px;
+      }
+    }
+  }
+
+  .ProductListLayout {
+    display: none !important;
+  }
+
+  &.Layout_Tablet {
+    .ProductListCell {
+      width: calc(50% - 16px) !important;
+
+      .#{$id}_modalButton {
+        top: 200px !important;
+      }
+    }
+  }
+
+  &.Layout_Phone {
+    .ProductListCell {
+      width: 100% !important;
+
+      .#{$id}_modalButton {
+        top: 41% !important;
+
+        @media(min-width: 360px) {
+          top: 45% !important;
+        }
+      }
+
+      .Quantity a.QtyUp,
+      .Quantity a.QtyDown {
+        display: inline-block;
+        width: 35px;
+        min-width: 35px;
+
+        @media(min-width: 360px) {
+          min-width: 45px;
+          width: 45px;
+        }
+      }
+      .AddToCart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .Quantity {
+          margin: 0;
+
+          input {
+            width: 35px;
+
+            @media(min-width: 360px) {
+              width: 45px;
+            }
+
+            margin: 0 5px;
+          }
+        }
+        .Button {
+          font-size: 16px;
+          margin: 0 0 0 6px;
+        }
+      }
+
+      .ProductAction {
+        margin-top: 12px;
+      }
+      .#{$id}_ctaTopSpace {
+        padding-top: 0;
+      }
+    }
+  }
+}

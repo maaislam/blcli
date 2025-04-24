@@ -1,0 +1,276 @@
+@import "../../../variables";
+
+$component: "#{$id}_MobileNav";
+$navWidth: 85%;
+
+/* ANIMATIONS */
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* GENERAL STYLES */
+html.#{$component}--navOpen,
+body.#{$component}--navOpen {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+  position: fixed;
+
+  div[id*="yie-overlay"] {
+    display: none;
+  }
+
+  .#{$component}_overlay {
+    display: block !important;
+  }
+}
+
+.#{$id} {
+  &.Layout_Phone {
+    .MobileNav_linkHeading {
+    }
+    // Hide original elements
+    #HamburgerMenuNew,
+    #MenuMask {
+      display: none;
+    }
+
+    .#{$component}_overlay {
+      z-index: 4;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      bottom: 0;
+      display: none;
+
+      &:after {
+        content: "×";
+        font-weight: 800;
+        font-size: 3rem;
+        position: absolute;
+        top: 2%;
+        left: 90%;
+        color: white;
+        line-height: normal;
+      }
+    }
+
+    .#{$component} {
+      display: none;
+      font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      position: fixed;
+      right: unset;
+      width: $navWidth;
+      background: #fff;
+      z-index: 999;
+      top: 167px;
+      // top: 130px !important;
+      left: 0;
+      bottom: 0;
+      will-change: transform;
+
+      .#{$component}_line {
+        height: 1px;
+        background: #e4eded;
+        width: calc(100% - 20px);
+        margin: 0 auto;
+      }
+      &.#{$component}--open {
+        display: block;
+        animation-name: slideRight;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+        visibility: visible !important;
+        will-change: left;
+        will-change: right;
+      }
+
+      ul {
+        margin: 0;
+      }
+
+      a {
+        padding: 18px 12px;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 700;
+        font-family: "Montserrat-Bold", "Helvetica", "Arial", sans-serif;
+      }
+    }
+
+    .#{$component}_level {
+      display: none;
+      height: auto;
+      width: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
+      background: white;
+      margin: 0;
+      z-index: 2;
+      // animation-name: slideLeft;
+      // animation-duration: 0.3s;
+      // animation-timing-function: ease-in-out;
+      visibility: visible !important;
+      will-change: transform;
+
+      ul {
+        list-style: none;
+      }
+
+      &.#{$component}_level--open {
+        display: block;
+        will-change: top;
+        will-change: bottom;
+      }
+
+      &.#{$component}_level1 {
+        display: block;
+      }
+
+      &.#{$component}_level2 {
+        li {
+          background-color: #f6f9f9;
+
+          a {
+            padding: 18px 24px;
+            color: #546264;
+            font-weight: 600;
+            font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+          }
+        }
+      }
+
+      &.#{$component}_level3 {
+        li {
+          background-color: #e4eded;
+        }
+
+        &.#{$component}_level--open {
+          > ul > .#{$component}_icon--open {
+            background-color: #f6f9f9;
+          }
+        }
+      }
+
+      li {
+        width: 100%;
+        background-color: white;
+        transition: background-color 0.1s ease-out;
+        margin: 0 auto;
+        color: #181818;
+
+        svg-icon {
+          transform: rotate(90deg);
+          right: 12px;
+          top: 16px;
+          position: relative;
+        }
+
+        &:active {
+          background-color: #fff;
+          transition: background-color 0.1s ease-out;
+        }
+
+        &.#{$component}_hasSubNav > svg-icon {
+          height: 24px;
+          width: 24px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          float: right;
+
+          @media screen and (max-width: 320px) {
+            margin-top: -1px;
+          }
+        }
+      }
+
+      .#{$component}_icon--open {
+        > svg-icon {
+          right: 14px;
+          svg {
+            transform: rotate(-180deg);
+          }
+        }
+
+        > .#{$component}_line {
+          display: none;
+        }
+      }
+    }
+
+    .#{$component}_innermost--open {
+      > a {
+        border-left: 4px solid #7f28c4;
+      }
+    }
+
+    .#{$component}_back {
+      display: none;
+      font-family: "Montserrat-Bold", sans-serif;
+      color: #181818;
+      font-size: 14px;
+      line-height: 20px;
+      .#{$component}_backContent {
+        padding: 20px 12px;
+      }
+      img {
+        height: 24px;
+        width: 26px;
+        float: left;
+        margin-right: 7px;
+
+        @media screen and (max-width: 320px) {
+          margin-top: -1px;
+        }
+      }
+    }
+
+    .#{$component}_noScroll {
+      overflow-y: hidden !important;
+    }
+  }
+
+  // Variation 2
+  &.#{$id}-2 {
+    .#{$component}_level2 {
+      > ul > li:first-child {
+        > svg-icon {
+          top: 22px;
+        }
+        > a {
+          &:before {
+            background: url("https://service.maxymiser.net/cm/images-eu/avon-mas/28FB50CFAFE1FC9EEF608E15683180A18DA24726AAFCD209F4E886B6F3F2A4EA.svg?meta=/AG060a---Mobile-navigation-styling-and-sale-promotion---UK/sales.svg");
+            content: " ";
+            display: inline-block;
+            margin-right: 12px;
+            vertical-align: middle;
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+}

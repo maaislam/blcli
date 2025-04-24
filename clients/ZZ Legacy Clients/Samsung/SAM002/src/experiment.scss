@@ -1,0 +1,289 @@
+@import './variables';
+
+.#{$id} {
+
+    &__hide {
+        display: none !important;
+    }
+
+    &__invisible {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__plp-box {
+        height: auto !important;
+    }
+
+    &__plp-card {
+        padding-bottom: 20px;
+
+        &.#{$id}__overlay {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                background: rgba(196, 196, 196, 0.3);
+                z-index: 999;
+            }
+        }
+
+        & .product-card-v2__image {
+            position: relative;
+            width: 160px;
+            height: 160px;
+
+            @media (max-width: 1024px) {
+                width: 100px;
+                height: 100px;
+            }
+
+            @media (max-width: 640px) {
+                width: 160px;
+                height: 160px;
+            }
+
+            &>a.#{$id}__energy-icon {
+                position: absolute;
+                top: 34px;
+                left: 0;
+                transform: translateX(-100%);
+
+                &.badge.s-first-level {
+                    width: 32px;
+                    height: 24px;
+
+                    @media (max-width: 1024px) {
+                        width: 24px;
+
+                    }
+
+                    @media (max-width: 600px) {
+                        width: 32px;
+
+                    }
+
+                    &>span {
+                        width: 24px;
+
+                        @media (max-width: 1024px) {
+                            width: 16px;
+
+                        }
+
+                        @media (max-width: 600px) {
+                            width: 24px;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        & .badge-energy-label,
+
+        & .product-card-v2__rating,
+        & .product-card-v2__fiche {
+            display: none;
+        }
+
+        & .#{$id}__rating-block {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            & .rating__star-item:not(:last-child) {
+                display: none;
+            }
+        }
+
+        & .option-selector-v2__swiper-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        & .product-card-v2__option-selector {
+            min-height: unset !important;
+            margin-top: 0;
+        }
+
+        & .product-card-v2__info {
+            height: 100%;
+            min-height: 200px;
+            padding-top: 16px;
+            margin-bottom: 16px;
+
+            &::after {
+                display: none;
+            }
+
+            & li {
+                min-height: auto;
+            }
+        }
+
+        & .product-card-v2__name {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 19px;
+        }
+
+
+        & .#{$id}__featuredItems {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14px;
+
+            &-colored {
+                color: #F66700;
+            }
+        }
+
+        & .product-card-v2__cta {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            &.theme-label {
+                display: none;
+            }
+        }
+
+        & .product-card-v2__award-wrap {
+            right: 0;
+            transform: translateX(100%);
+
+            & .image--main-loaded {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+
+    }
+
+    &__discount-block {
+        min-height: 48px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        &>.#{$id}__current-price {
+            font-size: 18px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        &>.#{$id}__discount-info {
+            display: flex;
+            font-size: 12px;
+            line-height: 1.3;
+            margin-top: 6px;
+
+            &>.#{$id}__prev-price {
+                text-decoration: line-through;
+            }
+
+            &>.#{$id}__discount {
+                //margin-left: 12px;
+                color: #438AF7;
+            }
+        }
+
+    }
+
+
+    &__moreOptions {
+        position: relative;
+        display: block;
+
+        text-align: left;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 700;
+        color: #000;
+        z-index: 999;
+
+        & .content-wrapper {
+            position: relative;
+        }
+
+        &-btn {
+            cursor: pointer;
+        }
+
+        & .#{$id}__close-btn {
+            position: absolute;
+            top: -12px;
+            right: 0;
+            cursor: pointer;
+
+            &>svg {
+
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        &-dropdown {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            height: auto;
+            padding: 28px 16px 16px;
+            background: #fff;
+            z-index: 9999;
+            transform: translateY(-100%);
+            box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+
+            & li {
+                cursor: pointer;
+
+                &:first-child {
+                    margin-top: 16px;
+                }
+
+                &:not(:last-child) {
+
+                    margin-bottom: 16px;
+                }
+
+                & svg {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 4px;
+                }
+            }
+
+
+        }
+
+    }
+
+    &__ctablock {
+        margin-top: 16px;
+        font-size: 14px;
+
+        & ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        & svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+        }
+
+        & li {
+            display: flex;
+            cursor: pointer;
+        }
+    }
+}

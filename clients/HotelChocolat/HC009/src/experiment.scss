@@ -1,0 +1,97 @@
+@import './variables';
+
+.#{$id} {
+
+    &.#{$id}-2 {
+        &.#{$id}-overlayHide {
+            .uiLayerIndicator {
+                display: none !important;
+            }
+        }
+       
+        .hover-drop-down.#{$id}-miniCart-hide {
+            background: black;
+            .drop-down-options {
+                display: none !important;
+            }
+            .icon.bag {
+                fill: white;
+            }
+            a {
+                color: white;
+            }
+        }
+
+        .#{$id}-addedBox {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            h3 {
+                position: relative;
+                padding-left: 35px;
+                &:before {
+                    content: '';
+                    height: 25px;
+                    width: 30px;
+                    left: 0;
+                    position: absolute;
+                    background: url('https://editor-assets.abtasty.com/48343/5f510308801261599144712.png') no-repeat center;
+                    background-size: contain;
+                    top: -5px;
+                }
+                .#{$id}-product {
+                    display: block;
+                    margin-top: 5px;
+                    font-family: GillSansNova-Medium;
+                }
+            }
+
+            .#{$id}-button {
+                display: block;
+                background: #000;
+                border: 1px solid #000;
+                color: #fff;
+                height: 36px;
+                line-height: 36px;
+                text-align: center;
+                margin-top: 10px;
+                letter-spacing: .05rem;
+                box-sizing: border-box;
+                text-transform: uppercase;
+                margin-left: 35px;
+                max-width: 250px;
+                cursor: pointer;
+                &:hover {
+                    background: white;
+                    color: black                
+                }
+            }
+
+            @media(min-width: 767px) {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                .#{$id}-innerText {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    h3 {
+                        padding-left: 40px;
+                        &::before {
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        .#{$id}-product {
+                            display: inline-block;
+                        }
+                    }
+
+                    .#{$id}-button {
+                        width: 200px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}

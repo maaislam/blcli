@@ -1,0 +1,287 @@
+@import './variables';
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.#{$id} {
+
+    .HOF_Basket.dy_unit {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-recs-holder {
+        padding: 0 5px;
+        
+        @media all and (max-width: 600px) {
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            line-height: 16px;
+            text-transform: uppercase;
+            font-family: 'Montserrat-Medium', Arial, Helvetica, sans-serif;
+            margin-bottom: 10px;
+            
+
+            @media all and (max-width: 600px) {
+                padding-left: 20px;
+            }
+        }
+
+
+
+
+    }
+
+    .#{$id}-recs-carousel-holder {
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        max-height: 200px;
+        min-height: 200px;
+        background: #F2F2F2;
+        padding: 0 30px;
+        margin-bottom: 20px;
+        
+
+        @media all and (max-width: 992px) {
+            min-height: 210px;
+            max-height: 210px;
+        }
+
+        @media all and (max-width: 550px) {
+            padding: 0 0 0 10px;
+            min-height: 190px;
+            max-height: 190px;
+        }
+  
+        .#{$id}-loading-spinner {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 110;
+  
+            svg {
+                animation: spin 1s linear infinite;
+            }
+  
+            p {
+                color: #000;
+            }
+  
+        }
+  
+        &.loading:before {
+            content: "";
+            position: absolute;
+            background: #FFF;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            top: 0;
+            left: 0;
+        }
+  
+        &.loading .#{$id}-loading-spinner {
+            display: flex;
+        }
+  
+  
+        .#{$id}-button {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          transform: translateY(-50%);
+          cursor: pointer;
+          background: none;
+          border: none;
+          padding: 0;
+          
+          &-next {
+            right: 10px;
+            left: auto;
+          }
+  
+          &.#{$id}-hidden {
+            display: none;
+            visibility: hidden; 
+          }
+  
+          svg polyline {
+            stroke: #000;
+            fill: none;
+          }
+  
+          &.swiper-button-disabled svg polyline {
+            stroke: rgba(0,0,0,0.3);
+          }
+  
+          @media all and (max-width: 550px) {
+            display: none;
+          }
+        }
+  
+        .#{$id}-recs-carousel-inner {
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex !important;
+  
+            .swiper-wrapper {
+              justify-content: center;
+              align-items: center;
+            }
+  
+            &.swiper-active .swiper-wrapper {
+              justify-content: flex-start;
+              align-items: flex-start;
+            }
+  
+            
+  
+            @media all and (max-width: 800px) {
+  
+                padding: 10px 0;
+  
+                
+            }
+        }
+  
+        .#{$id}-carousel-slide {
+            background: #FFFFFF;
+            border: 1px solid #EDEDED;
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+
+            .#{$id}-carousel-image {
+                width: 40%;
+
+                @media all and (max-width: 550px) {
+                    padding-right: 10px;
+                }
+            }
+
+            img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+
+                @media all and (max-width: 767px) {
+                    width: 85%;
+                }
+            }
+
+            .#{$id}-carousel-product-info {
+                flex-direction: column;
+                height: 100%;
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                
+
+                p {
+                    margin-bottom: 5px;
+                    font-weight: normal;
+                    font-size: 14px;
+
+                    @media all and (max-width: 550px) {
+                        font-size: 12px !important;
+                    }
+                }
+
+                .#{$id}-product-brand {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                .#{$id}-product-name {
+                    font-size: 13px;
+                    max-height: 40px;
+                    overflow: hidden;
+                    margin-bottom: 8px;
+
+                    @media all and (max-width: 400px) {
+                        max-height: 33px;
+                    }
+                }
+
+                .now-price {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    font-weight: bold;
+                }
+
+                .was-price {
+                    font-weight: normal;
+                    text-decoration: line-through;
+                    margin: 0 5px;
+                    color: #888;
+                    font-size: 12px;
+                }
+
+                .equal-prices .was-price {
+                    display: none;
+                }
+
+            } 
+
+            &.additional-info .#{$id}-carousel-product-info {
+                display: flex;
+            }
+
+            
+        }
+
+        .#{$id}-atb-button {
+            margin-top: 15px;
+            background: none;
+            border: none;
+            color: #E10098;
+            font-size: 14px;
+            text-transform: uppercase;
+            position: relative;
+
+            @media all and (max-width: 550px) {
+                font-size: 12px;
+            }
+
+            &:after {
+                content: "";
+                width: 70%;
+                height: 1px;
+                background: #E10098;
+                position: absolute;
+                bottom: -7px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &:hover {
+
+                font-family: 'Montserrat-Medium', Arial, Helvetica, sans-serif !important;
+                transition: font-weight 0.5s ease;
+            }
+
+            &:hover:after {
+                height: 2px;
+                transition: height 0.5s ease;
+            }
+
+        }
+  
+      }
+
+}

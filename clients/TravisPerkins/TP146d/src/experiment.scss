@@ -1,0 +1,499 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}_Decking_Calculator_Container {
+    clear: both;
+  }
+
+  .#{$id}_Decking_Calculator_Header {
+    color: #FFFFFF;
+    background-color: #054731;
+    margin: 0;
+    padding: 10px 0 10px 13px;
+  }
+
+  .#{$id}_Bold {
+    font-weight: 700;
+  }
+
+  .#{$id}_Decking_Calculator_Components_Container {
+    border-left: #e0e0e0 1px solid;
+    border-bottom: #e0e0e0 1px solid;
+    border-right: #e0e0e0 1px solid;
+    font-size: 0;
+    display: flex;
+  }
+
+  // Calculation input area
+  .#{$id}_Calculator_Input_Label {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  .#{$id}_Calculation_Input_Container {
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+    font-size: 14px;
+  }
+
+  .#{$id}_Calculation_Input_Header {
+    font-size: 14px;
+
+    span {
+      display: inline-block;
+      margin: 10px 0;
+    }
+  }
+
+  .#{$id}_Wrap {
+    max-width: 60%;
+    margin: 20px auto 10px auto;
+  }
+
+  input.#{$id}_Calculator_Input {
+    border: 1px solid #e0e0e0;
+    border-bottom: 2px solid #bdbdbd;
+    background-color: #FFFFFF;
+    outline: none;
+    width: 100%;
+    font-size: 1em;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    padding: 8px 12px;
+    height: auto;
+    transition: all 0.3s;
+
+    &:focus {
+      border-bottom-color: #F6B112;
+      box-shadow: none;
+    }
+  }
+
+  .#{$id}_Measurement_Unit {
+    margin-left: 10px;
+    display: inline-block;
+    width: 25px;
+  }
+
+  .#{$id}_Input_Label_Container {
+    text-align: left;
+  }
+
+  // Hidden by default
+  .#{$id}_Error_Message {
+    color: #D41B2D;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  // Error Styling
+  .#{$id}_Input_Error {
+    >input {
+      background: #fce8ea !important;
+      border-color: #fce8ea;
+      border-bottom-color: #D41B2D;
+    }
+
+    .#{$id}_Error_Message {
+      opacity: 1;
+    }
+  }
+
+  // Slider styling - from W3 schools
+
+  /* The switch - the box around the slider */
+  .#{$id}_Switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    vertical-align: middle;
+    margin: 10px;
+  }
+
+  /* Hide default HTML checkbox */
+  .#{$id}_Switch input {
+    display: none;
+  }
+
+  /* The slider */
+  .#{$id}_Slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background-color: #ccc;
+    background-color: #054731;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .#{$id}_Slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.#{$id}_Slider {
+    background-color: #f6b112;
+  }
+
+  input:focus+.#{$id}_Slider {
+    box-shadow: 0 0 1px #f6b112;
+  }
+
+  input:checked+.#{$id}_Slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .#{$id}_Toggle_Option {
+    vertical-align: middle;
+  }
+
+  // Check box
+  ##{$id}_Checkbox_Wastage {
+    opacity: 0;
+  }
+
+  ##{$id}_Checkbox_Wastage:checked+.#{$id}_Checkbox_Wastage_Label:before {
+    background-color: #0F7258;
+  }
+
+  ##{$id}_Checkbox_Wastage:checked+.#{$id}_Checkbox_Wastage_Label:after {
+    color: #FFFFFF;
+    content: '\f00c';
+    font-size: 0.8em
+  }
+
+  .#{$id}_Checkbox_Wastage_Label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1em;
+    -webkit-transition: .28s ease;
+    transition: .28s ease;
+    user-select: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 4px;
+      width: 20px;
+      height: 20px;
+      line-height: 16px;
+      z-index: 0;
+      transition: .28s ease;
+      color: rgba(255, 255, 255, 0);
+      font-family: "FontAwesome";
+    }
+
+    &:after {
+      font-family: "FontAwesome";
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 4px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      z-index: 0;
+      transition: .28s ease;
+      color: rgba(255, 255, 255, 0);
+      border: 2px solid #bdbdbd;
+    }
+  }
+
+  // Calculation output area
+  .#{$id}_Output_Container {
+    vertical-align: top;
+    text-align: center;
+    display: inline-block;
+    border-left: solid 1px #e0e0e0;
+    box-sizing: border-box;
+    width: 50%;
+    font-size: 14px;
+  }
+
+  .#{$id}_Calculation_Output_Header {
+    display: block;
+    text-align: center;
+  }
+
+  .#{$id}_Calculation_Output_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    height: 100%;
+    background: whitesmoke;
+  }
+
+  .#{$id}_Decking_Pack_Output,
+  .#{$id}_Decking_Pack_Output span {
+    font-weight: 700;
+  }
+
+  .#{$id}_Decking_Output,
+  .#{$id}_Decking_Pack_Output {
+    display: block;
+    font-size: 24px;
+  }
+
+  .#{$id}_CTA_Block {
+    margin-top: 40px;
+  }
+  
+  .#{$id}_CTA_Button {
+    box-sizing: border-box;
+    margin: 8px 0;
+    padding: 18px 20px;
+    min-width: 240px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    background: #F6B112;
+    border-color: #F6B112;
+    transition: background-color 0s;
+    display: inline-block;
+    transition: .2s all;
+
+    &:hover {
+      border-color: #e09b12;
+      background: #e09b12;
+      box-shadow: 0 10px 20px rgba(0,0,0,.11) , 0 6px 6px rgba(0,0,0,.13)!important;
+      background-color: #f4a91f;
+      color: #000;
+    }
+
+    &.#{$id}_CTA_Button--disabled {
+      opacity: .4;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &##{$id}_CTA_Delivery {
+      background-repeat: no-repeat;
+      background-position: 10px;
+      background-image: url('http://www.travisperkins.co.uk/_ui/addons/b2bnewtpaddon/desktop/theme-travisperkins/images/cc_truck_black.png')!important;
+    }
+
+    &##{$id}_CTA_ClickAndCollect {
+      background-repeat: no-repeat;
+      background-position: 10px;
+      background-image: url('http://www.travisperkins.co.uk/_ui/addons/b2bnewtpaddon/desktop/theme-travisperkins/images/cc_mouse_black.png')!important;
+    }
+  }
+
+  .#{$id}_CTA_Error {
+    margin: 0 0 10px 0;
+    color: red;
+    line-height: normal;
+  }
+
+  .#{$id}_CTA_Label {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+  }
+
+  .#{$id}_Checkbox_Container {
+    margin: 10px 0 0 0;
+  }
+
+  // If add for delivery button is disabled, adjust styling
+  .#{$id}_Hide_Add_For_Delivery .#{$id}_Add_Delivery {
+    display: none;
+  }
+
+  .#{$id}_Hide_Add_For_Delivery.#{$id}_Output_Container {
+    min-height: 329px; // Match other container height
+    position: relative;
+  }
+
+  .#{$id}_Hide_Add_For_Delivery .#{$id}_Split_Packs_Container {
+    // Force content to the bottom
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  // Value container
+  .#{$id}_Output_Values_Container {
+    max-width: 60%;
+    margin: 10px auto 10px auto;
+  }
+
+  // Split pack area
+  .#{$id}_Split_Packs_Container {
+    text-align: center;
+    background: #f5f5f5;
+    padding: 20px 0;
+    box-sizing: border-box;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .#{$id}_Split_Pack_Header {
+      border-bottom: 1px solid #000000;
+      display: inline-block;
+      margin: 0 0 14px 0;
+      padding-bottom: 5px;
+    }
+
+    .#{$id}_Split_Pack_Text {
+      display: block;
+      margin: 0 auto 15px auto;
+      max-width: 60%;
+    }
+  }
+
+  // Taken from style guide
+  .#{$id}_Split_Pack_Link {
+    display: inline-block;
+    border-radius: 4px;
+    text-transform: capitalize;
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-weight: 600;
+    transition: box-shadow 0.5s;
+    color: #333;
+    // background: #eee;
+    background: #F6B112;
+    border: 1px solid #F6B112;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: 500;
+
+    &:hover {
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.5s;
+      text-decoration: none;
+    }
+  }
+
+  // Hide 's' if single pack
+  .#{$id}_Single>span>.#{$id}_Pack_Plural {
+    display: none;
+  }
+
+  .#{$id}_Pack_Plural {
+    display: inline;
+  }
+
+  // Specific styling for add to bag error
+  .#{$id}_Error_Message.#{$id}_ATB_Error {
+    display: block;
+    text-align: center;
+    opacity: 1;
+  }
+
+  .#{$id}-update {
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    button {
+      box-sizing: border-box;
+      display: inline-block;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      text-transform: capitalize;
+      outline: none;
+      -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      -webkit-transition: -webkit-box-shadow 0.5s;
+      transition: -webkit-box-shadow 0.5s;
+      -o-transition: box-shadow 0.5s;
+      -moz-transition: box-shadow 0.5s, -moz-box-shadow 0.5s;
+      transition: box-shadow 0.5s;
+      transition: box-shadow 0.5s, -webkit-box-shadow 0.5s, -moz-box-shadow 0.5s;
+      color: #333;
+      background: #F6B112;
+      border: 1px solid #F6B112;
+      font-size: 14px;
+      text-align: center;
+      white-space: nowrap;
+      text-decoration: none;
+      padding: 8px 16px;
+      font-weight: 500;
+      // width: 200px;
+      transition: .2s all;
+      &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,.11) , 0 6px 6px rgba(0,0,0,.13)!important;
+        background-color: #f4a91f;
+        color: #000;
+      }
+    }
+  }
+
+  // Dropdown
+  .#{$id}_Calculation_Input_Container .dropdown {
+    display: block;
+    width: 100% !important;
+    height: 35px!important;
+    background: none!important;
+    border: 1px solid #e0e0e0;
+    padding: 0;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+    border-bottom: 2px solid #bdbdbd;
+    background-color: #FFFFFF;
+    margin-bottom: 14px;
+
+    .dropdown-opener {
+      background: none;
+      height: 35px!important;
+      line-height: normal!important;
+      padding: 8px 35px 8px 12px;
+      box-sizing: border-box;
+      font-size: 14px;
+  
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 7px solid #232323;
+        top: 14px;
+        right: 10px;
+      }
+    }
+  }
+}

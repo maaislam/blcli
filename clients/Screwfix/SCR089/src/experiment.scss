@@ -1,0 +1,600 @@
+@import './variables';
+
+.#{$id} {
+  &__hide {
+    display: none;
+  }
+
+  &__disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &__plpCard {
+    position: relative;
+    max-width: 256px;
+    height: 69px;
+    display: flex;
+    border: 1px solid $theme-color;
+    cursor: pointer;
+
+    @include media-query(lg) {
+      max-width: 230px;
+    }
+
+    .image {
+      width: 52px;
+      height: 52px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      margin-left: 4px;
+
+      .title {
+        margin: 2px 0 3px 0;
+        font-family: 'screwfix_betabold';
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19px;
+        color: $theme-color;
+
+        @include media-query(lg) {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      .price {
+        font-family: 'screwfix_betaregular', arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19px;
+        color: $bundle-product-price-color;
+
+        @include media-query(lg) {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+
+      .code {
+        font-family: 'screwfix_betaregular', arial, sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 13px;
+        color: $theme-color;
+      }
+
+      .offer-note {
+        margin-top: 3px;
+        font-family: 'screwfix_betabold', arial, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19px;
+        color: $theme-color;
+
+        @include media-query(lg) {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+
+      .badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px;
+        font-family: 'screwfix_betabold', arial, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17px;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: $theme-color;
+        border-bottom-left-radius: 2px;
+
+        @include media-query(lg) {
+          font-size: 11px;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+
+  &__pdpCard {
+    margin: 0 35px 32px;
+    padding: 16px 24px 24px;
+    position: relative;
+    max-width: 100%;
+    max-height: 229px;
+    border: 1px solid $theme-color;
+
+    @include media-query(lg) {
+      margin: 10px 10px 20px;
+      max-width: 100%;
+      max-height: max-content;
+      padding: 8px 8px 16px 8px;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 4px 6px;
+      font-family: 'screwfix_betabold', arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 17px;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: $theme-color;
+      border-bottom-left-radius: 2px;
+
+      @include media-query(lg) {
+        padding: 4px;
+      }
+    }
+
+    .pdpCard-title {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-family: 'screwfix_betabold', arial, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29px;
+      color: $theme-color;
+
+      @include media-query(lg) {
+        max-width: 80%;
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+
+      @include media-query(lg) {
+        flex-direction: column;
+      }
+
+      .bundle-products {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include media-query(lg) {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      .bundle-product {
+        display: flex;
+        align-items: center;
+
+        @include media-query(lg) {
+          padding: 8px 0;
+        }
+      }
+
+      .plus-icon {
+        @include media-query(lg) {
+          margin: 8px auto;
+        }
+      }
+
+      .bundle-product-image {
+        width: 100px;
+        height: 100px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .bundle-product-details {
+        max-width: 193px;
+        margin-left: 8px;
+
+        @include media-query(lg) {
+          max-width: 219px;
+        }
+
+        .free-prd-title-code {
+          font-family: 'screwfix_betaregular', arial, sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 16px;
+
+          @include media-query(lg) {
+            font-size: 10px;
+            line-height: 13px;
+          }
+        }
+
+        .product-title {
+          margin: 0 0 8px 0;
+          font-family: 'screwfix_betaregular', arial, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 21px;
+          color: #0053a0;
+
+          @include media-query(lg) {
+            font-size: 14px;
+            line-height: 18px;
+          }
+        }
+      }
+
+      .bundle-product-price {
+        display: inline-flex;
+        align-items: flex-start;
+        position: relative;
+        padding-bottom: 4px;
+        color: $bundle-product-price-color;
+
+        @include media-query(lg) {
+          padding-bottom: 0;
+        }
+
+        .currency-symbol {
+          font: 900 18px/22px screwfix_betaheavy;
+          padding-right: 3px;
+        }
+
+        .current-price {
+          font: 900 32px/1 screwfix_betaheavy;
+        }
+
+        .price-decimal {
+          font: 900 18px/22px screwfix_betaheavy;
+          min-width: 34px;
+        }
+
+        .bundle-product-vat {
+          font: 700 9px/10px screwfix_betabold;
+          text-transform: uppercase;
+          position: absolute;
+          bottom: 7px;
+          right: 5px;
+
+          @include media-query(lg) {
+            bottom: 4px !important;
+          }
+        }
+
+        .free-text {
+          margin-right: 8px;
+          font: 900 32px/22px screwfix_betaheavy;
+          text-transform: uppercase;
+          color: $bundle-price-color;
+        }
+
+        .price-text {
+          font-family: 'screwfix_betaregular', arial, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 21px;
+          color: $bundle-product-price-color;
+        }
+      }
+
+      .bundle-buttons {
+        min-width: 330px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include media-query(lg) {
+          margin-top: 16px;
+          min-width: auto;
+        }
+      }
+
+      .bundle-price {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        .bundle-price-text {
+          margin-right: 16px;
+          font-family: 'screwfix_betabold', arial, sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 25px;
+          color: $bundle-product-price-color;
+
+          @include media-query(lg) {
+            font-size: 16px;
+            line-height: 25px;
+            margin-right: 8px;
+          }
+        }
+
+        .currency-symbol {
+          font: 900 18px/22px screwfix_betaheavy;
+          padding-right: 3px;
+          color: $bundle-price-color;
+        }
+
+        .current-price {
+          font: 900 32px/1 screwfix_betaheavy;
+          color: $bundle-price-color;
+        }
+
+        .price-decimal {
+          font: 900 18px/22px screwfix_betaheavy;
+          min-width: 34px;
+          color: $bundle-price-color;
+        }
+
+        .bundle-product-vat {
+          font: 700 9px/10px screwfix_betabold;
+          text-transform: uppercase;
+          position: absolute;
+          bottom: 7px;
+          right: 5px;
+          color: $bundle-price-color;
+        }
+      }
+
+      .#{$id}__delivery-btn {
+        margin-bottom: 10px;
+
+        @include media-query(lg) {
+          margin-bottom: 16px;
+        }
+
+        &:disabled {
+          @include media-query(lg) {
+            display: none;
+          }
+        }
+      }
+
+      // .click-collect-btn,
+      // .delivery-btn {
+      //   width: 100%;
+      //   padding: 0;
+      //   height: 46px;
+      //   font-size: 22px;
+      //   line-height: 25px;
+      //   background: linear-gradient(0deg, #056a18 0, #3e961c 49%, #5eab2a 52%, #82c72c);
+      //   border: 1px solid #0f701d;
+      //   color: #fff;
+      //   fill: #fff;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   position: relative;
+      //   border-radius: 5px;
+      //   font-family: archivo_narrowbold, sans-serif;
+      //   font-weight: 600;
+      //   -webkit-font-smoothing: antialiased;
+      //   fill: #fff;
+      //   cursor: pointer;
+      // }
+
+      // .delivery-btn {
+      //   margin-bottom: 10px;
+
+      //   @include media-query(lg) {
+      //     margin-bottom: 16px;
+      //   }
+      // }
+
+      // .bundle-btn-icon {
+      //   width: 1em;
+      //   height: 1em;
+      //   position: absolute;
+      //   left: 10px;
+      //   display: block;
+      //   font-size: 30px;
+
+      //   @include media-query(lg) {
+      //     display: none;
+      //   }
+      // }
+
+      // .bundle-btn-text {
+      //   font-size: 22px;
+      //   line-height: 25px;
+      //   color: #fff;
+      //   font-family: archivo_narrowbold, sans-serif;
+      //   text-align: center;
+      // }
+    }
+  }
+
+  &__modalCard {
+    margin: 0 55px 40px 170px;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    max-width: 100%;
+    border: 1px solid $theme-color;
+
+    @include media-query(lg) {
+      margin: 0 38px 40px 132px;
+    }
+
+    @include media-query(sm) {
+      margin: 8px 12px 30px;
+      max-width: 100%;
+      padding: 8px;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 4px;
+      font-family: 'screwfix_betabold', arial, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: $theme-color;
+      border-bottom-left-radius: 2px;
+
+      @include media-query(lg) {
+        padding: 2px 4px;
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    .modalCard-title {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-family: 'screwfix_betabold', arial, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29px;
+      color: $theme-color;
+
+      @include media-query(lg) {
+        margin-bottom: 6px;
+        max-width: 80%;
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+
+    .content {
+      display: flex;
+
+      .image {
+        margin-right: 15px;
+
+        img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+
+      .price-container {
+        margin: 15px 0 19px;
+        display: flex;
+        align-items: center;
+      }
+
+      .free-text {
+        margin-right: 8px;
+        font: 900 32px/22px screwfix_betaheavy;
+        text-transform: uppercase;
+        color: $bundle-price-color;
+      }
+
+      .price-text {
+        font-family: 'screwfix_betaregular', arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+        color: $bundle-product-price-color;
+      }
+
+      .#{$id}__checkbox-container {
+        label {
+          position: relative;
+          cursor: pointer;
+
+          @include media-query(lg) {
+            display: flex;
+          }
+        }
+
+        #addToBasketCheckbox {
+          display: none;
+        }
+
+        #addToBasketCheckbox:checked+label::before {
+          background: #3e961c;
+          box-shadow: inset 3px 3px 6px #337412;
+          border: 1px solid #0f701d;
+        }
+
+        label::before {
+          position: absolute;
+          top: 42%;
+          left: 0;
+          content: '';
+          height: 21px;
+          width: 21px;
+          cursor: pointer;
+          background: #fff;
+          box-shadow: inset 3px 3px 6px #e2e2e2;
+          border: 1px solid #d1d1d1;
+          box-sizing: border-box;
+          transform: translateY(-50%);
+
+          @include media-query(lg) {
+            top: 30%;
+          }
+        }
+
+        label:hover::before {
+          border: 1px solid #ababab;
+        }
+
+        .modalCard-checkIcon {
+          position: absolute;
+          height: 16px;
+          width: 16px;
+          background: no-repeat;
+          top: 50%;
+          left: 3px;
+          transform: translateY(-50%);
+          fill: #fff;
+          opacity: 0;
+
+          @include media-query(lg) {
+            top: 32%;
+          }
+        }
+
+        #addToBasketCheckbox:checked+label .modalCard-checkIcon {
+          opacity: 1;
+        }
+      }
+
+      .checkbox-label {
+        margin-left: calc(21px + 10px);
+        font-family: 'screwfix_betaregular', arial, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 27px;
+        color: #0053a0;
+
+        @include media-query(lg) {
+          font-size: 16px;
+          line-height: 21px;
+        }
+
+        span {
+          font-family: 'screwfix_betaregular', arial, sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 24px;
+
+          @include media-query(lg) {
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

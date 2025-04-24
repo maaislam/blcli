@@ -1,0 +1,383 @@
+@import '../../../variables';
+
+$component: '#{$id}_AccountType';
+
+.#{$id} {
+  .#{$component}_overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 5;
+  }
+  
+  .#{$component} {
+    box-shadow: 0 1px 10px 4px rgba(0,0,0,.1);
+    font-size: 0;
+    display: flex;
+    height: 180px;
+    overflow-y: auto;
+    position: relative;
+
+    &.#{$component}--locked .#{$component}_overlay {
+      display: block;
+    }
+  }
+
+  .#{$component}_mobileOnly {
+    display: none !important;
+  }
+  
+  .#{$component}_tab {
+    &.#{$component}_mobileOnly {
+      display: none;
+    }
+
+    &.#{$component}_desktopOnly {
+      padding: 20px;
+      box-sizing: border-box;
+      display: inline-block;
+      width: 30%;
+      font-size: initial;
+      vertical-align: top;
+      background-color: #0a4f38;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      
+      h3 {
+        color: #f6b112;
+        padding: 0;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+      }
+
+      p {
+        margin: 0;
+        color: white;
+        margin: 0;
+        color: white;
+        line-height: 1.3rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .#{$component}_head {
+    margin-bottom: 20px;
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+    }
+  }
+
+  .#{$component}_radioList {
+    font-size: 1rem;
+    padding-left: 20px;
+
+    > li {
+      margin: 10px 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-top: 0;
+      }
+
+      input {
+        margin: 0 8px 0 0;
+        cursor: pointer;
+      }
+
+      label {
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+
+    &.#{$component}_radioList--boxes {
+      padding: 0;
+      font-size: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-top: 38px;
+
+      > li {
+        margin: 0 2%;
+        width: 20%;
+        max-width: 100px;
+        display: inline-block;
+        background-color: #EEEEEE;
+        border: 1px solid #C2C2C2;
+        text-align: center;
+        font-size: 1rem;
+        box-sizing: border-box;
+
+        &.#{$component}_radio--active {
+          background-color: #0a4e37;
+          color: #fff;
+
+          label {
+            font-weight: bold;
+          }
+        }
+
+        label {
+          padding: 15px 0;
+          display: block;
+          cursor: pointer;
+        }
+      }
+
+      input {
+        display: none;
+      }
+    }
+  }
+  
+  .#{$component}_contentWrap {
+    background-color: white;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 70%;
+    font-size: initial;
+    vertical-align: top;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .#{$component}_step {
+    display: none;
+
+    &.#{$component}_step--active {
+      display: block;
+    }
+
+    &[data-step="thank_you"] {
+      width: 100%;
+
+      .#{$component}_body {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+
+        h3 {
+          margin: 0;
+          padding: 0;
+          align-self: center;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &[data-step="trade_company"] {
+      flex: 1 0 100%;
+    }
+  }
+
+  .#{$component}_button {
+    background-color: #f6b112;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+    padding: 15px 10px;
+    min-width: 170px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    align-self: flex-end;
+    display: none;
+  }
+}
+
+// Mobile
+$extraSmall: 360px;
+.ui-mobile .#{$id} {
+  .#{$component} {
+    box-shadow: none;
+    display: block;
+    background: #f9f9f9;
+    padding: 1% 0;
+    border: none;
+    height: auto;
+  }
+
+  .#{$component}--showMobile {
+    .#{$component}_contentWrap {
+      display: block;
+    }
+
+    .#{$component}_tab.#{$component}_mobileOnly a:after {
+      content: "\f106";
+    }
+  }
+
+  .#{$component}_head p {
+    font-size: 18px;
+  }
+
+  .#{$component}_error p {
+    color: red;
+    margin: 20px 0 -20px;
+    text-align: center;
+  }
+
+  .#{$component}_radioList {
+    padding-left: 0;
+
+    @media screen and (max-width: $extraSmall) {
+      margin: 0 -3%;
+    }
+
+    li {
+      > input,
+      > label {
+        display: inline-block;
+        font-size: 18px;
+
+        @media screen and (max-width: $extraSmall) {
+          font-size: 17px;
+        }
+      }
+
+      input {
+        @media screen and (max-width: $extraSmall) {
+          margin: 0;
+        }
+      }
+
+      > label {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &.#{$component}_radioList--boxes {
+      display: block;
+
+      > li {
+        max-width: none;
+        width: 44%;
+        margin: 3%;
+        border-radius: 4px;
+        box-shadow: 1px 2px 4px -2px rgba(0, 0, 0, 0.3);
+
+        &:nth-of-type(-n+2) {
+          margin-top: 0;
+        }
+
+        &:nth-last-of-type(-n+2) {
+          margin-bottom: 0;
+        }
+
+        label {
+          display: block;
+          padding: 18px 0;
+        }
+      }
+
+      input {
+        display: none;
+      }
+    }
+  }
+
+  .#{$component}_button {
+    margin: 40px 0 0;
+    width: auto;
+    padding: .9em;
+    font-size: 18px;
+    font-weight: bold;
+    display: block !important;
+  }
+
+  .#{$component}_contentWrap {
+    display: none;
+    width: auto;
+    margin: 0 6% 3%;
+    border: none;
+    padding: 0;
+    box-shadow: 0 1px 10px 4px rgba(0,0,0,.1);
+    padding: 22px 7%;
+  }
+  
+  .#{$component}_step {
+    padding: 0;
+    background: #fff;
+  }
+
+  .#{$component}_desktopOnly {
+    display: none !important;
+  }
+
+  .#{$component}_tab {      
+    &.#{$component}_mobileOnly {
+      display: block !important;
+      background-color: #0a4e38;
+      border: none;
+      margin: 2% 4% 3%;
+      box-shadow: 0 1px 10px 4px rgba(0,0,0,.1);
+      border-bottom: 2px solid #f6b112;
+
+      a {
+        font-size: 1rem;
+        text-decoration: initial;
+        color: #fff;
+        display: block;
+        height: 100%;
+        padding: 0% 0% 0% 5%;
+        position: relative;
+        width: auto;
+
+        p {
+          color: #fff;
+          font-size: 22px;
+          line-height: 64px;
+          height: auto;
+
+          @media screen and (max-width: 345px) {
+            font-size: 19px;
+          }
+        }
+
+        &:after {
+          content: "\f107";
+          font-family: 'FontAwesome';
+          right: 5%;
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          top: 50%;
+          margin-top: -6px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 12px;
+          color: #fff;
+        }
+      }
+  
+      a,
+      a:hover,
+      a:active,
+      h3 {
+        color: #f6b112;
+      }
+    }
+  }
+
+  &.page-OrderThankYouPageMobile {
+    .#{$component}_contentWrap {
+      margin: 0 3% 3%;
+    }
+  }
+}

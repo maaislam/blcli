@@ -1,0 +1,124 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-benefit-toggle {
+        display: none;
+    }
+
+}
+
+.#{$id}.#{$id}-experiment-active {
+
+    .#{$id}-updated-fare-cards {
+        .fare-card__body {
+            padding-bottom: 0 !important;
+
+            .fare-benefit {
+                display: none;
+            }
+
+            .fare-benefit.#{$id}-fare-benefit--displayed {
+                display: block;
+            }
+        }
+
+        .#{$id}-updated-fare-card--expanded {
+            .fare-benefit,
+            .fare-benefits {
+                display: block !important;
+            }
+        }
+    }
+    
+
+    .#{$id}-hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-benefit-toggle {
+
+        background: none !important;
+        border: none !important;
+        padding: 0 0 0 20px;
+        float: left;
+        margin-bottom: 20px;
+        color: #f60;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 16px;
+        cursor: pointer;
+        font-family: 'easyjet_rounded_bookRg',Arial,Verdana,Tahoma,Georgia,sans-serif;
+
+        &:after {
+            content: url("https://blcro.fra1.digitaloceanspaces.com/EJ008/chevron.svg");
+            width: 20px;
+            height: 20px;
+            display: inline;
+            margin-left: 5px;
+        }
+
+        &[data-action="show"] {
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+}
+
+.#{$id}.#{$id}-2.#{$id}-experiment-active {
+
+    .select-fare-type-modal-cards {
+        
+        display: none;
+    }
+
+    .#{$id}-select-fare-cards {
+        display: flex;
+        margin-top: 50px;
+        min-height: 480px;
+
+        @media all and (max-height: 700px) {
+            margin-top: 0;
+        }
+    }
+
+        .#{$id}-farecard--carouselitem {
+            width: 95%;
+        }
+
+    .#{$id}-farecard--carouselitem .fare-card {
+        min-height: 400px;
+    }
+
+    .#{$id}-farecard--carouselitem--norec {
+        position: relative;
+        top: 35px;
+    }
+
+    .#{$id}-carousel-dots {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+
+        a {
+            width: 15px !important;
+            height: 15px !important;
+            background: none;
+            border: 1px solid #FFF;
+            border-radius: 50%;
+            margin: 0 5px;
+
+            &.#{$id}-carousel-dot--active {
+                background: #FFF;
+            }
+        }
+    }
+
+       
+
+}

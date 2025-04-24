@@ -1,0 +1,336 @@
+@import './variables';
+
+.#{$id} {
+  .ui-widget-overlay {
+    display: none !important;
+  }
+
+  .forgot-password-dialog {
+    display: none !important;
+  }
+
+  .login-column {
+    display: none !important;
+  }
+
+  .#{$id}-display-none {
+    display: none;
+  }
+
+  .#{$id}-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .#{$id}-fieldset.#{$id}-selected {
+    border: 1px solid #232323;
+  }
+
+  .#{$id}-fieldset:not(.#{$id}-selected) {
+    border: 1px solid #ccc;
+
+    label,
+    p {
+      color: #81868a;
+      color: #000;
+    }
+  }
+  .#{$id}-2 .#{$id}-fieldset:not(.#{$id}-selected),
+  .#{$id}-3 .#{$id}-fieldset:not(.#{$id}-selected) {
+    border: 1px solid #ccc;
+
+    label,
+    p {
+      //color: #81868a;
+      color: #000;
+    }
+  }
+
+  .#{$id}-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
+  .#{$id}-password-reset-modal {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #232323; /* Border color when selected */
+    background-color: #fff;
+    padding: 10px;
+    max-width: 420px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100000;
+    @media screen and (max-width: 430px) {
+      width: 80%;
+    }
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10px;
+
+      button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        font-size: 16px;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .#{$id}-input:focus {
+        border: 1px solid #232323;
+      }
+
+      .#{$id}-email-field {
+        position: relative;
+
+        .#{$id}-tick {
+          position: absolute;
+          right: 10px;
+          top: 34px;
+        }
+      }
+
+      .#{$id}-error-style {
+        // border: 1px solid #BC0031
+      }
+
+      .#{$id}-error-message {
+        color: #bc0031;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        p {
+          margin: 0;
+          color: #bc0031;
+        }
+      }
+    }
+  }
+
+  .#{$id}-fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    max-width: 420px;
+    width: 90%;
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+    padding-top: 15px;
+
+    .#{$id}-offset-container {
+      width: 86%;
+      margin: 0 10px 10px;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+
+      .#{$id}-email-field {
+        position: relative;
+
+        .#{$id}-tick {
+          position: absolute;
+          right: 10px;
+          top: 34px;
+        }
+      }
+      .#{$id}-password-field {
+        position: relative;
+        margin-top: 5px;
+      }
+
+      .#{$id}-password-icon {
+        cursor: pointer;
+        position: absolute;
+        top: 60%;
+        right: 10px;
+        width: 17px;
+        height: 16px;
+        transform: translateY(-30%);
+      }
+
+      .#{$id}-p {
+        // max-width: 200px;
+        line-height: 22px;
+        font-size: 14px;
+      }
+
+      .#{$id}-hidden-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .#{$id}-need-help,
+        .#{$id}-no-account {
+          cursor: pointer;
+        }
+      }
+
+      .#{$id}-display-none.#{$id}-hidden-content {
+        display: none;
+      }
+    }
+
+    input[type='radio'] {
+      cursor: pointer;
+      flex: none;
+      appearance: none; /* Remove default appearance */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid #81868a; /* Border color */
+      border-radius: 50%; /* Make it a circle */
+      width: 15px; /* Set the width and height to create a circle */
+      height: 15px;
+      outline: none; /* Remove outline on focus */
+      opacity: unset;
+    }
+
+    input[type='radio']:checked {
+      cursor: pointer;
+      background-color: #232323;
+      border: 1px solid #232323; /* Border color when selected */
+    }
+  }
+
+  .#{$id}-legend {
+    font-weight: bold;
+    // cursor: pointer;
+
+    label {
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 5;
+      position: relative;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  .#{$id}-label {
+    display: block;
+    font-size: 14px;
+  }
+
+  .#{$id}-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .#{$id}-input.#{$id}-focused {
+    border: 1px solid #232323;
+  }
+
+  .#{$id}-input::placeholder {
+    text-transform: none;
+  }
+
+  .#{$id}-button {
+    background-color: #232323;
+    width: 100%;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    &.#{$id}-signIn {
+      margin-top: 5px;
+    }
+  }
+
+  .#{$id}-button:hover {
+    background-color: #fff;
+    color: #232323;
+    border: 1px solid #232323;
+  }
+
+  input[type='checkbox'].#{$id}-checkbox {
+    display: none;
+  }
+
+  /* Create custom checkbox styles */
+  input[type='checkbox'].#{$id}-checkbox + label {
+    font-size: 14px;
+    position: relative;
+    padding-left: 30px; /* Adjust as needed */
+    padding-top: 4px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  input[type='checkbox'].#{$id}-checkbox + label:before {
+    font-size: 14px;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #555;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  input[type='checkbox'].#{$id}-checkbox:checked + label:before {
+    font-size: 14px;
+    background-color: #fff;
+    border-color: #000;
+    content: url('https://blcro.fra1.digitaloceanspaces.com/HOT-670/Vector.svg');
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    line-height: 20px;
+  }
+
+  .#{$id}-error-style {
+    // border: 1px solid #BC0031
+  }
+
+  .#{$id}-error-message {
+    color: #bc0031;
+    display: none;
+    align-items: center;
+    gap: 5px;
+
+    p {
+      margin: 0;
+      color: #bc0031;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+
+  .#{$id}-link {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .#{$id}-no-account {
+    text-decoration: underline;
+  }
+
+  .#{$id}-valid-style {
+    // border: 1px solid #118F40;
+  }
+}

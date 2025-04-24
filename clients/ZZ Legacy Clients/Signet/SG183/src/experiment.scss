@@ -1,0 +1,114 @@
+@import "./variables";
+@import "./lib/components/heading/heading";
+@import "./lib/components/accordion/accordion";
+@import "./lib/components/brandCard/brand-card";
+@import "./lib/components/metalCard/metal-card";
+@import "./lib/components/card/card";
+@import "./splide";
+
+.#{$id} {
+  main {
+    overflow: hidden;
+  }
+
+  .splide__list {
+    width: auto !important;
+  }
+
+  .splide__pagination__page {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 0.75rem;
+    height: 0.75rem;
+
+    &.is-active {
+      transform: scale(1) !important;
+      background-color: #000;
+    }
+  }
+
+  .splide__pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 1rem;
+  }
+
+  .splide__arrow--prev,
+  .splide__arrow--next {
+    height: calc(100% - 34px);
+    border-radius: 0;
+    transform: translateY(0);
+    top: 0;
+    background-color: $colour-medium-grey;
+    transition: opacity 0.25s ease;
+
+    &[disabled] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .splide__arrow--prev::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 8px);
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 30px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='23' viewBox='0 0 50 29'%3E%3Cpolygon points='0 36.714 25 11 50 36.714 47.105 39.529 25 16.791 2.895 39.529' transform='rotate(-180 25 19.764)'%3E%3C/polygon%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .splide__arrow--next::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 8px);
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 30px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='23' viewBox='0 0 50 29'%3E%3Cpolygon points='0 36.714 25 11 50 36.714 47.105 39.529 25 16.791 2.895 39.529' transform='rotate(-180 25 19.764)'%3E%3C/polygon%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  @media screen and (min-width: 540px) {
+    .splide__arrow--prev {
+      left: -3rem;
+    }
+    .splide__arrow--next {
+      right: -3rem;
+    }
+  }
+
+  .product-listing__container + .ais-StateResults {
+    padding: 1rem;
+  }
+
+  &.ernestjones {
+    .#{$id}-header {
+      background-color: #f3f3f7;
+    }
+
+    .#{$id}-heading__title {
+      font-weight: 600;
+    }
+
+    .#{$id}-card__title {
+      font-weight: 300;
+      text-transform: initial;
+    }
+
+    .Sub-cat-link-section {
+      display: none;
+    }
+  }
+}

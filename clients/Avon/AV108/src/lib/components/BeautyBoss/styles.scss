@@ -1,0 +1,66 @@
+@import '../../../variables';
+@import '../../../mixins';
+@import 'include-media/dist/_include-media.scss';
+
+.width75MarginAuto {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.flex-grid {
+  display: flex;
+}
+.flex-grid .col {
+  flex: 1;
+}
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+  .second-block {
+    margin-top: 15px;
+  }
+  .third-block {
+    margin-top: -12px;
+  }
+}
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
+//********************************
+// Phone & small ipad
+// 320px and 1024px
+//********************************
+
+@include media('>=phone', '<desktop-s') {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block;
+    .col,
+    .col-left,
+    .col-right {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .col-left {
+      margin-left: -40px;
+    }
+    .col-right {
+      margin-right: -40px;
+    }
+  }
+
+  .col-inner-wrapper {
+    display: flex;
+  }
+  .col-text-wrapper {
+    margin: auto;
+  }
+
+  .col-left {
+    float: left;
+  }
+  .col-right {
+    float: right;
+  }
+}

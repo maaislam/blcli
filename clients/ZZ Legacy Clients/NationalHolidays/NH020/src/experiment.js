@@ -1,0 +1,39 @@
+import { fullStory } from '../../../../lib/utils';
+import nh13 from './lib/NH013';
+
+/**
+ * {{NH020}} - {{Experiment Title}}
+ */
+const Experiment = {
+  /**
+   * @desc Variation settings. Useful for when multiple variations are developed
+   * in a single project so you can just toggle the variation number in production
+   */
+  settings: {
+    ID: 'NH020',
+    VARIATION: '1',
+  },
+
+  init: function init() {
+    // Setup
+    const { settings, services } = Experiment;
+    services.tracking();
+    document.body.classList.add(settings.ID);
+    nh13();
+  },
+
+  services: {
+    /**
+     * @desc Inits all page level tracking
+     */
+    tracking: function tracking() {
+      const { settings } = Experiment;
+      fullStory(settings.ID, `Variation ${settings.VARIATION}`);
+    },
+  },
+
+
+  // components: {},
+};
+
+export default Experiment;

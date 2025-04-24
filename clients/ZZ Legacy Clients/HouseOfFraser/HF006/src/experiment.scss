@@ -1,0 +1,130 @@
+@import './variables';
+
+.#{$id} {
+
+    li.HF006-card {
+        text-align: center;
+        border: 3px solid #F2F2F2;
+        position: relative;
+        // padding: 20px
+
+        .HF006-card--inner {
+            display: table;
+            width: 100%;
+
+            .HF006-card--center {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: bold;
+                color: #000000;
+                margin-bottom:0;
+                text-transform: uppercase;
+
+                @media all and (max-width: 600px) {
+                    font-size: 16px;
+                }
+
+                &.HF006-small {
+                    margin-top: 20px;
+                    font-size: 14px;
+                    font-weight: normal;
+                    text-transform: initial;
+                    @media all and (max-width: 600px) {
+                        font-size: 11px;
+                    }
+                }
+            }
+
+            .HF006-prodcount {
+                font-size: 24px;
+                padding: 5px 15px;
+                background-color: #E10098;
+                margin: 10px 0;
+                display: inline-block;
+                color: #FFFFFF;
+
+                @media all and (max-width: 600px) {
+                    font-size: 16px;
+                }
+
+                .count {
+                    margin-right: 5px;
+                    font-weight: 600;
+                }
+
+                .total {
+                    margin-left: 5px;
+                    font-weight: 600;
+                }
+            }
+
+            button.HF006-btn {
+                display: inline-block;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                letter-spacing: 0.6px;
+                font-size: 14px;
+                padding: 17px 5px 33px;
+                text-transform: uppercase;
+                border: none;
+                margin: 10px auto 0;
+                color: #000000;
+                line-height: 20px;
+                background: #F2F2F2 !important;
+                font-weight: 600;
+
+                &:after {
+                    content: "";
+                    width: 70px;
+                    height: 1px;
+                    background: #000000;
+                    position: absolute;
+                    top: 70%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    transition: ease all .2s;
+                }
+
+                &:hover:after {
+                    top: 62%;
+                    transition: ease all .2s;
+                }
+
+
+                @media all and (max-width: 600px) {
+                    font-size: 11px;
+                    padding: 10px 5px;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 479px) {
+            margin-bottom: 30px;
+            padding: 20px 0 !important;
+
+            .HF006-card--inner {
+                padding: 0 20px;
+
+                p:not(.HF006-small), span {
+                    display: inline;
+                }
+                p.HF006-small {
+                    margin-top: 20px;
+                }
+                button.HF006-btn {
+                    margin: 25px auto 0;
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}

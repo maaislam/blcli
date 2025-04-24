@@ -1,0 +1,286 @@
+@import "./variables";
+
+.#{$id} {
+	#header-search {
+		margin: 0 auto;
+		max-width: 1000px;
+		#search-form {
+			border: none;
+			position: relative;
+			box-shadow: 0px 0px 20px 0px #00000014;
+			z-index: 99;
+			input {
+				width: 100% !important;
+				color: #000;
+				font-weight: 500;
+			}
+		}
+		#search-suggestions.active {
+			z-index: 98 !important;
+		}
+	}
+	#search-suggestions.active {
+		border: none !important;
+		box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+		// border-top: 7px solid #f8f8f8 !important;
+		max-width: 1000px;
+		width: 100% !important;
+		@media screen and (max-width: 767px) {
+			//   height: 85vh;
+			height: 67vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			right: 0px !important;
+		}
+	}
+	#search-suggestion-wrapper {
+		// margin: 30px 0;
+		margin: 15px 15px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		position: relative;
+		right: 0;
+		width: calc(100% - 30px);
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+			padding-bottom: 160px;
+			padding-top: 0;
+			width: 100%;
+			margin: 15px 0px;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.phrase-suggestions {
+			order: 0;
+			width: auto;
+			flex: 1 1 25%;
+			padding-right: 15px;
+			@media screen and (min-width: 768px) and (max-width: 959px) {
+				flex: 1 1 30%;
+			}
+			@media screen and (max-width: 767px) {
+				display: block;
+				flex: 1;
+				width: calc(100% - 10px);
+				// width: 100%;
+				border: none;
+				.hitgroup {
+					display: none;
+				}
+			}
+			.hitgroup {
+				@media screen and (max-width: 767px) {
+					margin-bottom: 0;
+				}
+				.header {
+					text-transform: none;
+					font-family: GillSansNova-Medium;
+					font-size: 18px;
+					font-weight: 600;
+					border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+					height: 19px;
+					padding-bottom: 5px;
+				}
+				.hit {
+					font-size: 16px;
+					line-height: 20px;
+					margin: 0 0 16px;
+					font-family: GillSansNova-Light;
+				}
+			}
+			.#{$id}-always-here-to-help-you {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				@media screen and (max-width: 767px) {
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+					& > * {
+						padding-left: 10px;
+						padding-right: 10px;
+					}
+				}
+				.header {
+					border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+					//   height: 19px;
+					padding-bottom: 5px;
+					text-transform: none;
+					font-family: GillSansNova-Medium;
+					font-size: 18px;
+					font-weight: 600;
+					margin: 0 0 0.5rem;
+					text-align: left;
+					@media screen and (max-width: 767px) {
+						width: 100%;
+					}
+				}
+				a[class$="hit"] {
+					color: #000;
+					font-size: 16px;
+					line-height: 20px;
+					margin: 0 0 16px;
+					font-family: GillSansNova-Light;
+					&:hover {
+						color: #85734f;
+					}
+				}
+			}
+		}
+		.product-suggestions {
+			width: auto;
+			flex: 1 1 75%;
+			order: 1;
+
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			gap: 0 20px;
+			position: relative;
+			padding: 20px 0 30px 15px;
+
+			@media screen and (min-width: 768px) and (max-width: 959px) {
+				gap: 0 15px;
+			}
+
+			@media screen and (max-width: 767px) {
+				flex: 1;
+				width: 100%;
+				// width: 100%;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				padding-left: 0px;
+			}
+			.search-phrase {
+				position: absolute;
+				top: -3.5px;
+				left: 15px;
+				width: 33%;
+
+				text-transform: none;
+				font-family: GillSansNova-Medium;
+				font-size: 18px;
+				font-weight: 600;
+				border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+				padding-bottom: 5px;
+
+				span {
+					text-transform: none;
+				}
+
+				@media screen and (max-width: 767px) {
+					width: 100%;
+					left: 0;
+					span {
+						padding-left: 10px;
+					}
+				}
+			}
+			.product-suggestion-link {
+				flex: 1 1 45%;
+				margin-top: 10px;
+				max-width: 400px;
+				@media screen and (max-width: 1279px) and (min-width: 960px) {
+					max-width: 300px;
+				}
+				@media screen and (max-width: 959px) and (min-width: 768px) {
+					max-width: 220px;
+				}
+				@media screen and (max-width: 767px) {
+					max-width: 100%;
+					.product-suggestion {
+						padding: 10px;
+					}
+				}
+				.product-suggestion.link-element {
+					border: none;
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
+					//   padding-left: 0;
+					padding-bottom: 2px;
+					@media screen and (min-width: 768px) and (max-width: 959px) {
+						max-width: 240px;
+					}
+					.product-image.link-element {
+						width: 130px;
+						img {
+							width: 130px;
+						}
+						@media screen and (min-width: 768px) and (max-width: 959px) {
+							width: 100px;
+							img {
+								width: 100px;
+							}
+						}
+						@media screen and (max-width: 550px) {
+							width: 100px;
+							img {
+								width: 100px;
+							}
+						}
+					}
+					.product-details.link-element {
+						margin-left: 10px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: flex-start;
+						font-size: 16px;
+						padding-top: 0;
+						@media screen and (min-width: 768px) and (max-width: 959px) {
+							.product-name.link-element {
+								max-width: 100%;
+							}
+							font-size: 14px;
+						}
+						.product-name.link-element {
+							//   max-width: 70%;
+							//   max-width: 150px;
+							line-height: 21px;
+							font-weight: 300;
+							opacity: 0.8;
+						}
+						.product-price.link-element {
+							opacity: 0.8;
+						}
+					}
+				}
+			}
+		}
+		a.button {
+			width: auto;
+			float: right;
+			font-size: 16px;
+			color: #000;
+			background: #fff;
+			border: none;
+			text-decoration: underline;
+			text-transform: none;
+			position: absolute;
+			flex-shrink: 0;
+			bottom: -10px;
+			right: 10px;
+			margin-right: 0;
+			font-family: "GillSansNova-Medium", sans-serif;
+			font-weight: 600;
+			// @media screen and (min-width: 768px) {
+			// 	bottom: -10px;
+			// 	right: 30px;
+			// }
+			@media screen and (max-width: 767px) {
+				span {
+					display: none;
+				}
+				bottom: 150px;
+				// right: 40px;
+				// right: 50%;
+				// transform: translateX(50%);
+			}
+		}
+	}
+}

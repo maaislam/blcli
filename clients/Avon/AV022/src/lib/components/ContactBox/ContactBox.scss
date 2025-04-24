@@ -1,0 +1,142 @@
+@import '../../../variables';
+
+$component: '#{$id}_ContactBox';
+
+/* GENERAL STYLES */
+.#{$id} {
+  .#{$component} {
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 20px -2px rgb(222, 222, 222);
+    text-align: center;
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 1.2em auto;
+    }
+  }
+
+  .#{$component}_options {
+    list-style-type: none;
+    padding: 0;
+    font-size: 0;
+    max-width: 450px;
+    margin: 20px auto 0;
+
+    > li {
+      display: inline-block;
+      width: 50%;
+      font-size: 1.2rem;
+      padding: 0 10px;
+      user-select: none;
+
+      input {
+        display: none;
+      }
+    }
+
+    .#{$component}_option {
+      border-radius: 15px;
+      border-color: #F6F9F9;
+      border-style: solid;
+      border-width: 1px;
+      color: #ec018c;
+      padding: 10px 0;
+      background: #F6F9F9;
+      font-size: 1.4rem;
+      cursor: pointer;
+
+      &.#{$component}_option--active {
+        border-color: #ec018c;
+      }
+
+      span {
+        vertical-align: middle;
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    .#{$component}_optionImg {
+      display: inline-block;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 50px;
+      width: 40px;
+      margin-right: 5px;
+      vertical-align: middle;
+      
+      &.#{$component}_optionImg--email {
+        background-image: url('#$(ContentManager:email-icon.png)!'); // Maxymiser reference
+        // background-image: url('https://ab-test-sandbox.userconversion.com/experiments/AV022-email-icon.png');
+      }
+
+      &.#{$component}_optionImg--sms {
+        position: relative;
+        top: -2px;      
+        background-image: url('#$(ContentManager:sms-icon.png)!'); // Maxymiser reference
+        // background-image: url('https://ab-test-sandbox.userconversion.com/experiments/AV022-sms-icon.png');
+      }
+    }
+  }
+
+  .#{$component}_signUp {
+    background-color: #FF346D;
+    color: white;
+    text-align: center;
+    padding: 10px 5px;
+    min-width: 140px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 25px 0 0 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  &.Controller_ConfirmationGb {
+    .#{$component} {
+      max-width: 810px;
+      margin: 40px auto;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component} {
+      padding: 20px 10px;
+    }
+
+    .#{$component}_options {
+      > li {
+        padding: 0 5px;
+      }
+
+      .#{$component}_option span {
+        display: block;
+        position: static;
+        margin-top: 10px;
+      }
+
+      .#{$component}_optionImg {
+        margin: 0;
+        height: 60px;
+        width: 50px;
+
+        &.#{$component}__optionImg--sms {
+          top: 0;
+          left: 2px;
+        }
+  
+        &.#{$component}__optionImg--email {
+          position: static;
+        }
+      }
+    }
+  }
+}

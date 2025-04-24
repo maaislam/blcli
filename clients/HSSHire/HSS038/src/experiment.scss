@@ -1,0 +1,374 @@
+@import './variables';
+
+.#{$id} {
+  .icon {
+    // display: inline-block;
+    background-size: 28px;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    padding-left: 33px;
+
+    &.desktop {
+      background-size: 36px;
+      background-position: 50% 50%;
+      height: 36px;
+    }
+    
+    &#cloudy {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_cloudy.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_cloudy.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_cloudy.png');
+      }
+    }
+    &#snow {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_snow.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_snow.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_snow.png');
+      }
+    }
+    &#mostlySunny {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_mostlysunny.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_mostlysunny.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_mostlysunny.png');
+      }
+    }
+    &#storms {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_storm.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_storm.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_storm.png');
+      }
+    }
+    &#sunny {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_sunny.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_sunny.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_sunny.png');
+      }
+    }
+    &#rain {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_rain.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_rain.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_rain.png');
+      }
+    }
+    &#windy {
+      background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_wind.png');
+      &.mobile {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/mobile/weather_wind.png');
+      }
+      &.desktop {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/weather_wind.png');
+      }
+    }
+  }
+
+  .#{$id}-right {
+    float: right;
+    position: relative;
+
+    // bottom: -3px;
+
+    display: flex;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+
+    div {
+      color: #FFF;
+      font-size: 15px;
+      @media screen and (min-width: 1024px) and (max-width: 1279px) {
+        font-size: 13px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        font-size: 12px;
+      }
+      // padding: 16px 14px;
+      padding: 14px;
+      line-height: 24px;
+      
+      &.day {
+        padding-left: 32px;
+
+        @media screen and (max-width: 769px) {
+          display: none;
+        }
+      }
+      &.location {
+        background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/noun-map-pin-626096%201.png');
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding-left: 22px;
+
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 130px;
+
+        @media screen and (max-width: 870px) {
+          display: none;
+        }
+      }
+
+      &.widget {
+        // background: #0060a3;
+        &:hover {
+          cursor: pointer;
+          background: #0060a3;
+        }
+        &.active {
+          background: #0060a3;
+        }
+      }
+    }
+
+    .widget-content {
+      width: 100%;
+      position: absolute;
+      top: 55px;
+      right: 2px;
+      z-index: 99999;
+      background: #FFF;
+      box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.25);
+
+      .#{$id}-today-forecast {
+        display: flex;
+        justify-content: space-around;
+
+        span.local {
+          font-size: 18px;
+        }
+        span.temp {
+          font-size: 1.2rem !important;
+        }
+
+        span.icon.today {
+          background-size: 50px;
+          height: 0;
+          padding: 22px;
+        }
+      }
+      
+      padding: 10px 10px;
+      min-width: 360px;
+      min-width: 400px;
+
+
+      &.hidden {
+        display: none !important;
+      }
+
+      span {
+        color: #000;
+        text-align: center;
+
+        p {
+          font-weight: 100;
+          font-size: 11px;
+          font-family: montserrat, Arial, Helvetica, sans-serif;
+          color: #53565A;
+        }
+      }
+
+      .#{$id}-weekly-forecast {
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          li {
+            min-width: 32px;
+            display: flex;
+            flex-direction: column;
+            
+            .day {
+              font-weight: 100;
+              margin-bottom: 5px;
+            }
+            .icon {
+              padding: unset;
+            }
+            .max_temp {
+              // color: #CC1719;
+              color: #000;
+              margin: 10px 5px 0 5px;
+            }
+            .min_temp {
+              // color: #0089CF;
+              color: #53565A;
+              margin: 10px 5px 0 5px;
+            }
+            .temp {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+
+
+    }
+  }
+  
+  // --- MOBILE
+  .widget-content.mobile {
+    width: 100%;
+    z-index: 99999;
+    // background: #233343;
+    color: #FFF;
+    padding: 10px 5px 15px 5px !important;
+
+    display: flex;
+
+    overflow-x: scroll;
+    margin-bottom: 2px;
+
+    // &::-webkit-scrollbar-track
+    // {
+    //   width: 10px;
+    //   // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    //   background-color: #FFF;
+    // }
+
+    // &::-webkit-scrollbar
+    // {
+    //   width: 6px;
+    //   background-color: #53565A;
+    // }
+
+    // &::-webkit-scrollbar-thumb
+    // {
+    //   width: 4px;
+    //   background-color: #53565A;
+    // }
+
+    
+
+
+    @media screen and (min-width: 766px) {
+      display: none;
+    }
+
+    .#{$id}-today-forecast {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      min-width: 155px;
+      min-width: 90px;
+      padding-left: 15px;
+
+      .location {
+        font-size: 18px;
+        font-weight: 800;
+
+        // background-image: url('https://ucds.ams3.digitaloceanspaces.com/HSS038/noun-map-pin-626096%201.png');
+        background-repeat: no-repeat;
+        background-position: 0 5px;
+        // padding-left: 22px;
+        background-size: 16px;
+
+        
+
+        p {
+          padding-top: 5px;
+          font-size: 14px;
+          font-weight: 100;
+
+          color: #53565A;
+        }
+      }
+    }
+    
+    padding: 10px 5px;
+    min-width: 360px;
+    min-width: 400px;
+
+    span {
+      color: #FFF;
+      text-align: center;
+
+      p {
+        font-weight: 100;
+        font-size: 11px;
+        font-family: montserrat, Arial, Helvetica, sans-serif;
+        color: #53565A;
+      }
+    }
+
+    .#{$id}-weekly-forecast {
+      margin-left: 10px;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        li {
+          min-width: 33px;
+          display: flex;
+          flex-direction: column;
+          
+          .day {
+            font-weight: 100;
+            margin-bottom: 5px;
+
+            color: #000;
+          }
+          .icon {
+            padding: unset;
+            width: 40px;
+            height: 40px;
+            background-position: 50% 35%;
+
+          }
+          .temp {
+            font-size: 1.2rem;
+          }
+          .max_temp {
+            // display: none;
+            color: #000;
+          }
+          .min_temp {
+            // display: none;
+            color: #53565A;
+            margin-top: 2.5px;
+          }
+        }
+      }
+    }
+  }
+  /* Scrollbar Styling */
+  .widget-content.mobile::-webkit-scrollbar {
+    width: 6px !important;
+    height: 4px !important;
+  }
+
+  .widget-content.mobile::-webkit-scrollbar-track {
+    margin-bottom: 2.5px !important;
+    width: 100vw;
+  }
+
+  .widget-content.mobile::-webkit-scrollbar-thumb {
+    background: #53565A; 
+  }
+
+}

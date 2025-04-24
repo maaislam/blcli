@@ -1,0 +1,209 @@
+@import './swiper';
+@import './variables';
+
+.#{$id} {
+  &__add-border {
+    padding: 2px 8px;
+    border: 2px solid #337412;
+    border-radius: 4px;
+  }
+
+  &__recommendations {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #d9d9d9;
+    box-shadow: -1px -1px 6px 0px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+
+    @include media-query(lg) {
+      padding: 26px 22px 14px 16px;
+    }
+    .inner-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 26px 44px 14px 32px;
+    }
+
+    .#{$id}__close {
+      position: absolute;
+      top: 8px;
+      right: 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      &-text {
+        color: #636363;
+        font-family: 'screwfix_betaregular';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        text-transform: uppercase;
+      }
+    }
+
+    .#{$id}__cardcontent-container {
+      padding: 12px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #d1d1d1;
+      background: #fff;
+    }
+
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+
+      .#{$id}__productSection {
+        width: 100%;
+        overflow-x: hidden;
+
+        .#{$id}__productCards > div {
+          display: flex;
+          align-items: center;
+          // need to remove when swiper will be added
+
+          @include media-query(lg) {
+            gap: 10px;
+          }
+
+          .#{$id}__productCard {
+            //position: relative;
+            max-width: 220px;
+            padding: 12px 0;
+            background: transparent;
+            @include media-query(lg) {
+              max-width: 240px;
+            }
+
+            .#{$id}__close {
+              top: 2px;
+              right: 0;
+              transform: translateX(2px);
+            }
+
+            &-image {
+              img {
+                width: 75px;
+                height: 75px;
+                object-fit: cover;
+
+                @include media-query(lg) {
+                  width: 60px;
+                  height: 60px;
+                }
+              }
+            }
+
+            &-info {
+              &-name {
+                display: -webkit-box;
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                color: #636363;
+                font-family: 'screwfix_betaregular';
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 17px;
+                overflow: hidden;
+              }
+              &-sku {
+                color: #666666;
+                font-family: Arial;
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 13px;
+                letter-spacing: 0em;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+
+      .#{$id}__buttonGroup {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        //flex: 1;
+        gap: 15px;
+        margin-left: auto;
+        @include media-query(lg) {
+          min-width: 230px;
+        }
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 0;
+    height: 38px;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-family: archivo_narrowbold, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__button-primary {
+    background: linear-gradient(0deg, #056a18 0, #3e961c 49%, #5eab2a 52%, #82c72c);
+    color: #fff;
+    border: 1px solid #0f701d;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(0deg, #024b0d 0, #26770f 49%, #408f18 52%, #62b11a);
+      border: 1px solid #085010;
+    }
+  }
+
+  &__button-secondary {
+    background: linear-gradient(0deg, #e7e7e7 0, #f0f0f0 50%, #f6f6f6 0, #fcfcfc);
+    color: #636363;
+    border: 1px solid #d1d1d1;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(0deg, #d1d1d1 0, #e2e2e2 50%, #ededed 0, #f9f9f9);
+      border: 1px solid #ababab;
+    }
+  }
+
+  &__compare-button {
+    width: 100%;
+    max-width: max-content;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 10px 22px;
+    color: #316198;
+    font-family: archivo_narrowbold;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0em;
+    text-align: center;
+    border: 2px solid #316198;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background: linear-gradient(0deg, #d1d1d1 0, #e2e2e2 50%, #ededed 0, #f9f9f9);
+    }
+  }
+}

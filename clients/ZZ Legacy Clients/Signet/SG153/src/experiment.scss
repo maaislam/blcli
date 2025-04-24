@@ -1,0 +1,196 @@
+@import "./variables";
+
+.#{$id} {
+  [data-new-link] a {
+    z-index: 900;
+  }
+
+  #js-main-nav-container {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .main-nav__sub-nav {
+      padding: 0;
+
+      @media screen and (max-width: 1023px) {
+        margin: 0;
+      }
+    }
+  }
+
+  .main-nav__item.main-nav__item--top {
+    @media screen and (min-width: 1024px) {
+      height: 100%;
+
+      > a,
+      > a > span {
+        height: 100%;
+        padding: 0;
+      }
+
+      > a > span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &:nth-child(1) {
+      // All Products
+      order: 7;
+    }
+
+    &:nth-child(2) {
+      // Sale watches
+      order: 5;
+
+      > a {
+        font-weight: 300;
+      }
+    }
+    &:nth-child(3) {
+      // Watch brands
+      order: 4;
+
+      > a {
+        font-weight: 300;
+      }
+    }
+    &:nth-child(4) {
+      // Ladies' watches
+      order: 3;
+
+      > a {
+        font-weight: 300;
+      }
+    }
+    &:nth-child(5) {
+      // Men's watches
+      order: 2;
+
+      > a {
+        font-weight: 300;
+      }
+    }
+    &:nth-child(6) {
+      // Sale
+      display: none;
+    }
+    &:nth-child(7) {
+      // All watches
+      order: 1;
+
+      > a > span {
+        border-left: 1px solid #ddd;
+      }
+    }
+    &:nth-child(8) {
+      // Jewellery
+      order: 6;
+    }
+    &:nth-child(9) {
+      // Engagement Rings
+      display: none;
+    }
+    &:nth-child(10) {
+      // Weddings
+      display: none;
+    }
+    &:nth-child(11) {
+      // Brands
+      display: none;
+    }
+    &:nth-child(12) {
+      // Blog
+      display: none;
+    }
+    &:nth-child(13) {
+      // Sale
+      order: 8;
+    }
+
+    > a {
+      font-weight: 700;
+    }
+  }
+
+  .main-nav__user-status {
+    order: 10;
+  }
+
+  .main-nav__extended-container {
+    order: 11;
+  }
+
+  &.#{$id}-3,
+  &.#{$id}-4 {
+    .main-nav__item.main-nav__item--top:nth-child(1) {
+      // All Products
+      order: 0;
+    }
+  }
+
+  &.#{$id}-2,
+  &.#{$id}-4 {
+    $background-color: #eeeeee;
+    .main-nav__item.main-nav__item--top {
+      &:nth-child(2) {
+        // Sale watches
+        background-color: $background-color;
+      }
+      &:nth-child(3) {
+        // Watch brands
+        background-color: $background-color;
+      }
+      &:nth-child(4) {
+        // Ladies' watches
+        background-color: $background-color;
+      }
+      &:nth-child(5) {
+        // Men's watches
+        background-color: $background-color;
+      }
+      &:nth-child(7) {
+        // Watches
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &.#{$id}-1,
+  &.#{$id}-2 {
+    .main-nav__item.main-nav__item--top {
+      &:nth-child(1) {
+        & > a > span {
+          border-left: 0;
+        }
+      }
+    }
+  }
+
+  &.#{$id}-3,
+  &.#{$id}-4 {
+    .main-nav__item.main-nav__item--top {
+      &:nth-child(1) {
+        & > a > span {
+          border-right: 0;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    #js-main-nav {
+      padding-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import './variables';
+
+.#{$id} {
+  &__product-grid {
+    [data-qaid='bulksave-banner'] button,
+    .#{$id}__bulk-buy-banner {
+      position: relative;
+      width: 100%;
+      max-width: 260px;
+      height: 32px;
+      margin-top: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fff;
+      font-family: 'screwfix_betabold';
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.2;
+      border: 1px solid #bc0000;
+      border-radius: 5px;
+      background: linear-gradient(0deg, #ed1c24, #ed1c24), linear-gradient(0deg, #bc0000, #bc0000);
+      cursor: pointer;
+      span {
+        opacity: 0;
+      }
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none"><path d="M2 11.5L7 6.5L2 1.5" stroke="white" stroke-width="3"/></svg>');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 15px) 4px;
+        content: 'SEE TRADE BULK SAVINGS';
+      }
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        content: '£ ';
+      }
+    }
+  }
+
+  &.#{$id}-2 {
+    [data-qaid='bulksave-banner'] {
+      display: none;
+    }
+  }
+}
+.SCR047__product-grid [data-qaid='bulksave-banner'] button:last-child {
+  margin-bottom: 0;
+}

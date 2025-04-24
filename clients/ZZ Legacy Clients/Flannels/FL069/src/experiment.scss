@@ -1,0 +1,280 @@
+@import './variables';
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.#{$id} {
+  // Overlay
+  .FL069-overlay {
+    position: fixed;
+    height: 100%; width: 100%;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    z-index: 99999;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, .8);
+    animation: fadeIn 0.4s ease;
+  }
+
+  // Message
+  .FL069-message {
+    background-color: #fff;
+    max-width: 640px;
+    height: 470px;
+    position: absolute;
+    left: 0; right: 0;
+    margin: auto;
+    top: 25%;
+    border: 2px solid #eaff3b;
+    .FL069-message--inner {
+      margin: 40px;
+      padding: 40px;
+      border: 1px solid #ccc; 
+    }
+
+    // Positioning
+    .FL069-message--info {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 180px);
+      span.tick {
+        background-image: url(https://www.flannels.com/images/core/flannels-new-sheet-v4.svg);
+        background-repeat: no-repeat;
+        background-size: 500px 500px;
+        background-position: -231px -410px;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.1em;
+        line-height: 45px;
+        float: none;
+        margin: 0;
+        order: 2;
+        height: 25px;
+        width: 25px;
+      }
+      h3 {
+        font-size: 1.4em;
+        text-transform: uppercase;
+        font-family: 'GothamHTF-Medium',Arial,Helvetica,sans-serif !important;
+      }
+      p {
+        display: block;
+        margin-bottom: 2px;
+        span {
+          float: none !important;
+        }
+      }
+    }
+
+    .FL069-message--img {
+      display: inline-block;
+      vertical-align: top;
+      width: 160px;
+      text-align: center;
+    }
+
+    .FL069-message--redirect {
+      margin-top: 40px;
+      text-align: center;
+      h2 {
+        font-size: 1.95em;
+      }
+    }
+
+    #FL069-countdown {
+      margin-top: 10px;
+      position: relative;
+      text-align: center;
+      .FL069-countdown--wrap {
+        display: inline-block;
+        margin: auto;
+        position: relative;
+        &:before {
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 10px 10px;
+          border-color: transparent transparent #000000 transparent;
+          position: absolute;
+          left: -3px;
+          top: 3px;
+          transform: rotate(30deg);
+        }
+        &:after {
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 10px 10px;
+          border-color: transparent transparent #000000 transparent;
+          position: absolute;
+          right: -3px;
+          bottom: 14px;
+          transform: rotate(220deg);
+        }
+      }
+      p {
+        font-size: 2.6em;
+        line-height: 50px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          border: 1px solid #000000;
+          border-radius: 25px;
+        }
+        &:before {
+          border-style: dashed;
+        }
+        &:after {
+          border-top: none;
+          border-bottom: none;
+          transform: rotate(50deg);
+          transition: ease-in-out all .2s;
+        }
+      }
+      // &.active {
+      //   &:after {
+      //     transform: rotate(200deg);
+      //   }
+      // }
+    }
+
+    .FL069-buttons {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%;
+      a {
+        display: inline-block;
+        vertical-align: bottom;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: 'GothamHTF-Medium',Arial,Helvetica,sans-serif !important;
+        letter-spacing: .05em;
+        border: 0;
+        width: 35%;
+        margin: 0;
+        position: relative;
+        border: 1px solid #ddd;
+        background-color: #000000;
+        color: #fff;
+        padding: 17px 10px;
+        letter-spacing: .05em;
+        position: relative;
+        font-size: 1.2em;
+        width: calc(100% - 214px);
+        transition: ease-in-out all .2s;
+        &:hover {
+          background-color: #fff;
+          color: #000000;
+        }
+      }
+      a.FL069-view--bag {
+        color: #000000;
+        background-color: #fff;
+        width: 210px;
+        &:hover {
+          background-color: #000000;
+          color: #fff;
+        }
+      }
+    }
+
+    .FL069-close {
+      position: absolute;
+      top: 0; right: 14px;
+      width: 30px;
+      height: 30px;
+      // background-color: #000000;
+      background: url(https://www.flannels.com/images/core/flannels-new-sheet-v4.svg) no-repeat;
+      background-size: 450px 450px;
+      background-position: -72px -48px;
+      background-color: #fff;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+  }
+
+  .FL069-showmenow {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  // Mobile
+  @media only screen and (max-width: 769px) {
+    .FL069-message {
+      top: 10%;
+      left: 2%;
+      right: 2%;
+      height: 430px;
+      .FL069-message--inner {
+        margin: 20px;
+        padding: 20px;
+      }
+      .FL069-buttons a {
+        font-size: 1em;
+        &.FL069-view--bag {
+          width: 110px;
+        }
+        &.FL069-continue {
+          width: calc(100% - 114px);
+        }
+      }
+      .FL069-message--img {
+        width: 90px;
+        img {
+          max-width: 100%;
+        }
+      }
+      .FL069-message--info {
+        width: calc(100% - 100px) !important;
+        h3 {
+          font-size: 1.2em;
+        }
+      }
+      .FL069-message--redirect {
+        h2 {
+          font-size: 1.4em;
+        }
+      }
+    }
+  }
+}
+
+.FL069-IOS {
+  .FL069-message--inner {
+    margin-top: 20% !important;
+  }
+  .FL069-message {
+    height: 90%;
+    top: 5%;
+    bottom: 5%;
+
+    .FL069-message--img, .FL069-message--info {
+      width: 100% !important;
+      display: block;
+      text-align: center;
+    }
+
+    .FL069-message--img img {
+      width: 140px;
+    }
+
+  }
+
+}

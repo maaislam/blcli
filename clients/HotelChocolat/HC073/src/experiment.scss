@@ -1,0 +1,143 @@
+@import './variables';
+
+.#{$id} {
+    .product-tile {
+        height: 400px !important;
+        @media(orientation: landscape) {
+            height: 500px !important;
+            img {
+                max-height: 300px;
+            }
+        }
+
+        @media(min-width: 767px) {
+            height: 400px !important;
+            
+        }
+    }
+
+    .#{$id}-offerWrapper {
+        h3 {
+            font-family: DidotLTPro-Roman;
+            letter-spacing: 0px;
+            font-size: 25px;
+            text-align: center;
+            width: 100%; 
+            text-align: center; 
+            border-bottom: 1px solid #000; 
+            line-height: 0.1em;
+            margin: 35px 0 35px; 
+            span {
+                background:#fff; 
+                padding:0 10px; 
+            }
+            
+            @media(min-width: 1280px) {
+                font-size: 30px;
+                
+            }
+        }
+        .#{$id}-loadCTA {
+            padding: 10px;
+            padding-bottom: 6px;
+            background: #525252;
+            text-align: center;
+            text-transform: uppercase;
+            color: white;
+            line-height: 20px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            max-width: 350px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            @media(min-width: 1024px) {
+                padding: 15px;
+                padding-bottom: 10px;
+            }
+            cursor: pointer;
+            &:hover {
+                background: #6f6e6e;
+            }
+            &.#{$id}-hidden {
+                 display: none;
+            }
+        }
+
+        .#{$id}-productList {
+            max-height: 0;
+            transition: max-height 0.15s ease-out;
+            overflow: hidden;
+            &.#{$id}-active {
+                max-height: 5000px;
+                transition: max-height 0.25s ease-in;
+            }
+
+            .quickview  {
+                display: none;
+            }
+            .product-tile {
+                &.#{$id}-hasOffer {
+                    position: relative;
+                    padding-bottom: 65px;
+                    .promotion {
+                        display: none;
+                    }
+                }
+            }
+
+            .#{$id}-offerCTA {
+                position: absolute;
+                bottom: 0;
+                cursor: pointer;
+                padding: 10px;
+                background: #D6D6D6;
+                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+                span {
+                    font-family: GillSansNova-Medium;
+                    color: black;   
+                    position: relative;
+                    padding-left: 20px;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        background: url('https://editor-assets.abtasty.com/48343/607700354013e1618411573.png') no-repeat center;
+                        background-size: contain;
+                        left: 0;
+                        height: 12px;
+                        width: 12px;
+                    }
+                }
+                p {
+                    font-family: GillSansNova-Light;
+                    margin: 0;
+                    color: #9e0101;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    .search-result-content {
+        &.wide-tiles {
+            .#{$id}-offerCTA {
+                @media(min-width: 767px) {                    
+                    position: absolute;
+                    bottom: 0px;
+                    cursor: pointer;
+                    padding: 5px;
+                    background: #D6D6D6;
+                    text-align: center;
+                    width: calc(100% - 178px);
+                    right: 0;
+                }
+                @media(min-width: 1024px) {
+                    width: calc(100% - 181px);
+                }
+            }
+
+        }
+    }
+        
+}

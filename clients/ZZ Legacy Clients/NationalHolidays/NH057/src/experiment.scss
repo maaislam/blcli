@@ -1,0 +1,124 @@
+@import './variables';
+@import './tooltipster';
+
+.#{$id} {
+  .#{$id}-hide {
+    display: none;
+  }
+  .#{$id}-tooltip-html {
+  }
+
+  &.NH014 #divQuickviewPopup .content .seat-area .seat-row .seat.unavailable:focus:after, 
+  &.NH014 #divQuickviewPopup .content .seat-area .seat-row .seat.unavailable:hover:after,
+  &.NH014 #divQuickviewPopup .content .seat-area .seat-row .seat.unavailable:focus:before, 
+  &.NH014 #divQuickviewPopup .content .seat-area .seat-row .seat.unavailable:hover:before {
+    display: none !important;
+  }
+
+  &.#{$id}-tooltips-initialised {
+    .seat.unavailable {
+      cursor: pointer;
+    }
+  }
+
+  .#{$id}-view-options-wrap {
+    text-align: left;
+    margin: 3px 0 0 ;
+  }
+  .container .left > .orange-btn {
+    @media(min-width: 900px) {
+      vertical-align: top;
+    }
+  }
+  .#{$id}-view-options {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+
+    @media(max-width: 900px) {
+      color: #fff;
+      margin-left: 20px;
+    }
+    @media(max-width: 480px) {
+      margin-left: 0px;
+    }
+
+    &:after {
+      background: url('https://dp8v87cz8a7qa.cloudfront.net/46684/5cb70a67209021555499623.png');
+      width: 18px;
+      height: 18px;
+      background-size: contain;
+      margin-left: 5px;
+      position: relative;
+      top: 5px;
+      background-repeat: no-repeat;
+      display: inline-block;
+      content: "";
+
+      @media(max-width: 900px) {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  .sticky-row.fixed .#{$id}-view-options-wrap {
+    display: none !important;
+  }
+
+  /** Tooltip override styles **/
+
+  .tooltipster-sidetip .tooltipster-box {
+    background: #fee5bf;
+    color: #5e5e5e;
+    border-color: #ED6322;
+
+    .#{$id}-heading {
+      text-align: center;
+      color: #215baf;
+			font-family: "vag_roundedlight",Arial;
+			font-weight: 700;
+      font-size: 1.2em;
+      margin-bottom: 0;
+    }
+
+    .#{$id}-btn {
+      position: relative;
+			font-size: 16px;
+			margin: 0 14px 0 0;
+			letter-spacing: .5px;
+			font-family: "vag_roundedlight",Arial;
+			font-weight: 700;
+			display: inline-block;
+			background: #f0692d url(https://www.nationalholidays.com/images/icon-arrowwhite.png) no-repeat 90% center;
+			background-size: 9px 16px;
+			border: 0;
+			color: #fff;
+			border-radius: 4px;
+			padding: 14px 24px 14px 12px;
+			box-sizing: border-box;
+      width: 100%;
+    }
+  }
+
+  .tooltipster-sidetip.tooltipster-top .tooltipster-arrow-background {
+    border-top-color: #fee5bf;
+  }
+
+  .tooltipster-sidetip.tooltipster-top .tooltipster-arrow-border {
+    border-top-color: #ED6322;
+  }
+
+  .tooltipster-sidetip .tooltipster-content {
+    color: #5e5e5e;
+  }
+
+  .#{$id}-close {
+    font-size: 28px;
+    font-family: "vag_roundedlight",Arial;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #f0692d;
+    cursor: pointer;
+  }
+}

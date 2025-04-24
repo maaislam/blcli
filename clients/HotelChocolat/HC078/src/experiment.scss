@@ -1,0 +1,274 @@
+@import './variables';
+
+
+.#{$id} {
+   
+
+    .#{$id}-overlay {
+        position: fixed;
+        z-index: 99;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background-color: rgba(80, 80, 80, 0.7);
+        @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+           
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            
+        }
+        @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+
+            background-color: rgba(36, 35, 35, 1);
+            
+          }
+       
+        &.#{$id}-overlayHide {
+            display: none;
+        }
+    }
+    .#{$id}-screeningBox {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        z-index: 999;
+        width: 90%;
+        padding: 20px;
+        box-sizing: border-box;
+        max-width: 400px;
+        #uniform-country {
+            width: 100% !important;
+        }
+        @media(orientation: landscape) {
+            max-height: 90%;
+            overflow: auto;
+            
+        }
+        @media(min-width: 1024px) {
+            max-height:unset;
+            overflow: unset;
+        }
+        &.#{$id}-modalHide {
+            display: none;
+        }
+       
+
+        .#{$id}-modalInner {
+            .#{$id}-logoBox {
+                height: 45px;
+                width: 100%;
+                background: url('https://editor-assets.abtasty.com/48343/60e2df3acc30c1625481018.png') no-repeat left;
+                background-size: 100px;
+                border-bottom: 1px solid #85734f;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+
+            .#{$id}-question {
+                display: none;
+                &.#{$id}-active {
+                    display: block;
+                }
+                h3 {
+                    letter-spacing: 0.3px;
+                    font-family: GillSansNova-Medium;
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+
+                select {
+                    border: 1px solid black;
+                    color: black;
+                    font-family: GillSansNova-Light;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                    padding: 7px;
+                    height: 45px;
+                    background-image: url('https://editor-assets.abtasty.com/48343/60e2e0c8300de1625481416.png');
+                    background-size: 16px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                }
+
+                li {
+                    margin-top: 10px;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    align-items: center;
+                    align-content: center;
+                    height: 30px;
+                    label {
+                        margin-bottom: 0;
+                        font-family: GillSansNova-Light;
+                        @media(min-width: 767px) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .#{$id}-checkbox{
+                    position: absolute;
+                    opacity: 0; 
+                    width: 100%;
+                    height: 100%;
+                  
+                    & + label {
+                      position: relative;
+                      cursor: pointer;
+                      padding: 0;
+                      padding-left: 30px;
+                      
+                    }
+                  
+                    // Box.
+                    & + label:before {
+                      content: '';
+                      margin-right: 10px;
+                      display: block;
+                      position: absolute;
+                      left: 0;
+                      width: 20px;
+                      height: 20px;
+                      background: white;
+                      border: 1px solid black;
+                      top: 50%;
+                      transform: translateY(-50%);
+                    }
+
+                    &.#{$id}-required {
+                        + label {
+                            &::before {
+                                border: 1px solid #bd1010;
+                            }
+                        }
+                    }
+                  
+                    // Box hover
+                    &:hover + label:before {
+                      background: white;
+                    }
+                    // Box checked
+                    &:checked + label:before {
+                      background: black;
+                    }
+                    
+                    // Disabled state label.
+                    &:disabled + label {
+                      color: #b8b8b8;
+                      cursor: auto;
+                    }
+                  
+                    // Disabled box.
+                    &:disabled + label:before {
+                      box-shadow: none;
+                      background: #ddd;
+                    }
+                
+                    &:checked + label:after {
+                      content: '';
+                      position: absolute;
+                      left: 5px;
+                      top: 50%;
+                      background: white;
+                      width: 2px;
+                      height: 2px;
+                      box-shadow: 
+                        2px 0 0 white,
+                        4px 0 0 white,
+                        4px -2px 0 white,
+                        4px -4px 0 white,
+                        4px -6px 0 white,
+                        4px -8px 0 white;
+                      transform: rotate(45deg);
+                    }
+                }
+
+                .#{$id}-error {
+                    color: #bd1010;
+                    font-size: 16px;
+                    display: none;
+                    font-family: GillSansNova-Light;
+                }
+                .#{$id}-button {
+                    margin-top: 10px;
+                    padding: 10px 10px;
+                    padding-top: 13px;
+                    background: black;
+                    color: white;
+                    text-transform: uppercase;
+                    text-align: center;
+                    max-width: 200px;
+                    letter-spacing: 1px;
+                    border: 1px solid black;
+                    box-sizing: border-box;
+                    @media(min-width: 767px) {
+                        margin-top: 20px;
+                        &:hover {
+                            background: white;
+                            color: black;
+                            cursor: pointer;
+                           
+                        }
+                    }
+
+                }
+
+                &.#{$id}-dialingCode {
+                    .#{$id}-number {
+                        display: flex;
+                        flex-direction: row;
+                        select {
+                            width: 180px;
+                            height: 50px;
+                        }
+                        
+                    }
+                }
+                &.#{$id}-allowed {
+                    h4 {
+                        font-family: GillSansNova-bold;
+                        margin-bottom: 10px;
+                    }
+                    .#{$id}-innerText {
+                        max-height: 250px;
+                        overflow: auto;
+                            &::-webkit-scrollbar-track
+                            {
+                                background-color: #F5F5F5;
+                            }
+
+                            &::-webkit-scrollbar
+                            {
+                                width: 5px;
+                                background-color: #F5F5F5;
+                            }
+
+                            &::-webkit-scrollbar-thumb
+                            {
+                                background-color: #000000;
+                            }
+                    }
+                }
+
+                .#{$id}-innerText {
+                    p {
+                        font-size: 16px;
+                        font-family: GillSansNova-light;
+                        line-height: 22px;
+                    }
+
+                    a {
+                        color: black;
+                        text-decoration: underline;
+                    }
+                }
+                
+            }
+        }
+    }
+}

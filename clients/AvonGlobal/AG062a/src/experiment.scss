@@ -1,0 +1,413 @@
+@import "./variables";
+
+.#{$id}.Layout_Phone {
+  .#{$id}_headerWrapper {
+    margin-top: -4px;
+    padding: 12px 8px;
+    background: #f6f9f9;
+  }
+
+  #LogoBar {
+    margin-top: 0 !important;
+  }
+  // Hide mobile category and brand lists.
+  #CategoriesSection,
+  #BrandsSection {
+    display: none;
+  }
+
+  .FacetContainer {
+    // Filter toggles
+    > li {
+      border-radius: 4px;
+    }
+    .Title {
+      padding: 12px 40px 12px 6px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      color: #181818;
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+      text-transform: capitalize;
+      background-color: #f6f9f9;
+    }
+  }
+
+  .#{$id}_selectedItemWrapper {
+    display: inline-block;
+    margin-top: 12px;
+
+    & ~ .#{$id}_clearAllFilters {
+      display: block;
+    }
+  }
+
+  .#{$id}_selectedItem {
+    display: inline-block;
+    background: #f6f9f9;
+    border-radius: 15px;
+    padding: 8px 20px 8px 13px;
+    margin-right: 14px;
+    margin-bottom: 7px;
+    color: #181818;
+    cursor: pointer;
+
+    span {
+      font-size: 12px;
+      line-height: 14px;
+      font-family: "Montserrat", sans-serif;
+      vertical-align: middle;
+    }
+
+    .#{$id}_clearFilter {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      right: -6px;
+      top: 1px;
+    }
+
+    .Star {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .#{$id}_clearAllFilters {
+    display: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "Montserrat-Bold", sans-serif;
+    color: #7f28c4;
+    text-align: right;
+    margin-bottom: 8px;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+
+  .#{$id}_sortWrapper {
+    display: none;
+
+    &.#{$id}_open {
+      display: table-row;
+    }
+
+    .#{$id}_content {
+      padding: 0 12px 0 24px;
+    }
+
+    .#{$id}_sortItem {
+      padding: 10px 0;
+      margin: 0;
+      color: #707677;
+      text-transform: capitalize;
+      font-size: 16px;
+      line-height: 20px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        border: 2px solid #a2acae;
+        pointer-events: none;
+      }
+
+      &.#{$id}_sortActive {
+        &::after {
+          border: 7px solid #7f28c4;
+        }
+      }
+    }
+  }
+
+  .ProductListHeading {
+    display: none;
+  }
+
+  #LeftNav {
+    &.#{$id}_open {
+      display: table-row;
+    }
+
+    .CategoryLeftNav {
+      width: calc(100% - 14px);
+      margin: 0 auto 16px;
+      box-shadow: 0px 2px 4px #e1e1e1;
+      border-radius: 4px;
+      background: white;
+      padding: 2px 12px;
+    }
+
+    // Toggle these on click
+    .CategoriesAndBrands ul,
+    .CategoryAndBrandFilters ul,
+    .CategoryAndBrandFilters #PriceSlider,
+    .TopLinks {
+      display: none;
+    }
+
+    // Filters wrappers
+    .CategoriesAndBrands,
+    .CategoryAndBrandFilters {
+      padding: 0;
+      border-bottom: none;
+      margin-bottom: 2px;
+
+      // plus/minus icon
+      .Title {
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          right: 12px;
+          height: 2px;
+          width: 12px;
+          background-color: #7f28c4;
+          border-radius: 2px;
+          top: 49%;
+        }
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+
+      &.#{$id}_open {
+        .Title {
+          background-color: white;
+          font-weight: 600;
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      ul {
+        max-height: 40vh;
+        overflow-y: scroll;
+        padding: 0 12px 0 24px;
+
+        li {
+          padding: 10px 0;
+          margin: 0;
+          color: #707677;
+          text-transform: capitalize;
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .CategoriesAndBrands.#{$id}_open {
+      > ul,
+      .SubCategoryList {
+        display: block;
+      }
+    }
+
+    .CategoryAndBrandFilters:not(.ratingband_facet).#{$id}_open {
+      ul,
+      #PriceSlider {
+        display: block;
+      }
+    }
+  }
+
+  // Header title and back button
+  .#{$id}_back-button-wrapper {
+    text-align: center;
+    position: relative;
+    padding-top: 0;
+    margin: 0 0 12px;
+
+    h1 {
+      padding: 0 28px;
+      font-size: 23px;
+      font-weight: bold;
+      font-family: "Montserrat-Bold", sans-serif;
+      color: #181818;
+      line-height: 1.5;
+    }
+
+    #PreviousPage {
+      background: none;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 12px;
+      padding-top: 15px;
+    }
+  }
+
+  // Filter/Sort by toggle buttons
+  .#{$id}_buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .#{$id}_filtersButton,
+    .#{$id}_sortButton {
+      flex-basis: 45%;
+      background: #ffffff;
+      border: 1px solid #e4eded;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 12px;
+      padding-left: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        flex: 1;
+        font-size: 14px;
+        line-height: 17px;
+        color: #181818;
+      }
+
+      &.#{$id}_active {
+        border: 2px solid #7f28c4;
+
+        span {
+          font-weight: 700;
+          font-family: "Montserrat-Bold", sans-serif;
+          color: #7f28c4;
+        }
+
+        path {
+          fill: #7f28c4;
+        }
+      }
+    }
+
+    &.#{$id}_fixed {
+      position: fixed;
+      top: 0;
+      background: white;
+      z-index: 3;
+      width: 100%;
+      padding: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      left: 0;
+    }
+  }
+
+  // Change additional links styles
+  #CategoryPage #CategoryTools .AdditionalLinkItem {
+    font-size: 1.3rem;
+    border-radius: 3px;
+  }
+
+  // New filters titles
+  .#{$id}_title {
+    font-size: 22px;
+    color: black;
+    line-height: 30px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+  }
+
+  .#{$id}_selectedWrapper {
+    padding: 12px 0;
+    border-bottom: 1px solid #a2acae;
+    h3 {
+      font-size: 14px;
+      line-height: 17px;
+      color: #7f28c4;
+      text-transform: uppercase;
+    }
+  }
+  #PriceSlider {
+    padding: 0 12px 0 24px;
+    .ngrs-range-slider {
+      // Add runner line
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 2px;
+        width: calc(100% - 0.8rem);
+        background: #a2acae;
+        display: block;
+        border-radius: 2px;
+      }
+      // Pricing
+      .ngrs-handle {
+        background: #7f28c4;
+        border: none;
+      }
+
+      .ngrs-join {
+        height: 2px;
+      }
+    }
+    .SliderCaption {
+      margin: 12px 0;
+    }
+  }
+
+  .Rating {
+    display: inline-block;
+  }
+
+  .CategoryAndBrandFilters {
+    li {
+      position: relative;
+      padding: 0 !important;
+      input {
+        display: none;
+      }
+      label {
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+      }
+      .#{$id}_checkbox {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        border: 2px solid #a2acae;
+        pointer-events: none;
+      }
+
+      input:checked ~ .#{$id}_checkbox {
+        border: 7px solid #7f28c4;
+      }
+    }
+  }
+
+  .CategoryAndBrandFilters.ratingband_facet {
+    ul,
+    .#{$id}_ratings {
+      display: none;
+    }
+
+    &.#{$id}_open {
+      .#{$id}_ratings {
+        display: block;
+      }
+    }
+    .#{$id}_ratings {
+      padding: 12px;
+      padding-left: 6px;
+    }
+  }
+}

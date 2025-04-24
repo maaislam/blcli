@@ -1,0 +1,162 @@
+@import './variables';
+
+.#{$id} {
+
+    &.#{$id}-fade {
+        .page-wrapper:before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; left: 0; bottom: 0;
+            width: 100%;
+            z-index: 99;
+            height: 100%;
+            transition: ease-in-out all .2s;
+            background-color: rgba(0,0,0,0.75);
+        }
+    }
+    // Mobile first
+    .#{$id}-menu {
+        text-align: center;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: #fff;
+        transition: ease-in-out all .3s;
+        border-bottom: 2px solid #000000;
+        &.BD-hidden {
+            bottom: -100%;
+        }
+
+        @media only screen and (min-width: 479px) {
+            bottom: 0 !important;
+            &.BD-hidden {
+                left: -100%;
+            }   
+        }
+
+        .#{$id}-close {
+            position: absolute;
+            top: 10px; right: 0; left: 0;
+            margin: auto;
+            z-index: 999;
+            cursor: pointer;
+            p, img {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            p {
+                padding-right: 4px;
+                margin: 0;
+            }
+        }
+    }
+
+    .#{$id}-toggle {
+        background-color: #00AFDB;
+        color: #000;
+        display: block;
+        max-width: 100%;
+        border: none;
+        width: 100%;
+        padding-bottom: 7px;
+        background-color: #000; // prevent basket cta clash
+        color: #fff;
+
+        img {
+            max-width: 20px;
+            height: auto;
+            filter: invert(100%);
+        }
+
+        .BD-active {
+            img {
+                transform: rotate(180deg);
+            }
+        }
+
+        @media only screen and (min-width: 479px) {
+            font-size: 1em;
+            img {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .#{$id}-list {
+        text-align: center;
+        list-style-type:none;
+        white-space:nowrap;
+        overflow-x:auto;
+        position: relative;
+        z-index: 0;
+        padding: 0 25px;
+        li {
+            display: inline-block;
+            max-width: 300px;
+
+            .productTile {
+                width: 100%;
+                text-align: left;
+            }
+
+            .productTile__imgContainer, .BD-ib {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            .productTile__imgContainer {
+                max-width: 50% !important;
+            }
+
+            .product-image-wrapper {
+                padding-bottom: 115%;
+            }
+
+            img.product-image-photo {
+                margin-top: 60px;
+                right: auto;   
+            }
+
+            .productTile__features {
+                li {
+                    display: block;
+                }
+            }
+
+            .BD-slotsFilled {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background:#00AFDB;
+                color: #fff;
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                padding-top: 10px;
+                z-index: 999;
+                display: block;
+                word-break: normal;
+                text-align: center;
+                white-space: normal;
+            }
+        }
+    }
+    
+    .#{$id}-title--wrap {
+        background-color: #fff;
+        z-index: 1;
+        padding: 20px;
+        padding-top: 35px;
+        margin-bottom: -50px;
+        position: relative;
+        -webkit-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.75);
+
+        > p {
+            color: #009FC7 !important;
+            font-size: 1.25em;
+        }
+    }
+}

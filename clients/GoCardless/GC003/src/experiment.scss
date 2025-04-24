@@ -1,0 +1,116 @@
+@import "./variables";
+
+.#{$id} {
+  // sign up & login in nav
+  a[href*="https://manage.gocardless.com"],
+  a[href*="https://manage.gocardless.com/signup"]
+  {
+    display: none;
+  }
+
+  // Hide menu in header & footer
+  // Menu
+  [data-testid="navigationBar"] {
+    div div > span {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      a {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  [data-testid="footerMenu"],
+  [data-testid="footer"] .css-3ehg8c {
+    display: none;
+  }
+
+  .#{$id}_secondaryCta {
+    margin: 0px;
+    margin-top: 12px;
+    background: none transparent;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    border-radius: calc(36px);
+    transition: border 150ms ease 0s, background 150ms ease 0s;
+    border: 1px solid #5f24d2;
+    padding: 8px 32px;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+
+    &:hover {
+      background-color: transparent;
+      border-color: #875add;
+    }
+  }
+
+  .#{$id}_featuresCta {
+    margin-top: 32px;
+    text-align: center;
+    a {
+      margin: 0;
+      appearance: none;
+      user-select: none;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      text-align: center;
+      border-radius: calc(12px + 24px);
+      color: #f3f4f5;
+      background-color: #5f24d2;
+      transition: border 150ms, background 150ms;
+      border: 1px solid #5f24d2;
+      padding: 8px 32px;
+      font-size: 16px;
+      line-height: 24px;
+      width: auto;
+      display: inline-flex;
+
+      @media (min-width: 768px) {
+        padding: 12px 24px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      &:hover {
+        color: #f3f4f5;
+        background-color: #875add;
+        border-color: #875add;
+      }
+    }
+  }
+
+  @media (min-width: 450px) {
+    .#{$id}_primaryCta {
+      margin-right: 12px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .#{$id}_secondaryCta,
+    .#{$id}_primaryCta {
+      padding: 12px 24px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  @media (min-width: 1120px) and (max-width: 1250px) {
+    .#{$id}_secondaryCta,
+    .#{$id}_primaryCta {
+      padding: 10px 14px !important;
+      font-size: 15px !important;
+      line-height: 24px !important;
+    }
+  }
+}

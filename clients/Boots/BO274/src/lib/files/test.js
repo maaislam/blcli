@@ -1,0 +1,1 @@
+let spaNumber = Number(window.location.pathname.split('-').pop());

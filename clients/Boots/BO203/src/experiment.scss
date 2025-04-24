@@ -1,0 +1,133 @@
+@import "./variables";
+@import "./lib/components/tabs/tabs";
+@import "./lib/components/loader/loader";
+@import "./lib/components/accordion/accordion";
+
+.#{$id} {
+  .#{$id}-quick-links {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+      color: #333333;
+    }
+
+    li {
+      padding-left: 2rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 1.25rem;
+        height: 1.25rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+      }
+
+      &[data-accordion="product-details"]::before {
+        background-image: url("https://blcro.fra1.digitaloceanspaces.com/BO203/DetailsIcon.svg");
+      }
+
+      &[data-accordion="perfect-bundle"]::before {
+        background-image: url("https://blcro.fra1.digitaloceanspaces.com/BO203/np_add_3531445_000000%201.svg");
+      }
+
+      &[data-accordion="delivery-options"]::before {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        background-size: 140%;
+        background-image: url("https://blcro.fra1.digitaloceanspaces.com/BO203/Rectangle%205.png");
+      }
+
+      &[data-accordion="also-viewed"]::before {
+        background-image: url("https://blcro.fra1.digitaloceanspaces.com/BO203/Group.svg");
+      }
+
+      &[data-accordion="reviews"]::before {
+        background-image: url("https://blcro.fra1.digitaloceanspaces.com/BO203/np_review_4200538_000000%201.svg");
+      }
+    }
+
+    button {
+      text-decoration: underline;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+
+  .#{$id}-collapsing-container {
+    &[collapsed] .#{$id}-collapsing-container__content {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 75%;
+        background: linear-gradient(transparent, white);
+      }
+    }
+  }
+
+  .#{$id}-collapsing-container__content {
+    margin-bottom: 2rem;
+  }
+
+  .#{$id}-collapsing-container__toggle-button {
+    display: block;
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+    text-decoration: underline;
+    font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+    color: #333333;
+    margin-inline: auto;
+    cursor: pointer;
+  }
+
+  .inc_pdp_block,
+  .inc_pdp_block::before,
+  .inc_pdp_block::after {
+    background: transparent;
+  }
+  .inc_pdp_title_block,
+  [data-bv-show="review_highlights"],
+  #BVRRSearchContainer,
+  .inc_recommendations:not(.inc_pdp_block) {
+    display: none;
+  }
+  #estore_productpage_template_container {
+    .row.template_row_spacer {
+      display: none;
+    }
+    .row.template_row_spacer + * {
+      display: none;
+    }
+  }
+  #estore_product_longdesc {
+    #contentCollapse {
+      display: block !important;
+    }
+    > h2,
+    #contentCollapse-readmore {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,152 @@
+$id: '--ID--';
+
+@keyframes BI039slide {
+  100% { 
+    left: 0; 
+  }
+}
+
+@keyframes BI039ballPulseDouble {
+  0%, 100% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); } }
+
+.#{$id} {
+  breadcrumbs {
+    margin-bottom: 0 !important;
+  }
+
+  basket-add-notice {
+    display: none !important;
+  }
+
+  .#{$id}-pulseBtn {
+    position: absolute;
+    top: 25%;
+    right: 15px;
+    width: 26px;
+    height: 26px;
+    background-color: #FFF;
+    border-radius: 50%;
+    animation: BI039ballPulseDouble 1s ease-in-out infinite;
+    opacity: .5;
+  }
+
+  reminder-modal {
+    z-index: 9999991;
+  }
+
+  /* Hide Elements */
+  product-when-your-occasion,
+  upsell-products,
+  product-content .m-t-8 {
+    display: none !important;
+  }
+
+  .#{$id}_deliveryTab {
+    product-when-your-occasion,
+    upsell-products,
+    product-content .m-t-8 {
+      display: block !important;
+    }
+  }
+
+  local-add-to-basket result.error {
+    position: relative;
+    margin-bottom: 0.5em;
+  }
+
+  local-add-to-basket action ~ span:not(.ng-hide) {
+    margin: 0;
+    position: relative;
+    text-align: center;
+    clear: both;
+    padding-top: 10px;
+  }
+
+  related-products > div:first-of-type {
+    margin-bottom: 30px;
+  }
+
+  &.#{$id}_noScroll {
+    overflow: hidden;
+  }
+  &.#{$id}-no_scroll {
+    overflow: hidden;
+  }
+
+  .#{$id}-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.6em;
+    padding: 0 2.6em;
+    width: 100%;
+    color: white;
+    border-radius: 3px;
+    position: relative;
+    &.#{$id}-delivery{
+      background: #9e9fa2;
+    }
+    &.#{$id}-buyButton{
+      background: #e679a5;
+    }
+    .#{$id}-buttonLoader {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      .#{$id}-ball-pulse-double .#{$id}-loader {
+        width: 40px;
+        height: 40px; 
+      }
+        .#{$id}-ball-pulse-double .#{$id}-ball-1, .#{$id}-ball-pulse-double .#{$id}-ball-2 {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        background-color: #FFF;
+        border-radius: 50%;
+        animation: BI039ballPulseDouble 2s ease-in-out infinite;
+        opacity: .5; }
+        .#{$id}-ball-pulse-double .#{$id}-ball-2 {
+        animation-delay: -1s; 
+      }
+      &.#{$id}-loader_show {
+        display: block;
+      }
+    }
+    &.#{$id}-disabled{
+      background-color: #e5e5e5;
+      color: #fff;
+      border-color: #e5e5e5;
+      pointer-events: none;
+    }
+  }
+
+  .#{$id}_SlideTab { 
+    transition: all 0.5s ease;
+    .#{$id}-slideTitle {
+      .#{$id}-slideClose {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        background-image: url('https://cdn-sitegainer.com/9bmdqatbc8wln8j.png');
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    &.#{$id}-tab_active {
+      animation: BI039slide 0.5s forwards;
+      animation-delay: 2s;
+    }
+  }
+}

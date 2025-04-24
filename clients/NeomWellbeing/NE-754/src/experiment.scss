@@ -1,0 +1,41 @@
+@import './variables';
+
+.#{$id} {
+  &-1 {
+    .header-outer,
+    .search-container {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .header-outer.#{$id}__slideUp,
+    .search-container.#{$id}__slideUp {
+      transform: translateY(-100%);
+    }
+
+    .navigation-desktop.#{$id}__navVisible {
+      opacity: 1 !important;
+      visibility: visible !important;
+      height: 51px !important;
+    }
+  }
+
+  &-2 {
+    .navigation-desktop {
+      opacity: 1 !important;
+      visibility: visible !important;
+      height: 51px !important;
+    }
+  }
+
+  .is-fixed-offset .site-selector {
+    left: 16px !important;
+  }
+
+  .header-burger {
+    display: none !important;
+
+    @include media-query(lg) {
+      display: block !important;
+    }
+  }
+}

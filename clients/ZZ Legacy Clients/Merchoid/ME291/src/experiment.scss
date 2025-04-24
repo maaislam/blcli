@@ -1,0 +1,235 @@
+@import './variables';
+
+@keyframes popAnim {
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.15);
+    }
+    0%{
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes ellipsis {
+    to {
+      width: 25px;
+    }
+  }
+  @keyframes ME200dots {
+    0%, 20% {
+      color: rgba(0,0,0,0);
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+      color: white;
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 white;}
+  }
+  @keyframes backgroundProgress {
+    0% { 
+      background: rgba(0,172,229,.8);
+      width: 95%;
+    }
+    70% {
+      border-radius: 10px;
+    }
+    100% {
+      background: rgba(208, 74, 74, 0.93);
+      width: 95%;
+      border-radius: 10px;
+    }
+  }
+  
+  @keyframes smallBarProgress {
+    0% { 
+      background: rgba(0,172,229,.8);
+      width: 100%;
+    }
+    70% {
+      border-radius: 10px 0 0 10px;
+    }
+    100% {
+      background: rgba(208, 6, 6, 1);
+      width: 13%;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+  }
+  
+  .#{$id} {
+    .scarity-message {
+      display: none !important;
+    }
+    .scarity-message.heartbeat {
+      display: none !important;
+    }
+    .#{$id}_scarcityBar {
+      position: absolute;
+      height: auto;
+      width: 95%;
+      background: rgba(0, 172, 229, .8);
+      border-radius: 5px;
+      top: 10px;
+      left: 50%;
+      z-index: 99;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      padding: 10px;
+      box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .25);
+      
+      p {
+        margin-bottom: 0px;
+        //position: absolute;
+       // top: 50%;
+        //left: 50%;
+        font-weight: 400;
+        //width: 50%;
+        //transform: translate(-50%,-50%);
+        width: 90%;
+        font-size: 14px;
+        margin: 0 auto;
+        line-height: 18px;
+        @media(min-width: 375px) {
+            width: 100%;;
+        }
+        @media(min-width: 1280px) {
+            font-size: 15px;
+        }
+      }
+      &.#{$id}-animatedLoader{
+        animation: backgroundProgress 5s ease-in-out forwards;
+        .#{$id}-smallerLoader {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            height: 100%;
+            top: 0;
+            background: white;
+            animation: smallBarProgress 5s ease-in-out forwards;
+            z-index: -1;
+        }
+      }
+      .#{$id}-pulseText {
+        &:after {
+          content: '.';
+          animation: ME200dots 1s steps(5, end) infinite;
+        }
+      }
+    }
+
+    &.#{$id}-2 {
+
+        .#{$id}-priceContainer {
+            background: #f3f3f3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding: 10px;
+            .#{$id}-priceWrapper {
+                border-bottom: 1px solid #e2e2e2;
+                padding-bottom: 10px;
+                p {
+                    text-transform: uppercase;
+                    color: black;
+                    font-size: 14px;
+                    display: inline-block;
+                    margin-bottom: 3px;
+                    b {
+                        font-weight: 500;
+                        font-size: 25px;
+                        color: black;
+                        margin-left: 5px;
+                    }
+                }
+                span {
+                    text-decoration: line-through;
+                    font-weight: 100;
+                    display: inline-block;
+                }
+            }
+    
+            .#{$id}-logo {
+                height: 25px;
+                width: auto;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 5px;
+                margin-right: 5px;
+                max-width: 50px;
+            }
+    
+            .#{$id}-contentBottom {
+                position: relative;
+                font-size: 14px;
+                margin-top: 5px;
+                padding-left: 43px;
+                padding: 5px 10px;
+                padding-left: 45px;
+                max-width: 310px;
+                text-align: left;
+                color: black;
+                font-weight: 100;
+               
+                    &:before {
+                        content: '';
+                        height: 40px;
+                        width: 40px;
+                        position: absolute;
+                        left: 0px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: url('//cdn.optimizely.com/img/6087172626/9f75c776d4fd43c3aa36a6715d582117.png') no-repeat;
+                        background-position: -6px;
+                        background-size: contain;                    
+                    }
+                    p {
+                        margin-bottom: 0;
+                    }
+                    span {
+                        font-weight: 700;
+                        color: black;
+                    }
+                    @media(min-width: 375px) {
+                        font-size: 16px;
+                        max-width: 350px;
+                        padding-left: 50px;
+                        &::before {
+                            height: 50px;
+                            width: 50px;
+                        }
+                        p {
+                            margin-bottom: 0;
+                            line-height: 25px;
+                            font-size: 17px;
+                        }
+                    }
+                    @media(min-width: 767px) {
+                        p {
+                            line-height: 21px;
+                            font-size: 14px;
+                        }
+                    }
+                    @media(min-width: 1280px) {
+                        max-width: 100%;
+                        p {
+                            line-height: 23px;
+                            font-size: 16px;
+                        }
+                    }
+            }
+        }
+
+    }
+  }

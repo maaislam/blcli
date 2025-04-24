@@ -1,0 +1,133 @@
+@import '../../../variables';
+
+.#{$id} {
+  .#{$id}_Lightbox {
+    background: black;
+    .#{$id}_Lightbox__close {
+      width: 40px;
+      height: 40px;
+      &::before{
+        font-size: 20px;
+        font-family: $conduitBold;
+      }
+    }
+    .#{$id}_Lightbox__content {
+      background: black;
+      border: 1px solid #f4e017;
+      border-radius: 0px;
+      position: relative;
+      .#{$id}-success_message {
+        position: absolute;
+        background: black;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+        left: 0;
+        top: 0;
+        font-family: $conduitBold;
+        text-transform: uppercase;
+        padding: 10px;
+        display: none;
+        span {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          color: white;
+          width: 80%;
+        }
+      }
+      // loader
+      .#{$id}-Lightbox_loader {
+        position: absolute;
+        background: black;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+        left: 0;
+        top: 0;
+        display: none;
+        span {
+          height: 50px;
+          width: 50px;
+          background-image: url('//cdn.optimizely.com/img/8355110909/55b58bc40184410aa81f07546df8a33d.gif');
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          display: block;
+          background-size: contain;
+          transform: translate(-50%,-50%);
+          background-repeat: no-repeat;
+        }
+      }
+
+      h3 {
+        text-align: center;
+        font-family: $conduitBold;
+        color: white;
+        text-transform: uppercase;
+        position: relative;
+        &::after{
+          display: block;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          position: absolute;
+          background: yellow;
+          top: 0;
+          clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+        }
+      }
+      #form-wrapper {
+        background: black;
+        padding: 15px;
+        padding-top: 5px;
+        .form-control-holder {
+          display: block;
+          width: 100%;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          input {
+            width: 100%;
+            background: white;
+            border: 1px solid white;
+            font-family: $openSans;
+            font-size: 14px;
+          }
+          &.disclaimer-holder {
+            font-family: $openSans;
+            margin-top: 15px;
+            .testogdprcheck {
+              color: white;
+              a {
+                color: #f4e017;
+                font-weight: bold;
+              }
+            }
+          }
+          .identity-input-checkbox-wrap {
+            input {
+              width: 20px;
+            }
+          }
+        }
+        .identity-input-submitwrap{
+          margin-bottom: 20px;
+          margin-top: 10px;
+          button {
+            background: #f4e017;
+            color: black;
+            font-family: $conduitBold;
+            text-transform: uppercase;
+          }
+        }
+      }
+      @media screen and (max-width: 767px){
+        max-height: 90vh;
+      }
+    }
+    @media(min-width: 767px){
+      width: 500px;
+    }
+  }
+}

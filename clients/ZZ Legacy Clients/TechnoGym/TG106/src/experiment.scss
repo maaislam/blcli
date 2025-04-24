@@ -1,0 +1,511 @@
+@import './variables';
+@import './slick.scss';
+
+@keyframes TGFade {
+    10% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+@keyframes TG-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+.#{$id} {
+    font-size: 0;
+    
+    .identity-select {
+        width: 50%;
+    }
+
+    // loader
+    .#{$id}-loader {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        display: none;
+        &.#{$id}-loader_show {
+            display: block;
+        }
+        .#{$id}-loader_inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            .#{$id}-loader_ring {
+                display: block;
+                width: 50px;
+                height: 64px;
+                margin: 0 auto;
+                &:after {
+                    content: " ";
+                    display: block;
+                    width: 46px;
+                    height: 46px;
+                    margin: 1px;
+                    border-radius: 50%;
+                    border: 5px solid #fff;
+                    border-color: #F6DB00 transparent #fff transparent;
+                    animation: TG-dual-ring 1.2s linear infinite;
+                }
+            }
+            span {
+                color: black;
+                text-transform: uppercase;
+                position: relative;
+                font-size: 13px;
+                margin-top: 15px;
+            }
+        }
+    }   
+
+    .#{$id}_container {
+        font-family: $acumin;
+
+        // generic styles
+        p {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 23px;
+            font-family: $acumin;
+        }
+
+        input,select {
+            font-size: 12px;
+        }
+
+        h2 {
+            font-family: $acumin;
+            font-weight: 700;
+            font-size: 30px;
+            margin-bottom: 10px;
+            line-height: 33px;
+        }
+
+        h3 {
+            font-family: $acumin;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 5px;
+            line-height: 23px;
+            text-transform: uppercase;
+        }
+        h4 {
+            font-family: $acumin;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 23px;
+            text-transform: uppercase;
+        }
+
+        .#{$id}-price {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .#{$id}-cta,
+        .identity-input-submitwrap .identity-input-submit {
+            background: $yellow;
+            font-weight: 700;
+            text-align: center;
+            color: black;
+            padding: 12px 10px;
+            width: 200px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+            border: 0px;
+            text-decoration: none;
+            cursor: pointer;
+            a {
+                width: 100%;
+                height: 100%;
+                display: block;
+                color: black;
+                text-decoration: none;
+            }
+        }
+
+        //Header
+        .#{$id}-header {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            background-image: url('//cdn.optimizely.com/img/8355110909/64daf38b2d074a48b5ddd705f0f501f0.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            .#{$id}-logo {
+                background: url('http://www.technogym.com/land/wp-content/uploads/2017/02/Logo-Technogym_squeeze.png') no-repeat;
+                width: 100px;
+                height: 30px;
+                -moz-background-size: contain;
+                -o-background-size: contain;
+                background-size: contain;
+                display: block;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .#{$id}-inner_text {
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                color: white;
+                width: 90%;
+
+                h1 {
+                    margin-top: 0px;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    font-size: 40px;
+                }
+            }
+        }
+
+        // Form
+        .#{$id}-mainForm {
+            padding: 20px;
+            background: #F3F3F3;
+            position: relative;
+            .#{$id}-success_message {
+                display: none;
+            }
+            form {
+                .#{$id}-required {
+                    display: inline;
+                }
+                .form-control-holder {
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                    display: block;
+                    label {
+                        margin-bottom: 5px;
+                        display: inline-block;
+                        font-size: 15px;
+                    }
+                    input {
+                        display: block;
+                        padding: 10px;
+                        border: 1px solid black;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+                }
+                .testogdprcheck {
+                    font-size: 12px;
+                    line-height: 19px;
+                    margin-bottom: 10px;
+                    a {
+                        font-weight: 700;
+                        color: black;
+                    }
+                    &:last-of-type {
+                        display: none;
+                    }
+                }
+                .identity-input-checkbox-wrap {
+                    input {
+                        display: inline-block;
+                        width: 20px;
+                        vertical-align: middle;
+                    }
+                    label {
+                        display: inline-block;
+                        width: 80%;
+                        vertical-align: middle;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        // Sections
+        .#{$id}-section {
+            padding: 20px;
+            position: relative;
+
+            &.#{$id}-mainProduct {
+                .#{$id}-financeBike {
+                    font-size: 13px;
+                    color: #626060;
+                    font-style: italic;
+                    font-weight: normal;
+                }
+            }
+            &.#{$id}-bestselling {
+                &:before {
+                    content: '';
+                    background: black;
+                    position: absolute;
+                    top: 0;
+                    height: 250px;
+                    width: 100%;
+                    left: 0;
+                    z-index: 0;
+                }
+                &:after {
+                    content: '';
+                    background: #EDEDED;
+                    position: absolute;
+                    bottom: 0;
+                    height: 250px;
+                    width: 100%;
+                    left: 0;
+                    z-index: 0;
+                }
+
+                .#{$id}-title_text {
+                    position: relative;
+                    margin-top: 20px;
+                    h2,p {
+                        color: white;
+                    }
+                }
+
+                .#{$id}-bestSell_products {
+                    position: relative;
+                    z-index: 9;
+                    margin-top: 30px;
+                    .#{$id}_bikeProduct {
+                        padding: 20px;
+                        box-shadow: 0px 2px 4px #949393;
+                        margin-bottom: 20px;
+                        background: white;
+                        span {
+                            font-weight: 100;
+                            text-transform: uppercase;
+                            font-size: 13px;
+                            color: #626060;
+                            font-family: "Open Sans",sans-serif;
+                        }
+                        .#{$id}-finance {
+                            text-transform: none;
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+
+            &.#{$id}-moreProducts {
+                background: #EDEDED;
+                h4 {
+                    text-align: center;
+                }
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+                .slick-dots {
+                    li {
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            &.#{$id}-contact {
+                .#{$id}-cta {
+                    background: black;
+                    color: white;
+                }
+            }
+        }
+
+        // tablet
+        @media(min-width: 1024px) {
+            h2 {
+                font-size: 40px;
+                line-height: 40px;
+            }
+
+            .#{$id}-header {
+                width: 60.5%;
+                height: 600px;
+                padding: 20px;
+                display: inline-block;
+                margin-top: 0;
+                vertical-align: top;
+                background-image: url('//cdn.optimizely.com/img/8355110909/5ba58c9bc30e410ca9c5eeb1c67c1722.png');
+                .#{$id}-inner_text {
+                    width: 400px;
+                    left: 40%;
+                }
+            }
+            .#{$id}-mainForm {
+                background: white;
+                height: 600px;
+                width: 31.6%;
+                display: inline-block;
+                flex-direction: column;
+                vertical-align: top;
+                form {
+                    .form-control-holder {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                }
+                .identity-input-submit {
+                    width: 100%;
+                }
+                h2 {
+                    font-size: 25px;
+                    line-height: 30px;
+                }
+            }
+            .#{$id}-section {
+                padding: 50px;
+                padding-left: 100px;
+                padding-right: 100px;
+
+                .#{$id}-main_text,
+                .#{$id}-title_text {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                }
+
+                &.#{$id}-mainProduct {
+                    position: relative;
+                    &:before {
+                        content: '';
+                        background: #EDEDED;
+                        position: absolute;
+                        top: 0;
+                        height: 50%;
+                        width: 100%;
+                        left: 0;
+                        z-index: 0;
+                        clip-path: polygon(0 0, /* left top */ 100% 0, /* right top */ 100% 85%, /* right bottom */ 0 100% /* left bottom */ );
+                    }
+                    .#{$id}-main_text {
+                        position: relative;
+                    }
+                    .#{$id}-main_Image { 
+                        box-shadow: 0px 2px 4px rgba(160, 160, 160, 0.50);
+                        padding: 20px;
+                        position: relative;
+                        background: white;
+                        max-width: 600px;
+                        margin: 0 auto;
+                        max-height: 600px;
+                    }
+                }
+                &.#{$id}-bestselling {
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    &::before {
+                        height: 400px;
+                        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+                    }
+                    .#{$id}-bestSell_products {
+                        text-align: center;
+                        .#{$id}_bikeProduct {
+                            display: inline-block;
+                            width: 26%;
+                            margin: 10px;
+                            vertical-align: text-top;
+                            text-align: left;
+                            .#{$id}-description {
+                                height: 150px;
+                            }
+                            .#{$id}-finance_wrapper {
+                                height: 30px;
+                            }
+                            &:first-of-type {
+                                .slick-dots {
+                                    li {
+                                        margin-top: 30px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.#{$id}-moreProducts {
+                    text-align: center;
+                    .#{$id}-bikeImage {
+                        display: inline-block;
+                        width: 30%;
+                        margin: 10px;
+                        a {
+                            color: black;
+                            text-decoration: none;
+                        }
+                        img {
+                            max-width: 100%;
+                        }
+                    }
+                }
+                &.#{$id}-contact {
+                    text-align: center;
+                    .#{$id}-cta {
+                        margin: 0 auto;
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 1200px) {
+            .#{$id}-mainForm {
+                width: 24.6%;
+            }
+            .#{$id}-header {
+                width: 68.3%;
+            }
+            .#{$id}-section {
+                .#{$id}-title_text {
+                    max-width: 450px;
+                    text-align: left;
+                }
+            }
+            .#{$id}-bestSell_products {
+                max-width: 1100px;
+                margin: 0 auto;
+                .#{$id}_bikeProduct {
+                    .#{$id}-description {
+                        height: 120px;
+                    }
+                }
+            }
+            .#{$id}-moreProducts {
+                .#{$id}_moreBikesProduct {
+                    max-width: 1100px;
+                    margin: 0 auto;
+                }
+            }
+            .#{$id}-contact {
+                .#{$id}-title_text {
+                    max-width: 600px;
+                    text-align: center;
+                }
+            }
+        }
+        @media(min-width: 1400px) {
+            .#{$id}-mainForm {
+                width: 26%;
+            }
+        }
+    }
+}

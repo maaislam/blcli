@@ -1,0 +1,250 @@
+@import './variables';
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px) translateX(-50%);
+    transform: translateY(1000px) translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(-50%) translateX(-50%);
+            transform: translateY(-50%) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: translateX(-75%) rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: translateX(-75%) rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+
+.#{$id} {
+
+  #js-emailSignUpPopup {
+    display: none !important;
+  }
+
+  .#{$id}-overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    &.#{$id}-overlayShow {
+      display: block;
+    }
+  }
+
+  .#{$id}-lightboxModal {
+    position: fixed;
+    height: auto;
+    width: 90vw;
+    background:white;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+  
+    transform: translateY(1000px) translateX(-50%);
+    z-index: 999;
+    max-width: 400px;
+    &.#{$id}-modalShow {
+      animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .#{$id}-modalInner {
+      border: 2px solid #a01c29;
+    }
+    .#{$id}-titleBox {
+      position: relative;
+      padding: 10px;
+      background: #a01c29;
+      h3 {
+       color: white;
+       margin-bottom: 0;
+       text-align: center;
+      }
+    }
+
+    .#{$id}-close {
+      position: absolute;
+      background: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/C974BB526BA4E7251C199EE0C19647F39094AC1C2C4A3E65DAF0DD6D714147FC.png?meta=/SG105---20-off-watches/noun_X_35418221.png') no-repeat center;
+      background-size: contain;
+      top: 13px;
+      right: 13px;
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+    }
+
+    .#{$id}-innerContent {
+      padding: 10px;
+      text-align: center;
+      > p {
+        font-size: 16px;
+        position: relative;
+
+        span {
+          display: block;
+          margin-bottom: -10px;
+          /*font-weight: 900;
+          color: black;
+          text-transform: uppercase;
+          font-size: 35px;
+          line-height: 50px;
+          margin-top: 20px;*/
+          
+            background: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/DAA897C275A7495877279EEE168F735EA607757C7A892E98132F5564BCC49C80.jpg?meta=/SG105---20-off-watches/save.jpg') no-repeat center;
+            height: 90px;
+            background-size: contain;
+            margin-top: 0;
+          @media(min-width: 767px) {
+            height: 100px;
+          }
+        }
+      }
+      p {
+        margin-bottom: 0;
+      }
+
+      .#{$id}-smallText {
+        font-size: 13px;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 20px;
+        &::after {
+          content: '';
+          height: 1px;
+          position: absolute;
+          width: 80%;
+          background: #e2e2e2;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      .#{$id}-smallTextBottom {
+        font-size: 13px;
+        margin-bottom: 15px;
+        color: #444343;
+        display: block;
+      }
+
+      .#{$id}-codeCopied {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-75%) rotateX(-100deg);;
+        background: #a01c29;
+        padding: 10px;
+        border-radius: 10px;
+        opacity: 0;
+        font-size: 13px;
+        color: white;
+        &.#{$id}-codeCopyShow {
+          animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+        }
+        
+        &::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 20px 20px 20px;
+          top: -10px;
+          border-color: transparent transparent #a01c29 transparent;
+        }
+    }
+
+      .#{$id}-codeBox {
+        margin-top: 20px;
+       
+        .#{$id}-voucher {
+          display: flex;
+          position: relative;
+          margin-bottom: 10px;
+          padding: 10px;
+          padding-top: 0;
+          margin-top: 10px;
+          justify-content: center;
+          input {
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-right: 0;
+            width: 80%;
+            text-align: center;
+            font-family: "Montserrat",sans-serif;
+            font-weight: 600;
+            max-width: 200px;
+            &:focus {
+              outline:none;
+            }
+          }
+
+          .#{$id}-copyButton {
+            display: flex;
+            flex-direction: column;
+            background-color: #a01c29;
+            width: 65px;
+            padding: 5px;
+            border: 1px solid #a01c29;
+            box-sizing: border-box;
+            border-left: 0;
+            cursor: pointer;
+            span {
+              background: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/0250DFCD79A092069E5BB549CF051C2E1BB83B417375E4335466F38EB95D2176.png?meta=/SG105---20-off-watches/noun_paste_2401660.png') no-repeat center;
+              height: 30px;
+              width: 30px;
+              background-size: contain;
+              margin: 0 auto;
+            }
+            p {
+              margin-bottom: 0;
+              color: white;
+              font-weight: 600;
+              text-transform: uppercase;
+              font-size: 10px;
+            }
+
+            &:hover {
+              background: white;
+              border: 1px solid #ccc;
+              border-left: 0px;
+              span {
+                background: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/05B3823BB69DD87A350AD26C0FD3AF594B7CECD2CE369F66FF8F3A9A927790DE.png?meta=/SG105---20-off-watches/noun_paste_24016601.png') no-repeat center;
+                background-size: contain;
+              }
+              p {
+                color: #a01c29;
+              }
+            }
+          }
+        }
+      }
+
+      .#{$id}-codeCopied {
+
+      }
+    }
+  }
+}

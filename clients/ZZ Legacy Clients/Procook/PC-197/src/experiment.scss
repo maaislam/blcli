@@ -1,0 +1,92 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-lblOver18Confirmation {
+    span {
+
+      p {
+        @media screen and (max-width: 360px) {
+          font-size: 12px;
+          width: 185px !important;
+          display: inline-block;
+        }
+        
+      }
+      a {
+        // width: 185px !important;
+        @media screen and (max-width: 360px) {
+          display: inline-block;
+          width: calc(50% - 30px);
+        }
+        
+      }
+    }
+  }
+
+  
+  // --- Top Age Restriction Box
+  .#{$id}-basket-age-restricton {
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .wrapOver18Confirmation {
+    &.required {
+      box-shadow: inset 0px 0px 1.5px 0.25px red;
+      background-color: #f9c7cb;
+
+      .contentOver18Confirmation {
+        background-color: #f9c7cb;
+      }
+    }
+    
+    .contentOver18Confirmation {
+      margin: 10px 10px !important;
+    }
+  }
+
+
+  .basket-buttons-top {
+    position: relative;
+    .#{$id}-top-checkout {
+      background-color: transparent;
+      position: absolute;
+      right: 0;
+      width: 50%;
+      height: 46px;
+      @media screen and (max-width: 600px) {
+        width: 100%;
+        top: 55px;
+      }
+
+      display: none;
+    }
+  }
+
+  .#{$id}-bottom-checkout {
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+
+    @media screen and (min-width: 993px) {
+      width: 52%;
+      height: 147px;
+    }
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      height: 105px;
+    }
+  }
+
+  .page-basket.over18NotConfirmed {
+    position: relative;
+    .#{$id}-top-checkout, .#{$id}-bottom-checkout {
+      display: block;
+    }
+  }
+
+}

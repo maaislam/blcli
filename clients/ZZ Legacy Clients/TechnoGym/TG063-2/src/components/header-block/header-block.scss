@@ -1,0 +1,69 @@
+@import '../../_variables.scss';
+.#{$id} {
+  @at-root #{&}_headerBlock {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(calc(-50% - 40px));
+    @at-root #{&}Wrap {
+      background-image: url('https://www.technogym.com/wpress/wp-content/uploads/2015/02/hero.jpg');
+      min-height: 350px;
+      position: relative;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -120px;
+        left: -20px;
+        width: 110%;
+        height: 50%;
+        background-color: #fff;
+        transform: rotate(2deg);
+      }
+    }
+    @at-root #{&}__title {
+      color: #fff;
+      font-size: 50px;
+      text-transform: uppercase;
+    }
+  }
+  @at-root #{&}_version-1 {
+    .#{$id}_headerBlock {
+      transform: translateY(-50%);
+    }
+    .#{$id}_headerBlockWrap {
+      min-height: 200px;
+      &:after{
+        bottom: -70px;
+        transform: rotate(-2deg);
+      }
+    }
+    .#{$id}_headerBlock__title {
+      margin:0;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 35px;
+    }
+  }
+  @media screen and (max-width: 650px) {
+    .#{$id}_headerBlockWrap{
+      &:after{
+        display:none;
+      }
+    }
+  }
+}

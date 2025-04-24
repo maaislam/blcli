@@ -1,0 +1,1177 @@
+@import './variables';
+
+@keyframes slide-in-left {
+    0% {
+        -webkit-transform: translateX(-5000px);
+        transform: translateX(-5000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+        left: 0;
+    }
+}
+
+.#{$id} {
+    .heroCarousel {
+        display: none;
+    }
+
+    .#{$id}_mainBanner {
+        margin-bottom: 20px;
+
+        // main carousel wrapper
+        .#{$id}_bannerOuter {
+            .slick-slide {
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .slick-next,
+            .slick-prev {
+                display: block !important;
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        // background images
+        .#{$id}_maincategory {
+            &.#{$id}_leftCategory {
+                .#{$id}_bannerContent {
+                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/706692224809303F18C412049A586BD67D919B7B2B18A4EEDF2C7DBB1A30199C.jpg?meta=/BO032---Homepage-50-50-Category-Visibility/FC57FB8CAB072714613D5F94C6753D094BAD4E48FDB0D006281C7D42BD10BBE9-min.jpg');
+
+                    @media(min-width: 767px) {
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/706692224809303F18C412049A586BD67D919B7B2B18A4EEDF2C7DBB1A30199C.jpg?meta=/BO032---Homepage-50-50-Category-Visibility/FC57FB8CAB072714613D5F94C6753D094BAD4E48FDB0D006281C7D42BD10BBE9-min.jpg');
+                    }
+                }
+            }
+
+            &.#{$id}_rightCategory {
+                .#{$id}_bannerContent {
+                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/CD3068FF21601DF246BC0C1A95178FE611DDB6C72CE6B78C51936B7F36063F01.jpeg?meta=/BO032---Homepage-50-50-Category-Visibility/47fe56f5-min.jpeg');
+
+                    @media(min-width: 767px) {
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/CD3068FF21601DF246BC0C1A95178FE611DDB6C72CE6B78C51936B7F36063F01.jpeg?meta=/BO032---Homepage-50-50-Category-Visibility/47fe56f5-min.jpeg');
+                    }
+                }
+            }
+        }
+
+        // image content
+        .#{$id}_bannerContent {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 400px;
+            position: relative;
+
+            .#{$id}_textBlock {
+                position: absolute;
+                width: 80%;
+                background: rgba(255, 255, 255, 0.85);
+                padding: 15px;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: left;
+
+                h2 {
+                    font-size: 25px;
+                    line-height: 30px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+
+                p {
+                    margin-bottom: 15px;
+                    font-family: F37 Ginger, Tahoma, Arial, sans-serif;
+                    font-size: 14px;
+                }
+
+                .#{$id}_textLink {
+                    font-family: F37 Ginger, Tahoma, Arial, sans-serif;
+                    text-decoration: underline;
+                    color: black;
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 29.5px 30px 29.5px;
+                border-color: transparent transparent #ffffff transparent;
+            }
+        }
+
+        // carousel
+        .#{$id}_categoryBar {
+            position: relative;
+            font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+            z-index: 999;
+
+            h3 {
+                padding: 20px 0px 0px 0px;
+                font-size: 17px;
+                text-align: center;
+
+                @media(min-width: 767px) {
+                    padding: 20px 0px 5px 0px;
+                }
+            }
+
+            .#{$id}_categoriesInner {
+                .#{$id}_categories {
+                    display: -webkit-box;
+                    display: flex;
+                    flex-direction: row;
+                    text-align: center;
+                    align-content: center;
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    padding: 5px;
+                    height: auto;
+                    cursor: pointer;
+
+
+                    .#{$id}_category {
+                        margin: 10px;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        .#{$id}_categoryIcon {
+                            display: flex;
+                            cursor: pointer;
+                            flex-direction: column;
+                            position: relative;
+                            width: 71px; // stop links going on 2 lines
+
+                            @media(min-width: 375px) {
+                                width: 85px;
+                            }
+
+                            @media(min-width: 400px) {
+                                width: 95px;
+                            }
+
+                            a {
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            span {
+                                height: 60px;
+                                width: 60px;
+                                box-sizing: border-box;
+                                margin: 0 auto;
+                                border-radius: 50px;
+                                background: white;
+                                margin-bottom: 5px;
+                                background-size: contain;
+
+                                @media(min-width: 375px) {
+                                    width: 80px;
+                                    height: 80px;
+                                }
+                            }
+
+                            p {
+                                font-size: 12px;
+                                margin-bottom: 0;
+                                line-height: 15px;
+                                margin: 0 auto;
+
+                                @media (min-width: 1400px) {
+                                    width: 90%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .slick-next,
+        .slick-prev {
+            &::after {
+                background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/1364CB0C78897F1CB365DF2AE923DCE3D7C91CA871832CE4FF5226B2E374B65C.png?meta=/BO081---Split-Homepage-Iteration/noun_Arrow_2094744.png');
+                background-size: contain;
+                background-position: center;
+                transform: rotate(0deg);
+            }
+
+            &.slick-disabled {
+                display: none !important;
+            }
+        }
+
+        .slick-prev {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+
+        @media(min-width: 767px) {
+            padding: 0 10px;
+
+            .#{$id}_bannerOuter {
+                display: flex;
+                justify-content: space-between;
+
+                .#{$id}_maincategory {
+                    width: 47%;
+                    margin: 10px;
+                    border: 1px solid #ece8e8;
+                    box-sizing: border-box;
+                }
+
+                .#{$id}_bannerContent {
+                    .#{$id}_textBlock {
+                        max-width: 400px;
+
+                        h2 {
+                            font-size: 30px;
+                            margin-bottom: 10px;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+
+            .#{$id}_categoryBar {
+                .#{$id}_categoriesInner {
+                    .#{$id}_categories {
+                        overflow: hidden;
+
+                        .#{$id}_category {
+                            margin-left: 15px;
+                            margin-right: 15px;
+
+                            .#{$id}_categoryIcon {
+                                width: auto;
+
+                                span {
+                                    height: 80px;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .slick-list {
+                    padding: 0 20% 0 0;
+                }
+
+                .slick-next,
+                .slick-prev {
+                    transform: translateY(-50%);
+                    height: 100%;
+                    background: linear-gradient(260deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 88%);
+
+                    &::after {
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                .slick-prev {
+                    display: none !important;
+                }
+            }
+        }
+
+        @media(min-width: 1024px) {
+            margin: 0 1.3%;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        @media(min-width: 1200px) {
+
+            .#{$id}_bannerOuter {
+                .#{$id}_maincategory {
+                    width: 48%;
+
+                    .#{$id}_textBlock {
+                        top: 40%;
+
+                        h2 {
+                            font-size: 35px;
+                            margin-bottom: 15px;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+
+            .#{$id}_categoryBar {
+                h3 {
+                    font-size: 19px;
+                }
+
+                .#{$id}_categoriesInner {
+                    .#{$id}_categories {
+                        padding: 10px;
+
+                        .#{$id}_category {
+                            .#{$id}_categoryIcon {
+                                width: 125px;
+
+                                span {
+                                    height: 100px;
+                                    width: 100px;
+                                }
+
+                                p {
+                                    width: 100%;
+                                    font-size: 15px;
+                                    margin-top: 5px;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .slick-next,
+            .slick-prev {
+                width: 150px;
+
+                @media(min-width: 1200px) {
+                    width: 100px;
+                    height: 100px;
+
+                    &::after {
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$id}__button {
+        border: 1px solid white;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        margin: 20px 10px;
+        color: white;
+        font-size: 15px;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        font-weight: bold;
+        text-align: center;
+        background-color: black;
+
+        @media(min-width: 767px) {
+            margin: 13px 10px;
+            margin-left: 0;
+            max-width: 270px;
+            font-size: 14px;
+        }
+
+        &:hover {
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s linear;
+        }
+
+        &.#{$id}__blue {
+            color: #004990;
+            background: #cedff3;
+            border: 1px solid #cedff3;
+            letter-spacing: 0;
+            text-transform: none;
+            font-family: arial, helvetica, clean, sans-serif;
+            font-size: 15px;
+
+            &:hover {
+                color: #004990;
+                background: white;
+                border: 1px solid #004990;
+            }
+        }
+
+        &.#{$id}__primary {
+            background: #114D8F;
+            color: white;
+            border: 1px solid #114D8F;
+            text-transform: none;
+            font-family: F37 Ginger, Tahoma, Arial, sans-serif;
+
+            &:hover {
+                background: white;
+                color: #114D8F;
+            }
+        }
+
+        &.#{$id}__white {
+            border: 1px solid black;
+            color: black;
+            background: white;
+            text-transform: lowercase;
+
+            &:hover {
+                background-color: black;
+                color: white;
+                transition: background-color 0.3s linear;
+            }
+        }
+    }
+    &.#{$id}-1 {
+        .#{$id}_mainBanner {
+            .#{$id}_categoryBar {
+                .#{$id}_categoriesInner {
+                    .#{$id}_categories {
+                        &::-webkit-scrollbar {
+                            height: 7px;
+                            width: 7px;
+                            background-color: transparent;
+                        }
+    
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 7px;
+                            width: 7px;
+                            background-color: #d5e6f6;
+                        }
+    
+                        &::-webkit-scrollbar-track {
+                            height: 7px;
+                            border-radius: 4px;
+                            background-color: #f6f6f6;
+                            margin: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        .#{$id}_mainBanner {
+            .#{$id}_categoryBar {
+                h3 {
+                    display: none;
+                }
+
+                .#{$id}_categoriesInner {
+
+                    .#{$id}_categories,
+                    .#{$id}_brands {
+                        display: -webkit-box;
+                        display: flex;
+                        flex-direction: row;
+                        text-align: center;
+                        align-content: center;
+                        overflow-x: auto;
+                        overflow-y: hidden;
+                        padding: 10px;
+                        height: auto;
+                        cursor: pointer;
+                        border-bottom: 1px solid #ccc;
+                        margin-right: 10px;
+
+                        .#{$id}_category,
+                        .#{$id}_brand {
+                            margin: 10px;
+                            white-space: nowrap;
+                        }
+
+                        .#{$id}_linkItem {
+                            a {
+                                color: #114D8F;
+                            }
+                        }
+                    }
+
+                    @media(min-width: 767px) {
+
+                        .#{$id}_categories,
+                        .#{$id}_brands {
+                            padding: 20px;
+                            overflow: hidden;
+
+                            .#{$id}_category,
+                            .#{$id}_brand {
+                                margin-left: 15px;
+                                margin-right: 15px;
+                            }
+
+                            .#{$id}_linkItem {
+                                a {
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+
+                        .#{$id}_brands {
+                            border-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 1024px) {
+            .#{$id}_mainBanner {
+                max-width: 1360px;
+                margin: 0 auto;
+                margin-bottom: 20px;
+
+                .#{$id}_maincategory {
+                    &.#{$id}_leftCategory {
+                        margin-left: 0;
+                    }
+
+                    &.#{$id}_rightCategory {
+                        margin-right: 0;
+                    }
+
+                    .#{$id}_bannerContent {
+                        height: 500px;
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 1200px) {
+            .#{$id}_mainBanner {
+                .#{$id}_maincategory {
+                    .#{$id}_textBlock {
+                        width: 350px;
+
+                        h2 {
+                            font-size: 30px;
+                        }
+
+                        p {
+                            font-size: 17px;
+                            line-height: 21px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2,
+    &.#{$id}-3 {
+        .#{$id}_mainBanner {
+            .#{$id}_maincategory {
+                .#{$id}_bannerContent {
+                    height: 350px;
+
+                    .#{$id}_textBlock {
+                        top: 40%;
+
+                        p {
+                            font-family: arial, helvetica, clean, sans-serif;
+                        }
+
+                        .#{$id}__button {
+                            margin-left: 0;
+                            margin-bottom: 5px;
+                            text-transform: none;
+
+                        }
+                    }
+                }
+
+                &.#{$id}_leftCategory {
+                    .#{$id}_bannerContent {
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/AD40FB932D1D5869DA53CDCD2269DDDC1A7943ADDAC2EA1FAB5954385D965165.jpg?meta=/BO081---Split-Homepage-Iteration/beautybg.jpg');
+
+                        @media(min-width: 767px) {
+                            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/1AB02026BB46F64C05425870FFAF83B23672D3DCD5BA95DC04BCFBD2EAA0C683.jpg?meta=/BO081---Split-Homepage-Iteration/Bitmap.jpg');
+                        }
+                    }
+                }
+
+                &.#{$id}_rightCategory {
+                    .#{$id}_bannerContent {
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/287EBE949ABFCAD2898C91E2DF9FFBBD89846473680C9DDF8ECA936901657463.jpg?meta=/BO081---Split-Homepage-Iteration/healthbg.jpg');
+
+                        @media(min-width: 767px) {
+                            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/99D8909C2F732AA7D3373773CD06AFA3AB16472448D4B1D7E45C021A6CC65C37.jpg?meta=/BO081---Split-Homepage-Iteration/RectangleCopy23.jpg');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-3 {
+        &.#{$id}-noScroll {
+            overflow: hidden;
+        }
+
+        .#{$id}_mainBanner {
+            max-width: 1360px;
+            margin: 0 auto;
+
+            .#{$id}_bannerOuter {
+                .#{$id}_maincategory {
+                    margin-bottom: 15px;
+
+                    &.#{$id}_leftCategory {
+                        .#{$id}_bannerContent {
+                            clip-path: polygon(0 0,
+                                    /* left top */
+                                    100% 0,
+                                    /* right top */
+                                    100% 88%,
+                                    /* right bottom */
+                                    0 100%
+                                    /* left bottom */
+                                );
+
+                            @media(min-width: 767px) {
+                                clip-path: unset;
+                                height: 400px;
+                            }
+                        }
+
+                        @media(min-width: 1024px) {
+                            margin-left: 0;
+                        }
+                    }
+
+                    &.#{$id}_rightCategory {
+                        margin-top: -50px;
+
+                        .#{$id}_bannerContent {
+                            height: 400px;
+                            clip-path: polygon(0% 11%, 100% 0, 100% 100%, 0% 100%);
+                        }
+
+                        @media(min-width: 767px) {
+                            margin-top: 10px;
+
+                            .#{$id}_bannerContent {
+                                clip-path: unset;
+                                height: 400px;
+                            }
+                        }
+
+                        @media(min-width: 1024px) {
+                            margin-right: 0;
+                        }
+                    }
+
+                    .#{$id}_bannerContent {
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    @media(min-width: 1024px) {
+                        width: 50%;
+                    }
+                }
+            }
+
+        }
+
+        // slide out categories
+        .#{$id}-contentWrapper {
+            position: fixed;
+            width: 100vw;
+            background: white;
+            top: 0px;
+            z-index: 9999;
+            height: 100vh;
+            transform: translateX(-5000px);
+            overflow: hidden;
+
+            @media(min-width: 767px) {
+                overflow: auto;
+            }
+
+            .heroCarousel {
+                display: block;
+                margin-bottom: 0;
+            }
+
+            &.#{$id}-active {
+                animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+
+            .#{$id}-content {
+                height: calc(100vh - 80px);
+                overflow-y: auto;
+                padding-top: 20px;
+                padding-bottom: 100px;
+
+                &::-webkit-scrollbar {
+                    height: 7px;
+                    width: 7px;
+                    background-color: transparent;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 7px;
+                    width: 7px;
+                    background-color: #d5e6f6;
+                }
+
+                &::-webkit-scrollbar-track {
+                    height: 7px;
+                    border-radius: 4px;
+                    background-color: rgb(232, 232, 232);
+                    margin: 20px;
+                }
+
+                @media(min-width: 767px) {
+                    margin: 0 auto;
+                    overflow: hidden;
+                    height: auto;
+                    padding-bottom: 20px;
+                    max-width: 960px;
+                }
+
+                @media(min-width: 1200px) {
+                    max-width: 1024px;
+                }
+            }
+
+
+            .#{$id}-title {
+                text-align: center;
+                padding: 20px;
+                font-size: 20px;
+                color: black;
+                position: relative;
+                font-family: F37 Ginger Bold, Tahoma, Arial, sans-serif;
+                background: white;
+                box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.13);
+
+                @media(min-width: 767px) {
+                    font-size: 25px;
+                    padding: 25px;
+                }
+            }
+
+            .#{$id}-back {
+                background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/1364CB0C78897F1CB365DF2AE923DCE3D7C91CA871832CE4FF5226B2E374B65C.png?meta=/BO081---Split-Homepage-Iteration/noun_Arrow_2094744.png') no-repeat center;
+                background-size: contain;
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%) rotate(180deg);
+                height: 20px;
+                width: 20px;
+                cursor: pointer;
+
+                span {
+                    display: none;
+                }
+
+                @media(min-width: 767px) {
+                    left: 20px;
+                }
+            }
+
+
+            h3 {
+                text-align: center;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                font-size: 20px;
+                @media(min-width: 767px) {
+                    font-size: 25px;
+                    margin-top: 20px;
+                }
+
+            }
+
+            .#{$id}-innerBlocks {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 20px;
+
+                .#{$id}-block {
+                    margin: 10px;
+                    width: 43%;
+                    text-align: center;
+                    box-sizing: border-box;
+                }
+
+                .#{$id}-lineBreak {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                .#{$id}-icon {
+                    height: 100px;
+                    width: 100%;
+                    max-width: 110px;
+                    margin: 0 auto;
+                    border-radius: 0px;
+                    background-size: 60%;
+                    background-color: white;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    border: 1px solid #CDCDCD;
+                    border-top-right-radius: 14px;
+                    border-bottom-left-radius: 14px;
+                    box-sizing: border-box;
+
+                    @media(min-width: 375px) {
+                        height: 110px;
+                    }
+
+                    @media(min-width: 400px) {
+                        background-size: 70%;
+                    }
+
+                    @media(min-width: 1024px) {
+                        transition: all .3s ease-in-out;
+                        background-size: 60%;
+
+                        &:hover {
+                            background-size: 70%;
+                        }
+                    }
+                }
+
+                p {
+                    font-family: F37 Ginger, Tahoma, Arial, sans-serif;
+                    font-size: 13px;
+                    margin-top: 10px;
+                    line-height: 17px;
+                }
+            }
+
+            .#{$id}__button {
+                width: 250px;
+            }
+
+            @media(min-width: 767px) {
+                .#{$id}-innerBlocks {
+                    max-width: 1024px;
+                    margin: 0 auto;
+
+                    .#{$id}-block {
+                        width: 30%;
+                        margin-bottom: 20px;
+                    }
+
+                    .#{$id}-button {
+                        margin-bottom: 30px;
+                    }
+
+                    p {
+                        text-transform: capitalize;
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            @media(min-width: 1024px) {
+                .#{$id}-innerBlocks {
+                    .#{$id}-block {
+                        width: 18%;
+                        margin: 15px;
+                        margin-bottom: 25px;
+                    }
+                }
+            }
+
+            @media(min-width: 1200px) {
+                .#{$id}-innerBlocks {
+                    .#{$id}-block {
+                        width: 13%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-3,
+    &.#{$id}-4 {
+
+        // offer carousel
+        .#{$id}-offers {
+            margin: 10px;
+
+            @media(min-width: 767px) {
+                border: 1px solid #CDCDCD;
+            }
+
+            .slideContent {
+                background: #F2F2F2;
+                .rel {
+                    display: none;
+                    @media(min-width: 767px) {
+                        display: block;
+                    }
+                }
+            }
+
+            @media(max-width: 767px) {
+
+                .slideInfo {
+                    height: 180px;
+
+                    h2 {
+                        font-size: 23px;
+                        margin-top: 10px;
+                    }
+                }
+            
+        }
+
+        .slick-next,
+        .slick-prev {
+            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/1364CB0C78897F1CB365DF2AE923DCE3D7C91CA871832CE4FF5226B2E374B65C.png?meta=/BO081---Split-Homepage-Iteration/noun_Arrow_2094744.png');
+            background-size: 8px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: white;
+            border-radius: 50px;
+            border: 1px solid #CDCDCD;
+            height: 25px;
+            width: 25px;
+
+            &::after {
+                display: none;
+            }
+
+
+            &.slick-disabled {
+                display: none !important;
+            }
+        }
+
+        .slick-prev {
+            left: 10px;
+            transform: rotate(180deg);
+
+        }
+
+        .slick-next {
+            right: 10px;
+        }
+
+        .slick-dots {
+            margin-top: 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            button {
+                &::after {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+        }
+    }
+}
+
+&.#{$id}-4 {
+    .#{$id}_mainBanner {
+        max-width: 1360px;
+        margin: 0 auto;
+    }
+
+    // offer carousel
+    .#{$id}-offers {
+        margin: 0;
+        margin-bottom: 10px;
+
+        .#{$id}-offer {
+            height: 270px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            //background: #ccc !important; //remove this
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left;
+            @media(min-width: 767px){}
+            
+            .#{$id}-offerText {
+                width: 80%;
+                margin-left: 20px;
+                background: rgba(255, 255, 255, 0.85);
+                padding: 15px;
+                h3 {
+                    text-align: left;
+                    font-size: 26px;
+                    line-height: 26px;
+                    margin-bottom: 10px;
+                    color: #CC0033;
+                }
+                p {
+                    font-size: 14px;
+                }
+
+                .#{$id}__button {
+                    margin: 0;
+                    text-decoration: none;
+                    font-size: 13px;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                @media(min-width: 375px) {
+                    margin-left: 20px;
+
+                    p {
+                        margin-bottom: 15px;
+                        font-size: 15px;
+                    }
+                }
+                @media(min-width: 400px) {
+                    width: 70%;
+                }
+                @media(min-width: 767px) {
+                    p {
+                        font-size: 15px;
+                    }
+                }
+
+                @media(min-width: 1024px) {
+                    h3 {
+                        font-size: 25px;
+                    }
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+            @media(min-width: 400px) {
+                height: 300px;
+            }
+
+            @media(min-width: 767px) {
+                align-content: flex-start;
+                height: 350px;
+
+                .#{$id}-offerText {
+                    margin-left: 0;
+                    margin-left: 0;
+                    width: 55%;
+                    max-width: 300px;
+                    position: relative;
+                    left: 25px;
+                    top: 10px;
+
+                    .#{$id}__button {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @media(min-width: 1024px) {
+                height: 400px;
+            }
+
+            @media(min-width: 1280px) {
+                height: 500px;
+                
+                .#{$id}-offerText {
+                    left: 50px;
+                    max-width: 350px;
+                    padding: 20px;
+
+                    h3 {
+                        font-size: 35px;
+                        margin-bottom: 15px;
+                    }
+                  
+
+                    .#{$id}__button {
+                        width: 300px;
+                        font-size: 15px;
+                        max-width: 300px;
+                    }
+                }
+            }
+        }
+
+        &.#{$id}_leftCategory {
+            clip-path: polygon(0 0,
+                    /* left top */
+                    100% 0,
+                    /* right top */
+                    100% 89%,
+                    /* right bottom */
+                    0 100%
+                    /* left bottom */
+                );
+
+            @media(min-width: 767px) {
+                clip-path: unset;
+            }
+        }
+
+        &.#{$id}_rightCategory {
+            margin-top: -35px;
+            clip-path: polygon(0% 11%, 100% 0, 100% 100%, 0% 100%);
+
+            .#{$id}-offer {
+                border: 0px;
+
+                .#{$id}-offerText {
+
+                    //margin-top: 40px;
+                    @media(min-width: 375px) {
+                        //   margin-top: 50px;
+                    }
+                }
+            }
+
+            @media(min-width: 767px) {
+                clip-path: unset;
+                margin-top: 10px;
+            }
+        }
+    }
+    .#{$id}_rightCategory {
+
+            .#{$id}-offer {
+                .#{$id}-offerText {
+                    margin-top: 20px;
+                    @media(min-width: 767px) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        
+    }
+
+    .#{$id}_maincategory {
+        @media(min-width: 767px) {
+            border: 0px;
+        }
+    }
+}
+}

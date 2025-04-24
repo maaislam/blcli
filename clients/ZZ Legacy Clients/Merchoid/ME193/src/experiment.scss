@@ -1,0 +1,151 @@
+@import './variables';
+@import '_mixins.scss';
+
+@keyframes ME190pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+.#{$id} {
+  &.#{$id}-1 {
+    #merchoid-scarcity-message {
+      display: none !important;
+    }
+
+    .#{$id}_scarcityMessage {
+      position: absolute;
+      width: 80%;
+      background: rgba(0, 172, 229, .7);
+      border-radius: 5px;
+      top: 40px;
+      left: 50%;
+      z-index: 99;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      padding: 10px;
+      box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .35);
+
+      p {
+        margin-bottom: 0px;
+        font-weight: bold;
+
+        &.#{$id}-pulseText {
+          animation-name: ME190pulse;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+
+  &.#{$id}-control {
+    .product .product-gallery #merchoid-scarcity-message {
+        display: none !important;
+      }
+
+      .ME159_stock-checker {
+        background: rgba(0, 172, 229, .7);
+        position: absolute;
+        z-index: 10;
+        box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .35);
+        text-align: center;
+        width: 80%;
+        top: 40px;
+        left: 10%;
+        color: #fff;
+        border-radius: 4px;
+        padding: 10px 14px 12px;
+        min-height: 47px;
+
+        p {
+          margin: 0;
+          font-weight: 700;
+        }
+
+        .ME159_loading-stock {
+          opacity: 0;
+          position: absolute;
+          top: 11px;
+          left: 0;
+          width: 100%;
+          @include anim(300ms, def, (opacity));
+        }
+
+        &.ME159_loaded-stock {
+          animation: popAnim 400ms;
+
+          .ME159_curr-stock {
+            opacity: 1;
+          }
+        }
+
+        &.ME159_static {
+          .ME159_curr-stock {
+            opacity: 1;
+          }
+        }
+
+        &.ME159_start-anim {
+          .ME159_loading-stock {
+            opacity: 1;
+          }
+        }
+      }
+
+      .ME159_elip::after {
+        position: absolute;
+        display: inline-block;
+        width: 0px;
+        animation: ellipsis steps(4, end) 1200ms infinite;
+        content: "\2026";
+        left: 50%;
+        margin-left: 78px;
+        font-size: 24px;
+        line-height: 20px;
+        overflow: hidden;
+      }
+
+      .ME159_curr-stock {
+        opacity: 0;
+        position: absolute;
+        top: 11px;
+        left: 0;
+        width: 100%;
+        @include anim(300ms, def, (opacity));
+      }
+    }
+
+    @keyframes popAnim {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+
+      0% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes ellipsis {
+      to {
+        width: 25px;
+      }
+    }
+}

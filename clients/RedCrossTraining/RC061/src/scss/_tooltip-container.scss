@@ -1,0 +1,83 @@
+$tooltip-arrow-dimensions: 20px;
+
+.#{$id}-tooltip-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    border: none;
+    background-color: $color-grey;
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+    flex-shrink: 0;
+    font-weight: bold;
+    color: white;
+    transition: $transition background-color;
+    .has-tooltip & {
+        background-color: $color-green;
+    }
+    &:before {
+        content: 'i';
+    }
+    &__tooltip {
+        position: absolute;
+        background-color: $color-grey-light;
+        opacity: 0;
+        visibility: hidden;
+        width: 300px;
+        padding: 16px 20px;
+        z-index: 10;
+        color: #262626;
+        font-size: 14px;
+        top: -$tooltip-arrow-dimensions / 2 + -5px;
+        left: calc(100% + #{$tooltip-arrow-dimensions});
+        border-radius: 6px;
+        border-right: 10px solid $color-green;
+        transition: $transition visibility,
+        $transition opacity,
+        $transition-medium transform;
+        @include bp-small-to {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(100%);
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -$tooltip-arrow-dimensions / 2;
+            width: $tooltip-arrow-dimensions;
+            height: $tooltip-arrow-dimensions;
+            background-color: $color-grey-light;
+            transform: rotate(45deg);
+            @include bp-small-to {
+                display: none;
+            }
+        }
+        .has-tooltip & {
+            opacity: 1;
+            visibility: visible;
+            @include bp-small-to {
+                transform: translateY(0);
+            }
+        }
+        @include bp-small-to {
+            position: fixed;
+            width: 100%;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: none;
+            border-radius: 0;
+        }
+    }
+    &__tooltip-title {
+        display: block;
+        color: $color-green;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+}

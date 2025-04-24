@@ -1,0 +1,131 @@
+@import "./variables";
+
+.#{$id} {
+  :not(.plp_gridView_redesign) {
+    & > ul > .#{$id}-root {
+      @media screen and (max-width: 644px) {
+        margin-top: 15px;
+        font-size: 1.2rem;
+
+        > div {
+          width: calc(100% - 2px) !important;
+        }
+
+        li.#{$id}-list-item {
+          padding: 30px 15px !important;
+
+          &:nth-child(1) {
+            border-top: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .#{$id}-root {
+    border: 0 !important;
+  }
+
+  .#{$id}-root > div {
+    width: 100%;
+    padding: 20px 0 !important;
+    border: 1px solid rgb(232, 232, 232) !important;
+    border-radius: 10px 0;
+    text-align: center;
+    font-size: 14px;
+
+    @media screen and (min-width: 601px) {
+      padding: 15px 0 !important;
+      font-size: 1rem;
+      width: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  .#{$id}-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    h4 {
+      box-sizing: border-box !important;
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+      font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+      font-size: 16px;
+      justify-content: center;
+      color: #004990;
+      border-bottom: 1px solid rgb(232, 232, 232);
+      padding: 5px 15px 20px 15px;
+      width: 100%;
+
+      @media screen and (min-width: 601px) {
+        font-size: 20px;
+      }
+
+      @media screen and (min-width: 768px) {
+        justify-content: flex-start;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 0;
+      list-style: none;
+      margin-bottom: -15px;
+      overflow-y: auto;
+
+      li.#{$id}-list-item {
+        box-sizing: border-box !important;
+        flex-grow: 1;
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+        padding: 5px 15px !important;
+
+        & + * {
+          border-top: 1px solid rgb(232, 232, 232);
+        }
+
+        a {
+          font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+          color: #545454;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          img {
+            display: none;
+            width: 50px;
+            min-width: 50px;
+            object-fit: cover;
+            margin-right: 20px;
+
+            @media screen and (min-width: 768px) {
+              display: block;
+            }
+          }
+
+          span {
+            width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}

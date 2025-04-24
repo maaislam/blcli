@@ -1,0 +1,129 @@
+@import '_mixins.scss';
+body.FL017 {
+  &.FL017_overflow {
+    overflow: hidden;
+  }
+  footer.FooterCheck {
+    // height of review basket plus 15 padding
+    padding-bottom: 67px;
+  }
+  .FL017_disc {
+    color: #e41d1d;
+    display: block;
+    text-align: right;
+  }
+  .FL017_basket {
+    position: fixed;
+    height: calc(100% - 52px);
+    width: 100%;
+    top: 100%;
+    margin-top: -52px;
+    left: 0;
+    z-index: 9999;
+    background: #fff;
+    @include anim(400ms, def, (top));
+    &.FL017_active {
+      top: 52px;
+      .FL017_basket-reveal::before {
+        right: 14px;
+        @include rotate(-45);
+      }
+      .FL017_basket-reveal::after {
+        right: 25px;
+        @include rotate(45);
+      }
+    }
+  }
+  .FL017_basket-reveal {
+    background: #000;
+    color: #fff;
+    display: block;
+    position: absolute;
+    width: 100%;
+    padding: 9px 15px;
+    top: 0;
+    left: 0;
+    &::before,
+    &::after {
+      content: '';
+      background-color: #fff;
+      width: 17px;
+      height: 2px;
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+      @include anim(200ms, def, (transform));
+    }
+    &::before {
+      right: 14px;
+      @include rotate(45);
+    }
+    &::after {
+      right: 25px;
+      @include rotate(-45);
+    }
+  }
+  .FL017_title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .FL017_title-info {
+    display: block;
+    font-size: 11px;
+  }
+  .FL017_basket-inner {
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px 75px 10px;
+    margin-top: 52px;
+    background: #fff;
+  }
+  .FL017_product-wrap {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 13px;
+  }
+  .FL017_product {
+    width: 100%;
+    &+.FL017_product {
+      margin-top: 30px;
+    }
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .FL017_img {
+      float: left;
+      width: 70px;
+      img {
+        max-width: 100%;
+      }
+    }
+    .FL017_product-info {
+      float: left;
+      width: calc(100% - 70px);
+      padding-left: 20px;
+      .FL017_detail {
+        display: block;
+      }
+      .FL017_price {
+        text-align: right;
+        font-size: 12px;
+      }
+    }
+  }
+  .FL017_continue {
+    line-height: 45px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+  }
+}

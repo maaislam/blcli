@@ -1,0 +1,122 @@
+@import './variables';
+
+.#{$id} {
+    .product-tile__corner-flag {
+        display: none;
+    }
+    // badges
+    .product-tile {
+        position: relative;
+        .#{$id}-productBadge {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            border-radius: 70px;
+            top: -5px;
+            left: -6px;
+            text-align: center;
+            .#{$id}-badge_image {
+                height: 100%;
+                width: 100%;
+                position: relative;
+                background-size: contain;
+                display: block;
+            }
+        }
+    }
+
+    // in grid content
+    .#{$id}-inGridBlock {
+        padding: 10px;
+        border: 3px solid black;
+        margin-bottom: 10px;
+        position: relative;
+        max-height: 300px;
+        height: 300px;
+        .#{$id}-inGridBlock_text {
+            position: absolute;
+            left: 50%;
+            width: 90%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .#{$id}-brandLogo {
+            height: 30px;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 20px;
+        }
+        .#{$id}-heading {
+            font-size: 25px;
+            text-align: center;
+            margin: 0 auto;
+            line-height: 37px;
+            margin-top: 20px;
+            width: 67%;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: "Oxygen",sans-serif;
+        }
+
+        .#{$id}-countdown {
+            font-weight: bold;
+        }
+        .#{$id}-dash {
+            width: 50px;
+            height: 4px;
+            background: black;
+            margin: 0 auto;
+        }
+
+        p {
+            text-align: center;
+            @media(min-width: 767px) {
+                font-size: 15px;
+                padding: 10px;
+            }
+        }
+        @media(min-width: 767px) {
+            margin: 30px 0;
+            height: 330px;
+            max-height: 400px;
+
+                .#{$id}-heading {
+                    font-size: 23px; 
+                    line-height: 25px;
+                }
+                p {
+                    font-size: 14px;
+                }
+            
+        }
+    }
+
+    // when 2 columns
+    .product-tile-list.product-tile-list--two-column-mode {
+        .#{$id}-inGridBlock {
+            .#{$id}-heading { 
+                font-size: 15px;
+                line-height: 20px;
+                width: 80%;
+            }
+            p {
+                font-size: 12px;
+            }
+
+            @media(min-width: 1024px) {
+                .#{$id}-heading { 
+                    font-size: 20px;
+                    line-height: 26px;
+                    width: 80%;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

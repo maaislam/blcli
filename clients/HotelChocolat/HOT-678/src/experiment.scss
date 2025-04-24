@@ -1,0 +1,249 @@
+@import './variables';
+
+.#{$id} {
+
+    .#{$id}-hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-accordion {
+        margin-bottom: 40px;
+
+        * {
+            box-sizing: border-box !important;
+        }
+
+        &--title {
+
+            background: #fff;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #000;
+            margin-top: 10px;
+            font-family: 'GillSansNova-Light', Arial, Helvetica, sans-serif;
+            cursor: pointer;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+
+            &::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background-image: url("data:image/svg+xml,%3Csvg fill='%23000' height='10px' width='10px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 407.436 407.436' xml:space='preserve'%3E%3Cpolygon points='112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 '/%3E%3C/svg%3E");
+                margin-left: auto;
+            }
+
+        }
+
+        &--content {
+
+            display: none;
+            border: 1px solid #F1F1F0;
+            border-top: 0;
+            padding: 15px;
+            margin-bottom: 20px;
+            height: 350px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            flex-direction: column;
+
+            div, p {
+                font-size: 14px !important;
+            }
+
+            /* Chrome, Edge and Safari */
+            &::-webkit-scrollbar {
+                height: 5px;
+                width: 5px;
+            }
+        
+            &::-webkit-scrollbar-track {
+                background-color: #FFFFFF;
+            }
+        
+            &::-webkit-scrollbar-track:hover {
+                background-color: #FFFFFF;
+            }
+        
+            &::-webkit-scrollbar-track:active {
+                background-color: #FFFFFF;
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: #CCC;
+            }
+        
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #CCC;
+            }
+        
+            &::-webkit-scrollbar-thumb:active {
+                background-color: #666;
+            }
+
+            .descSection2 {
+                margin-top: 10px;
+
+                h3 {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .descSection3.menu {
+                display: none;
+            }
+
+            .additional,
+            .grid-1 {
+
+                margin-top: 20px;
+
+                h3 {
+                    border: 1px solid #F1F1F0;
+                    padding: 5px;
+                }
+
+                & > ul {
+                    border: 1px solid #F1F1F0;
+                    border-top: none;
+                    display: flex;
+                    flex-direction: column;
+
+                    & > li {
+                        border-top: 1px solid #F1F1F0;
+                
+                        &:first-child {
+                            border-top: none;
+                        }
+                
+                        .col-1,
+                        .col-2 {
+                            margin: 0;
+                            padding: 5px;
+                            height: 100%;
+                        }
+                
+                        .col-2 {
+                            border-left: 1px solid #F1F1F0;
+                        }
+                    }
+                }
+
+                
+            }
+
+            .grid-1 {
+
+                margin-bottom: 20px;
+
+                & > ul {
+                    border-top: 1px solid #F1F1F0;
+                }
+
+            }
+
+        }
+
+        &.#{$id}-description-active {
+
+            ##{$id}-accordion--title--description:after {
+                transform: rotate(90deg);
+            }
+
+            ##{$id}-accordion--content--description {
+                display: flex;
+            }
+
+        }
+
+        &.#{$id}-ingredients-active {
+
+            ##{$id}-accordion--title--ingredients:after {
+                    transform: rotate(90deg);
+                }
+
+            ##{$id}-accordion--content--ingredients {
+                display: flex;
+            }
+
+        }
+
+        &.#{$id}-reviews-active {
+
+            ##{$id}-accordion--title--reviews:after {
+                    transform: rotate(90deg);
+                }
+
+            ##{$id}-accordion--content--reviews {
+                display: flex;
+            }
+
+        }
+
+
+        ##{$id}-accordion--content--reviews {
+            padding: 0;
+
+            .bv-fieldsets,
+            .bv-searchbar {
+                width: 100% !important;
+            }
+
+            .bv-flex-container-responsive {
+                width: 100%;
+                flex-direction: column;
+
+                .bv-section-summary-block {
+                    width: 100% !important;
+                }
+            }
+
+            .bv-author-profile {
+                width: 100% !important;
+                padding: 0 !important;
+
+                .bv-author-avatar {
+                    margin-bottom: 0 !important;
+                }
+            }
+
+            .bv-content-review {
+                flex-direction: column;
+            }
+
+            .bv-popup-prosnap-userinfo {
+                display: none !important;
+            }
+
+            .bv-content-item-author-profile-offset {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .bv-content-details-offset-on,
+            .bv-content-details-container {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .bv-secondary-ratings {
+                margin: 0 !important;
+            }
+        }   
+
+
+    }
+
+}

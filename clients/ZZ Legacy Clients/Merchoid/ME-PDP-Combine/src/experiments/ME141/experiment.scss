@@ -1,0 +1,212 @@
+$blue: #0cbbf4;
+$grey: #555555;
+.ME141 {
+    .shiftnav-inner {
+      height: 100%;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      background: white;
+      position: relative;
+        .shiftnav-nav {
+            height: calc(100% - 88px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        /*Search Bar*/
+        .shiftnav-search {
+            background: #efefef;
+            z-index: 999;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px 0px 4px 1px #cecece;
+            .ME141-search_title {
+                padding: 10px;
+                color: white;
+                background: black;
+                font-size: 14px;
+            }
+            input {
+                border: 0px;
+            }
+        }
+        .ME141-nav_tabs {
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            .ME141-tab {
+                display: inline-block;
+                width: 49.333%;
+                color: $grey;
+                padding: 15px;
+                font-size: 16px;
+                text-transform: uppercase;
+                &:first-child {
+                    border-right: 1px solid #ccc;
+                }
+                &:first-child.ME141-tab_active~.ME141-tab_slider {
+                    left: 0;
+                }
+                &:nth-child(2).ME141-tab_active~.ME141-tab_slider {
+                    left: 49.333%;
+                }
+                &.ME141-tab_active {
+                    color: $blue;
+                }
+            }
+            .ME141-tab_slider {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 49.333%;
+                height: 3px;
+                background-color: $blue;
+                transition: left .25s;
+            }
+        }
+        /*main links*/
+        .ME141-links {
+            display: none;
+            &.ME141-tablinks_active {
+                display: block;
+            }
+            .ME141-navlink_shop,
+            .ME141-navlink_other {
+                padding: 10px;
+                list-style: none;
+                border-bottom: 1px solid;
+                font-size: 15px;
+                height: 60px;
+                position: relative;
+                a {
+                    color: $grey;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                p {
+                    padding: 0px;
+                    margin: 0px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .ME141-icon {
+                    float: right;
+                    width: 29px;
+                    margin-right: 10px;
+                }
+            }
+            .ME141-navlink_shop,
+            .ME141-navlink_other {
+                padding-bottom: 15px;
+                padding-top: 15px;
+                &:first-child,
+                &:last-child {
+                    background: #efefef;
+                }
+            }
+            .ME141-navlink_other {
+                &:first-child {
+                    background: #efefef;
+                }
+            }
+        }
+        /*sub nav*/
+        .ME141-subnav,
+        .ME141-subnav_third {
+            left: -1000px;
+            position: fixed;
+            height: calc(100% - 88px);
+            width: 100%;
+            background: white;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            top: 0;
+            transition-property: initial;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+            transition-delay: 0s;
+            &.ME141-subnav_active {
+                left: 0;
+                transition-property: initial;
+                transition-duration: 1s;
+                transition-timing-function: ease-in;
+                transition-delay: 0s;
+                display: block;
+            }
+            .ME141-innerCat_link,
+            .ME141-innerClothing_link {
+                padding: 10px;
+                list-style: none;
+                border-bottom: 1px solid;
+                font-size: 15px;
+                width: 100%;
+                height: 60px;
+                position: relative;
+                a {
+                    display: block;
+                    color: $grey;
+                    height: 100%;
+                }
+                p {
+                    margin: 0px;
+                    padding: 0px;
+                    display: inline-block;
+                    text-align: left;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    top: 50%;
+                }
+                .ME141-icon {
+                    float: right;
+                    width: 40px;
+                    height: 40px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            .ME141-back {
+                background: black;
+                color: white;
+                padding: 10px;
+                border-bottom: 1px solid;
+                padding-left: 30px;
+                position: relative;
+                text-transform: uppercase;
+                font-size: 16px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    background-image: url('//cdn.optimizely.com/img/6087172626/639ceb8d281548f7b3bacd6270bc5fb8.png');
+                    height: 20px;
+                    width: 20px;
+                    left: 0;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+            }
+            .ME141-innerClothing_link {
+                padding: 10px;
+                list-style: none;
+                border-bottom: 1px solid;
+                font-size: 16px;
+                p {
+                    margin: 0px;
+                    padding: 0px;
+                }
+                .ME141-icon {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .ME141-categories .ME141-innerCat_link:first-of-type .ME141-icon{
+          transform: rotate(180deg);
+          height: 20px;
+          width: 20px;
+          margin-top: 10px;
+        }
+    }
+}

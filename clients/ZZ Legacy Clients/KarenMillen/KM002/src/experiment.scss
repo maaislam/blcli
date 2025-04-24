@@ -1,0 +1,114 @@
+@import "./variables";
+@import "../../../../lib/components/Lightbox/Lightbox.scss";
+$small: 350px;
+
+.#{$id} {
+  .#{$id}_form--modified #toPayment {
+    display: none !important;
+  }
+
+  ##{$id}_CTA {
+    display: none;
+    float: left;
+    min-width: 250px;
+    clear: right;
+  }
+
+  &.#{$id}-2 {
+    .#{$id}_paymentMsg p.#{$id}_paymentMsg__small {  
+      font-size: 1.6em;
+
+      @media screen and (max-width: $small) {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  .#{$id}_paymentMsg {
+    text-align: center;
+    padding: 50px 30px;
+    max-width: 500px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $small) {
+      padding: 20px;
+    }
+
+    p {
+      font-size: 1.6em;
+      margin: .8em 0;
+
+      @media screen and (max-width: $small) {
+        font-size: 1.3em;
+      }
+
+      em {
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &.#{$id}_paymentMsg__small {
+        font-size: 1.3em;
+
+        @media screen and (max-width: $small) {
+          font-size: 1.1em;
+        }
+      }
+    }
+    
+    .#{$id}_paymentMsg__logos,
+    .#{$id}_paymentMsg__loader {
+      display: inline-block;
+
+      img {
+        display: block;
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .#{$id}_paymentMsg__logos {
+      height: 70px;
+      margin: -5px 0;
+
+      @media screen and (max-width: 520px) {
+        height: auto;
+      }
+
+      &.#{$id}_paymentMsg__logos--adyen {
+        height: 32px;
+        margin: 1.3em 0 0 0;
+
+        @media screen and (max-width: $small) {
+          height: 25px;
+          margin: 1em 0 0 0;
+        }
+      }
+    }
+
+    .#{$id}_paymentMsg__loader {
+      height: 55px;
+      margin: 10px 0;
+    }
+  }
+
+  .#{$id}_Lightbox {
+    max-width: 750px;
+  }
+
+  .#{$id}_Lightbox__close {
+    display: none;
+    background-color: white;
+    top: 5px;
+    right: 5px;
+    border-radius: 2px;
+  }
+}

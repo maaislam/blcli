@@ -1,0 +1,826 @@
+@import './variables';
+
+$darkRed: #a01d29;
+
+.#{$id} {
+  /* Existing elements */
+  .browse__banner,
+  .browse__applied-filters {
+    display: none;
+  }
+  .browse__header-section {
+    display: block;
+    .seo-text-block {
+      display: none;
+    }
+  }
+
+  // remove the banners for V2
+  &.#{$id}-2 {
+    .product-tile__corner-flag.top-left {
+      display: none;
+    }
+  }
+  
+
+  .page-title {
+    font-family: Georgia,Times,Times New Roman,serif;
+    font-weight: normal;
+    font-size: 25px;
+    text-transform: capitalize;
+    line-height: 1.375;
+    text-align: left;
+  }
+
+  /* Filter and sort by */
+  .browse__sort-container.mobile-and-tablet-only {
+    text-align: center;
+    .cta.filter-toggle {
+      text-align: left;
+      position: relative;
+      display: block;
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      line-height: normal;
+      font-size: 14px;
+      text-transform: uppercase;
+      max-height: 50px;
+      padding: 10px;
+      border: 1px solid #dddddd;
+      background: white;
+      color: black;
+      &::after {
+        content: '';
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/E186F1B6BD1903E9E8882488AF92188A3981086B5C58E27E455C6EBCAB73C036/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_filter_24217232.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &.#{$id}-filters_active {
+     .cta.js-modal-trigger {
+      background: #bcacd5;
+      color: black;
+      border: 1px solid #bcacd5;
+      &::after {
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/E186F1B6BD1903E9E8882488AF92188A3981086B5C58E27E455C6EBCAB73C036/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_filter_24217232.png');
+      }
+     } 
+    }
+    .browse__sort-relative-container{
+      text-align: left;
+      position: relative;
+      display: inline-block;
+      width: 48%;
+      margin-top: 0;
+      margin-bottom: 0;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      line-height: normal;
+      font-size: 16px;
+      text-transform: capitalize;
+      max-height: 50px;
+      .cta.select-button__label {
+        display: none;
+      }
+      .select-button__select {
+        width: 100%;
+        bottom: 0;
+        padding: 10px;
+        border: 1px solid #dddddd;
+        border-radius: 2px;
+        background: white;
+        color: black;
+        text-align: left;
+        position: relative;
+        line-height: normal;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+        opacity: 1;
+        top: 0;
+        &:focus{
+          background: black;
+          color: white;
+          outline: none;
+          border: 1px solid black;
+        }
+      }
+      &::after {
+        content: '';
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/DF3007D8F045B21F0F84644F54747C79B943A1CBF05827F8A7E8DFB53357C105/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_Arrow_17871313.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9;
+      }
+    } 
+  }
+
+  /* Results and view type*/
+  .browse__results-and-sort-container {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    .browse__total-result-container {
+      color: #484849;
+      font-size: 15px;
+    }
+  }
+  .#{$id}_viewTypes {
+    display: inline-block;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+    vertical-align: middle;
+    @media(min-width: 450px) {
+      display: none;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      color: #484849;
+      font-size: 15px;
+    }
+    .#{$id}-view {
+      display: inline-block;
+      vertical-align: middle;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      &.#{$id}-listView {
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/F0473591280A4C29330111BF5DEF1362528A9C4BDA61D065802D43FFBC728F31/hsamuel-co-uk/HS026/noun_List_12477451.png');
+      }
+      &.#{$id}-columnView {
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/C8DF64E34BDD42F40D7E5E1193C8E6DD01B17BB4AAF343BD0BD324FE242389AB/hsamuel-co-uk/HS026/noun_Layout_2253756.png');
+      }
+      &.#{$id}-largeView {
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/CAAE9323ECA629938801F545A101554EEFA6533750EA0F2B2E2FDB291564D98A/hsamuel-co-uk/HS026/noun_square_17029521.png');
+      }
+      &.#{$id}-view-active {
+        &.#{$id}-listView  {
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/A0830F698E8970F3016C09CAD9F0207DC066340D61E90D5C26F1CFF8AA208111/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_listview_15446293.png');
+        }
+        &.#{$id}-columnView {
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/AE746EDE219FDD4552572972211541AAE91CDF0E08341AC1736A0B9BEE2859B0/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_Layout_22537563.png');
+        }
+        &.#{$id}-largeView {
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/0836102CE8EDCF4F9946EFC6C8F5842A8D999E2EA0C0D7F6CEC28D32EAD38D6E/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_square_17029523.png');
+        }
+      }
+    }
+  }
+
+  /* Product tiles */
+  .browse__main-content {
+    #list {
+      .product-tile-list {
+        border: 0px;
+      }
+      [itemprop="offers"] {
+        clear: both;
+        display: inline-block; // remove this is price is same as wireframe
+        width: 50%;// remove this is price is same as wireframe
+        border-top: 1px solid #f3f3f7;
+      }
+      .#{$id}-financeSecond {
+        position: relative;
+        font-size: 14px;
+        color: black;
+        margin: 0 auto;
+        margin-top: 10px;
+        text-align: left;
+        display: inline-block;
+        p {
+          padding-top: 0px;
+          padding-bottom: 5px;
+          width: 100%;
+          margin: 0 auto;
+          position: relative;
+        }
+        span {
+          font-weight: bold;
+        }
+      }
+
+      // remove this is price is same as wireframe
+      .rating-stars {
+        display: block;
+        margin-bottom: 10px;
+        text-align: left;
+        color: #ffba30;
+        margin-top: 10px;
+        .rating-stars__stars {
+          letter-spacing: -3px;
+          font-size: 15px;
+          color: #ffba30;
+        }
+      }
+
+      /* General product styling */
+      .product-tile.js-product-item {
+        border: 0px;
+        .product-tile__web-stock-level-indicator,
+        .product-tile__docked-to-bottom,
+        .product-tile__ifc-monthly-pricing,
+        .enhanced-web-prices {
+          display: none;
+        }
+        [itemprop="offers"] { // if price is moved to same as design delete this
+            p {
+              margin: 0px;
+            }
+          }
+        
+        .product-tile__text-container {
+          overflow: visible;
+          border-bottom: 1px solid #dddddd;
+        }
+        .accessibilityHide {
+          display: none;
+        }
+        .product-tile__horizontal-item {
+          text-align: left;
+          .product-tile__price {
+            font-size: 20px; 
+          }
+        }
+
+        .#{$id}-lastPrice {
+          line-height: 1.618;
+          font-family: DINCondensed-Light;
+          font-weight: normal;
+          text-decoration: line-through;
+          font-size: 15px;
+          display: inline-block;
+        }
+        .product-tile__price-seperator {
+          display: none;
+        }
+        .product-tile__savings{
+          text-align: left;
+          font-weight: normal;
+          color: #9E9E9E;
+          
+          .product-tile__savings-price {
+            &:first-of-type {
+              display: none;
+            }
+            font-size: 15px;
+          }
+        }
+        .product-tile__description {
+          color: black;
+          font-size: 16px;
+          span {
+            font-weight: bold;
+          }
+        }
+        /*.#{$id}-finance {
+          display: inline-block;
+          border: 1px solid #a41a27;
+          padding: 5px 10px;
+          color: black;
+          padding-left: 40px;
+          position: relative;
+          font-size: 12px;
+          span {
+            font-weight: bold;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/48CF5DF87E4A83B4176359A77BE0EF0D6E97B9D10F21F8B6D194FB592D42C7E2/hsamuel-co-uk/HS026/noun_Percent_21064071.png');
+            background-size: contain;
+            height: 100%;
+            width: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #a41926;
+            background-size: 70%;
+            top: 0;
+          }
+        }*/
+        .#{$id}-finance {
+          clear: both;
+          // border: 2px solid #bcacd5;
+          color: black;
+          border-radius: 2px;
+          /* padding-left: 40px; */
+          position: relative;
+          font-size: 14px;
+          display: block;
+          background: white;
+          color: black;
+          margin: 0 auto;
+          margin-top: 10px;
+          text-align: left;
+          p {
+            padding-top: 0px;
+            padding-bottom: 5px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+          }
+          span {
+            font-weight: bold;
+          }
+          /*&:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 25px 25px 25px;
+            border-color: transparent transparent #a41b28 transparent;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+          }*/
+        }
+        @media(min-width: 665px) {
+          .product-tile__image-container {
+            width: 100%;
+          }
+          .product-tile__description {
+            display: block;
+            width: auto;
+            margin-bottom: 10px;
+            text-align: center;
+          }
+          [itemprop="offers"] {
+            width: 100%;
+            text-align: center;
+            display: block;
+            .product-tile__pricing-container {
+              width: 100%;
+              text-align: center;
+              margin-top: 0px;
+              .product-tile__savings,
+              .product-tile__horizontal-item {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+
+      /* Items based on list view */
+      &[view-style="#{$id}-listView"] { 
+        
+       .product-tile.js-product-item {
+         border: 0px;
+         .product-tile__text-container {
+          border: 0px;
+        }
+         .#{$id}-reviewsView {
+           display: none;
+          }
+          .#{$id}-finance {
+             display: none;
+          }
+          .#{$id}-financeSecond {
+            width: 50%;
+            border-bottom: 1px solid #dddddd;
+          }
+          .rating-stars {
+            text-align: center;
+          }
+          .product-tile__description {
+            text-align: left;
+            font-size: 17px;
+            line-height: 20px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            min-height: 20px;
+            @media(min-width: 600px) {
+              width: 100%;
+            }
+          }
+          .product-tile__image-container {
+            width: 46%;
+            @media(min-width: 600px) {
+              width: 100%;
+            }
+          }
+          .product-tile__pricing-container {
+            // width: 50%;
+            width: auto;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 0px;
+
+            .product-tile__savings-price-save {
+              display: inline-block;
+              margin-left: 10px;
+            }
+          }
+          @media(min-width: 665px) {
+            margin-bottom: 0;
+            padding: 0 0 10px;
+            .product-tile__image-container {
+              width: 100%;
+            }
+            .product-tile__description {
+              display: block;
+              width: auto;
+              margin-bottom: 0px;
+            }
+            [itemprop="offers"] {
+              width: 100%;
+              text-align: center;
+              display: block;
+              .product-tile__pricing-container {
+                width: 100%;
+                text-align: center;
+                margin-top: 0px;
+                .product-tile__savings,
+                .product-tile__horizontal-item {
+                  text-align: center;
+                }
+              }
+            }
+            .#{$id}-finance p {
+              width: 60%;
+            }
+          }
+        }
+      }
+
+      &[view-style="#{$id}-columnView"] {
+        .product-tile-list__item.js-product-list-item {
+          display: inline-block;
+          width: 46%;
+          vertical-align: top;
+          margin: 5px;
+          position: relative;
+
+          .#{$id}-financeSecond {
+            display: none;
+         }
+          .product-tile {
+            &.#{$id}-noSaleReview {
+              [itemprop="offers"] {
+                margin-top: 39px;
+              }
+              .#{$id}-finance {
+                margin-top: 0px;
+              }
+            }
+            &.#{$id}-noSale {
+              [itemprop="offers"] {
+                margin-top: -1px;
+              }
+              .#{$id}-finance {
+                margin-top: 0px;
+              }
+            }
+            &.#{$id}-noReview {
+              [itemprop="offers"] {
+                margin-top: 40px;
+              }
+            }
+          }
+    
+          .#{$id}-reviewsView {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+    
+            .rating-stars__stars {
+            letter-spacing: -3px;
+            font-size: 15px;
+            color: #ffba30;
+            }
+           }
+           .rating-stars {
+             display: none;
+           }
+           .#{$id}-finance {
+            width: 90%;
+            }
+          @media(min-width: 700px){
+            display: flex;
+            float: left;
+            width: 33.3333333%;
+            margin-bottom: 0;
+            padding: 0 0 10px;
+            margin: 0px;
+          }
+          .product-tile {
+            height: 100%;
+            @media(min-width: 700px){
+              margin-bottom: 0;
+              padding: 0 0 10px;
+            }
+          }
+          [itemprop="offers"] { // if price is moved to same as design delete this
+            width: 100%;
+          }
+          .#{$id}-finance {
+            font-size: 11px;
+            // margin-top: 20px;
+            display: block;
+            width: auto;
+            p {
+              width: 100%;
+              margin: 0 auto;
+              position: relative;
+            }
+          }
+        }
+        .productLink {
+          .product-tile__image-container {
+            width: 100%;
+            height: auto;
+          }
+        }
+        // title
+        .product-tile__description {
+          text-align: left;
+          font-size: 17px;
+          line-height: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          min-height: 20px;   
+          // margin-bottom: 10px;
+        }
+        // product text
+        .product-tile__text-container {
+          overflow: visible;
+          float: left;
+          width: 100%;
+        }
+        .product-tile__savings-price-save {
+          display: inline-block;
+          margin-left: 10px;
+        }
+      }
+      &[view-style="#{$id}-largeView"] {
+        .product-tile__description {
+          margin-bottom: 10px;
+        }
+        .#{$id}-reviewsView {
+          display: block;
+          margin-top: 10px;
+          
+          .rating-stars__stars {
+            letter-spacing: -3px;
+            font-size: 15px;
+            color: #ffba30;
+          }
+         }
+         .rating-stars {
+            display: none;
+         }
+         .#{$id}-financeSecond {
+           display: none;
+         }
+        .product-tile.js-product-item { 
+          [itemprop="offers"] { // if price is moved to same as design delete this
+            width: 100%;
+          }
+          .product-tile__image-container {
+            width: 80%;
+            margin: 0 auto;
+            float: none;
+          }
+        }
+        [itemprop="offers"] {
+          clear: both;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  /* Filter changes */
+  #filter-modal {
+    background: #ececec;
+    .filters-panel__header button[type="button"] {
+      margin-top: 0px;
+      font-size: 13px;
+    }
+    // fixed header
+    [data-modal-fixed-header] {
+      position: relative;
+      &.#{$id}_fixed {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        background: white;
+        .filters-panel__reset-only-container {
+          display: none;
+        }
+      }
+      /* top buttons */
+      .filters-panel__inline-button-container.mobile-and-tablet-only {
+        .button-holder {
+          width: 130px;
+          display: inline-block;
+          margin-right: 5px;
+          button {
+            width: 100%;
+            margin: 0;
+            font-size: 13px;
+            display: inline-block !important;
+            &.#{$id}-clear_button-hide {
+              opacity: 0.5;
+              pointer-events: none;
+            }
+          }
+        }
+        .filters-panel__cta {
+          width: 130px;
+          display: inline-block;
+          text-transform: uppercase;
+          border-radius: 2px;
+        }
+      }
+    }
+    .filters-panel__header {
+      background: white;
+      border-bottom: 1px solid black;
+      .filters-panel__heading {
+        color: black;
+        text-align: left;
+        padding-left: 0px;
+        padding-bottom: 0px;
+        font-size: 20px;
+      }
+      button.filters-panel__cta {
+        background: black;
+        border: 1px solid black;
+      }
+      
+      .filters-panel__inline-button-container {
+        .button-holder {
+          button {
+            border-radius: 2px;
+            border: 1px solid #dddddd;
+          }
+        }
+      }
+    }
+    // dropdown filters
+    .filters-panel__refinement-section {
+      background: #f2f2f2;
+      .filters-panel__refinement-heading {
+        position: relative;
+        font-size: 16px;
+        color: #484849;
+        &.open {
+          color: black;
+          &::after {
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/6EA9762071A72DF654000325A9919078FDFCA13D4DE88A8C6744B333D1CCB077/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_Minus_705088.png');
+          }
+        }
+        &::after {
+          margin-top: 0px;
+          background-size: cover;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          right: 8px;
+          transform: translateY(-50%);
+          top: 50%;
+          float: none;
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/B279F1827F935AD7A7D57205C021A1A51117A8A94A155AD2CD4E37C0052E429F/hsamuel-co-uk/HS026/noun_Plus_2170686.png');
+        }
+      }
+      #frmPriceRange {
+        input {
+          border: 1px solid black;
+        }
+        #lowLimit,
+        #highLimit {
+          padding-left: 25px;
+          position: relative;
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/6E565163CFF96FA947D67AE3D387207C09534B12EDE7E2EE5C6D3213001B8E69/hsamuel-co-uk/HS026/noun_Pound_26050.png');
+          background-size: 17px;
+          background-repeat: no-repeat;
+          background-position: 3px;
+        }
+        .btnSearch {
+          background: black;
+          color: white;
+        }
+      }
+
+      .filters-panel__refinement-link {
+        background: none;
+        position: relative;
+        font-size: 16px;
+        &::before {
+          content: '';
+          height: 20px;
+          width: 20px;
+          border: 1px solid black;
+          position: absolute;
+          left: 0;
+          border-radius: 2px;
+        } 
+        &.checked {
+          color: black;
+          &::before {
+            content: '';
+            height: 20px;
+            width: 20px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/DB45522391C091B476D7E32AC4DCD4FF462637EFA06CA7DFE4C4ABFB09D0B428/hsamuel-co-uk/HS026/noun_tick_1446951.png');
+          } 
+        }
+      }
+    }
+    .filters-panel__refinement-section-container {
+      background: white;
+    }
+  }
+
+  /* Top filter */
+  .#{$id}-filterbar {
+    position: fixed;
+    top: calc(0px + 54px);
+    width: 100%;
+    z-index: 999;
+    left: 0;
+    background: white;
+    display: none;
+    &.#{$id}_fixed {
+      display: block;
+    }
+    .#{$id}-filter {
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      line-height: normal;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: capitalize;
+      margin: 10px;
+      padding: 10px;
+      background: white;
+      color: black;
+      border: 1px solid #ccc;
+      text-align: left;
+      &::after {
+        content: '';
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/E186F1B6BD1903E9E8882488AF92188A3981086B5C58E27E455C6EBCAB73C036/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_filter_24217232.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.#{$id}-stickyFilter_active {
+        background: #bcacd5;
+        color: black;
+        border: 1px solid #bcacd5;
+        &::after {
+          background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/E186F1B6BD1903E9E8882488AF92188A3981086B5C58E27E455C6EBCAB73C036/ernestjones-co-uk/EJ028---PLP-Back-to-Basics/noun_filter_24217232.png');
+        }
+      }
+    }
+  }
+}

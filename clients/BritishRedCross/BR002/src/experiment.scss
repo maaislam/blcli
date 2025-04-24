@@ -1,0 +1,528 @@
+@import './variables';
+
+.#{$id} {
+  main {
+    background-color: #EBEBEB;
+    padding-top: 20px;
+  }
+  main:after {
+    content: "";
+    clear: both;
+    display: table;
+ }
+
+ // Require Field Asterisk
+ span.form__required {
+   font-size: 1.5em;
+   transform: translateY(5%);
+ }
+  // Page Heading
+  .#{$id}-page__title {
+    h1 {
+      display: inline-block;
+      font-size: 1.7em;
+      background-color: #D20A1B;
+      color: #FFF;
+      text-transform: uppercase;
+      padding: 20px 40px 20px 50px;
+      font-weight: 500;
+    }
+  }
+  // Hide Sub heading
+  section.form-status {
+    display: none !important;
+  }
+
+  // Hide required fields note
+  .form__note {
+    // display: none !important;
+    margin-top: 20px;
+    margin-bottom: -20px;
+  }
+
+  // Progress Bar Steps
+  .BR002-progressBar__wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    width: 90%;
+    height: 120px;
+    position: relative;
+    text-align: center;
+
+    .BR002-progressBar__container {
+      width: 90%;
+      height: 100px;
+      margin: auto;
+      position: relative;
+
+      ul.BR002-progressBar__steps {
+        position: relative;
+        list-style: none;
+        margin-left: 0;
+
+        li.progressBar__step {
+          width: 50px;
+          display: inline-block;
+          text-align: center;
+          position: absolute;
+
+          .step__icon {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            top: 15px;
+            border: 3px solid #D20A1B;
+            border-radius: 25px;
+            display: block;
+            margin: auto;
+            background-color: #FFF;
+            z-index: 10;
+
+            span {
+              position: absolute;
+              top: 7px;
+              right: 16px;
+              color: #D20A1B;
+            }
+
+            &.active {
+              background-color: #D20A1B;
+              color: #FFF;
+
+              span {
+                color: #FFF;
+              }
+            }
+          }
+          .step {
+            display: block;
+            position: relative;
+            top: 20px;
+            font-size: 14px;
+            width: 65px;
+            left: -12px;
+          }
+        }
+        li.progressBar__dash {
+          width: 100px;
+          display: inline-block;
+          z-index: 0;
+          border-top: 2px solid #D20A1B;
+          position: relative;
+          left: 15px;
+          transform: translateY(20px);
+        }
+      }
+    }
+  }
+  // Form
+  div[data-component] {
+    // width: 60% !important;
+    width: 58% !important;
+    display: block;
+    float: left;
+    margin-left: 2%;
+
+    form {
+      background-color: #FFF !important;
+      border: 10px solid #C0C0C0;
+      overflow: hidden !important;
+
+      section.form-change-amount {
+        div.form-change-amount__grid label {
+          // width: 30vw !important;
+          position: relative;
+          transform: translateY(15%);
+
+          strong {
+            font-size: 1.4em;
+          }
+        }
+        // label {
+        //   margin-top: 10px;
+        //   margin-bottom: -30px;
+        // }
+        div.form-change-amount__input {
+          margin-top: 15px;
+        }
+      }
+
+      section.form-section {
+        background-color: #FFF;
+        padding-top: 0px;
+      }
+      section.form-change-amount {
+        div.form-change-amount__grid {
+          label {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  // Input Donation Amount Section 
+  section.form-change-amount {
+    background-color: #FFF !important;
+    div.form-change-amount__grid {
+      display: block;
+      width: 100%;
+      height: 75px;
+      position: relative !important;
+      label {
+        color: #000 !important;
+        display: inline-block;
+        width: 60% !important;
+        margin-left: 0;
+        margin: auto;
+        position: relative !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        text-align: right;
+      }
+      div.form-change-amount__input {
+        color: #000 !important;
+        display: inline-block;
+        width: 20%;
+        span.form-change-amount__units {
+          color: #000 !important;
+        }
+        input {
+          border: 3px solid #009F94 !important;
+          color: #000 !important;
+
+          &.parsley-error {
+            border: 3px solid #D20A1B !important;
+          }
+        }
+        // Input form Error
+        .form-errors ul.form-errors__list.filled {
+          width: 325px;
+          position: absolute;
+          right: -11vw;
+        }
+      }
+    }
+  }
+  
+  // Section Titles
+  .#{$id}-form__heading {
+    width: 62vw;
+    background-color: #D20A1B;
+    // margin: auto;
+    position: relative;
+    margin-left: -16.5298%;
+    margin-bottom: 30px;
+    left: 0 !important;
+    height: 50px;
+    text-align: center;
+
+    h3 {
+      position: relative;
+      color: #FFF;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // Fieldsets
+  fieldset:nth-of-type(1) {
+    margin-bottom: -10px !important;
+  }
+  fieldset:nth-of-type(3) {
+    margin-bottom: -30px !important;
+  }
+  // Billing Address Section
+  fieldset[data-lookup-url] {
+    margin-bottom: -10px !important;
+    div.form-row__right {
+      width: 50% !important;
+
+      // button.js-address-lookup.button--turquoise.form-address__lookup {
+      //   font-size: 0.75em !important;
+      // }
+
+      button.form-address__manual {
+        span {
+          font-weight: 500;
+
+          &:after {
+            display: inline-block;
+            content: '';
+            width: 22px;
+            height: 22px;
+            background-image: url('//useruploads.visualwebsiteoptimizer.com/useruploads/286844/images/ea9441fc0f4e69d30ca3f85e6a344c71_right-chevron.png');
+            background-size: cover;
+            transform: translateY(6px);
+            margin-left: 6px;
+          }
+        }
+        svg {
+          display: none !important;
+        }
+      }
+    }
+    input.form-address__postcode {
+      width: 45%;
+    }
+    button.js-address-lookup.button.button--turquoise.form-address__lookup {
+      width: 50%;
+    }
+  }
+
+  // Payment Type Section
+  .form-row {
+    .form-row__right {
+      img {
+        max-width: 3.5vw !important;
+      }
+    }
+  }
+  
+  // Donation Type Section
+  fieldset.form-personal-donation {
+    .form-row {
+      margin-bottom: -30px !important;
+      .form-row__right {
+        margin-bottom: 40px;
+        .form-radio label {
+          font-size: 1em !important;
+        }
+      }
+      .form-row__left {
+        width: 34% !important;
+        text-align: left !important;
+        legend {
+          font-weight: 700 !important;
+          font-size: .83333rem;
+        }
+      }
+    }
+    .form-row.form-personal-donation__company-name {
+      margin-top: 30px;
+    }
+  }
+  // Gift Aid Section
+  fieldset.form-giftaid {
+    border-top: 2px solid #C0C0C0;
+    width: 62vw;
+    margin-left: 0;
+    div.form-giftaid__grid:first-of-type {
+      width: 85% !important;
+      margin-left: 6% !important;
+
+      div.form-giftaid__right {
+        width: 32% !important;
+      }
+    }
+    div.form-giftaid__strip {
+      width: 60vw !important;
+      margin-left: -3% !important;
+    }
+  }
+
+  // Keep In Touch - Contact Section
+  fieldset.form-contact {
+    .form-contact__grid {
+      width: 100% !important;
+      // margin-left: 0;
+      h3 {
+        display: none !important;
+      }
+      p {
+        width: 100% !important;
+        margin-left: -7%;
+      }
+    }
+    
+    .form-contact__strip {
+      width: 62vw !important;
+      margin-left: -16.5298% !important;
+    }
+  }
+
+  // Privacy Section
+  fieldset.form-privacy {
+    width: 60vw !important;
+    margin: 0 !important;
+    .form-privacy__grid {
+      margin-left: 2% !important;
+    }
+    .form-privacy__wrapper {
+      width: 100% !important;
+    }
+  }
+  // Sidebar
+  .BR002-sidebar__wrapper {
+    display: block;
+    // width: 40%;
+    width: 38%;
+    float: left;
+    position: relative;
+    margin-right: 2%;
+    // top: 0;
+    .BR002-sidebar__container {
+
+
+      .appeal-intro__box {
+        width: 80%;
+        float: right;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-right: 30px;
+        // Heading 
+        h2.header-line {
+          font-size: 1.8em;
+          width: 60%;
+          padding-left: 5%;
+        }
+        // Sidebar Image
+        .BR002-sidebar__image {
+          width: 100%;
+          height: 444px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          margin: auto;
+          margin-bottom: 15px;
+
+          &#europeRefugeeCrisisAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Europe-Refugee-Crisis-Appeal/RefugeeCrisis_girl-and-teddy_p-GRC0155_desktop_1170x1400.ashx?w=585&hash=99D8EF2B35C05AD6F9A4AE4E7D04E3542EE8313B');
+          }
+          &#disasterFundAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/LANDING-PAGE-1170-x-1400-Alanah-Torralba-IFRC---GDPR-compliant.ashx?w=585&hash=C0B182E8FAB64D1ED75DC6C547DDBC8BEB08A474');
+          }
+          &#generalFundAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/General-Fund-Appeal/General-Funds_child-refugee_p-GRC1342_Desktop_1170x1400/general-funds-desktop.ashx?w=585&hash=16273DA2F037ED7B31907FFBA36E32338A5F74CE');
+          }
+          &#indonesiaEarthquakeAndTsunamiAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Indonesia-Earthquake-and-Tsunami-Appeal/Indonesia-Shutterstock-9907719D-1170x1400.ashx?w=585&hash=321AFAFDD2123E3EA13CA51EA69DA71D26A3F3C7');
+          }
+          &#iraqCrisisAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Iraq-Crisis-Appeal/Iraq_p-IRQ0428_Desktop_1170x1400.ashx?w=585&hash=BD42C24160B6A41C8D5D9E573BF6820D0C74AB54');
+          }
+          &#lakeChadCrisisAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Lake-Chad-Crisis-Appeal/LakeChad_WomanandChildren_Desktop_1170x1400.ashx?w=585&hash=181F36F8F806931B7EA7FF65F4E119234969D929');
+          }
+          &#myanmarAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Myanmar-Appeal/Myanmar_1170x1400-reduced/Myanmar-Woman-Holding-Baby.ashx?w=585&hash=3B7B0A65318DD6096D9660267EEB942E6E954B87');
+          }
+          &#southSudanCrisisAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/South-Sudan-Crisis-Appeal/South-Sudanese-woman-with-baby---ICRC---V-P-SS-E-00940---Mari-Aftret-Mortvedt-1170x1400.ashx?w=585&hash=88EE6E0E3EBA59292A8F0009237823DCC6AC0E30');
+          }
+          &#syriaCrisisAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Syria-Crisis-Appeal/Syria-Moadhmiya-Destruction-ICRC-1170x1400.ashx?w=585&hash=9D9571CABD58B3BE352D38BF7DFC51A41485BBE3');
+          }
+          &#yemenCrisisAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/Yemeni-child-being-cared-for-by-mother.ashx?w=585&hash=D241BE955EEC359E982AB2A2BCF33BD377E9EC06');
+          }
+          &#ukFundAppeal {
+            background-image: url('https://static.redcross.org.uk/-/media/Andy.ashx?w=585&hash=4CCCAB61C57FEC118C9FFA427E5A4B87D1C48C0A');
+          }
+          &#ukSolidarityFund {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/UK-Solidarity-Fund/UKSolidarityFund_Logo_1170x1400JPEG.ashx?w=585&hash=686A3FAB4A68B4744C22C8C80BEBB30D31F88E8F');
+          }
+          &#manchesterEmergencyFund {
+            background-image: url('https://static.redcross.org.uk/-/media/BritishRedCross/Appeal-images/Manchester-Emergency-Fund/1170x1400.ashx?w=585&hash=046DA9148F1364602EB3ECF9DEC2D598453BE991');
+          }
+        }
+        // Blockquote
+        blockquote.blockquote {
+          p.blockquote__quote {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      // Upsell Boxes
+      .BR002-upsell__container {
+        clear: both;
+
+        .BR002-upsell__message {
+          display: block;
+          // position: relative;
+          width: 60%;
+          float: right;
+          margin-top: 30px;
+          margin-right: 2%;
+          min-height: 236px;
+          background-color: #FFF;
+
+          .upsell__heading {
+            display: block;
+            background-color: #D20A1B;
+            color: #FFF;
+            width: 102%;
+            float: right;
+            min-height: 50px;
+            margin-top: 10px;
+            position: relative;
+
+            div {
+              margin-left: 16px;
+              width: 85%;
+              text-transform: uppercase;
+              line-height: 20px;
+              transform: translateY(10%);
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+          .upsell__message {
+            padding: 60px 20px 15px 20px;
+
+            div {
+              padding-top: 20px;
+              font-size: 1.2em;
+            }
+          }
+          .updateAmount__container {
+            padding: 10px;
+            .update__label {
+              width: 65%;
+              display: inline-block;
+              padding-left: 2%;
+              font-weight: 500;
+            }
+            .update__amount {
+              display: inline-block;
+              width: 90px;
+              text-align: center;
+              background-color: #009F94;
+              color: #FFF;
+              border-radius: 4px;
+              padding: 5px;
+
+              &:hover {
+                cursor: pointer;
+                background-color: #017870;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1278px) {
+    .BR002-sidebar__container .BR002-upsell__container .BR002-upsell__message {
+      width: 77% !important;
+    }
+    // Billing Address
+    fieldset[data-lookup-url] div.form-row__right {
+      width: 55% !important;
+    }
+    // Find Address Button
+    button.js-address-lookup.button--turquoise.form-address__lookup {
+      font-size: 0.7em !important;
+    }
+  }
+
+  @media screen and (min-width: 1279px) and (max-width: 1341px) {
+    // Find Address Button
+    button.js-address-lookup.button--turquoise.form-address__lookup {
+      font-size: 0.8em !important;
+    }
+  }
+}

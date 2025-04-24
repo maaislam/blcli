@@ -1,0 +1,393 @@
+.FL032 {
+
+  // Hide desktop and mobile progress bars
+  header>.hidden-xs,
+  header>.visible-xs {
+    display: none !important;
+  }
+
+  // Mobile specific styling
+  @media (max-width: 767px) {
+    .FL032_Progress_Container>.container-fluid {
+      padding: 0;
+    }
+
+    // Hide all desktop/tablet elements
+    .FL032_Desktop_Display {
+      display: none;
+    }
+  }
+
+  // Desktop/ Tablet
+  @media (min-width: 768px) {
+    .FL032_Progress_Container>.container-fluid {
+      padding: 20px;
+    }
+
+    // Hide all mobile elements
+    .FL032_Mobile_Display {
+      display: none;
+    }
+  }
+
+  // Style inserted header
+
+  .FL032_Progress_Container {
+    text-align: center;
+    // Taken from website
+    background-color: #eaeaea;
+    min-height: 30px;
+  }
+
+  .FL032_Progress_Step {
+    display: inline-block;
+    width: calc(33% - 2px);
+    padding: 12px 0;
+    // Taking website styling
+    background-color: #d1d1d1;
+    box-sizing: border-box;
+    white-space: nowrap;
+    font-size: 11px;
+    color: #666;
+    position: relative;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  }
+
+  .FL032_Progress_Step:not(:last-child)::after {
+    content: '';
+    top: 0;
+    right: -13px;
+    position: absolute;
+    border-top: 19.5px solid transparent;
+    border-bottom: 19.5px solid transparent;
+    border-left: 13px solid #d1d1d1;
+    z-index: 150;
+  }
+
+  .FL032_Progress_Step+.FL032_Progress_Step::before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-top: 19.5px solid transparent;
+    border-bottom: 19.5px solid transparent;
+    border-left: 17px solid #eaeaea;
+  }
+
+  .FL032_Step_One>div>.FL032_Progress_Step:first-child {
+    color: #ffffff;
+    background-color: #888;
+
+    &::after {
+      border-left: 13px solid #888;
+    }
+  }
+
+  .FL032_Step_Two>div>.FL032_Progress_Step:first-child,
+  .FL032_Step_Two>div>.FL032_Progress_Step:nth-child(2) {
+    color: #ffffff;
+    background-color: #888;
+
+    &::after {
+      border-left: 13px solid #888;
+    }
+  }
+
+  .FL032_Step_Three>div>.FL032_Progress_Step:first-child,
+  .FL032_Step_Three>div>.FL032_Progress_Step:nth-child(2),
+  .FL032_Step_Three>div>.FL032_Progress_Step:last-child {
+    color: #ffffff;
+    background-color: #888;
+
+    &::after {
+      border-left: 13px solid #888;
+    }
+  }
+
+  // Delivery options page
+  &.FL032_Delivery_Options {
+
+    .FL032_Delivery_Address_Container.FL032_Hide {
+      display: none;
+    }
+
+    // Style added delivery text 
+
+    .FL032_Delivery_Option_Detail {
+      display: inline;
+    }
+
+    // Hide when option is active
+
+    .active .FL032_Delivery_Option_Detail {
+      display: none;
+    }
+
+    .active .FL032_Delivery_Option_Price {
+      display: none;
+    }
+
+    // Push down delivery options
+    #DeliveryOptionsList {
+      margin-top: 10px;
+    }
+
+    // Restyle radio option area
+
+
+    // Mobile Specific
+    @media (max-width: 767px) {
+
+      .FL032_Delivery_Address_Container {
+        .DifferentAddressLinkWrapper {
+          padding-top: 5px;
+
+          #DifferentAddressLink {
+            text-decoration: underline;
+            color: #000000;
+          }
+        }
+      }
+
+      // Restyle option selection area
+
+      .FL032_Delivery_Option_Price.FL032_Mobile_Display {
+        display: inline-block;
+        width: auto;
+        margin-left: 10px;
+      }
+
+      #DeliveryOptionsList>li .DeliveryGroupLine {
+        display: inline-block;
+      }
+
+      .FL032_Delivery_Option_Price.FL032_Desktop_Display {
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .FL032_Delivery_Option_Price.FL032_Mobile_Display {
+        display: none;
+      }
+
+      #DeliveryOptionsList .SelectIt {
+        max-width: 80px;
+
+        .FL032_Delivery_Option_Price {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .RadioBut {
+          display: inline-block;
+          vertical-align: middle;
+          float: none;
+        }
+      }
+    }
+
+    // Hide delivery address area, elements have been moved out of here
+    .homeDelWrap .CurrentAddressWrapper {
+      display: none;
+    }
+
+    .FL032_Delivery_Address_Container {
+      border-bottom: 1px solid #e0e0e0;
+
+      .DifferentAddressLinkWrapper {
+        padding-top: 5px;
+      }
+    }
+  }
+
+  // Shared styling for the details in the order summary section
+
+  // Content wrap
+  .FL032_Delivery_Address_Container,
+  .FL032_Delivery_Option_Container {
+    padding: 10px 15px;
+  }
+
+  .FL032_Delivery_Option_Container {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  // Clear floats on website's previous sibling element
+  .FL032_Delivery_Address_Container {
+    clear: both;
+  }
+
+  .FL032_Delivery_Address_Header {
+    font-weight: 700;
+  }
+
+  // Mobile specific
+  @media (max-width: 767px) {
+    .FL032_Delivery_Address_Header.FL032_Mobile_Display {
+      display: inline;
+
+      &::after {
+        content: '';
+      }
+    }
+
+    // change delivery address option
+    .FL032_Change_Option.FL032_Change_Address {
+      margin-top: 5px;
+      text-decoration: underline;
+      color: #000000;
+      display: block;
+    }
+
+    .FL032_Delivery_Address_Container {
+      text-align: center;
+    }
+
+    .FL032_Address_Detail:not(:last-of-type) {
+      display: inline;
+
+      &::after {
+        content: ',';
+      }
+    }
+
+  }
+
+  // Desktop, tablet specific
+  @media (min-width: 768px) {
+
+    .FL032_Delivery_Option {
+      font-style: italic;
+    }
+
+    .FL032_Delivery_Address_Header.FL032_Desktop_Display {
+      display: block;
+      padding: 5px 0;
+    }
+
+    .FL032_Delivery_Address_Container,
+    .FL032_Delivery_Option_Container {
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .FL032_Delivery_Address_Container #CurrentAddress>span:not(.FL032_Mobile_Display) {
+      display: block;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .FL032_Address_Detail {
+      display: block;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    // Styling taken from website
+    #DifferentAddressLink,
+    .FL032_Change_Option.FL032_Desktop_Display,
+    .FL032_Change_Option.FL032_Change_Address {
+      margin: 5px 0 0 0;
+      padding: 15px 5px;
+      border-radius: 0;
+      background-color: #f0f0f0 !important;
+      color: #444 !important;
+      width: 100%;
+      line-height: 1.1em;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+
+  // Payment options page
+
+  &.FL032_Payment_Options {
+    @media (max-width: 767px) {
+      .FL032_Change_Delivery.FL032_Mobile_Display {
+        text-decoration: underline;
+      }
+
+      // Hide shipping label, display chosen delivery option
+      #ShippingLabel {
+        display: none;
+      }
+
+    }
+  }
+
+  // Confirmation page
+
+  &.FL032_Confirmation_Page {
+
+    // Desktop/Tablet only
+    @media (min-width: 768px) {
+
+      // Clear float from previous elements
+      .FL032_Summary_Details_Container {
+        clear: both;
+      }
+
+      // Restyle moved elements
+      .FL032_Summary_Details_Container {
+        .FirstConfirm {
+          margin-bottom: 0;
+          border-top: none;
+          border-bottom: none;
+
+          // Put each address detail on a separate line
+          .DeliveryAddConfirm>span {
+            display: block;
+          }
+        }
+
+        // Remove borders to merge boxes
+        .InnerConfirm:not(.FirstConfirm) {
+          border-top: none;
+
+          // Hide delivery details
+          .DeliveryAddConfirm {
+            display: none;
+          }
+        }
+      }
+
+      // Hide second pay now button
+      .col-md-4.hidden-xs.hidden-sm.ContinueButtonWrapperBottom {
+        display: none;
+      }
+
+      // Hide delivery details section - elements removed from here
+      #dnn_ctr88162_ConfirmAndPay_DeliveryPanel {
+        display: none;
+      }
+
+      // Expand the width of payment details
+      .DelPayGroup .col-xs-12.col-sm-6:nth-child(2) {
+        width: 100%;
+
+        // Increase space between containers
+        .FirstConfirm {
+          margin: 10px 0 0 0;
+        }
+
+        // Resize buttons
+        .ConfirmPageButton {
+          text-align: center;
+
+          >a {
+            width: 50%;
+            // Remove transitions
+            transition: none;
+          }
+        }
+      }
+    }
+  }
+}

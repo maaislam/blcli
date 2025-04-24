@@ -1,0 +1,143 @@
+@import './variables';
+
+.#{$id} {
+  .BV005-sizeHelp {
+    margin: 10px auto;
+    background-color: lightgrey;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    img {
+      float: left;
+      width: 35px;
+      margin-top: 4px;
+      @media only screen and (max-width: 479px) {
+        width: 25px;
+      }
+    }
+    p:first-of-type {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    a {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%;
+    }
+  }
+
+  &.BV005-noScroll {
+    overflow: hidden !important;
+  }
+
+  // The guide
+  .BV005-sizeGuide {
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0,0,0,.7);
+    display: none;
+
+    &.BV005-showGuide {
+      display: block;
+    }
+
+    .BV005-sizeGuide--wrap {
+      margin: auto;
+      margin-top: 30px;
+      overflow: scroll;
+      max-height: 90vh;
+      max-width: 720px;
+      padding: 20px 0 30px;
+      background-color: #fff;
+      border: 1px solid lightgray;
+      border-radius: 6px;
+      text-align: center;
+      position: relative;
+      &::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+      }
+      
+      &::-webkit-scrollbar-track {
+          background-color: #f9f6f6;
+          border-radius: 6px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: #46433f;
+        border-radius: 6px;
+      }
+
+      h3 {
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      @media only screen and (max-width: 479px) {
+        padding: 20px;
+      }
+
+      table {
+        width: 90%;
+        margin: 20px auto;
+        background-color: #f9f6f6;
+        
+        th, td {
+          text-align: center;
+        }
+        th {
+          padding: 10px 12px;
+          background-color: #f4436d;
+          color: #fff;
+          font-size: .9em;
+        }
+        td {
+          padding: 4px 10px;
+        }
+      }
+
+      .BV005-cupInfo {
+        padding: 20px 25px 0 25px;
+        p {
+          margin-bottom: 20px;
+        }
+      }
+
+      button.BV005-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        .c-icon__label {
+          display: none;
+        }
+      }
+
+      button.BV005-learnMore {
+        color: #46433f;
+        cursor: pointer;
+        transition: ease-in all .1s !important;
+        padding: 0;
+        a {
+          color: inherit !important;
+          padding: .8rem 1.5rem;
+          display: block;
+          &:hover {
+            color: inherit !important;
+          }
+        }
+        @media only screen and (min-width: 479px) {
+          &:hover {
+            background-color: #42b9b9;
+            color: #fff;
+          }
+        }
+      }
+
+    }
+  }
+}

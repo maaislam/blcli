@@ -1,0 +1,192 @@
+@import './variables';
+
+
+
+.#{$id} {
+  .product-secondary-tabs__tab.product.faq {
+    display: none;
+  }
+
+  .page-wrapper .product-secondary-tabs-wrapper {
+    
+  }
+
+  .#{$id}-faq__wrapper {
+    padding: 10px 20px 20px 20px;
+    background: #f3f3f3;
+    background: #ddf1f9;
+    h3 {
+      display: block;
+      // width: 80%;
+      // text-transform: uppercase;
+      font-size: 18px;
+      // margin: 0 0 5px;
+      text-align: center;
+      color: #000;
+      // margin: 0 auto 1.1rem;
+    }
+    p {
+      color: #000;
+      text-align: center;
+    }
+    .#{$id}-question__submit {
+      // --- Input Field
+      input {
+        border-radius: 20px;
+        height: 40px;    
+        padding: 0 20px;
+      }
+      button {
+        display: block;
+        width: 100%;
+        margin: 15px auto 10px;
+        padding: 10px;
+        position: relative;
+        line-height: 2.4rem;
+
+        &.inactive {
+          pointer-events: none;
+          &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #FFF;
+            left: 0;
+            top: 0;
+            opacity: .5;
+            pointer-events: none;
+            z-index: 999;
+          }
+        }
+      }
+      div {
+        p##{$id}-success {
+          margin: 0;
+          font-style: italic;
+          font-weight: 300;
+          padding-right: 3px;
+          color: #777;
+          font-family: 'Lato','Helvetica','Arial',sans-serif;
+
+          display: none;
+          opacity: 0;
+          transition: opacity 450ms ease-in;
+
+          &.show {
+            display: block;
+          }
+          &.visible {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    
+    // --- V1
+    ul.#{$id}-faq__container {
+      margin: 0;
+
+      list-style: none;
+      padding: 0;
+      
+      li {
+        overflow: hidden;
+        margin-bottom: 0;
+        &>h3 {
+          width: 100%;
+          position: relative;
+          background-color: #FFF;
+          font-weight: 500;
+          display: flex;
+          align-content: stretch;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0 10px 15px;
+          margin-bottom: 0;
+          text-align: left;
+
+  
+          &:after {
+            color: #0cbbf4;
+            content: '\e608';
+            font-family: 'icons-blank-theme';
+            display: inline-block;
+            font-size: 40px;
+            line-height: 40px;
+            transition: transform .25s linear;
+          }
+        }
+        .#{$id}-content {
+          display: none;
+        }
+        &.show {
+          h3 {
+            box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.15);
+
+            &:after {
+              transform: rotate(90deg);
+            }
+          }
+          
+          .#{$id}-content {
+            display: block;
+            background-color: #FFF;
+            padding: 20px 20px 10px 20px;
+            p {
+              color: #333;
+              text-align: left;
+            }
+    
+            ul {
+              list-style: none;
+              padding-left: 15px;
+  
+              li {
+                // position: relative;
+              }
+            }
+            
+            ul li::before {
+              content: "\2022";
+              color: #0cbbf4;
+              font-weight: bold;
+              display: inline-block; 
+              width: 1em;
+              margin-left: -1em;
+              position: absolute;
+            }
+          }
+        }
+        
+        
+      }
+      
+
+      
+    }
+
+  }
+
+  // --- LOADER
+  button#ME310-submit-question {
+    position: relative;
+  }
+  .#{$id}-loader {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background: url('//cdn.optimizely.com/img/6087172626/3e17657b80fe4e04a198ac154abce97c.gif');
+    background-size: contain;
+    margin-left: 2px;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+    &.hidden {
+      display: none;
+    }
+  }
+}
+

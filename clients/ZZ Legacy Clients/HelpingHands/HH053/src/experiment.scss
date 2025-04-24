@@ -1,0 +1,62 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-corona-popup {
+        z-index: 99999;
+        position: fixed;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,0.4);
+        font-weight: 400;
+
+        &-btn-wrap {
+            display: flex;
+            flex-direction: column;
+
+            .btn.btn-standard {
+                margin: 7.5px 0;
+                font-weight: bold;
+                color: #ffffff;
+                background-color: #62489D;
+                border-radius: 25px;
+
+                &::after {
+                    content: "\e258";
+                    font-family: "Glyphicons Halflings",sans-serif;
+                    float: right;
+                }
+            }
+        }
+
+        &-inner {
+            background-color: #FBF4BF;
+            padding: 2px 12px;
+            margin: 10vh 0 5vh;
+            overflow-y: scroll;
+            @media all and (max-height: 690px) {
+                height: 78vh;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            
+            &__title {
+                width: 87%;
+            }
+
+            &__close-btn {
+                color: #aaaaaa;
+                font-size: 28px;
+                font-weight: bold;
+                margin: 5px;
+            }
+        }
+    }
+}

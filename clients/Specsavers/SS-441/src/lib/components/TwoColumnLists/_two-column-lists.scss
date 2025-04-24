@@ -1,0 +1,111 @@
+.#{$id} {
+	.#{$id}-two-column-lists {
+		@include reset;
+
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 30px;
+		justify-items: center;
+		padding-top: 50px;
+		padding-bottom: 50px;
+
+		@include media($m-medium) {
+			gap: 50px;
+		}
+
+		p {
+			font-family: $f-body;
+		}
+	}
+
+	.#{$id}-two-column-lists__title {
+		@include heading-2;
+
+		text-align: center;
+	}
+
+	.#{$id}-two-column-lists__list-container {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 50px;
+
+		@include media($m-medium) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 120px;
+			position: relative;
+
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 1px;
+				height: 100%;
+				background-color: $c-green;
+			}
+		}
+
+		@include media($m-large) {
+			padding-right: 40px;
+			padding-left: 40px;
+		}
+	}
+
+	.#{$id}-two-column-lists__list {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 20px;
+
+		@include media($m-medium) {
+			gap: 30px;
+		}
+	}
+
+	.#{$id}-two-column-lists__list-title {
+		@include heading-3;
+
+		@include media($m-medium) {
+			text-align: center;
+		}
+	}
+
+	.#{$id}-two-column-lists__list-ul {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 20px;
+		list-style: none;
+		padding-left: 30px;
+		align-self: start;
+	}
+
+	.#{$id}-two-column-lists__list-item {
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 8px;
+			width: 16px;
+			height: 9px;
+			border-bottom: 3px solid #016c42;
+			border-left: 3px solid #016c42;
+			border-radius: 1px;
+			margin-left: -30px !important;
+			transform: rotate(-45deg);
+		}
+		// &::before {
+		// 	margin-left: -30px;
+		// 	font-size: 20px;
+		// 	line-height: 24px;
+		// 	width: 20px;
+		// 	content: "\f00c";
+		// 	font-family: FontAwesome;
+		// 	color: $c-green;
+		// 	display: inline-block;
+		// 	position: absolute;
+		// 	top: 0;
+		// }
+	}
+}

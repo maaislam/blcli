@@ -1,0 +1,288 @@
+.HS005v1 {
+  #js-confirmationDialog {
+    display: none;
+    transform: none; // Transform none to prevent SASS compiler from combining with other rules (causes bug in Maxymiser)
+  }
+
+  .HS005-finance_box {
+    display: none;
+    .HS005-overlay {
+      position: fixed;
+      background: rgba(128, 128, 128, 0.63);
+      z-index: 999;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+    .HS005-lightbox_content {
+      border: 1px solid black;
+      background: white;
+      width: 90%;
+      padding: 10px;
+      z-index: 999;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow-y: scroll;
+      height: auto;
+      .HS005-logo {
+        text-align: center;
+        margin: 10px;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .HS005-subheading {
+        text-align: center;
+        padding-left: 20px;
+        font-weight: bold;
+        line-height: 20px;
+        padding-right: 20px;
+        margin-bottom: 20px;
+        span {
+          display: block;
+        }
+      }
+      .HS005-exit {
+        text-align: right;
+        font-size: 28px;
+        position: absolute;
+        right: 9px;
+        top: 0;
+        cursor: pointer;
+      }
+      .HS005-label {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        span {
+          display: inline-block;
+          width: 50%;
+        }
+        .HS005-month {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          background: white;
+          width: 50%;
+          height: 38px;
+          cursor: pointer;
+        }
+        &.HS005-deposit {
+          position: relative;
+
+          &.HS005-deposit--failed {
+            .HS005-deposit_text {
+              // display: none !important;
+
+              &.HS005-deposit_text--error {
+                display: inline-block !important;
+              }
+            }
+          }
+          .HS005-depositAmountField {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+            width: 50%;
+            display: inline-block;
+            height: auto !important;
+            box-sizing: border-box;
+          }
+          .HS005-depositAmountField__prefix {
+            width: 20% !important;
+            display: inline-block;
+            background: #e0e0e0;
+            font-weight: bold;
+            height: 38px;
+            vertical-align: top;
+            text-align: center;
+
+            > span {
+              text-align: center;
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+          .HS005-depositAmount {
+            border: none;
+            padding: 0 5px;
+            display: inline-block;
+            width: 80%;
+            box-sizing: border-box;
+            height: 38px;
+            border-radius: 3px;
+
+            &.HS005-depositAmount--failed {
+              border: 2px solid red;
+            }
+          }
+          .HS005-deposit_text {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            margin-top: 5px;
+            width: 100%;
+
+            &.HS005-deposit_text--error {
+              display: none;
+              background: #ad2020;
+              color: white;
+              border-radius: 5px;
+              padding: 5px 10px;
+              box-sizing: border-box;
+              width: auto;
+              position: absolute;
+              right: 0;
+              margin: 3px 0 0 0;
+
+              &:before {
+                content: '';
+                display: block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 8px 8px 8px;
+                border-color: transparent transparent #ad2020 transparent;
+                position: absolute;
+                bottom: 100%;
+                right: 10px;
+              }
+
+              em {
+                font-style: normal;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+      .HS005-slider {
+        text-align: center;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        span {
+          font-size: 12px;
+          display: block;
+          margin-bottom: 10px;
+        }
+        .HS005-slider_bar {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 7px;
+          background: #d3d3d3;
+          outline: none;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #a01d29;
+            border-radius: 50px;
+            cursor: pointer;
+          }
+          &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #a01d29;
+            cursor: pointer;
+          }
+        }
+        .HS005-minamount,
+        .HS005-maxamount {
+          width: 50%;
+          display: inline-block;
+          margin-top: 7px;
+        }
+        .HS005-maxamount {
+          text-align: right;
+        }
+        .HS005-minamount {
+          text-align: left;
+        }
+      }
+    }
+    .HS005-calculate {
+      text-align: center;
+      background: #a01d29;
+      padding: 10px;
+      color: white;
+      width: 50%;
+      margin: 0 auto;
+      text-transform: uppercase;
+      cursor: pointer;
+      &.HS005-calculate_nobutton {
+        text-decoration: underline;
+        display: block;
+        padding: 0px;
+        background: 0px;
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+    .HS005-addToBag {
+      text-align: center;
+      background: #a01d29;
+      padding: 10px;
+      color: white;
+      width: 50%;
+      margin: 0 auto;
+      text-transform: uppercase;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    .HS005-payment_summary {
+      display: none;
+      padding: 10px;
+      .HS005-payment_row {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        .HS005-pay_label {
+          display: inline-block;
+          width: 50%;
+        }
+        .HS005-finalAmount {
+          display: inline-block;
+          width: 50%;
+          font-weight: bold;
+          text-align: right;
+        }
+      }
+      &.HS005-payment_showing {
+        display: block;
+      }
+    }
+    .HS005-centre {
+      text-align: center;
+    }
+    .HS005-tcs {
+      text-decoration: underline;
+      display: inline-block;
+      margin: 15px auto 0 auto;
+      text-align: center;
+      color: black;
+    }
+    &.HS005-box_active {
+      display: block;
+    }
+  } // TABLET
+  @media(min-width: 767px) {
+    .HS005-finance_box {
+      .HS005-lightbox_content {
+        width: 400px;
+        padding: 20px;
+        .HS005-slider {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

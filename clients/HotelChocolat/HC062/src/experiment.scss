@@ -1,0 +1,80 @@
+@import './variables';
+
+.#{$id} {
+    .search-result-content {
+        .tile-wrapper {
+            padding: 30px 20px 9px;
+        }
+        .product-tile {
+            height: 392px !important;
+            @media(min-width: 767px) {
+                height: 430px !important;
+            }
+            @media(min-width: 1024px) {
+                height: 392px !important;
+            }
+        
+            &.#{$id}-hasOffer {
+                position: relative;
+                padding-bottom: 65px;
+                .promotion {
+                    display: none;
+                }
+            }
+        }
+        
+        .#{$id}-offerCTA {
+            position: absolute;
+            bottom: 0;
+            //display: block;
+            cursor: pointer;
+            padding: 10px;
+            background: #D6D6D6;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            span {
+                font-family: GillSansNova-Medium;
+                color: black;   
+                position: relative;
+                padding-left: 20px;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background: url('https://editor-assets.abtasty.com/48343/607700354013e1618411573.png') no-repeat center;
+                    background-size: contain;
+                    left: 0;
+                    height: 12px;
+                    width: 12px;
+                }
+            }
+            p {
+                font-family: GillSansNova-Light;
+                margin: 0;
+                color: black;
+                margin-top: 5px;
+            }
+        }
+        // list view
+        &.wide-tiles {
+            .#{$id}-offerCTA {
+                @media(min-width: 767px) {                    
+                    position: absolute;
+                    bottom: 0px;
+                    cursor: pointer;
+                    padding: 5px;
+                    background: #D6D6D6;
+                    text-align: center;
+                    width: calc(100% - 178px);
+                    right: 0;
+                }
+                @media(min-width: 1024px) {
+                    width: calc(100% - 181px);
+                }
+            }
+
+        }
+    }
+    
+   
+}

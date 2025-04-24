@@ -1,0 +1,8 @@
+import activate from './lib/experiment';
+import { pollerLite } from '../../../../lib/uc-lib';
+
+const DOM_RENDER_DELAY = 1500; // 2 seconds to about hydration issue
+
+pollerLite(['#__next', () => typeof window.tealiumDataLayer === 'object', () => window.__NEXT_DATA__ !== undefined], () => {
+  setTimeout(activate, DOM_RENDER_DELAY);
+});

@@ -1,0 +1,412 @@
+@import './variables';
+
+.#{$id} {
+
+
+  /* Select box */
+  #select-op-btn {
+    border: 1px solid #ccc;
+    background: white;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    color: black;
+    font-weight: 600;
+    &::after {
+      content: '';
+      position: absolute;
+      right: 10px;
+      height: 20px;
+      width: 20px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/noun_Arrow_1145783%20Copy.png_thumb.png?hash=1624373369281');
+    }
+    
+  }
+
+  .live-chat__chat-options-container {
+    display: none;
+  }
+  .#{$id}-liveChatOptions {
+    display: block;
+    padding: 10px;
+  }
+
+  // select option
+  .#{$id}-helpSection {
+    h3 {
+      text-align: center;
+      color: black;
+      justify-content: center;
+      @media(min-width: 375px) {
+        font-size: 20px;
+      }
+    }
+    p {
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .#{$id}-select {
+
+      input {
+        display: none;
+      }
+      .#{$id}-select_box {
+        box-sizing: border-box;
+        margin: 10px 0;
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        @media(min-width: 767px) {
+          max-width: 300px;
+          margin: 0 auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        ul {
+          list-style-type: none;
+          font-size: 0px;
+          border-color: #cccccc;
+          border-style: solid;
+          border-width: 0px 1px 1px 1px;
+          border-top: 0;
+          margin-top: 0px;
+          padding: 0px;
+          position: absolute;
+          z-index: 999;
+          background: white;
+          width: 100%;
+          top: 45px;
+          max-height: 250px;
+          overflow: auto;
+          @media(min-width: 767px) {
+            max-height: 280px;
+          }
+          li {
+            label {
+              font-size: 15px;
+              display: block;
+              border-bottom: 1px solid #eaeaea;
+              padding: 10px 10px;
+              width: auto;
+              margin: 0px 5px;
+              cursor: pointer;
+              box-sizing: border-box;
+            }
+            &:hover {
+              background: #f3f3f7;
+            }
+            &:last-of-type {
+              label {
+                border-bottom: 0;
+              }
+            }
+
+          } 
+            
+          &.#{$id}-closed {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // Info boxes
+  .#{$id}-box {
+    display: none;
+    h3 {
+      color: black;
+      
+      span {
+        padding-left: 40px;
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          height: 30px;
+          width: 30px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        @media(min-width: 375px) {
+          font-size: 20px;
+          padding-left: 45px;
+          &::before {
+            width: 35px;
+          }
+        }
+      }
+    }
+
+    .live-chat__cta {
+      &.#{$id}-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+    ul {
+      li {
+        font-weight: 500;
+        color: black;
+        @media(min-width: 375px) {
+          font-size: 17px;
+        }
+      }
+    }
+
+    &.#{$id}-boxShow {
+      display: block;
+    }
+
+
+    // icons
+    &.#{$id}-onlineAppt {
+        span {
+          &::before {
+            background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Virtual%20Appointment.png_thumb.png?hash=1624368928798');
+          }
+        }
+    }
+
+    &.#{$id}-inStoreAppt {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Calendar.png_thumb.png?hash=1624372862377');
+        }
+      }
+    }
+
+    &.#{$id}-liveCall {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Phone.png_thumb.png?hash=1624372862377');
+        }
+      }
+    }
+
+    &.#{$id}-liveChat {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Live%20Chat.png_thumb.png?hash=1624372862377');
+        }
+      }
+    }
+
+    &.#{$id}-account {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/User.png_thumb.png?hash=1624372862377');
+        }
+      }
+    }
+    &.#{$id}-contact {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Phone.png_thumb.png?hash=1624372862377');
+        }
+      }
+    }
+    &.#{$id}-virtual {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Virtual%20Appointment.png_thumb.png?hash=1624373369281');
+        }
+      }
+    }
+    &.#{$id}-buyingGuide {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Products.png_thumb.png?hash=1624373369281');
+        }
+      }
+    }
+  }
+
+  // content box
+  .#{$id}-content {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    p {
+      font-family: Oxygen, sans-serif;
+      color: black;
+      b {
+        font-weight: 900;
+      }
+    }
+    .#{$id}-contentCTA {
+      display: flex;
+      flex-direction: column-reverse;
+      margin: 0 auto;
+      .#{$id}-back {
+        background: white;
+        color: black;
+      }
+      .live-chat__cta {
+        margin-top: 0px;
+      }
+      @media(min-width: 767px) {
+        flex-direction: row;
+        max-width: 400px;
+        justify-content: center;
+        align-content: space-between;
+        .live-chat__cta {
+          margin: 5px;
+        }
+      }
+    }
+  }
+
+  @media(min-width: 767px) {
+    .#{$id}-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .#{$id}-box {
+        
+        &.#{$id}-boxShow {
+          padding: 15px 10px;
+        }
+
+        &.#{$id}-fullWidth {
+          width: 100%;
+          flex-basis: 100%;
+        }
+        h3 {
+          padding-top: 5px;
+          span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width: 1024px) {
+    .#{$id}-options {
+      .#{$id}-box {
+        
+        &.#{$id}-boxShow {
+          padding: 15px 20px;
+        }
+      }
+    }
+  }
+  @media(min-width: 1280px) {
+    .#{$id}-options {
+      .#{$id}-box {
+        &.#{$id}-fullWidth {
+          flex-basis: 100%;
+        }
+
+      }
+    }
+  }
+  
+ 
+  &.hsamuel {
+
+    #select-op-btn {
+      font-family: Montserrat, sans-serif;
+    }
+    .#{$id}-select_box {
+      #options {
+        top: 41px;
+        label {
+          font-family: Montserrat, sans-serif;
+        }
+      }
+    }
+    .SG146-helpSection h3 {
+      font-family: Montserrat, sans-serif;
+      font-weight: 600;
+    }
+
+    .SG146-content p {
+      font-family: Montserrat, sans-serif;
+    }
+
+    .#{$id}-box {
+      p, h3 span, ul li {
+        color: #484849;
+      }
+      // icons
+    &.#{$id}-onlineAppt {
+      span {
+        &::before {
+          background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Virtual%20appointment.png_thumb.png?hash=1624451231097');
+        }
+      }
+  }
+
+  &.#{$id}-inStoreAppt {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Calendar_1.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+
+  &.#{$id}-liveCall {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Phone_1.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+
+  &.#{$id}-liveChat {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Live%20chat.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+
+  &.#{$id}-account {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/User_1.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+  &.#{$id}-contact {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Phone_1.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+  &.#{$id}-virtual {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Virtual%20appointment.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+  &.#{$id}-buyingGuide {
+    span {
+      &::before {
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/_thumbs/Integrators/ae52a6e2-ca6a-4d8e-8944-532f952aae85/63c9e2be-b0b2-11ea-b9e3-3af835c8f71c/Products_1.png_thumb.png?hash=1624451231097');
+      }
+    }
+  }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

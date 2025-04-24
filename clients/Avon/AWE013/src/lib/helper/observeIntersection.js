@@ -1,0 +1,16 @@
+const obsIntersection = (target, threshold, callback) => {
+  var observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // if (entry.intersectionRatio > 0 && entry.isIntersecting && entry.boundingClientRect.y > 0) {
+
+        // }
+        callback(entry, observer);
+      });
+    },
+    { threshold: threshold }
+  );
+
+  observer?.observe(target);
+};
+export default obsIntersection;

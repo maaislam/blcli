@@ -1,0 +1,53 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-moreinfo {
+    padding: 1rem 1rem 1.5rem;
+    text-align: center;
+  }
+
+  &.#{$id}-2 {
+    local-product-view about-delivery {
+      margin-bottom: 15px;
+      margin-top: 0;
+    }
+  }
+
+  &.#{$id}-condensed-pdp {
+    // ---------
+    // Elements to hide...
+    // ---------
+    local-product-view about-delivery,
+    local-product-view > div after-content-init,
+    page-footer > footer > div:first-of-type,
+    ng-include[src*=reminder],
+    div[ng-if*=press],
+    div[ng-if*=letterbox_size],
+    .bg-col-15.p-b-8-s[ng-if*=data],
+    .BIC-140-wrap,
+    product-when-your-occasion 
+    {
+      display: none !important;
+    }
+
+    local-product-view > .p-b-10 {
+      padding-bottom: 0 !important;
+    }
+
+    &.#{$id}-2 {
+      local-product-view about-delivery.xhascountdown {
+        display: block !important;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        local-countdown span {
+          padding-bottom: 0 !important;
+        }
+      }
+      local-product-view about-delivery .link {
+        display: none;
+      }
+    }
+  }
+
+}

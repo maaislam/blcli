@@ -1,0 +1,391 @@
+@import './variables';
+
+.#{$id} {
+
+  &.compare-table-open .compare-table {
+    max-height: 85% !important;
+  }
+
+  .compare-table {
+    #ctl00_ctl00_pnlUpdatestaticWrapper {
+      position: relative;
+  
+      .py-1.h6 {
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+      }
+    }
+    tr:nth-child(odd) {
+      background: #FFF !important;
+    }
+
+    tr:nth-child(even) {
+      background: #F7F7F7 !important;
+    }
+
+    #ctl00_ctl00_pnlUpdatestaticWrapper {
+      height: 83vh;
+      position: relative;
+
+      header.py-1.h6 {
+        background-color: #109ee0 !important;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+
+        &:after {
+          display: block;
+          content: '';
+          width: 100%;
+          height: 60px;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+          position: absolute;
+          top: 100%;
+        }
+      }
+
+      /*** Recently Viewed ***/
+      a#ctl00_ctl00_lnkRecentlyViewd {
+        background-color: #109ee0;
+        border: 2px solid #FFF;
+        margin-bottom: 10px;
+
+        &.active,
+        &:hover {
+          background-color: #FFF !important;
+          color: #109ee0;
+        }
+      }
+
+      // Title
+      div#ctl00_ctl00_pnlRecentItems span.h3.section_title {
+        font-size: 1.6em !important;
+        margin-bottom: 9vh;
+        padding-top: 9vh;
+      }
+
+      // Products
+      div#ctl00_ctl00_recentItems_pnlRecentItems {
+        ul li {
+          min-height: 350px;
+        }
+
+        div.binner {
+          text-align: center !important;
+
+          .compare {
+            strong.small.text-info {
+              float: left;
+              color: #000;
+              font-size: 1em;
+              transform: translateY(20%);
+            }
+          }
+        }
+
+        div.image {
+          text-align: center !important;
+        }
+
+        div.name,
+        div.partnumber {
+          text-align: center !important;
+        }
+
+        // View button
+        div div.my-3 a.btn.btn-lg.btn-block.btn-secondary {
+          width: 50%;
+          margin: auto;
+
+          span {
+            margin: auto;
+          }
+        }
+      }
+
+      /*** Compare Products ***/
+      // Title
+      div#ctl00_ctl00_pnlCompare span.h3.section_title {
+        font-size: 1.6em !important;
+        margin-bottom: 3vh;
+        padding-top: 9vh;
+      }
+
+      a#ctl00_ctl00_lnkCompare {
+        width: 50%;
+        background-color: #109ee0;
+        border: 2px solid #FFF;
+        transition: 0.5s background-color;
+        margin-bottom: 10px;
+
+        &.flash {
+          animation: pulse 1s;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 2;
+        }
+
+        &.active,
+        &:hover {
+          background-color: #FFF !important;
+          color: #109ee0;
+        }
+      }
+
+      // Current Product - Rows
+      td.PL016-currentProduct {
+        span.PL016-currentlyViewing {
+          display: block;
+          width: 100%;
+          font-weight: 800 !important;
+          margin-bottom: -50px;
+          margin-top: 30px !important;
+        }
+      }
+
+      td.PL016-currentProduct.product-img {
+        background-color: #FFF !important;
+      }
+
+      // Header - Title
+      table.comparetable {
+        td.header {
+          background-color: #109ee0 !important;
+          padding: 5px !important;
+        }
+      }
+
+      // Remove Btn - Row
+      .product-remove {
+        display: none;
+      }
+
+      // Item Name - Row
+      td.product-title {
+        display: none;
+      }
+
+      // Product Name
+      .PL016-productName {
+        display: block;
+        width: 100%;
+        color: #000;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 700;
+        min-height: 65px !important;
+      }
+
+      // Image - Row
+      .PL016-productImage {
+        td:first-of-type {
+          background-color: #FFF !important;
+          border-bottom: none !important;
+        }
+
+        td {
+          img.compareimagecell {
+            margin-top: 50px;
+          }
+        }
+      }
+
+      // Rating - Row
+      .product-rating:first-of-type {
+        visibility: hidden;
+      }
+
+      // Price - Row
+      .product-price:first-of-type {
+        visibility: hidden;
+      }
+
+      // CTA Buttons
+      a.btn.btn-block.btn-outline-info {
+        display: inline-block;
+        width: 45%;
+        text-align: center !important;
+        margin-right: 0px;
+
+        &.remove {
+          background-color: #000;
+          border-color: #000;
+          color: #FFF;
+          margin-right: 2.5% !important;
+          margin-left: 2.5% !important;
+
+          &:hover {
+            // border-color: yellow;
+          }
+        }
+      }
+
+      .PL016-btn__remove,
+      .PL016-btn__view {
+        font-weight: 400 !important;
+
+        &:hover {
+          opacity: 0.95;
+        }
+      }
+
+      .PL016-btn__remove {
+        &:hover {
+          border: 1px solid #FFF !important;
+          border-color: #FFF !important;
+        }
+      }
+
+      .PL016-ctaBtns {
+        display: block;
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+      }
+
+      /*** Close icon ***/
+      a#ctl00_ctl00_lnkClose {
+        background-color: #109ee0;
+        border: none !important;
+        border-color: #109ee0 !important;
+        text-decoration: none !important;
+
+        &:hover {
+          border: none !important;
+          border-color: #109ee0 !important;
+          text-decoration: none !important;
+        }
+      }
+
+      /*** Sticky Titles ***/
+      .PL016-sticky_titles {
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: -5px;
+        margin-top: 8px;
+        margin: auto;
+        position: relative;
+        top: 5px;
+        transition: 0.5s display;
+
+        &.hidden {
+          display: none !important;
+        }
+
+        table.PL016-sticky {
+          width: 90%;
+          margin: auto;
+          margin-top: 8px;
+          max-width: 1200px;
+
+          tbody tr {
+            td.PL016-cell {
+              &.comparetitlewhite.product-0 {
+                width: 18%;
+                border-bottom: none;
+              }
+
+              &.compareitemcell {
+                color: #000;
+                width: 19%;
+                border-bottom: none;
+              }
+
+              span.PL016-title {
+                display: block;
+
+                a {
+                  color: #000 !important;
+                  font-size: 1.1em;
+                }
+              }
+
+              span.PL016-price {
+                display: block;
+                margin-top: 5px;
+                font-size: 0.9em;
+
+                &.hidden {
+                  display: none !important;
+                }
+
+                span.red {
+                  color: #DA0000 !important
+                }
+              }
+
+              &:last-of-type {
+                border-right: 1px #E7E7E7 solid;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.compare-table-open {
+
+    a#ctl00_ctl00_lnkRecentlyViewd,
+    a#ctl00_ctl00_lnkCompare {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      background-color: transparent;
+    }
+
+    50% {
+      background-color: white;
+      color: #109ee0;
+    }
+
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  .compare-table #ctl00_ctl00_pnlUpdatestaticWrapper a#ctl00_ctl00_lnkCompare {
+    z-index: 999;
+  }
+
+  @media screen and (min-width: 1024px) {
+    &.compare-table-open {
+
+      a#ctl00_ctl00_lnkRecentlyViewd,
+      a#ctl00_ctl00_lnkCompare {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    a#ctl00_ctl00_lnkCompare {
+      width: 60% !important;
+    }
+  }
+
+  // Table 
+  .comparetable {
+    border-top: 1px #ABABABCC solid;
+
+    tr:nth-of-type(6) {
+      .comparetitlewhite {
+        border-top: 1px #ABABABCC solid;
+      }
+    }
+  }
+
+  .compareitemcell,
+  .compareoffercell {
+    border-bottom: 1px #ABABABCC solid;
+    border-left: 1px #ABABABCC solid;
+  }
+
+  .comparelineitemTitle,
+  .comparetitlewhite {
+    border-bottom: 1px #ABABABCC solid;
+  }
+}

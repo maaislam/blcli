@@ -1,0 +1,82 @@
+.#{$ID}{
+    @at-root #{&}_horizontalMenu{
+        position: relative;
+        padding: 0 10px;
+        overflow: hidden;
+        @at-root #{&}Wrap{
+            background-color: get-value($settings, 'colors', 'avonPink');
+        }
+        @at-root #{&}__button{
+            position: absolute;
+            display: block;
+            z-index: 10;
+            height:calc(100% + 4px);
+            width:45px;
+            top:-2px;
+            background-color: get-value($settings, 'colors', 'avonPink');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-size: 50%;
+            @at-root #{&}.hidden{
+                opacity: 0;
+                pointer-events: none;
+                & ~ .#{$ID}_horizontalMenu__navigation{
+                    padding-left:0;
+                }
+            }
+            &:first-child{
+                left:-10px;
+                border-right: 1px solid get-value($settings, 'colors', 'avonMagenta');
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAM1BMVEUAAADYD4fmFYLmFYHjFYDmFYHmE4PnFYHmFILjHI7nFYLmFYHmFYHnFYHlFoHhD4fmFYGhU1/LAAAAEHRSTlMABrLjJOcps7sJYeKDUzkRS0l2ogAAAHFJREFUWMPtl0sKgDAMRNv6aU3V5v6nVXDh3hEampn9e5APgQRfiXsRiM+qegJ80jsC8rVh/DST/zp/53wiz/3rx2/FNx9BPhwvDwrwErAmLmtPQ8w0PAeNBjMGC/tgwWBhFjT8aqgNNQj89sGP54C5ANGZEbOcXz6tAAAAAElFTkSuQmCC');
+            }
+            &:last-child{
+                right:-10px;
+                border-left: 1px solid get-value($settings, 'colors', 'avonMagenta');
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAALVBMVEUAAADdHofmFYHlFoHmFYHnFYHnFILmFYHmFILmFoHmFYHjDoDlFoHlF4DmFYHZuoppAAAADnRSTlMAB+IitrJiua+COxJFRIjHCwAAAABWSURBVEjHY6AjYKsUwK9g3btA/Ary3j3Fb8SmdwSMYNZ79wS/EUbv3jmOGjFqxHA2ooGQEW8IKXhLrhUIRxLy5qgBowYMAwNAVRIllRqiWiRcsdIfAABOfH0e+5oRwQAAAABJRU5ErkJggg==');
+            }
+        }
+        @at-root #{&}__navigation{
+            max-width: 100vw;
+            padding-left:25px;
+            overflow: hidden;
+        }
+        @at-root #{&}__list{
+            margin: 0;
+            font-size: 0;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow:hidden;
+            @at-root #{&}Item{
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 16px;
+                text-align: center;
+                &[aria-selected="true"]{
+                    font-weight: bold;
+                    color: get-value($settings, 'colors', 'avonMagenta');
+                }
+                &:after{
+                    content: '';
+                    position: absolute;
+                    right:0;
+                    top:50%;
+                    transform: translateY(-50%);
+                    width:1px;
+                    height: 35%;
+                    background-color: #D1C6CB;
+                }
+                &:last-of-type{
+                    &:after{
+                        display:none;
+                    }
+                }
+            }
+        }
+        @at-root #{&}__link{
+            padding: 12px 24px;
+            display: block;
+        }
+    }
+}

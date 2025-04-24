@@ -1,0 +1,393 @@
+/* Add some styles to get started */
+.NH007 {
+
+    // From Input
+    #nh07-from {
+        .nh07-from--dropdown {
+            background-color: #fff;
+            border-radius: 6px;
+            border: 0;
+            color: #929292;
+            font-family: "Open Sans",Arial;
+            font-weight: 400;
+            font-size: 14px;
+            box-sizing: border-box;
+            padding: 0 5px;
+            cursor: pointer;
+            position: relative;
+            height: 36px;
+            box-shadow: 0 0 7px 2px #98b3cb;
+            background: #fff url(//www.nationalholidays.com/images/icon-droparrow.png) no-repeat 98% center;
+            background-size: 32px 29px;
+
+            p {
+                margin: 0;
+                display: block;
+                position: relative;
+                line-height: 40px;
+                padding-right: 35px;
+                white-space: nowrap; 
+            }
+
+            > ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;            
+                display: none;
+                width: 110%;
+                background-color: #fff;
+                border-radius: 6px;
+                border: 0;
+                box-shadow: 0 0 7px 2px #98b3cb;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                z-index: 999;
+
+
+                > li {
+                    padding: 10px 8px;
+                    position: relative;
+                    cursor: pointer;
+                    border-bottom: 1px solid #D1E9F5;
+                    transition: ease-in all .1s;
+
+                    &:after {
+                        font-weight: 400;
+                        display: block;
+                        position: absolute;
+                        content: '\f105';
+                        top: 10px;
+                        right: 10px;
+                        font-size: 18px;
+                        font-family: "FontAwesome";
+                    }
+    
+                    &:first-of-type {
+                        display: block;
+                        text-align: center;
+                        font-weight: 700;
+                        cursor: default;
+                        &:after {
+                            content: "";
+                        }
+                    }
+
+                    &:hover, &:focus {
+                        &:not(:first-of-type) {
+                            color: #1c5bab;
+                            font-weight: 500;
+                        }
+                    }
+    
+                    > div {
+                        padding: 4px;
+                        display: none;
+                    }
+    
+                    &.nh07-show-towns {
+                        > div {
+                            display: block;
+                            // background-color: rgb(226, 226, 226);
+                        }
+                        &:after {
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    // Nested list
+                    div.nh07-nested-div {
+                        ul {
+                            list-style-type: none;
+                            padding: 0 0 0 7px;
+                            margin: 0;
+                            li {
+                                padding: 6px 3px;
+                                color: #929292;
+                                transition: ease-in all .1s;
+                                &:hover, &:focus {
+                                    color: #1c5bab; 
+                                }
+                            }
+                        }
+                    } 
+    
+                }
+    
+            }
+
+            &.nh07-toggle {
+                > ul {
+                    display: block;
+                }
+            }
+
+        }
+
+        a.postcode-search {
+            margin: 10px 0;
+        }
+    }
+
+    #nh07-depart {
+          // Departure date
+        .nh07-depart-dates {
+            > div:first-of-type {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        // depart date
+        .left {
+            > div:last-of-type {
+                padding: 0 0 8px 0;
+                button, p {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0;
+                    color: #215baf;
+                }
+                button {
+                    padding: 7px;
+
+                    &.nh07-checked-btn {
+                        background-color: grey;
+                    }
+                }
+            }
+        }
+
+        // depart range
+        .right {
+            label, div {
+                display: none;
+            }
+            &.nh07-show-range {
+                label, div {
+                    display: block;
+                }
+            }
+        }
+
+    }
+
+    #nh07-to-input {
+      .nh07-all-dest {
+        background: #fff;
+        margin-bottom: 16px;
+        border-radius: 6px;
+        border: 0;
+        height: 36px;
+        width: 100%;
+        padding: 0 12px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #929292;
+        font-family: "Open Sans",Arial;
+        font-weight: 400;
+        font-size: 16px;
+        
+        &.nh07-hide {
+          display: none;
+        }
+
+        p {
+          margin: 0;
+          line-height: 36px;
+        }
+
+      }
+    }
+
+    #nh07-duration {
+        position: relative;
+
+        .right {
+            position: relative;
+            padding-top: 7%;
+
+            button {
+                width: 100%;
+                position: relative;
+                top: auto;
+                left: auto;
+                float: none;
+                display: block;
+            }
+
+            a {
+                clear: both;
+                margin: 10px 0;
+            }
+
+        }
+
+    }
+
+    .nh07-advanced-search {
+        position: absolute;
+        left: 10px; right: 0;
+        z-index: 99;
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: ease-in all 0.3s;
+
+        &.nh07-show-advanced {
+            // display: block;
+            height: auto;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #nh07-rooms {
+            margin-top: -30px;
+            background-color: #D1E9F5;
+            border: 1px solid #B7CEDC;
+            border-top: none; 
+            border-radius: 0 0 8px 8px;
+            box-sizing: border-box;
+            padding: 13px 35px;
+            margin-bottom: 20px;
+    
+            .nh07-ib {
+                display: inline-block;
+                vertical-align: bottom;
+                width: 18%;
+                margin-right: 2%;
+                &:not(:first-of-type) {
+                    width: 160px;
+                }
+    
+                &:last-of-type {
+                    margin-right: 0;
+                }
+    
+                select {
+                    background: #fff url('//www.nationalholidays.com/images/icon-droparrow.png') no-repeat 98% center;
+                    padding: 0 2px; 
+                    background-size: 32px 29px;
+                    height: 36px;
+                    margin-bottom: 9px;
+                    box-shadow: 0 0 7px 2px #98b3cb;
+                    border-radius: 6px;
+                    border: 0;
+                    width: 100%;
+                    box-sizing: border-box;
+                    color: #929292;
+                    font-family: "Open Sans",Arial;
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+    
+                label {
+                    display: block;
+                    margin: 5px 0 8px;
+                    color: #215baf;
+                    font-family: "vag_roundedbold",Arial;
+                    font-size: 18px;
+                }
+
+                &.nh07-toggle-this {
+                    display: none;
+                }
+
+                &.nh07-show-select {
+                    display: inline-block;
+                }
+    
+            }
+    
+        }
+    }
+
+    .top-split {
+        margin-bottom: 20px;
+        .right {
+            position: relative;
+        }
+    }
+
+    // hide old form
+    .holiday-search {
+        > h2 {
+            display: none;
+        }
+        > .search-content {
+            display: none;
+        }
+    }
+
+    #nh07-new-searchform {
+      padding-top: 20px;
+      > h2 {display: none}
+    }
+
+    // Mobile styles
+    @media only screen and (max-width: 499px) {
+        #main-body {
+            margin-bottom: 40px;
+        }
+        #nh07-new-searchform {
+            .input-split {
+                .left, .right {
+                    width: 100%;
+                    float: none; 
+                }
+            }
+
+            #nh07-from .nh07-from--dropdown ul {
+                width: 100%;
+            }
+
+            #nh07-duration .right {
+                padding-top: 10px;
+                max-width: 200px;
+                margin: auto;
+                text-align: center;
+
+                button {
+                    margin-bottom: 20px;
+                }
+
+            }
+
+            #nh07-depart .left div:last-of-type p {
+                color: #fff;
+            }
+
+        }
+        .nh07-advanced-search {
+            position: static;
+            #nh07-rooms {
+                background-color: #1891d5; 
+                border: 1px solid #00A2FD;
+                border-top: none;
+                padding: 10px 15px;
+                margin-top: -20px;
+
+                .nh07-ib label {
+                    color: #fff;
+                }
+
+            }
+        }
+    }
+}
+
+// V2
+.NH007-V2 {
+    #nh07-new-searchform {
+        @media only screen and (min-width: 769px) {
+            padding-top: 20px;
+            > h2 {
+                display: none;
+            }
+        }
+    }
+    .nh07-advanced-search {
+        top: 90%;
+    }
+}

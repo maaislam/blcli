@@ -1,0 +1,132 @@
+@import './variables';
+
+$mobile: 450px;
+
+.#{$id} {
+  .#{$id}_page-left,
+  .#{$id}_page-right {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .#{$id}_page-left {
+    width: 55%;
+  }
+
+  .#{$id}_page-right {
+    width: 45%;
+    will-change: min-height;
+  }
+
+  #login_address {
+    input,
+    select {
+      width: 100%;
+    }
+
+    input#postcode {
+      max-width: 150px;
+    }
+
+    #postcode_find {
+      vertical-align: middle;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+    }
+
+    > p,
+    > div > p {
+      max-width: 340px;
+    }
+
+    > p:last-of-type {
+      max-width: 100%;
+    }
+  }
+
+  #register-box.loginversion {
+    width: 100%;
+    max-width: 470px;
+  }
+
+  // /checkout/ page
+  #pay_form {
+    padding-right: 60px;
+  }
+
+  #card_form {
+    padding-right: 50px;
+  }
+
+  .order_summary {
+    display: none;
+  }
+
+  #basket_summary {
+    display: none;
+  }
+
+  #checkout_left,
+  #checkout_right {
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+
+  #checkout_right #card_form {
+    margin-top: 20px;
+  }
+
+  #order_notes {
+    width: 100%;
+    max-width: 550px;
+    height: 70px;
+  }
+
+  #pay_submit img {
+    max-width: 400px;
+  }
+
+  // MOBILE
+  @media screen and (max-width: $mobile) {
+    #site_torso {
+      z-index: 16000002;
+    }
+
+    #site_header {
+      height: 70px;
+      padding: 0;
+    }
+
+    .#{$id}_page-left {
+      width: 100%;
+    }
+  
+    .#{$id}_page-right {
+      width: auto;
+
+      &.is-affixed .inner-wrapper-sticky {
+        z-index: 1000;
+      }
+    }
+
+    #header_logo img {
+      left: 10px;
+    }
+
+    // /checkout/ page
+    #pay_form {
+      padding-right: 0;
+    }
+  
+    #card_form {
+      padding-right: 0;
+    }
+
+    .address h3 {
+      font-size: 17px;
+    }
+  }
+}

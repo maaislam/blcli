@@ -1,0 +1,187 @@
+@import './variables';
+
+.#{$id} {
+  &__storeLocator {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+    }
+
+    &:has(.#{$id}__visible) {
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #ccc;
+
+        @media screen and (max-width: 1023px) {
+          top: calc(100% + 23px);
+        }
+
+        @media screen and (max-width: 640px) {
+          top: calc(100% + 10px);
+        }
+      }
+    }
+  }
+
+  &__postcode-prompt {
+    position: absolute;
+    width: 340px;
+    top: 93px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 300ms ease, transform 300ms ease;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    z-index: 9999;
+
+    @media screen and (max-width: 1345px) {
+      left: -110px;
+    }
+
+    @media screen and (max-width: 1023px) {
+      left: -100px;
+      top: 86px;
+    }
+
+    @media screen and (max-width: 640px) {
+      width: 300px;
+      left: -160px;
+      top: 81px;
+    }
+  }
+
+  &__postcode-prompt.#{$id}__visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    height: auto;
+    padding: 16px;
+    border-radius: 2px;
+    border: 1px solid #d1d1d1;
+    background: #fff;
+    box-shadow: 1px 1px 5px 0px rgba(99, 99, 99, 0.1);
+    &[data-disable] {
+      pointer-events: none;
+      form,
+      button {
+        pointer-events: none;
+      }
+    }
+    &.#{$id}__success {
+      width: 190px;
+      padding: 8px;
+      @media screen and (max-width: 1345px) {
+        left: 30px;
+      }
+
+      @media screen and (max-width: 1023px) {
+        left: 0px;
+        top: 86px;
+      }
+
+      @media screen and (max-width: 640px) {
+        left: 20px;
+        top: 81px;
+      }
+
+      @media screen and (max-width: 420px) {
+        left: 0px;
+      }
+
+      @media screen and (max-width: 375px) {
+        left: -20px;
+      }
+
+      @media screen and (max-width: 360px) {
+        left: -50px;
+      }
+    }
+  }
+
+  &__stockInfoTitle {
+    font-family: 'screwfix_betabold';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 21.6px */
+    padding-bottom: 11px;
+    margin: 0;
+    color: #636363;
+  }
+  &__postcodeForm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 11px;
+  }
+
+  &__text {
+    display: none;
+  }
+
+  &__postcodeInput {
+    width: calc(100% - 51px);
+    font-family: 'Arial';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 112.5% */
+    border: 1px solid var(--Border-Default, #d1d1d1);
+    background: var(--Surface-Default, #fff);
+    padding: 10px 20px;
+    /* Field/Default  */
+    box-shadow: 4px 4px 13px 0px #e7e7e7 inset;
+
+    &::placeholder {
+      color: #c0c0c0;
+    }
+  }
+
+  &__submitBtn {
+    width: 40px;
+    height: 40px;
+    font-family: 'screwfix_betabold';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #636363;
+    border: 1px solid #636363;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  &__no-thanks-btn {
+    color: #636363;
+    font-family: 'screwfix_betaregular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */
+    text-decoration-line: underline;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__successMsg {
+    color: #636363;
+    font-family: 'screwfix_betaregular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    margin: 0;
+  }
+}

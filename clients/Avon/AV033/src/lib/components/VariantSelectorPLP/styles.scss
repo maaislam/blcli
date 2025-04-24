@@ -1,0 +1,126 @@
+@import '../../../_variables';
+
+$component: '#{$id}_VariantSelectorPLP';
+
+.#{$id} {
+  .#{$component} {
+    width: 100%;
+    transition: height 0.5s;
+    text-align: center;
+    padding-top: 20px;
+
+    .Border {
+      width: 6rem;
+      height: 6rem;
+      border: .096205rem solid #E4EDED;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+
+    .Cropper {
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      width: 72%;
+      height: 72%;
+      border: none;
+    }
+  }
+
+  .#{$component}AddToCart {
+    font-family: Roboto, Lato, Arial, Gotham, Helvetica Neue, Helvetica, sans-serif !important;
+    background-color: $avonPink;
+    border: 1px solid $avonPink;
+    display: inline-block;
+    min-width: 200px;
+    margin: 30px 0 0;
+    font-size: 1.4rem;
+    padding: 18px 10px;
+    text-align: center;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .#{$component}Variants {
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 0 0;
+    text-align: center;
+
+    > ul > li {
+      margin: 0;
+      padding: 0;
+      margin: 5px 10px;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      width: 65px;
+      vertical-align: top;
+
+      &.Selected .Border {
+        border: .2405125rem solid #ec008c;
+      }
+    }
+  }
+
+  .#{$component}Name {
+    font-weight: 500;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 7px;
+    color: #546264;
+  }
+
+  &.Layout_Tablet {
+    .#{$component}Variants > ul > li {
+      margin: 4px 2px;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component}Variants > ul {
+      font-size: 0;
+
+      > li {
+        margin: 5px 0;
+        padding: 0 3px;
+        width: 33.333%;
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

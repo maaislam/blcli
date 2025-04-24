@@ -1,0 +1,244 @@
+@import './variables';
+
+$hsRed: #a01d29;
+
+.#{$id} {
+    &.#{$id}-1 {
+        .header {
+            .header__container {
+                background: white;
+
+                .logo__img {
+                    width: 8rem;
+                    @media(min-width: 400px) {
+                        width: 10rem;
+                    }
+                    @media(min-width: 1280px) {
+                        width: 150px;
+                    }
+                }
+
+                .menu-btn {
+                    background: transparent;
+
+                    .menu-btn__icon {
+                        svg {
+                            g {
+                                stroke: $hsRed;
+                            }
+                        }
+
+                        path {
+                            stroke: $hsRed;
+                            stroke-width: 1px;
+                        }
+                    }
+
+                    &::after {
+                        font-family: "Montserrat", sans-serif;
+                        font-weight: 500;
+                        color: $hsRed;
+                        margin-top: .25rem;
+                    }
+                }
+
+                .store-locator-link {
+                    svg {
+                        g {
+                            stroke: $hsRed;
+                        }
+                    }
+
+                    path {
+                        fill: $hsRed;
+                        stroke-width: 0.8px;
+                    }
+                }
+
+                .shopping-bag__icon {
+                    g {
+                        stroke: $hsRed;
+                    }
+                }
+
+                .store-locator-link__label,
+                .shopping-bag__label {
+                    color: $hsRed;
+                    font-weight: 500;
+                    margin-top: .25rem;
+                }
+
+                .shopping-bag__count {
+                    border: 1px solid $hsRed;
+                    letter-spacing: unset;
+                }
+            }
+
+            // desktop breakpoint
+            @media(min-width: 1280px) {
+                height: auto;
+                position: relative;
+                background: white;
+                &::after {
+                    display: none;
+                }
+                .search {
+                    top: 1.3125rem;
+                    .search__container {
+                        input {
+                            border: 1px solid #757575;
+                            font-weight: 500;
+                        }
+                    }
+                }
+                .header__links {
+                    display: none;
+                }
+                .header__container {
+                    max-width: 1286px;
+                    .header__user-status,
+                    .store-locator-link,
+                    .header__bag {
+                        display: none;
+                    }
+                    .#{$id}-rightIcons {
+                        display: flex;
+                        justify-content: space-between;
+                        .#{$id}__icon {
+                            margin: 10px 15px;
+                            .#{$id}-iconImage {
+                                height: 30px;
+                                width: 35px;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                display: block;
+                                margin: 0 auto;
+                                margin-bottom: 5px;
+                                margin-top: 5px;
+                            }
+                            a {
+                                text-decoration: none;
+                            }
+                            p {
+                                font-family: "Montserrat", sans-serif;
+                                font-weight: 500;
+                                color: $hsRed;
+                                margin-top: 10px;
+                                margin-bottom: 5px;
+                            }
+                            &.#{$id}__account {
+                                .#{$id}-signOut {
+                                    cursor: pointer;
+                                }
+                                .#{$id}_accountLinks {
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: wrap;
+                                    justify-content: space-between;
+                                    margin-top: 10px;
+                                    color: $hsRed;
+                                    a {
+                                        margin-left: 5px;
+                                        margin-right: 5px;
+                                    }
+                                    p {
+                                        margin: 0;
+                                    }
+                                }
+                                .#{$id}-iconImage {
+                                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/0302BED4834AD796F2749B8C01785B080682E56AA6B313514BC11284AAF15D18/hsamuel-co-uk/HS075---Header-Styling/noun_User_322107.png');
+                                }
+                            }
+                            &.#{$id}__stores {
+                                .#{$id}-iconImage {
+                                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/664311196458F6869ED0615C642860A48945DC576A4AA132C4F1AE9E15C526DE/hsamuel-co-uk/HS075---Header-Styling/noun_Location_3354740.png');
+                                }
+                            }
+                            &.#{$id}__basket {
+                                .#{$id}-iconImage {
+                                    position: relative;
+                                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/ECE9C202633E5B09C409B81959FB91E1A4AB9C57BD995C923032CFF19C03FF86/hsamuel-co-uk/HS075---Header-Styling/noun_basket_1439196-1.png');
+                                    .#{$id}-basket-count {
+                                        position: absolute;
+                                        top: 65%;
+                                        left: 50%;
+                                        transform: translate(-50%,-50%);
+                                        color: $hsRed;
+                                        font-size: 12px;
+                                        font-weight: 700;
+                                        font-family: "Montserrat", sans-serif;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }     
+                
+                .#{$id}-mainNav {
+                    li {
+                        pointer-events: none;
+                    }
+                    a {
+                        pointer-events: none;
+                    }
+                    .main-nav__container{
+                        pointer-events: none;
+                    }
+                }
+
+                .main-nav {
+                    box-shadow: -1px 1px 3px 0px #e2e2e2;
+                    max-width: 100%;
+                    background: white;
+                    &.#{$id}_sticky {
+                        position: fixed;
+                        top: 0;
+                        width: 100%;
+                    }
+                    .main-nav__sub-nav {
+                        margin: 0 auto;
+                        max-width: 1286px;
+                    }
+                    .main-nav__container {
+                        border: 0px;
+                        max-width: 1286px;
+                        margin: 0 auto;
+                        .main-nav__item.main-nav__item--top {
+                            border: 0px;
+                            background-color: white;
+                            > .main-nav__link {
+                                border: 0;
+                                color: $hsRed;
+                            }
+                            &.main-nav__link--sale-red {
+                                background: $hsRed;
+                            >  .main-nav__link {
+                                    color: white;
+                                }
+                            }
+                            &:hover {
+                                background: $hsRed;
+                                > .main-nav__link {
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        .main-nav__sub-nav.main-nav__third-level {
+                            a {
+                                color: #484849;
+                            }
+
+                        }
+                    }
+                }
+            }
+            &.#{$id}-headerFixed{
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,286 @@
+@import "./variables";
+
+.#{$id} {
+  .#{$id}_notice {
+    background: #f6b113;
+    border-radius: 5px;
+    padding: 0 6px;
+    color: black;
+    font-size: 12px;
+    line-height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 14px 0 0;
+
+    @media (min-width: 768px) {
+      margin: 14px -8px 0;
+    }
+
+    &.#{$id}_noticePDP {
+      padding: 0 24px;
+      margin: 12px 0 0;
+      text-align: left;
+    }
+
+    img {
+      margin-right: 6px;
+    }
+  }
+
+  .#{$id}_badges {
+    display: flex;
+
+    @media (min-width: 768px) {
+      margin: 0 -14px;
+    }
+  }
+
+  .#{$id}_badgePLP,
+  .#{$id}_badgePDP {
+    background: #f6b113;
+    border-radius: 5px;
+    color: black;
+    font-size: 12px;
+    padding: 0 6px;
+    line-height: 24px;
+    height: 24px;
+    z-index: 2;
+    font-weight: bold;
+  }
+
+  .#{$id}_badgePDP {
+    padding: 0 12px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+
+  .#{$id}_badgePLP {
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  .#{$id}_mobileWrap {
+    .#{$id}_badgePDP {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .#{$id}_desktopWrap {
+    position: relative;
+    padding: 4.2rem 2.4rem;
+  }
+
+  // TP204 notice styles
+  .#{$id}_notice204 {
+    color: rgb(96, 111, 128);
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    margin: 0.4rem 0px 1.3rem;
+    height: 1.4rem;
+
+    &~div {
+      display: none;
+    }
+  }
+
+  [data-test-id="add-to-basket-popup-wrapper"] {
+    top: 5vh;
+  }
+
+  .#{$id}_noticePopup {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background: #f3f8f7;
+    border: 1px solid #0f7258;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 16px;
+
+    @media (min-width: 768px) {
+      padding: 8px 20px;
+    }
+
+    &~div {
+      border-top: none;
+    }
+
+    p {
+      margin: 0;
+      margin-left: 10px;
+      font-size: 16px;
+      line-height: 20px;
+      color: #005a39;
+    }
+
+    img {
+      width: 45px;
+      height: 25px;
+    }
+  }
+
+  .#{$id}_popup {
+    z-index: 5;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    display: flex;
+    flex: 1 1 0%;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: rgba(24, 45, 61, 0.5);
+
+    .#{$id}_noticePopup {
+      margin-top: 0;
+
+      img {
+        margin-right: 24px;
+      }
+
+      p {
+        line-height: 1.5;
+
+        span {
+          color: #182d3d;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .#{$id}_content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 79.2rem;
+      transition: height 0.1s ease-in-out 0s;
+      background-color: rgb(240, 243, 246);
+      max-height: 53rem;
+      border-radius: 0.4rem;
+
+      @media (max-width: 991px) {
+        position: absolute;
+        bottom: 0px;
+        min-height: 26.7rem;
+        max-width: 100%;
+        left: 0px;
+        right: 0px;
+      }
+    }
+
+    .#{$id}_header {
+      display: flex;
+      position: relative;
+
+      align-items: center;
+      padding: 1rem 2.4rem;
+      margin-bottom: 0.4rem;
+
+      svg {
+        margin-right: 10px;
+      }
+
+      @media (max-width: 991px) {
+        margin-bottom: 0px;
+        padding: 3.2rem 0 4rem 12px;
+      }
+
+      .#{$id}_title {
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 2.4rem;
+        color: rgb(24, 45, 61);
+        margin: auto 0.7rem;
+
+        @media (max-width: 991px) {
+          width: 32rem;
+          font-weight: bold;
+          font-size: 1.6rem;
+          text-align: left;
+          display: flex;
+          align-items: center;
+          margin-left: 0;
+        }
+      }
+
+      svg.#{$id}_close {
+        cursor: pointer;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        position: absolute;
+        right: 0;
+        top: 1.3rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        z-index: 1;
+        fill: rgb(96, 111, 128);
+      }
+
+      .#{$id}_popupPostcode {
+        color: rgb(15, 114, 88);
+        margin-left: 2px;
+      }
+    }
+
+    .#{$id}_buttons {
+      margin: 2.4rem;
+      display: flex;
+      justify-content: flex-end;
+
+      @media (max-width: 991px) {
+        display: flex;
+        justify-content: center;
+        margin: 0px 0px 4rem;
+      }
+
+      .#{$id}_cta {
+        display: flex;
+        font-size: 1.6rem;
+        outline: none;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.8rem;
+        cursor: pointer;
+        background-color: rgb(15, 114, 88);
+        height: 4.8rem;
+        border-radius: 4px;
+        color: rgb(255, 255, 255);
+        box-shadow: none;
+        border: none;
+        padding: 10px 24px;
+        cursor: pointer;
+
+        @media (max-width: 991px) {
+          border-radius: 0.4rem;
+          width: 100%;
+          margin: 16px 1.6rem 0;
+        }
+      }
+
+      .#{$id}_close {
+        min-width: 12rem;
+        border: none;
+        background: none;
+        height: 4rem;
+        color: rgb(15, 114, 88);
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.demoupUI-playimage {
+  @media (max-width: 991px) {
+    transform: translateY(24px);
+  }
+}

@@ -1,0 +1,112 @@
+@import "./variables";
+
+.#{$id} {
+  #site-overlay.active,
+  #site-overlay.mobileQuantityControl {
+    z-index: 11;
+  }
+  // STICKY NAV - Added on scroll past certain element, all css
+  .#{$id}_productMeta {
+    display: none;
+  }
+  &.#{$id}_stickyNav {
+    .#{$id}_overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+    }
+    .#{$id}_stickyWrapper {
+      position: fixed;
+      top: 0;
+      z-index: 1003;
+      width: 100%;
+      background: white;
+      left: 0;
+      padding: 12px 24px;
+      box-shadow: 0px 2px 24px #e1e1e1;
+      &.#{$id}_active {
+        box-shadow: none;
+        .#{$id}_overlay {
+          display: block;
+        }
+      }
+    }
+
+    .product-key-actions {
+      margin: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+      border-bottom: none;
+    }
+
+    .quantity-mobile-modal.active ~ .current-quantity {
+      &:after {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .product-quantity-container {
+      margin-right: 16px;
+      @media (max-width: 767px) {
+        flex: 1;
+      }
+    }
+
+    .product-quantity-mobile {
+      width: 100%;
+    }
+    .current-quantity .icon {
+      height: 45px;
+    }
+
+    #btn-basket {
+      width: auto !important;
+      font-size: 13px;
+      padding: 13px 18px;
+      line-height: 16px;
+      margin-top: 0;
+      flex: 1;
+    }
+
+    .#{$id}_productMeta {
+      display: block;
+      justify-content: space-between;
+      display: flex;
+      margin-bottom: 14px;
+
+      p {
+        margin: 0 0 2px;
+        font-size: 12px;
+      }
+
+      .#{$id}_productName {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .#{$id}_price {
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 12px;
+      }
+
+      .#{$id}_shade {
+        font-weight: bold;
+      }
+
+      .#{$id}_openSelector {
+        text-align: underline;
+        color: #702283;
+      }
+    }
+  }
+}

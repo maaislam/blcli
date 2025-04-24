@@ -1,0 +1,1166 @@
+@import './variables';
+
+ 
+@keyframes SGslide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes SGshake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateY(-50%) translateX(1000px);
+            transform: translateY(-50%) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(-50%) translateX(-0%);
+    transform: translateY(-50%) translateX(-0%);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-rightSideMobile {
+  0% {
+    -webkit-transform: translateY(0%) translateX(1000px);
+            transform: translateY(0%) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0%) translateX(-0%);
+    transform: translateY(0%) translateX(-0%);
+    opacity: 1;
+  }
+}
+
+@keyframes shake-bottom {
+    0%,
+    100% {
+            transform: rotate(90deg) translateY(-25px);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+            transform: translateX(-3px) rotate(90deg) translateY(-25px);
+    }
+    20%,
+    40%,
+    60% {
+
+              transform: translateX(3px) rotate(90deg) translateY(-25px);
+    }
+    80% {
+              transform: translateX(4.4px) rotate(90deg) translateY(-25px);
+    }
+    90% {
+              transform: translateX(-4.4px) rotate(90deg) translateY(-25px);
+    } 
+}
+
+@keyframes slide-in-rightRotated {
+  0% {
+    -webkit-transform: rotate(90deg) translateY(-1000px);
+            transform: rotate(90deg) translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(90deg) translateY(-25px);
+            transform: rotate(90deg) translateY(-25px);
+    opacity: 1;
+  }
+}
+
+.#{$id} {
+  &.#{$id}-noScroll {
+    overflow: hidden;
+  }
+
+  .js-live-chat-toggle {
+    display: none;
+  }
+  .js-live-chat-dialog.js-live-chat-dialog--open,
+  .js-live-chat-overlay.js-live-chat-overlay--visible {
+    display: none;
+  }
+
+  // side tab
+  .#{$id}-sideBar {
+    position: fixed;
+    right: -40px;
+    top: 50%;
+    background: #BCACD5;
+    cursor: pointer;
+    transform: rotate(90deg) translateY(-1000px);
+    padding: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    z-index: 99;
+    box-shadow: 6px 6px 11px -1px rgba(0, 0, 0, 0.13);
+    &.#{$id}-sideTabShow {
+      animation: slide-in-rightRotated 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+      &.#{$id}-animate {
+        animation: shake-bottom 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+      }
+      &.#{$id}-noanimate {
+        animation: unset;
+        right: -69px;
+        transform: rotate(90deg) translateX(0px);
+        left: auto;
+      }
+    }
+    span {
+      height: 25px;
+      width: 25px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/E99AC41F6E97825EFB5948DAE3D8A10E3CF315E28E44D6682117439C3C95ABF8.png?meta=/SG101---Live-Advice-Popup-Eng/talkIcon.png') no-repeat center;
+      display: inline-block;
+      transform: rotate(-90deg);
+      background-size: contain;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    p {
+      font-family: "Oxygen",sans-serif;
+      font-size: 15px;
+      margin-bottom: 0;
+      margin-top: 0;
+      line-height: 24px;
+      display: inline-block;
+      vertical-align: middle;
+      b {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .#{$id}-overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    z-index: 999;
+    cursor: pointer;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    &.#{$id}-overlayShow {
+      display: block;
+    }
+  }
+
+  // lightbox
+  .#{$id}-lightboxModal {
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    padding: 10px;
+    width: 90%;
+    transform: translate(-50%,-50%);
+    max-height: 600px;
+    z-index: 1000;
+    overflow: auto;
+    display: none;
+    h3 {
+      margin-top: 0;
+      color: black;
+    }
+    ul {
+      margin-top: 0;
+    }
+    &.#{$id}-modalShow {
+      display: block;
+    }
+    &.#{$id}-sideBox {
+      display: unset;
+      left: auto;
+      top: 52%;
+      @media(min-width: 767px) {
+        top: 50%;
+      }
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      transform: translateX(110%);
+      &.#{$id}-modalShow {
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+       
+      }
+      @media(min-width: 767px) {
+        max-width: 650px;
+      }
+    }
+    @media(min-width:767px) {
+      max-width: 650px;
+      padding: 20px;
+      max-height: 80%;
+    }
+    @media(min-width:1280px) {
+      max-width: 650px;
+      max-height: 80%;
+      padding: 20px;
+    }
+
+    .#{$id}-close {
+      position: absolute;
+      top: 8px;
+      cursor: pointer;
+      right: 8px;
+      height: 30px;
+      width: 30px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/88A6A759DB711425D8077A7D45E38C2EB7B2BFE1107BEF0C6003704AA33F65C8.png?meta=/SG101---Live-Advice-Popup-Eng/Cross.png') no-repeat center;
+      background-size: 15px;
+      z-index: 999;
+    }
+
+    .#{$id}-titleBox {
+      h3 {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        font-family: "Oxygen",sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        margin-bottom: 10px;
+        max-width: 70%;
+        margin-top: 0;
+        span {
+          width: 30px;
+          height: 30px;
+          background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/E99AC41F6E97825EFB5948DAE3D8A10E3CF315E28E44D6682117439C3C95ABF8.png?meta=/SG101---Live-Advice-Popup-Eng/talkIcon.png') no-repeat center;
+          background-size: contain;
+          margin-right: 10px;
+        }
+      }
+      p {
+        font-size: 15px;
+        line-height: 19px;
+        margin-bottom: 15px;
+      }
+      @media(min-width: 767px) {
+        h3 {
+          font-size: 26px;
+          font-weight: 700;
+          span{
+            height: 40px;
+            width: 40px;
+          }
+        }
+      }
+    }
+
+    // content blocks
+    .#{$id}-contentBlock {
+      display: flex;
+      flex-direction: column;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+      .#{$id}-blockTitle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+        span {
+          width: 30px;
+          height: 35px;
+          background-size: contain;
+          margin-right: 10px;
+          background-repeat: no-repeat;
+        }
+        h3 {
+          font-family: "Oxygen",sans-serif;
+          font-weight: 300;
+          font-size: 14px;
+          margin-bottom: 5px;
+          line-height: 21px;
+          width: 80%;
+          pointer-events: none;
+          b {
+            font-weight: 700;
+            font-size: 16px;
+          }
+        }
+        @media(min-width: 767px) {
+          max-width: 85%;
+        }
+      }
+
+      // bullet points
+      ul {
+        &.#{$id}-desktopPoints {
+          display: none;
+        }
+        padding-left: 0px;
+        list-style: none;
+        margin-bottom: 0;
+        li {
+          padding-left: 15px;
+          position: relative;
+          font-size: 14px;
+          font-weight: 400;
+          margin-bottom: 5px;
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: 6px;
+            width: 6px;
+            background: black;
+            border-radius: 20px;
+            top: 7px;
+          }
+        }
+        @media(min-width: 767px) {
+          &.#{$id}-desktopPoints {
+            display: block;
+          }
+          &.#{$id}-mobilePoints {
+            display: none;
+          }
+        }
+      }
+
+
+      // store appt
+      &.#{$id}-storeappointment {
+        display: none;
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/FD3EC4EF0EA9D0B9515153BCFE63175705D01E4F0E8D822AF6D892A4BD9114EA.jpg?meta=/SG101---Live-Advice-Popup-Eng/storebg.jpg');
+        background-position: left;
+        span {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/C0CE1B2BAEF37BEEF61F2ED084985F1275F6C48F3A58110BA913A47AE44BC619.png?meta=/SG101---Live-Advice-Popup-Eng/Open.png');
+        }
+        .#{$id}-button {
+          width: 250px;
+        }
+
+        @media(min-width: 767px) {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/30974906583DFB394E76E603DCEA075CE781E9F7D2FA3DA7FB6F87C0D8D8FFE4.jpg?meta=/SG101---Live-Advice-Popup-Eng/storedesktop.jpg');
+        }
+
+      }
+      &.#{$id}-appointment {
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/9F8EE0338D100B96243943FFF5AA3D2B0146126EB52B70D5F1248165009D4C35.jpg?meta=/SG101---Live-Advice-Popup-Eng/virtualappointment.jpg');
+        span {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D7C2DD66AB544461F01C6ED9539C515ED63821BE6C1268C848229F62DB19E038.png?meta=/SG101---Live-Advice-Popup-Eng/vaIcon.png');
+        }
+        b {
+          display: block;
+        }
+        @media(min-width: 767px) {
+          background-position: bottom;
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/0ABA46F008AB9CC803B5E9A38D03DE09B7D5F7108833884642DE16B8EB078872.jpg?meta=/SG101---Live-Advice-Popup-Eng/appointmentdesktop.jpg');
+        }
+      }
+      &.#{$id}-call {
+        //display: none;
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/0DA56B0231E30DD59817D55FAFE5417954994647A4C5AC11D94354395685712D.jpg?meta=/SG101---Live-Advice-Popup-Eng/livecall.jpg');
+        span {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D85A63348381540DDD409D1F3003790F484F269AC676CE9A2537E87D35EA1BFA.png?meta=/SG101---Live-Advice-Popup-Eng/MobileFilled.png');
+        }
+        @media(min-width: 767px) {
+          background-position: 65%;
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/147B60076E25E53EE9D4C3985C3F6BE42D024D664306E725E4BD0D557FFE54CA.jpg?meta=/SG101---Live-Advice-Popup-Eng/chatdesktop.jpg');
+        }
+      }
+      &.#{$id}-liveChat {
+        display: none;
+        background-color: #F3F3F7;
+        span {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/FC2D116AB7E82D49E0A25BC4B74654CEA229EAD924F7D90D96DA2C2E2986DACC.png?meta=/SG101---Live-Advice-Popup-Eng/chatIcon.png');
+        }
+      }
+    }
+
+
+    &.#{$id}-liveCallAvailable{
+      .#{$id}-innerContent {
+
+          .#{$id}-contentBlock {
+            &.#{$id}-call {
+              display: flex;
+            }
+          
+        }
+      }
+      &.#{$id}-firstShow {
+        .#{$id}-innerContent {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        .#{$id}-contentBlock {
+          &.#{$id}-call {
+            //display: none;
+          }
+        }
+      }
+    }
+
+    &.#{$id}-sideBox {
+      .#{$id}-innerContent{
+        .#{$id}-contentBlock {
+          &.#{$id}-storeappointment,
+          &.#{$id}-appointment {
+            display: block;
+          }
+        }
+       
+          @media(min-width: 767px) {
+            display: flex;
+            flex-wrap: wrap;
+            .#{$id}-contentBlock {
+              &.#{$id}-storeappointment {
+                width: 100%;
+                display: block;
+              }
+              &.#{$id}-appointment {
+                width: 60%;
+              }
+              &.#{$id}-call {
+                width: 100%;
+                
+              }
+              &.#{$id}-liveChat {
+                margin-right: 10px;
+                width: 38.3%;
+              }
+            } 
+          }
+      }
+      &.#{$id}-liveChatAvailable{
+        .#{$id}-contentBlock {
+         
+            &.#{$id}-liveChat {
+              display: block;
+            }
+            &.#{$id}-call {
+              display: block;
+            }
+          
+        }
+      }
+
+      @media(min-width: 767px) {
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // CTA
+  .#{$id}-button {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: "Oxygen",sans-serif;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 160px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    line-height: 22px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      background: white;
+      color: black;
+      border: 1px solid black;
+    }
+  }
+
+  // in grid
+  .#{$id}-inGrid {
+    background: #e8e8e8;
+    .#{$id}-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+    }
+    .#{$id}-wrapper {
+      padding: 10px;
+      text-align: center;
+      
+      .#{$id}-inGrid-content {
+        @media(min-width: 767px) {
+          max-width: 90%;
+          margin: 0 auto;
+        }
+      }
+      .#{$id}-icon {
+        height: 60px;
+        width: 60px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/891591C25193304A2FECE0C755F9473F32582DC7DFF8353382DE4651CC7A318B.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_VideoChat_3640259.png') no-repeat center;
+        background-size: contain;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      h3 {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+        @media(min-width: 375px) {
+          font-size: 20px;
+        }
+        @media(min-width: 767px) {
+          font-size: 22px;
+        }
+        @media(min-width: 1024px) {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      
+      }
+
+      p {
+        font-size: 13px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        line-height: 21px;
+        @media(min-width: 375px) {
+          font-size: 14px;
+        }
+        @media(min-width: 767px) {
+          font-size: 16px;
+        }
+        @media(min-width: 1024px) {
+          margin-bottom: 20px;
+        }
+        
+        
+      }
+
+      .#{$id}-button {
+        background: black;
+        border: 1px solid black;
+        display: block;
+        border-radius: 5px;
+        padding: 7px 10px;
+        width: 95%;
+        max-width: 200px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        color: white;
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        box-sizing: border-box;
+        cursor: pointer;
+        &:hover {
+          background: white;
+          border: 1px solid black;
+          color: black;
+        }
+        @media(min-width: 1024px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  // PDP block
+  .#{$id}-liveChatBanner {
+    position: relative;
+    &::before {
+      content: '';
+      background: #F3F4F7;
+      top: 10%;
+      height: 90%;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+    .#{$id}-mobileImage {
+      height: 200px;
+      width: 90%;
+      margin: 0 auto;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 10px;
+    }
+    .#{$id}-innerText {
+      position: relative;
+      text-align: center;
+      padding: 10px;
+      @media(min-width: 375px) {
+        padding: 15px;
+      }
+      h3 {
+        font-family: "Oxygen",sans-serif;
+        font-size: 20px;
+        line-height: 27px;
+        margin-bottom: 5px;
+      }
+      p {
+        font-family: "Oxygen",sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 15px;
+      }
+      .#{$id}-button {
+        margin: 0 auto;
+        margin-bottom: 15px;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+    @media(min-width: 767px) {
+      padding: 30px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 30px;
+      &::before {
+        display: none;
+      }
+      .#{$id}-mobileImage {
+        display: none;
+      }
+      .#{$id}-innerText {
+        background-color: rgba(255, 255, 255, 0.7);
+        width: 600px;
+        margin: 0 auto;
+        h3 {
+          font-size: 23px;
+        }
+        p {
+          font-size: 16px;
+          line-height: 25px;
+          max-width: 90%;
+          margin: 0 auto;
+          margin-bottom: 15px;
+        }
+        .#{$id}-button {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    @media(min-width: 767px) {
+      .#{$id}-innerText {
+        width: 700px;
+      }
+    }
+  }
+
+  &.hsamuel {
+    .#{$id}-liveChatBanner {
+      .#{$id}-innerText {
+        h3 {
+          font-family: "Montserrat",sans-serif;
+        }
+        p {
+          font-family: "Montserrat",sans-serif;
+        }
+        .#{$id}-button {
+          background: #A01D29;
+          border: 1px solid #A01D29;
+          color: white;
+          font-family: "Montserrat",sans-serif;
+          &:hover {
+            background: white;
+            color: #A01D29;
+          }
+        }
+      }
+    }
+    .#{$id}-titleBox {
+      h3 {
+        font-family: "Montserrat",sans-serif;
+        font-weight: 400;
+      }
+    }
+    .#{$id}-sideBar {
+      background: #A01D29;
+      p {
+        color: white;
+        font-family: "Montserrat",sans-serif;
+        line-height: 18px;
+      }
+      span {
+        filter: brightness(0) invert(1);
+      }
+    }
+    .#{$id}-contentBlock {
+
+      &.#{$id}-storeappointment {
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/28231868F139CC0C1FE21E21A38ADD4685EE0196CBFE2A4FFCF142B1ABBB4891.jpg?meta=/SG101---Live-Advice-Popup-Eng/hsmobbg.jpg');
+        background-position: left;
+        span {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/C0CE1B2BAEF37BEEF61F2ED084985F1275F6C48F3A58110BA913A47AE44BC619.png?meta=/SG101---Live-Advice-Popup-Eng/Open.png');
+        }
+        .#{$id}-button {
+          width: 250px;
+        }
+
+        @media(min-width: 767px) {
+          background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7FD5CA0CC0743A7122B28FFF54F8C2B4D0BE7648F4F0647D7C97623A0D75A19E.jpg?meta=/SG101---Live-Advice-Popup-Eng/hsbg.jpg');
+        }
+
+      }
+      
+      .#{$id}-blockTitle {
+        h3{
+          font-family: "Montserrat",sans-serif;
+          font-weight: 500;
+          b {
+            font-weight: 800;
+          }
+        }
+      }
+
+
+     
+      // HS-specific styles
+      .#{$id}-button {
+        background: #A01D29;
+        border: 1px solid #A01D29;
+        color: white;
+        &:hover {
+          border: 1px solid #A01D29;
+        }
+      }
+    }
+
+    .#{$id}-inGrid {
+      h3 {
+        color: black;
+      }
+      .#{$id}-button {
+        background: #A01D29;
+        border: 1px solid  #A01D29;
+        font-family: "Montserrat",sans-serif;
+        &:hover {
+          border: 1px solid  #A01D29;
+        }
+      }
+    }
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+
+  &.#{$id}-2 {
+    .#{$id}-sideBar {
+      background: black;
+      p {
+        color: white;
+      }
+      span {
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/28CB6755633CAE58CC7A3EF74B864ED44EE0EA5B4DF3FD50C574EA51E3E5B113.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_customerservice_1990950.png');
+        transform: rotate(0deg);
+      }
+      @media(max-width: 767px) {
+        transform: rotate(0deg);
+        animation: unset;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        width: 55%;
+        max-width: 150px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        &.#{$id}-sideTabShow {
+          animation: SGslide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          bottom: 0;
+          top: auto;
+          left: 0;
+          transform: translateY(1000px);
+          &.#{$id}-animate {
+              animation: SGshake-horizontal 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+              bottom: 0;
+              top: auto;
+              left: 0;
+              transform: translateX(0);
+          }
+          &.#{$id}-noanimate {
+            animation: unset;
+            bottom: 0;
+            top: auto;
+            left: 0;
+            transform: unset;
+          }
+        }
+      }
+
+    }
+
+    // slide out tab - restyle
+    .#{$id}-lightboxModal {
+      .#{$id}-close {
+        right: 2px;
+        top: 5px;
+        background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/F34A2DAB5FF08FEF0E0681DCA1A12388A1FD36AAA34BC8DB95DD9557AEAFE966.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_Close_796958.png');
+      }
+      .#{$id}-titleBox {
+        text-align: center;
+        margin-top: 0px;
+        padding: 10px;
+        h3 {
+          max-width: 100%;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 21px;
+          margin-bottom: 0px;
+        }
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+
+      .#{$id}-innerContent {
+        .#{$id}-contentBlock {
+          background: #F6F3F3;
+          border-radius: 8px;
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 15px;
+          .#{$id}-icon {
+            height: 50px;
+            width: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 15px;
+            margin-top: 5px;
+          }
+          .#{$id}-button{
+            border-radius: 5px;
+          }
+          .#{$id}-blockText {
+            width: 80%;
+            margin-top: 0;
+            h4 {
+              margin-bottom: 0;
+              font-size: 15px;
+              margin-top: 5px;
+              @media(min-width: 375px) {
+                font-size: 16px;
+              }
+            }
+            p {
+              margin-bottom: 0;
+              font-size: 14px;
+              margin-top: 0;
+            }
+            .#{$id}-desktopPoints {
+              display: none;
+            }
+          }
+          &.#{$id}-storeappointment {
+            display: none;
+            .#{$id}-button {
+              width: 160px;
+            }
+            .#{$id}-icon {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/A68BDD1EC3CAD9CF85D1B5A6A8809C6D35B9D3CC03C2E64FFDECC26967FC8088.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_Store_2762616.png');
+            }
+          }
+
+          &.#{$id}-call {
+            margin-bottom: 5px;
+            .#{$id}-icon {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/6AD713E16040F180A834C8744DC595373173FDABDAC1DCDF45B449811E1E6730.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_mobilechat_2871868.png');
+              height: 70px;
+            }
+          }
+          &.#{$id}-liveChat {
+            display: none;
+            .#{$id}-icon {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/C1D6F274F74BC75DA5A96EB76B326EB517491B938B7DEF4A9EC94E22ADAF2D9A.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_message_965431.png');
+            }
+          }
+          &.#{$id}-appointment {
+            .#{$id}-icon {
+              background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/891591C25193304A2FECE0C755F9473F32582DC7DFF8353382DE4651CC7A318B.png?meta=/SG101---Live-Advice-Popup-Eng-New/noun_VideoChat_3640259.png');
+            }
+          }          
+        }
+      }
+
+      &.#{$id}-firstShow {
+        @media(min-width: 767px) {
+          max-width: 550px;
+          .#{$id}-mobileText {
+            max-width: 80%;
+            margin: 0 auto;
+          }
+          .#{$id}-innerContent {
+            flex-direction: row;
+            justify-content: center;
+            
+            .#{$id}-contentBlock {
+              width: 40%;
+              margin: 10px;
+              flex-direction: column;
+              text-align: center;
+              align-content: center;
+              align-items: center;
+              .#{$id}-icon {
+                margin: 0 auto;
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+                margin-top: 10px;
+              }
+              .#{$id}-blockText {
+                width: auto;
+                h4 {
+                  font-size: 16px;
+                  line-height: 20px;
+                  margin-bottom: 10px;
+                  height: auto;
+                }
+              }
+              .#{$id}-mobilePoints {
+                margin-bottom: auto;
+                height: 80px;
+                p {
+                  display: flex;
+                  font-size: 13px;
+                }
+              }
+              .#{$id}-button {
+                margin: 0 auto;
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+        @media(min-width: 1024px) {
+          .#{$id}-innerContent {
+            .#{$id}-contentBlock {
+              .#{$id}-mobilePoints {
+                display: none;
+              }
+              .#{$id}-desktopPoints {
+                display: flex;
+                height: 120px;
+              }
+            }
+          }
+        }
+        
+      }
+
+      &.#{$id}-sideBox {
+        width: auto;
+        @media(max-width: 767px) {
+          transform: translateX(110%) translateY(0);
+          height: 100vh;
+          max-height: 100vh;
+          top: 0;
+          &.#{$id}-modalShow {
+            animation: slide-in-rightSideMobile 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          }
+        }
+        @media(min-width:767px) {
+          max-width: 750px;
+          .#{$id}-mobileText {
+            display: block;
+            text-align: center;
+            max-width: 80%;
+            margin: 0 auto;
+          }
+        }
+
+        &.#{$id}-liveChatAvailable {
+          .#{$id}-contentBlock {
+            display: flex;
+          }
+        }
+
+        .#{$id}-contentBlock {
+          &.#{$id}-storeappointment {
+            display: flex;
+          }
+          &.#{$id}-liveChat {
+            display: flex;
+          }
+          &.#{$id}-liveCall {
+            margin-bottom: 15px;
+          }
+        }
+          
+        .#{$id}-innerContent {
+          @media(min-width: 767px) {
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
+            .#{$id}-contentBlock {
+              width: 25%;
+              margin: 10px;
+              flex-direction: column;
+              text-align: center;
+              align-content: center;
+              align-items: center;
+              .#{$id}-icon {
+                margin: 0 auto;
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+              }
+              .#{$id}-blockText {
+                width: auto;
+                h4 {
+                  font-size: 16px;
+                  line-height: 20px;
+                  margin-bottom: 10px;
+                  height: 40px;
+                }
+              }
+              .#{$id}-mobilePoints {
+                margin-bottom: auto;
+                height: 70px;
+                p {
+                  display: flex;
+                  font-size: 13px;
+                }
+              }
+              .#{$id}-button {
+                width: auto;
+                font-size: 13px;
+                align-self: flex-end;
+              }
+            }
+          }
+        }
+
+        @media(min-width: 1024px) {
+          max-width: 980px;
+          .#{$id}-close {
+           background-size: 30px;
+           top: 15px;
+           right: 15px;
+          }
+          .#{$id}-titleBox {
+            h3 {
+              font-size: 25px;
+            }
+            .#{$id}-mobileText {
+              max-width: 400px;
+              margin: 0 auto;
+              margin-bottom: 10px;
+            }
+          }
+          .#{$id}-innerContent {
+            .#{$id}-contentBlock {
+              .#{$id}-icon {
+                height: 60px;
+                width: 60px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+              }
+              .#{$id}-blockText {
+                h4 {
+                  height: auto;
+                }
+
+                .#{$id}-mobilePoints {
+                  display: none;
+                }
+                .#{$id}-desktopPoints {
+                  display: flex;
+                  height: 110px;
+                  p {
+                    display: flex;
+                    line-height: 21px;
+                    max-width: 90%;
+                    margin: 0 auto;
+                  }
+                }
+                .#{$id}-button {
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.hsamuel {
+      .#{$id}-sideBar {
+        background: #A01D29;
+      }
+      .#{$id}-titleBox {
+        .#{$id}-mobileText {
+          font-family: "Montserrat",sans-serif;
+          line-height: 20px;
+          font-weight: 500;
+          color: #636161;
+        }
+      }
+      .#{$id}-contentBlock {
+        .#{$id}-blockText {
+          h4 {
+            font-family: "Montserrat",sans-serif;
+            margin-bottom: 5px !important;
+          }
+          p {
+            font-family: "Montserrat",sans-serif;
+            color: #636161;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  
+}

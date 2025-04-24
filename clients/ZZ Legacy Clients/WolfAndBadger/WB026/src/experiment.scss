@@ -1,0 +1,484 @@
+@import "./variables";
+
+.#{$id} {
+  // Experiment styles.
+  .#{$id}_container {
+    margin-top: -21px;
+    * {
+      font-family: "futura-pt", sans-serif;
+    }
+    .#{$id}_fields {
+      display: none;
+      &.#{$id}_open {
+        display: block;
+      }
+    }
+
+    .#{$id}_header {
+      background: url("https://dd6zx4ibq538k.cloudfront.net/static/images/4347/75c438ef1d4ad9d3be11084f326abf8c_750_370.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50%;
+      text-align: center;
+      margin-right: -10px;
+      margin-left: -10px;
+
+      .#{$id}_content {
+        padding: 30px 24px;
+      }
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 32px;
+      margin: 0 auto 16px;
+      color: white;
+    }
+
+    .#{$id}_start {
+      background: white;
+      padding: 16px 24px;
+      font-size: 12px;
+      font-weight: 500;
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    .#{$id}_introText {
+      display: none;
+      &.#{$id}_open {
+        color: white;
+        display: block;
+      }
+    }
+
+    .#{$id}_label {
+      padding: 14px 12px;
+      text-align: left;
+      text-transform: uppercase;
+      background: #231f20;
+      color: white;
+      margin: 12px -10px;
+    }
+
+    .#{$id}_priceWrapper,
+    .#{$id}_colours {
+      .#{$id}_content {
+        display: none;
+      }
+    }
+
+    .#{$id}_open {
+      &.#{$id}_priceWrapper,
+      &.#{$id}_colours {
+        .#{$id}_content {
+          display: block;
+        }
+        .#{$id}_label {
+          color: #231f20;
+          background-color: white;
+
+          padding-bottom: 4px;
+        }
+      }
+
+      .#{$id}_categoriesWrapper {
+        .#{$id}_label {
+          color: #231f20;
+          background-color: white;
+          padding-bottom: 4px;
+          padding-top: 4px;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .#{$id}_priceWrapper {
+      .#{$id}_slider {
+        width: calc(100% - 36px);
+        margin: 0 auto;
+      }
+
+      .#{$id}_prices {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 16px;
+        margin-bottom: 24px;
+      }
+
+      .#{$id}_sliderUpper {
+        padding: 8px 12px;
+        border: 1px solid;
+        margin-right: 18px;
+      }
+
+      .#{$id}_sliderLower {
+        padding: 8px 12px;
+        border: 1px solid;
+        margin-left: 18px;
+      }
+    }
+
+    .#{$id}_categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .#{$id}_colours {
+      ul {
+        list-style: none;
+        margin-left: 12px;
+      }
+
+      li {
+        margin-bottom: 8px;
+        cursor: pointer;
+
+        &.#{$id}_active {
+          .#{$id}_checkbox::after {
+            margin-top: 1px;
+            display: block;
+            content: url("https://dd6zx4ibq538k.cloudfront.net/static/images/4347/74050f2e10722f8135ef4d2f86318a12_14_12.png");
+          }
+        }
+      }
+
+      .#{$id}_checkbox {
+        width: 20px;
+        height: 20px;
+        border: 1px solid;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        text-align: center;
+      }
+
+      .#{$id}_checkboxLabel {
+        font-weight: 500;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 1;
+      }
+    }
+
+    .#{$id}_next,
+    .#{$id}_filter,
+    .#{$id}_category {
+      padding: 14px 0;
+      border: 1px solid;
+      margin-bottom: 8px;
+      width: calc(50% - 6px);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    // Black button
+    .#{$id}_next,
+    .#{$id}_filter,
+    .#{$id}_category.#{$id}_active {
+      background: #231f20;
+      color: white;
+    }
+
+    .#{$id}_filter {
+      display: none;
+      margin: 24px auto;
+      &.#{$id}_active {
+        display: block;
+      }
+    }
+
+    .#{$id}_next {
+      margin: 0 auto;
+    }
+
+    .#{$id}_slider {
+      margin-bottom: 16px;
+    }
+  }
+
+  // Nouislider required styles
+  /* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+  .noUi-target,
+  .noUi-target * {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .noUi-target {
+    position: relative;
+  }
+  .noUi-base,
+  .noUi-connects {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  /* Wrapper for all connect elements.
+ */
+  .noUi-connects {
+    overflow: hidden;
+    z-index: 0;
+  }
+  .noUi-connect,
+  .noUi-origin {
+    will-change: transform;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform-style: preserve-3d;
+    transform-origin: 0 0;
+    transform-style: flat;
+  }
+  .noUi-connect {
+    height: 100%;
+    width: 100%;
+  }
+  .noUi-origin {
+    height: 10%;
+    width: 10%;
+  }
+  /* Offset direction
+ */
+  .noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+    left: 0;
+    right: auto;
+  }
+  /* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+  .noUi-vertical .noUi-origin {
+    width: 0;
+  }
+  .noUi-horizontal .noUi-origin {
+    height: 0;
+  }
+  .noUi-handle {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+  }
+  .noUi-touch-area {
+    height: 100%;
+    width: 100%;
+  }
+  .noUi-state-tap .noUi-connect,
+  .noUi-state-tap .noUi-origin {
+    -webkit-transition: transform 0.3s;
+    transition: transform 0.3s;
+  }
+  .noUi-state-drag * {
+    cursor: inherit !important;
+  }
+  /* Slider size and handle placement;
+ */
+  .noUi-horizontal {
+    height: 18px;
+  }
+  .noUi-horizontal .noUi-handle {
+    right: -9px;
+    width: 18px;
+    height: 18px;
+    background: black;
+    border-radius: 30px;
+    border: none;
+    box-shadow: none;
+    top: -8px;
+  }
+  .noUi-vertical {
+    width: 18px;
+  }
+  .noUi-vertical .noUi-handle {
+    width: 28px;
+    height: 34px;
+    right: -6px;
+    top: -17px;
+  }
+  .noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+    left: -17px;
+    right: auto;
+  }
+  /* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+  .noUi-target {
+    height: 2px;
+    background: #cfcfcf;
+  }
+  .noUi-connects {
+    border-radius: 3px;
+  }
+  .noUi-connect {
+    background: #231f20;
+  }
+  /* Handles and cursors;
+ */
+  .noUi-draggable {
+    cursor: ew-resize;
+  }
+  .noUi-vertical .noUi-draggable {
+    cursor: ns-resize;
+  }
+  .noUi-handle {
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    background: #fff;
+    cursor: default;
+  }
+
+  /* Disabled state;
+ */
+  [disabled] .noUi-connect {
+    background: #b8b8b8;
+  }
+  [disabled].noUi-target,
+  [disabled].noUi-handle,
+  [disabled] .noUi-handle {
+    cursor: not-allowed;
+  }
+  /* Base;
+ *
+ */
+  .noUi-pips,
+  .noUi-pips * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .noUi-pips {
+    position: absolute;
+    color: #999;
+  }
+  /* Values;
+ *
+ */
+  .noUi-value {
+    position: absolute;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .noUi-value-sub {
+    color: #ccc;
+    font-size: 10px;
+  }
+  /* Markings;
+ *
+ */
+  .noUi-marker {
+    position: absolute;
+    background: #ccc;
+  }
+  .noUi-marker-sub {
+    background: #aaa;
+  }
+  .noUi-marker-large {
+    background: #aaa;
+  }
+  /* Horizontal layout;
+ *
+ */
+  .noUi-pips-horizontal {
+    padding: 10px 0;
+    height: 80px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+  .noUi-value-horizontal {
+    -webkit-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+  }
+  .noUi-rtl .noUi-value-horizontal {
+    -webkit-transform: translate(50%, 50%);
+    transform: translate(50%, 50%);
+  }
+  .noUi-marker-horizontal.noUi-marker {
+    margin-left: -1px;
+    width: 2px;
+    height: 5px;
+  }
+  .noUi-marker-horizontal.noUi-marker-sub {
+    height: 10px;
+  }
+  .noUi-marker-horizontal.noUi-marker-large {
+    height: 15px;
+  }
+  /* Vertical layout;
+ *
+ */
+  .noUi-pips-vertical {
+    padding: 0 10px;
+    height: 100%;
+    top: 0;
+    left: 100%;
+  }
+  .noUi-value-vertical {
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding-left: 25px;
+  }
+  .noUi-rtl .noUi-value-vertical {
+    -webkit-transform: translate(0, 50%);
+    transform: translate(0, 50%);
+  }
+  .noUi-marker-vertical.noUi-marker {
+    width: 5px;
+    height: 2px;
+    margin-top: -1px;
+  }
+  .noUi-marker-vertical.noUi-marker-sub {
+    width: 10px;
+  }
+  .noUi-marker-vertical.noUi-marker-large {
+    width: 15px;
+  }
+  .noUi-tooltip {
+    display: block;
+    position: absolute;
+    border: 1px solid #231f20;
+    background: #fff;
+    color: #231f20;
+    padding: 8px 14px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .noUi-horizontal .noUi-tooltip {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    left: 50%;
+    top: 150%;
+  }
+  .noUi-vertical .noUi-tooltip {
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 120%;
+  }
+  .noUi-horizontal .noUi-origin > .noUi-tooltip {
+    -webkit-transform: translate(50%, 0);
+    transform: translate(50%, 0);
+    left: auto;
+    bottom: 10px;
+  }
+  .noUi-vertical .noUi-origin > .noUi-tooltip {
+    -webkit-transform: translate(0, -18px);
+    transform: translate(0, -18px);
+    top: auto;
+    right: 28px;
+  }
+}

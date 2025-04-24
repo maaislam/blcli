@@ -1,0 +1,449 @@
+@import './variables';
+
+.ME294-payment__wrapper {
+  .page-header {
+    display: none !important;
+  }
+}
+
+#maincontent {
+  /* PAYMENT PAGE */
+  &.ME294-payment {
+    z-index: 9;
+
+    h3.checkout-title {
+      display: none;
+    }
+
+    #checkout {
+      .payment-method {
+        padding: 0 20px;
+      }
+      .payment-group {
+        padding: 0 20px;
+      }
+      .payment-method-title.field.choice {
+        border: 1px solid #000;
+        border-radius: 6px;
+        
+        width: 100%;
+        @media screen and (max-width: 767px){
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+        }
+        @media screen and (min-width: 768px){
+          display: flex;
+          flex-direction: row;
+          width: 360px !important;
+          align-items: baseline;
+          margin: unset;
+          justify-content: space-between;
+        }
+        
+
+        label {
+          font-size: 14px;
+        }
+        .ME294-credit-card-types {
+          margin: 0 0 0 5px;
+
+          li {
+            width: 22px;
+          }
+        }
+      }
+
+      .payment-method-content {
+        padding: 0 !important;
+      }
+      #braintree_cc_number {
+        border-color: #000 !important;
+        @media screen and (max-width: 360px) {
+          // width: 75%;
+          width: 66%;
+        }
+        
+        input {
+          color: #000;
+          opacity: 1;
+          font-size: 15px;
+        }
+      }
+      
+      .billing-address-same-as-shipping-block {
+        display: flex !important;
+        flex-direction: row  !important;
+        background-color: #F4F2F2  !important;
+        padding: 20px 5px 10px 10px  !important;
+        // margin: 0 0 0 20px  !important;
+        max-width: 380px;
+
+        @media screen and (max-width: 767px) {
+          width: 90%;
+          // margin: auto;
+        }
+        input {
+          margin-right: 20px;
+        }
+      }
+
+      .payment-method.payment-method-braintree {
+        padding: 0;
+        .payment-method-title.field {
+          padding: 20px 10px;
+
+          label {
+            padding-bottom: 0;
+            font-weight: 300;
+          }
+        }
+      }
+      /////////////////////////
+
+      // MOBILE
+      @media screen and (max-width: 767px) {
+        background-color: #FFF;
+        color: #000;
+        padding: 20px;
+
+
+        // --- Card Details
+        #payment_form_braintree {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          label {
+            text-align: left;
+            width: 100%;
+          }
+          .field.number {
+            .credit-card-types {
+              display: none;
+            }
+          }
+        }
+
+        .step-title {
+          color: #000;
+          border: none;
+          text-transform: uppercase;
+          padding-bottom: 20px;
+          padding-left: 20px !important;
+          font-size: 22px;
+
+          // border-bottom: 1px solid #d1d1d1;
+          padding: 11px 44px 11px 0;
+          padding: 11px 0 11px 0 !important;
+          
+          strong {
+            font-size: 22px;
+            font-weight: 600 !important;
+          }
+          
+        }
+
+        .billing-address-details {
+          font-weight: 300;
+          padding-left: 0;
+
+          h5 {
+            color: #000;
+            font-size: 20px;
+          }
+        }
+      }
+      // DESKTOP
+      @media screen and (min-width: 768px) {
+        // --- Payment Details Box
+        .opc-wrapper {
+          margin-top: 46px;
+          background-color: #FFF;
+          color: #000;
+          padding: 20px;
+
+          width: 63.666667%;
+
+          .step-title {
+            color: #000;
+            border: none;
+
+            text-transform: uppercase;
+            &.details {
+              padding-bottom: 10px;
+            }
+            padding-bottom: 20px;
+          }
+
+          .actions-toolbar {
+            margin: 0px;
+            margin-right: 25.8%;
+            .primary {
+              width: 100%;
+            }
+          }
+
+
+          .billing-address-details {
+            padding-left: 4px;
+            font-weight: 300;
+
+            h5 {
+              color: #000;
+              font-size: 20px;
+            }
+          }
+          // --- Card Details
+          .payment-method-content {
+            padding-left: 4px;
+          }
+          #payment_form_braintree {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            @media screen and (min-width: 768px) {
+              label {
+                text-align: left;
+                width: 100%;
+              }
+            }
+            .field.number {
+              .credit-card-types {
+                display: none;
+              }
+            }
+          }
+        }
+
+        // --- Order Summary Box
+        .opc-block-summary {
+          background-color: #FFF !important;
+          color: #000;
+
+          span.title, .summary-currency-notice {
+            display: none;
+          }
+
+          .product-item-details {
+            .toggle {
+              display: none !important;
+            }
+            .content {
+              display: block !important;
+            }
+          }
+
+          .title {
+            padding-top: 0;
+          }
+          .step-title.ME294-cart-summary {
+            font-size: 16px !important;
+            strong {
+              color: #000;
+              border: none;
+
+              text-transform: uppercase;
+              padding-bottom: 20px;
+
+              font-size: 22px;
+              font-weight: 600;
+            }
+          }
+
+        }
+
+        .ME294-opc-block-summary {
+          background-color: #FFF !important;
+          padding-top: 10px;
+          padding-bottom: 30px;
+
+          .step-title {
+            color: #000;
+            border: none;
+            text-transform: uppercase;
+            padding-bottom: 20px;
+            font-size: 22px;
+
+            border-bottom: 1px solid #d1d1d1;
+            padding: 11px 44px 11px 0;
+            
+            strong {
+              font-size: 22px;
+              font-weight: 600 !important;
+            }
+            
+          }
+
+          // --- Shipping
+          .shipping-information {
+            padding-top: 10px;
+
+            .ship-to {
+              border-bottom: 1px solid #d1d1d1;
+            }
+
+            .shipping-information-title {
+              border: none;
+              margin: 0;
+              padding: 0;
+              span {
+                color: #000;
+                font-size: 18px;
+                font-weight: 600;
+                
+              }
+
+              .action-edit:before {
+                content: 'Edit';
+                font-family: 'Lato','Helvetica','Arial',sans-serif;
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: 400;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+                text-decoration: underline;
+                font-size: 14px;
+              }
+            }
+            .shipping-information-content {
+              font-weight: 300;
+            }
+            // --- Hide Shipping Method
+            .ship-via {
+              display: none;
+            }
+          }
+
+          // --- Table Totals
+          table.data.table.table-totals {
+            th {
+              font-weight: 300;
+            }
+            th {
+              padding-left: 0;
+            }
+
+            tr.totals.shipping.incl {
+              th, td {
+                padding-bottom: 30px;
+              }
+            }
+            tr {
+              td.amount {
+                padding-left: 30px;
+                text-align: right;
+              }
+            }
+
+            tr.grand.totals.incl {
+              border-top: 1px solid #d1d1d1;
+
+              strong {
+                font-size: 24px;
+                font-weight: 700;
+                color: #000;
+              }
+
+              th, td {
+                padding-top: 30px;
+              }
+              td {
+                color: #000;
+              }
+            }
+            // --- Hide Taxes
+            tr.totals-tax, tr.grand.totals.excl {
+              display: none;
+            }
+          }
+        }
+
+      }
+
+      // --- BRAINTREE FORM
+      form#co-transparent-form-braintree {
+        fieldset .field div {
+          border-color: #000 !important;
+
+          select, textarea {
+            color: #000 !important;
+          }
+        }
+
+        .braintree-credit-card-selected {
+          width: 38px;
+          height: 38px;
+          top: 45%;
+          transform: translateY(-50%);
+        }
+        input {
+          font-size: 12px !important;
+          color: red !important;
+        }
+
+        .field-tooltip .field-tooltip-content:before, .field-tooltip .field-tooltip-content:after {
+          left: 11px;
+          right: auto;
+        }
+      }
+
+
+      // --- Form Labels
+      .opc-wrapper {
+        .field {
+          display: flex;
+          flex-direction: column;
+          text-align: left !important;
+
+          label, legend {
+            text-align: left !important;
+            padding-bottom: 10px;
+            font-weight: 500;
+            color: #000;
+
+            &:after {
+              margin: 0 !important;
+            }
+          }
+          span.note {
+            &:before {
+              content: unset !important;
+            }
+            font-weight: 300;
+            font-size: 14px;
+            font-style: italic;
+          }
+
+
+        }
+      }
+    }
+
+    .minicart-items {
+      strong.product-item-name {
+        font-weight: 600;
+      }
+      .subtotal {
+        span {
+          font-weight: 700;
+        }
+      }
+      .details-qty {
+        display: none;
+      }
+      .product.options {
+        dt.label {
+          font-weight: 500;
+        }
+        dd.values {
+          font-weight: 300;
+        }
+      }
+    }
+    // --- All Links
+    a {
+      color: #000 !important;
+    }
+  } /* END OF PAYMENT PAGE */
+}

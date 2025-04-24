@@ -1,0 +1,71 @@
+@import './variables';
+
+.#{$id} {
+  .SD-hide, .SortQtyName {
+    display: none;
+  }
+  .SD-hide-imp {
+    display: none !important;
+  }
+
+  .productFilterList {
+    transition: all ease-in-out .2s;
+  }
+  .SD022-toggle {
+    .productFilterList {
+      max-height: 0;
+      min-height: 0;
+    }
+    #divBrandSearch input {
+      opacity: 0;
+      max-height: 0;
+      min-height: 0;
+    }
+  }
+
+
+  .SD-showAll {
+    .SD-hide {
+      display: block;
+    }
+  }
+
+
+  .SD-show-more {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 0;
+  }
+
+  &.SD022-2 {
+    input#txtBrandSearch { // Highlight
+      -webkit-transition: all 0.30s ease-in-out;
+      -moz-transition: all 0.30s ease-in-out;
+      -ms-transition: all 0.30s ease-in-out;
+      -o-transition: all 0.30s ease-in-out;
+      outline: none;
+       
+      &:focus {
+        box-shadow: -5px 0 7px rgba(238, 52, 37, .75);
+        border-color: rgba(238, 52, 37, 1);
+      }
+    }
+
+    .productFilterList {
+      position: relative;
+      // padding-bottom: 50px;
+
+      button.SD-show-more {
+        position: absolute;
+        bottom: 0; right: 0;
+        margin: auto;
+        width: 100%;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,112 @@
+@import '../../variables';
+
+$component: '#{$id}_PDPCtas';
+
+.#{$id} {
+
+  .#{$component} {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .#{$component}quantityDiv {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .#{$component}AddToCart {
+    margin-bottom: 0 !important;
+    display: inline-flex;
+    justify-content: center;
+    height: 5.5rem;
+    width: 100%;
+    text-transform: uppercase;
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  .#{$component}quantity {
+    width: 7.5rem;
+    height: 5.5rem;
+    font-size: 1.8rem;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 4px;
+    border: solid .115rem #ccc;
+    vertical-align: top;
+    font-family: "Montserrat-Bold", "Montserrat", sans-serif;
+    font-weight: bold;
+    margin-left: .7rem;
+    margin-right: .7rem;
+    padding: 0 1.75rem;
+
+    span {
+      align-self: center;
+    }
+  }
+
+  .#{$component}QtyIncrease,
+  .#{$component}QtyDecrease {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 4px;
+    border: solid .115rem #ccc;
+    width: 5.5rem;
+    height: 5.5rem;
+
+    svg {
+      height: 100%;
+    }
+
+    [stroke-linecap="square"] {
+      stroke: #7F28C4;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component} {
+      justify-content: center;
+      margin-left: 0;
+    }
+
+    .#{$component}AddToCart {
+      width: 100% !important;
+      height: 4rem;
+      margin-left: 19px;
+
+      @media(max-width: 360px) {
+        margin-left: 14px;
+      }
+
+      .button-add-to-cart-content {
+        font-size: 16px;
+        line-height: 18px;
+
+        @media(max-width: 360px) {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+
+      svg-icon {
+        display: none;
+      }
+    }
+
+    .#{$component}QtyIncrease,
+    .#{$component}QtyDecrease,
+    .#{$component}quantity {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    .#{$component}quantity {
+      font-size: 16px;
+    }
+  }
+}

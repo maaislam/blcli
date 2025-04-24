@@ -1,0 +1,566 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    [data-field="cardNumber"] {
+        &[data-valid="false"] {
+            #txtCardNo {
+                border: 1px solid red;
+                box-shadow: 0 0 5px 0 red;
+            }
+
+        }
+    }
+    @at-root #{&}_fieldError {
+        font-size: 13px;
+        color: red;
+        display: block;
+        margin-top: 6px;
+    }
+
+    .main-content {
+        .inner-content {
+            display: none;
+        }
+
+        .content {
+            .left {
+                width: 60% !important;
+
+                #pnlPayment {
+                    padding: 0 get-value($settings, 'base', 'gutter');
+                }
+            }
+
+            .right {
+                width: calc(40% - 20px) !important;
+                float: left !important;
+                padding: 0 10px;
+
+                .summaryWrap {
+                    padding: 0 get-value($settings, 'base', 'gutter');
+                }
+            }
+        }
+    }
+
+    .box-with-border.#{$ID}_box-with-border {
+        margin: 12px 0;
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+        }
+    }
+
+    .box-with-border.purple {
+        margin-bottom: 0;
+    }
+
+    #Booking .content input[type=text],
+    #Booking .content input[type=email],
+    #Booking .content select {
+        height: 40px;
+    }
+
+    #Booking .content .field-row input[type=email],
+    #Booking .content .field-row input[type=text],
+    #Booking .content .field-row-wide input[type=email],
+    #Booking .content .field-row-wide input[type=text] {
+        margin-bottom: 0 !important;
+    }
+
+    #Booking .content .right .side-block:not(:last-child) {
+        border-bottom: 2px dashed #fff;
+        padding-bottom: 12px;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    #Booking .content .right .side-block:last-child {
+        &>strong {
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 16);
+            margin-bottom: 12px;
+        }
+
+        small {
+            display: block;
+            padding-top: 12px;
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #fff;
+        }
+    }
+
+    #Booking .content .right .side-days {
+        border-bottom: 2px solid #fff;
+        padding-bottom: 12px
+    }
+
+    footer .card-type .right img {
+        display: none;
+    }
+
+    .field-row-wide {
+        label {
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+    }
+
+    @at-root #{&}_img {
+        width: 100%;
+        height: auto;
+
+        @at-root #{&}Wrap {
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+    }
+
+    @at-root #{&}_form {
+        content: '';
+
+        .required {
+            display: block;
+            @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3);
+            padding-bottom: 24px;
+            font-weight: bold;
+
+            sup {
+                margin-right: 5px;
+                color: red;
+            }
+        }
+
+        @at-root #{&}__block {
+            label {
+                sup {
+                    margin-left: 3px;
+                    @include calc-rem(font-size, get-value($settings, 'base', 'font-size') - 3);
+                    color: red;
+                }
+            }
+        }
+    }
+    .txtCardNo-wrap{
+        position:relative;
+        &[data-validation]{
+            &:after{
+                content: '';
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+                left:295px;
+                width:20px;
+                height:20px;
+                background-position: center;
+                background-size:contain;
+                background-repeat: no-repeat;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAVFBMVEUAAABqw1lqwllqv1VqwllqxFlqwllqwllpwllrw1hqxlhqwVlrwllpwVhrw1trwllqwllqwllqw1lqwVpqwVhrwllqv1VmzE1qwlhqw1hrwFlqwlmz5B0eAAAAG3RSTlMA2KQX8zzoaIxjHczVTkz5+MC+tnRwDAqwNDlCF33PAAABiklEQVRYw6WX626DMAyFDQ0h5X6n23n/95w6TfIgDXHw9xPpOy02SmwKsbWry6fMmGzK3dpulERVzgMODHNZSe19qfGRetkl/tMiiH1G9a7BJU13/e4joowXtSgsBNgi+PY9RPSBSjiIcZ/8FxJ4BX5f8R+eSOR5qn+PRPri0H+LZGxFzIgbjOx3uAV/1Q1u0XgduNmJ3UJM/m3A2J3eLAk+0ZcBs9CbOsU/JtS/30CKf06oiKiU+37XSyKaU/1Hxg9nom1Q+Bg2ajU+0NKq8rGSU/lwlKt85DThiE3yMdHpWfMoU3xkZPCf+kFUJvgwZM4+J1z5HJB5PifEfWSHIrb0Ryn1MR3aaApOkPnIySGcEPfhaEUgQeRjpRahBImPlrYhlCDxh40PFE6Q+5i54F5CxOcjrYKfIPVR8bHuJUj8OnSxmELkY+GrzUuQ+Hbny9VPYD8+5jQfE6J+cz1gmJiPTjviqIcs7ZinHTS1o6562NaP+/qFQ7/y6Jcu/dqnXzz1q69++Vav/z+0YSbZBRfZrQAAAABJRU5ErkJggg==');
+            }
+        }
+    }
+    @at-root #{&}_buttonWrap {
+        content: '';
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            background-image: none;
+            height: 50px;
+        }
+    }
+
+    @at-root #{&}_promo {
+        padding: 12px;
+        background-color: #FDEFDD;
+        position: relative;
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+
+            &:checked {
+                &~.#{$ID}_promo__body {
+                    display: block;
+                }
+
+                &~.#{$ID}_promo__header {
+                    &:after {
+                        content: '–';
+                    }
+                }
+            }
+        }
+
+        @at-root #{&}__header {
+            position: relative;
+            cursor: pointer;
+            display: block;
+            color: get-value($settings, 'colors', 'ukbPurple');
+            font-size: 18.2px;
+            &:after {
+                content: '+';
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                @include calc-rem(font-size, get-value($settings, 'base', 'font-size') + 4);
+            }
+        }
+
+        @at-root #{&}__body {
+            display: none;
+            padding: 0 !important;
+            margin: 0 !important;
+            padding-top: 12px !important;
+            #txtPromo {
+                display: inline-block;
+                margin: 0;
+                margin-right: -5px !important;
+                border-radius: 5px 0px 0px 5px !important !important;
+                box-shadow: none !important;
+                vertical-align: middle !important;
+            }
+
+            #btnApplyCode {
+                background-color: get-value($settings, 'colors', 'ukbOrange');
+                color: #fff;
+                font-size: 13px;
+                border: 0px;
+                height: 40px;
+                border-radius: 0px 5px 5px 0px;
+                vertical-align: middle;
+
+                &:hover,
+                &:focus {
+                    background-color: lighten(get-value($settings, 'colors', 'ukbOrange'), 5%);
+                }
+            }
+
+            label {
+                display: none !important;
+            }
+
+            span {
+                display: block !important;
+                margin-top: 12px;
+            }
+        }
+    }
+
+    @at-root #{&}_title {
+        @at-root #{&}Wrap {
+            position: relative;
+        }
+
+        @at-root #{&}__content {
+            color: get-value($settings, 'colors', 'text');
+        }
+
+        @at-root #{&}__img {
+            position: absolute;
+            right: 0;
+            max-width: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @at-root #{&}__text {
+            padding-right: 150px;
+            position: relative;
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                display: none;
+                visibility: hidden;
+                opacity: 0;
+
+                &:checked {
+                    &~.#{$ID}_dialogWrap {
+                        opacity: 1;
+                        top: 65px;
+                        visibility: visible;
+                        transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+                    }
+                }
+            }
+        }
+
+        @at-root #{&}__link {
+            color: get-value($settings, 'colors', 'ukbPurple');
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+
+    @at-root #{&}_dialog {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -9px;
+            right: 15px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 7.5px 10px 7.5px;
+            border-color: transparent transparent get-value($settings, 'colors', 'ukbPurple') transparent;
+        }
+
+        @at-root #{&}Wrap {
+            position: absolute;
+            z-index: 10;
+            top: 55px;
+            left: -105px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+            max-width: 300px;
+            border-radius: 10px;
+            background-color: get-value($settings, 'colors', 'ukbPurple');
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+        }
+
+        @at-root #{&}__content {
+            margin: 0 !important;
+            font-weight: normal;
+            padding: 10px;
+            color: #fff !important;
+        }
+    }
+
+    @at-root #{&}_advice {
+        text-align: center;
+        padding: 12px 0;
+        @include calc-rem(font-size, get-value($settings, 'base', 'font-size'));
+
+        a {
+            font-weight: bold;
+        }
+    }
+
+    @at-root #{&}_info {
+        position: relative;
+        vertical-align: bottom !important;
+        z-index: 999;
+
+        .#{$ID}_dialogWrap {
+            left: 27px;
+            top: -40px;
+            min-width: 200px;
+            transition: opacity 0.25s, left 0.25s, visibility 0.25s;
+
+            .#{$ID}_dialog {
+                &:before {
+                    top: 50%;
+                    transform: translateY(-50%) rotate(-90deg);
+                    left: -11px;
+                }
+            }
+        }
+
+        input[type="checkbox"] {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+
+            &:checked {
+                &~.#{$ID}_dialogWrap {
+                    opacity: 1;
+                    left: 37px;
+                    visibility: visible;
+                    transition: opacity 0.25s, left 0.25s, visibility 0.25s;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .main-content {
+            .content {
+
+                .left,
+                .right {
+                    width: 100% !important;
+                }
+
+                .right {
+                    padding-left: 0;
+
+                    .box-with-border.purple {
+                        display: none;
+                    }
+                }
+
+                .#{$ID}_title__text {
+                    padding-right: 50px;
+                }
+
+                .#{$ID}_promo__body {
+                    #btnApplyCode {
+                        position: absolute;
+                        right: 0;
+                    }
+                }
+
+                .#{$ID}_form__block {
+                    margin-bottom: 24px !important;
+                    padding-right: 0 !important;
+
+                    .optional {
+                        display: none !important;
+                    }
+
+                    input {
+                        max-width: none !important;
+                    }
+
+                    label:not(.#{$ID}_info) {
+                        display: block !important;
+                        line-height: 1 !important;
+                    }
+                    .#{$ID}_promo__body.field-row-wide{
+                        label{
+                            display:none!important;
+                        }
+                    }
+
+                    .#{$ID}_info {
+                        top: 5px !important;
+                        left: -30px !important;
+                    }
+
+                    #ddlMonth,
+                    #ddlYear,
+                    #ddlMonthFrom,
+                    #ddlYearFrom,
+                    #txtSecurity,
+                    #txtIssueNo {
+                        width: calc(50% - 3px) !important;
+                        margin: 0 !important;
+                    }
+                }
+
+                #pnlPayment {
+                    background: #fff;
+                    border: 1px solid #ddc7de;
+                    border-radius: 8px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 4px 4px 0 #F2F2F2;
+                    margin-bottom: 10px;
+
+                    &>.box-with-border {
+                        background: transparent;
+                        border: none;
+                        border-radius: 0;
+                        margin-bottom: 0;
+                        box-shadow: none;
+                    }
+                }
+
+                .#{$ID}_info {
+                    .#{$ID}_dialogWrap {
+                        min-width: 150px !important;
+                        top: -50px;
+                    }
+                }
+
+                .#{$ID}_title__text {
+                    .#{$ID}_dialogWrap {
+                        top: 70px;
+                        left: 20px;
+                        transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+
+                        .#{$ID}_dialog {
+                            &:before {
+                                right: 50%;
+                            }
+                        }
+                    }
+
+                    input[type="checkbox"]:checked~.#{$ID}_dialogWrap,
+                    input[type="radio"]:checked~.#{$ID}_dialogWrap {
+                        top: 85px;
+                        transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+                    }
+                }
+            }
+        }
+        .txtCardNo-wrap{
+            &[data-validation]{
+                &:after{
+                    left:calc(100% - 30px);
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 900px) and (max-width:1100px){
+        .txtCardNo-wrap{
+            &[data-validation]{
+                &:after{
+                    left:89%;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 900px) and (max-width: 1450px) {
+        .#{$ID}_title__text {
+            .#{$ID}_dialogWrap {
+                left: 100px;
+
+                .#{$ID}_dialog {
+                    &:before {
+                        left: 15px;
+                        right: unset;
+                    }
+                }
+            }
+
+            input[type="checkbox"]:checked~.#{$ID}_dialogWrap,
+            input[type="radio"]:checked~.#{$ID}_dialogWrap {
+                .#{$ID}_dialog {
+                    &:before {
+                        left: 15px;
+                        right: unset;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 900px){
+        [data-field="cardNumber"] {
+            label{
+                top: 20px!important;
+            }
+        }
+    }
+}

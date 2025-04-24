@@ -1,0 +1,111 @@
+@import "./variables";
+
+@mixin commonFlex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@mixin commonCardStyle {
+	@include commonFlex;
+	font-family: "Montserrat", Arial, Helvetica, sans-serif !important;
+}
+@mixin commonCardText {
+	p {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 17px;
+		margin: 0;
+		svg {
+			margin-right: 10px;
+		}
+		span[class*="--card-count"] {
+			color: #e10098;
+		}
+	}
+}
+
+.#{$id} {
+	&-x--hidden {
+		display: none;
+	}
+	&-1 {
+		.#{$id}-ctc-holder--card {
+			@include commonCardStyle;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 9999;
+			div {
+				background: rgba(242, 242, 242, 0.9);
+			}
+			&-text {
+				@include commonFlex;
+				width: 412px;
+				height: 40px;
+				@include commonCardText;
+			}
+			&-close-button {
+				@include commonFlex();
+				width: 40px;
+				height: 40px;
+				margin-left: 2px;
+				cursor: pointer;
+			}
+		}
+	}
+	&-2 {
+		.#{$id}-ctc-holder--card {
+			@include commonCardStyle;
+			background: rgba(242, 242, 242, 0.9);
+			width: calc(100% - 110px);
+			margin-left: 35px;
+			padding: 7px 0;
+			margin-top: 40px;
+			&-text {
+				@include commonFlex;
+				@include commonCardText;
+			}
+			&-close-button {
+				@include commonFlex();
+				margin-left: 2px;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1020px) {
+	.#{$id} {
+		&-2 {
+			.#{$id}-ctc-holder--card {
+				width: 100%;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 479px) {
+	.#{$id} {
+		&-1 {
+			.#{$id}-ctc-holder--card {
+				&-text {
+					width: 300px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 320px) {
+	.#{$id} {
+		&-1 {
+			.#{$id}-ctc-holder--card {
+				&-text {
+					width: 250px;
+				}
+			}
+		}
+	}
+}

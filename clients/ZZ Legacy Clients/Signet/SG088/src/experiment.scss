@@ -1,0 +1,1411 @@
+@import './variables';
+
+.#{$id} {
+
+  /* General */
+  .#{$id}-hidden {
+    display: none;
+  }
+  .detail-page__container{
+    display: none;
+  }
+
+  .product-gallery__syte.js-syte-functionality {
+    position: absolute;
+    left: 5%;
+    /* transform: translateX(-50%); */
+    border: 0;
+    z-index: 99;
+    /* width: 100%; */
+    bottom: 10px;
+  }
+
+  .#{$id}__row {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .#{$id}__section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    @media(min-width: 767px) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+
+  .#{$id}__sectionContainer {
+    max-width: 86.625rem;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+
+    @media(min-width: 375px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media(min-width: 767px) {
+      max-width: 750px;
+    }
+
+    @media(min-width: 1024px) {
+      max-width: 850px;
+    }
+
+    @media(min-width: 1280px) {
+      max-width: 960px;
+    }
+  }
+
+  .#{$id}__colLeft {
+    width: 100%;
+
+    @media(min-width: 1024px) {
+      width: 50%;
+    }
+
+  }
+
+  .#{$id}__colRight {
+    width: 100%;
+
+    @media(min-width: 1024px) {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 20px;
+
+      .#{$id}__heading,
+      .#{$id}__paragraph {
+        text-align: left;
+      }
+    }
+
+    @media(min-width: 1200px) {
+      margin-left: 30px;
+    }
+  }
+
+  /* -- Typography -- */
+
+  .#{$id}__heading {
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    line-height: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #a01d29;
+
+    @media(min-width:375px) {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+
+  .#{$id}__paragraph {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 24px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222222;
+
+    p {
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 24px;
+      font-family: "Montserrat", sans-serif;
+      text-align: center;
+
+      @media(min-width:375px) {
+        font-size: 18px;
+        line-height: 28px;
+
+      }
+
+      @media(min-width: 1024px) {
+        font-size: 18px;
+        line-height: 30px;
+
+        text-align: left;
+      }
+    }
+
+    @media(min-width:375px) {
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: 30px;
+    }
+
+    @media(min-width: 1024px) {
+      margin: 0 auto;
+      margin-bottom: 50px;
+      font-size: 18px;
+      line-height: 30px;
+      width: 80%;
+      max-width: 600px;
+    }
+  }
+
+  .#{$id}__textLink {
+    text-decoration: underline;
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    color: #a01d29;
+    font-weight: 300;
+  }
+
+  .#{$id}__contentLink {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    position: relative;
+    width: max-content;
+    cursor: pointer;
+
+    &::after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: black;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+
+  .#{$id}__button {
+    padding: 10px;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+    max-width: 200px;
+
+    &.#{$id}__light {
+      background: none;
+      border: 1px solid #a01d29;
+      transition: background-color 0.5s ease;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #a01d29;
+        border: 1px solid #a01d29;
+        color: white;
+      }
+    }
+
+    &.#{$id}-noStock {
+      background: #dedddd;
+      border: 1px solid #dedddd;
+      width: 100%;
+      max-width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  /* Top Carousel */
+  .swiper-pagination {
+    transition: unset;
+
+    .swiper-pagination-bullet {
+      width: 18px;
+      border-radius: 0;
+      height: 3px;
+      opacity: 1;
+      background: #D4D4D4;
+
+      &.swiper-pagination-bullet-active {
+        background: #a01d29;
+      }
+    }
+
+    @media(min-width: 767px) {
+      .swiper-pagination-bullet {
+        height: 5px;
+        width: 25px;
+        margin: 0 7px !important;
+      }
+    }
+  }
+
+  .#{$id}__slide_arrow {
+    background: rgba(255, 255, 255, 0.54);
+    height: 35px;
+    width: 25px;
+    background-size: contain;
+
+    &::after {
+      content: '';
+      height: 20px;
+      width: 20px;
+      background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/3DF844D3D7CA76722B043255F45E0AABE358397CEED8DBFAEEE2D16EF3B44F45/ernestjones-co-uk/EJ059---Prestige-Watch-PDP/arrow.png');
+      position: absolute;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      top: 50%;
+      right: 3px;
+      transform: translateY(-50%);
+    }
+
+    &.#{$id}__slide_prev {
+      &::after {
+        transform: rotate(-180deg) translateY(50%);
+        right: auto;
+        left: 3px;
+      }
+    }
+
+    @media(min-width: 1280px) {
+      &.#{$id}__slide_prev {
+        left: 0;
+      }
+
+      &.#{$id}__slide_next {
+        right: 0;
+      }
+    }
+  }
+
+  .#{$id}__swiperArrow {
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+
+    &.swiper-button-next {
+      right: 5px;
+    }
+
+    &.swiper-button-prev {
+      left: 5px;
+    }
+
+    @media(min-width: 1024px) {
+      &.swiper-button-next {
+        right: 25px;
+      }
+
+      &.swiper-button-prev {
+        left: 25px;
+      }
+    }
+  }
+
+
+  .#{$id}__mainProductSlider {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    @media(min-width:767px) {
+      width: 50%;
+    }
+
+    @media(min-width:1024px) {
+      width: 60%;
+    }
+
+    .#{$id}__zoomIcon {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      top: 0;
+      right: 5px;
+      z-index: 9;
+      background: url('https://service.maxymiser.net/cm/images-us/1/1/2/232CB62F7B90DF4764BFC6016120A26D8816E0A310514804BA19F8AAA7DCD91D/ernestjones-co-uk/EJ074---Engagement-Ring-PDP/noun_ZoomIn_2704026.png') no-repeat center;
+      background-size: contain;
+
+      @media(min-width: 375px) {
+        right: 10px;
+        top: 10px;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 350px;
+
+      .#{$id}__slide {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-pagination-bullets {
+        bottom: 10px !important;
+        left: 0;
+        width: 55%;
+        right: 0;
+        left: auto;
+      }
+
+      .swiper-zoom-target {
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        cursor: zoom-in;
+        display: block;
+        background-position: center;
+      }
+
+      @media(min-width: 370px) {
+        height: 500px;
+      }
+
+      @media(min-width: 767px) {
+        height: 100%;
+
+        .swiper-pagination-bullets {
+          width: 300px;
+        }
+      }
+
+      @media(min-width: 1280px) {
+        height: 600px;
+      }
+    }
+  }
+
+  /* Main product info */
+  .#{$id}__mainProductInfo {
+    position: relative;
+    padding: 10px;
+    width: 100%;
+
+    @media(min-width: 375px) {
+      padding: 20px;
+    }
+
+    @media(min-width:767px) {
+      width: 48%;
+    }
+
+    @media(min-width:1024px) {
+      width: 40%;
+    }
+
+    @media(min-width: 1280px) {
+      max-width: 600px;
+      padding: 40px;
+    }
+
+    .detail-page__right-column {
+      text-align: left;
+
+      .product-stock,
+      .book-appointments-section,
+      .product-propositions {
+        display: none;
+      }
+
+      .brand-logo {
+        display: block;
+        margin-top: 10px;
+        display: flex;
+        width: 110px;
+        margin-bottom: 10px;
+      }
+
+      .product-name {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 29px;
+        color: black;
+        margin-bottom: 5px;
+
+        @media(min-width:375px) {
+          font-size: 23px;
+          line-height: 25px;
+        }
+
+        @media(min-width: 1280px) {
+          font-size: 25px;
+          line-height: 30px;
+        }
+      }
+
+      .product-customer-rating-summary {
+        font-size: 12px;
+
+        .product-customer-rating-summary__star {
+          filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(500%) contrast(0.8)
+        }
+      }
+
+      #js-link-reviews {
+        cursor: pointer;
+        line-height: 21px;
+        color: black;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      .#{$id}__productNo {
+        color: #8D8D8D;
+        font-weight: 300;
+        font-size: 13px;
+        text-align: left;
+        margin-bottom: 10px;
+
+        @media(min-width:375px) {
+          font-size: 13px;
+        }
+      }
+
+      // Price Area
+      .product-price,
+      .product-ifc {
+        display: none;
+      }
+
+      .#{$id}__priceSection {
+        padding-top: 10px;
+        border-top: 1px solid #F1F1F1;
+        border-bottom: 1px solid #F1F1F1;
+        margin-bottom: 10px;
+        justify-content: flex-start;
+
+        .product-price {
+          display: flex;
+          flex-direction: column;
+
+          .product-price--current {
+            font-size: 27px;
+            color: black;
+
+            @media(min-width: 375px) {
+              font-size: 30px;
+            }
+          }
+
+          .product-price-pricing {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+          }
+
+          .product-price--copy {
+            display: none;
+          }
+
+          .product-price-history {
+            margin-left: 10px;
+
+            s {
+              color: #8D8D8D;
+              font-weight: 300;
+            }
+          }
+        }
+
+        .product-price-offer {
+          font-weight: 300;
+          font-size: 14px;
+          margin-top: 10px;
+
+          span {
+            color: #222222;
+          }
+
+          br {
+            display: none;
+          }
+
+          a {
+            display: inline-block;
+          }
+        }
+
+        // finance box
+        .#{$id}__financeBox {
+          position: relative;
+          background: #F7F7F7;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          flex-wrap: wrap;
+          padding: 15px;
+          margin-top: 15px;
+          text-align: left;
+          justify-content: center;
+          align-content: center;
+          margin-bottom: 10px;
+          p {
+            margin-bottom: 0;
+            font-weight: 500;
+
+
+            b {
+              font-weight: 600;
+              color: #a01d29;
+            }
+
+            @media(min-width: 375px) {
+              font-size: 14px;
+            }
+          }
+
+          &.#{$id}-ifc {
+            justify-content: flex-start;
+            flex-wrap: unset;
+            p {
+              &:first-of-type {
+                font-weight: 600;
+                margin-bottom: 5px;
+
+                @media(min-width: 375px) {
+                  margin-bottom: 8px;
+                  font-size: 14px;
+                }
+              }
+            }
+
+            .#{$id}__textLink {
+              color: #a01d29;
+              position: relative;
+              font-size: 15px;
+              margin-top: 10px;
+              @media(min-width: 767px) {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+
+              @media(min-width: 1024px) {
+                position: absolute;
+                right: 30px;
+                bottom: 7px;
+                
+              }
+            }
+          }
+
+          &.#{$id}-paypal {
+            padding-left: 100px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 75px;
+              height: 50px;
+              background: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/8D2D6047A8A0885D97D7410BA99CCEE8C50615C04AC997B38B8A108F3C2121AE.png?meta=/SG088---H-Samuel---Fashion-Watches/pp.png') no-repeat center;
+              background-size: contain;
+            }
+
+            p {
+              font-weight: 300;
+              margin-bottom: 0px;
+            }
+
+            .#{$id}__textLink {
+              position: relative;
+              display: block;
+              margin-top: 10px;
+              color: #a01d29;
+            }
+            @media(min-width: 1280px) {
+              padding-left: 150px;
+              &::before {
+                width: 100px;
+                left: 15px;
+              }
+              p {
+                max-width: 300px;
+              }
+            }
+          }
+
+          @media(min-width: 1024px) {
+            p {
+              font-size: 14px;
+            }
+
+          }
+
+          @media(min-width: 1280px) {
+            padding: 15px;
+
+            .#{$id}__textLink {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .product-quantity__container {
+        display: none;
+      }
+
+      .detail-page__payment-wrapper {
+        background: none;
+
+        @media(min-width: 767px) {
+          padding-top: 10px;
+        }
+      }
+
+      .product-buy-now {
+        text-align: center;
+
+        button {
+          font-size: 18px;
+          line-height: 23px;
+          cursor: pointer;
+        }
+
+        .product-buy-now__icon {
+          display: none;
+        }
+
+        @media(min-width: 960px) {
+          button {
+            justify-content: center;
+          }
+        }
+
+        @media(min-width: 1024px) {
+          margin-top: 20px;
+
+          button {
+            text-align: center;
+          }
+        }
+      }
+
+      .#{$id}__appointmentLinks {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+
+        a {
+          font-size: 15px;
+          padding-left: 40px;
+          margin-bottom: 25px;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+          }
+
+          &:nth-child(1) {
+            &::before {
+              background-image: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/8B990165836762664B393730283015A6D8A7DFDE2B35240AD9C1FBB9B0091687.png?meta=/SG088---H-Samuel---Fashion-Watches/noun_Store_2331100.png');
+            }
+          }
+
+          &:nth-child(2) {
+            margin-bottom: 0;
+
+            &::before {
+              background-image: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/C9DCDB62ED7A231787B969A1AEC5DB6FA82933D1E129E8DA8D4D0BF8CB546373.png?meta=/SG088---H-Samuel---Fashion-Watches/noun_VideoCall_1338872.png');
+            }
+          }
+        }
+      }
+
+      .product-paypal-credit {
+        display: none;
+      }
+
+      @media(min-width: 1280px) {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      z-index: 9;
+      top: 0;
+      bottom: auto;
+      box-shadow: 2px -3px 6px 1px rgba(187, 187, 187, 0.25);
+      pointer-events: none;
+
+      @media(min-width: 767px) {
+        box-shadow: -4px -1px 5px 1px rgba(214, 214, 214, 0.25);
+      }
+    }
+
+
+  }
+
+  /* USPS */
+  .#{$id}__usps {
+    background: #f1f1f1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: left;
+
+    .#{$id}-uspBlock {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 15px;
+      text-align: left;
+
+      .#{$id}-newsletter {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .#{$id}__uspText {
+        width: 75%;
+      }
+
+      span {
+        height: 50px;
+        width: 50px;
+        margin-right: 5px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      h4 {
+        font-size: 14px;
+        color: #222222;
+        margin: 0;
+        font-weight: 400;
+        margin-bottom: 3px;
+      }
+
+      p {
+        font-size: 13px;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+    }
+
+    @media(min-width: 767px) {
+      background: #fffefe;
+
+      .#{$id}__sectionContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+
+        .#{$id}-uspBlock {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          width: 33%;
+          margin-bottom: 0;
+
+          .#{$id}__uspText {
+            width: 90%;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+    @media(min-width: 1024px) {
+      .#{$id}__sectionContainer {
+        max-width: 1200px;
+        justify-content: space-evenly;
+        .#{$id}-uspBlock {
+          flex-direction: row;
+          padding: 10px;
+          text-align: left;
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  /* Accordion  */
+
+  .#{$id}__description {
+
+    .product-description,
+    p {
+      font-weight: 300;
+    }
+
+    .product-properties {
+      display: none;
+    }
+
+    /* Specifications */
+    .product-specification {
+      .product-specification__item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        &:first-child {
+          padding-top: 0px;
+        }
+
+        &:last-child {
+          padding-bottom: 0px;
+          border-bottom: 0px;
+        }
+      }
+
+      .product-specification__info {
+        background: none;
+        border: 0;
+        font-weight: 400;
+        color: #222222;
+        font-size: 15px;
+      }
+
+      .product-specification__detail {
+        font-weight: 300;
+        color: #222222;
+        text-align: right;
+        font-size: 15px;
+      }
+    }
+
+    .product-delivery {
+      #js-update-delivery {
+        font-weight: 700;
+      }
+
+      .product-delivery__link {
+        justify-content: flex-start;
+        margin-bottom: 20px;
+        font-weight: 300;
+      }
+      h3 {
+        color: #222222;
+      }
+
+      .product-delivery__options {
+        margin-bottom: 0;
+        table-layout: fixed;
+
+        th,
+        td {
+          font-size: 14px;
+          width: auto;
+          padding: 0;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-right: 0;
+          font-weight: 300;
+          color: #222222;
+          @media(min-width: 1024px) {
+            font-size: 16px;
+          }
+        }
+
+        th {
+          font-weight: 400;
+        }
+
+        th:first-child,
+        td:first-child {
+          background: none;
+        }
+
+        &:last-of-type {
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    @media(min-width: 767px) {
+      background: #f7f7f7;
+      margin-top: 0px;
+      margin-bottom: 30px;
+      .detail-page__product-accordion-container {
+        display: none;
+      }
+
+      .product-delivery__text {
+        font-size: 15px;
+      }
+      .product-delivery {
+        h3 {
+          font-size: 17px;
+          font-weight: 400;
+          margin-top: 20px;
+          border-top: 1px solid #ccc;
+          padding-top: 20px;
+        }
+      }
+
+      .#{$id}-productTabs {
+        .#{$id}-tab-wrap {
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          justify-content: space-evenly;
+          border-bottom: 1px solid #ccc;
+        }
+
+        .#{$id}-tab {
+          flex: 1 1 0px;
+          justify-content: center;
+          padding: 10px 15px;
+          padding-top: 15px;
+          cursor: pointer;
+          align-self: center;
+          position: relative;
+          font-size: 14px;
+          text-align: center;
+          font-weight: 300;
+          box-sizing: border-box;
+          &:first-child.#{$id}-activeTab~.#{$id}-tab_slider {
+            left: 0;
+          }
+          &:nth-child(2).#{$id}-activeTab~.#{$id}-tab_slider {
+            left: 24.333%;
+          }
+          &:nth-child(3).#{$id}-activeTab~.#{$id}-tab_slider {
+            left: 49.333%;
+          }
+
+          &.#{$id}-activeTab {
+            border-bottom: 1px;
+            color: #a01d29;
+            font-weight: 400;
+          }
+
+          a {
+            height: 100%;
+            display: block;
+            width: 100%;
+            color: #222222;
+            text-decoration: none;
+          }
+
+          &.#{$id}-help {
+            position: relative;
+            span {
+              height: 35px;
+              width: 35px;
+              background: url('https://service.maxymiser.net/cm/images-us/hsamuel-co-uk/CB615D58A64A795891B4399F3F999A1006D7C921CAAA1A44E6D98C93561C0D27.png?meta=/SG088---H-Samuel---Fashion-Watches/noun_newtab_1167423.png') no-repeat center;
+              position: absolute;
+              top: 45%;
+              transform: translateY(-50%);
+              background-size: contain;
+            }
+          }
+        }
+        .#{$id}-tab_slider {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 25%;
+          height: 2px;
+          background-color: #a01d29;
+          transition: left .25s;
+        }
+
+        .#{$id}-tabContent {
+          width: 100%;
+          height: auto;
+          position: relative;
+          top: -1px;
+          box-sizing: border-box;
+          z-index: 1;
+          padding: 40px;
+          border-radius: 0 0 3px 3px;
+
+          &.hide {
+            display: none;
+          }
+
+          &.show {
+            display: block;
+          }
+
+          @media(min-width: 1024px) {
+            max-width: 800px;
+            margin: 0 auto;
+            p,span {
+              font-size: 16px;
+            }
+
+            .product-delivery,
+            .product-description-container,
+            .product-specification{
+              display: flex;
+              flex-direction: column;
+            }
+
+            .product-specification {
+              .product-specification__info {
+                text-align: left;
+                font-size: 16px;
+              }
+              .product-specification__detail{
+                text-align: right;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+
+
+    }
+
+    @media(min-width: 1024px) {
+      .#{$id}-productTabs {
+        .#{$id}-tab {
+          font-size: 16px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  /* Other watches */
+  .#{$id}__otherWatches {
+    .#{$id}__carousel {
+      .product-tile-list__item {
+        list-style: none;
+        text-align: center;
+
+        a {
+          text-decoration: none;
+        }
+
+        .product-tile__corner-flag,
+        .rating-stars,
+        .product-tile__ifc-monthly-pricing {
+          display: none;
+        }
+
+        .product-tile__description {
+          font-size: 15px;
+          color: #222222;
+          margin: 0 auto;
+          font-weight: 300;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          max-width: 250px;
+        }
+
+        .product-tile__pricing-container {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 10px;
+
+          .product-tile__current-price {
+            font-size: 20px;
+            color: black;
+            font-weight: 400;
+            margin-bottom: 0;
+          }
+
+          .product-tile__previous-price {
+            color: #8D8D8D;
+            margin-left: 10px;
+            font-weight: 300;
+          }
+        }
+
+        .#{$id}__button {
+          background: #a01d29;
+          border: 1px solid #a01d29;
+          color: white;
+          text-transform: uppercase;
+          margin-top: 20px;
+          display: block;
+          &:hover {
+            background:white;
+            border: 1px solid #a01d29;
+            color: #a01d29;
+          }
+        }
+      }
+    }
+
+    @media(min-width: 767px) {
+      .#{$id}__heading {
+        margin-bottom: 30px;
+      }
+      .#{$id}__carousel {
+        .product-tile-list__item {
+          .product-tile__description {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+      .#{$id}__swiperArrow.swiper-button-next {
+        right: 0px;
+      }
+      .#{$id}__swiperArrow.swiper-button-prev {
+        left: 0px;
+      }
+    }
+    @media(min-width: 1280px) {
+      .#{$id}__swiperArrow.swiper-button-next {
+        right: -20px;
+      }
+      .#{$id}__swiperArrow.swiper-button-prev {
+        left: -20px;
+      }
+    }
+  }
+
+  /* Product Reviews */
+  .#{$id}__reviews {
+    position: relative;
+    background: #f1f1f1;
+
+    .#{$id}__textLink {
+      color: black;
+    }
+
+    .product-reviews__rating__review-aggregate-rating {
+      display: none;
+    }
+
+    .product-reviews__overview {
+      margin-bottom: 0;
+      border: 0;
+      justify-content: center;
+    }
+
+    .product-reviews__overview__header,
+    .product-reviews__rating,
+    .product-reviews__overview__filter,
+    #js-show-more,
+    .product-reviews__reviews__recommend {
+      display: none;
+    }
+
+    .product-reviews__overview__actions {
+      justify-content: center;
+    }
+
+    .product-reviews__write-review-anchor {
+      font-weight: 300;
+      color: #222222;
+    }
+
+    .#{$id}__reviewStars {
+      position: relative;
+
+      .product-reviews__rating__review-star-rating:first-of-type {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        margin: 0;
+      }
+
+      .#{$id}__reviewCount {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 10px;
+        font-weight: 300;
+      }
+    }
+
+    .product-reviews__rating__review-star-rating--star-large,
+    .product-reviews__rating__review-star-rating--star-small {
+      filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(500%) contrast(0.8);
+      margin-bottom: 0;
+    }
+
+    .product-reviews__rating__review-star-rating--star-small {
+      width: 15px;
+    }
+
+    .product-reviews__reviews__container {
+      display: flex;
+      flex-direction: column;
+      border: 0;
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+
+      .product-reviews__reviews__would-recommend,
+      .product-reviews__vote-mini,
+      .product-reviews__reviewer,
+      .product-reviews__vote {
+        display: none;
+      }
+    }
+
+    .product-reviews__star-ratings {
+      margin-bottom: 10px;
+    }
+
+    .product-reviews__header--review-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 400;
+      color: #222222;
+    }
+
+    .product-reviews__review-desc {
+      font-weight: 300;
+      font-size: 14px;
+      color: #222222;
+    }
+
+    .product-reviews__reviews__meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-reviews__reviews__author {
+      h4 {
+        font-size: 14px;
+        color: #222222;
+        font-weight: 400;
+      }
+    }
+
+    .product-reviews__reviews__date {
+      font-weight: 300;
+      font-size: 14px;
+    }
+
+    .product-reviews {
+      &.#{$id}-moreThanTwo {
+        .product-reviews__reviews__container {
+          display: none;
+
+          &:nth-child(-n+2) {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    @media(min-width: 767px) {
+      .#{$id}__sectionContainer {
+        max-width: 800px;
+
+        .product-reviews {
+          .product-reviews__reviews {
+            display: flex;
+            flex-wrap: wrap;
+
+            .product-reviews__reviews__container {
+              display: flex;
+              margin: 10px;
+              width: 47%;
+            }
+          }
+
+          &.#{$id}-moreThanTwo {
+            .product-reviews__reviews__container {
+              display: none;
+
+              &:nth-child(-n+4) {
+                display: flex;
+              }
+            }
+          }
+        }
+      }
+
+      &::after {
+        height: 500px;
+      }
+    }
+
+    @media(min-width: 1024px) {
+      .#{$id}__sectionContainer {
+        max-width: 900px;
+
+        .product-reviews__reviews {
+          .product-reviews__reviews__container {
+            margin: 15px;
+            width: 46%;
+          }
+        }
+      }
+    }
+
+    @media(min-width: 1280px) {
+      .#{$id}__sectionContainer {
+        max-width: 1024px;
+
+        .product-reviews__reviews {
+          .product-reviews__reviews__container {
+            margin: 15px;
+            width: 46%;
+          }
+        }
+      }
+    }
+  }
+
+
+  &.hsamuel {
+    // HS-specific styles
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

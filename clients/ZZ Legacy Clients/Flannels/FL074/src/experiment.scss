@@ -1,0 +1,140 @@
+@import './variables';
+
+.#{$id} {
+  // Hide error message
+  
+  // Hide original messages when popup active
+  &.FL074-open.FL074-2, &.FL074-open.FL074-4, &.FL074-open.FL074-5 {
+    div[id*="PromoCodeApplication_divVoucherError"] { display: none !important }
+    div[id*="ViewBasket_PromoCodeManager_divVoucherError"] { display: none !important }
+  }
+
+  .FL074-message {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(255,255,255,.6);
+
+    .FL074-message--wrap {
+      max-width: 500px;
+      min-height: 280px;
+      width: 100%;
+      margin: 15% auto 0;
+      border: 3px solid #000;
+      background-color: #fff;
+      text-align: center;
+      display: table;
+      position: relative;
+
+      .message-container {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 35px;
+      }
+
+      p {
+        font-size: 1.3em;
+        line-height: 1.4em;
+      }
+
+      p:first-of-type {
+        margin-bottom: 40px;
+        font-family: 'GothamHTF-Medium',Arial,Helvetica,sans-serif !important;
+        letter-spacing: .05em;
+      }
+
+      p:last-of-type {
+        padding: 0 30px 0 40px;
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 35px;
+          top: 5px;
+          padding-left: 3px;
+          padding-top: 3px;
+          background-image: url('https://www.flannels.com/images/core/flannels-new-sheet-v4.svg');
+          background-repeat: no-repeat;
+          font-size: 14px;
+          height: 35px;
+          padding: 0;
+          transform: scale(.7);
+          display: block;
+          background-size: 500px 500px;
+          background-position: -91px -65px;
+          border: 1px solid #000;
+          border-radius: 17px;
+        }
+      }
+
+      button {
+        margin-top: 30px;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        padding: 17px 25px;
+        text-align: center;
+        line-height: .95em;
+        letter-spacing: .2em;
+        background-image: none;
+        border: 0;
+        border-radius: 0;
+        filter: none;
+        text-shadow: 0 0 0;
+        color: #fff !important;
+        &:hover {
+          color: #fff;
+          @media only screen and (min-width: 789px){
+            // text-decoration: underline;
+          }
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 10px; right: -5px;
+        width: 46px;
+        height: 46px;
+        span {
+          cursor: pointer;
+          background-image: url('https://www.flannels.com/images/core/flannels-new-sheet-v4.svg');
+          background-repeat: no-repeat;
+          font-size: 14px;
+          transform: scale(1.4);
+          height: 100%;
+          padding: 0;
+          display: block;
+          width: 100%;
+          background-size: 500px 500px;
+          background-position: -91px -65px;
+        }
+
+      }
+
+
+    } // END OF WRAP
+
+
+    // Success 
+    &.codeAdded {
+      .FL074-message--wrap p:last-of-type:before {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .FL074-message .FL074-message--wrap {
+      max-width: 95%;
+      margin-top: 22%;
+    }
+  }
+
+  &.FL074-4, &.FL074-5 {
+    .FL074-message .FL074-message--wrap p:first-of-type {
+      font-family: 'GothamHTF-Book',Arial,Helvetica,sans-serif !important;
+    }
+  }
+}

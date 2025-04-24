@@ -1,0 +1,297 @@
+@import './variables';
+
+body.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+}
+  
+
+.#{$id} {
+
+    .#{$id}-brand-holder {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #F6F6F6;
+        border: 1px solid #E1E1E1;
+        padding: 20px;
+        overflow: hidden;
+
+        &-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            @media all and (max-width: 350px) {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-family: 'GTAmerica-ExtendedBlackItalic', Arial, Helvetica, sans-serif;
+
+                @media all and (max-width: 400px) {
+                    font-size: 18px;
+                }
+            }
+
+            .#{$id}-showmore {
+                font-size: 14px;
+                text-decoration: underline;
+                color: #333;
+                font-weight: normal;
+            }
+        }
+
+        &-brands {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            width: 100%;
+            margin: 20px 0;
+
+            .#{$id}-brand-holder-inner {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                min-width: 1200px;
+            }
+
+
+            .#{$id}-brand-item {
+                display: flex;
+                padding: 10px 20px 10px 0;
+                background-color: #FFF;
+                border: 1px solid #E1E1E1;
+                justify-content: center;
+                align-items: center;
+                margin-right: 15px;
+                margin-bottom: 10px;
+                border-radius: 4px;
+
+                
+
+                &-add,
+                &-remove {
+                    display: flex;
+                    background: none !important;
+                    border: none;
+                    font-size: 28px;
+                    color: #636363 !important;
+                    padding: 0 15px;
+                    position: relative;
+                    top: 2px;
+                }
+
+                &-remove {
+                    font-size: 20px;
+                    display: none;
+                }
+
+                &-name {
+                    font-size: 16px;
+                }
+
+                &.active {
+                    background: #000;
+                    color: #FFF;
+
+                    .#{$id}-brand-item-add {
+                        display: none;
+                        
+                    }
+
+                    .#{$id}-brand-item-remove {
+                        display: flex;
+
+                    }
+
+                }
+            }
+
+        }
+
+        
+
+    }
+
+    .#{$id}-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .#{$id}-clear {
+            display: flex;
+            background: #CCC !important;
+            border: none !important;
+            color: #000 !important;
+            width: 35%;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            font-size: 14px;
+            font-family: 'GTAmerica-ExtendedRegular', Arial, Helvetica, sans-serif;
+        }
+
+        .#{$id}-apply {
+            display: flex;
+            background: #000 !important;
+            color: #FFF !important;
+            width: 60%;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            font-size: 14px;
+            font-family: 'GTAmerica-ExtendedRegular', Arial, Helvetica, sans-serif;
+        }
+
+
+    }
+
+    .#{$id}-brand-takeover {
+
+        position: fixed;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        height: 100%;
+        background: #FFF;
+        z-index: 100000;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        &.active {
+            left: 0;
+            transition: left 0.5s ease;
+        }
+
+        &-header {
+            background: #000;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            h2 {
+                display: flex;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                text-align: center;
+                margin-bottom: 0;
+                padding-bottom: 0;
+                font-size: 18px;
+                font-family: 'GTAmerica-ExtendedBlackItalic', Arial, Helvetica, sans-serif;
+            }
+
+            .#{$id}-backtobrands {
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translateY(-50%);
+                background: none !important;
+                border: none !important;
+                font-size: 20px;
+
+                svg path {
+                    fill: #FFF;
+                }
+            }
+
+        }
+
+        &-activebrands {
+
+            display: none;
+            padding: 20px;
+            flex-direction: column;
+            box-shadow: 0 3px 5px #E3E3E3;
+            background: #F6F6F6;
+            margin-bottom: 5px;
+            
+            &.active {
+                display: flex;
+            }
+
+            .#{$id}-buttons {
+                margin-top: 5px;
+            }
+
+            .#{$id}-active-brands {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .#{$id}-selected-filter {
+
+                background: #FFF;
+                border: 1px solid #000;
+                font-size: 14px;
+                padding: 10px 20px 10px 40px;
+                border-radius: 4px;
+                position: relative;
+                margin-right: 15px;
+                margin-bottom: 15px;
+                color: #000;
+                font-family: 'GTAmerica-ExtendedRegular', Arial, Helvetica, sans-serif;
+
+                &:before {
+                    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 9 9'%3E%3Cpath id='exit' d='M14,5.906,13.094,5,9.5,8.594,5.906,5,5,5.906,8.594,9.5,5,13.094,5.906,14,9.5,10.406,13.094,14,14,13.094,10.406,9.5Z' transform='translate(-5 -5)' fill='%23000'/%3E%3C/svg%3E%0A");
+                    position: absolute;
+                    top: 42%;
+                    transform: translateY(-50%);
+                    left: 15px;
+                    font-size: 20px;
+                    font-weight: 100;
+                }
+
+            }
+
+        }
+
+        &-list {
+
+
+            .#{$id}-filter {
+
+                padding: 10px 20px;
+                display: flex;
+                width: 100%;
+                border-bottom: 1px solid #EEE;
+                font-size: 18px;
+                font-weight: bold;
+                position: relative;
+
+                &:after {
+                    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.971' height='16.971' viewBox='0 0 16.971 16.971'%3E%3Cpath id='accordionopen' d='M17,6.209,15.791,5,11,9.791,6.209,5,5,6.209,9.791,11,5,15.791,6.209,17,11,12.209,15.791,17,17,15.791,12.209,11Z' transform='translate(8.485 -7.071) rotate(45)' fill='%23636363'/%3E%3C/svg%3E");
+                    font-size: 20px;
+                    font-weight: bold;
+                    position: absolute;
+                    top: 55%;
+                    transform: translateY(-50%);
+                    right: 20px;
+                }
+
+                &.active:after {
+                    top: 57%;
+                    right: 20px;
+                    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.971' height='16.971' viewBox='0 0 16.971 16.971'%3E%3Cpath id='accordionclose' d='M17,6.209,15.791,5,5,15.791,6.209,17Z' transform='translate(8.485 -7.071) rotate(45)' fill='%23636363'/%3E%3C/svg%3E%0A");
+                }
+
+            }
+
+        }
+
+        
+
+    }
+
+}

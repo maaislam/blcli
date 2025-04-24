@@ -1,0 +1,287 @@
+@import './variables';
+
+.#{$id} {
+
+    &__mobTitle--hidden {
+        display: none;
+    }
+
+    &__mobile-wrapper {
+        @media all and (max-width: 450) {
+            height: 177px !important;
+        }
+
+        &__title {
+            font-weight: 600 !important;
+            font-size: 28px;
+            color: #1D0B47;
+            text-align: center;
+            position: relative;
+
+            &::after {
+                // content: '';
+                // width: 60px;
+                // height: 4px;
+                // background-color: #1D0B47;
+                // position: absolute;
+                // bottom: -4px;
+                border-bottom: 4px solid #1D0B47;
+                content: '';
+                display: block;
+                width: 50%;
+                margin-left: 25%;
+                margin-top: 12px;
+                margin-bottom: 10px;
+            }
+            @media all and (min-width: 451px) {
+                display: none;
+            }
+        }
+    }
+
+    // .cta-button-tooltip {
+    //     z-index: 9999999;
+
+    //     &::before {
+    //         z-index: 999999999;
+    //     }
+    // }
+
+    @media all and (max-width: 450px) {
+      body.live-in-care {
+        height: 100vh;
+      }
+    }
+
+    &__scrolled {
+        height: 92px !important;
+
+        @media all and (max-width: 450px) {
+            height: 59px !important;
+        }
+    }
+
+    &__overlay {
+        position: fixed; /* Sit on top of the page content */
+        // display: none; /* Hidden by default */
+        // opacity: 0;
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 99999; /* Specify a stack order in case you're using a different order for other elements */
+        // cursor: pointer; /* Add a pointer on hover */
+        cursor: default;
+
+        @media all and (max-width: 420px) {
+            transition-property: all;
+            transition-duration: .5s;
+            animation: 10s slide-up;
+        }
+
+        &__componentWrap {
+            background-color: #ffffff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            // font-size: 50px;
+            // color: white;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            width: 65%;
+            height: 431px;
+
+            @media all and (min-width: 622px) and (max-width: 922px) {
+                width: 92%;
+            }
+
+            @media all and (max-width: 621px) {
+                height: 100%;
+                width: 100%;
+
+                // transition-property: all;
+                // transition-duration: 1s;
+                // animation: 1s slide-up;
+            }
+        }
+    }
+
+    &__wrapper {
+        height: 117px;
+        background-color: #EBE7F1;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        position: -webkit-sticky; /* Safari */
+        top: 115px;
+        z-index: 1;
+
+        @media all and (max-width: 421px) {
+            top: 96px;
+            // height: 59px;
+        }
+    }
+
+    &__component {
+        display: grid;
+        height: 100%;
+    }
+
+    &__content {
+        height: 100%;
+        place-self: center;
+        align-self: center;
+        justify-self: center;
+        display: grid;
+        grid-template-columns: 250px 350px;
+        
+        @media all and (max-width: 621px) {
+            grid-template-columns: 30% 70%;
+            width: 100%;
+        }
+
+        &__text {
+            font-weight: 700;
+            font-size: 20px;
+            color: #1D0B47;
+            margin: unset;
+            place-self: center;
+            @media all and (max-width: 455px) {
+                display: none;
+            }
+
+            &--mobile {
+                font-weight: 700;
+                font-size: 16px;
+                color: #1D0B47;
+                margin: unset;
+                place-self: center;
+                @media all and (min-width: 455px) {
+                    display: none;
+                } 
+            }
+        }
+
+        &__cta {
+            font-weight: 600;
+            font-size: 20px;
+            color: #1D0B47;
+            place-self: center;
+            height: 55px;
+            line-height: 55px;
+            width: 324px;
+            background-color: #ffffff;
+            border-radius: 27px;
+            padding-left: 30px;
+            box-sizing: border-box;
+            border: 2px solid #3d1957;
+            cursor: pointer;
+            position: relative;
+
+            @media all and (max-width: 421px) {
+                width: 100%;
+                height: 37px;
+                line-height: 37px;
+                padding-left: 20px;
+                font-size: 16px;
+            }
+
+            &::after {
+                content: url("https://ab-test-sandbox.userconversion.com/experiments/hh-chevron.png");
+                position: absolute;
+                right: 5%;
+                @media all and (max-width: 421px) {
+                    transform: translateY(2px);
+                }
+            }
+        }
+    }
+
+    &__quick-links {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-rows: 61px 370px;
+
+        @media all and (max-width: 621px) {
+            grid-template-rows: 61px 1fr;
+        }
+
+        &__title {
+            background-color: #EBE7F1;
+            box-shadow: 0px 4px 15px rgba(130, 130, 130, 0.25);
+            color: #1D0B47;
+            font-weight: 700;
+            display: grid;
+            position: relative;
+
+
+
+            &__text {
+                place-self: center;
+                width: 100%;
+                text-align: center;
+                &::after {
+                    font-size: 40px;
+                    font-weight: 200;
+                    content: '\00D7';
+                    position: absolute;
+                    right: 5%;
+                    top: 9%;
+                    bottom: 50%;
+                    cursor: pointer;
+                    
+                    @media all and (max-width: 421px) {
+                        content: url("https://ab-test-sandbox.userconversion.com/experiments/hh-down.png");
+                        top: -5%;
+                        right: 40px;
+                    }
+                }
+            }
+
+            &::after {
+                // content: 'X';
+            }
+        }
+
+        &__main {
+            background-color: #F7F7F7;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: repeat(5, 20%);
+
+            @media all and (max-width: 621px) {
+                grid-template-columns: 100%;
+                grid-template-rows: repeat(10, 10%);
+                // height: 100%;
+            }
+
+            &__link {
+                background-color: #ffffff;
+                width: 90%;
+                height: 70%;
+                place-self: center;
+                border-radius: 5px;
+                display: grid;
+                padding: 10px 10px 10px 30px;
+                cursor: pointer;
+                // position: relative;
+
+                & > span {
+                    align-self: center;
+                    font-size: 14px;
+                    color: #181818;
+                    position: relative;
+
+                    &::after {
+                        content: url("https://ab-test-sandbox.userconversion.com/experiments/hh-chevron.png");
+                        position: absolute;
+                        right: 5%;
+                    }
+                }
+            }
+        }
+    }
+}

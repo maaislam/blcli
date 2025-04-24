@@ -1,0 +1,197 @@
+$id: 'HH015';
+
+.#{$id} {
+  // Shared styling
+
+  // Contents table
+  .HH015_Contents_Table_Container {
+    border: solid 1px #62489D;
+    padding: 20px;
+  }
+
+  .HH015_Contents_Table_Header {
+    padding-top: 0;
+  }
+
+  // Create an arrow before each content item, restyling website arrow, adding circle
+
+  .HH015_Content_Item {
+    // Display each item on a new line by default
+    display: block;
+    // Create room for icon on the left
+    padding-left: 35px;
+    position: relative;
+    margin: 10px 0;
+    cursor: pointer;
+
+    &:before {
+      content: "\e258";
+      font-family: "Glyphicons Halflings", sans-serif;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      border: #62489D solid 1px;
+      border-radius: 50%;
+      background-color: #62489D;
+      color: #FFFFFF;
+      margin-top: -12px;
+      padding: 0 3px;
+    }
+  }
+
+  // Restyle side navgiation
+  .sub-nav {
+    margin: 0 15px 0 15px;
+    padding: 5px;
+    border-top: none;
+
+    >.current_page_item>a {
+      background-color: #61B588;
+    }
+
+  }
+
+  .HH015_Navigation_Header_Container {
+    z-index: 2;
+    border-bottom: none;
+    margin: 0 15px;
+    position: relative;
+    clear: both;
+  }
+
+  .HH015_Navigation_Header {
+    background-color: #FFFFFF;
+    margin: 20px 0 0 0;
+    top: 0;
+    transition: top 0.5s ease;
+
+    &::after {
+      background-color: #61B588;
+      bottom: 8px;
+    }
+
+    // Create an arrow using website styling
+    &::before {
+      content: "\e258";
+      font-family: "Glyphicons Halflings", sans-serif;
+      position: absolute;
+      right: 15px;
+      padding-right: 15px;
+      color: #61B588;
+      transform: rotate(90deg);
+      padding: 0;
+      top: 0;
+      font-size: 25px;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  // Mobile specific styling
+
+  @media(max-width: 767px) {
+    .HH015_Navigation_Header::before {
+      top: 50%;
+      margin-top: -10px;
+      transform: rotate(-90deg);
+    }
+
+    // Reposition arrows
+    .sub-nav a::after,
+    .sub-nav span::after {
+      right: 30px;
+    }
+
+    .HH015_Nav_Closed:before {
+      transform: rotate(90deg);
+    }
+  }
+
+  // Desktop and tablet shared styling
+  // Sticky header styling
+
+
+  // Sticky header only needed for desktop and tablet
+
+  @media(min-width: 767px) {
+
+    .HH015_Navigation_Header {
+      max-width: 360px;
+
+      &::after {
+        background-color: #61B588;
+        bottom: 8px;
+      }
+
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .HH015_Content_Item {
+      // Have 2 content items next to each other
+      display: inline-block;
+      width: calc(50% - 10px);
+      vertical-align: top;
+      padding-left: 30px;
+      margin: 5px 10px 5px 0;
+    }
+
+    // When element becomes sticky, add margin to compensate for the header height
+    .HH015_Sticky .sub-nav {
+      margin-top: 54px;
+    }
+
+    .HH015_Sticky .HH015_Navigation_Header_Wrap {
+      position: relative;
+    }
+
+    .HH015_Sticky .HH015_Navigation_Header_Container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      .HH015_Navigation_Header {
+        width: calc(30% - 6px);
+        border: solid 1px #61B588;
+        cursor: pointer;
+        margin: 0;
+        top: 50px;
+        position: fixed;
+        padding: 10px 10px 20px 10px;
+
+        &::before {
+          transform: rotate(90deg);
+          top: 10px;
+        }
+
+        &::after {
+          left: 12px;
+        }
+      }
+    }
+  }
+
+  // Tablet specific Specific Styling
+
+  @media(min-width: 768px) {
+
+    .HH015_Navigation_Header_Container,
+    .sub-nav {
+      display: inline-block;
+      width: calc(50% - 30px);
+    }
+  }
+
+  @media(min-width: 992px) {
+
+    .HH015_Sticky .HH015_Navigation_Header_Container {
+      left: 0;
+    }
+
+    .HH015_Navigation_Header_Container,
+    .sub-nav {
+      display: block;
+      width: 100%;
+    }
+  }
+}

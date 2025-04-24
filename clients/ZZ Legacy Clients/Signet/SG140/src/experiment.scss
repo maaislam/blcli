@@ -1,0 +1,1246 @@
+@import './variables';
+
+
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px) translateX(-50%);
+    transform: translateY(1000px) translateX(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+html.#{$id}-noScroll {
+  overflow: hidden;
+}
+
+.#{$id} {
+
+  .SG127-financeBox {
+    display: none;
+  }
+
+  .product-stock,
+  .product-messages,
+  .product-description-anchor-link__container,
+  .usp {
+    display: none;
+  }
+
+  .product-summary {
+    .product-customer-rating-summary {
+      margin-bottom: 10px;
+
+      span {
+        font-size: 13px;
+        padding-left: 5px;
+
+        @media(min-width: 1280px) {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .product-customer-rating-summary__star {
+      height: 15px;
+      width: 15px;
+      margin-top: 3px;
+      filter: brightness(0);
+
+      @media(min-width: 1280px) {
+        height: 18px;
+        width: 18px;
+        margin-top: 0;
+      }
+    }
+
+    .product-customer-rating-summary {
+      .product-customer-rating-summary__text {
+        color: black;
+        line-height: 17px;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  .product-price-offer {
+    text-align: left;
+    line-height: 22px;
+    color: red;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    a {
+      color: black;
+    }
+  }
+
+  .product-summary {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+
+    @media(min-width: 767px) {
+      margin-top: 20px;
+    }
+
+    @media(min-width: 1024px) {
+      margin-top: 30px;
+    }
+
+    @media(min-width: 1280px) {
+      margin-top: 0px;
+    }
+  }
+
+  // badge
+  .#{$id}-badge {
+    background: black;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    height: 80px;
+    width: 80px;
+    box-sizing: border-box;
+    border-radius: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+
+    @media(min-width: 767px) {
+      right: 10px;
+    }
+
+    span {
+      padding: 8px;
+      color: white;
+      font-family: Oxygen, sans-serif;
+      text-align: center;
+      font-size: 13px;
+      text-transform: capitalize;
+      line-height: 18px;
+    }
+  }
+
+  .product-paypal-credit {
+    display: none;
+  }
+
+  .#{$id}-paypal {
+    background: #FFCC00;
+    position: relative;
+    padding: 7px 10px;
+    border-radius: 10px;
+    font-family: Oxygen, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    width: 95%;
+    max-width: 290px;
+    cursor: pointer;
+    margin-top: 18px;
+
+    p {
+      margin-bottom: 0;
+
+      span {
+        height: 20px;
+        width: 100px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    @media(min-width: 767px) {
+      width: 100%;
+    }
+
+    @media(min-width: 1280px) {
+      margin-left: auto;
+      margin-right: 0;
+      max-width: 290px;
+      border-radius: 15px;
+    }
+
+  }
+
+  // clearpay
+  .product-clearpay {
+    background: #b2fce4;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: Oxygen, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    width: 95%;
+    max-width: 290px;
+    cursor: pointer;
+    margin-top: 10px;
+
+    @media(min-width: 767px) {
+      width: 100%;
+    }
+
+    @media(min-width: 1280px) {
+      margin-left: auto;
+      margin-right: 0;
+      max-width: 290px;
+      border-radius: 15px;
+    }
+
+    .product-clearpay__button {
+      text-indent: -9999px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+    .product-clearpay__icon {
+      height: auto;
+      width: 88px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @media(min-width: 375px) {
+        width: 98px;
+      }
+
+      @media(min-width: 1280px) {
+        width: 99px;
+      }
+    }
+  }
+
+  // product title
+  .product-name {
+    text-align: left;
+    font-size: 20px;
+    color: black;
+
+    @media(min-width: 1024px) {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+  }
+
+  // price
+  .product-price {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+
+    .product-price-pricing {
+      margin-top: 10px;
+    }
+
+    #js-link-reviews {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+    @media(min-width: 767px) {
+
+      //flex-direction: column;
+      .product-clearpay {
+        margin-top: 10px;
+      }
+    }
+
+
+    @media(min-width: 1024px) {
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .product-customer-rating-summary {
+        margin-bottom: 0;
+      }
+
+      &.#{$id}-clearpayOnly {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+        .product-price-pricing {
+          width: 78%;
+          margin-top: 0;
+        }
+      }
+
+      &.#{$id}-ifcWithClearpay {
+        flex-direction: column-reverse;
+
+        .product-clearpay {
+          margin-left: 0;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 20px !important;
+    }
+
+
+    .product-price-pricing {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      @media (min-width: 1024px) {
+        width: 100%;
+        align-items: center;
+      }
+
+      .product-price--copy {
+        margin-left: 10px;
+        margin-right: 5px;
+        font-weight: 400;
+      }
+
+      .product-price-history {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          font-weight: 400;
+        }
+
+      }
+
+      .product-price--current {
+        font-size: 21px;
+        color: black;
+
+        @media(min-width: 1280px) {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  // finance box
+  .#{$id}-financeBox {
+    background: #E9E8E8;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: Oxygen, sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 95%;
+    max-width: 290px;
+    cursor: pointer;
+
+    @media(min-width: 414px) {
+      width: 72%;
+    }
+
+    @media(min-width: 736px) {
+      width: 100%;
+    }
+
+    @media(min-width: 1024px) {
+      margin: 0;
+      margin-left: 20px;
+      max-width: 265px;
+    }
+
+    @media(min-width: 1280px) {
+      border-radius: 15px;
+      margin-right: 0;
+      margin-left: auto;
+      max-width: 290px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/80DAF7B7DBFEBB3B8D17CB901ABD83BDE7CE5DF913EDF033BCEC0D29D4FDACB5.png?meta=/SG080---In-Grid-Content-PLP-New/info.png') no-repeat center;
+      background-size: contain;
+      height: 18px;
+      width: 18px;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+    }
+
+    span {
+      font-weight: 700;
+      font-family: Oxygen, sans-serif;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-family: Oxygen, sans-serif;
+      font-size: 14px;
+    }
+
+  }
+
+  // options
+  .product-step-up-down {
+    border-top: 1px solid #E9E9E9;
+    padding-top: 10px;
+    border-bottom: 0px;
+  }
+
+
+  .product-step-up-down__container,
+  .product-ring-size {
+    @media(min-width: 1024px) {
+      border: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0;
+    }
+  }
+
+  .product-step-up-down,
+  .product-ring-size {
+    margin-top: 15px;
+
+    .product-step-up-down__text,
+    .product-ring-size__text {
+      justify-content: flex-start;
+      line-height: 20px;
+
+      h4 {
+        color: black;
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      @media(min-width: 1024px) {
+
+        width: auto;
+        min-width: 80px;
+
+        h4 {
+          margin-bottom: 0;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .product-step-up-down__data,
+    .product-ring-size__data {
+      @media(min-width: 1024px) {
+        flex-grow: 1;
+      }
+    }
+
+    .product-step-up-down__select,
+    .product-ring-size__select {
+      padding: 10px;
+
+      @media(min-width: 1024px) {
+        border: 1px solid #E1E1E1;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 400;
+        max-width: unset;
+        width: 100% !important;
+        align-items: flex-start;
+        margin-bottom: 0;
+        background-position: calc(100% - 10px) 50%;
+        margin-top: 0;
+      }
+    }
+
+    @media(min-width: 1024px) {
+      .product-step-up-down__container {
+        margin-top: 15px;
+      }
+
+      label {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .product-ring-size {
+    @media(min-width: 1024px) {
+      margin-top: 15px;
+
+      >div {
+        flex-grow: unset;
+      }
+    }
+  }
+
+  .product-ring-size__will-it-fit {
+    color: black;
+    font-size: 13px;
+    font-family: Oxygen, sans-serif;
+
+    @media(min-width: 1024px) {
+      font-size: 14px;
+      margin-left: 20px;
+    }
+  }
+
+
+
+  // stock check
+  .#{$id}-stockCheck {
+    text-align: left;
+    margin-top: 10px;
+    border-top: 1px solid #E9E9E9;
+    padding-top: 20px;
+
+    .#{$id}-stockToggle {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        height: 15px;
+        width: 15px;
+        background-size: contain;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/4554AE0CF98A7FDB91603A721028FF32FC71FF0B8148B3384EB2EBDBFB22C42F.png?meta=/SG080---In-Grid-Content-PLP-New/noun_Arrow_1145783Copy.png') no-repeat center;
+        background-size: contain;
+        display: none;
+      }
+
+      span {
+        height: 30px;
+        width: 30px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/7DEF9A121CC06CC0B25C51C89FBCD4DD5C7E6260F09FB2BE8BA202A2A76DDC34.png?meta=/SG080---In-Grid-Content-PLP-New/store.png') no-repeat center;
+        background-size: contain;
+      }
+
+      p {
+        text-decoration: underline;
+        margin-left: 10px;
+        margin-bottom: 0;
+        font-family: Oxygen, sans-serif;
+      }
+    }
+
+    .#{$id}-stockBox {
+      transform: translateY(-5000px);
+      opacity: 0;
+      height: 0;
+      margin-top: 10px;
+    }
+
+    &.#{$id}-stockShow {
+      .#{$id}-stockToggle {
+        position: relative;
+
+        &::after {
+          display: block;
+        }
+
+        p {
+          text-decoration: none;
+        }
+      }
+
+      .#{$id}-stockBox {
+        height: auto;
+        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+      }
+
+    }
+
+    @media(min-width: 767px) {
+      padding-top: 20px;
+      margin-top: 15px;
+    }
+  }
+
+  // CTA
+  .product-buy-now {
+    background: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+
+    .product-quantity__container {
+      width: 48px;
+      margin-right: 5px;
+      padding-top: 0;
+      margin-bottom: 0;
+      height: 100%;
+      border: 0;
+
+      .product-quantity__quantity-buttons {
+        width: 100%;
+        text-align: center;
+      }
+
+      @media(min-width: 1024px) {
+        height: 48px;
+      }
+
+      @media(min-width: 1280px) {
+        width: 60px;
+      }
+
+      .product-quantity__text,
+      .product-quantity__decrease,
+      .product-quantity__increase {
+        display: none;
+      }
+
+      .product-quantity__quantity-amount {
+        height: 100%;
+        border: 1px solid #E1E1E1;
+        box-sizing: border-box;
+        box-shadow: unset;
+      }
+
+      .product-quantity__quantity-buttons {
+        margin-top: 0;
+      }
+
+      input {
+        box-shadow: unset;
+        color: black;
+        background: white;
+        margin: auto;
+        width: 100%;
+
+        @media(min-width: 1280px) {
+          padding-left: 15px;
+        }
+      }
+    }
+
+    .product-buy-now__button {
+      background: black;
+      border: 1px solid black;
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+
+      .product-buy-now__text {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .product-buy-now__icon {
+        display: none;
+      }
+
+      &:hover {
+        @media(min-width: 1024px) {
+          background: #232222;
+          border: 1px solid #232222;
+
+          .product-buy-now__text {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  // appointment box
+  .book-appointments-section {
+    display: none;
+  }
+
+  .#{$id}-booking {
+    background: #EFEFEF;
+    padding: 10px;
+
+    @media(min-width: 375px) {
+      padding: 15px;
+    }
+
+    @media(min-width: 414px) {
+      padding: 20px;
+    }
+
+    @media(min-width: 767px) {
+      padding: 15px;
+    }
+
+    h3 {
+      font-size: 15px;
+      text-align: left;
+      margin-bottom: 10px;
+
+      @media(min-width: 375px) {
+        font-size: 16px;
+      }
+
+      @media(min-width: 767px) {
+        font-size: 15px;
+        text-align: left;
+      }
+    }
+
+    p {
+      display: none;
+    }
+
+    .product-book-appointment__link,
+    .product-virtual-appointment__link {
+      background: white;
+      border: 1px solid black;
+      padding: 5px 10px;
+      text-transform: unset;
+
+      @media(min-width: 375px) {
+        padding: 8px 10px;
+      }
+
+      .product-book-appointment__label,
+      .product-virtual-appointment__label {
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: capitalize;
+      }
+    }
+
+    .product-virtual-appointment {
+      margin-top: 10px;
+
+      @media(min-width: 414px) {
+        margin-top: 15px;
+      }
+    }
+
+    @media(min-width: 1024px) {
+      h3 {
+        font-size: 17px;
+        margin-bottom: 0px;
+      }
+
+      p {
+        display: block;
+        text-align: left;
+        margin-bottom: 12px;
+        font-family: Oxygen, sans-serif;
+      }
+
+      .#{$id}-bookButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .product-book-appointment,
+        .product-virtual-appointment {
+          width: 50%;
+          margin: 5px;
+          margin-top: 0;
+
+
+          a {
+            text-align: center;
+
+            &:hover {
+              background: black;
+              color: white;
+            }
+
+            .product-virtual-appointment__svg-container,
+            .product-book-appointment__svg-container {
+              display: none;
+            }
+          }
+        }
+
+        .product-book-appointment {
+          margin-left: 0;
+        }
+
+        .product-virtual-appointment {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &.#{$id}-2 {
+
+    .product-buy-now {
+      margin-bottom: 20px;
+    }
+
+    // book CTA
+    .#{$id}-bookingCTA {
+      padding: 8px 10px;
+      background: white;
+      border: 1px solid black;
+      text-align: center;
+      font-family: Oxygen, sans-serif;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media(min-width: 1024px) {
+        &:hover {
+          color: white;
+          background: black;
+        }
+      }
+    }
+
+    // lightbox
+    .#{$id}-bookoverlay {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.7);
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+      display: none;
+      cursor: pointer;
+
+      &.#{$id}-show {
+        display: block;
+      }
+    }
+
+    .#{$id}-lightboxModal {
+      position: fixed;
+      height: auto;
+      width: 100vw;
+      height: 100%;
+      background: white;
+      top: 50%;
+      left: 50%;
+      padding: 20px;
+      overflow: auto;
+      transform: translateY(1000px) translateX(-50%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &.#{$id}-modalShow {
+        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+
+      @media(min-width: 375px) {
+        height: auto;
+        width: 95%;
+        max-width: 450px;
+      }
+
+      @media(min-width: 767px) {
+        max-width: 650px;
+      }
+
+      @media(min-width: 1024px) {
+        max-width: 700px;
+        max-height: 600px;
+      }
+
+      @media(min-width: 1280px) {
+        padding: 30px;
+        max-width: 800px;
+      }
+
+      .#{$id}-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/D22FFCEB0F5DDB444EB94E8F7AFF24D23A681697222839C671FE931C7D1D039B.png?meta=/SG080---In-Grid-Content-PLP-New/crossDark.png') no-repeat center;
+        background-size: contain;
+        height: 15px;
+        width: 15px;
+        cursor: pointer;
+
+        @media(min-width: 1280px) {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      .#{$id}-modalInner {
+        font-family: Oxygen, sans-serif;
+
+        p {
+          font-family: Oxygen, sans-serif;
+        }
+
+        .#{$id}-titleBox {
+          h3 {
+            font-size: 20px;
+            line-height: 26px;
+            margin-bottom: 5px;
+            margin-top: 10px;
+
+            @media(min-width: 767px) {
+              font-size: 23px;
+            }
+          }
+        }
+
+        .#{$id}-innerContent {
+          .#{$id}-bookBlock {
+            background: #EEEEEE;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+
+            h3 {
+              margin-bottom: 0;
+            }
+
+            p {
+              margin-bottom: 10px;
+            }
+
+            .#{$id}-bookStore {
+              background: black;
+              padding: 8px 10px;
+              color: white;
+              font-family: Oxygen, sans-serif;
+              text-align: center;
+              margin-bottom: 10px;
+              box-sizing: border-box;
+              border: 1px solid black;
+              cursor: pointer;
+
+              @media(min-width: 1024px) {
+                max-width: 250px;
+                margin: 0 auto;
+
+                &:hover {
+                  color: black;
+                  background: white;
+                }
+              }
+            }
+          }
+
+          @media(min-width: 767px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 350px;
+            margin-bottom: 20px;
+
+            .#{$id}-bookBlock {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-content: center;
+              width: calc(50% - 10px);
+              margin: 10px;
+              box-sizing: border-box;
+              height: 100%;
+              flex: 1;
+              margin-top: 0;
+
+              span {
+                margin: 0 auto;
+                height: 90px;
+                width: 90px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 70px;
+                margin-bottom: 5px;
+              }
+
+              .#{$id}-text {
+                text-align: center;
+
+                p {
+                  padding: 10px;
+                  height: 100px;
+                }
+              }
+
+              &.#{$id}-store {
+                span {
+                  background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/B42916BFE53FF8DD50BB247C6CFD3CE56FB7C8EBE0CFEFBFD3B3E7D13CF60F6B.png?meta=/SG080---In-Grid-Content-PLP-New/noun_Store_3940605-1.png');
+                }
+              }
+
+              &.#{$id}-virtual {
+                span {
+                  background-image: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/C1F34A5764F8DD05DB8119874206AAFD290A4EDA06E15521C7D9D15EB3DF7217.png?meta=/SG080---In-Grid-Content-PLP-New/noun_VideoCall_3785249.png');
+                }
+              }
+            }
+          }
+
+          @media(min-width: 1024px) {
+            .#{$id}-bookBlock {
+              .#{$id}-text {
+                p {
+                  height: 80px;
+                  padding-top: 5px;
+                }
+              }
+            }
+          }
+
+          @media(min-width: 1280px) {
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+  &.hsamuel {
+
+    .product-propositions {
+      display: none;
+    }
+
+    .product-name {
+      margin-bottom: 5px;
+    }
+
+    .product-summary {
+      .product-customer-rating-summary__star {
+        filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+      }
+    }
+
+    .detail-page__payment-wrapper {
+      background: white;
+      padding-top: 10px;
+
+      #basketForm {
+        border-top: 1px solid #E9E8E8;
+
+        @media(min-width: 767px) {
+          border-top: 0px;
+        }
+      }
+    }
+
+    .#{$id}-booking {
+
+      p {
+        font-family: Montserrat, sans-serif;
+        margin-top: 10px;
+      }
+
+      .#{$id}-bookButtons {
+
+        .product-book-appointment__link,
+        .product-virtual-appointment__link {
+          border: 1px solid #a01d29;
+          color: black;
+        }
+      }
+    }
+
+
+    .product-ring-size__heading {
+      @media(min-width: 1024px) {
+        font-size: 15px;
+      }
+    }
+
+    .product-ring-size__will-it-fit {
+      font-family: Montserrat, sans-serif;
+      color: #a01d29;
+    }
+
+    .errors {
+      margin-top: 0;
+    }
+
+    .#{$id}-financeBox {
+      p {
+        font-family: Montserrat, sans-serif;
+      }
+    }
+
+    .product-clearpay {
+      font-family: Montserrat, sans-serif;
+
+      .product-clearpay__icon {
+        height: 27px;
+        width: 80px;
+
+        @media(min-width: 1280px) {
+          width: 85px;
+        }
+      }
+    }
+
+    .#{$id}-stockCheck {
+      margin-top: 0;
+
+      .#{$id}-stockToggle {
+        color: #a01d29;
+
+        p {
+          font-family: Montserrat, sans-serif;
+        }
+      }
+    }
+
+
+    .product-buy-now {
+      border: 0;
+
+      .product-buy-now__button {
+        background: #166d02;
+        border: 1px solid #166d02;
+        font-family: Montserrat, sans-serif;
+
+        &:hover {
+          background: #2f6922;
+          border: 1px solid #2f6922;
+        }
+      }
+
+      .product-quantity__container {
+        height: 100%;
+
+        input {
+          height: 42px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .#{$id}-booking {
+      p {
+        margin-bottom: 0;
+      }
+      .product-book-appointment,
+      .product-virtual-appointment {
+        a {
+          text-align: center;
+          @media(min-width: 1024px) {
+            line-height: 17px;
+          }
+          &:hover {
+            background: #a01d29;
+            color: white;
+          }
+  
+        }
+      }
+  
+    }
+   
+
+    &.#{$id}-2 {
+      .#{$id}-bookingCTA {
+        border: 1px solid #a01d29;
+        font-family: Montserrat, sans-serif;
+        text-transform: unset;
+        font-weight: 500;
+
+        @media(min-width: 1024px) {
+          &:hover {
+            background: #a01d29;
+            color: white;
+          }
+        }
+      }
+
+      .product-summary {
+        border: 0;
+      }
+
+      .product-ring-size {
+        border-top: 0;
+      }
+
+      .#{$id}-lightboxModal {
+        padding: 25px 23px;
+
+        .#{$id}-modalInner {
+          font-family: Montserrat, sans-serif;
+
+          p {
+            font-family: Montserrat, sans-serif;
+          }
+
+          .#{$id}-bookBlock {
+            h3 {
+              margin-bottom: 5px;
+            }
+
+            .#{$id}-bookStore {
+              background: #a01d29;
+              border: 1px solid #a01d29;
+              font-family: Montserrat, sans-serif;
+              font-size: 15px;
+              margin-top: 5px;
+
+              &:hover {
+                background: white;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.ernestjones {
+    // EJ-specific styles
+  }
+}

@@ -1,0 +1,374 @@
+@import './variables';
+
+.#{$id} {
+    
+    .PJ-banner {
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin-top: -30px;
+
+        @media only screen and (max-width: 649px) {
+            margin-top: 0;
+        }
+        @media screen and (orientation: landscape) {
+            margin-top: 0;
+        }
+
+        .PJ-ib {
+            display: inline-block;
+            position: relative;
+            > p {
+                background-color: $red;
+                color: #ffffff;
+                padding: 6px 12px;
+                text-transform: uppercase;
+                display: inline-block;
+                margin-bottom: 10px;
+                // font-size: 1em;
+                // line-height: 1.618em;
+                font: bold 24px 'Roboto Condensed',sans-serif;
+                line-height: 32px;
+                margin-bottom: 20px;
+            }
+
+            > span.PJ-pizzaIcon {
+                position: absolute;
+                width: 25px;
+                height: 30px;
+                left: 0;
+                top: 5px;
+                &:last-of-type {
+                    left: auto;
+                    right: 0;
+                    transform: scale(-1, 1)
+                }
+            }
+        }
+        /* The switch - the box around the slider */
+        .PJ-outer {
+            p {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 10px;
+                color: #171717;
+                font: bold 24px 'Roboto Condensed',sans-serif;
+                line-height: 26px;
+                margin-bottom: 20px;
+            }
+        }
+        .PJ-switch {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            width: 50px;
+            height: 24px;
+            // margin-top: 7px;
+        }
+        
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        /* The slider */
+        .PJ-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        .PJ-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .PJ-slider:after {
+            content: 'OFF';
+            position: absolute;
+            height: 16px;
+            width: 30px;
+            right: 2px;
+            bottom: 3px;
+            font-size: 12px;
+            line-height: 16px;
+            color: #222222;
+            font: bold 12px 'Roboto Condensed',sans-serif;
+            // line-height: 26px;
+            // margin-bottom: 20px;
+        }
+        
+        input:checked + .PJ-slider {
+            background-color: $green;
+        }
+        
+        input:focus + .PJ-slider {
+            box-shadow: 0 0 1px $green;
+        }
+        
+        input:checked + .PJ-slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        input:checked + .PJ-slider:after {
+            content: 'ON';
+            color: #ffffff;
+            right: auto;
+            left: 2px;
+        }
+        
+        /* Rounded sliders */
+        .PJ-slider.round {
+            border-radius: 34px;
+        }
+        
+        .PJ-slider.round:before {
+            border-radius: 50%;
+        }
+    }
+
+    .PJ-strike {
+        text-decoration: line-through;
+    }
+
+
+    .PJ-itemBanner {
+        display: none;
+
+        @media only screen and (max-width: 649px) {
+            text-align: center;
+        }
+
+        .PJ-pizzaIcon {
+            display: inline-block;
+            width: 25px;
+            height: 30px;
+            & + p {
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 5px;
+            }
+        }
+        p {
+            display: block;
+            color: $red;
+            font-weight: 700;
+            margin: 0 0 7px;
+        }
+    }
+
+    // Open Banner
+    .menuListContH {
+        .PJ-bigIcon {
+            display: none;
+        }
+    }
+
+    .PJ-pizzaIcon {
+        background-image: url('data:image/png;base64,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');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        top: -4px
+    }
+
+    &.PJ102-active {
+        .PJ-itemBanner {
+            display: block;
+        }
+
+        .menuListContH {
+            .PJ-bigIcon {
+                display: inline-block;
+                width: 25px;
+                height: 30px;
+            }
+            .makeItFree {
+                display: inline-block;
+                width: calc(100% - 45px);
+            }
+
+            // option[selected="selected"] {
+            //     position: relative;
+            //     &:after {
+            //         content: attr(data-price);
+            //         position: relative;
+            //         display: inline-block;
+            //     }
+            // }
+
+            p.inputs select {
+                position: relative;
+                &:after {
+                    content: '';
+                    width: 80px;
+                    height: 1px;
+                    background-color: #000000;
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+
+    &.PJ102-2 {
+
+        .PJ-chevron {
+            display:inline-block;
+            width: .5em;
+            height: .8em;
+            position:relative;
+            vertical-align: middle;
+            margin-left: 15px;
+            transform: rotate(90deg);
+            transition: ease all .2s;
+            
+        }
+        .PJ-chevron:before,
+        .PJ-chevron:after {
+            display:block;
+            content:"";
+            width:0;
+            height:0em;
+            border-style:solid;
+            position:absolute;
+        }
+        .PJ-chevron:before {
+            right:0;
+            border-width:.4em 0 .4em .4em;
+            border-color:transparent transparent transparent #007a53;    
+        }
+        .PJ-chevron:after {
+            left:0;
+            border-width:.4em 0 .4em .4em;
+            border-color:transparent transparent transparent #fff;    
+        }
+        .PJ-chevron.skinny {
+            width:.4em;
+        }
+
+        .PJ-ib {
+            position: relative;
+            padding: 20px;
+        }
+        .PJ-outer {
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 7px;
+            p {
+                margin: 0;
+                color: #007a53;
+                text-decoration: underline;
+                font-size: .9em;
+            }
+        }
+        .PJ-top {
+            background-color: #f1f1f1;
+            padding: 12px;
+            margin-bottom: 20px;
+            p {
+                margin: 0 !important;
+            }
+        }
+        .PJ102-2-info {
+            position: absolute;
+            text-align: left;
+            width: 100%;
+            z-index: 9;
+            background-color: #ffffff;
+            left: 0;
+            right: 0;
+            border-top: 4px solid $red;
+            padding: 12px;
+            color: #222222;
+            -webkit-box-shadow: 1px 1px 15px 3px #878787; 
+            box-shadow: 1px 1px 15px 3px #878787;
+            transition: ease all .2s;
+            opacity: 0;
+            visibility: hidden;
+
+            &.show {
+                opacity: 1 !important;
+                visibility: visible !important;
+                
+            }
+
+            p {
+                color: #282828;
+                font: 16px Arial,sans-serif;
+                margin-top: 10px;
+                font-family: 'Roboto Condensed',sans-serif;
+            }
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+
+            h4 {
+                font-size: .9em;
+                font-weight: 700;
+                font-family: 'Roboto Condensed',sans-serif;
+                span {
+                    color: $red;
+                    text-transform: uppercase;
+                }
+            }
+
+            h4, > p {
+                padding: 0 10px;
+            }
+
+            @media only screen and (max-width: 649px) {
+                // left: -20px;
+                width: auto;
+
+            }
+        }
+
+        p.PJ102-2-toggle {
+            cursor: pointer;
+            &.flip {
+                .PJ-chevron {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+        .PJ-itemBanner {
+            display: none;
+        }
+    }
+
+
+    &.PJ-noPoints .PJ-banner { display: none; }
+    
+
+    @media only screen and (min-width: 649px) {
+        &:not(.PJ-noPoints) .menuItems:first-of-type img.separatorImg {
+            margin-bottom: -50px;
+        }
+    }
+    @media only screen and (max-width: 649px) {
+        .PJ-itemBanner .PJ-pizzaIcon {
+            margin-top: -5px
+        }
+    }
+}   

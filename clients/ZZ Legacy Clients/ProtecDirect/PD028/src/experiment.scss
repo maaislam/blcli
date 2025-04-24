@@ -1,0 +1,361 @@
+@import '_mixins.scss';
+.PD028 {
+  .ui-header .pd1_navigation {
+    box-shadow: none;
+  } // Hide old navigation
+  .span-16.section2>.lockhart_mobile_homepage_menu_links.clearfix.cms-collection-component>div {
+    display: none;
+  } // Style USP bar
+  .PD028-USP-Bar-Wrapper.PD028_landing_slider.slick-initialized.slick-slider {
+    margin-bottom: 10px;
+    .PD028-USP-Bar {
+      margin: 0 10px;
+      text-align: center;
+      >img {
+        max-width: 40px;
+        vertical-align: middle;
+        margin-right: 10px;
+        display: inline-block;
+      } 
+      >.PD028-USP-3-Phone{
+        max-width: 30px;
+      }
+      // Allow text to sit next to images
+      >div {
+        width: calc(100% - 55px);
+        display: inline-block;
+        vertical-align: middle; // Style header
+        >h3 {
+          margin: 0;
+        } // style sub header
+        >p {
+          margin: 0;
+        }
+      }
+      // Style countdown timer text
+      .PD028-Top-Timer-Text{
+        font-size: 15px;
+        >#PD028-delivery-day{
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+    }
+  } // Style lower banner/timer
+  .PD028-Lower-Timer-Wrap {
+    text-align: center;
+    .PD028-Lower-Timer {
+      text-align: left;
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 85px);
+      .PD028-Countdown-Wrapper {
+        display: inline-block;
+        .PD028-Lower-Delivery-Day {
+          display: inline-block;
+        }
+        #PD028-countdown {
+          display: inline-block;
+          >span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .PD028-Lower-Timer-Truck {
+      max-width: 50px;
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+  } // Style new navigation section
+  .PD028-Navigation-Wrapper {
+    // Navigation title section
+    .PD028-Navigation-Header {
+      text-align: center;
+      .PD028-Navigation-Title {
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+      .PD028-Sub-Title {
+        margin-top: 0;
+      }
+    }
+    // Navigation containers
+    .PD028-Navigation-Container{
+      background: #303030;
+    }
+    .PD028-Title-Wrap {
+      border-bottom: 1px solid #FFF;
+    } // Accordion headers
+    .PD028-Title {
+      color: #fff;
+      padding: 5px 0 5px 15px;
+      display: inline-block;
+      width: calc(100% - 50px);
+      margin-bottom: 5px;
+    } // Link wraps
+    .PD028-Links {
+       // Hidden by default, controlled by animations
+      background: #fff;
+      display: none;
+    } // Individual links
+    .PD028-Link {
+      display: block;
+      color: #000;
+      font-weight: 400;
+      padding: 10px 0 5px 25px;
+    }
+    .PD028-Offers-Wrap {
+      margin-bottom: 13px;
+    } // Create arrows
+    .PD028-Arrow {
+      position: absolute;
+      height: 9px;
+      width: 20px;
+      &::before,
+      &::after {
+        display: inline-block;
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 2px;
+        background: #FFF;
+        @include rotate(45);
+        top: 25px;
+        left: 6px;
+      }
+      &::after {
+        @include rotate(-45);
+        left: 12px;
+      }
+    } // Change arrow direction
+    .PD028-Navigation-Container.PD028-Active {
+      .PD028-Arrow {
+        &::before {
+          @include rotate(-45);
+        }
+        &::after {
+          @include rotate(45);
+        }
+      }
+    }
+  } 
+  
+  
+  // Special offers carousel
+
+// Reduce banner carousel padding
+
+.highlights-carousel{
+  padding: 5px 6px 10px 6px;
+}
+
+// Style Carousel
+
+.PD028_landing_wrap.PD028_Offers_Carousel{
+
+  // Headings
+
+  .PD028-Offers-Title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 0;
+
+  }
+
+  .PD028-Offers-Sub-Title {
+    text-align: center;
+    margin: 5px 0 20px 0;
+  }
+
+  // Carousel elements
+
+  .PD028-Product-Carousel-Wrapper.slick-slide{
+
+    // Links
+    .PD028-Offer-Link{
+  
+      // Images
+
+      .PD028-Offer-Product-Image{
+        margin: auto;
+        border: #dcddde solid 1px;
+      }
+
+      // Product title
+
+      .PD028-Product-Title{
+        color: #4f4f4f;
+        max-width: 93px;
+        margin: 10px auto;
+      }
+
+      //Price
+      .PD028-Price{
+        color: #2b2a2f;
+        max-width: 93px;
+        margin: 10px auto;
+      }
+
+      // was price
+
+      .PD028-Was-Price{
+        color: #4f4f4f;
+        text-decoration: line-through;
+        max-width: 93px;
+        margin: 10px auto;
+      }
+
+      &:focus{
+        outline: none;
+    }
+    }
+
+  }
+}
+
+
+  // Slick CSS
+  .PD028_landing_wrap.PD028_USP_Carousel,
+  .PD028_landing_wrap.PD028_Offers_Carousel {
+    overflow: hidden;
+    .slick-slider {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -khtml-user-select: none;
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent
+    }
+    .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 0
+    }
+    .slick-list:focus {
+      outline: 0
+    }
+    .slick-list.dragging {
+      cursor: pointer;
+      cursor: hand
+    }
+    .slick-slider .slick-list,
+    .slick-slider .slick-track {
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0)
+    }
+    .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+    .slick-track:after,
+    .slick-track:before {
+      display: table;
+      content: ''
+    }
+    .slick-track:after {
+      clear: both
+    }
+    .slick-loading .slick-track {
+      visibility: hidden
+    }
+    .slick-slide {
+      display: none;
+      float: left;
+      height: 100%;
+      min-height: 1px
+    }
+    [dir=rtl] .slick-slide {
+      float: right
+    }
+    .slick-slide img {
+      display: block
+    }
+    .slick-slide.slick-loading img {
+      display: none
+    }
+    .slick-slide.dragging img {
+      pointer-events: none
+    }
+    .slick-initialized .slick-slide {
+      display: block
+    }
+    .slick-loading .slick-slide {
+      visibility: hidden
+    }
+    .slick-vertical .slick-slide {
+      display: block;
+      height: auto;
+      border: 1px solid transparent
+    }
+    .slick-arrow.slick-hidden {
+      display: none
+    }
+    /*# sourceMappingURL=slick.min.css.map */
+  } // Custom arrow CSS
+  .PD028_landing_wrap.PD028_Offers_Carousel {
+    .PD028-Prev-Arrow {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7.5px 13.0px 7.5px 0;
+      border-color: transparent #bbbbbb transparent transparent;    
+      background: none;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 0;
+      margin-top: -11px;
+      margin-left: -12px; 
+      padding-left: 15px;
+
+      &:focus{
+          outline: none;
+      }
+      &.slick-disabled{
+        display: none !important;
+      }
+    }
+    .PD028-Next-Arrow{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7.5px 0 7.5px 13.0px;
+      border-color: transparent transparent transparent #bbbbbb;
+      background: none;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: 0;
+      margin-top: -11px;
+      padding-right: 15px;
+
+      margin-right: -12px;
+
+      &:focus{
+          outline: none;
+      }
+
+      &.slick-disabled{
+        display: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@import './variables';
+
+.#{$id} {
+  #guestForm {
+    .checkout_heading, .checkout_heading + .form_field-elements { display: none }
+  }
+  #loginForm {
+    .checkout_heading, .checkout_heading + .form_field-elements, .col-xs-12.p-0.mt-2 { display: none }
+    // Forgot password
+    .form_field_error-message.forget-password a {
+      text-decoration: underline;
+    }
+  }
+  #globalMessages {
+    .alert.alert-danger {
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+      color: #3c763d;
+    }
+  }
+  #cboxOverlay, #colorbox {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  .checkout_form {
+    position: relative;
+    text-align: center;
+    #globalMessages {
+      position: absolute;
+      top: 5px; right: 5px; left: 5px;
+    }
+    form {
+      > .row.bg-white.py-5 {
+        padding-top: 30px !important;
+        // &.MPLogin_padding_top {
+        //   padding-top: 120px !important;
+        // }
+      }
+      .controls {
+        text-align: left;
+        &.MP159-active--label {
+          position: relative;
+          &:before {
+            content: '';
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAABPCAYAAACqNJiGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgSWxsdXN0cmF0b3IgQ1M1IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjZFNzEzRkZEM0M0MDExRTk5MTYyRTRDOTFCOTk0MTg4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjZFNzEzRkZFM0M0MDExRTk5MTYyRTRDOTFCOTk0MTg4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NkU3MTNGRkIzQzQwMTFFOTkxNjJFNEM5MUI5OTQxODgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NkU3MTNGRkMzQzQwMTFFOTkxNjJFNEM5MUI5OTQxODgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7GlIb5AAAFbElEQVR42uyd3XHbOBCA15wrQCWwg9AVmHm6RysVyKrAUgWOK5D9fjOkKrD8fjOmKjBTQVgCSwjhWVxwzC7AH4AEYe0MxrEd4efjYncBAuurv//9B2aSuCkJlhv8WdrhcwV+PTelxFLNMYC/Jm5v3ZRbhBQPrCMlQFcI9bUpp5DgiUFuENzKoRbfYakR4FHRUicSOaxbDOS9KW/479VECrHC9t6w/bslaZ7o7EPPaSnt1o+WXaOm6xfFXppE/J8M+/PYlNxXeKKjhx5G/4xfu04tDmiKDic1TOsMzcceH5Y38L7j0zVp1xGffm2pXRW+nK4bjVamOJUfsc+z2rwEO6MDJ4z316ZcN+XJIri21Fj/Nban87oP2O9kLnhrNMqJRivEQL659npM29+w/ULz4N9wHJPC2zXlhfGgFT75r7Zsywgplb5UjGd+wfFMAi9Dx0DJk+FpzyWFYjYoOeC4nMLLmLipxmmyd2jTbNjEPfazZkKszBU8DlzZwUD7JCeNSekFsCu8nQFcCcuS0gBwZwvemrFxsgM1LFNqDcBDFy9sgpcwarx0cF0AZqY40AQvI8KRUMCZAK5M9i8yLLkSoqFtQOBM40p0y7hIM12pJdd2gc6hjxPZMku5pA+8AxMAnyBsOTGB9KErvDtie6fCnYjPII/EUi6lQrWIUVNqutafBF6tmb5aeIJuTKwLi0DAxKhFplcC1Jjjtva14d0TFe0DAScG/hN+v9swAaTGfc/BSwmvcgrEu7bXrDGYXwyVhINMVH+gwtsQFTwHCK6PUOPfUPDWBPkiUHBibHmHzxfEzFu34VEvpI8Bg+uzvDwSy7a1Cu+W+FB+AcdyuFXhpYS61hdw/8V9BRE0f8CLidjufAGn5fHBLGIWvcUFnJFHEgo8l+C08G6IBi/g6PpUuaE2BqoLOFIqamOg7Wl/XMCR0uaSRrBMmRocKdECncVc4Iou8C7gOoqtw41rDHlqsHt40VtwtuAJh/OifL9xMBjvwNmatm1vLQ8NrkIGx8FLx8Y/FgH6BC51oXk50Ns2YwF6q3EqvLYL/jKgnq1lgD6Ca3MpKM2LB1ZuC6CvGhdTmncmBgszAfR5qra5nCNmFyWdAaDP4CgepQt4QwD67hxYeBURbtxYaLArQO+9Kvz5guyDWcQselNLQa4J4G4B4FaEvSvUOO+VsUHgGOASDopTHF5VeCeisxuLHeAA+g6O4iBvkv9vhaE91DIBQB/BpUAffvpjeUYdr7i33BkOoK8n7KnxHyl4BeF11yOD5i4AfQWXgOHwU3t5Rp07PjjomAAoLxVfg59HO6hxP+t2VXKgDzOnDjrn8xE2asxV2+RQGwOU9mUwXWoPH+K6rAsXCl4O9GHmh08Cj0prUlCOjtsMpQ4z72DEffyFyBro66LkofZIY4+46ZsECi7RTNeyDzwh34G/CRia/ePGVcKAi3tqSFEbdkVCAEelOOFuAnWGx90EDAUgB04qTjkGnlzL7QMEqAO3hw43PLu+enwC/b7c0pyIrt858PlXBsHTLepHpxWaIRzRgdt2rajvS28OoEwrdPB4Gq+wf1wap17ghsCTALmbkCLAfHe0Fh67Vn0HPl/Kvi+4ofCkDeTSCsU4LXywhYnSl5j4vUzj9DSk8jFnVXRphdSn/TKDJqbYrm4WjE7jNPagj+jANejzD0gDLaeNK5u4UsyGyYE9Yr9HXZu4sphkuk/OUNHpVxh/BT+FbjlD1d0RazlDrxxk6L4Df7LVSqnAQbbaK4fpzQXE+5mdhngoz+Do+qvL0/A5/H5PkcN07ynkoXL5fiR31dAU6c2lXduCndzw3LQsIMDc8O3w5qTEg4v+qwS/BBgAz0uzVzbrpIIAAAAASUVORK5CYII=') no-repeat center;
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            bottom: 11px;
+            width: 20px;
+            color: #39bc9c;
+            height: 20px;
+            background-size: contain;
+          }
+        }
+      }
+      input.MP159-active--input {
+        border: 1px solid #39bc9c;
+      }
+    }
+  }
+  .checkout_form.js-checkout {
+    .MP159-intro--message {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px 20px 0;
+      p {
+        max-width: 300px;
+        margin: 0 auto 10px;
+      }
+      p.MP159-small {
+        font-size: .8em;
+      }
+      p:last-of-type {
+        margin-bottom: 0 !important;
+      }
+      h1 {
+        font-size: 2.2em;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+    }
+    .MP159-forgotten--password {
+      display: inline;
+      p {
+        display: inline-block;
+        &:first-of-type {
+          display: block;
+          font-size: 1.2em;
+        }
+      }
+      + a {
+        text-decoration: underline !important;
+      }
+    }
+  }
+  .MP159-hide { display: none !important }
+  .form_field_error-message.forget-password a {
+    text-decoration: none !important;
+    span {
+      text-decoration: underline !important;
+    }
+  }
+  // Back arrow
+  a.MP159-try-again {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    text-decoration: underline !important;
+  }
+}

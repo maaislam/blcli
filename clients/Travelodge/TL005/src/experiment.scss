@@ -1,0 +1,50 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-hotelCarousel {
+    height: auto;
+
+    .swiper-slide {
+      position: relative;
+      height: 0;
+      padding-bottom: calc(3 / 4) * 100%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      background-color: rgba(0,0,0,0.4);
+      width: 40px;
+      left: 0;
+      height: 35px;
+      background-image: url('https://www.travelodge.co.uk/nw/assets/img/bg/breakdown_arrow_left_white.png');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 15px;
+      @media(min-width: 767px) {
+        width: 30px;
+        height: 30px;
+        background-size: 13px;
+      }
+      &:after {
+        display: none;
+      }
+      &.swiper-button-disabled {
+        display: none;
+      }
+    }
+
+    .swiper-button-next {
+      right: 0;
+      left: auto;
+      background-image: url('https://www.travelodge.co.uk/nw/assets/img/bg/breakdown_arrow_right_white.png');
+    }
+  }
+}

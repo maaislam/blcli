@@ -1,0 +1,426 @@
+@import './variables';
+
+.#{$id} {
+    .trigger {
+        text-align: center;
+        padding: 7px 13px;
+        background: #3e3e3e;
+        color: #fff;
+        font-size: 15px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        font-family: cursive;
+    }
+
+    &__modalWrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.10);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+        overflow-y: scroll;
+
+        .#{$id}__modal {
+            width: 900px;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: #FFF;
+            box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.10);
+            padding: 16px 16px 0;
+
+            &-contentWrapper {
+                .#{$id}-header {
+                    text-align: center;
+
+                    .discountText {
+                        color: #323232;
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 28px;
+                        letter-spacing: 0.65px;
+                        text-transform: capitalize;
+
+                        span {
+                            font-family: VivaBeautifulPro-Regular, Serif;
+                            font-size: 40px;
+                            font-weight: 400;
+                            line-height: 44px;
+                            letter-spacing: 1px;
+                        }
+                    }
+
+                    .subtext {
+                        color: #323232;
+                        font-family: Poppins;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 19.5px; /* 150% */
+                        max-width: 450px;
+                        margin: 0 auto;
+                        text-align: left;
+
+                        a {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .#{$id}-body {
+                    margin-top: 16px;
+
+                    .formWrapper {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+
+                        .#{$id}__form {
+                            width: calc(50% + 16px);
+                            // padding: 16px;
+                            background: #FFF;
+                            // box-shadow: 0px 0px 4px 0px rgba(50, 50, 50, 0.10);
+
+                            .formRow.emailInput {
+                                margin-top: 10px;
+                            }
+
+                            .formRow {
+                                position: relative;
+
+                                .nameRequiredText,
+                                .emailRequiredText {
+                                    position: absolute;
+                                    top: 48%;
+                                    transform: translateY(-50%);
+                                    color: #FF0100;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: 14px;
+                                    pointer-events: none;
+                                }
+
+                                .nameRequiredText {
+                                    left: 85px;
+                                }
+
+                                .emailRequiredText {
+                                    left: 50px;
+                                }
+
+                                .#{$id}-firstNameLabel {
+                                    position: absolute;
+                                    right: 165px;
+                                    top: 13px;
+                                    left: 13px;
+                                    color: #737373;
+                                }
+
+                                .#{$id}-emailLabel {
+                                    position: absolute;
+                                    right: 165px;
+                                    top: 13px;
+                                    left: 13px;
+                                    color: #737373;
+                                }
+
+                                #firstName::placeholder,
+                                #email::placeholder {
+                                    color: #323232;
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 14px;
+                                    font-weight: 300;
+                                    line-height: 24px;
+                                }
+
+                                input:not([type="radio"]) {
+                                    width: 100%;
+                                }
+
+                                input:not([type="radio"]),
+                                input:not([type="date"]) {
+                                    padding: 14px 12px;
+                                }
+
+                                input[type="radio"] {
+                                    display: none;
+                                }
+
+
+
+                                #email {
+                                    // margin: 16px 0;
+                                    margin: 0;
+                                }
+
+                                p.isParent {
+                                    color: #323232;
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                    line-height: 24px;
+                                }
+
+                                &__radioBtns {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                    margin-bottom: 8px;
+
+                                    label {
+                                        flex: 1;
+                                        border: 1px solid #000;
+
+                                        .type {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;
+                                            gap: 8px;
+                                            padding: 16px 8px 8px;
+
+                                            img {
+                                                width: 60px;
+                                                height: 60px;
+                                            }
+
+                                            span {
+                                                color: #323232;
+                                                font-size: 14px;
+                                                font-weight: 300;
+                                                line-height: 24px;
+                                            }
+                                        }
+                                    }
+
+                                    label.#{$id}__selectedOption {
+                                        background: #E6F6F3;
+                                        border: 2px solid #47BB9C;
+                                    }
+                                }
+
+                                .babyInfo {
+                                    margin-bottom: 8px;
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    align-items: center;
+                                    gap: 8px;
+
+                                    .#{$id}__genderDropdown {
+                                        display: flex;
+                                        flex: 1;
+                                        flex-direction: column;
+                                        position: relative;
+
+                                        .options-container {
+                                            max-height: 0;
+                                            width: 100%;
+                                            opacity: 0;
+                                            transition: all 0.2s;
+                                            overflow: hidden;
+                                            border: solid 1px #b9bcc4;
+                                            background-color: #ffffff;
+                                            order: 1;
+                                            position: absolute;
+                                            top: 50px;
+                                        }
+
+                                        .selected {
+                                            position: relative;
+                                            width: auto;
+                                            height: 100%;
+                                            border: 1px solid #323232;
+                                            background-color: #ffffff;
+                                            order: 0;
+                                        }
+
+                                        .selected::after {
+                                            content: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Crect width='24' height='24' fill='white'%3E%3C/rect%3E%3Cpath d='M17 9.5L12 14.5L7 9.5' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+                                            display: inline-block;
+                                            line-height: 1;
+                                            position: absolute;
+                                            right: 8px;
+                                            top: 10px;
+                                            transition: transform .5s;
+                                        }
+
+                                        .options-container.active {
+                                            max-height: 240px;
+                                            opacity: 1;
+                                            z-index: 9;
+                                        }
+
+                                        .options-container.active+.selected::after {
+                                            transform: translateY(-10%) rotateX(180deg);
+                                        }
+
+                                        .option,
+                                        .selected {
+                                            padding: 12px 14px;
+                                            cursor: pointer;
+                                        }
+
+                                        .option:hover {
+                                            background: #E6F6F3;
+                                        }
+
+                                        label {
+                                            cursor: pointer;
+                                        }
+
+                                        .option .radio {
+                                            display: none;
+                                        }
+                                    }
+
+                                    .#{$id}__name {
+                                        flex: 1;
+                                    }
+
+                                    .#{$id}-babyNameLabel {
+                                        position: absolute;
+                                        right: 165px;
+                                        top: 13px;
+                                        color: #737373;
+                                    }
+                                }
+
+                                .shareDueDate,
+                                .shareBabyDOB {
+                                    margin-bottom: 5px;
+                                    color: #323232;
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    line-height: 24px;
+                                }
+
+                                .dueDateLabel,
+                                .dob {
+                                    border: 1px solid #323232;
+                                    padding: 8px 0 0 12px !important;
+                                    font-weight: 300;
+
+                                    input#dueDate,
+                                    input#dob {
+                                        height: auto !important;
+                                        border: 0 !important;
+                                        padding: 0 12px 8px 0 !important;
+                                    }
+                                }
+                            }
+
+                            .formRow.your-details-row {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-top: 40px;
+                            }
+
+                            .formRow[data-selected="parentToBe"]~.formRow {
+
+                                .babyInfo,
+                                .dob,
+                                .shareBabyDOB {
+                                    display: none;
+                                }
+                            }
+
+                            .formRow[data-selected="gifter"]~.formRow {
+
+                                .babyInfo,
+                                .shareDueDate,
+                                .dueDateLabel,
+                                .dob,
+                                .shareBabyDOB {
+                                    display: none;
+                                }
+                            }
+
+                            .btnWrapper {
+                                margin-top: 16px;
+
+                                button {
+                                    width: 100%;
+                                    padding: 10px 32px;
+                                    color: #FFF;
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    line-height: 21px;
+                                    text-transform: capitalize;
+                                    border: 2px solid #47BB9C;
+                                    background: #47BB9C;
+                                }
+                            }
+
+                            .subtext {
+                                color: #323232;
+                                font-family: Poppins;
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 19.5px; /* 150% */
+                                max-width: 450px;
+                                margin: 16px auto;
+                                text-align: left;
+        
+                                a {
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            .error-message p {
+                                color: #FF0100;
+                                margin: 10px 0 0 0;
+                            }
+                        }
+                    }
+
+                    .#{$id}-button {
+                        padding: 7px 13px;
+                        background: #3e3e3e;
+                        color: #fff;
+                        font-size: 15px;
+                        outline: none;
+                        border: none;
+                        border-radius: 5px;
+                        font-family: cursive;
+                    }
+                }
+            }
+
+            .closeBtnWrapper {
+                position: relative;
+                float: right;
+
+                .close-button {
+                    position: absolute;
+                    top: -2rem;
+                    right: -2rem;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+
+    &__showModal {
+        z-index: 999;
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+    &:has(.#{$id}__modalWrapper.#{$id}__showModal) {
+        overflow: hidden !important;
+    }
+}

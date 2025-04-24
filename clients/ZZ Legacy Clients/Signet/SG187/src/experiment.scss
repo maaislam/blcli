@@ -1,0 +1,53 @@
+@import "./variables";
+
+.#{$id} {
+  .#{$id}-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    > * + * {
+      margin-top: 40px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 1px;
+        background-color: #a1a1a1;
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      flex-direction: row;
+
+      > * + * {
+        margin-top: 0;
+        margin-left: 20px;
+
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+
+    a {
+      font-size: 14px;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

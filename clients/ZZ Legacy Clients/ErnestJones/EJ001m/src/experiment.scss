@@ -1,0 +1,240 @@
+$id: 'EJ001m';
+
+// -- ANIMATIONS
+@keyframes #{$id}_slideRight {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(100%);
+	}	
+}
+
+@keyframes #{$id}_slideLeft {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+.#{$id} {
+  // -- COMPONENTS
+  /* MobileNavigation */
+  &.#{$id}_MobileNavigationOpened {
+    touch-action: none;
+    overflow: hidden;
+    // position: fixed;
+  }
+
+  .#{$id}_MobileNavigation {
+    display: none;
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    right: 0;
+    width: 82.5%;
+    max-width: 306px;
+    background: white;
+    z-index: 999;
+    transition: all 500ms ease 1ms;
+    touch-action: manipulation;
+
+    &.#{$id}_MobileNavigation--closed {
+      display: block;
+      animation-name: #{$id}_slideRight;
+      animation-duration: .3s;	
+      animation-timing-function: ease-in-out;	
+      visibility: visible !important;	
+    }
+    
+    &.#{$id}_MobileNavigation--open {
+      display: block;
+      animation-name: #{$id}_slideLeft;
+      animation-duration: .3s;	
+      animation-timing-function: ease-in-out;	
+      visibility: visible !important;	
+    }
+
+    .#{$id}_MobileNavigation__l {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow-y: scroll;
+      // height: 100%;
+      height: 88%;
+      height: calc(100% - 55px);
+
+      > li > a {
+        position: relative;
+        border-bottom: 1px solid #dadada;
+        display: block;
+        height: 55px;
+        line-height: 55px;
+        padding: 0 15px;
+      }
+    }
+
+    > .#{$id}_MobileNavigation__lContainer--active {
+      padding-top: 0 !important;
+    }
+
+    a {
+      color: black;
+      outline: none;
+    }
+    
+    // Nav actions
+    .icon {
+      display: block;
+      float: right;
+      max-width: 1.4rem;
+      margin: 2px 4px 0 0;
+      width: 1.4rem;
+      clear: both;
+
+      &.storeLocatorIcon {
+        width: .9rem;
+        margin-right: 7px
+      }
+
+      &.forgetUserIcon {
+        margin-right: 0
+
+        svg {
+          height: 12px
+        }
+      }
+
+      path,
+      polygon {
+        fill: #999
+      }
+    }
+    
+    input {
+      visibility: hidden;
+      position: absolute;
+      height: 0;
+    }
+
+    label {
+      width: calc(100% - 32px) !important;
+    }
+
+    label, 
+    .js-nav-toggle {
+      -webkit-transition: all 500ms ease 1ms;
+      transition: all 500ms ease 1ms;
+      font-size: 1.4rem;
+      border: 0;
+      border-bottom: 1px solid #e1e1e1;
+      color: black;
+      display: block;
+      font-family: 'Roboto',sans-serif;
+      padding: 16px;
+      position: relative;
+      text-align: left;
+      width: 100%;
+    }
+  }
+
+  .#{$id}_MobileNavigation__lContainer {
+    position: absolute;
+    background: white;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: .4s ease left;
+
+    &.#{$id}_MobileNavigation__lContainer--active {
+      left: 0;
+      transition: .4s ease left;
+
+      > .#{$id}_MobileNavigation__l {
+        padding-top: 55px;
+      }
+      
+      .#{$id}_MobileNavigation__link--title {
+        position: fixed;
+        width: 100%;
+        top: 56px;
+      }
+    }
+  }
+
+  .#{$id}_MobileNavigation__link--title {
+    > a {
+      background: #767676;
+      color: white;
+      user-select: none;
+
+      &:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MC44MjMgMjQwLjgyMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQwLjgyMyAyNDAuODIzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnPgoJPHBhdGggaWQ9IkNoZXZyb25fUmlnaHQiIGQ9Ik01Ny42MzMsMTI5LjAwN0wxNjUuOTMsMjM3LjI2OGM0Ljc1Miw0Ljc0LDEyLjQ1MSw0Ljc0LDE3LjIxNSwwYzQuNzUyLTQuNzQsNC43NTItMTIuNDM5LDAtMTcuMTc5ICAgbC05OS43MDctOTkuNjcxbDk5LjY5NS05OS42NzFjNC43NTItNC43NCw0Ljc1Mi0xMi40MzksMC0xNy4xOTFjLTQuNzUyLTQuNzQtMTIuNDYzLTQuNzQtMTcuMjE1LDBMNTcuNjIxLDExMS44MTYgICBDNTIuOTQyLDExNi41MDcsNTIuOTQyLDEyNC4zMjcsNTcuNjMzLDEyOS4wMDd6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: inline-block;
+        margin-right: 8px;
+        vertical-align: middle;
+        margin-top: -2px;
+      }
+    }
+  }
+
+  .#{$id}_MobileNavigation__link--hasSubmenu > a:before {
+    transition: all 500ms ease 1ms;
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px);
+    left: calc(100% - 33px);
+    width: 13px;
+    height: 8px;
+    background: url('http://www.ernestjones.co.uk/images/layout/header/navExpandArrow.svg') center center no-repeat;
+    transform: rotate(-90deg);
+  }
+
+  /* Z Indexing */
+  .#{$id}_MobileNavigation__l1Container {
+    z-index: 1;
+
+    .#{$id}_MobileNavigation_l1 {
+      padding-top: 0 !important;
+      height: 100% !important;
+    }
+
+    > ul > .#{$id}_MobileNavigation__link--title {
+      z-index: 2;
+    }
+  }
+
+  .#{$id}_MobileNavigation__l2Container {
+    z-index: 3;
+    
+    > ul > .#{$id}_MobileNavigation__link--title {
+      z-index: 4;
+    }
+  }
+
+  .#{$id}_MobileNavigation__l3Container {
+    z-index: 5;
+
+    > ul > .#{$id}_MobileNavigation__link--title {
+      z-index: 6;
+    }
+  }
+
+  .#{$id}_MobileNavigation__l4Container {
+    z-index: 7;
+
+    > ul > .#{$id}_MobileNavigation__link--title {
+      z-index: 8;
+    }
+  }
+}

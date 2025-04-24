@@ -1,0 +1,90 @@
+@import '../../../_variables';
+
+$component: '#{$id}_SampleCount';
+
+.#{$id} {
+  .#{$component} {
+    background-color: #BAE1E9;
+    color: #055263;
+    padding: 15px;
+    min-width: 240px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    margin-top: -5px;
+    display: block;
+    font-family: $fontFamily;
+  }
+    
+  .#{$component}Inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    .#{$component}Text {
+      vertical-align: middle;
+      display: inline-block;
+      display: inline-flex;
+      flex-direction: column;  
+        
+      > span {
+        vertical-align: middle;
+        display: block;
+        margin: 2px 0;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    em {
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .#{$component}Icon {
+      display: inline-block;
+      height: 27px;
+      width: 27px;  
+      margin-right: 15px;
+      vertical-align: middle;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: none;
+    }
+
+    &.#{$component}Inner--complete .#{$component}Icon {
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component} {
+      padding: 12px;
+      width: 100%;
+    }
+
+    .#{$component}Inner .#{$component}Text {
+      span {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: 920px) {
+    .#{$component} {
+      position: static;
+      display: inline-block;
+      margin: 0 0 15px 0;
+    }
+  }
+}

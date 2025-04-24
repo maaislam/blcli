@@ -1,0 +1,63 @@
+@import "../../../variables";
+
+.#{$id}-accordion {
+  border-top: 1px solid $colour-medium-grey;
+  border-bottom: 1px solid $colour-medium-grey;
+
+  & + & {
+    margin-top: 2rem;
+  }
+
+  &[open] {
+    .#{$id}-accordion__summary::before {
+      transform: translateY(-50%) rotate(90deg);
+      opacity: 0;
+    }
+    .#{$id}-accordion__summary::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+}
+
+.#{$id}-accordion__summary {
+  position: relative;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  list-style: none;
+  font-weight: 600;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1px;
+    background-color: #000;
+    transition: 0.25s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1rem;
+    background-color: #000;
+    transition: 0.25s ease;
+  }
+}
+
+.#{$id}-accordion__content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @media screen and (min-width: 540px) {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}

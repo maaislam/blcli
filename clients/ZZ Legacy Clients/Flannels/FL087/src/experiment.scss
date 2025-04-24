@@ -1,0 +1,143 @@
+@import './variables';
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.#{$id} {
+  .FL087-addedToBag {
+    padding: 12px !important;
+    border: 1px solid #000000;
+    text-align: left;
+    animation: .4s ease-in-out both fadeIn;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
+
+    p.title {
+      font-size: 20px;
+      line-height: 1.7em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    ul {
+      li {
+
+        span {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background-position: -230px -415px;
+          background-size: 500px 500px;
+          background-image: url(https://www.flannels.com/images/core/flannels-new-sheet-v4.svg);
+          background-repeat: no-repeat;
+        }
+        p {
+          display: inline-block;
+          max-width: calc(100% - 30px);
+          font-size: 14px;
+          vertical-align: top;
+          line-height: 1.35em;
+          @media only screen and (max-width: 479px) {
+            max-width: calc(100% - 25px);
+          }
+        }
+      }
+    }
+
+    a.FL087-button {
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.15em;
+      letter-spacing: .2em;
+      padding: 20px 5px;
+      text-align: center;
+      background-color: #000000;
+      display: block;
+      color: #fff;
+      position: relative;
+      font-family: GothamBold,Arial,Helvetica,sans-serif!important;
+      
+      &:before {
+        content: "";
+        position: absolute;
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        left: 3px;
+        top: 3px;
+        right: 3px;
+        bottom: 21px;
+        border: 1px solid #FFF;
+        opacity: 0;
+        transition: opacity 0.4s linear;
+
+      }
+
+      &:hover:before {
+        opacity: 1;
+        transition: opacity 0.4s linear;
+      }
+
+
+
+
+      span {
+        display: inline-block;
+        @media only screen and (min-width: 479px) {
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            right: 100%;
+            background-color: #fff;
+            -webkit-transition: right 150ms ease-out 0s;
+            -moz-transition: right 150ms ease-out 0s;
+            -o-transition: right 150ms ease-out 0s;
+            transition: right 150ms ease-out 0s;
+          }
+        }
+      }
+
+      
+    }
+    a:hover {
+      span {
+        &:before {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  #divBagItems {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 479px) {
+    .FL087-addedToBag {
+      clear: both;
+      padding: 12px !important;
+      p.title {
+        text-align: left;
+        margin-bottom: 2px;
+      }
+      ul li span {
+        transform: scale(.7);
+      }
+    }
+  }
+}

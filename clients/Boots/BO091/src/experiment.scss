@@ -1,0 +1,132 @@
+@import './variables';
+
+.#{$id} {
+  &.bo-fixed {
+    position: fixed
+  }
+  // --- Hide View Controls
+  .view_controls {
+    display: none;
+  }
+  // --- Hide Pagination
+  .pageControl.number {
+    display: none;
+  }
+  // --- Hide 'View All' filter
+  .selectWrapper.selectWrapperPageSize.select_order {
+    display: none;
+  }
+  // --- Search Results Container
+  .product_listing_container {
+    position: relative;
+
+    ul {
+      // margin-bottom: 20px;
+      &.#{$id}-latestList {
+      }
+
+      @media (max-width: 600px) {
+        li {
+          width: 100% !important;
+        }
+      }
+
+    }
+  }
+  // --- Loader
+  #progress_bar {
+    &.hide {
+      display: none !important;
+    }
+  }
+  .#{$id}-loader__wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 99;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #FFF !important;
+      position: fixed;
+      z-index: 1;
+      opacity: .95;
+      top: 0px;
+      left: 0px;
+    }
+    .#{$id}-loader-pop-up {
+      position: fixed;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+      top: 50%;
+      img {
+
+      }
+    }
+  }
+  // --- Product Pagination - Bar
+  .product_listing-progress-bar {
+    text-align: center;
+    margin: 60px auto 25px;
+    font-family: F37 Ginger Bold,Tahoma,Arial,sans-serif;
+    font-size: 1.08rem;
+
+    .product_listing-progress-bar-indicator {
+      margin: 12px auto 0;
+      width: 225px;
+      background: #d0d0d0;
+      height: 3px;
+      display: block;
+      border-radius: 3px;
+    }
+  }
+  .results-btn-viewmore {
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: VAG Rounded W01 Bold,Tahoma,Arial,sans-serif;
+    font-size: 1.0625rem;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #cae0f5;
+    color: #004990;
+    background-color: #fff;
+    width: 300px;
+    display: block;
+
+    &:hover {
+      background-color: #f4f9fd;
+    }
+  }
+  
+  .product_listing_container {
+    ul {
+      &.show-24 {
+        li:nth-of-type(n + 24) {
+          display: none;
+        }
+      }
+      &.show-48 {
+        li:nth-of-type(n + 48) {
+          display: none;
+        }
+      }
+      &.show-72 {
+        li:nth-of-type(n + 72) {
+          display: none;
+        }
+      }
+      &.show-96 {
+        li:nth-of-type(n + 96) {
+          display: none;
+        }
+      }
+      
+    }
+  }
+}

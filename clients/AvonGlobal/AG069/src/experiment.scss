@@ -1,0 +1,369 @@
+@import "./variables";
+
+$avonPrimary: #7435bd;
+$fontFamily: Montserrat, Lato, Arial, Gotham, Helvetica Neue, Helvetica,
+  sans-serif !important;
+
+.#{$id} {
+  main {
+    clear: both;
+  }
+
+  .#{$id}_hidden,
+  .product-options {
+    display: none !important;
+  }
+  .#{$id}_loader {
+    height: 54px;
+    width: 54px;
+    border-radius: 100px;
+    padding: 6px;
+    position: relative;
+    display: block;
+    color: transparent;
+    background-color: #edefef;
+    margin-right: 12px !important;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      border: 2px solid #edefef;
+      border-radius: 100px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100px;
+      width: 120px;
+      height: 80px;
+      opacity: 1;
+      transform: rotate(10deg);
+      background: rgba(255, 255, 255, 0.13);
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation-name: AG069_slide;
+      animation-delay: 1s;
+      animation-duration: 0.8s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+    }
+  }
+
+  .Layout_Desktop,
+  .Layout_Tablet,
+  .Layout_Phone {
+    // Products
+    .Columns_2 > *:nth-child(2n + 1) {
+      padding-right: 1%;
+    }
+
+    .Columns_2 > *:nth-child(2n + 2) {
+      padding-left: 1%;
+    }
+
+    .ProductListModule .ProductList {
+      opacity: 1 !important;
+
+      > .ProductCarousel {
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        padding: 0;
+      }
+
+      .#{$id}_hasVariants,
+      .#{$id}_isConditional {
+        .ProductDetails .ProductAction {
+          display: none !important;
+        }
+      }
+
+      .#{$id}_product-modified.#{$id}_hasVariants .Quantity {
+        display: block;
+      }
+
+      .#{$id}_product-modified.#{$id}_isConditional .Quantity {
+        display: none !important;
+      }
+
+      .#{$id}_product-modified {
+        &.#{$id}_hasVariants .Button {
+          margin-top: 10px;
+        }
+
+        &.#{$id}_hasVariants.#{$id}_isConditional > .Button {
+          margin-top: 35px;
+        }
+      }
+    }
+
+    .ProductListModule .ProductList .ProductListCell {
+      padding-top: 3.5rem;
+
+      &.#{$id}_reset-height {
+        .ProductName,
+        .ProductDetails {
+          min-height: 0 !important;
+          height: auto !important;
+        }
+      }
+    }
+
+    .ProductListModule .ProductList .ProductListItem {
+      display: block;
+      position: relative;
+      padding: 0 1.5rem 4.5rem;
+      font-size: 0;
+      display: inline-flex;
+      flex-wrap: wrap;
+
+      .#{$id}_labels {
+        position: absolute;
+        bottom: 100%;
+        width: 100%;
+        min-width: 140px;
+        margin-bottom: 5px;
+
+        > * {
+          margin: 0.5rem 0;
+          background: #59c3b2 !important;
+          border-color: #59c3b2 !important;
+          color: #fff !important;
+          font-weight: 600;
+          padding: 3px 10px;
+          font-size: 1.3rem;
+          display: inline-block;
+          // max-width: 50% !important;
+          width: auto !important;
+
+          &:nth-child(2n + 2) {
+            margin-left: 5px;
+          }
+
+          &:first-child {
+            margin-top: 0 !important;
+          }
+
+          &:last-child {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+
+      .ExclusiveOffers {
+        margin-top: 1.5rem !important;
+        margin-bottom: 0 !important;
+      }
+
+      .ProductDetails {
+        width: 55%;
+        height: auto !important;
+        padding-left: 1.5rem;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (min-width: 768px) {
+          min-height: 240px;
+        }
+
+        .Button {
+          margin-top: 12px;
+        }
+
+        .ProductDetailsTop {
+          padding-bottom: 0 !important;
+        }
+
+        .ProductDetailsTop .Prices .ListPrice {
+          margin-bottom: 1.1rem;
+        }
+      }
+
+      .Quantity {
+        .Qty {
+          stroke: #ccc;
+          width: 45px;
+          height: 45px;
+        }
+
+        input {
+          width: 45px;
+          height: 45px;
+          vertical-align: middle;
+          min-height: 0;
+          border-radius: 3px;
+          line-height: normal;
+        }
+
+        .QtyDown {
+          padding-right: 0.3rem;
+        }
+
+        .QtyUp {
+          padding-left: 0.3rem;
+        }
+
+        .QtyDown,
+        .QtyUp {
+          display: inline-block;
+          padding-top: 0;
+          vertical-align: middle;
+
+          path {
+            stroke: $avonPrimary;
+          }
+        }
+      }
+    }
+
+    .ProductListModule .ProductList .ProductListItem,
+    .SpecialOffersCategoryPage .SpecialOffersList .SpecialOfferItem {
+      .Button {
+        display: block;
+        text-align: center;
+        text-transform: capitalize;
+        background-color: $avonPrimary;
+        border: none;
+        margin: 0;
+        padding: 8px 24px;
+        border-radius: 3px;
+        width: 90%;
+        color: #fff;
+        font-weight: 400;
+        font-family: $fontFamily;
+        @media (max-width: 768px) {
+          padding: 6px 16px;
+        }
+
+        > span {
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 1.25;
+        }
+      }
+
+      .ProductAction {
+        display: block;
+        width: 95%;
+      }
+
+      // Special Offer Link
+      .ProductDetails
+        .ProductDetailsTop
+        .ExclusiveOffers
+        .ExclusiveOfferButton {
+        span {
+          color: $avonPrimary;
+        }
+
+        svg-icon {
+          color: $avonPrimary;
+        }
+      }
+    }
+
+    // Special Offers Page
+    .SpecialOffersCategoryPage {
+      // Products
+      .SpecialOffersList {
+        padding-top: 1rem;
+      }
+
+      .SpecialOffersList .SpecialOfferItem {
+        width: 50%;
+        padding: 0 2% 2rem;
+
+        &.#{$id}_reset-height {
+          .#{$id}_offerTitleText {
+            min-height: 0 !important;
+            height: auto !important;
+          }
+        }
+
+        .#{$id}_offerTitleText {
+          display: block;
+          font-family: Arial, Gotham, "Helvetica Neue", Helvetica, sans-serif;
+          font-size: 1.4rem;
+        }
+
+        .SpecialOfferInfo {
+          height: auto !important;
+
+          .SpecialOfferImageContainer {
+            height: auto !important;
+
+            img {
+              position: static;
+            }
+          }
+        }
+
+        .ImageAspectRatio {
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+
+  &.Layout_Tablet {
+    // Products
+    .Columns_2 > *:nth-child(2n + 1) {
+      padding-right: 1%;
+    }
+
+    .Columns_2 > *:nth-child(2n + 2) {
+      padding-left: 1%;
+    }
+
+    .ProductListModule .ProductList .ProductListItem {
+      padding: 0 0 4.5rem;
+
+      .ProductDetails {
+        padding-left: 1rem;
+      }
+
+      .ProductImage {
+        width: 40%;
+      }
+
+      .ProductDetails {
+        width: 60%;
+      }
+    }
+  }
+
+  &.Layout_Phone {
+    .ProductListModule .ProductList .ProductListItem,
+    .SpecialOffersCategoryPage .SpecialOffersList .SpecialOfferItem {
+      .Button {
+        flex: 0 0 100%;
+      }
+    }
+
+    // Offers page
+    .SpecialOffersCategoryPage {
+      padding: 0 1.2rem;
+    }
+  }
+}
+
+@keyframes AG069_slide {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 40px;
+  }
+}

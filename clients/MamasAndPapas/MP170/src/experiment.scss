@@ -1,0 +1,153 @@
+@import './variables';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.#{$id} {
+  .checkout {
+    padding-top: 0 !important;
+    .checkout__login {
+      padding: 0 15px !important;
+      + .checkout__ordersummary {
+        display: none;
+      }
+    }
+
+    > #globalMessages { display: none }
+  }
+  .guest-checkout .userLogin {
+    margin-top: 0 !important;
+
+    .checkout__block {
+      .row.my-4 {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  // Login buttons to radio buttons
+  .checkout__heading__button {
+    text-align: left;
+    display: block;
+    padding-top: 10px;
+
+    > div {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      display: block;
+      float: left;
+      clear: both;
+      border-radius: 10px;
+      margin-bottom: 15px;
+
+      &.active {
+        &:before {
+          content: "";
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          border: 1px solid #000;
+          border-radius: 6px;
+          background-color: #000;
+          left: 0; right: 0;
+          margin: auto;
+          top: 3px;
+        }
+      }
+
+      span {
+        position: absolute;
+        left: 30px;
+        top: 0;
+        line-height: 20px;
+      }
+
+    }
+
+  }
+
+  // Continue button
+  #MP170-cont {
+    margin: 0 auto 15px;
+    display: block;
+    min-width: 200px;
+    background-color: #47BB9C;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .alert.alert-danger {
+    text-align: center;
+  }
+
+  // Message
+  .MP170-message {
+    margin: 0 20px;
+    text-align: center;
+  }
+
+  .checkout__guest__footer.checkoutGuestFooter .form_field_error-message {
+    display: none;
+  }
+
+  // Hide original guest message
+  .checkout__guest__footer {
+    .form_field_error-message.forget-password.mb-0 + p {
+      display: none;
+    }
+  }
+  .formGuestCheckout {
+    button.btn {
+      margin-bottom: 15px;
+    }
+  }
+
+  .checkout__ordersummary {
+    padding: 0 15px;
+  }
+
+  a.MP170-passReset {
+    text-decoration: underline;
+  }
+
+  // Password input
+  input#j_password {
+    &.MP170-error {
+      border: 1px solid #e66571 !important;
+
+      + label {
+        color: #e66571;
+        .mandatory {
+          span {
+            color: #e66571;
+          }
+        }
+      }
+    }
+  }
+  
+  // Desktop and above
+  @media only screen and (min-width: 421px) {
+    .checkout__heading__button > div {
+      margin: 0 auto 15px;
+      float: none;
+      left: -15px;
+      position: relative;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .MP170-message {
+      margin-top: 12px;
+    }
+    .checkout__ordersummary {
+      width: 730px;
+      padding: 0 15px;
+      margin: auto;
+    }
+  }
+  
+}

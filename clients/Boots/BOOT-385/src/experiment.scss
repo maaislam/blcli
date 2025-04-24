@@ -1,0 +1,61 @@
+@import './variables';
+
+.#{$id} {
+
+    .#{$id}-hidden {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .#{$id}-banner {
+        background-color: #E5EFF7;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0;
+        margin-bottom: 10px;
+
+        @media all and (max-width: 600px) {
+            padding: 15px;
+        }
+
+        &--svg {
+            margin-right: 10px;
+            height: 28px;
+        }
+
+        ##{$id}-spinner {
+            display: none;
+        }
+
+        &--text {
+            font-family: Boots Sharp,Arial,sans-serif;
+            font-weight: 300;
+
+            span {
+                font-weight: 700;
+            }
+        }
+
+        &.#{$id}-calculating {
+
+            ##{$id}-truck {
+                display: none;
+            }
+
+            ##{$id}-spinner {
+                display: flex;
+                animation: spin 1s linear infinite;
+            }
+
+        }
+    }
+
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

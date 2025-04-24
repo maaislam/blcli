@@ -1,0 +1,321 @@
+@-webkit-keyframes SD51slide {
+    100% { right: 0; }
+}
+
+@keyframes SD51slide {
+    100% { right: 0; }
+}
+.SD051 {
+  @media(max-width:1300px){
+    #containerDiv {
+      min-width: 500px;
+      max-width: 600px;  
+    }
+  }
+    &.SD051-nopopup{
+        .SD051-times {
+            position: absolute;
+            right: 11px;
+            font-size: 24px;
+            cursor: pointer;
+            display: block;
+        }
+        .SD051-sideWrapper {
+            box-shadow: 2px -4px 8px 1px #6f6d6d;
+        }
+   }
+    .SD051-times {
+        display: none;
+    }
+
+    #header-cart{
+        display: none !important;
+    }
+    #containerDiv .ajaxcart .row2 a {
+        display: none;
+    }
+    /*Side box styling*/
+    .SD051-sideWrapper {
+        position: fixed;
+        background: white;
+        width: 300px;
+        z-index: 999999;
+        height: 100%;
+        overflow-x: scroll;
+        right: -1000px;
+        &.SD051-side_active{
+            -webkit-animation: SD51slide 1s forwards;
+            -webkit-animation-delay: 0s;
+            animation: SD51slide 1s forwards;
+            animation-delay: 0s;
+        }
+        .SD051-basketTitle{
+            text-align: center;
+            margin: 10px;
+            border-bottom: 2px solid #efefef;
+            padding-bottom: 3px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        @media(min-width:1500px){
+            width: 330px;
+        }
+    }
+    .SD051-basketItems {
+        margin: 10px;
+        padding: 10px;
+        list-style: none;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        max-height: 260px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .block-subtitle{
+            display: none;
+        }
+        .minicart-actions{
+            display: none;
+        }
+        .block-content{
+            display: none;
+        }
+        #minicart-success-message{
+            text-align: center;
+            color: green;
+        }
+
+        .minicart-wrapper.loading{
+            background: #ffffff none repeat scroll 0 0 !important;
+            display: block;
+            opacity: 1 !important;
+            position: relative;
+        }
+        .minicart-wrapper.loading:before,
+        .minicart-wrapper.loading:after {
+            display: block;
+        }
+        
+        .minicart-wrapper:before {
+            background-color: white;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        .minicart-wrapper:before,
+        .minicart-wrapper:after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .minicart-wrapper:after{
+            background-image: url(https://www.salonsdirect.com/skin/frontend/rwd/saloncustom/images/opc-ajax-loader.gif);
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 3;
+        }
+        
+       
+        li {
+            padding: 11px 5px 11px 11px;
+            border-top: 2px solid #efefef;
+            position: relative;
+            &:first-child{
+                 border: 0px;
+            }
+            .product-image {
+                float: left;
+                height: 50px;
+                margin: 0 auto;
+                min-width: 50px;
+                width: 50px;
+                margin-right: 6px;
+                img {
+                    height: auto;
+                    width: auto;
+                }
+            }
+            .product-details {
+                margin-left: 0;
+                width: 90%;
+                .product-name {
+                    padding-top: 0px;
+                    text-align: left;
+                    min-height: 20px;
+                    margin-bottom: 0px;
+                    a {
+                        color: #000;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .info-wrapper th,
+            .info-wrapper tr {
+                text-transform: uppercase;
+                padding-right: 10px;
+            }
+            .qty {
+                display: inline-block;
+                padding-left: 4px;
+                padding-right: 4px;
+                margin-right: 2px;
+                width: 3.2em;
+                text-align: center;
+                height: 30px;
+                vertical-align: middle;
+            }
+            .quantity-button {
+                opacity: 0;
+                -webkit-transition-property: opacity;
+                -moz-transition-property: opacity;
+                -o-transition-property: opacity;
+                transition-property: opacity;
+                -webkit-transition-duration: 100ms;
+                -moz-transition-duration: 100ms;
+                -o-transition-duration: 100ms;
+                transition-duration: 100ms;
+                &.visible{
+                    opacity: 1;
+                }
+            }
+        }
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+        &::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+        &::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #c3c3c3;
+        }
+    }
+    .SD051-checkout_wrapper,
+    .SD051-freedelivery,
+    .SD051-review_wrapper,
+    .SD051-dpd_wrapper {
+        margin: 10px;
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #efefef;
+        text-align: center;
+    }
+    .SD051-checkout_wrapper{
+        border-top: 2px solid #efefef;
+    }
+    /*Free Delivery*/
+    .SD051-freedelivery{
+        border-top: 2px solid #efefef;
+        display: none;
+        border-bottom: 0px;
+        &.SD051-freedelivery_showing{
+            display: block;
+        }
+        .SD051-freeDeliverytext {
+            position: relative;
+            padding-left: 20px;
+            font-weight: 300;
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            &::before {
+                content: '';
+                width: 15px;
+                top: 2px;
+                height: 15px;
+                background-image: url('//www.sitegainer.com/fu/up/jfr2hhis89374sf.png');
+                position: absolute;
+                background-size: contain;
+                left: 0;
+            }
+        }
+        .SD051-price{
+            font-weight: 300;
+        }
+    }
+    /*checkout area*/
+    .SD051-deliveryCountdown {
+        padding-left: 40px;
+        padding-right: 40px;
+        font-weight: 300;
+        span{
+            font-weight: 300;
+        }
+        i{
+            display: none;
+        }
+        .timer{
+            display: block;
+        }
+    }
+    .SD051-incPrice{
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .SD051-basketCheckout {
+        padding: 10px;
+        padding-top: 5px;
+        border: 1px solid #b7b7b7;
+        width: 62%;
+        font-size: 12px;
+        margin: 0 auto;
+        background: #e2fd44;
+        padding-bottom: 5px;
+    }
+    /*Reviews*/
+    .SD051-review_wrapper .SD051-stars_image {
+        background-image: url('//www.sitegainer.com/fu/up/5rhwnc37trzvjh9.jpg');
+        height: 40px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .SD051-reviewText p {
+        font-size: 13px;
+        font-weight: 300;
+        text-align: center;
+    }
+    /*DPD*/
+    .SD051-dpd_wrapper h3 {
+        text-align: center;
+        color: #ff7168;
+        font-weight: 300;
+        margin-bottom: 0;
+        font-size: 15px;
+    }
+    .SD051-dpd_wrapper span {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+    }
+    .SD051-dpd_wrapper li {
+        padding-left: 20px;
+        font-size: 12px;
+        position: relative;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: left;
+        &:before {
+            content: '';
+            width: 15px;
+            top: 2px;
+            height: 15px;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('//www.sitegainer.com/fu/up/9ztdofyape1hht3.png');
+            position: absolute;
+            left: 0;
+        }
+    }
+}

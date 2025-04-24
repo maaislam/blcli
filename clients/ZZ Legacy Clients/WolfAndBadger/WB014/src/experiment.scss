@@ -1,0 +1,73 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}_message {
+    transition: opacity .5s;
+    font-size: 26px;
+    font-family: 'futura-pt', sans-serif;
+    line-height: 34px;
+    text-align: center;
+    color: white;
+    margin-bottom: 24px;
+    max-width: 400px;
+  }
+
+  .on-phone,
+  &.on-phone {
+    .#{$id}_message {
+      font-size: 23px;
+      line-height: 30px;
+      width: 80vw;
+    }
+  }
+
+  .#{$id}_hideMessage {
+    opacity: 0;
+  }
+
+  ##{$id}_loading-overlay {
+    &.#{$id}_hidden {
+      opacity: 0;
+      visibility: 0;
+    }
+    z-index: 9999;
+    background-color: rgba(35, 31, 32, 0.49);
+    pointer-events: none;
+    transition: opacity 0.4s, visibility 0.4s ease-out;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    pointer-events: none;
+
+    .spinner {
+      display: block;
+      position: fixed;
+      z-index: 10000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .spinner-icon {
+        margin: auto;
+        box-sizing: border-box;
+        border: solid 2px transparent;
+        border-width: 1.5vh;
+        border-width: 1.5vmin;
+        border-top-color: #0081c6;
+        border-left-color: #0081c6;
+        border-radius: 50%;
+        animation: nprogress-spinner .4s linear infinite;
+        width: 30vh;
+        height: 30vh;
+        width: 30vmin;
+        height: 30vmin;
+      }
+    }
+  }
+}

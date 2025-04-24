@@ -1,0 +1,247 @@
+@import './variables';
+
+.#{$id} {
+  // Pizza Selection Lightbox
+  .menuListCont.menuListPRPizza.menuListContH {
+    min-width: 282px;
+  }
+  // Hide Size Dropdown
+  select.variationDropDown.ddlSize {
+    display: none;
+  }
+  // Pick Size
+  .#{$id}-pickSize__wrapper {
+    margin-bottom: 10px;
+    .#{$id}-pickSize__label {
+      font: bold 14px Arial,sans-serif;
+      // margin-bottom: 10px;
+    }
+    .#{$id}-pizzaSizes__container {
+      ul.#{$id}-pizzaSizes {
+        list-style: none;
+        margin-left: 0px !important;
+        width: 89%;
+        margin: auto !important;
+        text-align: center;
+        li.#{$id}-pizzaSize {
+          font: bold 14px Arial,sans-serif;
+          width: 23.5%;
+          display: inline-block;
+          font-size: .8em;
+          line-height: 18px;
+          padding: .5% 0 .5% 0;
+
+          visibility: hidden;
+          &.show {
+            visibility: visible !important;
+          }
+        }
+      }
+    }
+    .#{$id}-pickSize__container {
+      width: 100%;
+      border: 3px solid #F1F1F1;
+      border-radius: 36px;
+      height: 40px;
+      overflow: hidden;
+      ul.#{$id}-pickSize__options {
+        list-style: none;
+        margin-left: 0px !important;
+        width: 90%;
+        margin: auto !important;
+        text-align: center;
+
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:before {
+          content: "";
+          background: #007a53;
+          width: 30%;
+          display: block;
+          height: 40px;
+          position: absolute;
+          z-index: -1;
+          // left: 51%;
+          border-radius: 36px;
+        }
+
+        &#Small-selected {
+          &:before {
+            left: -2%;
+          }
+        }
+        &#Medium-selected {
+          &:before {
+            left: 22%;
+          }
+        }
+        &#Large-selected {
+          &:before {
+            left: 46.5%;
+          }
+        }
+        &#Extra-selected {
+          &:before {
+            left: 71%;
+          }
+        }
+        li.#{$id}-pickSize__option {
+          width: 24%;
+          font-family: 'Roboto Condensed',sans-serif;
+          display: inline-block;
+          font-size: .85em;
+          line-height: 18px;
+          padding: .5% 0 .5% 0;
+
+          &.active {
+            // background-color: #007a53;
+            border-radius: 36px !important;
+            color: #FFF;
+          }
+          &:hover {
+            cursor: pointer !important;
+            transform: scale(1.1);
+          }
+          &.inactive {
+            .#{$id}-text {
+              text-decoration: line-through;
+            }
+            &:hover {
+              cursor: not-allowed;
+              transform: none;
+            }
+
+            &:before {
+              content: "";
+              background: #FFF;
+              opacity: .2;
+              width: 15%;
+              display: block;
+              height: 60px;
+              position: absolute;
+              z-index: 999;
+              top: -20px;
+              margin-left: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+  // Hide Crust Dropdown
+  select.variationDropDown.ddlBase {
+    display: none;
+  }
+  // Pick Crust
+  .#{$id}-pickCrust__wrapper {
+    .#{$id}-pickCrust__label {
+      font: bold 14px Arial,sans-serif;
+      margin-bottom: 10px;
+    }
+    .#{$id}-pickCrust__container {
+      width: 100%;
+      border: 3px solid #F1F1F1;
+      border-radius: 36px;
+      height: 40px;
+      overflow: hidden;
+      ul.#{$id}-pickCrust__options {
+        list-style: none;
+        margin-left: 0px !important;
+        width: 96%;
+        margin: auto !important;
+
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:before {
+          content: "";
+          background: #007a53;
+          width: 32%;
+          display: block;
+          height: 40px;
+          position: absolute;
+          z-index: -1;
+          top: -2px;
+          border-radius: 36px;
+        }
+        &#Original-selected {
+          &:before {
+            left: 1%;
+          }
+        }
+        &#Authentic-selected {
+          &:before {
+            left: 32%;
+          }
+        }
+        &#Stuffed-selected {
+          &:before {
+            left: 64%;
+          }
+        }
+        li.#{$id}-pickCrust__option {
+          width: 32%;
+          font-family: 'Roboto Condensed',sans-serif;
+          display: inline-block;
+          font-size: .8em;
+          line-height: 18px;
+          text-align: center;
+          position: relative;
+
+          &.active {
+            // background-color: #007a53;
+            border-radius: 36px !important;
+            color: #FFF;
+ 
+            padding: 3% 0 3% 0;
+          }
+          &:hover {
+            cursor: pointer !important;
+            transform: scale(1.1);
+          }
+          &.inactive {
+            .#{$id}-text {
+              text-decoration: line-through;
+            }
+            &:hover {
+              cursor: not-allowed;
+              transform: none;
+            }
+
+            &:before {
+              content: "";
+              background: #FFF;
+              opacity: .2;
+              width: 90%;
+              display: block;
+              height: 60px;
+              position: absolute;
+              z-index: 999;
+              top: -20px;
+              left: 2%;
+            }
+          }
+
+          .#{$id}-text {
+            // position: relative;
+            // top: 50%;
+            transform: translateY(-15%);
+          }
+        }
+      }
+    }
+  }
+
+  // Quantity Input
+  .#{$id}-inputLabel {
+    margin-right: 10px;
+    font-size: 1em;
+    font-weight:  600 !important; 
+  }
+  .menuList .quantCustomise input {
+    float: none;
+  }
+}

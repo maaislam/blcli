@@ -1,0 +1,192 @@
+@import './variables';
+
+.#{$id} {
+  &.HOT-678 .HOT-678-accordion--title {
+    margin-top: 0;
+    padding: 16px 15px;
+    font-family: 'Gill Sans Nova Medium';
+    font-weight: 500;
+    border-top: 0;
+    border-bottom: 1px solid #929292;
+    text-transform: capitalize !important;
+  }
+
+  &.HOT-678 .HOT-678-accordion--content--description {
+    font-family: 'GillSansNova-Light';
+  }
+
+  &.HOT-678 .HOT-678-accordion--content {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+
+    h3 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .#{$id}__product-detail {
+    display: flex;
+    flex-direction: column;
+
+    .HOT-678-accordion {
+      margin-bottom: 0;
+    }
+
+    .content-zone {
+      order: 100;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      &:has(#klarna-placement-cart) {
+        order: 98;
+      }
+
+      &~.content-zone {
+        order: 99;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .prod-info {
+        border: none;
+        margin-bottom: 0;
+
+        &.prod-info-b {
+          li.prod-opt-b.true {
+            border-bottom: 0;
+          }
+        }
+
+        &.prod-info-c {
+          margin-bottom: 55px;
+        }
+
+        h4 {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          background: #fff;
+          // border-top: 1px solid #000;
+          border-bottom: 1px solid #929292;
+          padding: 16px 15px;
+          font-size: 16px;
+          font-family: 'Gill Sans Nova Medium';
+          font-weight: 500;
+          text-transform: capitalize;
+          letter-spacing: 0;
+          color: #000;
+          cursor: pointer;
+
+          &::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg fill='%23000' height='10px' width='10px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 407.436 407.436' xml:space='preserve'%3E%3Cpolygon points='112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 '/%3E%3C/svg%3E");
+            margin-left: auto;
+          }
+        }
+
+        &>ul {
+          display: none;
+        }
+
+        &.#{$id}__active {
+          h4 {
+            &::after {
+              transform: rotate(90deg);
+            }
+          }
+
+          &>ul {
+            display: block;
+            border: 1px solid #f1f1f0;
+            border-top: none;
+            padding-top: 5%;
+
+            li:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .tab-mobile-title {
+        margin: 0;
+        font-family: 'Gill Sans Nova Medium';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #000;
+        text-transform: capitalize;
+        border-bottom: 1px solid #929292;
+        // border-top: 1px solid #000;
+        background-color: #fff;
+      }
+
+      .tab-content {
+        font-weight: 400;
+        font-size: 14px !important;
+        line-height: 20px;
+        color: #2A2A2A;
+
+        p, h3 {
+          font-weight: 400;
+          font-size: 14px !important;
+          line-height: 20px;
+          // color: #2A2A2A;
+        }
+      }
+
+      .prod-info {
+        margin-top: 0;
+
+        h4 {
+          width: unset;
+          font-family: 'Gill Sans Nova Medium';
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 18px;
+          // border-top: 1px solid #000;
+          border-bottom: 1px solid #929292;
+          padding: 16px 1% 16px 10px;
+          text-transform: capitalize;
+          background-color: #fff;
+          color: #000;
+          letter-spacing: 0;
+        }
+
+        &+.prod-info {
+          margin-top: 0;
+          // margin-top: 10px;
+        }
+
+        li {
+          p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            color: #2A2A2A;
+          }
+        }
+
+        li.prod-opt-b {
+          border-bottom: 0;
+        }
+      }
+
+      .tab-mobile-content {
+        margin-top: 30px;
+      }
+
+      & > .prod-info-c {
+        margin-bottom: 43px;
+      }
+    }
+  }
+}

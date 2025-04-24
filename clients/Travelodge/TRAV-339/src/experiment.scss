@@ -1,0 +1,218 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}__addExtraInfo {
+    &::after {
+      display: none !important;
+    }
+
+    .#{$id}__infoWrapper {
+      margin-top: 0 !important;
+      margin-left: 30px;
+    }
+
+    .#{$id}__date {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .#{$id}__extraPrice {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  #modal {
+    &.#{$id}__show {
+      top: 40%;
+      transform: translateY(-50%);
+
+      @media (min-height: 300px) and (max-height: 900px) {
+        height: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .modal-body {
+        padding: 8px;
+
+        .modalExtras {
+          padding-top: 0;
+
+          .contained {
+            display: none;
+          }
+        }
+      }
+
+      .#{$id}__modalInfo {
+        &-content {
+          display: flex;
+          align-items: center;
+
+          .#{$id}__info-item {
+            text-align: left;
+          }
+
+          .#{$id}__imageWrapper {
+            max-width: 200px;
+            width: 100%;
+
+            @include media-query(sm) {
+              width: auto;
+            }
+
+            img {
+              width: 100%;
+              height: 180px;
+              object-fit: cover;
+              // height: 100%;
+
+              @include media-query(sm) {
+                height: 125px;
+                width: 146px;
+              }
+            }
+          }
+
+          .#{$id}__info {
+            padding-left: 16px;
+            padding-right: 100px;
+
+            @include media-query(sm) {
+              padding-right: 0;
+            }
+
+            &-title {
+              font-family: 'FS Albert Regular', Arial, sans-serif !important;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 20px;
+              text-align: left;
+              color: #353535;
+              margin-bottom: 10px;
+            }
+
+            &-item {
+              &-title {
+                font-family: 'FS Albert Bold', Arial, sans-serif !important;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 20px;
+                text-align: left;
+                color: #353535;
+              }
+            }
+          }
+        }
+
+        &-summery {
+          max-width: 250px;
+          width: 100%;
+          margin: 24px auto 0px;
+
+          @include media-query(xsm) {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 350px;
+          }
+
+          .#{$id}__priceInfo {
+            background: #f1f1f1;
+            margin-bottom: 16px;
+            padding: 8px;
+
+            @include media-query(xsm) {
+              order: 1;
+              width: 100%;
+            }
+          }
+
+          .#{$id}__stayInfo {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0;
+
+            &-title {
+              font-family: 'FS Albert Light', Arial, sans-serif !important;
+              font-size: 16px;
+              font-weight: 300;
+              line-height: 17.2px;
+              text-align: left;
+            }
+
+            &-price {
+              font-family: 'FS Albert Bold', Arial, sans-serif !important;
+              font-size: 16px;
+              font-weight: 700;
+              line-height: 17.2px;
+              text-align: right;
+            }
+          }
+
+          .#{$id}__subTotal {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0;
+
+            &-title {
+              font-family: 'FS Albert Light', Arial, sans-serif !important;
+              font-size: 16px;
+              font-weight: 300;
+              line-height: 17.2px;
+              text-align: left;
+            }
+
+            &-price {
+              font-family: 'FS Albert Bold', Arial, sans-serif !important;
+              font-size: 16px;
+              font-weight: 700;
+              line-height: 17.2px;
+              text-align: right;
+            }
+          }
+
+          .#{$id}__extendButton {
+            width: 100%;
+            font-family: 'FS Albert Bold', Arial, sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 17.2px;
+            text-align: center;
+            color: #ffffff;
+            background: linear-gradient(180deg, #008dc8 0%, #107cbb 100%);
+            margin-bottom: 16px;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+
+            @include media-query(xsm) {
+              order: 3;
+              margin-left: auto;
+              width: calc(50% - 8px);
+            }
+          }
+
+          .#{$id}__cancelButton {
+            width: 100%;
+            font-family: 'FS Albert Bold', Arial, sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 17.2px;
+            text-align: center;
+            color: #008dc8;
+            border: 1px solid #008dc8;
+            padding: 10px 10px;
+            border-radius: 4px;
+
+            @include media-query(xsm) {
+              order: 2;
+              margin-bottom: 16px;
+              width: calc(50% - 8px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

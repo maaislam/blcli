@@ -1,0 +1,201 @@
+@import './variables';
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.#{$id} {
+
+  #AddedToBagModal,
+  .modal-backdrop {
+    display: none !important;
+
+
+  }
+
+  .HF007-addedToBag {
+    padding: 12px;
+    margin: 20px 0;
+    border: 3px solid #EEEEEE;
+    text-align: center;
+    animation: .4s ease-in-out both fadeIn;
+    display: block;
+    clear: both;
+    width: 100%;
+    
+    @media only screen and (max-width: 1021px) {
+      float: left;
+    }
+
+    p.title {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      padding-right: 0;
+      padding-left: 0;
+      text-transform: uppercase;
+    }
+
+    @media only screen and (max-width: 479px) {
+      text-align: center;
+      p.title {
+        text-align: center !important;
+      }
+    }
+
+    ul {
+      li {
+
+        
+        p {
+          display: inline-block;
+          font-weight: bold;
+          vertical-align: top;
+          line-height: 22px;
+          font-size: 14px;
+
+          svg {
+            transform: scale(0.8);
+            position: relative;
+            top: 6px;
+            margin-right: 5px;
+          }
+
+          path {
+            fill: #E10098;
+          }
+        }
+      }
+    }
+
+    a.HF007-button {
+      font-size: 1.1em;
+      text-transform: uppercase;
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.15em;
+      letter-spacing: .2em;
+      padding: 15px 5px;
+      text-align: center;
+      background-color: #000000;
+      display: block;
+      color: #fff;
+      position: relative;
+
+
+
+      @media only screen and (max-width: 479px) {
+        height: 59px !important; 
+        padding: 24px 5px !important;
+      }
+      span {
+        display: inline-block;
+        @media only screen and (min-width: 479px) {
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            right: 100%;
+            background-color: #fff;
+            -webkit-transition: right 150ms ease-out 0s;
+            -moz-transition: right 150ms ease-out 0s;
+            -o-transition: right 150ms ease-out 0s;
+            transition: right 150ms ease-out 0s;
+          }
+        }
+      }
+
+      &:last-of-type {
+        background-color: transparent;
+        color: #000000;
+        padding: 9px 5px !important;
+        font-weight: 600 !important;
+        span {
+          text-decoration: underline;
+          font-size: 14px !important;
+        }
+        &:hover {
+          font-size: 14px !important;
+          span {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+    a:hover {
+      span {
+        &:before {
+          right: 0;
+        }
+      }
+    }
+
+    a.addToBag, a.HF007-link {
+      background-color: #E10098;
+      font-size: 14px;
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      padding: 13px 5px;
+      text-align: center;
+      line-height: 18px;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      margin: 12px 0;
+    }
+
+    a.HF007-link {
+      background-color: transparent !important;
+      color: #000000;
+      text-decoration: none;
+      position: relative;
+      padding: 10px 5px !important;
+      margin: 5px 0 10px;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -1px; left: 0; right: 0;
+        margin: auto;
+        width: 80px;
+        height: 1px;
+        background-color: #000000;
+        transition: ease all .2s;
+      }
+      &:hover:after {
+        bottom: 5px;
+      }
+    }
+  }
+
+  #divBagItems {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 479px) {
+    .HF007-addedToBag {
+      clear: both;
+      padding: 12px !important;
+      p.title {
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      ul li span {
+        transform: scale(.7);
+      }
+    }
+  }
+}

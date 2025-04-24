@@ -1,0 +1,140 @@
+@import './variables';
+
+.#{$id} {
+  .promotion-hero-banner,
+  .hero-banner{
+    display: none;
+  }
+  .#{$id}_HomeBanner_wrapper {
+    margin-bottom: 20px;
+    padding: 10px;
+
+    a {
+      &:nth-of-type(2) {
+        display: none;
+      }
+      @media(min-width: 567px){
+        &:nth-of-type(2) {
+          display: block;
+        }
+      }
+    }
+    .#{$id}_banner {
+      height: 250px;
+      display: block;
+      margin-bottom: 10px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      text-align: center;
+      transition: all .3s ease-in-out;
+      @media(min-width: 767px) {
+        height: 300px;
+        margin-bottom: 20px;
+        background-size: cover;
+      }
+      @media(min-width: 1024px) {
+        background-size: cover;
+        height: 400px;
+      }
+      @media(min-width: 1200px){
+        height: 558px;
+        background-size: 100%;
+      }
+      @media (min-width: 1600px) {
+        height: 670px;
+      }
+
+      &.#{$id}-diamond {
+        margin-top: 0px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      &.#{$id}-gen-sale {
+        position: relative;
+        background-color: #df213d;
+        .#{$id}-saleText{
+          width: 80%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          text-align: center;
+          color: white;
+          .#{$id}-promotion-hero-banner__tagline,
+          .#{$id}-promotion-hero-banner__subtitle{
+            font-family: "DINCondensed-Regular","Arial Narrow",Arial,sans-serif;
+            font-weight: normal;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            font-size: 30px;
+          }
+          .#{$id}-promotion-hero-banner__title{
+            font-family: "DINCondensed-Regular","Arial Narrow",Arial,sans-serif;
+            font-weight: normal;
+            display: block;
+            font-size: 60px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            line-height: 1; 
+            position: relative;
+            margin: 0 auto;
+            @media(min-width: 1200px) {
+              width: 40%;
+              &:after {    
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 2px;
+                left: 50%;
+                position: absolute;
+                background: #fff;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+              }
+            }
+          }
+        }
+      }
+      &:hover {
+        background-size: 105%;
+        .#{$id}-saleText{
+          .#{$id}-promotion-hero-banner__title {
+          &:after {
+            width: 100%;
+            left: 0;
+            }
+          }
+        }
+      }
+    }
+    @media(min-width: 567px) {
+      column-count: 2;
+      column-gap: 0;
+      .#{$id}_banner {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin: 5px;
+      }
+    }
+  }
+  &.#{$id}-2{
+    .#{$id}_HomeBanner_wrapper {
+      margin-bottom: 20px;
+      padding: 10px;
+      a {
+        &:nth-of-type(2) {
+          display: block;
+        }
+        @media(min-width: 567px){
+          &:nth-of-type(2) {
+            display: block;
+          }
+        }
+      }
+    }
+  } 
+}

@@ -1,0 +1,216 @@
+@import "./variables";
+@import "./splide";
+
+##{$id}-root {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  box-sizing: border-box;
+  margin-block: 2rem;
+
+  > h2 {
+    font-size: 1.25rem;
+
+    @media screen and (min-width: 500px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .#{$id}-carousel-container {
+    position: relative;
+    min-height: 10rem;
+  }
+
+  .#{$id}-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    height: 100%;
+    border: 1px solid #e8e8e8;
+  }
+
+  .#{$id}-card-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 80%;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+    }
+  }
+
+  .#{$id}-card-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75em;
+    font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+
+    @media screen and (min-width: 900px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .#{$id}-card-title {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .#{$id}-card-price {
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  .#{$id}-card-cta {
+    display: block;
+    color: #004990;
+    text-decoration: underline;
+  }
+
+  .splide__arrows {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: #fff;
+      border: 1px solid #e8e8e8;
+      padding: 0.7rem;
+      pointer-events: all;
+
+      &[disabled] {
+        svg {
+          fill: #e8e8e8;
+        }
+      }
+
+      &:nth-child(1) {
+        transform: rotate(-180deg);
+      }
+
+      svg {
+        width: 14px;
+        height: 14px;
+        transition: 0.25s ease;
+      }
+    }
+  }
+
+  .splide {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .splide__pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+
+      > button {
+        display: inline-block;
+        padding: 0;
+        background-color: #fff;
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+        border: 1px solid #e8e8e8;
+        cursor: pointer;
+        transition: 0.25s ease;
+
+        &.is-active {
+          background-color: #004990;
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+
+  .#{$id}-loading-card {
+    justify-items: center;
+  }
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+
+  .#{$id}-loading-card-image {
+    width: calc(100% - 3rem);
+    height: 0;
+    padding-bottom: 80%;
+    background-color: #e8e8e8;
+    background: linear-gradient(90deg, #e8e8e8 10%, #f5f5f5 20%, #e8e8e8 30%);
+    background-size: 200% 100%;
+    animation: 1s shine linear infinite;
+    border-radius: 0.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .#{$id}-loading-card-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+    width: 100%;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+
+    > * {
+      max-width: 100%;
+      height: 1.5rem;
+      border-radius: 0.25rem;
+      background-color: #e8e8e8;
+      background: linear-gradient(90deg, #e8e8e8 10%, #f5f5f5 20%, #e8e8e8 30%);
+      background-size: 200% 100%;
+      animation: 1s shine linear infinite;
+    }
+  }
+
+  .#{$id}-loading-card-title {
+    width: 100%;
+  }
+
+  .#{$id}-loading-card-price {
+    width: 5rem;
+  }
+
+  .#{$id}-loading-card-cta {
+    width: 8rem;
+  }
+}

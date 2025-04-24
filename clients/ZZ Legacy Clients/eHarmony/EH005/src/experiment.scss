@@ -1,0 +1,189 @@
+@import './variables';
+
+$variation: '--VARIATION--';
+
+$desktop: (
+  '1': '//cdn.optimizely.com/img/8361134338/2bb6b1d029d34eeab32e522f4008eb3c.jpg',
+  '2': '//cdn.optimizely.com/img/8361134338/5dcb5e1c5a4a414dac77972a597cd6a9.jpg',
+);
+
+$mobile: (
+  '1': '//cdn.optimizely.com/img/8361134338/b34967b5d4ab4db0863ef65f0fa56fdd.jpg',
+  '2': '//cdn.optimizely.com/img/8361134338/0f9dab09f9d04ef484bfc6e219dc03f7.jpg',
+);
+
+.#{$id} {
+
+  #header {
+    background: none;
+  }
+
+  #header .login a {
+    background-color: #28aeaf;
+
+    &:hover {
+      background-color: #21999a;
+    }
+  }
+
+  .#{$id}-text {
+    font-family: 'Lato', sans-serif;
+    position: absolute;
+    top: 180px;
+    right: 40px;
+    font-size: 40px;
+    text-align: right;
+    padding-right: 19px;
+    border-right: 7px solid #ed6058;
+
+    > span {
+      display: block;
+      font-family: 'Lato', sans-serif !important;
+      color: #fff !important;
+    }
+
+    .#{$id}-text-faith {
+      font-family: 'FaithGlory', 'Lato', sans-serif !important;
+      font-size: 1.4em;
+      margin: 15px 0;
+    }
+  }
+
+  #main > .#{$id}-text {
+    display: none;
+
+    @media(min-width: 641px) {
+      display: block;
+    }
+
+    @media(min-width: 641px) and (max-width: 899px) {
+      top: 80px;
+      font-size: 18px;
+      right: 50%;
+      transform: translateX(63%);
+      text-align: right;
+
+      > span {
+        display: inline-block;
+      }
+
+      .#{$id}-text-faith {
+        margin: 5px 0;
+      }
+    }
+
+    @media(min-width: 768px) and (max-width: 899px) {
+      transform: translateX(50%);
+      text-align: center;
+    }
+    @media(min-width: 900px) {
+      font-size: 27px;
+    }
+  }
+
+  #main.#{$id}-fcw-message-showing .#{$id}-text {
+    @media(min-width: 641px) and (max-width: 899px) {
+      top: 150px;
+    }
+
+    @media(min-width: 768px) and (max-width: 899px) {
+      top: 170px;
+    }
+  }
+
+  #mobile-hero {
+    background-color: #000;
+    background-image: url(#{map-get($mobile, $variation)}) !important;
+    position: relative;
+    background-position: center center;
+
+    > .#{$id}-text {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      right: 14px;
+      top: 65px;
+      padding-right: 10px;
+
+      @media(min-width: 360px) {
+        top: 70px;
+      }
+      @media(min-width: 375px) {
+        font-size: 18px;
+      }
+
+      .#{$id}-text-faith {
+        margin: 10px 0;
+      }
+
+      @media(min-width: 641px) {
+        display: none;
+      }
+    }
+
+    h2 {
+      display: none;
+
+      > .#{$id}-text {
+        display: none;
+      }
+    }
+
+    @media(min-width: 641px) {
+      background-image: none !important;
+    }
+  }
+
+  #main {
+    background-image: none !important;
+    background-position: center center;
+
+    @media(min-width: 641px) {
+      background-image: url(#{map-get($desktop, $variation)}) !important;
+    }
+
+  }
+
+  &.#{$id}-1 #main {
+    @media(min-width: 1350px) {
+      background-size: 1438px;
+      background-color: #202020;
+    }
+  }
+
+  &.#{$id}-2 #main {
+    @media(min-width: 1350px) {
+      background-size: 1438px;
+      background-color: #202020;
+    }
+  }
+
+  // Amend logo and brainds behind text and positioning
+  // on desktop / large screens only
+  @media(min-width: 900px) {
+    #copy-area {
+      top: 10px !important;
+
+      > img {
+        width: 80% !important;
+        margin-top: -75px;
+        position: relative;
+        top: 10px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-top: -5px;
+
+        br {
+          display: none;
+        }
+
+        span {
+          font-size: 31px;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}

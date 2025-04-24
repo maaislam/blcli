@@ -1,0 +1,319 @@
+@import './variables';
+
+.#{$id} {
+  off-canvas-menu.off-canvas {
+    width: 100%;
+    color: #808385;
+    text-transform: lowercase;
+
+    a {
+      color: $sitepink;
+      text-transform: lowercase;
+    }
+
+    span {
+      text-transform: lowercase;
+    }
+
+    [mobilenav-group-class] {
+      padding: 0;
+    }
+    [if-not-has-expected-pressie-points] {
+      margin-top: 60px;
+    }
+
+    &.level2 [if-not-has-expected-pressie-points],
+    &.level2 pressie-points-promise-offcanvas
+     {
+      display: none;
+    }
+
+    .form-small {
+      background: $lightgrey;
+      padding-bottom: 15px;
+
+      search-off-canvas {
+        padding-right: 5px;
+
+        .icon-loader {
+          display: none;
+        }
+
+        input[type=text] {
+          border-radius: 20px;
+          border: 0;
+          padding: 0 1em;
+          height: 2.5em;
+        }
+
+        .icon-search {
+          margin-right: 3px;
+        }
+      }
+
+      .icon-close-pink {
+        padding-left: 5px;
+
+        &:before {
+          content: "×";
+          background: none;
+          font-size: 35px;
+          position: relative;
+          top: -4px;
+        }
+      }
+    }
+
+    .#{$id}-menu {
+      overflow: hidden;
+      transition: 0.3s opacity, 0.3s transform;
+
+      &.#{$id}-menu--level-1 {
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      &.#{$id}-menu--level-2 {
+        position: absolute;
+        left: 0;
+        top: 80px;
+        width: 100vw;
+        transform: translateX(110%);
+        height: 100vh;
+        background: $lightgrey;
+      }
+
+      &.#{$id}-menu--level-2 {
+        transform: translateX(110%);
+      }
+
+      &.fade-out {
+        opacity: 0 !important;
+      }
+      &.slide-in {
+        transform: translateX(0) !important;
+        height: auto;
+        min-height: 130%;
+      }
+      &.slide-in-relative {
+        position: relative !important; 
+      }
+
+      &__standalone {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 15px;
+
+        &-item {
+          flex: 1;
+          text-align: center;
+        }
+
+        &-item:last-child {
+          border-left: 1px solid $darklightgrey;
+        }
+
+        &-item a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: auto;
+            height: 1.5em;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .icon-right-open {
+        font-size: 26px;
+      }
+
+      &__nav-item--bubble {
+        display: block;
+        width: 100%;
+        height: 80px;
+        margin-bottom: 15px;
+
+        &:nth-child(2n) {
+          a {
+            background-color: $lightpink;
+          }
+        }
+        &:nth-child(2n+1) {
+          a {
+            background-color: $lightgrey;
+          }
+        }
+
+        a {
+          border-radius: 20px;
+          width: 100%;
+          height: 100%;
+          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding: 0 30px;
+          position: relative;
+
+          span {
+            line-height: 1.2em;
+            width: 100%;
+          }
+
+          .#{$id}-menu__legend {
+            font-size: 0.85em;
+            color: $default;
+            font-style: normal;
+            display: block;
+          }
+
+          img {
+            position: absolute;
+            height: 110%;
+            right: 30px;
+            top: -5%;
+          }
+
+					.icon-right-open {
+          	font-size: 35px;
+            font-weight: 300;
+            right: 110px;
+
+            @media(max-width: 360px) {
+              right: 95px;
+            }
+					}
+        }
+      }
+
+			.#{$id}-menu__nav-bubble-image {
+				background-size: contain;
+				background-repeat: no-repeat;
+				position: a;
+				position: absolute;
+				right: 20px;
+				width: 100px;
+				height: 110%;
+				background-position: center center;
+			}
+
+      &__nav-item--list {
+        padding: 10px 0;
+        border-top: 1px solid $darklightgrey;
+
+        &:last-of-type {
+          border-bottom: 1px solid $darklightgrey;
+        }
+
+        a {
+          display: block;
+          position: relative;
+          height: 50px;
+          display: flex;
+          padding: 0 10px;
+          align-items: center;
+
+          img {
+            width: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+            position: absolute;
+            height: 70%;
+          }
+
+          span {
+            padding-left: 48px;
+          }
+        }
+      }
+
+      &__featured {
+        text-shadow: 0 1px 5px #000;
+        a {
+          color: #fff;
+        }
+      }
+
+      /* Sublevel */
+      &__sublevel {
+        background: $lightgrey;
+      }
+
+      &__nav-anchor {
+        background: #fff;
+        margin: 0 0 15px;
+        color: $sitepink;
+        position: relative;
+        text-align: center;
+        font-size: 1.1em;
+        padding: 15px;
+        border-bottom: 1px solid $darklightgrey;
+      }
+
+      &__nav-back {
+        text-align: left;
+        font-size: 0.8em;
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $default;
+
+        .icon-left-open {
+          left: -19px;
+          font-size: 0.9em;
+          top: 50%;
+          transform: translateY(-40%);
+        }
+      }
+
+      &__nav-heading {
+        background: #ffe8f1;
+        color: $sitepink;
+        padding: 15px;
+      }
+
+      &__nav-group {
+        border-top: 1px solid $darklightgrey;
+        margin-bottom: 15px;
+        background: #fff;
+
+        a {
+          padding: 12px;
+          display: block;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          border-bottom: 1px solid $darklightgrey;
+
+          .iconwrap {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+
+            img {
+              display: block;
+              max-width: 100%;
+              max-height: 100%;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+
+      &__nav-heading + .#{$id}-menu__nav-group {
+        border-top: 0;
+      }
+
+    }
+  }
+}

@@ -1,0 +1,146 @@
+@import './variables';
+
+.#{$id} {
+
+  // General
+  &.feature-design #header .tpHeaderContent_holder {
+    margin-top: 0;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  &.feature-design #header .tpHeaderContent_holder .tpHeaderLinks {
+    justify-content: space-between;
+    height: 60px;
+    margin-bottom: 20px;
+    display: table;
+    width: 100%;
+    float: none;
+    .nav {
+      float: right !important;
+      margin: 0;
+      top: 0;
+      &:before {
+        height: 60px;
+      }
+      li {
+        a {
+          font-size: 14px !important;
+        }
+      }
+    }
+    &.TP118-adjust-nav {
+      .nav li {
+        padding-top: 10px;
+      }
+      .TP118-message {
+        position: relative;
+        top: -5px;
+      }
+    }
+    .TP118-message {
+      // float: left;
+      display: table-cell;
+      vertical-align: middle;
+      width: calc(100% - 420px);
+      // padding-top: 5px;
+      &.TP118-has-banner {
+        padding-top: 5px;
+      }
+      .button_image { display: none }
+      > p, .TP118-account {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      > p, strong {
+        color: #fff;
+        margin: 0;
+        font-size: 14px;
+        line-height: 22px;
+      }
+      a.dropDownHeaderLink, a.TP118-login-cta {
+        padding: 10px 30px;
+        background: #F6B112;
+        border: 0px solid #F6B112;
+        color: #000;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 18px;
+        font-family: Helvetica, sans-serif !important;
+        margin: 5px 10px 10px 20px;
+        width: 200px;
+        height: 40px;
+        border-radius: 5px;
+        font-weight: 500;
+        cursor: pointer;
+        text-transform: inherit;
+        &:after {
+          display: none;
+        }
+      }
+      .TP118-account {
+        margin-left: 25px;
+        .accountOptionsBox {
+          display: none;
+          position: absolute;
+          top: 50px;
+          left: -118px !important;
+          min-width: 200px;
+          padding: 10px 0 10px 10px;
+          font-size: 12px;
+          border: 1px solid #b3b3bb;
+          background: #fff;
+          a {
+            color: #000;
+            padding: 14px 5px;
+            display: inline-block;
+            text-decoration: none;
+          }
+          .option {
+            position: relative;
+            min-height: 41px;
+            width: 180px;
+            padding: 0 10px 0 35px;
+          }
+        }
+      }
+    }
+  }
+
+  // LOGGED IN STYLES
+  &.TP118-loggedIn {
+    ul.nav {
+      li:first-of-type, li:nth-of-type(2) { display: none !important }
+    }
+    .tpHeaderLinks {
+      // margin-top: 10px;
+      .TP118-message {
+        // &.TP118-has-banner {
+        //   margin-top: 10px;
+        // }
+        .TP118-account .your-acc-wrapper {
+          &:hover {
+            .accountOptionsBox {
+              display: block !important;
+            }
+          }
+        }
+      }
+    }
+    #header .tpHeaderContent_holder .tpHeaderLinks .TP118-message a.dropDownHeaderLink {
+      background-color: #e0e0e0;
+      border-color: #e0e0e0;
+    }
+  }
+
+  // LOGGED OUT STYLES
+  &.TP118-loggedOut {
+    &.feature-design #header .tpHeaderContent_holder {
+      // margin-top: 8px !important;
+      .tpHeaderLinks {
+        .TP118-message.TP118-has-banner {
+          // padding-top: 15px;
+        }
+      }
+    }
+  }
+}

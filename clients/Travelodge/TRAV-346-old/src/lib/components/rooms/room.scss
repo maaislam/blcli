@@ -1,0 +1,429 @@
+$id: '--ID--';
+@import '../../../variables';
+
+.#{$id} {
+  &__roomSelectorContainer {
+    flex: 25%;
+    @include media-query(sm) {
+      width: 100%;
+    }
+  }
+  &__roomSelectorTitles {
+    font-family: 'FS Albert Light';
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 19px;
+    color: #353535;
+    padding-bottom: 8px;
+  }
+
+  &__roomInput {
+    position: relative;
+    width: 100%;
+    padding: 2px 8px 2px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #e9e9e9;
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #353535;
+    cursor: pointer;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+    &-success {
+      border: 2px solid #1280c1;
+    }
+
+    &.#{$id}__roomInput-active {
+      padding-top: 8px;
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+    }
+
+    p.#{$id}__roomLabel {
+      margin: 0;
+      font-family: 'FS Albert Light';
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 17px;
+    }
+
+    input[type='number'] {
+      border: none;
+      outline: none;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type='number'] {
+      -moz-appearance: textfield;
+      /* Firefox */
+    }
+
+    @include media-query(sm) {
+      width: 100%;
+    }
+  }
+
+  &__roomSelector {
+    max-height: 0;
+    position: absolute;
+    top: 49px;
+    left: -0.5px;
+    padding: 0;
+    width: calc(100% + 1.5px);
+    background: #fff;
+    border: none;
+    border-radius: 0 0 6px 6px;
+    -webkit-box-shadow: 0 8px 15px 0 rgba(18, 128, 193, 0.1490196078);
+    box-shadow: 0 12px 15px 0 rgba(18, 128, 193, 0.1490196078);
+    z-index: 9999;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &-active {
+      padding: 0 8px 8px;
+      max-height: 730px;
+      transition: max-height 0.5s ease;
+      border: 1px solid #e9e9e9;
+      border-top: none;
+      overflow-y: auto;
+
+      @include media-query(sm) {
+        max-height: 400px;
+      }
+
+      @include media-query(xsm) {
+        max-height: 320px;
+      }
+    }
+
+    &:has(.#{$id}__content--tooltip) {
+      overflow: visible !important;
+      height: fit-content;
+
+      @include media-query(sm) {
+        overflow: hidden;
+      }
+    }
+
+    @include media-query(sm) {
+      width: 100%;
+      max-width: 100%;
+      left: -1px;
+    }
+  }
+
+  &__roomInputLabel {
+    width: 100%;
+  }
+
+  &__rooms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0;
+      font-family: 'FS Albert Light';
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 17px;
+    }
+  }
+
+  &__roomsControl,
+  &__control {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__control input,
+  &__roomsControl input {
+    width: 40px;
+    height: 40px;
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 17px;
+    text-align: center;
+    color: #353535;
+  }
+
+  .accessible-room {
+    display: flex;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+
+    button {
+      width: calc(50% - 8px);
+      padding: 12.5px 20px;
+      font-family: 'FS Albert Bold';
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 17px;
+      border-radius: 6px;
+      border: 1px solid #1280c1;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .#{$id}__resetBtn {
+      color: #1280c1;
+      background: #ffffff;
+
+      &:hover {
+        background: #1280c1;
+        color: #ffffff;
+      }
+    }
+
+    .#{$id}__searchBtn {
+      color: #ffffff;
+      background: #1280c1;
+
+      &:hover {
+        background: #0a659a;
+      }
+    }
+  }
+
+  &__minusBtn,
+  &__plusBtn {
+    height: 40px;
+    width: 40px;
+    border-radius: 25px;
+    border: 1px solid #e9e9e9;
+    color: #000;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &__room {
+    padding-bottom: 8px;
+
+    .#{$id}__title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      p {
+        font-family: 'FS Albert Light';
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 19px;
+        color: #1280c1;
+        margin: 0;
+      }
+
+      .#{$id}__icon {
+        transition: all 0.3s ease;
+        transform: rotate(180deg);
+      }
+    }
+
+    .#{$id}__content {
+      max-height: 0;
+      transition: max-height 0.5s ease;
+      overflow: hidden;
+
+      .adult-setting {
+        margin-top: 18px;
+      }
+
+      .adult-setting,
+      .children-setting {
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+          p {
+            font-family: 'FS Albert Light';
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 17px;
+            color: #353535;
+
+            &.ages {
+              font-weight: 100;
+            }
+          }
+        }
+      }
+
+      .accessible-room-setting {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // input[type="checkbox"]+label {
+        //     position: relative;
+        // }
+
+        input[type='checkbox'] + label::after {
+          display: none;
+        }
+
+        input[type='checkbox'] {
+          display: none;
+        }
+      }
+
+      &.#{$id}__content-active {
+        max-height: 208px;
+      }
+
+      &.#{$id}__content--tooltip {
+        overflow: visible;
+      }
+    }
+
+    &:has(.#{$id}__content-active) {
+      .#{$id}__roomAccordionHeader {
+        .#{$id}__icon {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+
+  label {
+    font-family: 'FS Albert Light';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 17px;
+    color: #353535;
+    margin: 0;
+  }
+
+  &__customLabel {
+    min-height: 43px;
+    padding-left: 0 !important;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      right: 0;
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 1px solid #e9e9e9;
+      background-color: white;
+      display: inline-block;
+      box-sizing: border-box;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+  }
+
+  .custom-checkbox:checked + &__customLabel::before {
+    content: '✔';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1280c1;
+    border-color: #1280c1;
+    color: #fff;
+  }
+
+  // tooltip styles
+  .#{$id}__roomTooltipWrapper {
+    z-index: 9999999999;
+    left: 80px;
+    bottom: 50px;
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    display: none;
+
+    @include media-query(sm) {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  .#{$id}__roomTooltipContainer {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .#{$id}__roomTooltip {
+    position: absolute;
+    background-color: #0071c2;
+    color: #fff;
+    padding: 4px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ffffff;
+    border-bottom: none;
+    z-index: 10;
+
+    p,
+    .#{$id}__addNewRoomLink {
+      margin: 0;
+      padding: 0;
+      font-family: 'FS Albert Light';
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 17.2px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .#{$id}__addNewRoomLink {
+      color: white;
+      text-decoration: underline;
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+
+  .#{$id}__roomTooltip::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #0071c2 transparent transparent transparent;
+
+    @include media-query(sm) {
+      left: unset;
+      right: 10px;
+    }
+  }
+}

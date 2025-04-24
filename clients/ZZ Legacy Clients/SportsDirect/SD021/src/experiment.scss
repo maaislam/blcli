@@ -1,0 +1,203 @@
+@import './variables';
+
+@keyframes slideDown {
+  from {
+    top: -100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    top: 65px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.#{$id} {
+  // All mobile
+  @media only screen and (max-width: 479px) {
+    #dnn_ctl02_hypBack { // Back link
+      width: 30px;
+    }
+    .LogoCheck {
+      float: left;
+    }
+    .padLock {
+      float: left;
+      width: 40px;
+    }
+
+    .SD021-headerTotal {
+      float: right;
+      min-width: 50px;
+      padding: 11px 10px 9px;
+      p {
+        font-weight: 700;
+        font-size: 1.2em;
+        margin: 0;
+        display: inline-block;
+        vertical-align: top;
+        
+        span {
+          margin-left: 6px;
+          position: relative;
+          width: 20px;
+          height: 20px;
+          border: 1px solid transparent;
+          border-radius: 50%;
+          display: inline-block;
+          vertical-align: top;
+          cursor: pointer;
+          
+          &::before {
+            content: "";
+            position: absolute;
+            top: -2px; left: -2px; right: 0; bottom: 0;
+            background: url('https://www.sportsdirect.com/images/core/sprite-new-checkout-v3-01.svg') no-repeat;
+            background-size: 260px 260px;
+            background-position: -28px -73px;
+            height: 20px;
+            width: 20px;
+            font-size: 11px;
+            transform: rotate(-90deg);
+          }
+        }
+
+      }
+    }
+
+    // Notification banner 
+    .SD021-notificationBanner {
+      position: fixed;
+      z-index: 9999;
+      top: -100%; // by default, will update via JS
+      left: 2.5%;
+      right: 2.5%;
+      background-color: #0255a3;      
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: ease-in-out all .5s;
+      border: 3px solid #fff;
+      // transition-delay: .25s;
+      // transition-property: top;
+      
+      &.SD-show {
+        top: 65px;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      p {
+        padding: 12px 20px;
+        color: #fff;
+        // text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.5em;
+        margin: 0;
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 17.3px 10px;
+          border-color: transparent transparent #0255a3 transparent;
+          position: absolute;
+          right: 10%;
+          bottom: 98%;
+        }
+
+
+        .SD-tick {
+          position: absolute;
+          right: -20px;
+          background: url(https://www.sportsdirect.com/images/core/sprite-new-checkout-v3-01.svg) no-repeat;
+          background-size: 260px 240px;
+          background-position: -34px -86px;
+          height: 25px;
+          width: 25px;
+          /* float: left; */
+          font-size: 11px;
+          -moz-text-size-adjust: none;
+          -webkit-text-size-adjust: none;
+          -ms-text-size-adjust: none;
+          text-size-adjust: none;
+          background-position: -181px -64px;
+          background-color: #3da34d;
+          border: 1px solid transparent;
+          border-radius: 50%;
+        }
+
+      }
+
+    }
+
+
+    &.onScroll {
+      .SD021-notificationBanner {
+        top: 10px !important;
+      }
+    }
+
+    // V2
+    &.SD021-2 {
+      .SD021-notificationBanner {
+        top: 10px;
+        p:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+.SD021:not(.SD021-2) {
+  header {
+    transition: all ease-in-out .2s;
+    background-color: #fff;
+  }
+  #BodyWrap {
+    transition: all ease-in-out .2s;
+  }
+  .onScroll {
+    margin-top: 60px;
+    header {
+      position: sticky;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9997;
+    }
+
+  }
+  
+}
+
+ 
+
+.SD021 .CheckoutProgressBack, .SD021 .padLock {
+
+  width: 35px;
+
+}
+
+.SD021 .SD021-headerTotal {
+
+  float: right;
+
+  width: calc(50% - 70px);
+
+  padding: 11px 5px 9px;
+
+  text-align: right;
+
+}
+.SD021 .SD021-notificationBanner p:before {
+
+  right: 0;
+
+}
+

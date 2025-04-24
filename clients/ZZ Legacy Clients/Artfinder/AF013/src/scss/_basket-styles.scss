@@ -1,0 +1,98 @@
+$color-grey: #ebe9e5;
+
+.#{$id} {
+    li.basket ul,
+    div[id*="basket-modal"] {
+        // Hide free returns text
+        .af-unstyled.af-small-text {
+            display: none;
+        }
+    }
+    // Mobile basket modal
+    div[id*="basket-modal"] .af-scrollable,
+    .basket-modal .modal-body {
+        max-height: 20rem;
+        background: 
+            linear-gradient($color-grey 33%, rgba(116,224,172, 0)),
+            linear-gradient(rgba(116,224,172, 0), $color-grey 66%) 0 100%,
+            radial-gradient(farthest-side at 50% 100%, rgba(34,34,34, 0.2), rgba(0,0,0,0)) 0 100%;
+        background-color: $color-grey;
+        background-repeat: no-repeat;
+        background-attachment: local, local, scroll, scroll;
+        background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+        @media (max-width: 330px) {
+            max-height: 15rem;
+        }
+    }
+    // Mobile basket modal (REACT) 
+    .basket-modal {
+        .body2 {
+            display: none;
+        }
+        .#{$id}-usps {
+            width: 100%;
+            margin-top: 16px;
+        }
+        .btn-cta {
+            margin-bottom: 0;
+        }
+    }
+    li.basket ul,
+    li.basket .dropdown-menu {
+        border: none;
+        overflow: hidden;
+        // Hide free returns
+        .body2 {
+            display: none;
+        }
+        // Remove margin on cta button
+        .btn-cta {
+            margin-bottom: 0 !important;
+        }
+        li {
+            float: none;
+        }
+        .af-dropdown-spacer {
+            display: none;
+        }
+        .slick-dots {
+            margin-top: 8px;
+        }
+        .item {
+            padding-bottom: 0 !important;
+        }
+        .button {
+            margin-bottom: 0;
+        }
+        .#{$id}-usps {
+            width: 18.75rem;
+            background-color: #ebe9e5;
+            padding: 1.5rem 0.2rem;
+            .slick-slide {
+                width: 18.75rem;
+            }
+        }
+    }
+    .reveal-modal .#{$id}-usps {
+        margin-bottom: 0;
+    }
+    .top-bar-section .title-bar-right .has-dropdown ul.dropdown.af-right-side-dropdown {
+        max-height: calc(100vh - 75px);
+        overflow: auto;
+    }
+}
+
+
+.#{$id}-basket-empty {
+    li.basket ul {
+        .item {
+            padding: 1.5rem !important;
+        }
+        .text-center.dropdown-section-title {
+            display: none;
+        }
+    }
+    .item.af-gray-50-background {
+        display: none;
+    }
+}

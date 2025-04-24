@@ -1,0 +1,355 @@
+@import '../../../variables';
+
+$component: '#{$id}_ProductBox';
+
+/* GENERAL STYLES */
+.#{$id} {
+  .#{$component}_mostPopular {
+    margin: 20px auto;
+    background-color: #F2F2F2;
+    padding: 20px 0;
+    max-width: none !important;
+  }
+
+  .#{$component}_mostPopularInner {
+    max-width: 976px;
+    margin: 0 auto;
+  }
+
+  .#{$component}_mostPopularTitle {
+    padding: 0 10px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .#{$component}_wrap {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    width: 33.333%;
+  }
+  
+  .#{$component} {
+    background-color: white;
+    border: 1px solid #EEEEEE;
+    padding: 15px 12px 12px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .#{$component}_modalLink--fullWidth {
+    display: none;
+  }
+
+  .#{$component}_titleBlock {
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 0;
+  }
+
+  .#{$component}_title {
+    display: block;
+    font-size: 1.7rem;
+    display: block;
+    margin-bottom: 1rem;
+
+    &:hover {
+      color: $avonPink;
+    }
+  }
+
+  .#{$component}_priceBlock {
+    vertical-align: top;
+    font-size: 1.7rem;
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+  }
+
+  .#{$component}_wasPrice {
+    color: black;
+    font-weight: normal;
+    font-size: 1.1rem;
+    display: inline-block;
+    text-decoration: line-through;
+  }
+
+  .#{$component}_price {
+    display: inline-block;
+  }
+
+  .#{$component}_reviewStars {
+    vertical-align: top;
+    width: 50%;
+    text-align: right;
+    margin: 0 0 5px 0;
+    display: inline-block;
+
+    .Rating {
+      transform: scale(1.2);
+      transform-origin: right;
+      
+      .FullStars svg {
+        color: $avonPink;
+      }
+    }
+  }
+
+  .#{$component}_detailsBlock {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .#{$component}_productImage {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .#{$component}_details {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .#{$component}_bullets {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+    color: #6d6d6d;
+
+    > li {
+      padding: 0;
+      margin: 12px 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: '';
+        font-size: 1.2rem;
+        // background-image: url('https://ab-test-sandbox.userconversion.com/experiments/AZ004-pinkTick.png');
+        background-image: url('#$(ContentManager:pinkTick.png)!'); // Maxymiser reference
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 12px;
+        width: 12px;
+        margin-top: 3px;
+        margin-right: 6px;
+        color: #ec008c;
+        float: left;
+      }
+
+      p {
+        margin: 0;
+        display: block;
+        overflow: hidden;
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+      }
+    }
+  }
+
+  .#{$component}_ctaBlock {
+    font-size: 1.4rem;
+    flex-basis: 100%;
+  }
+
+  .#{$component}_ctaUvp {
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .#{$component}_cta.Button {
+    display: block;
+    font-weight: 400 !important;
+    text-align: center;
+    color: white;
+    background-color: $avonPink;
+    white-space: nowrap;
+    display: block;
+    text-transform: capitalize;
+    border: none;
+    margin: 10px auto 0;
+    padding: 18px 0;
+    border-radius: 2px;
+    font-family: $fontFamily;
+
+    &:hover,
+    &:active {
+      color: white;
+      background-color: $avonPink;
+      border: none;
+    }
+  }
+
+  .#{$component}--mobileOnly {
+    display: none;
+  }
+
+  .#{$component}--desktopOnly {
+    display: block;
+  }
+
+  .#{$component} .Quantity {
+    margin: 1.5rem 0 0 !important;
+    text-align: center;
+
+    .Qty {
+      stroke: #ccc;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    input {
+      width: 4rem;
+      height: 4rem; 
+      vertical-align: top;
+      min-height: 0;
+      border-radius: 3px;
+      line-height: normal;
+    }
+    
+    .QtyDown {
+      padding-right: .3rem;
+    }
+
+    .QtyUp {
+      padding-left: .3rem;
+    }
+
+    .QtyDown,
+    .QtyUp {
+      display: inline-block;
+      padding-top: 0;
+      vertical-align: top;
+
+      path {
+        stroke: $avonPink;
+      }
+    }
+  }
+
+  &.Layout_Tablet {
+    .#{$component}_mostPopular {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .#{$component} {
+      padding: 1rem;
+    }
+    
+    .#{$component}_wrap {
+      padding: 10px 5px;
+    }
+
+    .#{$component}_ctaBlock {
+      font-size: 1.1rem;
+    }
+
+    .#{$component}_title {
+      font-size: 1.4rem;
+    }
+  
+    .#{$component}_priceBlock {
+      font-size: 1.4rem;
+    }
+  }
+
+  &.Layout_Phone {
+    .#{$component}_wrap {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+
+    .#{$component}_mostPopular {
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      padding: 20px 15px;
+    }
+
+    .#{$component}_mostPopularTitle {
+      margin-bottom: 15px;
+    }
+
+    .#{$component}_wrap {
+      margin: 15px 0px;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+      
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .ProductListModule .ProductList .ProductListCell:first-of-type {
+      padding-top: 0;
+    }
+
+    .ProductListModule .ProductList {
+      border-top: none;
+    }
+  }
+
+  &.AZ002 {
+    .#{$component}_mostPopular {
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+    }
+
+    .#{$component}_wrap {
+      width: 33.333%;
+    }
+  }
+}
+
+/* PLP STYLES ONLY */
+.#{$id}--plp {
+  &.Layout_Tablet,
+  &.Layout_Phone {
+    .#{$component} {
+      position: relative;
+      padding: 28px 15px 18px;
+
+      &:before {
+        content: 'Top Rated';
+        background: black;
+        display: inline-block;
+        width: auto;
+        position: absolute;
+        top: 0;
+        left: 15px;
+        color: white;
+        padding: 7px 10px;
+        margin-top: -15px;
+      }
+    }
+  }
+}

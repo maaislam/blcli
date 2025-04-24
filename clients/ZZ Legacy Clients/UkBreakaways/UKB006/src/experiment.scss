@@ -1,0 +1,220 @@
+@import './variables';
+@import './slick';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.#{$id} {
+  // Hide Carousel Thumbnails
+  .grand-carousel-thumbs .slick-list.draggable .slick-track {
+    display: none !important;
+  }
+
+  // Select Container
+  div.UKB006-selectSection__wrapper {
+    display: block;
+    width: 100%;
+    margin-top: 5%;
+    position: relative;
+
+    // &:after {
+    //   display: inline-block;
+    //   content: '';
+    //   width: 20px;
+    //   height: 20px;
+    //   background-image: url('https://dp8v87cz8a7qa.cloudfront.net/46908/5cc2eee6bec041556279014.png');
+    //   background-size: 100%;
+    //   position: absolute;
+    //   left: 42%;
+    //   top: 30%;
+    //   transform: translateY(-35%);
+    // }
+
+    .UKB006-select {
+      display: inline-block;
+      width: 50%;
+
+      select {
+        display: inline-block;
+        width: 85%;
+        margin-left: 15%;
+        border: 1px solid #312e2e !important;
+        height: 45px;
+        padding-left: 10px;
+        position: relative;
+        top: -17px;
+        font-size: 16px;
+  
+        option {
+          margin-left: 2%;
+
+          &:nth-of-type(2) {
+            display: none;
+          }
+        }
+      }
+    }
+    
+
+    div.UKB006-actions__wrapper {
+      display: inline-block;
+      width: 41%;
+      text-align: right;
+
+      .UKB006-action {
+        display: inline-block;
+        position: relative;
+
+        div {
+          width: 70px;
+          height: 45px;
+          position: relative;
+          background-repeat: no-repeat;
+          
+          &#UKB006-email {
+            background-image: url('https://dp8v87cz8a7qa.cloudfront.net/46908/5cc2ee928a1c01556278930.png');
+            background-size: 85%;
+            background-position: 50% 50%;
+            margin-right: -20px;
+          }
+          &#UKB006-shortlist {
+            background-image: url('https://dp8v87cz8a7qa.cloudfront.net/46908/5cc2eeb7ad19a1556278967.png');
+            background-size: 100%;
+            background-position: 50% 65%;
+
+            &.active {
+              background-image: url('https://dp8v87cz8a7qa.cloudfront.net/46908/5cc2eecb10c911556278987.png');
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Destination details
+  div.destination-box {
+    .blue-line-new.col-xs-6.col-sm-8 {
+      width: 100% !important;
+    }
+  }
+  // See more dates
+  .UKB006-seeMoreDates__wrapper {
+    display: block;
+    width: 100%;
+    padding-top: 10px;
+    /* padding-bottom: 10px !important; */
+
+    div.see-more-dates {
+      #ddlMoreDates {
+        float: none !important;
+        margin-left: -10px;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Panel Headings
+  .panel-heading {
+    background: #FFF !important;
+    border-bottom: 1px solid;
+    border-color: #ddd !important;
+    padding-bottom: 20px;
+
+    h2.panel-title {
+      width: 85%;
+      color: #312e2e !important;
+
+      a:after {
+        color: #312e2e;
+        content:"\2212";
+        transform: rotate(0deg);
+      }
+      a.collapsed:after {
+        color: #312e2e;
+        content:"\2b";
+      }
+    }
+  }
+  .panel.panel-default {
+    &:last-of-type {
+      .panel-heading {
+        border-bottom: 0 !important;
+      }
+    }
+  }
+  // Hotel Details - Facilities list
+  .panel-body {
+    strong {
+      font-size: 18px;
+    }
+    p:last-of-type {
+      margin-left: 0px !important;
+      font-size: 18px;
+    }
+  }
+
+  // Sticky Container
+  .UKB006-sticky__wrapper {
+    display: none;
+    &.sticky {
+      display: block;
+      width: 100%;
+      position: fixed;
+      bottom: 0px;
+      background-color: #FFF;
+      padding-bottom: 5%;
+      padding-top: 3%;
+      box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+      overflow: hidden;
+      padding-right: 1%;
+
+      // Prices
+      span.blue-line.large.orange {
+        width: 51%;
+        display: inline-block;
+        padding-left: 2%;
+        position: relative;
+        top: 15px;
+
+        span.fromtext {
+          font-size: 16px !important;
+          padding-right: 2px;
+        }
+        span.strike {
+          font-size: 20px !important;
+          padding-left: 10px;
+        }
+        span.disc {
+          font-size: 26px !important;
+        }
+      }
+
+      // Book CTA
+      a.orange-btn.book.pull-right {
+        width: 47%;
+        display: inline-block;
+        float: none !important;
+        text-align: center;
+      }
+    }
+    
+  }
+  div.sub-cont {
+    margin-bottom: 50px;
+  }
+
+  @media screen and (max-width: 320px) {
+    .UKB006-sticky__wrapper {
+      span.blue-line.large.orange {
+        padding-left: 1% !important;
+      }
+      a.orange-btn.book.pull-right {
+        width: 48% !important;
+      }
+      span.blue-line.large.orange span.disc {
+        font-size: 24px !important;
+      }
+    }
+  }
+}

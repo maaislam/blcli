@@ -1,0 +1,46 @@
+@import './variables';
+@import './lib/components/MobileSlidingNav';
+
+@media(max-width: 1086px) {
+  .#{$id} {
+    &-font-madelyn {
+      font-family: 'neom-madelyn';
+      text-transform: capitalize;
+      line-height: 1;
+
+      @media(min-width: 360px) {
+        font-size: 38px;
+      }
+    }
+
+    // Existing Nav Amends
+    .navigation{ 
+      transform: translateX(-100%);
+      transition: 0.25s transform;
+      display: block;
+      top: 0;
+      z-index: 1000000;
+
+      .MobileSlidingNav__extra-nav {
+        display: none;
+      }
+
+      &.is-visible {
+        transform: translateX(0);
+        height: 100vh !important;
+        overflow: hidden;
+
+        .MobileSlidingNav__extra-nav {
+          display: block;
+
+          // Hide on landscape
+          @media (orientation: landscape) {
+            display: none;
+          }
+
+        }
+      }
+    }
+
+  }
+}

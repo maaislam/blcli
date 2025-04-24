@@ -1,0 +1,114 @@
+@import './_variables.scss';
+$ID: get-value($settings, 'base', 'ID');
+//Functions & Mixins
+@import './assets/base/_functions.scss';
+@import './assets/base/_mixins.scss';
+// Icon font
+@import './assets/base/_iconfont.scss';
+//Lib Components
+@import './components/lib/Accordion/accordion';
+// Custom Components
+
+//Old elements reset and changes
+.#{$ID} {
+    #tableCell{
+        .reorderbutton{
+            margin:0!important;
+            background-color: get-value($settings, 'colors', 'wwOrange')!important;
+            &:hover, &:focus{
+                background-color: darken(get-value($settings, 'colors', 'wwOrange'), 5%)!important;
+            }
+        }
+    }
+    @at-root #{&}_buttonWrap{
+        text-align: right!important;
+        display:block;
+        margin-bottom:12px;
+        .button_style.green{
+            float:none!important;
+            display:inline-block;
+            background-color: get-value($settings, 'colors', 'wwOrange')!important;
+            text-transform: none!important;
+            font-size:16px;
+            &:hover, &:focus{
+                background-color: darken(get-value($settings, 'colors', 'wwOrange'), 5%)!important;
+            }
+        }
+        @at-root #{&}--green{
+            .button_style.green{
+                min-width: 125px;
+                background-color: get-value($settings, 'colors', 'wwGreen')!important;
+                &:hover, &:focus{
+                    background-color: darken(get-value($settings, 'colors', 'wwGreen'), 5%)!important;
+                }
+            }
+        }
+    }
+    .reorderbutton{
+        min-width: 125px;
+        background-color: get-value($settings, 'colors', 'wwGreen')!important;
+        &:hover, &:focus{
+            background-color: darken(get-value($settings, 'colors', 'wwGreen'), 5%)!important;
+        }
+    }
+    #order-content{
+        form{
+            text-align: right;
+        }
+    }
+    #unavailable-products{
+        border-bottom:0!important;
+    }
+    @at-root #{&}_accordion{
+        @at-root #{&}Wrap{
+            position:relative;
+            input[type="checkbox"]{
+                position:absolute;
+                visibility: hidden;
+                display: none;
+                &:checked{
+                    &~.#{$ID}_accordion__body{
+                        display:block;
+                    }
+                    &~.#{$ID}_accordion__header{
+                        .#{$ID}_accordion__label{
+                            &:before{
+                                content: 'hide';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @at-root #{&}__header{
+            content:'';
+        }
+        @at-root #{&}__title{
+            font-size:16px;
+            strong{
+                font-weight:bold!important;
+            }
+        }
+        @at-root #{&}__body{
+            display:none;
+        }
+        @at-root #{&}__label{
+            font-weight:bold;
+            display:inline-block!important;
+            width:auto!important;
+            text-align: left!important;
+            text-decoration: underline;
+            text-align:center;
+            margin-bottom: 12px;
+            cursor:pointer;
+            &:hover, &:focus{
+                text-decoration: none;
+            }
+            &:before{
+                content: 'see more';
+            }
+        }
+    }
+}
+
+

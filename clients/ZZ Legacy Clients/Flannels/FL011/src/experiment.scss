@@ -1,0 +1,66 @@
+@import '_mixins.scss';
+.FL011 {
+  &.FL011_guest{
+    .ExitLinks {
+      display: none;
+    }
+  }
+  .ExitLinks .ContText {
+    display: none;
+  }
+  .ExitLinks {
+    text-align: right;
+    .EditText {
+      border: 0;
+      width: auto;
+      display: inline-block;
+      float: none;
+      a {
+        padding: 5px 0;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .CheckWrap .ExitLinks {
+    border: 0;
+  }
+  .FL011_continue {
+    margin-top: 40px;
+    display: inline-block;
+    background-color: #d1d1d1;
+    color: #666;
+    padding: 13px 25px 12px 45px;
+    position: relative;
+    @include anim(200ms, def, (background-color, color));
+    &::before {
+      content: '';
+      top: 50%;
+      left: 16px;
+      position: absolute;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 4px solid #d1d1d1;
+      z-index: 151;
+      margin-top: -8px;
+      @include anim(200ms, def, (border-right));
+    }
+    &::after {
+      content: '';
+      top: 50%;
+      left: 12px;
+      position: absolute;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid #fff;
+      z-index: 150;
+      margin-top: -8px;
+    }
+    &:hover {
+      color: #fff;
+      background-color: #888;
+      &::before {
+        border-right: 4px solid #888;
+      }
+    }
+  }
+}

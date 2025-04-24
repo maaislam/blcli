@@ -1,0 +1,858 @@
+@import './variables';
+@import '_mixins.scss';
+
+
+.FL066-first-loading {
+  position: relative;
+  z-index: 9999;
+
+  // Hide it all
+  .ContentWrap { 
+    display: none;
+  }
+
+  .UC_loading-dots span {
+    /* Use the blink animation, which is defined above */
+    animation-name: blink;
+    /* The animation should take 1.4 seconds */
+    animation-duration: 1.4s;
+    /* It will repeat itself forever */
+    animation-iteration-count: infinite;
+    /**
+     * This makes sure that the starting style (opacity: .2)
+     * of the animation is applied before the animation starts.
+     * Otherwise we would see a short flash or would have
+     * to set the default styling of the dots to the same
+     * as the animation. Same applies for the ending styles.
+     */
+    animation-fill-mode: both;
+  }
+
+  .UC_loading-dots span:nth-child(2) {
+      /**
+      * Starts the animation of the third dot
+      * with a delay of .2s, otherwise all dots
+      * would animate at the same time
+      */
+      animation-delay: .2s;
+  }
+
+  .UC_loading-dots span:nth-child(3) {
+      /* Starts the animation of the third dot
+        with a delay of .4s */
+      animation-delay: .4s;
+  }
+
+  .UC_loading-dots span:nth-child(4) {
+      /* Starts the animation of the fourth dot
+        with a delay of .6s */
+      animation-delay: .6s;
+  }
+
+  .UC_loading-dots span:nth-child(5) {
+      /* Starts the animation of the fifth dot
+        with a delay of .8s */
+      animation-delay: .8s;
+  }
+
+  /* ~~~~~~~~~~~ Loader Styles ~~~~~~~~~~~ */
+
+  .UC_loading-dots {
+      font-size: 100px;
+      line-height: 60px;
+      color: #000;
+      /* Position dots in centre of window */
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+  }
+}
+
+// Old test styles
+.FL021V2 {
+  &.FL006_hide-body {
+    display: none!important;
+  }
+  #DeliveryOptionsWrapper .AddressContainBut.DeliveryContinueButton {
+    position: relative;
+    .FL006_redirect {
+      display: block;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: #fff;
+      background: #181816;
+      font-size: 1.3em;
+      line-height: 1.2em;
+      padding: 20px 0;
+      width: calc(100% - 30px);
+      text-align: center;
+      z-index: 10;
+      font-family: 'Montserrat-Lgt', Arial, Helvetica, sans-serif;
+      text-shadow: 0 0 0;
+    }
+    .ContinueOn {
+      opacity: 0;
+    }
+  }
+  #FindGiftCardButtonWrapper .AddressContainBut {
+    position: relative;
+    .FL006_redirect {
+      display: block;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: #fff;
+      background: #181816;
+      font-size: 1.3em;
+      line-height: 1.2em;
+      padding: 20px 0;
+      width: calc(100% - 30px);
+      text-align: center;
+      z-index: 10;
+      font-family: 'Montserrat-Lgt', Arial, Helvetica, sans-serif;
+      text-shadow: 0 0 0;
+    }
+  }
+  &.FL006_card-page {
+    h1 {
+      display: none;
+    }
+    .CheckWrap .CardGroup iframe {
+      height: 460px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .FL006_header {
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 20px 0;
+      font-family: 'Montserrat-Lgt', Arial, Helvetica, sans-serif;
+      // border-bottom: 1px solid #bbb;
+      margin: 0;
+      a {
+        float: right;
+        font-size: 10px;
+        text-decoration: underline;
+        line-height: 17px;
+        display: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .FL006_accordian-btn {
+      cursor: pointer;
+      font-size: 13.2px;
+      padding: 8px 15px 8px 93px;
+      height: 51px;
+      display: block;
+      position: relative;
+      line-height: 35px;
+      border-bottom: 1px solid #bcbbbb;
+      &::after {
+        content: '';
+        background: url('//www.flannels.com/images/core/sprite-new-checkout-v3-01.svg') no-repeat;
+        background-size: 330px 330px;
+        background-position: -131px -202px;
+        height: 36px;
+        width: 35px;
+        padding: 0;
+        font-size: 11px;
+        position: absolute;
+        top: 8px;
+        right: 15px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 8px;
+      }
+      &.FL006_gift_card::before {
+        width: 54px;
+        height: 35px;
+        background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+        background-size: 528px auto;
+        background-position: -200px -223px;
+      }
+      &.FL006_paypal::before {
+        height: 35px;
+        background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+        background-position: -591px -21px;
+        width: 74px;
+        background-size: 770px auto;
+      }
+      &.FL006_apple::before {
+        height: 35px;
+        background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+        background-position: -5px -8px;
+        width: 55px;
+        background-size: 499px auto;
+      }
+      &.FL006_savedCard {
+        span {
+          font-weight: 700;
+        }
+        .FL021_saved-img {
+          position: absolute;
+          left: 15px;
+          top: 8px;
+          vertical-align: middle;
+          width: 54px;
+          height: 35px;
+          background-repeat: no-repeat;
+          background-size: 528px auto;
+        }
+      }
+      &.FL006_card {
+        &::before {
+          width: 54px;
+          height: 35px;
+          background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+          background-size: 528px auto;
+          background-position: -6px -225px;
+        }
+        &::after {
+          transform: rotate(90deg);
+          @include anim(200ms,
+          def,
+          (transform));
+        }
+        &.FL006_active::after {
+          transform: rotate(0deg);
+        }
+      }
+      &.FL006_voucher {
+        height: 70px;
+        line-height: 18px;
+        strong {
+          display: block;
+        }
+        &::before {
+          top: 18px;
+          width: 54px;
+          height: 35px;
+          background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+          background-size: 528px auto;
+          background-position: -137px -225px;
+        }
+        &::after {
+          top: 17px;
+        }
+      }
+    }
+    .ContBackGroup {
+      display: none;
+    }
+    .CheckoutLeft>h2 {
+      border-top: 0;
+    }
+    .FL006_accordian-content {
+      >p {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 15px;
+        font-size: 9px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.#{$id} {
+
+  p.FL066-billingMessage {
+    margin-top: 10px;
+  }
+
+  // Hide elements from FL021V2
+  a.FL006_savedCard, a.FL006_accordian-btn.FL006_card, { display: none !important }
+
+  // Move voucher code and gift card links
+  .DNNModuleContent.ModCardCaptureC {
+    position: relative;
+    .CardGroup.leftWrap {
+      position: static;
+      box-sizing: border-box;
+    }
+  }
+
+  // Voucher / Gift card positioning
+  a.FL006_accordian-btn.FL006_gift_card, div.FL066-voucher {
+    position: absolute;
+    top: 220px;
+    right: 0;
+    padding: 0;
+    height: auto;
+    text-decoration: underline;
+    border: none;
+    text-align: right;
+    &:after, &:before {
+      display: none;
+    }
+  }
+  li#dnn_ctr88156_PaymentMethod_UseVoucherWrapper {
+    top: 250px !important;
+  }
+  div.FL066-voucher, li#dnn_ctr88156_PaymentMethod_UseVoucherWrapper {
+    margin-top: 16px;
+    width: 300px;
+    top: 250px;
+    button {
+      font-size: 15px;
+      line-height: 20px;
+      background-color: #181816 !important;
+      border: 0;
+      letter-spacing: 0.1em;
+      width: 100%;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      max-width: 200px;
+      display: block;
+      margin: auto;
+      color: #fff !important;
+      text-shadow: 0 0 0;
+      padding: 15px 10px;
+      text-align: center;
+    }
+    input[type="text"] {
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 380px;
+      height: 39px;
+      padding: 10px;
+      font-size: 13px;
+      color: #606060;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #999;
+      border-radius: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+    button, input[type="text"] { display: none; }
+    &.FL066-showVoucher {
+      button, input[type="text"] { display: block; }
+    }
+  }
+  a.FL006_accordian-btn.FL006_voucher {
+    height: auto !important;
+    text-decoration: underline;
+    border: none;
+    padding: 0;
+    &:after, &:before {
+      display: none;
+    }
+  }
+
+  // PayPal Btn
+  a.FL006_accordian-btn.FL006_paypal {
+    font-size: 15px;
+    line-height: 20px;
+    background-color: #181816 !important;
+    border: 0;
+    letter-spacing: 0.1em;
+    width: 100%;
+    border-radius: 0;
+    max-width: 400px;
+    margin: auto;
+    color: #fff !important;
+    text-shadow: 0 0 0;
+    padding: 15px 10px;
+    text-align: center;
+    &:before, &:after {
+      display: none;
+    }
+    img {
+      max-width: 50px;
+      height: auto;
+    }
+  }
+
+  // Basket changes
+  .col-xs-12.ExitLinks { display: none }
+
+  // goBack
+  .container-fluid .CheckWrap {
+    position: relative;
+    .FL066-back {
+      position: absolute;
+      bottom: 110px;
+      right: 20px;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+  }
+
+  // Voucher message
+  .FL066-discountMessage {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9999;
+    color: #fff;
+    padding: 20px 30px;
+    text-align: center;
+    background-color: #4BB543;
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+      margin: 0;
+    }
+    &.FL066-discountError {
+      background-color: #FF9494;
+    }
+  }
+
+  // Basket message
+  .FL066-message p {
+    font-size: .9em;
+  }
+
+  .FL066-or {
+    text-align: center;
+    max-width: 400px;
+    position: relative;
+    top: -20px;
+    font-family: 'GothamHTF-Book',Arial,Helvetica,sans-serif !important;
+    p {
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+  }
+
+  // Checkout sum
+  .CheckoutLeft {
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+
+  // Prev cards styles
+  &.FL066-hasCards {
+    .leftWrap, .PaymentStage {
+      position: static;
+    }
+    .leftWrap h1 {
+      text-transform: uppercase;
+    }
+    .PaymentMethodList {
+      width: 100%;
+      text-align: center;
+      li {
+        border: none;
+        button {
+          text-transform: uppercase;
+        }
+      }
+      // Saved Cards
+      li.FL066-savedCardLi {
+        clear: both;        
+        border: 1px solid #ccc !important;
+        width: 48%;
+        margin: 0 .7% 5px;
+        display: inline-block;
+        min-height: 85px;
+        vertical-align: top;
+        position: relative;
+        cursor: pointer;
+        a.savedcard {
+          text-align: center;
+          span.PayImage {
+            display: inline-block;
+            margin: auto;
+            vertical-align: middle;
+          }
+          span.PayText {
+            display: inline-block;
+            vertical-align: middle;
+            width: auto;
+          }
+          span.PayTick { display: none }
+        }
+        &.FL066-activeCard {
+          background-color: #e4e6e6;
+          &:after {
+            content: "";
+            position: absolute;
+            top: 10px; right: 10px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000000;
+            background-color: #000000;
+            border-radius: 10px;
+            text-align: center;
+            background-image: url('https://www.flannels.com/images/core/flannels-new-sheet-v4.svg');
+            background-size: 500px 500px;
+            background-position: -230px -379px;
+          }
+        }
+      }
+
+      li.FL066-or {
+        max-width: 100%;
+      }
+
+      // Add new card
+      li.FL066-addCard {
+        border: none !important;
+        text-align: right;
+        span:not(.PayText):not(.bold) {
+          display: none;
+        }
+        a {
+          text-align: right;
+          padding-right: 0;
+          display: inline-block;
+          text-decoration: underline !important;
+        }
+        span.PayText {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      li.FL066-payCard {
+        button {
+          font-size: 15px;
+          line-height: 20px;
+          background-color: #181816 !important;
+          border: 0;
+          letter-spacing: 0.1em;
+          width: 100%;
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          border-radius: 0;
+          text-transform: uppercase;
+          max-width: 240px;
+          display: block;
+          margin: auto;
+          color: #fff !important;
+          text-shadow: 0 0 0;
+          padding: 15px 10px;
+          text-align: center;
+          appearance: none;
+          font-weight: 400;
+        }
+      }
+      li[data-paymenttype="PayPal"] {
+        a {
+          font-size: 15px;
+          line-height: 20px;
+          text-transform: uppercase;
+          background-color: #181816 !important;
+          border: 0;
+          letter-spacing: 0.1em;
+          width: 100%;
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          border-radius: 0;
+          max-width: 240px;
+          display: block;
+          margin: auto;
+          color: #fff !important;
+          text-shadow: 0 0 0;
+          padding: 15px 10px;
+          text-align: center;
+          span.PayTick, span.PayImage {
+            display: none;
+          }
+          span.PayText {
+            display: block;
+            width: 100%;
+            font-size: inherit;
+          }
+        }
+      }
+
+      // Voucher links
+      li#dnn_ctr88156_PaymentMethod_UseGiftCardWrapper, li#dnn_ctr88156_PaymentMethod_UseVoucherWrapper {
+        position: absolute;
+        top: 230px;
+        right: 20px;
+        padding: 0;
+        height: auto;
+        text-decoration: underline;
+        border: none;
+        text-align: right;
+        &:after, &:before {
+          display: none;
+        }
+        span:not(.PayText):not(.bold) {
+          display: none;
+        }
+        span.PayText {
+          display: block;
+          width: 100%;
+          font-size: inherit !important;
+        }
+        a {
+          display: block;
+          padding: 10px;
+          font-size: 1.2em;
+        }
+        .FL066-showVoucher {
+          button, input[type="text"] { display: block; }
+        }
+      }
+    }
+    .FL066-or {
+      top: 0;
+    }
+
+    // Remove voucher
+    .PromGroup {
+      font-size: 1em;
+      padding-right: 0;
+      a.PromoRemoveLink {
+       font-size: 1.2em;
+      }
+    }
+  }
+
+  // No saved cards
+  &.FL066-noCards {
+    ul.PaymentMethodList {
+      li.FL066-addCard {
+        text-align: center;
+        a.CardsIcons.PaymentMethodSelectionLink {
+          font-size: 15px;
+          line-height: 20px;
+          text-transform: uppercase;
+          background-color: #181816!important;
+          letter-spacing: .1em;
+          max-width: 240px;
+          margin: auto;
+          color: #fff!important;
+          text-shadow: 0 0 0;
+          padding: 15px 10px;
+          text-align: center;
+          text-decoration: none !important;
+          width: 100%;
+          span {
+            font-size: inherit !important;
+          }
+        }
+      }
+      li.FL066-payCard {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1021px) {
+    .container-fluid .CheckWrap .FL066-back {
+      bottom: 240px;
+    }
+    a.FL006_accordian-btn.FL006_gift_card {
+      top: 0;
+      right: 20px;
+    }
+    div.FL066-voucher {
+      top: 30px !important;
+      right: 20px;
+    }
+    .FL066-or {
+      margin-left: 0;
+    }
+  }
+
+  // Mobile
+  @media only screen and (max-width: 576px) {
+    &.FL066-hasCards {
+      // Title
+      .leftWrap {
+        h1 {
+          text-align: center;
+          margin-bottom: 15px;
+        }
+      }
+
+      // Summary
+      .CheckoutLeft {
+        h2 {
+          display: none;
+        }
+        .OrderSumm .FL066-message {
+          text-align: center;
+          padding: 5px 35px;
+        }
+      }
+
+      // 
+      .PaymentMethodList {
+        width: 90% !important;
+        margin: auto;
+        border: none !important;
+        li {
+          position: static !important;
+          margin: auto !important;
+          display: block;
+          right: auto !important;
+          left: auto !important;
+          top: auto !important;
+          a.PaymentMethodSelectionLink {
+            text-align: center;
+            display: block;
+            padding: 15px;
+            max-width: 300px;
+            margin: auto;
+          }
+          a.FL006_accordian-btn {
+            padding: 0 15px !important;
+            text-align: center;
+          }
+          div.PromGroup {
+            padding-left: 0 !important;
+            text-align: center;
+            a.pull-right {
+              float: none !important;
+            }
+          }
+          &.FL066-savedCardLi {
+            width: 100%;
+            display: block;
+            margin: 10px auto !important; 
+            position: relative !important;
+          }
+          &.FL066-or {
+            margin: 20px auto !important;
+          }
+          &.FL066-payCard {
+            margin-top: 20px !important;
+            button {
+              max-width: 300px;
+              margin: auto;
+            }
+          }
+          &#dnn_ctr88156_PaymentMethod_UseGiftCardWrapper {
+            margin-top: 10px !important;
+          }
+          &#dnn_ctr88156_PaymentMethod_UseVoucherWrapper {
+            text-align: center;
+            position: relative !important;
+            top: auto !important;
+            > div {
+              display: inline-block;
+              width: auto;
+            }
+            > .FL066-showVoucher {
+              width: 100%;
+            }
+            > .PromGroup {
+              position: absolute;
+              top: 0; right: 0;
+              padding-top: 0;
+              a {
+                padding-top: 0;
+              }
+            }
+          }
+          &.applePayButton:not(.hidden) {
+            display: block !important;
+            visibility: visible;
+            margin-top: 20px !important;
+            span.PayImage, span.PayTick {
+              display: none;
+            }
+            > a {
+              font-size: 15px;
+              line-height: 20px;
+              background-color: #181816!important;
+              letter-spacing: .1em;
+              max-width: 240px;
+              text-transform: uppercase;
+              max-width: 300px;
+              margin: auto;
+              color: #fff!important;
+              text-shadow: 0 0 0;
+              padding: 15px 10px;
+              text-align: center;
+              width: 100%;
+              span.PayText {
+                font-size: inherit;
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    div.FL066-voucher, a.FL006_accordian-btn.FL006_gift_card {
+      position: static;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .FL006_header {
+      text-align: center;
+    }
+    .FL066-or {
+      max-width: 380px;
+      margin: auto;
+    }
+    a.FL006_accordian-btn.FL006_paypal {
+      max-width: 340px;
+    }
+    .container-fluid .CheckWrap .FL066-back {
+      position: static;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      text-align: center;
+      display: block;
+    }
+    .CheckWrap .CardGroup iframe {
+      max-width: 340px;
+      margin: auto;
+      // height: 340px !important;
+    }
+    &.FL006_card-page {
+      .FL066-or {
+        top: -20px;
+      }
+    }
+  }
+
+  // Hide added voucher form
+  .FL022_form { 
+    visibility: hidden; 
+    opacity: 0;
+    height: 0;
+  }
+
+
+  // Discount code added
+  &.FL066-discountAdded {
+    a.FL006_accordian-btn.FL006_gift_card {
+      top: 270px !important;
+    }
+    div.FL066-voucher {
+      top: 300px !important;
+    }
+    li#dnn_ctr88156_PaymentMethod_UseGiftCardWrapper {
+      top: 270px !important;
+    }
+    li#dnn_ctr88156_PaymentMethod_UseVoucherWrapper {
+      top: 300px !important;
+    }
+  }
+}
+
+.FL066-2 {
+  // Hide discount codes
+  a.FL006_voucher { display: none !important }
+
+  li#dnn_ctr88156_PaymentMethod_UseGiftCardWrapper {
+    top: 220px !important
+  }
+}

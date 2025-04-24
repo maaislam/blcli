@@ -1,0 +1,144 @@
+@import './variables';
+@keyframes showHideDot {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.#{$id} {
+
+  form.SD001_form {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    input  {
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // Hide exit CTA's
+  .ExitLinks {display: none}
+
+  // Voucher dropdown
+  .SD001-voucherDropdown {
+    clear: both;
+    padding: 10px;
+    max-width: 300px;
+
+    a {
+      display: block;
+      text-decoration: underline;
+      margin-bottom: 7px;
+    }
+
+    // Hide input & btn
+    input, button {
+      display: none;
+      height: 35px;
+      margin: 0;
+      vertical-align: top;
+    }
+
+    &.active {
+      // Show input & btn
+      input, button {display: inline-block}
+    }
+
+    input {
+      min-width: calc(100% - 100px);
+      padding: 2px 12px;
+      font-size: 16px;
+      line-break: 18px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      appearance: none;
+      padding: 10px 18px;
+      text-decoration: underline;
+    }
+
+  }
+
+
+  // Hide old discount components.
+  li#dnn_ctr76856_PaymentMethod_UseVoucherWrapper {
+    border: none;
+  }
+  .Voucher.PaymentMethodSelectionLink {
+    display: none;
+  }
+
+
+  // Dropdown Messages.
+  .SD001-discountMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
+    background-color: $green;
+    &.SD001-discountError {
+      background-color: $red;
+    }
+    p {
+      margin: 0;
+      color: #fff;
+      font-size: 1.2em;
+      line-height: 1.3em;
+    }
+  }
+
+  // Hide original on desktop
+  @media only screen and (min-width: 1021px) {
+    .SD001-voucherDropdown {
+      padding: 10px 0;
+    }
+  }
+
+
+  // Show Loader
+  &.SD001-loading {
+    .loading-dots {
+      display: block;
+    }
+  }
+
+  .loading-dots {
+    display: none;
+    text-align: center;
+    z-index: 99999;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+  
+    .dot {
+      display: inline;
+      margin-left: 0.2em;
+      margin-right: 0.2em;
+      // width: 20px;
+      // height: 20px;
+      position: relative;
+      top: 5em;
+      background-color: #000;
+      font-size: 3.5em;
+      opacity: 0;
+      animation: showHideDot 2.5s ease-in-out infinite;
+  
+      &.one { animation-delay: 0.2s; }
+      &.two { animation-delay: 0.4s; }
+      &.three { animation-delay: 0.6s; }
+    }
+  }
+  
+
+}

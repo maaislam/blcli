@@ -1,0 +1,118 @@
+@import './variables';
+@import './mixins';
+
+.hidden {
+  display: none;
+}
+
+.#{$id} {
+  font-family: futura-pt, sans-serif;
+
+  .#{$id}__header,
+  .#{$id}__header--mobile {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 500;
+    margin: 0;
+    display: block;
+
+    .#{$id}__text {
+      font-size: 16px;
+    }
+  }
+
+  .row.#{$id} {
+    padding: 8px 15px;
+  }
+
+  .#{$id}__url-wrapper__link {
+    text-decoration: underline;
+    color: #000000;
+    font-size: 14px;
+  }
+
+  //********************************
+  // Phone
+  // 576px window width and more
+  //********************************
+
+  @include for-phone-only {
+    .#{$id}__img-wrapper {
+      flex-direction: column;
+    }
+
+    .#{$id}__header {
+      display: none;
+    }
+
+    .#{$id}__description {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+    }
+
+    .#{$id}__url-wrapper {
+      text-align: center;
+    }
+
+    .#{$id}__img-wrapper {
+      position: relative;
+
+      .img-wrapper__title {
+        position: absolute;
+        bottom: 0;
+        margin-left: 55px;
+        margin-right: 55px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background-color: #fff;
+        padding: 5px;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.25;
+        font-weight: 500;
+      }
+    }
+  }
+
+  //********************************
+  // Desktop
+  // 600px window width and more
+  //********************************
+
+  @include for-tablet-portrait-up {
+    .row-fluid.#{$id} {
+      display: flex;
+      margin-top: 30px;
+    }
+
+    .#{$id}__img-wrapper {
+      flex: none;
+      width: 55%;
+    }
+
+    .img-wrapper__title {
+      display: none;
+    }
+
+    .#{$id}__wrapper {
+      margin: 20px 40px;
+
+      .#{$id}__description {
+        text-transform: none;
+        font-size: 14px;
+      }
+
+      .#{$id}__url-wrapper {
+        margin-top: 10px;
+      }
+    }
+    .#{$id}__header--mobile {
+      display: none;
+    }
+  }
+}

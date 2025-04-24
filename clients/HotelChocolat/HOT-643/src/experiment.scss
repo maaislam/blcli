@@ -1,0 +1,432 @@
+@import './variables';
+
+.#{$id} {
+    .HCN-discovermatchblock {
+        display: none;
+    }
+
+    &__hide {
+        display: none;
+    }
+
+    &__trendingCarousel {
+        .HCN-newinblock-wrapper {
+            .HCN-newinblock-inner .HCN-product-carousel {
+                min-height: 300px !important;
+
+                @include media-query(sm) {
+                    min-height: 380px !important;
+                }
+
+                .HCN-item {
+                    padding: 5px 8px !important;
+
+                    @include media-query(sm) {
+                        padding: 5px 11px !important;
+                    }
+
+                    .HCN-item-wrapper {
+                        .HCN-item--image {
+                            img {
+                                width: 100% !important;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+
+                .#{$id}__promotedItem {
+                    position: relative;
+                    // height: 350px;
+
+                    @include media-query(sm) {
+                        height: 357px;
+                    }
+
+                    .#{$id}__discountMessage {
+                        padding: 3px 8px;
+                        position: absolute;
+                        top: 12px;
+                        left: 14px;
+                        border-radius: 3px;
+                        border: 1px solid #252525;
+                        background: #FFF;
+                        color: #252525;
+                        font-size: 12px;
+                        font-weight: 500;
+
+                        @include media-query(sm) {
+                            top: 12px;
+                            left: 18px;
+                        }
+                    }
+
+                    .HCN-item-wrapper {
+                        height: 100%;
+                        background-image: url('https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dwf8d7b6ea/images/504301-1X.jpg?sw=2000&sh=2000&sm=fit');
+                        background-size: cover;
+                        background-position: center;
+
+                        .#{$id}__hideContent {
+                            opacity: 0;
+
+                            @include media-query(sm) {
+                                display: none !important;
+                            }
+                        }
+
+                        .HCN-item--image {
+                            height: 100%;
+                            padding: 0 !important;
+
+                            img {
+                                opacity: 0;
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .#{$id}__content {
+                        width: 85%;
+                        padding: 9px 0 9px 16px !important;
+                        position: absolute;
+                        bottom: 9px;
+                        background: rgba(0, 0, 0, 0.80);
+
+                        @include media-query(sm) {
+                            width: 87%;
+                        }
+
+                        @include media-query(xlg) {
+                            width: 82%;
+                        }
+
+                        h3 {
+                            color: #FFF !important;
+                        }
+
+                        p {
+                            color: #FFF !important;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-query(sm) {
+            .slick-list {
+                padding: 0 20% 0 10px !important;
+            }
+        }
+    }
+
+    &__categoryHeader {
+        padding: 0 80px;
+
+        @include media-query(md) {
+            padding: 0 14px 0 0;
+        }
+
+        .#{$id}__title {
+            padding-left: 0 3.2%;
+            margin-left: 8px;
+            color: #000;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 46px;
+            margin-bottom: 10px;
+
+            @include media-query(md) {
+                margin-left: 18px;
+                font-size: 25px;
+            }
+        }
+
+        .#{$id}__details,
+        .#{$id}__fullDetails {
+            margin-bottom: 20px;
+            padding-left: 0 3.2%;
+            margin-left: 8px;
+            color: #000;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 23px;
+            font-family: 'GillSansNova-Light' !important;
+
+            @include media-query(md) {
+                margin-left: 18px;
+                margin-bottom: 40px;
+            }
+
+            a {
+                color: #000 !important;
+                font-weight: 400;
+                text-decoration-line: underline;
+            }
+        }
+
+        .#{$id}__details {
+            display: none;
+
+            @include media-query(sm) {
+                display: block;
+            }
+        }
+
+        .#{$id}__fullDetails {
+            @include media-query(sm) {
+                display: none;
+            }
+        }
+    }
+
+    &__categoryHeader.#{$id}__expanded {
+        .#{$id}__details {
+            display: none;
+        }
+
+        .#{$id}__fullDetails {
+            display: block;
+        }
+    }
+
+    &__categoryCarousel {
+        @include media-query(md) {
+            margin: 0 18px !important;
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 18px;
+
+            &:before {
+                content: none !important;
+            }
+
+            .HCN-item {
+                padding: 0 !important;
+                margin: 0 !important;
+
+                .HCN-item-wrapper {
+                    width: 100%;
+
+                    .HCN-bannerblock--image {
+                        width: 100% !important;
+                        padding: 16px 0 !important;
+                        background: #F0F0F0;
+
+                        img {
+                            width: 120px !important;
+                            height: 120px !important;
+                            mix-blend-mode: multiply;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-query(md) {
+        &__categoryCarousel+.HCN-category-progress-bar-container {
+            display: none !important;
+        }
+    }
+
+    @include media-query(sm) {
+        .HCN-block.HCN-heroblock {
+            background-image: url(https://blcro.fra1.digitaloceanspaces.com/HC-NEW-HOMEPAGE/hero/hero-mobile-v2.png) !important;
+            height: 275px !important;
+
+            .HCN-heroblock--content {
+                padding: 24px 20px 24px 25px !important;
+
+                h2 {
+                    font-size: 25px !important;
+                    line-height: 30px !important;
+                    margin-bottom: 19px !important;
+                }
+
+                p {
+                    max-width: 50%;
+                    font-size: 16px !important;
+                    line-height: 19px !important;
+                    letter-spacing: 0.32px;
+                    margin-bottom: 29px !important;
+                }
+
+                span.HCN-button {
+                    width: 182px !important;
+                }
+            }
+        }
+
+    }
+
+    &__ethicalbusinessCarousel {
+        @include media-query(sm) {
+            min-height: 455px;
+        }
+
+        .slick-list {
+            padding: 0 142px 0 00px !important;
+        }
+
+        .HCN-item--content {
+            h3 {
+                margin-bottom: 16px !important;
+            }
+        }
+
+        .#{$id}__details {
+            width: calc(100% - 10px);
+
+            p {
+                margin-bottom: 10px !important;
+                font-family: 'GillSansNova-Light' !important;
+                max-height: 46px;
+                overflow: hidden;
+            }
+
+            .#{$id}__readMoreDetail {
+                text-transform: capitalize !important;
+                color: #000 !important;
+                font-family: 'GillSansNova-Light' !important;
+                font-size: 16px !important;
+                font-weight: 400;
+                line-height: 21px;
+                text-decoration-line: underline;
+            }
+        }
+    }
+
+    .HCN-ethicalbusiness-container {
+        @include media-query(sm) {
+            margin-top: 10px !important;
+        }
+    }
+
+    .HCN-ethicalbusiness-container .HCN-ethicalbusiness-carousel-container .HCN-ethicalbusiness-product-carousel .HCN-item .HCN-item-wrapper .HCN-item--content h3 {
+        padding-left: 0 !important;
+    }
+
+    .HCN-ethicalbusiness-container .HCN-ethicalbusiness-carousel-container .HCN-ethicalbusiness-product-carousel .HCN-item .HCN-item-wrapper .HCN-item--content p {
+        padding-left: 0 !important;
+        margin-bottom: 10px !important;
+        color: #000;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 21px;
+    }
+
+    .HCN-newinblock-container.HOT-643__trendingCarousel .HCN-newinblock-wrapper .HCN-newinblock-inner .HCN-newinblock-container--title {
+        margin-left: 8px !important;
+        margin-bottom: 10px !important;
+
+        @include media-query(sm) {
+            margin-left: 18px !important;
+        }
+    }
+
+    .HCN-newinblock-container .HCN-newinblock-wrapper .HCN-newinblock-inner .HCN-progress-bar-container {
+        padding: 10px 0 !important;
+
+        @include media-query(sm) {
+            padding: 20px 0 !important;
+        }
+    }
+
+    .HCN-newinblock-container {
+        margin-bottom: 10px !important;
+    }
+
+    .HCN-category-carousel-block .HCN-category-carousel-wrapper .HCN-category-block--inner .HCN-category-progress-bar-container .slick_btn {
+        margin-right: 18px !important;
+    }
+
+    .HCN-goodchocolate-container .HCN-goodchocolate-wrapper .HCN-progress-bar-container .HCN-progress-bar-wrapper .HCN-progress-bar-goodchocolat {
+        margin-top: 30px !important;
+
+        .slick_btn {
+            margin-right: 26px !important;
+
+            @include media-query(xxlg) {
+                margin-right: 18px !important;
+            }
+        }
+    }
+
+    .HCN-category-carousel-block {
+        padding-bottom: 10px !important;
+
+        @include media-query(sm) {
+            padding-bottom: 20px !important;
+        }
+    }
+
+    .HCN-category-carousel-block .HCN-category-carousel-wrapper .HCN-category-block--inner .HCN-category-progress-bar-container {
+        padding: 10px 0 !important;
+    }
+
+    .HCN-goodchocolate-container .HCN-goodchocolate-wrapper .HCN-goodchocolate-inner .HCN-goodchocolate-container--title {
+        margin-left: 4px !important;
+        margin-bottom: 10px !important;
+
+        @include media-query(sm) {
+            margin-left: 8px !important;
+        }
+    }
+
+    .HCN-goodchocolate-container .HCN-goodchocolate-wrapper .HCN-goodchocolate-inner .HCN-goodchocolate-product-carousel {
+        padding-left: 6px !important;
+
+        @include media-query(sm) {
+            padding-left: 18px !important;
+        }
+    }
+
+    .HCN-ethicalbusiness-container .HCN-ethicalbusiness-contents-container .HCN-ethicalbusiness-contents p {
+        margin-bottom: 27px !important;
+
+        @include media-query(sm) {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .HCN-ethicalbusiness-container .HCN-ethicalbusiness-contents-container .HCN-ethicalbusiness-contents {
+        .HCN-ethical_btn {
+            @include media-query(sm) {
+                display: none !important;
+            }
+        }
+    }
+
+    .HCN-ethicalbusiness-progress-bar-container {
+        margin-right: 40px;
+    }
+
+    .HCN-memberbenefitblock .HCN-memberbenefitblock--inner .memberbenefit-contents ul {
+        @include media-query(sm) {
+            margin-bottom: 27px !important;
+        }
+    }
+
+    &__readMore {
+        display: none;
+
+        @include media-query(sm) {
+            display: inline;
+            font-weight: 500;
+            text-decoration-line: underline;
+        }
+    }
+
+    &__ethicalFindOutMoreBtn {
+        @include media-query(sm) {
+            margin-top: 27px;
+            max-width: 90%;
+
+            .HCN-button {
+                max-width: 100% !important;
+            }
+        }
+    }
+}

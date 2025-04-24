@@ -1,0 +1,94 @@
+@import './variables';
+
+.#{$id} {
+
+  // Taken from NE-241
+  .columns .column.is-6-mobile {
+    width: 100% !important;
+
+    @media(min-width: 500px) {
+      width: 50% !important;
+    }
+
+    @media(min-width: 768px) {
+      width: 33.33% !important;
+    }
+  }
+
+  &-carousel {
+    height: 100%;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    img {
+      position: relative !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .slick-arrow {
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+
+      @media(min-width: 1024px) {
+        display: none !important;
+      }
+      @media (hover: none) and (pointer: coarse) {
+        display: block !important;
+      }
+
+      > span {
+        font-size: 18px;
+        font-weight: 100;
+      }
+    }
+
+    .slick-prev {
+      left: 10px;
+
+      span {
+        margin-left: -3px;
+        margin-top: 1px;
+      }
+    }
+    .slick-next {
+      right: 10px;
+
+      span {
+        margin-right: -2px;
+        margin-top: 1px;
+      }
+    }
+
+    .slick-dots {
+      bottom: 10px !important;
+    }
+
+    .slick-dots li button:before {
+      color: #ededed;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #4f4f4f;
+      font-family: arial, sans-serif !important; // Fixes encoding issue
+      opacity: 1;
+    }
+
+    &:hover {
+      .slick-arrow {
+        @media(min-width: 1024px) {
+          display: block !important;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+          display: block !important;
+        }
+      }
+    }
+
+  }
+}

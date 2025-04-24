@@ -1,0 +1,130 @@
+@import './variables';
+
+.#{$id} {
+    &__hotelCard {
+        margin-top: -174px !important;
+        margin-left: -196px !important;
+        width: 400px !important;
+        padding: 8px 8px 8px 10px !important;
+
+        @include media-query(sm) {
+            margin-top: -168px !important;
+            margin-left: -166px !important;
+            width: 340px !important;
+        }
+
+        .qa-map-popover-hotel-link {
+            padding: 5px 0px;
+            width: 100%;
+        }
+
+        .qa-map-popover-hotel-image {
+            display: block;
+            height: 100%;
+
+            div.aspect {
+                height: 100%;
+                padding: 0 !important;
+            }
+
+            .image-container {
+                height: 100%;
+            }
+        }
+
+        .row.qa-map-popover {
+            margin-right: 0;
+
+            .qa-map-popover-hotel-name {
+                padding-right: 12px;
+                margin-bottom: 8px;
+
+                @include media-query(sm) {
+                    font-size: 14px;
+                }
+            }
+
+            .col.col-sm-5 {
+                max-width: 37%;
+                flex: 37%;
+                padding-left: 12px;
+                padding-right: 8px;
+            }
+
+            .col.col-sm-7 {
+                max-width: 63%;
+                flex: 63%;
+                padding-left: 0 !important;
+                padding-right: 0;
+            }
+
+            .hotel-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .trip-advisor-rating {
+            img.trip-advisor-image {
+                width: 80px;
+                margin-left: 0 !important;
+            }
+
+            img+span {
+                font-family: 'fs-albert-regular';
+                font-size: 16px;
+            }
+        }
+
+        .c-facilities {
+            margin: 7px 0;
+            display: flex;
+            padding: 0;
+            gap: 8px;
+            list-style: none;
+
+            .c-facilities__item {
+                font-size: 0.9rem;
+                pointer-events: none;
+            }
+
+            img {
+                width: 18px;
+            }
+        }
+    }
+
+    &__loader {
+        position: relative;
+        min-width: 100%;
+        margin: 11px 0;
+
+        .skeleton-animation {
+            height: 12px;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: skeletonShimmer;
+            animation-timing-function: cubic-bezier(.17, .67, .83, .67);
+            background: #f4f4f4;
+            background: linear-gradient(to right, #f4f4f4 0%, #d8d8d8 50%, #f4f4f4 100%);
+            background-size: 200% 100%;
+            width: 100%;
+        }
+
+        .second-bar {
+            margin-top: 14px;
+        }
+
+        @keyframes skeletonShimmer {
+            0% {
+                background-position: 100% 0
+            }
+
+            100% {
+                background-position: -100% 0
+            }
+        }
+    }
+}

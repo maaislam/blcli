@@ -1,0 +1,87 @@
+@import "./variables";
+
+.#{$id} {
+	##{$id}-wish-dom-not-logged-in,
+	##{$id}-wish-dom {
+		display: flex;
+		align-items: center;
+		margin-top: 15px;
+		justify-content: space-between;
+
+		.add-to-wishlist-dom {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			&.added-to-wishlist {
+				color: #e10098;
+				cursor: default;
+				pointer-events: none;
+				span.icon-heart {
+					&:hover path {
+						fill: #e10098;
+					}
+				}
+				span.icon-text {
+					display: inline-flex;
+					font-size: 14px;
+				}
+			}
+
+			&:hover {
+				color: #e10098;
+				span.icon-heart {
+					path {
+						fill: #e10098;
+					}
+				}
+			}
+		}
+		.remove-item-dom {
+			cursor: pointer;
+			display: flex;
+
+			&:hover {
+				svg path {
+					stroke: #e10098;
+				}
+			}
+			@media screen and (min-width: 768px) {
+				display: none;
+			}
+		}
+		span.icon-heart {
+			display: inline-flex;
+			margin-right: 5px;
+
+			&:hover path {
+				fill: #e10098;
+			}
+		}
+		span.icon-text {
+			display: inline-flex;
+			font-size: 14px;
+		}
+	}
+
+	#gvBasketDetails td.productdesc .s-basket-remove-button {
+		display: none;
+	}
+
+	.#{$id}-remove-item-dom-new {
+		cursor: pointer;
+		padding-top: 2px;
+		&:hover {
+			svg path {
+				stroke: #e10098;
+			}
+		}
+		@media screen and (max-width: 767.95px) {
+			display: none;
+		}
+	}
+	.#{$id}-remove-td {
+		@media screen and (max-width: 767.95px) {
+			display: none;
+		}
+	}
+}

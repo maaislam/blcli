@@ -1,0 +1,382 @@
+@import './variables';
+
+$blue: #34a8de;
+
+.#{$id} {
+  .DO001-message {
+    position: relative;
+  }
+
+  // Mobile first.
+  // Tooltip
+  &.is--ctl-detail .product--details .product--header {
+    z-index: 5000;
+    &:hover, &:focus {
+      .DO001-tooltip {
+        display: block;
+      }
+    }
+  }
+  .DO001-tooltip {
+    display: none;
+    position: absolute;
+    top: 80%;
+    left: 0; right: 0;
+    z-index: 99999;
+    border: 2px solid $blue;
+    .DO001-tooltip--info {
+      padding: 15px 25px;
+      background-color: #fff;
+      text-align: center;
+      span {
+        font-size: 1.2em;
+        font-weight: 700;
+      }
+    }
+    .DO001-tooltip--title {
+      background-color: $blue;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: -80%;
+        left: 0; right: 0;
+        margin: auto;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 25px 25px 25px;
+        border-color: transparent transparent $blue transparent;
+      }
+      h3 {
+        margin: 0;
+        color: #fff;
+        text-align: center;
+        padding: 5px 15px;
+        font-size: 1.2em;
+        line-height: 1.3em;
+        letter-spacing: .1em;
+      }
+    }
+  }
+
+  // Icon bar
+  .DO001-iconBar {
+    font-size: 0;
+    letter-spacing: 0;
+    line-height: 0;
+    text-align: center;
+    // margin-bottom: 20px;
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% / 3);
+      text-align: center;
+      // Coins
+      &:first-of-type {
+        span {
+          padding-top: 12px;
+        }
+      }
+      // van
+      &:nth-of-type(2) {
+        span {
+          padding-top: 25px;
+          padding-left: 5px;
+        }
+        img {
+          max-width: 75px;
+        }
+      }
+      span {
+        min-height: 50px;
+        width: 90px;
+        // border: 2px solid $blue;
+        // border-radius: 45px;
+        display: block;
+        padding: 10px;
+        margin: auto;
+      }
+      img {
+        max-width: 50px;
+        height: auto;
+        margin: auto;
+      }
+      p {
+        padding: 0 20px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  // Free Delivery in...
+  .DO001-freeDelIn {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    margin: 10px auto;
+    text-align: center;
+
+    // Price (if exists...)
+    .DO001-priceLeft {
+      width: 45%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 3.5%;
+      max-height: 100px;
+      overflow-y: hidden;
+      p {
+        font-weight: 500;
+        font-size: 4em;
+        line-height: 4.1em;
+        position: relative;
+        top: -60px;
+      }
+    }
+    .DO001-priceRight {
+      width: 50%;
+      display: inline-block;
+      vertical-align: middle;
+
+      p.DO001-delTitle {
+        text-transform: uppercase;
+        color: $blue;
+        font-size: 1.4em;
+        line-height: 1.45em;
+      }
+      p {
+        font-weight: 700;
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        line-height: 1.25em;
+      }
+
+    }
+  }
+
+  // Delivery info & drink..
+  .DO001-deliverInfo, .DO001-drinkspiration {
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    margin: auto;
+    p {
+      margin-bottom: 5px;
+      font-size: 1.1em;
+      max-width: 700px;
+      margin: auto;
+      span {
+        font-weight: 700;
+      }
+    }
+    img {
+      margin: 10px auto;
+    }
+    span.truck {
+      max-width: 60px;
+      display: block;
+      margin: 20px auto;
+    }
+    span.tick {
+      max-width: 40px;
+      margin: 20px auto;
+      display: block;
+    }
+    a {
+      margin-top: 20px;
+      display: inline-block;
+    }
+  }
+  .DO001-drinkspiration {
+    max-width: 85.5rem;
+    margin: 2rem 1rem 0rem 1rem;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #cccccc;
+    img {
+      max-width: 110px;
+    }
+    p {
+      max-width: 700px;
+      margin: auto;
+    }
+  }
+
+  // Sticky ATB
+  .DO001-stickyAtb {
+    position: fixed;
+    z-index: 7999;
+    bottom: -120px; left: 2px; right: 2px;
+    background-color: #fff;
+    border: 2px solid $blue;
+    max-height: 250px;
+    transition: ease-in-out all .2s;
+
+    &.slideUp {
+      bottom: 0;
+    }
+
+    .DO001-stickyAtb--img {
+      width: 38%;
+      display: inline-block;
+      vertical-align: middle;
+      float: right;
+      img {
+        max-width: 80px;
+        max-height: 90px;
+        margin: -15px auto 4px;
+      }
+    }
+
+    .DO001-stickyAtb--wrap {
+      padding: 20px 20px 10px;
+
+      h4 {
+        margin: 0;
+        font-size: 1.4em;
+        line-height: 1.5em;
+        padding-right: 60px;
+        position: relative;
+        span {
+          display: none;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+
+    }
+
+    // CTA's
+    .DO001-stickyAtb--ctas {
+      clear: both;
+      padding: 0;
+      .buybox--button-container {
+        text-align: center;
+        > div, > button {
+          display: inline-block;
+          vertical-align: bottom;
+          float: none;
+          height: 42px;
+          select {
+            height: 42px;
+          }
+        }
+        > div {
+          width: 30%;
+        }
+        > button {
+          width: 67%;
+          margin-left: 1%;
+        }
+      }
+    }
+
+
+    // Gift
+    .DO001-stickyAtb--gift {
+      max-width: 60%;
+      display: inline-block;
+      vertical-align: middle;
+      float: left;
+      padding-top: 10px;
+      .gift-options-checkbox-wrapper {
+        float: left;
+        width: 100%;
+        label {
+          width: calc(100% - 30px);
+        }
+      }
+    }
+
+    
+  }
+
+
+  @media only screen and (max-width: 479px) {
+    .DO001-stickyAtb .DO001-stickyAtb--wrap h4 {
+      font-size: 1.2em;
+      line-height: 1.25em;
+    }
+    .DO001-freeDelIn .DO001-priceLeft p {
+      font-size: 3.2em;
+      line-height: 3.5em;
+      top: -30px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .DO001-freeDelIn {
+      border: none;
+      border-bottom: 1px solid #cccccc;
+      padding: 0;
+      margin: 0;
+      .DO001-priceLeft {
+        width: 40%;
+        margin-right: 1%;
+        p {
+          font-size: 3em;
+          line-height: 3.1em;
+          top: -20px;
+        }
+      }
+      .DO001-priceRight {
+        width: 58%;
+        text-align: left;
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .product--price.price--default .price--content { display: none }
+
+    .DO001-iconBar {
+      border: 4px solid $blue;
+      padding: 20px;
+      margin-top: 60px;
+      h3 {
+        font-size: 22px;
+        margin: 0 0 2px;
+      }
+      p {
+        margin: 0;
+      }
+      > div {
+        width: calc(100% / 6);
+        img {
+          max-width: 40px !important;
+          margin: auto;
+        }
+        span {
+          padding: 0 !important;
+          min-height: 50px;
+        }
+        &:nth-of-type(3) {
+          img {
+            max-width: 60px !important;
+          }
+          span {
+            padding-top: 5px !important;
+          }
+        }
+      }
+      div.DO001-iconBarMessage {
+        width: 48%;
+        text-align: left;
+        p {
+          padding: 0;
+          padding-right: 15px;
+          font-weight: 400;
+        }
+      }
+    }
+
+  }
+
+}
+
+// When adding to bag on mobile especially, there can be three modals popping up.
+// So slide the sticky bag down out of the way.
+html.no--scroll {
+  .DO001 .DO001-stickyAtb {
+    bottom: -140px;
+  }
+}

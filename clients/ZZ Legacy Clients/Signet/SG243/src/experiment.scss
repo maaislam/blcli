@@ -1,0 +1,136 @@
+@import './variables';
+
+.#{$id} {
+
+  .homepage-hero {
+    margin-top: 0;
+  }
+
+  .#{$id}-deliveryCountdown {
+    background: linear-gradient(-45deg,#191919 30%,#000 0);
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    margin-top: -17px;
+    @media(min-width: 720px) {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    @media(min-width: 840px) {
+      background: linear-gradient(-9deg,#191919 calc(50% - 3rem),#101010 calc(50% - 3rem));
+    }
+
+    .#{$id}-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0 auto;
+      gap: 5px;
+      padding: 10px;
+      @media(min-width: 767px) {
+        flex-direction: row;
+        gap: 10px;
+        padding: 0;
+      }
+    }
+
+    .#{$id}-countdown-text {
+      @media(min-width: 720px) {
+        display: inline-block;
+      }
+    }
+    p {
+      font-family: CircularXX-Book;
+      font-weight: 400;
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+      @media(min-width: 1024px) {
+        font-size: 24px;
+        margin-bottom: 0;
+      }
+      strong {
+        font-family: CircularXX-Bold;
+      }
+    }
+
+    .#{$id}-countdown {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: 0;
+
+      @media(min-width: 720px) {
+        display: inline-flex;
+        padding: 0.5rem 0;
+      }
+
+      .timeBlock {
+        font-family: CircularXX-Book;
+        font-weight: 400;
+        line-height: 1;
+        flex: 1 1 auto;
+        font-size: 36px;
+        max-width: 5.25rem;
+        padding: 0 0.5rem;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        @media(min-width: 720px) {
+          font-size: 38px;
+        }
+        &:after {
+          content: ":";
+          position: absolute;
+          right: -0.3rem;
+          top: 8px;
+        }
+        &.seconds {
+          &:after {
+            display: none;
+          }
+          
+        }
+        .inner {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .digit {
+          padding: 5px 0;
+          border-radius: 0.3125rem;
+          display: inline-block;
+          min-width: 1.5rem;
+          flex-grow: 1;
+          box-sizing: border-box;
+          font-family: CircularXX-Bold;
+          text-align: center;
+          position: relative;
+          margin-left: 0.25rem;
+          background: linear-gradient(hsla(0,0%,100%,.25) 46%,hsla(0,0%,100%,.2) 50%,hsla(0,0%,100%,.3) 0,hsla(0,0%,100%,.25) 54%);
+          @media(min-width: 767px) {
+            min-width: 2rem;
+          }
+        }
+
+        &.days {
+          .digit {
+            &:first-of-type {
+              margin-left: 0;
+            }
+          }
+        }
+
+        .label {
+          display: block;
+          font-size: 14px;
+          text-align: center;
+          margin-top: 5px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

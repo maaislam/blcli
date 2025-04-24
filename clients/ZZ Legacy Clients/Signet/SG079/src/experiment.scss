@@ -1,0 +1,867 @@
+@import './variables';
+@import './keyframes.scss';
+
+.#{$id} {
+
+  &.#{$id}-noScroll {
+    overflow: hidden;
+  }
+
+  .#{$id}-inGrid {
+    position: relative;
+    background: none;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    .#{$id}-image {
+      height: 150px;
+      padding: 10px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/705F29AA3807FF3F28E7A82407C2DA3CCEF874562FD3A702B21310F20AE9F5FB.jpeg?meta=/SG079---Engagement-Ring-Finder/EJ18HL01_Engagement18-1342x1050.jpeg') no-repeat center;
+      background-size: cover;
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      width: 250px;
+      -webkit-transform: translateX(-50%);
+      transform: translate(-50%,-50%);
+      display: block;
+      z-index: 2;
+      background-color: white;
+      box-sizing: border-box;
+    }
+
+    .#{$id}-wrapper {
+      background: #f1f1f1;
+      border: 0px;
+      padding-top: 60px;
+      margin-top: 100px;
+      position: relative;
+      .#{$id}-icon {
+        display: none;
+      }
+    }
+
+    .#{$id}-inGrid-content {
+      padding: 10px;
+      h3 {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+  
+      p {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        line-height: 21px;
+      }
+  
+      .#{$id}-button {
+        background: black;
+        border: 1px solid black;
+        display: block;
+        border-radius: 5px;
+        padding: 7px 10px;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        color: white;
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        box-sizing: border-box;
+        cursor: pointer;
+        &:hover {
+          background: white;
+          border: 1px solid black;
+          color: black;
+        }
+      }
+    }
+
+    @media(min-width: 767px) {
+      .#{$id}-wrapper {
+        padding-top: 10px;
+      }
+    }
+    @media(min-width: 1024px) {
+      .#{$id}-wrapper {
+        padding-top: 20px;
+      }
+      .#{$id}-image {
+        width: 230px;
+        height: 140px;
+      }
+    }
+    
+  }
+
+  @media(max-width:767px) {
+    .product-tile-list--two-column-mode {
+      .#{$id}-inGrid {
+        display: none;
+      }
+    }
+  }
+  
+  .#{$id}-error {
+    color: #dc0321;
+    display: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  // General for both sites
+  .#{$id}-finderBox-wrapper {
+    position: fixed;
+    top: 0px;
+    background: white;
+    z-index: 999;
+    width: 100%;
+    transform: translateX(-1000px);
+    height: 100%;
+    font-family: "Oxygen",sans-serif;
+    &.#{$id}_boxActive {
+        animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    &.#{$id}_boxHide {
+        animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    .#{$id}-finderBox {
+      height: 100%;
+      h2 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+        background: black;
+        color: white;
+        font-weight: 400;
+        padding: 10px;
+        margin-top: 0;
+      }
+    }
+
+    .#{$id}-closeFinder {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      height: 20px;
+      width: 20px;
+      background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/A6B71C3F524BB5658FCE2845B8B525406CBA29F19D1B3354E815B216BB285C27.png?meta=/SG079---Engagement-Ring-Finder/noun_Cross_1890781.png') center no-repeat;
+      background-size: 45px;
+  }
+
+    .#{$id}-steps {
+      padding-top: 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      .#{$id}-step {
+          width: 32%;
+          position: relative;
+          text-align: center;
+          &:after {
+              content: '';
+              height: 10px;
+              width: 10px;
+              border-radius: 50px;
+              background: white;
+              border: 1px solid #DDDDDD;
+              display: block;
+              margin: 0 auto;
+              margin-top: 5px;
+              @media(min-width: 414px) {
+                height: 15px;
+                width: 15px;
+              }
+          }
+          &::before {
+              content: '';
+              position: absolute;
+              width: 100px;
+              height: 2px;
+              background: #DDDDDD;
+              top: 85%;
+              left: 50%;
+              z-index: -1;
+              @media(min-width: 360px) {
+                width: 117px;
+              }
+              @media(min-width: 414px) {
+                width: 100%;
+                height: 2px;
+                top: 80%;
+              }
+          }
+          &:last-child {
+              &:before {
+                  display: none;
+              }
+          }
+          &.#{$id}-step--active {
+              &::after{
+                background-color: #BCACD5;
+                border:1px solid #BCACD5;
+              }
+          }
+          &.#{$id}-step--complete {
+            &::before{
+              background-color: #BCACD5;
+            }
+            &::after{
+              background-color: #BCACD5;
+            }
+          }
+        }
+    }
+
+    // options
+    .#{$id}-finderOptions {
+      position: relative;
+      height: 100%;
+      .#{$id}-optionsTitle {
+        text-align: center;
+        margin-bottom: 0;
+        padding: 10px;
+        font-family: "Oxygen",sans-serif;
+        margin-top: 0;
+        padding-top: 0;
+        @media(min-width: 414px) {
+          font-size: 16px;
+        }
+      }
+
+      // question
+      .#{$id}-question {
+        position: relative;
+        top: 0;
+        display: none;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        //transform: translateX(-1000px);
+        height: 451px;
+        &.#{$id}-question--active {
+          position: relative;
+          display: block;
+          //animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        @media(min-width: 360px) {
+          height: calc(100% - 117px);
+        }
+        @media(min-width: 414px) {
+          height: calc(100% - 120px);
+        }
+      }
+
+      .#{$id}-innerOptions {
+        height: 70%;
+        overflow-y: scroll;
+        text-align: center;
+        @media(min-width: 360px) {
+          height: 80%;
+        }
+        @media(min-width: 414px) {
+          height: 84%;
+          bottom: 0;
+        }
+      }
+
+      // answer
+      .#{$id}-answer {
+        width: 46%;
+        box-sizing: border-box;
+        margin: 5px;
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid #BCACD5;
+        .#{$id}-answerImage {
+          height: 100px;
+          padding: 10px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        span {
+          font-size: 15px;
+          display: block;
+          padding: 5px;
+          position: relative;
+        }
+        &.#{$id}-answer--selected {
+          span {
+            background-color: #BCACD5;
+            text-align: left;
+            &::after {
+              content: '';
+              background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/374E390732ACC20C5E22145C92DA49CE7E5717CBD7BB6DA844077B9975A62BE9.png?meta=/SG079---Engagement-Ring-Finder/noun_tick_23491681.png') center no-repeat;
+              background-size: contain;
+              height: 30px;
+              width: 30px;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+
+      .#{$id}-question2 {
+        .#{$id}-answer {
+          .#{$id}-answerImage {
+            height: 60px;
+            padding-bottom: 5px;
+          }
+        }
+      }
+      .#{$id}-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        padding: 8px;
+        box-shadow: -1px 2px 9px 0px #909090;
+        bottom: 0;
+        box-sizing: border-box;
+        background: white;
+        .#{$id}-button {
+          padding: 8px;
+          color: black;
+          margin: 0 5px;
+          font-weight: 600;
+          background: #bcadd5;
+          border: 1px solid #bcadd5;
+          box-sizing: border-box;
+          width: 50%;
+          text-align: center;
+          cursor: pointer;
+          &.#{$id}-back {
+            border: 1px solid #ccc;
+            background: white;
+          }
+          &:hover {
+            border: 1px solid black;
+            background: black;
+            color: white;
+          }
+        }
+
+        &.#{$id}-oneButton {
+          justify-content: center;
+          .#{$id}-button {
+            width: 80%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width: 767px) {
+
+    .#{$id}-engagementBanner {
+      padding: 5px;
+      justify-content: center;
+      h3 {
+        font-weight: 100;
+        font-size: 16px;
+      }
+      span {
+        display: inline-block;
+      }
+      .#{$id}-button {
+        width: 150px;
+        margin-left: 20px;
+        line-height: 21px;
+      }
+    }
+    .#{$id}-finderBox-wrapper {
+      top: 0px;
+      padding-top: 120px;
+      z-index: 50;
+      transform: translateX(-2000px);
+      overflow-y: auto;
+      height: calc(100% - 100px);
+      .#{$id}-finderBox {
+        h2 {
+          padding: 20px;
+          font-weight: 600;
+          font-size: 25px;
+          background: white;
+          color: black;
+        }
+
+        .#{$id}-closeFinder {
+          background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/1CFF27194A6B5FE44A8441D9CAFE23AF752EF1D61B7F213FD3C6281093A1CD27.png?meta=/SG079---Engagement-Ring-Finder/cross.png') no-repeat center;
+          background-size: contain;
+          cursor: pointer;
+          top: 125px;
+          right: 15px;
+        }
+      }
+
+      .#{$id}-steps {
+        max-width: 600px;
+        margin: 0 auto;
+        .#{$id}-step {
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+      .#{$id}-finderOptions {
+        height: auto;
+        .#{$id}-innerOptions {
+          height: auto;
+          overflow: hidden;
+        }
+        .#{$id}-question {
+          height: auto;
+          max-width: 600px;
+          margin: 0 auto;
+          display: none;
+          position: relative;
+          transform: unset;
+          &.#{$id}-question--active{
+            animation: unset;
+            display: block;
+            position: relative;
+            transform: unset;
+          }
+          .#{$id}-answer {
+            width: 30%;
+            margin: 8px;
+            border-radius: 0;
+            cursor: pointer;
+          }
+
+          .#{$id}-buttons {
+            position: relative;
+            box-shadow: unset;
+            margin-top: 20px;
+            justify-content: center;
+            .#{$id}-button {
+              max-width: 300px;
+              width: 30%;
+            }
+          }
+        }
+
+        .#{$id}-question2 {
+          max-width: 800px;
+          margin: 0 auto;
+          
+          .#{$id}-answer {
+            width: 20%;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width: 1024px) {
+    .#{$id}-finderBox-wrapper {
+      top: 0px;
+      overflow: auto;
+      padding-top: 120px;
+      height: calc(100% - 100px);
+      
+      .#{$id}-finderBox {
+        .#{$id}-closeFinder {
+          top: 120px;
+        }
+        .#{$id}-finderOptions{
+          height: auto;
+        };
+      }
+    }
+  }
+  
+
+
+  &.hsamuel {
+    .#{$id}-engagementBanner {
+      font-family: "Montserrat",sans-serif;
+      h3 {
+        font-size: 14px;
+        color: black;
+        @media(min-width: 375px) {
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+      .#{$id}-button{
+        background-color: #a01d29;
+        border-color: #a01d29;
+        color: white;
+        font-family: "Montserrat",sans-serif;
+        width: 190px;
+        line-height: 25px;
+        &:hover {
+          color: #a01d29;
+          background: white;
+        }
+        @media(min-width: 375px) {
+          width: 200px;
+          line-height: 25px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .#{$id}-inGrid {
+      h3 {
+        color: black;
+      }
+      .#{$id}-button {
+        background-color: #a01d29;
+        border-color: #a01d29;
+        color: white;
+        font-family: "Montserrat",sans-serif;
+      }
+      @media(min-width: 767px) {
+        .#{$id}-wrapper {
+         h3 {
+           font-size: 18px;
+         }
+        }
+      }
+      @media(min-width: 800px) {
+        .#{$id}-wrapper {
+         margin-top: 80px;
+        }
+      }
+      @media(min-width: 1024px) {
+        .#{$id}-wrapper {
+         margin-top: 100px;
+        }
+      }
+      @media(min-width: 1200px) {
+        margin-top: 80px;
+      }
+    }
+
+    .#{$id}-finderBox-wrapper {
+      font-family: "Montserrat",sans-serif;
+      .#{$id}-finderBox {
+        h2 {
+          background-color: #a01d29;
+          font-family: "Montserrat",sans-serif;
+          @media(min-width: 767px) {
+            background:white;
+          }
+        }
+
+        .#{$id}-optionsTitle {
+          font-family: "Montserrat",sans-serif;
+          color: #333333;
+        }
+        .#{$id}-steps {
+          .#{$id}-step {
+            &::after {
+              background-color: #949494;
+              border-color: #949494;;
+            }
+            &::before {
+              top: 82%;
+              width: 100%;
+              @media(min-width: 1280px) {
+                top: 80%;
+              }
+            }
+            &.#{$id}-step--complete {
+              &::before {
+                background-color: #a01d29;
+              }
+              &::after {
+                background-color: #a01d29;
+                border-color:  #a01d29;
+              }
+            }
+            &.#{$id}-step--active {
+
+              &::after {
+                background-color:  #a01d29;
+                border-color:  #a01d29;
+              }
+            }
+          }
+          @media(min-width: 767px) {
+            margin-bottom: 10px;
+          }
+        }
+
+        .#{$id}-question {
+          height: calc(100% - 105px);
+          .#{$id}-buttons {
+            .#{$id}-button {
+              background-color: #a01d29;
+              border: 1px solid #a01d29;
+              color: white;
+              &.#{$id}-back {
+                background: white;
+                color: #333333;
+              }
+            }
+          }
+          @media(min-width: 414px) {
+            height: calc(100% - 112px);
+          }
+        }
+
+        .#{$id}-answer {
+          border: 1px solid #ccc;
+          span {
+            color: #333333;
+            font-size: 14px;
+          }
+          &.#{$id}-answer--selected {
+            span {
+              background: #ccc;
+            }
+          }
+        }
+      }
+      @media(min-width: 360px) {
+        .#{$id}-innerOptions {
+          height: 84%;
+        }
+      }
+      @media(min-width: 1024px) {
+        height: calc(100% - 120px);
+      }
+      @media(min-width: 1280px) {
+        padding-top: 144px;
+        height: calc(100% - 135px);
+        .#{$id}-finderBox {
+          .#{$id}-closeFinder {
+            top: 160px;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  &.#{$id}-2 {
+    .browse-banner {
+      display: none;
+    }
+    @media(min-width: 767px) {
+      .#{$id}-finderBox-wrapper{
+        height: calc(100% - 140px);
+        padding-top: 140px;
+        .#{$id}-finderBox {
+          .#{$id}-closeFinder {
+            top: 150px;
+          }
+        }
+      }
+    }
+    @media(min-width: 1280px) {
+      .#{$id}-finderBox-wrapper{
+        height: calc(100% - 135px);
+        padding-top: 135px;
+        .#{$id}-finderBox {
+          .#{$id}-closeFinder {
+            top: 150px;
+          }
+        }
+      }
+    }
+
+    .#{$id}-engagementBanner {
+      background: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .#{$id}-container {
+        text-align: center;
+      }
+      padding: 10px;
+      .#{$id}__colLeft {
+        width: 100%;
+      }
+      .#{$id}__colRight {
+        text-align: center;
+        margin-top: 16px;
+      }
+
+      .#{$id}__blockInner {
+        position: relative;
+        width: 100%;
+        .#{$id}-blockBack {
+            position: relative;
+            height: 200px;
+            width: 85%;
+            background: #d5d4d6;
+            z-index: 1;
+            margin-top: 10px;
+            margin-left: 10px;
+            @media(min-width: 375px) {
+              margin-left: 20px;
+            }
+        }
+        .#{$id}__block {
+          height: 200px;
+          position: absolute;
+          width: 100%;
+          margin: auto;
+          top: 3%;
+          right: -15px;
+          background-color: white;
+          box-shadow: 1px 2px 7px rgba(133, 133, 133, 0.2);
+          background: url('https://service.maxymiser.net/cm/images-us/ernestjones-co-uk/705F29AA3807FF3F28E7A82407C2DA3CCEF874562FD3A702B21310F20AE9F5FB.jpeg?meta=/SG079---Engagement-Ring-Finder/EJ18HL01_Engagement18-1342x1050.jpeg') no-repeat center;
+          background-size: cover;
+
+        }
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      p {
+        margin: 5px 0px 10px 0px;
+      }
+
+      .#{$id}-button {
+        background: black;
+        padding: 5px;
+        border-radius: 5px;
+        color: white;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        font-weight: 600;
+        box-sizing: border-box;
+        width: 200px;
+        cursor: pointer;
+        text-align: center;
+        height: 36px;
+        font-family: 'Oxygen',sans-serif;
+        border: 1px solid black;
+        line-height: 21px;
+        &:hover {
+          background:white;
+          color: black;
+          border: 1px solid black;
+        }
+      }
+      @media(min-width: 767px) {
+        background: none;
+        position: relative;
+        .#{$id}-container {
+          display: flex;
+          flex-direction: row;
+          margin: 0 auto;
+          background: none;
+          justify-content: center;
+          align-items: center;
+        }
+       
+        
+        &::before {
+          content: '';
+          height: 75%;
+          top: 40px;
+          background: #f1f1f1;
+          position: absolute;
+          width: 100%;
+          left: 0;
+        }
+        .#{$id}__colLeft {
+          width: 40%;
+          margin-right: 20px;
+        }
+        .#{$id}__colRight {
+          text-align: left;
+          position: relative;
+          width: 50%;
+          h3 {
+            font-weight: 600;
+            position: relative;
+          }
+        }
+        .#{$id}-button {
+          margin: 0;
+        }
+      }
+      @media(min-width: 1024px) {
+        .#{$id}-container {
+          max-width: 80%;
+          width: 80%;
+
+          .#{$id}__colRight {
+            width: 60%;
+          }
+        }
+      }
+
+      @media(min-width: 1280px) {
+        .#{$id}-container {
+          
+          .#{$id}__colRight {
+            width: 50%;
+          }
+          .#{$id}__colLeft {
+            width: 35%;
+          }
+          .#{$id}__blockInner {
+            .#{$id}-blockBack {
+              height: 210px;
+            }
+            .#{$id}__block {
+              height: 210px;
+            }
+          }
+        }
+      }
+    }
+
+    &.hsamuel {
+      .#{$id}-engagementBanner {
+        .#{$id}-button {
+          background: #a01d29;
+          border-color: #a01d29;
+          color: white;
+          &:hover {
+            background: white;
+            color: #a01d29;
+          }
+        }
+      }
+      /*@media(min-width: 767px) {
+        .#{$id}-finderBox-wrapper{
+          height: calc(100% - 150px);
+          padding-top: 150px;
+          .#{$id}-finderBox {
+            .#{$id}-closeFinder {
+              top: 160px;
+            }
+          }
+        }
+      }*/
+      @media(min-width: 1280px) {
+        .#{$id}-finderBox-wrapper{
+          height: calc(100% - 180px);
+          padding-top: 180px;
+          .#{$id}-finderBox {
+            .#{$id}-closeFinder {
+              top: 180px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

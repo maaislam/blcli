@@ -1,0 +1,147 @@
+@import '_mixins.scss';
+.FL006 {
+  &.FL006_hide-body{
+    display: none!important;
+  }
+  #DeliveryOptionsWrapper .AddressContainBut.DeliveryContinueButton {
+    position: relative;
+    .FL006_redirect {
+      display: block;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: #fff;
+      background: #181816;
+      font-size: 1.3em;
+      line-height: 1.2em;
+      padding: 20px 0;
+      width: calc(100% - 30px);
+      text-align: center;
+      z-index: 10;
+      font-family: 'Montserrat-Lgt', Arial, Helvetica, sans-serif;
+      text-shadow: 0 0 0;
+    }
+    .ContinueOn {
+      opacity: 0;
+    }
+  }
+  #FindGiftCardButtonWrapper .AddressContainBut {
+    position: relative;
+    .FL006_redirect {
+      display: block;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      color: #fff;
+      background: #181816;
+      font-size: 1.3em;
+      line-height: 1.2em;
+      padding: 20px 0;
+      width: calc(100% - 30px);
+      text-align: center;
+      z-index: 10;
+      font-family: 'Montserrat-Lgt', Arial, Helvetica, sans-serif;
+      text-shadow: 0 0 0;
+    }
+  }
+  &.FL006_card-page {
+    h1 {
+      display: none;
+    }
+    .CheckWrap .CardGroup iframe {
+      height: 400px;
+    }
+    .FL006_header {
+      font-size: 13.2px;
+      line-height: 16px;
+      padding: 0 15px 10px 15px;
+      font-family: 'Montserrat-Lgt', Arial, Helvetica, sans-serif;
+      border-bottom: 1px solid #bbb;
+      margin: 0;
+      a {
+        float: right;
+        font-size: 10px;
+        text-decoration: underline;
+        line-height: 17px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .FL006_accordian-btn {
+      cursor: pointer;
+      font-size: 13.2px;
+      padding: 8px 15px 8px 88px;
+      height: 51px;
+      display: block;
+      position: relative;
+      line-height: 35px;
+      border-bottom: 1px solid #bcbbbb;
+      &::after {
+        content: '';
+        background: url('//www.flannels.com/images/core/sprite-new-checkout-v3-01.svg') no-repeat;
+        background-size: 330px 330px;
+        background-position: -131px -202px;
+        height: 36px;
+        width: 35px;
+        padding: 0;
+        font-size: 11px;
+        position: absolute;
+        top: 8px;
+        right: 15px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 8px;
+      }
+      &.FL006_gift_card::before {
+        width: 54px;
+        height: 35px;
+        background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+        background-size: 528px auto;
+        background-position: -200px -223px;
+      }
+      &.FL006_paypal::before {
+        height: 35px;
+        background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+        background-position: -591px -21px;
+        width: 74px;
+        background-size: 770px auto;
+      }
+      &.FL006_card {
+        &::before {
+          width: 54px;
+          height: 35px;
+          background: url('//www.flannels.com/images/core/payment-icons.png') no-repeat;
+          background-size: 528px auto;
+          background-position: -6px -225px;
+        }
+        &::after {
+          transform: rotate(90deg);
+          @include anim(200ms,
+          def,
+          (transform));
+        }
+        &.FL006_active::after {
+          transform: rotate(0deg);
+        }
+      }
+    }
+    .ContBackGroup {
+      display: none;
+    }
+    .CheckoutLeft>h2 {
+      border-top: 0;
+    }
+    .FL006_accordian-content {
+      >p {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 15px;
+        font-size: 9px;
+        text-align: center;
+      }
+    }
+  }
+}

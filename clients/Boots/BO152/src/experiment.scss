@@ -1,0 +1,448 @@
+@import './variables';
+
+.#{$id} {
+
+    // BO152
+    .#{$id}-lightboxOverlay {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(66, 65, 65, 0.7);
+        z-index: 99;
+        display: none;
+
+        &.#{$id}-overlayShow {
+            display: block;
+        }
+    } 
+    .#{$id}-emailSignUp {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+        z-index: 999;
+        width: 90%;
+        max-width: 700px;
+        display: none;
+        @media only screen and (min-width : 321px) and (orientation : landscape){
+            max-height: 300px;
+            overflow: auto;
+        }
+        @media only screen and (min-width : 767px) {
+            max-height: unset;
+            overflow: unset;
+        }
+        &.#{$id}-emailShow {
+            display: block;
+        }
+
+        .#{$id}-close {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            top: -22px;
+            right: -15px;
+            z-index: 999;
+            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/9DDADCF9442142ED0D7DF2D119363ED16E334C485688AA754083C94FAF2B318C.png?meta=/BO136---Pharmacy-Homepage/noun_Close_40381241.png') no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+            @media(min-width: 767px) {
+                right: -5px;
+                top: -5px;
+            }
+        }
+
+        .#{$id}-lightboxContent {
+            display: flex;
+            flex-direction: column-reverse;
+            @media(min-width: 767px) {
+                flex-direction: row;
+                height: auto;
+                justify-content: center;
+                align-items: center;
+            }
+            &::before { // if pink
+                content: '';
+                position: absolute;
+                // BO152 
+                background: #6FC5CB;
+                
+                height: 145px;
+                z-index: -1;
+                width: 100%;
+                top: 10px;
+                @media(min-width: 767px) {
+                    //display: none;
+                    //height: calc(100% + 53px);
+                    //top: -26px;
+                    height: 100%;
+                    width: 90%;
+                    top: 0;
+
+                }
+                
+            }
+
+            .#{$id}-bootsLogo {
+                height: 55px;
+                
+                background: url('https://www.boots.com/wcsstore/eBootsStorefrontAssetStore/MasterLogo2019/Boots-website-logo.png');
+                background-position: center;
+                background-size: cover;
+                margin-bottom: 15px;
+                @media(min-width: 767px) {
+                    margin-bottom: 20px;
+                }
+            }
+            
+            .#{$id}-left {
+                padding: 10px;
+                padding-top: 30px;
+                height: 300px;
+  
+                // BO152
+                background-color: #6FC5CB;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                @media(min-width: 375px) {
+                    padding: 20px;
+                    padding-top: 30px;
+                }
+                @media(min-width: 767px) {
+                    padding: 15px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    padding-right: 100px;
+                    
+                    height: 350px;
+                }
+                //background: white;
+                .success,
+                .error,
+                .spinnerContainer {
+                    display: none;
+                }
+
+                .error {
+                    font-family: "Boots Sharp",Arial,sans-serif;
+                    color: white;
+                    text-align: center;
+                }
+
+                .lightbox_voucherContainer {
+                    
+                    // h4 {
+                    //     font-family: "Boots Sharp",Arial,sans-serif;
+                    //     font-size: 22px;
+                    //     font-weight: 400;
+                    //     line-height: 25px;
+                    //     margin-bottom: 10px;
+                    //     text-align: center;
+                    //     color: rgb(255, 219, 19);
+                    // }
+                    // p {
+                    //     font-family: "Boots Sharp",Arial,sans-serif; 
+                    //     text-align: center;
+                    //     font-weight: 200;
+                    //     color: white;
+                    //     @media(min-width: 767px) {
+                    //         margin-bottom: 10px;
+                    //     }
+                    // }
+                    .footer {
+                        font-size: 12px;
+                        line-height: 16px;
+                        margin-bottom: 10px;
+                        @media(min-width: 767px) {
+                            margin-top: 15px;
+                        }
+                    }
+
+                    #cu_newsletter_signup_form {
+                        padding: 10px;
+                        text-align: center;
+
+                        input {
+                            padding: 10px;
+                            display: block;
+                            width: 100%;
+                            box-sizing: border-box;
+                            border: 1px solid white;
+                            font-family: "Boots Sharp", Arial, sans-serif;
+                        }
+                        // button {
+                        //     margin: 0 auto;
+                        //     margin-top: 15px;
+                        //     width: 50%;
+                        //     background-color: #ffdb17;
+                        //     border: 1px solid #ffdb17;
+                        //     color: #333333;
+                        //     font-size: 14px;
+                        //     line-height: 20px;
+                        //     text-align: center;
+                        //     height: 40px;
+                        //     padding: 9px 20px;
+                        //     border-radius: 5px;
+                        //     vertical-align: middle;
+                        //     font-family: "Boots Sharp", Arial, sans-serif;
+                        //     font-weight: bold;
+                        //     letter-spacing: 1px;
+                        //     text-transform: uppercase;
+                        //     padding-top: 10px;
+                        //     cursor: pointer;
+                        //     @media(min-width: 1024px) {
+                        //         &:hover {
+                        //             transition: all 400ms ease-in-out;
+                        //             background-color: #333333;
+                        //             color: #ffda13;
+                        //         }
+                        //     }
+                            
+                        // }
+                    }
+                }
+
+                // .success {
+                    h3 {
+                        font-family: "Boots Sharp",Arial,sans-serif;
+                        font-size: 22px;
+                        font-weight: 400;
+                        line-height: 25px;
+                        margin-bottom: 10px;
+                        text-align: center;
+                        color: rgb(255, 219, 19);
+                    }
+                    p {
+                        font-family: "Boots Sharp",Arial,sans-serif; 
+                        text-align: center;
+                        font-weight: 200;
+                        color: white;
+                    }
+                    input {
+                        padding: 10px;
+                        display: block;
+                        width: 100%;
+                        box-sizing: border-box;
+                        border: 1px solid white;
+                        font-family: "Boots Sharp", Arial, sans-serif;
+                        font-weight: 900;
+                        letter-spacing: 1px;
+                    }
+                    .#{$id}-voucher {
+                        display: flex;
+                        flex-direction: row;
+                        width: 90%;
+                        margin: 0 auto;
+                        margin-top: 10px;
+                        @media(min-width: 1280px) {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                        }
+                        // .#{$id}-copyButton {
+                        //     background-color: #ffda13;
+                        //     background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/C8FA76B77BB3D5D3BD26CC361162EFBC0782EC8303A5358196511D362C43AC01.png?meta=/BO136---Pharmacy-Homepage/noun_copy_1660797.png');
+                        //     background-size: 35px;
+                        //     background-repeat: no-repeat;
+                        //     background-position: center;
+                        //     height: 50px;
+                        //     width: 70px;
+                        //     cursor: pointer;
+                        //     @media(min-width: 1024px) {
+                        //         &:hover {
+                        //             transition: all 400ms ease-in-out;
+                        //             background-color: #333333;
+                        //             color: #ffda13;
+                        //             background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/9E8CD3998A85855EBDB562941A2CDFB290FF2201782C4C1F22CC57B028845C52.png?meta=/BO136---Pharmacy-Homepage/noun_copy_16607971.png');
+                        //             background-size: 35px;
+                        //             background-repeat: no-repeat;
+                        //             background-position: center;
+                        //         }
+                        //     }
+                        // }
+                    }
+
+                    .#{$id}-button {
+                        margin: 0 auto;
+                        margin-top: 15px;
+                        width: 65%;
+                        // background-color: #ffdb17;
+                        // border: 1px solid #ffdb17;
+                        // color: #333333;
+                        font-size: 14px;
+                        line-height: 20px;
+                        text-align: center;
+                        height: auto;
+                        padding: 9px 20px;
+                        border-radius: 5px;
+                        vertical-align: middle;
+                        font-family: "Boots Sharp", Arial, sans-serif;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        margin-bottom: 20px;
+                        padding-top: 10px;
+                        cursor: pointer;
+                        @media(min-width: 1024px) {
+                            &:hover {
+                                transition: all 400ms ease-in-out;
+                                background-color: #333333;
+                                color: #ffda13;
+                            }
+                        }
+                        @media(min-width: 1280px) {
+                            margin-top: 25px;
+                        }
+                    }
+                // }
+            }
+
+            .#{$id}-right {
+                height: 210px;
+                width: 90%;
+                margin: 0 auto;
+                background-size: cover;
+                background-position: center;
+                margin-bottom: -65px;
+
+                // BO152
+                background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/2C2117C7E7633C1F86800D983B802284EB364786787FEE49EE9C460084D2CA12.png?meta=/Image-Upload/boots_vitamins2.png');
+                background-position: 50% 15% !important;
+                
+                @media only screen and (min-width : 321px) and (orientation : landscape){
+                    width: 60%;
+                }
+                @media only screen and (min-width : 767px) {
+                    margin-bottom: 0;
+                    margin-left: -75px;
+                    //height: 100%;
+                    height: 330px;
+                    width: 80%;
+                }
+            }
+        }
+    } 
+
+
+    // Boots branded
+    &.BO152-1, &.BO152-2 {
+        .#{$id}-emailSignUp {
+            .#{$id}-lightboxContent {
+                &::before {
+                    background: white;
+                    // BO152 
+                    background: #6FC5CB;
+                }
+
+                .#{$id}-close {
+                    height: 30px;
+                    width: 30px;
+                    position: absolute;
+                    right: -15px;
+                    z-index: 999;
+                    background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/EA435B96764FD9EBAC808E9E6D8C2A174865C5C99BDD4FD0678A535213D4F3A3.png?meta=/BO136---Pharmacy-Homepage/noun_Close_40381242.png') no-repeat center;
+                    background-size: contain;
+                    @media(min-width: 767px) {
+                        right: -5px;
+                        top: -5px;
+                    }
+                }
+                
+
+                .#{$id}-bootsLogo {
+                    background: url('https://www.boots.com/wcsstore/eBootsStorefrontAssetStore/MasterLogo2019/Boots-website-logo.png') no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+
+                .#{$id}-right {
+                    background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/2C2117C7E7633C1F86800D983B802284EB364786787FEE49EE9C460084D2CA12.png?meta=/Image-Upload/boots_vitamins2.png') no-repeat center !important;
+                    background-size: cover !important;
+                }
+                .#{$id}-left {
+                    background: white;
+                    // BO152
+                    background: #6FC5CB;
+                    
+                    .lightbox_voucherContainer {
+                    
+                        h4 {
+                            color: #05054b;
+                        }
+                        p {
+                            color: #333;
+                        }
+                        // #cu_newsletter_signup_form {
+                            input {
+                                border: 1px solid #e0e0e0;
+                            }
+
+                            button {
+                                border-color: #05054b;
+                                background: #05054b;
+                                color: white;
+                                @media(min-width: 1024px) {
+                                    &:hover {
+                                        transition: all 400ms ease-in-out;
+                                        background: #333 !important;
+                                        border-color: #333 !important;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        // }
+                    }
+
+                    // .success {
+                        h3 {
+                            color: #05054b;
+                        }
+                        p {
+                            color: #333;
+                        }
+                        input {
+                            border: 1px solid #e0e0e0;
+                        }
+                        .#{$id}-button {
+                            border-color: #05054b;
+                            background: #05054b;
+                            color: white;
+                            @media(min-width: 1024px) {
+                                &:hover {
+                                    transition: all 400ms ease-in-out;
+                                    background: #333 !important;
+                                    border-color: #333 !important;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        // BO152 voucher
+                        .#{$id}-voucher {
+                            .#{$id}-copyButton {
+                                background-color: #05054b;
+                                background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/9E8CD3998A85855EBDB562941A2CDFB290FF2201782C4C1F22CC57B028845C52.png?meta=/BO136---Pharmacy-Homepage/noun_copy_16607971.png');
+                                background-size: 35px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                height: 50px;
+                                width: 70px;
+                                cursor: pointer;
+                                @media(min-width: 1024px) {
+                                    &:hover {
+                                        transition: all 400ms ease-in-out;
+                                        background-color: #333;
+                                        border-color: #333;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    // }
+                }
+            }
+        }
+    }
+}

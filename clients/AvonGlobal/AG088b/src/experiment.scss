@@ -1,0 +1,76 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-root {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .#{$id}-list {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .#{$id}-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem 1rem;
+
+    @media (min-width: 320px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
+
+  .#{$id}-card-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .#{$id}-card-image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: #ababab;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .#{$id}-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

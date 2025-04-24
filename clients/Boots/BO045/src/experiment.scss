@@ -1,0 +1,508 @@
+@import './variables';
+
+.#{$id} {
+
+    /*--------------
+    Nav from BO036 V2
+    ---------------*/
+    #estore_coremedia_template_container #leftHandNav {
+        top: 0px;
+    }
+    .#{$id}-heading {
+        text-align: center;
+        color: #004990;
+        text-transform: uppercase;
+        margin: 24px 0;
+      }
+      .#{$id}-accordion-wrapper {
+        padding-right: 12px;
+      }
+      .#{$id}-category-wrapper {
+        border-top: 1px solid #f2f2f2;
+        padding: 10px;
+        &:last-child {
+          border-bottom: 1px solid #f2f2f2;
+        }
+      }
+      .#{$id}-category a {
+        display: block;
+        padding: 12px 0;
+        color: #151a61;
+        font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .#{$id}-category-heading {
+        padding: 12px 0 6px;
+        color: #05054b;
+        cursor: pointer;
+    
+        .#{$id}-category-name {
+          width: calc(100% - 30px);
+          display: inline-block;
+          vertical-align: top;
+          font-family: "F37 Ginger Bold",Tahoma,Arial,sans-serif;
+          color:#151a61;
+        }
+    
+        a {
+          color: #333333;
+        }
+      }
+    
+      // +- icon
+      .#{$id}-category-toggle-icon,
+      .#{$id}-expanded-list-toggle-icon {
+          display: inline-block;
+          margin-top: -2px;
+          &:after {
+            float: right;
+            font-size: 24px;
+            font-family: "ElegantIcons";
+            content: "L";
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+          }
+        }
+    
+      .#{$id}-subcategory-wrapper {
+        display: none;
+        margin-bottom: 12px;
+    
+        @media (max-width: 600px) {
+          max-height: 128px;
+          overflow-y: scroll;
+        }
+    
+        .#{$id}-subcategory a {
+          font-size: 0.9rem;
+          padding: 10px 0;
+          display: block;
+          font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+          &:hover {
+            text-decoration: underline;;
+          }
+        }
+      }
+    
+      .#{$id}-subcategory-open {
+        .#{$id}-subcategory-wrapper {
+          display: block;
+        }
+    
+        .#{$id}-category-toggle-icon {
+          &:after {
+            content: "K";
+          }
+        }
+      }
+    
+      .#{$id}-expanded-list-wrapper {
+        .#{$id}-category-heading {
+          cursor: initial;
+        }
+    
+        .#{$id}-subcategory-wrapper {
+          display: block;
+          max-height: 224px;
+          overflow-y: auto;
+          margin-bottom: 0;
+          @media(max-width: 600px) {
+            max-height: 125px;
+          }
+          &::-webkit-scrollbar-track
+            {
+ 
+                border-radius: 10px;
+                background-color: #F5F5F5;
+            }
+
+            &::-webkit-scrollbar
+            {
+                width: 5px;
+                background-color: #F5F5F5;
+            }
+
+            &::-webkit-scrollbar-thumb
+            {
+                border-radius: 10px;
+                background-color: #606060;
+            }
+        }
+    
+        .#{$id}-expanded-list-toggle {
+          cursor: pointer;
+          padding-top: 4px;
+          margin-bottom: 12px;
+          color: #05054b;
+          font-size: 0.9rem;
+          display: none;
+          // Label and icon
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+    
+        .#{$id}-subcategory-open {
+          .#{$id}-subcategory-wrapper {
+            max-height: none;
+            overflow-y: initial;
+          }
+    
+          .#{$id}-expanded-list-toggle-icon {
+            &:after {
+              content: "K";
+            }
+          }
+        }
+      }
+
+
+    // Accordion Mobile
+    @media(max-width: 767px) {
+        #category-widget {
+            &.#{$id}-pageCategories {
+                .#{$id}-expanded-list-wrapper {
+                    .#{$id}-category-name {
+                        font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+                    }
+                    .#{$id}-subcategory-wrapper {
+                        display: none;
+                    }
+                    .#{$id}-category-heading {
+                        position: relative;
+                        &::after {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translateY(-50%);
+                            font-size: 24px;
+                            font-family: "ElegantIcons";
+                            content: "L";
+                            font-weight: normal;
+                            font-variant: normal;
+                            text-transform: none;
+                            line-height: 1;
+                        }
+                    }
+
+                    .#{$id}-category-wrapper {
+                        &.#{$id}__open {
+                            .#{$id}-subcategory-wrapper {
+                                display: block;
+                            }
+                            .#{$id}-category-heading {
+                                position: relative;
+                                &::after {
+                                    content: "K";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    /*--------------
+        Roundels from BO022
+    ---------------*/
+    .#{$id}_categoryBar {
+        position: relative;
+        font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+        z-index: 999;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .#{$id}_categoriesInner {
+            .#{$id}_categories {
+                display: -webkit-box;
+                display: flex;
+                flex-direction: row;
+                text-align: center;
+                align-content: center;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                padding: 5px;
+                height: auto;
+                cursor: pointer;
+                &::-webkit-scrollbar {
+                  height: 8px;
+                  background-color: transparent;
+                
+                }
+                &::-webkit-scrollbar-thumb {
+                  border-radius: 8px;
+                  width: 20px;
+                  background-color: #d0d0d0;
+                }
+                &::-webkit-scrollbar-track {
+                  height: 8px;
+                  border-radius: 4px;
+                  background-color: #f6f6f6;
+                  margin: 30px;
+                }
+                .#{$id}_category {
+                    margin: 10px;
+                    box-sizing: border-box;
+                    &:focus {
+                        outline: none;
+                    }
+                    .#{$id}_categoryIcon {
+                        display: flex;
+                        cursor: pointer;
+                        flex-direction: column;
+                        position: relative;
+                        width: 71px; // stop links going on 2 lines
+                        @media(min-width: 375px) {
+                          width: 81px;
+                        }
+                        @media(min-width: 400px) {
+                          width: 91px;
+                        }
+                        a {
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                        }
+
+                        span {
+                            height: 65px;
+                            width: 65px;
+                            box-sizing: border-box;
+                            margin: 0 auto;
+                            border-radius: 50px;
+                            background: white;
+                            margin-bottom: 5px;
+                            background-size: contain;
+                            @media(min-width: 370px) {
+                              height: 75px;
+                              width: 75px;
+                            }
+                            @media(min-width: 400px) {
+                              height: 85px;
+                              width: 85px;
+                            }
+                        }
+
+                        p {
+                           font-size: 12px;
+                            margin-bottom: 0;
+                            line-height: 15px;
+                            width: 96%;
+                            margin: 0 auto;
+                            @media(min-width: 1024px) {
+                                width: 75%;
+                                margin-top: 5px;
+                                font-size: 13px;
+                            }
+                        }
+
+                        @media(min-width: 1100px) {
+                            width: 90px;
+                            margin-top: 5px;
+                        }
+                        &.#{$id}_show {
+                            position: relative;
+    
+                            span {
+                                  border: 2px solid #505050;
+                                }
+                                p {
+                                    font-weight: 600;
+                                }
+                            
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                height: 30px;
+                                width: 30px;
+                                background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/34BD5365D182D93163816BEF34B79296AA819DA938A94A8B2999B0CB626F8083/new-boots-com/BO022---Department-Page-Navigation-Links/noun_downarrow_859720.png') no-repeat center;
+                                background-size: contain;
+                                bottom: -23px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+    
+                            @media(min-width: 767px) {
+                                &::after {
+                                    bottom: -32px;
+                                }
+                            }
+                            @media(min-width: 1024px) {
+                                &::after {
+                                    bottom: -25px;
+                                }
+                            }
+    
+                        }
+                    }
+
+
+                   
+                    @media(min-width: 767px) {
+                        
+                        margin-left: 0;
+                        margin-right: 0;
+                        .#{$id}_categoryIcon {
+                            width: auto;
+                            span {
+                                height: 80px;
+                                width: 80px;
+                            }
+                        }
+                        
+                    }
+                    @media(min-width: 1024px) {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        .#{$id}_categoryIcon {
+                            width: auto;
+                            span {
+                                height: 95px;
+                                width: 95px;
+                            }
+                        }
+                    }
+                }
+
+                @media(min-width: 767px) {
+                    overflow: visible;
+                    max-width: 680px;
+                    margin: 0 auto;
+
+                    .slick-arrow {
+                      background: rgba(255, 255, 255, 0.86);
+                      height: 28px;
+                      width: 28px;
+                      border: 1px solid #efefef;
+                      border-radius: 25px;
+                    }
+                    .slick-prev,
+                    .slick-next {
+                        top: 50%;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/3AA45312D5A046CD387F977152CE4C2C78793B09AEB12763921A70B4F427EBD4.png?meta=/BO045---Department-LHN-and-Roundels/noun_nextarrow_35654251.png');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 30px;
+                        &::after {
+                          display: none;
+                        }
+                    }
+
+                    .slick-prev {
+                        left: -15px;
+                        transform: rotate(-180deg) translateY(50%);
+                    }
+
+                    .slick-next {
+                        right: -15px;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    max-width: 800px;
+                    padding: 10px;
+                    padding-bottom: 0;
+                }
+                @media(min-width: 1200px) {
+                    max-width: 1024px;
+                    .slick-prev {
+                      left: 0px;
+                      transform: rotate(-180deg) translateY(50%);
+                  }
+
+                  .slick-next {
+                      right: 0px;
+                  }
+
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+      &.#{$id}-beauty,
+      &.#{$id}-baby {
+        h1 {
+          color: black;
+          text-align: center;
+          font-size: 1.6em !important;
+          line-height: 1.5;
+          position: relative;
+          @media(min-width: 767px) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+        }
+        .#{$id}_categoryBar {
+          margin-top: 0;
+          padding-top: 10px;
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            height: 50%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/ADDBBB514A5FCF2033CCB124956059AD8E83F048C320F571C5A061916ACCA8F5.jpg?meta=/BO045---Department-LHN-and-Roundels/Beauty_header_mobile.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+            @media(min-width: 767px) {
+              background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/44DD61BC92E2CFD23AA5C604895AC218E9A00A35955673A3BA89790D8AB2BD1B.jpg?meta=/BO045---Department-LHN-and-Roundels/Beauty_header_desktop.jpg');
+              background-size: cover;
+              background-position: center;
+              height: 65%;
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+            }
+            @media(min-width: 1280px) {
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+            }
+          }
+
+          @media(min-width: 767px) {
+            .slick-prev{
+              left: -15px;
+            }
+            .slick-next {
+              right: -15px;
+            }
+          }
+          @media(min-width: 1280px) {
+            padding: 20px;
+          }
+        }
+      }
+
+      &.#{$id}-baby {
+        h1 {
+          color: #004990;
+          text-align: center;
+          font-size: 1.6em !important;
+          line-height: 1.5;
+        }
+        .#{$id}_categoryBar {
+          &::before {
+            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/4AAD14221392F111371A97592C46E6BD5DE17A8D86E035C9E01A949D86C05C65.jpg?meta=/BO045---Department-LHN-and-Roundels/Baby_header_mobile.jpg');
+            background-size: cover;
+            background-position: top;
+            @media(min-width: 767px) {
+              background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/B9D30DD396FC2E018E002BFD0E170ED359410FE0C0FB1063CC76BFEDB43687E6.jpg?meta=/BO045---Department-LHN-and-Roundels/Baby_header_desktop.jpg');
+              background-size: cover;
+              background-position: bottom;
+              height: 70%;
+            }
+          }
+        }
+      }
+    }
+}

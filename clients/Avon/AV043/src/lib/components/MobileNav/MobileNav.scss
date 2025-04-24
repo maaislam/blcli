@@ -1,0 +1,200 @@
+@import '../../../variables';
+
+$component: '#{$id}_MobileNav';
+$navWidth: 85%;
+
+/* ANIMATIONS */
+@keyframes slideRight {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+@keyframes slideLeft {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+/* GENERAL STYLES */
+html.#{$component}--navOpen,
+body.#{$component}--navOpen {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: hidden;
+    position: fixed;
+
+    div[id*="yie-overlay"] {
+      display: none;
+    }
+
+    .#{$component}_overlay {
+      display: block !important;
+    }
+}
+
+.#{$id} {
+  &.Layout_Phone {
+    // Hide original elements
+    #HamburgerMenuNew,
+    #MenuMask {
+      display: none;
+    }
+
+    .#{$component}_overlay {
+      z-index: 4;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.6);
+      bottom: 0;
+      display: none;
+
+      &:after {
+        content: '×';
+        font-weight: 800;
+        font-size: 3rem;
+        position: absolute;
+        top: 2%;
+        left: 90%;
+        color: white;
+        line-height: normal;
+      }
+    }
+
+    .#{$component} {
+      display: none;
+      font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-top: 10px;
+      position: fixed;
+      right: unset;
+      width: $navWidth;
+      background: #F5F5F5;
+      z-index: 999;
+      top: 167px;
+      // top: 130px !important;
+      left: 0;
+      bottom: 0;
+      border-width: 1px 0px 1px 0px;
+      border-style: solid;
+      border-color: #A8A8A8;
+      will-change: transform;
+
+      &.#{$component}--open {
+        display: block;
+        animation-name: slideRight;
+        animation-duration: .3s;
+        animation-timing-function: ease-in-out;
+        visibility: visible !important;
+        will-change: left;
+        will-change: right;
+      }
+
+      ul {
+        margin: 0;
+      }
+    }
+
+    .#{$component}_level {
+      display: none;
+      position: absolute;
+      box-shadow: 7px 2px 20px -9px rgba(0,0,0,0.75);
+      top: 0 !important;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: auto;
+      width: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
+      background: white;
+      margin: 0;
+      z-index: 2;
+      animation-name: slideLeft;
+      animation-duration: .3s;
+      animation-timing-function: ease-in-out;
+      visibility: visible !important;
+      will-change: transform;
+
+      &.#{$component}_level--open {
+        display: block;
+        will-change: left;
+        will-change: right;
+      }
+
+      &.#{$component}_level1 {
+        display: block;
+      }
+
+      li {
+        padding: 20px;
+        background-color: white;
+        border-width: 0px 0px 1px 0px;
+        border-style: solid;
+        border-color: #A8A8A8;
+        transition: background-color .1s ease-out;
+
+        &:active {
+          background-color: #FACCE7;
+          transition: background-color .1s ease-out;
+        }
+
+        &.#{$component}_hasSubNav > svg-icon {
+          height: 2rem;
+          width: 2rem;
+          background-size: contain;
+          background-repeat: no-repeat;
+          float: right;
+
+          @media screen and (max-width: 320px) {
+            margin-top: -1px;
+          }
+        }
+      }
+    }
+
+    .#{$component}_back {
+      padding: 20px;
+      background: #DCDCDC;
+      border-style: solid;
+      border-color: #A8A8A8;
+      border-width: 0 0 1px 0;
+
+      > svg-icon {
+        height: 2rem;
+        width: 2rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        margin-right: 7px;
+
+        @media screen and (max-width: 320px) {
+          margin-top: -1px;
+        }
+      }
+    }
+
+    .#{$component}_noScroll {
+      overflow-y: hidden !important;
+    }
+
+    .#{$component}_linkHeading {
+      color: #8e8d8d;
+      margin-bottom: 10px;
+      font-weight: 400;
+      font-size: 1.3rem;  
+    }
+  }
+}

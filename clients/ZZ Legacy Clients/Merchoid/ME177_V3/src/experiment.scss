@@ -1,0 +1,131 @@
+@import './variables';
+
+.#{$id} {
+
+  .ME177_SlideShow_Container {
+    display: none;
+  }
+
+  &.ME177_Active .product-gallery {
+    opacity: 0;
+    height: 1px;
+  }
+
+  &.ME177_Active .ME177_SlideShow_Container {
+    float: none;
+    clear: both;
+    margin: 0 15px;
+    display: block;
+    position: relative;
+  }
+
+  // Style image container to match carousel
+  .ME177_Image_Container {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: relative;
+    border: 2px solid #ccc;
+
+    // Pseudo-elements that inherit background image set in JS
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      left: 0;
+      background-image: inherit;
+      background-size: cover;
+      background-repeat: no-repeat;
+      bottom: 0;
+      background-position: bottom;
+      opacity: 1;
+    }
+
+    &::before {
+      height: 75%;
+      transition: opacity 0.1s ease;
+    }
+
+    &::after {
+      height: 50%;
+      transition: opacity 0.5s ease;
+    }
+  }
+
+  .ME177_Transition_Element_Container {
+    background-image: inherit;
+
+    // Pseudo-element that inherit background image set in JS
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      left: 0;
+      background-image: inherit;
+      background-size: cover;
+      background-repeat: no-repeat;
+      bottom: 0;
+      background-position: bottom;
+      height: 25%;
+      opacity: 1;
+      transition: opacity 0.9s ease;
+    }
+  }
+
+  // Transition styling
+  .ME177_Transition .ME177_Image_Container {
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 0;
+    }
+
+    .ME177_Transition_Element_Container::before {
+      opacity: 0;
+    }
+  }
+
+  // Message styling
+
+  .ME177_Transition .ME177_Message {
+    animation-name: ME177TransitionText;
+    animation-duration: 1s;
+  }
+
+  .ME177_Message {
+    background-color: rgba(119, 119, 119, 0.35);
+    text-align: center;
+    padding: 5px 20px;
+    position: absolute;
+    width: 100%;
+    top: 75%;
+    z-index: 2;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  // Define animation for message
+  @keyframes ME177TransitionText {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}

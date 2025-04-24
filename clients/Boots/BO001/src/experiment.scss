@@ -1,0 +1,559 @@
+@import './variables';
+@keyframes BO-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+@keyframes bounceArrow {
+    from {
+      transform: translateY(-50%) translateX(-50%);
+    }
+    to {
+      transform: translateY(-70%) translateX(-50%);
+    }
+  }
+
+.#{$id} {
+    .heroCarousel {
+        display: none;
+    }
+    .#{$id}_finderBox-outer {
+        position: relative;
+        padding-top: 100px;
+        margin-bottom: 30px;
+        .#{$id}-finderBackground {
+            position: absolute;
+            height: 200px;
+            background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/C8F22AF542FFE929E42E7D7452E4B2292D3C6AAC7134949753694A892BEB2C01/new-boots-com/BO001---Homepage-Product-Finder/abtestinghero-min.jpg') center no-repeat;
+            background-size: cover;
+            top: 0;
+            width: 100%;
+            @media(min-width: 1024px){
+                height: 65%;
+            }
+        }
+        /* Finder outer box */
+        .#{$id}_finderBox {
+            width: 80%;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            box-shadow: 0px 3px 3px 0px #c3c3c3;
+            h2 {
+                font-size: 20px;
+                text-align: center;
+                line-height: 20px;
+                margin-bottom: 20px;
+                color: #333;
+            }
+            .#{$id}-finderIntroText {
+                display: none;
+            }
+            .#{$id}-selectBoxes {
+                .#{$id}-selectBox {
+                    padding: 10px;
+                    color: #727272;
+                    border: 1px solid #ccc;
+                    margin-bottom: 15px;
+                    position: relative;
+                    cursor: pointer;
+                    &::after {
+                        content: '';
+                        height: 20px;
+                        width: 20px;
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/7C7D0C28E8657579406F069B62FFF602D5660699E50668E03B7B341B2FBA5583/new-boots-com/BO001---Homepage-Product-Finder/downarrow.png') center no-repeat;
+                        background-size: contain;
+                    }
+                    &:first-of-type {
+                        opacity: 100%;
+                        cursor: pointer;
+                    }
+                }
+                @media(min-width: 767px) and (max-width: 1023px) {
+                    text-align: center;
+                    .#{$id}-selectBox {
+                        width: 28%;
+                        display: inline-block;
+                        margin-right: 10px;
+                        text-align: left;
+                        &:first-of-type {
+                            border-bottom: 2px solid #00488f;;
+                        }
+                        &::after {
+                            height: 15px;
+                            width: 15px;
+                        }
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                @media(min-width: 1024px) {
+                    .#{$id}-selectBox {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        &::after {
+                            transform: translateY(-50%) rotate(-90deg);
+                        }
+                    }
+                }
+            }
+            .#{$id}-refine {
+                font-family: F37 Ginger Bold,Tahoma,Arial,sans-serif;
+                padding: 10px;
+                text-align: center;
+                background: #D5E6F7;
+                color: white;
+                font-weight: bold;
+                &.#{$id}-refine_active {
+                    background: #141b60;
+                }
+            }
+            @media(min-width: 767px) and (max-width: 1023px) {
+                width: 85%;
+                .#{$id}-refine {
+                    width: 250px;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                }
+            }
+            @media(min-width: 1024px) {
+                width: 30%;
+                padding: 30px;
+                max-width: 400px;
+                margin: 0px 60px;
+                position: absolute;
+                left: 0;
+                transition-property: all;
+                transition-duration: 0.5s;
+                transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+                &.#{$id}-finderBox_hide {
+                   left: -1000px;
+                }
+                h2 {
+                    font-size: 23px;
+                    margin-top: 10px;
+                }
+                .#{$id}-finderIntroText {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        /* Options wrapper */
+        .#{$id}-finderOptions_wrapper {
+            position: fixed;
+            top: 0;
+            z-index: 99;
+            background: white;
+            width: 100%;
+            height: 100%;
+            left: -10000px;
+            height: 100vh;
+            width: 100%;
+            transition-property: left;
+            transition-duration: 0.5s;
+            transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+            &.#{$id}-options_active {
+                left: 0;
+                &.#{$id}-options_active.#{$id}-department_show {
+                    .#{$id}-mobile_back {
+                        display: none;
+                    }
+                }
+                &.#{$id}-options_active {
+                    .#{$id}-mobile_back {
+                        display: block;
+                    }
+                }
+            }
+            .#{$id}-closeFinder {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 99;
+                height: 15px;
+                width: 15px;
+                background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/C33DA9D8EAF5FFB861746F732C5AB1DD541259E3D38C29211600C2BA957624C6/new-boots-com/BO001---Homepage-Product-Finder/cross.png') no-repeat center;
+                background-size: contain;
+                cursor: pointer;
+            }
+            .#{$id}-optionsTitle {
+                padding: 10px;
+                padding-top: 0;
+                position: relative;
+                border-bottom: 1px solid #D5E6F7;
+                text-align: center;
+                h3 {
+                    color: #333;
+                    font-size: 20px;
+                    pointer-events: none;
+                }
+                @media(min-width: 1024px) {
+                    border: 0px;
+                    padding-top: 10px;
+                    padding-bottom: 0px;
+                    h3 {
+                        font-size: 22px;
+                    }
+                }
+            }
+            /* Finder steps */
+            .#{$id}-steps {
+                padding-top: 15px;
+                padding-bottom: 5px;
+                text-align: center;
+                width: 250px;
+                margin: 0 auto;
+                .#{$id}-step {
+                    width: 30%;
+                    display: inline-block;
+                    position: relative;
+                    text-align: center;
+                    &:before {
+                        content: '';
+                        height: 15px;
+                        width: 15px;
+                        border-radius: 50px;
+                        background: #D5E6F7;
+                        display: block;
+                        margin: 0 auto;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: 80px;
+                        height: 2px;
+                        background: #D5E6F7;
+                        top: 49%;
+                        left: 50%;
+                        z-index: -1;
+                    }
+                    &:last-child {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                    &.#{$id}-step_active {
+                        &:before {
+                            background: #141b60;
+                        }
+                    }
+                    &.#{$id}-step_complete {
+                        &:before {
+                            background: #141b60;
+                        }
+                        &:after {
+                            background: #141b60;
+                        }
+                    }
+                }
+                @media(min-width: 1024px) {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    .#{$id}-step {
+                        width: 20%;
+                        &::before {
+                            height: 12px;
+                            width: 12px;
+                        }
+                        &::after {
+                            width: 50px;
+                        }
+                    }
+                }
+            }
+
+            .#{$id}_scrollPrompt {
+                position: absolute;
+                width: 100%;
+                z-index: 99;
+                height: 50px;
+                bottom: 0;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(249, 249, 249, 1) 90%);
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    height: 30px;
+                    width: 30px;
+                    top: 50%;
+                    background-size: contain;
+                    background-image: url('https://service.maxymiser.net/cm/images-eu/1/1/1/0A1364A346692E775183E4F17618804EC1BC76EAFCCD8C9C81E5529097932092/new-boots-com/BO001---Homepage-Product-Finder/noun_downarrow_3218980.png');
+                    transform: translate(-50%,-50%);
+                    animation: bounceArrow 0.5s infinite alternate;
+                }
+                @media(min-width: 767px) {
+                    display: none;
+                }
+            }
+            .#{$id}-finderOptions {
+                padding: 20px;
+                height: 73vh;; // have different for the first one
+                overflow-y: scroll;
+                .#{$id}-option {
+                    padding: 10px;
+                    border: 1px solid #DFDFDF;
+                    margin-bottom: 15px;
+                    text-transform: capitalize;
+                    display: block;
+                    font-family: F37 Ginger,Tahoma,Arial,sans-serif;
+                    cursor: pointer;
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    .#{$id}-icon {
+                        width: 30px;
+                        height: 30px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        margin-right: 15px;
+                        margin-left: 5px;
+                    }
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                }
+                &::-webkit-scrollbar {
+                    width: 10px;
+                    background-color: #F5F5F5;
+                    @media(min-width: 1024px) {
+                        background-color: transparent;
+                    }
+                }
+                &::-webkit-scrollbar-thumb{
+                    background-color: #d5e6f8;
+                }
+                @media(min-width: 767px) {
+                    text-align: center;
+                    .#{$id}-option {
+                        width: 44%;
+                        float: left;
+                        margin: 10px;
+                        vertical-align: top;
+                        text-align: center;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    padding: 15px;
+                    height: 270px;
+                    padding-top: 0;
+                    .#{$id}-option {
+                        width: 29%;
+                        font-size: 13px;
+                        padding: 10px;
+                        margin: 5px;
+                        height: 30px;
+                        position: relative;
+                        span {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            width: 100%;
+                        }
+                    }
+                }
+                @media(min-width: 1150px) {
+                    height: auto;
+                    overflow: visible;
+                    .#{$id}-option {
+                        width: 21%;
+                        font-size: 13px;
+                        padding: 10px;
+                        margin: 5px;
+                    }
+                }
+            }
+
+            .#{$id}-mobile_back {
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                background: white;
+                width: 100%;
+                left: 0;
+                box-shadow: -4px 0px 2px 1px #d8d5d5;
+                display: none;
+                cursor: pointer;
+                span {
+                    display: block;
+                    width: 200px;
+                    margin: 0 auto;
+                    background: #141c5f;
+                    padding: 10px 10px;
+                    color: white;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                @media(min-width: 1024px) {
+                    position: absolute;
+                    left: 20px;
+                    width: auto;
+                    bottom: 10px;
+                    box-shadow: unset;
+                    span {
+                        width: 100px;
+                        margin: 0;
+                        font-size: 14px;
+                        padding: 10px 5px;
+                       
+                        &::after {
+                            content: '';
+                            height: 20px;
+                            width: 20px;
+                            position: absolute;
+                            left: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/82F48862E6B505275148815D3A9557FD48BFE03ABAE893F8E4111F73DC610319/new-boots-com/BO001---Homepage-Product-Finder/noun_Arrow_2335664.png') center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+                @media(min-width: 1024px) {
+                    position: relative;
+                    margin-top: 10px;
+                }
+            }
+
+            /* if departments - first one */
+            &.#{$id}-department_show {
+                .#{$id}-finderOptions {
+                    height: 80%;
+                }
+                .#{$id}-mobile_back {
+                    display: none;
+                }
+                @media(min-width: 767px) {
+                    .#{$id}-option {
+                        text-align: left;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    padding-bottom: 20px;
+                    .#{$id}-finderOptions {
+                        height: auto;
+                        overflow: visible;
+                    }
+                    .#{$id}-option {
+                        width: 30%;
+                        font-size: 14px;
+                        padding: 8px;
+                        span {
+                            position: relative;
+                            transform: unset;
+                            top: auto;
+                            left: auto;
+                            width: auto;
+                        }
+                    }
+                }
+                @media(min-width: 1149px) {
+                    .#{$id}-option {
+                        height: auto;
+                        font-size: 15px;
+                        .#{$id}-icon {
+                            width: 35px;
+                            height: 35px;
+                        }
+                    }
+                }
+            }
+
+            /* Loader */
+            .#{$id}-finderLoader {
+                display: none;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                z-index: 999;
+                &.#{$id}-loader_active {
+                    display: block;
+                }
+                .#{$id}-loader_inner {
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                    width: 200px;
+                    span {
+                        display: block;
+                        margin: 0 auto;
+                        width: 80px;
+                        height: 80px;
+                        &:after {
+                            content: " ";
+                            display: block;
+                            width: 40px;
+                            height: 40px;
+                            margin: 8px;
+                            margin-bottom: 20px;
+                            border-radius: 50%;
+                            border: 6px solid #fff;
+                            border-color: #141c5f transparent #D5E6F7 transparent;
+                            animation: BO-dual-ring 1.2s linear infinite;
+                        }
+                    }
+                    p {
+                        font-family: F37 Ginger,Tahoma,Arial,sans-serif;
+                    }
+                }
+            }
+
+            @media(min-width: 1024px) {
+                position: absolute;
+                left: unset;
+                height: 450px;
+                width: 85%;
+                max-width: 990px;
+                top: 10%;
+                overflow: hidden;
+                box-shadow: 0px 3px 3px 0px #c3c3c3;
+                transform: translateX(1000px);
+                transition-property: transform;
+                transition-duration: 0.5s;
+                transition-timing-function: unset;
+                transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                animation-fill-mode: both;
+                right: 50%;
+                left: 50%;
+                &.#{$id}-options_active {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+            @media(min-width: 1150px) {
+                height: auto;
+                .#{$id}-finderOptions {
+                    height: auto;
+                    overflow: auto;
+                }
+            }
+            
+        }
+        @media(min-width: 1024px) {
+            height: 450px;
+            padding-top: 60px;
+            margin-bottom: 60px;
+        }
+    }
+}

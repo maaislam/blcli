@@ -1,0 +1,21 @@
+/**
+ * @fileoverview The triggers file contains all activation conditions for the experiment.
+ * This is the first file to be evaluated.
+ */
+import activate from './lib/experiment';
+import { pollerLite } from '../../../../lib/uc-lib';
+
+pollerLite(['body',
+  () => {
+    let poller = false;
+    if (window.location.pathname.indexOf('/product/') === -1) {
+      poller = true;
+    }
+    return poller;
+  },
+  () => !!window.sessionStorage,
+  () => window && window.AF && window.AF.uType == 'anonymous',
+  () => !!( document.cookie && !document.cookie.match(/af-dismissed-fullscreen-register/i) )
+], activate, {
+  multiplier: 1.05
+});

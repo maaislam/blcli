@@ -1,0 +1,165 @@
+@import './variables';
+
+.#{$id} {
+  // --- Hide Sticky Nav
+  .scroller-nav.fixed .main_nav {
+    position: relative !important;
+  }
+  #menu-greyout {
+    z-index: 9 !important;
+  }
+
+
+  li.#{$id}-menuItem {
+    min-width: 200px;
+    a {
+      &:after {
+        background: url("https://www.hss.com/_ui/desktop/theme-hire/images/sprite-bg.png") repeat scroll 0 -158px rgba(0,0,0,0);
+        content: "";
+        height: 14px;
+        position: absolute;
+        right: 10px;
+        top: 21px;
+        width: 20px;
+      }
+    }
+
+    > a {
+      text-align: center;
+    }
+
+    div.sub_menu.drop_show  {
+      min-width: 760px !important;
+      max-width: 760px;
+      // display: block !important;
+      z-index: 99999999 !important;
+      div.categories {
+        height: auto;
+        width: 760px !important;
+        max-height: 460px;
+        z-index: 99999999 !important;
+      }
+    }
+
+    div.categories {
+      height: auto;
+      width: 90% !important;
+      max-height: 400px;
+      background-color: #FFF !important;
+      overflow-x: hidden !important;
+      padding: 2%;
+
+      position: relative;
+
+      @media(min-width: 1200px) {
+        &::-webkit-scrollbar-track
+        {
+          -webkit-box-shadow: none;
+          background-color: #fff;
+          border-left: 1px solid #eee;
+        }
+
+        &::-webkit-scrollbar
+        {
+          width: 12px;
+          padding-right: 2px;
+          background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb
+        {
+          -webkit-box-shadow: none;
+          background-color: #bbb;
+        }
+      }
+
+      .title {
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .#{$id}-title {
+        font-weight: 700;
+        padding-bottom: 10px;
+      }
+      
+      .#{$id}-content {
+        display: inline-block;
+        // min-width: 760px !important;
+        // max-width: 760px;
+        background-color: #FFF !important;
+
+        width: 95% !important;
+        height: 100%;
+        
+        ul.firstlevel {
+          width: 90% !important;
+          // -moz-column-count: 4;
+          // -moz-column-gap: 20px;
+          // -webkit-column-count: 4;
+          // -webkit-column-gap: 20px;
+          column-count: 3 !important;
+          column-gap: 80px !important;
+      
+          padding-bottom: 30px !important;
+      
+          li.#{$id}-category {
+            max-width: 211px !important;
+            a {
+              border: none !important;
+      
+              &:hover {
+                text-decoration: underline !important;
+              }
+            }
+          }
+        }
+      }
+
+      .#{$id}-alphabeticalOrder {
+        display: inline-block;
+        position: absolute;
+        width: 5% !important;
+
+        top: 0px;
+
+        ul {
+          list-style: none !important;
+          width: 20px !important;
+          position: fixed !important;
+          padding-top: 10px !important;
+          li {
+            width: 20px !important;
+            padding-top: 3px;
+            font-size: 12px;
+            font-weight: 700;
+
+            &:hover {
+              cursor: default;
+            }
+
+            p {
+              margin: 0 0 0.4px !important;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &.inactive {
+              p {
+                opacity: .3;
+
+                &:hover {
+                  cursor: default !important;
+                }
+              }
+            
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

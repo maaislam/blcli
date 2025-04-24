@@ -1,0 +1,197 @@
+.HD005 {
+
+   .hd05-ib {
+      display: inline-block;
+      vertical-align: top;
+   }
+
+   .hd05-nav {
+      background-color: #E7E4E4;
+
+      // Top level nav styles
+      ul#hd05-top-level {
+         position: relative;
+         padding: 0 2.5%;
+         max-width: 1170px;
+         margin: auto;
+
+         li.hd05-parent-item { 
+            display: inline-block;
+            vertical-align: top;
+
+            
+            > a, h3 {
+               color: #b11f7b;
+               display: block;
+               padding: 16px 12px;
+               font-size: 1.2em;
+               line-height: 1.3em;
+               font-weight: 700;
+               font-family: Arial,Helvetica,sans-serif;
+               text-decoration: none;
+               transition: ease-in all 0.2s;
+
+               @media only screen and (max-width: 1159px) {
+                 font-size: 1.1em;
+               }
+               @media only screen and (max-width: 1089px) {
+                font-size: .9em;
+              }
+
+            }
+
+            h3 {
+              padding-left: 17px;
+            }
+
+            > a {
+              color: #434343;
+            }
+            
+            // Sale and clearence 
+            &.hd05-sale {
+               > a {
+                  color: #df0c28;
+               }
+            }
+
+            // Arrows for parent LI
+            &:not(.hd05-no-sub) {
+               
+               > a {
+                  padding-right: 30px;
+                  position: relative;
+                  &:after {
+                     content: "";
+                     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKvSURBVGiB7Ze/TxNhHIefV3IttRCWGhxIy8CgIQ6EVRPddEAwgUMTZ5gYUKYi9KiRSf8A+AvkMNCDhIQN4szI4AgDgdDFKKQ/xNeh3PVaj9JfVxjeZ7vv9b1+nnzeN5cDhUKhUCgUCkXLMDDu3HSG6/DKWDLY7p4JD8Tyu1YsPte6WLVhxeJzA71/dra7Z8LuuSNi9kyHMu3BFPAYRPI2yhQyiSRSPsmEgutmz3TIvueIhP52CaCtuEwkrdjsu5YmrYAVi78HkXQGkrbLzIBLZOjIOM92aM+FYNO1/sttaCYVnZ0H8dm+FoLNbIf2YujIOHdm5YvMfiPQfpb/JiVDxamcHz5Y/Oh3YC9S0dl5IViwr4VgMxPWRvV9I+f+3X+nX983cpmwNlrazM2cmXIJhNzwkgAPEbhaplBxa/CSyIYDY14ScIUIFGUQcsN5lmChFTK1SoDHGSnH7DcCwbPcKlK8tGdSkhg5/JSstK5e6pGACo3Y6PtGLhsOjLWiGSsaT9QjAVWIQGtkrGg8gRCGM5BY1UpAFVvLjV/bzFOiU9OrlYAqG7FxmpFY9qzRZpohATWKwKVMp6aXy1jReKLWZzVLAmrcWm7MfiMQ/JU3EQwXg0hj+HBxocIyh3IJiUzlOgLj9UhAAyJQkAn8zq0IxIgzrEKm2RLQoAjULmP1fjCQ0tmGEpk6iaT1yb3lfCM5GhaB6mX8koCS74/6WT3duXjW93AtfH73kUA8AECIp2+6nvD15/dd8FcCmtSIzdLghNadjpglzQhRaMUlAawfR07HmyUBTRaBK2RKaboE1PEeuY7JveX8SSStA+set32RAB8asVkanNDup++tAK8KE7l2HEm/9kMCfBQBt4zIZg9+vNVZvfDz/3xlq28quNU3FbzpHAqFQqFQKBSK+vkHaIRsKlw5bgoAAAAASUVORK5CYII=') no-repeat right center;
+                     width: 15px;
+                     height: 15px;
+                     position: absolute; 
+                     top: 19px;
+                     right: 10px;
+                     background-size: contain;
+                  }
+               } 
+
+            }
+
+            &:hover, &:focus {
+               > a {
+                  background-color: #f1f1f1;
+                  color: #96115b;
+               }
+
+               #nh05-dropdown {
+                  display: block;
+               }
+               &.hd05-sale {
+                > a {
+                   color: #df0c28;
+                }
+             }
+            }
+
+         }
+      }
+
+      // Sub level nav styles
+      #nh05-dropdown {
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 0; right: 0;
+         width: 100%;
+         z-index: 999;
+         background-color: #fff;
+         padding: 20px 2.5%;
+         border-radius: 0 0 5px 5px;
+         -webkit-box-shadow: 0px 4px 7px 3px rgba(231,228,228,1);
+         -moz-box-shadow: 0px 4px 7px 3px rgba(231,228,228,1);
+         box-shadow: 0px 4px 7px 3px rgba(231,228,228,1);
+
+         ul.hd05-sub-nav, h3 {
+            padding: 6px 17px;
+         }
+
+         ul.hd05-sub-nav {
+            -webkit-columns: 200px 3; /* Chrome, Safari, Opera */
+            -moz-columns: 200px 3; /* Firefox */
+            columns: 200px 3;
+            li {
+               margin: 0 30px 6px 0;
+               a {
+                  font-size: 1em;
+                  display: block;
+                  color: #434343;
+               }
+               a.hd05-subnav--box {
+                  padding: 12px 17px;
+                  // border: 1px solid #b11f7b; 
+                  transition: ease-in all .2s;
+                  text-decoration: none;
+                  background-color: #E7E4E4;
+               }
+               a.hd05-subnav--link {
+                  padding: 6px 0;
+                  text-decoration: underline;
+               }
+               // hover effects
+               &:hover, &:focus {
+                  a.hd05-subnav--box {
+                     background-color: #f1f1f1;
+                     border-color: #f1f1f1;
+                     color: #b11f7b;
+                  }
+               }
+               &:first-of-type {
+                 a.hd05-subnav--box {
+                  color: #b11f7b;
+                 }
+               }
+               
+            }
+         }
+
+         // Hearing Aid Columns
+         .hd05-ib {
+            ul.hd05-sub-nav {
+               -webkit-columns: 200px 1; /* Chrome, Safari, Opera */
+               -moz-columns: 200px 1; /* Firefox */
+               columns: 200px 1;
+            }
+         }
+
+      }
+
+   }
+
+   // USP banner
+   .hd05-usp-banner {
+      padding: 25px 2.5%;  
+      background-color: #fff;
+
+      ul {
+         text-align: center;
+         max-width: 1170px;
+         margin: auto;
+
+         li {
+            width: 33%;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+
+            img, p {
+               display: inline-block;
+               vertical-align: middle;
+            }
+            img {
+               padding-right: 10px;
+            }
+
+         }
+
+      }
+
+   }
+}

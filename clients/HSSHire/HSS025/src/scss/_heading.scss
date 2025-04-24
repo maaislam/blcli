@@ -1,0 +1,48 @@
+@import '../variables';
+
+.#{$id}-heading {
+    h2 {
+        @include bp-from {
+            margin-bottom: 0 !important;
+        }
+    }
+    &__text {
+        @include bp-from {
+            background-color: $color-blue;
+            border-radius: 99px;
+            padding: 4px 8px;
+            font-size: 14px;
+            margin-left: 16px;
+            color: white;
+            flex-shrink: 0;
+        }
+        @include bp-to {
+            @include strip-styling;
+            margin-top: 16px;
+        }
+    }
+    @include bp-from {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    @include bp-to {
+        width: 100%;
+    }
+}
+
+.#{$id}-heading-text-outer {
+    display: none;
+    text-align: left;
+    @include bp-to {
+        padding: 6px $x-padding;
+        border: 1px solid $color-blue;
+        margin-bottom: 16px;
+    }
+    @include bp-from {
+        margin: 0 0 20px 15px;
+    }
+    .product_list_section.active & {
+        display: block;
+    }
+}

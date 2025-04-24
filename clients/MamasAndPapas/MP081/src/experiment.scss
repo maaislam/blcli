@@ -1,0 +1,831 @@
+// Note: Desktop First
+$break-medium: 767px;
+$break-large: 991px;
+
+.MP081 {
+  /* ANIMATIONS */
+  @-webkit-keyframes MP081_fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+  }
+
+  @keyframes MP081_fadeIn {
+      from { opacity: 0; }
+        to { opacity: 1; }
+  }
+
+  /* GENERAL */
+  .MP081_forceHide {
+    display: none !important;
+  }
+
+  .MP081_sectionHeading {
+    display: block;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 3px 0;
+
+    @media screen and (max-width: $break-large) {
+      border-top: 1px solid #f1f1f1;
+      border-bottom: none;
+      font-size: 16px;
+      padding: 30px 0 10px 0;
+    }
+  }
+
+  /* COMPONENTS */
+  // ~ Description
+  .MP081_Description {
+    padding: 0;
+    list-style-type: none;
+
+    @media screen and (max-width: $break-large) {
+      text-align: left;
+      margin: 0 auto;
+      display: inline-block;
+    }
+  }
+  
+  .MP081_Description__item {
+    margin: 8px 0;
+    line-height: 18px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:before {
+      content: '-';
+      margin-right: 10px;
+      float: left;
+    }
+
+    p {
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+
+  // ~ Colour Picker
+  .MP081_ColourPicker {
+    margin: 15px 0;
+
+    @media screen and (max-width: $break-large) {
+      margin-top: 20px;
+      display: inline-block;
+      width: 50%;
+      vertical-align: top;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      display: block;
+      width: 100%;
+      margin: 15px 0 30px 0;
+    }
+  }
+
+  .MP081_ColourPicker__options {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    @media screen and (max-width: $break-large) {
+      display: inline-block;
+    }
+
+    > li {
+      margin: 10px 7px;
+      display: inline-block;
+      position: relative;
+
+      @media screen and (max-width: $break-large) {
+        //margin: 20px 0px;
+        //display: block;
+
+        // &:first-of-type {
+        //   margin-top: 10px;
+        // }
+    
+        // &:last-of-type {
+        //   margin-bottom: 10px;
+        // }
+
+        &:after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+      }
+
+      .MP081__tooltip {
+        width: auto;
+        white-space: nowrap;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        @media screen and (max-width: $break-large) {
+          display: none !important;
+          // transform: none;
+          // float: left;
+          // margin-bottom: 0;
+          // padding: 8px;
+          // background: none;
+          // color: black;
+          // display: block;
+          // position: static;
+
+          &:after {
+            display: none;
+          }
+        }
+
+        h3 {
+          padding: 0;
+          margin: 0;
+
+          @media screen and (max-width: $break-large) {
+            font-weight: 400;
+          }
+        }
+      }
+
+      &:hover .MP081__tooltip {
+        display: block;
+        animation: MP081_fadeIn .3s;
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+  
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .MP081_ColourPicker__option {
+    display: inline-block;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    @media screen and (max-width: $break-large) {
+      height: 30px;
+      width: 30px;
+      float: left;
+    }
+  }
+
+  .MP081_ColourPicker__label {
+    display: none;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+
+    @media screen and (max-width: $break-large) {
+      display: block;
+    }
+  }
+
+  /* Colour Options */
+  .MP081_ColourPicker__option {
+    background-size: 100px;
+
+    &.MP081_ColourPicker__option--active {
+      border: 2px solid #fff;
+      box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+    }
+    
+    // ~ Generic
+    &[data-colour="Grey Twill"] {
+      background-color: #c2c6c5;
+    }
+
+    &[data-colour="Mulberry"] {
+      background-color: #854965;
+    }
+
+    &[data-colour="Chestnut"] {
+      background-color: #653219;
+    }
+
+    &[data-colour="Skyline Grey"] {
+      background-color: #c2c6c5;
+    }
+
+    &[data-colour="Cloud Grey"] {
+      background-color: #c2c6c5;
+    }
+
+    &[data-colour="Sage Green"] {
+      background-color: #99a397;
+    }
+
+    &[data-colour="Dark Navy"] {
+      background-color: #342f4a;
+    }
+
+    &[data-colour="Grey Marl"] {
+      background-color: #c2c6c5;
+    }
+    
+    &[data-colour="Light Grey"] {
+      background-color: #c2c6c5;
+    }
+
+    &[data-colour="Grey"] {
+      background-color: #c2c6c5;
+    }
+
+    &[data-colour="Navy"] {
+      background-color: #342f4a;
+    }
+
+    &[data-colour="Stone"] {
+      background-color: #dcbc74;
+    }
+
+    &[data-colour="Black"] {
+      background-color: #000;
+    }
+
+    &[data-colour="Black/Rose Gold"] {
+      background-color: #000;
+    }
+
+    &[data-colour="Black/Gold"] {
+      background-color: #000;
+    }
+
+    &[data-colour="Rose Gold"] {
+      background-color: #000;
+    }
+
+    &[data-colour="Black / Rose Gold"] {
+      background-color: #000;
+    }
+
+    &[data-colour="Petrol Blue"] {
+      background-color: #054a59;
+    }
+
+    &[data-colour="Rose Pink"] {
+      background-color: #D3A6BE;
+    }
+
+    &[data-colour="Duck Egg"] {
+      background-color: #90BEC0;
+    }
+
+    &[data-colour="Black - Cruise Twin"] {
+      background-color: #000;
+    }
+
+    &[data-colour="Mint"] {
+      background-color: #80B0AE;
+    }
+
+    &[data-colour="Plum"] {
+      background-color: #854965;
+    }
+
+    &[data-colour="Anthracite"] {
+      background-color: rgb(91, 82, 87);
+    }
+
+    &[data-colour="Paisley Rose"] {
+      background-image: url('https://i1.adis.ws/i/mamasandpapas/paisley-swatch');
+    }
+
+    &[data-colour="Khaki"] {
+      background-color: rgb(113, 98, 77);
+    }
+
+    &[data-colour="Amethyst"] {
+      background-image: url('https://i1.adis.ws/i/mamasandpapas/5775ZZ800_01-OCARRO-JEWEL-AMYTHEST-CARRYCOT?w=500&h=500&sm=c');
+      background-size: cover;
+    }
+
+    &[data-colour="Emerald"] {
+      background-image: url('https://i1.adis.ws/i/mamasandpapas/5777M1400_01-OCARRO-JEWEL-EMERALD-CARRYCOT?w=200&h=200&sm=c');
+      background-size: cover;
+    }
+
+    &[data-colour="Sapphire"] {
+      background-image: url('https://i1.adis.ws/i/mamasandpapas/5775ZZ700_01-OCARRO-JEWEL-SAPPHIRE-CARRYCOT?w=200&h=200&sm=c');
+      background-size: cover;
+    }
+
+    &[data-colour="Black Diamond"] {
+      background-image: url('https://i1.adis.ws/i/mamasandpapas/5778Y800_01-OCARRO-JEWEL-BLACK-CARRYCOT?w=200&h=200&sm=c');
+      background-size: cover;
+    }
+
+    &[data-colour="Grey/Coral"] {
+      background-image: url(https://i1.adis.ws/i/mamasandpapas/flip-xt-coral-swatch);
+      background-size: cover;
+    }
+
+    &[data-colour="Grey/Ice Blue"] {
+      background-image: url(https://i1.adis.ws/i/mamasandpapas/flip-xt-grey-swatch);
+      background-size: cover;
+    }
+
+    &[data-colour="Navy Marl"] {
+      background-image: url(https://i1.adis.ws/i/mamasandpapas/flipxt-ocean-swatch?bri=60);
+      background-size: cover;
+    }
+
+    &[data-colour="Light Grey Marl"] {
+      background-color: #c2c6c5;
+    }
+
+    &[data-colour="Deep Ocean"] {
+      background-color: #3b4e5c;
+    }
+  }
+
+  // ~ Brand Specific Colour Swatch Changes
+  &.MP081--Ocarro {
+    .MP081_ColourPicker__option {
+      &[data-colour="Grey Twill"] {
+        background-image: url('https://i1.adis.ws/i/mamasandpapas/grey-swatch-grey-twill');
+      }
+
+      &[data-colour="Chestnut"] {
+        background-image: url('https://i1.adis.ws/i/mamasandpapas/chestnut-swatch');
+      }
+    }
+  }
+
+  &.MP081--Urbo {
+    .MP081_ColourPicker__option {
+      &[data-colour="Chestnut"] {
+        background-image: url('https://i1.adis.ws/i/mamasandpapas/chestnut-swatch');
+      }
+
+      &[data-colour="Dark Navy"] {
+        background-image: url('https://i1.adis.ws/i/mamasandpapas/colour-swatches_urbo2_blue_denim');
+      }
+    }
+  }
+
+  &.MP081--FlipXT {
+    .MP081_ColourPicker__option {
+      &[data-colour="Chestnut"] {
+        background-image: url('https://i1.adis.ws/i/mamasandpapas/chestnut-swatch');
+      }
+    }
+  }
+
+  &.MP081--Voyage {
+    .MP081_ColourPicker__option {
+      &[data-colour="Mulberry"] {
+        background-color: #421a24;
+      }
+    }
+  }
+
+  // ~ Bundle Picker
+  .MP081_BundlePicker {
+    @media screen and (max-width: $break-large) {
+      margin-top: 20px;
+      display: inline-block;
+      width: 50%;
+      vertical-align: top;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      margin-top: inherit;
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .MP081_BundlePicker__images {
+    padding: 0;
+    list-style-type: none;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 300px;
+
+    @media screen and (max-width: $break-large) {
+      margin: 0 auto;
+    }
+  }
+
+  .MP081_BundlePicker__image {
+    display: inline-block;
+    position: relative;
+    max-width: 16.666%;
+    margin: 10px 0;
+
+    &:hover .MP081__tooltip {
+      display: block;
+      animation: MP081_fadeIn .3s;
+    }
+
+    &.MP081_BundlePicker__image--active img {
+      opacity: 1;
+    }
+
+    img {
+      opacity: .2;
+      max-width: 100%;
+      max-width: 100%;
+      vertical-align: bottom;
+
+      &[data-name="Pushchair"] {
+        height: 54px;
+      }
+
+      &[data-name="Carrycot"] {
+        height: 40px;
+      }
+
+      &[data-name="Cup Holders"] {
+        height: 40px;
+      }
+
+      &[data-name="Click and Go Adaptors"] {
+        height: 34px;
+      }
+
+      &[data-name="Car Seat"] {
+        height: 45px;
+      }
+
+      &[data-name="Isofix Base"] {
+        height: 40px;
+      }
+    }
+  }
+
+  .MP081_BundlePicker__options {
+    padding: 0;
+    margin: 10px 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+
+    @media screen and (max-width: $break-large) {
+      margin: 10px auto 10px auto;
+      max-width: 330px;
+    }
+  }
+
+  .MP081_BundlePicker__option {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    padding: 0 5px;
+    text-align: center;
+    width: 70px;
+
+    &.MP081_BundlePicker__option--active .MP081_BundlePicker__option__btn:after {
+      content: '';
+      background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTUwNC41MDIsNzUuNDk2Yy05Ljk5Ny05Ljk5OC0yNi4yMDUtOS45OTgtMzYuMjA0LDBMMTYxLjU5NCwzODIuMjAzTDQzLjcwMiwyNjQuMzExYy05Ljk5Ny05Ljk5OC0yNi4yMDUtOS45OTctMzYuMjA0LDAgICAgYy05Ljk5OCw5Ljk5Ny05Ljk5OCwyNi4yMDUsMCwzNi4yMDNsMTM1Ljk5NCwxMzUuOTkyYzkuOTk0LDkuOTk3LDI2LjIxNCw5Ljk5LDM2LjIwNCwwTDUwNC41MDIsMTExLjcgICAgQzUxNC41LDEwMS43MDMsNTE0LjQ5OSw4NS40OTQsNTA0LjUwMiw3NS40OTZ6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 70%;
+      width: 70%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .MP081_BundlePicker__option__btn {
+    position: relative;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid grey;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  .MP081_BundlePicker__option__label {
+    margin: 5px 0 0 0;
+  }
+
+  .MP081_BundlePicker__savings {
+    color: #d27c7c;
+
+    @media screen and (max-width: 320px) {
+      font-size: 12px;
+    }
+  }
+
+  // ~ Tooltips
+  .MP081__tooltip {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    background: rgba(0, 0, 0, .9);
+    padding: 10px;
+    color: white;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    border-radius: 2px;
+
+    &.MP081__tooltip--leftAlign {
+      right: initial;
+      left: 0;
+      transform: none;
+
+      &:after {
+        right: initial;
+        left: 10px;
+        transform: none;
+      }
+    }
+
+    &.MP081__tooltip--rightAlign {
+      left: initial;
+      right: 0;
+      transform: none;
+
+      &:after {
+        left: initial;
+        right: 10px;
+        transform: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 10px 0 10px;
+      border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    h3 {
+      font-weight: bold;
+      margin: 0 0 5px;
+      font-size: 14px;
+    }
+
+    p {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // ~ Stock Messaging
+  .MP081_stockMessaging {
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: -10px;
+
+    &.MP081_stockMessaging--loading {
+      background-image: url(https://www.mamasandpapas.com/_ui/mobile/common/images/colorbox/loading.gif);
+      background-repeat: no-repeat;
+      background-position: center;
+      color: rgba(255, 255, 255, 0);
+      height: 41px;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    @media screen and (max-width: $break-large) {
+      margin-bottom: 0;
+      margin-top: 20px;
+    }
+  }
+
+  /* NEW ELEMENTS */
+  .MP081_price {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 500;
+  }
+
+  .MP081_price--rrp,
+  .MP081_price--was {
+    display: inline-block;
+    text-decoration: line-through;
+    font-size: 15px;
+    color: #8d8d8d;
+    font-weight: 300;
+    margin-left: 5px;
+  }
+
+  .MP081_priceBlockBottom {
+    display: none;
+    font-size: 15px;
+    margin: 5px 0 -10px 0;
+
+    .MP081_price, .MP081_price--rrp, .MP081_price--was {
+      margin: 0 5px;
+    }
+
+    @media screen and (max-width: $break-large) {
+      display: block;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      margin: 5px 0 -20px 0;
+    }
+  }
+
+  /* SLICK SLIDER */
+  #js-desktopImageContainer {
+    margin: 0 auto;
+    width: 550px;
+    min-height: 300px;
+
+    &.hidden-xs.hidden-sm {
+      display: block !important;
+    }
+
+    .slick-prev,
+    .slick-next {
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      opacity: .8;
+      font-size: 20px;
+      background: #fff;
+      color: black;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    .slick-next {
+      right: -40px;
+    }
+    
+    .slick-prev {
+      left: -52px;
+    }
+
+    .slick-dots {
+      position: static;
+      top: 100%;
+      bottom: initial;
+
+      @media screen and (max-width: $break-medium) {
+        display: none;
+      }
+
+      li {
+        margin: 10px;
+        height: 40px;
+        width: 40px;        
+      }
+    }
+
+    .MP081_thumb {
+      display: block;
+      height: 40px;
+      width: 40px;
+      border: 1px solid #bdbebd;
+      background-size: cover;
+      background-position: center center;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .slick-track .slick-slide {
+      opacity: .3;
+      height: auto;
+      outline: none;
+      
+      &.slick-active {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: $break-large) {
+      margin-bottom: 0 !important;
+      width: auto !important;
+      max-width: 520px;
+
+      .slick-next {
+        right: 0;
+        width: auto;
+      }
+      
+      .slick-prev {
+        left: 0;
+        width: auto;
+      }
+
+      .slick-dots {
+        position: static !important;
+        margin-bottom: 20px;
+
+        li {
+          margin: 5px;
+        }
+      }
+    }
+
+    @media screen and (max-width: $break-medium) {
+      width: 100% !important;
+      max-width: none;
+    }
+  }
+
+  /* EXISTING ELEMENTS */
+  .productDetail {
+    position: relative !important;
+    top: 0 !important;
+    width: auto !important;
+
+    @media screen and (max-width: $break-large) {
+      padding-top: 0 !important;
+      text-align: center;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      padding-top: 30px !important;
+    }
+  }
+
+  .productDetail_lead {
+    max-height: none;
+
+    @media screen and (max-width: $break-large) {
+      margin: 0 auto;
+    }
+  }
+
+  .productDetail_lead:after,
+  .productDetail_description {
+    display: none;
+  }
+
+  .price-block {
+    .price,
+    .ac-price {
+      display: inline-block;
+    }
+  }
+
+  .qty-block {
+    margin-top: 30px;
+  }
+
+  .productDetail_title {
+    min-height: 50px;
+
+    @media screen and (max-width: $break-large) {
+      min-height: 0;
+    }
+  }
+
+  #js-productCarouselMobile.visible-xs {
+    display: none !important;
+  }
+
+  .breadcrumb {
+    @media screen and (max-width: $break-medium) {
+      padding: 0 10px; 
+    }
+  }
+
+  
+}

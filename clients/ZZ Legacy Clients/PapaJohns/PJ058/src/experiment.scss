@@ -1,0 +1,145 @@
+@import './variables';
+@import './lib/lib/scss/PJ024.scss';
+
+.#{$id} {
+  .PJ024-pwdContainer {
+    width: 100%;
+    background-color: #FFF;
+    padding: 5px 20px 0px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #B8B8B8;
+  }
+
+  // Form Labels 
+  .addressAddBox {
+    label {
+      font-size: 15.5px !important;
+    }
+  }
+
+  // Disabled Confirm Password Field
+  .checkoutRegItem {
+    margin-bottom: 20px;
+    &.PJ058-disabledField {
+      opacity: .5;
+    }
+  }
+
+  // Add check/invalid icons
+  ul.PJ024-pwdList {
+    &.PJ058-inactive {
+      opacity: .5;
+    }
+    
+    div.PJ024-requirement {
+      li.PJ024-pwd__item {
+        &:before {
+          display: inline-block;
+          content: '';
+          width: 20px;
+          height: 20px;
+          background-repeat: no-repeat;
+          background-size: 85%;
+          /* position: relative; */
+          transform: translateY(33%);
+        }
+        &.PJ058-success:before {
+          background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5cb87bbcee0c21555594172.png');
+        }
+        &.PJ058-invalid:before {
+          background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5cb87b91579161555594129.png');
+        }
+        &.PJ058-inactive:before {
+          background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5cb87bdb883ed1555594203.png');
+        }
+      }
+  
+      span.validation {
+        &#uppercase-validation, &#number-validation {
+          display: none !important;
+        }
+      }
+    }
+  }
+  // Success - Password fields match
+  .PJ024-pwdContainer, #ctl00_cphBody_txtPassword, #ctl00_cphBody_txtConfirmPassword {
+    &.PJ058-matchingFields {
+      border: 1px solid #68A527 !important;
+    }
+  }
+  span.PJ058-matchingInputField {
+    display: inline-block;
+    content: '';
+    width: 16px;
+    height: 22px;
+    background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5cb87bbcee0c21555594172.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 89%;
+    bottom: 0;
+    z-index: 9;
+
+    &.hidden {
+      display: none;
+    }
+  }
+  // Error - Invalid fields
+  .PJ024-pwdContainer, #ctl00_cphBody_txtPassword, #ctl00_cphBody_txtConfirmPassword {
+    &.PJ058-invalidFields {
+      border: 1px solid #DA291C !important;
+    }
+  }
+  span.PJ058-invalidInputField {
+    display: inline-block;
+    content: '';
+    width: 16px;
+    height: 22px;
+    background-image: url('https://dp8v87cz8a7qa.cloudfront.net/43831/5cb87b91579161555594129.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 89%;
+    bottom: 0;
+    z-index: 9;
+
+    &.hidden {
+      display: none;
+    }
+  }
+  // Passwords Do Not Match - Message 
+  .PJ058-passwordsNotMatch {
+    color: #DA291C;
+    display: block;
+    position: absolute;
+    width: 70%;
+    font-size: 0.8em;
+    left: 46%;
+    bottom: -1.5em;
+
+    &.hidden {
+      display: none;
+    }
+  }
+  
+  // --------- MOBILE VIEW ----------
+  // Mobile View - Checkbox
+  #ctl00_cphBody_divStep2 {
+    p.registerCheckout {
+      margin-top: 40px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .PJ024-pwdContainer {
+      width: 95% !important;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    span.PJ058-matchingInputField {
+      left: 99% !important;
+    }
+    span.PJ058-invalidInputField {
+      left: 99% !important;
+    }
+  }
+}

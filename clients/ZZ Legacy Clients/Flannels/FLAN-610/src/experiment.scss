@@ -1,0 +1,396 @@
+@import './variables';
+
+/*put your css or scss here. Vendor prefixes are added automatically*/
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        z-index: 9999;
+    }
+    33% {
+        opacity: 1;
+        z-index: 9999;
+    }
+    100% {
+        opacity: 0;
+        z-index: 9999;
+    }
+}
+
+.BSP-FLAK-Survey {
+    .BSP-FLAK-step.BSP-FLAK-step-5 {
+        & label[for='important_factors7']::before {
+            top: 11px !important;
+        }
+    }
+    .BSP-FLAK-popup {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        background: #131212e8;
+        -webkit-box-shadow: 0 0 20px -15px;
+        box-shadow: 0 0 20px -15px;
+        top: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        opacity: 0;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-animation-name: fadeOut;
+        animation-name: fadeOut;
+        -webkit-animation-duration: 3s;
+        animation-duration: 3s;
+        p {
+            color: #000;
+            font-weight: 700;
+            font-size: 32px;
+            background-color: #f5f5f5;
+            padding: 10%;
+            margin: 15px;
+            border-radius: 8px;
+        }
+    }
+    .FooterWrap {
+        @media (max-width: 767px) {
+            margin-top: 0px;
+        }
+    }
+    .ContentWrapper {
+        padding: 0px 0px 15px;
+        max-width: 100%;
+        min-height: auto;
+        position: relative;
+        @media (max-width: 767px) {
+            padding: 0px 0px 15px;
+        }
+    }
+    .BSP-FLAK-order-confirm-msg {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        background-color: #e0ff01;
+        font-size: 17px;
+        svg.BSP-FLAK-check-icon {
+            width: 18px;
+            font-weight: 999;
+            margin-bottom: -3px;
+        }
+    }
+    .BSP-Flank-custom-container {
+        width: 100%;
+        background: white !important;
+        z-index: 99;
+    }
+    .BSP-FLAK-step-container {
+        width: 35%;
+        display: block;
+        margin: 0px auto;
+        padding: 30px;
+        position: relative;
+        @media (max-width: 1023px) {
+            width: 55%;
+            min-height: 540px;
+        }
+        @media (max-width: 767px) {
+            width: 100%;
+            min-height: 560px;
+        }
+        .BSP-FLAK-step {
+            margin-left: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: all 0.3s ease-in;
+            height: 0px;
+            overflow: hidden;
+            &.BSP-FLAK-step-prev {
+                margin-left: -100%;
+            }
+            &.BSP-FLAK-active {
+                margin-left: 0%;
+                width: 100%;
+                opacity: 1;
+                transition: all 0.3s ease-in;
+                height: auto;
+            }
+            .BSP-FLAK-step-top {
+                .BSP-FLAK-Progress {
+                    width: 33%;
+                    height: 3px;
+                    background-color: #f5f5f5;
+                    position: relative;
+                    border-radius: 3px;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 3px;
+                        left: 0;
+                        background-color: #000;
+                        border-radius: 3px;
+                    }
+                    &.BSP-FLAK-Progress-1::before {
+                        width: 20%;
+                    }
+                    &.BSP-FLAK-Progress-2::before {
+                        width: 40%;
+                    }
+                    &.BSP-FLAK-Progress-3::before {
+                        width: 60%;
+                    }
+                    &.BSP-FLAK-Progress-4::before {
+                        width: 80%;
+                    }
+                    &.BSP-FLAK-Progress-5::before {
+                        width: 100%;
+                    }
+                }
+                .BSP-FLAK-question {
+                    font-size: 18px;
+                    color: #000;
+                    padding: 16px 0px;
+                    font-weight: 900;
+                }
+            }
+            .BSP-FLAK-step-mid {
+                padding: 36px 30px;
+                @media (max-width: 767px) {
+                    padding-bottom: 0px;
+                    padding-top: 25px;
+                }
+                input[type='radio'] {
+                    display: none;
+                    &+label {
+                        position: relative;
+                        padding-left: 26px;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 16px;
+                        color: #000;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                    }
+                    &+label:before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #000;
+                        border-radius: 100%;
+                        background: #fff;
+                        -webkit-transform: translateY(-50%);
+                        -ms-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                    }
+                    &+label:after {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        background: #000;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        border-radius: 100%;
+                        -webkit-transition: all 0.2s ease;
+                        -o-transition: all 0.2s ease;
+                        transition: all 0.2s ease;
+                        -webkit-transform: translateY(-50%) scale(0.72);
+                        -ms-transform: translateY(-50%) scale(0.72);
+                        transform: translateY(-50%) scale(0.72);
+                    }
+                    &:not(:checked)+label:after {
+                        opacity: 0;
+                        -webkit-transform: translateY(-50%) scale(0.5);
+                        -ms-transform: translateY(-50%) scale(0.5);
+                        transform: translateY(-50%) scale(0.5);
+                    }
+                    &:checked+label:after {
+                        opacity: 1;
+                    }
+                }
+                input[type='checkbox'] {
+                    display: none;
+                    &+label {
+                        position: relative;
+                        padding-left: 26px;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 16px;
+                        color: #000;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                        &.BSP-FLAK-disabled-input {
+                            opacity: 0.6;
+                            pointer-events: none;
+                        }
+                    }
+                    &+label:before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #000;
+                        background: #fff;
+                        -webkit-transform: translateY(-50%);
+                        -ms-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                    }
+                    &+label:after {
+                        content: '';
+                        width: 11px;
+                        height: 5px;
+                        position: absolute;
+                        top: 8px;
+                        left: 2px;
+                        border-bottom: 2px solid #000;
+                        border-left: 2px solid #000;
+                        -webkit-transition: all 0.2s ease;
+                        -o-transition: all 0.2s ease;
+                        transition: all 0.2s ease;
+                        -webkit-transform: scale(1) rotate(-45deg);
+                        -ms-transform: scale(1) rotate(-45deg);
+                        transform: scale(1) rotate(-45deg);
+                    }
+                    &:not(:checked)+label:after {
+                        opacity: 0;
+                        -webkit-transform: scale(0.6) rotate(-45deg);
+                        -ms-transform: scale(0.6) rotate(-45deg);
+                        transform: scale(0.6) rotate(-45deg);
+                    }
+                    &:checked+label:after {
+                        opacity: 1;
+                    }
+                }
+                .BSP-FLAK-other-input {
+                    padding-left: 26px;
+                    margin-bottom: 10px;
+                    display: none;
+                    &.BSP-FLAK-other-input-show {
+                        display: block;
+                    }
+                    .BSP-FLAK-wearing-time-other {
+                        width: 80%;
+                        background: #ffffff;
+                        border: 1px solid #000000;
+                        height: 40px;
+                        font-size: 12px;
+                        padding: 5px;
+                    }
+                }
+            }
+            .BSP-FLAK-step-bottom {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
+                margin-top: 15px;
+                .BSP-FLAK-prev-btn {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    background: transparent;
+                    color: #000;
+                    text-decoration: underline;
+                    font-size: 14px;
+                    margin-right: 30px;
+                    &.BSP-FLAK-disabled {
+                        opacity: 0.5;
+                        pointer-events: none;
+                        display: none;
+                    }
+                }
+                .BSP-FLAK-next-btn {
+                    width: 150px;
+                    text-align: center;
+                    padding: 14px 0px;
+                    font-size: 14px;
+                    background-color: #000;
+                    color: #fff;
+                    @media (max-width: 767px) {
+                        width: 200px;
+                    }
+                    &.BSP-FLAK-disabled {
+                        opacity: 0.7;
+                        pointer-events: none;
+                    }
+                }
+            }
+            .BSP-FLAK-step-last {
+                display: block;
+                text-align: center;
+                padding-top: 12%;
+                .BSP-FLAK-close-circle {
+                    display: flex;
+                    width: 100px;
+                    height: 100px;
+                    border: 2px solid #e0fd00;
+                    border-radius: 100%;
+                    text-align: center;
+                    font-size: 12px;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0px auto 50px;
+                    svg {
+                        color: #e0fd00;
+                        width: 37px;
+                    }
+                }
+                .BSP-FLAK-response {
+                    font-size: 18px;
+                    font-weight: 700;
+                    margin-bottom: 50px;
+                }
+                .BSP-FLAK-home-btn {
+                    width: 200px;
+                    text-align: center;
+                    padding: 13px 16px;
+                    font-size: 14px;
+                    background-color: #000;
+                    color: #fff;
+                    text-decoration: none;
+                    display: block;
+                    margin: 0px auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .BSP-FLAK-step .BSP-FLAK-step-bottom {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        bottom: 30px !important;
+        position: absolute;
+        bottom: 0;
+        margin-top: 0;
+        z-index: 99999;
+    }
+    .BSP-FLAK-step.BSP-FLAK-step-4.BSP-FLAK-active {
+        margin-bottom: 57px;
+    }
+}
+
+@media (max-width: 320px) {
+    .BSP-FLAK-step-container {
+        min-height: 585px;
+    }
+    .BSP-FLAK-step.BSP-FLAK-step-4.BSP-FLAK-active {
+        margin-bottom: 57px;
+    }
+}
+
+
+/*put your css or scss here. Vendor prefixes are added automatically*/

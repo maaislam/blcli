@@ -1,0 +1,274 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-bannerMain {
+        padding: 10px;
+        background: #ffffff;
+        border: 1px solid black;
+        margin: 10px;
+        h2 {
+            font-size: 25px;
+            line-height: 27px;
+            margin-bottom: 5px;
+        }
+        p{
+            font-family: GillSansNova-Light;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        b {
+            font-family: GillSansNova-Medium;
+        }
+
+        .#{$id}-button {
+            background: #000;
+            border: 1px solid #000;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+            max-width: 200px;
+            text-align: center;
+            outline: 0;
+            display: block;
+            letter-spacing: .05rem;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            padding: 0 5px;
+            clear: both;
+            cursor: pointer;
+            font-family: GillSansNova-Medium;
+            font-size: .75rem;
+            margin: 0 auto;
+            position: relative;
+            margin-bottom: 10px;
+            &:hover {
+                background: white;
+                color: black;
+            }
+    
+        }
+
+        .#{$id}-giftCardText {
+            margin-top: 10px;
+            padding-top: 10px;
+            background: #e8e8e8;
+            padding: 10px;
+        
+            .#{$id}-giftCardAdd {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 0;
+                .#{$id}-image {
+                    display: none;
+                }
+                .#{$id}-product {
+                    display: flex;
+                    flex-direction: row;
+                    .#{$id}-image {
+                        background: url('https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dw1e80511e/images/356670-egift-card.jpg?sw=500&sh=500&sm=fit') no-repeat center;
+                        background-size: cover;
+                        height: 85px;
+                        width: 85px;
+                    }
+                    .#{$id}-productText {
+                        width: 55%;
+                        h3 {
+                            margin-bottom: 5px;
+                            position: relative;
+                            line-height: 20px;
+                            font-family: 'GillSansNova-Medium';
+                            &::before {
+                                display: none;
+                                content: '';
+                                background: url('https://editor-assets.abtasty.com/48343/5fbcdef56dcc91606213365.png') center no-repeat;
+                                background-size: contain;
+                                height: 50px;
+                                width: 50px;
+                                left: 0;
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                        b {
+                            font-size: 16px;
+                        }
+                    }    
+                    .#{$id}-button {
+                        margin-top: 5px;
+                        position: relative;
+                        width: 40%;
+                        margin-right: 0;
+                        &.#{$id}-addingToBag {
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                height: 20px;
+                                width: 20px;
+                                background: url('https://editor-assets.abtasty.com/48343/5f4637c0083d91598437312.gif');
+                                right: 3px;
+                                background-size: contain;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }   
+                }
+            
+            }
+        }
+        .#{$id}-email {
+            padding-top: 10px;
+            .sorry-message {
+                display: none;
+            }
+            .ui-dialog-buttonset {
+                display: flex;
+                flex-direction: row;
+                button {
+                    margin: 5px;
+                    &#back-in-stock-cancel {
+                        margin-left: 0;
+                    }
+                    &#back-in-stock-submit {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .#{$id}-stockSuccess,
+            .#{$id}-error {
+                display: none;
+            }
+            .#{$id}-stockSuccess {
+                h3 {
+                    letter-spacing: 0;
+                    font-size: 19px;
+                    font-family: DidotLTPro-Roman;
+                    margin-bottom: 10px;
+                }
+            }
+            .#{$id}-error {
+                color: red;
+            }
+        }
+
+        @media(min-width: 767px) {
+            padding: 20px;
+            padding-bottom: 0;
+            border: 0px;
+            .#{$id}-bottom {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                .#{$id}-giftCardText {
+                    padding-right: 20px;
+                    margin-top: 10px;
+                    padding-left: 0;
+                    margin: 10px;
+                    width: 50%;
+                    padding: 10px;
+                    margin-left: 0;
+                    margin-right: 5px;
+                    background: white;
+                    border: 1px solid black;
+                    .#{$id}-product {
+                        flex-direction: column;
+                        .#{$id}-button {
+                            margin-left:0;
+                            margin-right: auto;
+                            width: 60%;
+                            margin-top: 15px;
+                        }
+                        .#{$id}-productText {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            margin-top: 10px;
+                            width: 230px;
+                        }
+                    }
+                }
+                .#{$id}-email{
+                    padding-left: 20px;
+                    margin-top: 10px;
+                    background:white;
+                    border: 1px solid black;
+                    margin: 10px;
+                    padding: 10px;
+                    width: 50%;
+                    margin-right: 0;
+                    margin-left: 5px;
+                    p {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            h2 {
+                font-size: 30px;
+                margin-bottom: 8px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .#{$id}-bottom {
+                margin-top: 10px;
+                .#{$id}-email,
+                .#{$id}-giftCardText {
+                    padding: 15px;
+                }
+                .#{$id}-giftCardText {
+                    .#{$id}-product {
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-content: flex-start;
+                        .#{$id}-productText {
+                            width: 200px;
+                            margin-left: 10px;
+                            margin-right: 5px;
+                            display: inline-block;
+                            h3 {
+                                font-family: 'GillSansNova-Light';
+                            }
+                        }
+                        .#{$id}-button {
+                            width: 150px;
+                            margin-right: 0;
+                        }
+                    }
+                    .#{$id}-image {
+                        display: inline-block;
+                        height: 50px;
+                        width: 50px;
+                        background: url('https://www.hotelchocolat.com/dw/image/v2/AAZP_PRD/on/demandware.static/-/Sites-hotelchocolat-master-catalog/default/dwcf7a19e0/images/gift-card.jpg?sw=875&sh=875&sm=fit') no-repeat center;
+                    }
+                }
+                .#{$id}-email {
+                    .#{$id}-button {
+                        width: 300px;
+                    }
+                }
+            }
+        }
+        @media(min-width: 1280px) {
+            .#{$id}-bottom {
+                .#{$id}-giftCardText {
+                    .#{$id}-product {
+                        .#{$id}-productText {
+                            margin-left: 15px;
+                        }
+                        .#{$id}-button {
+                            width: 250px;
+                            max-width: 250px;
+                            margin-right: 0;
+                            margin-left: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

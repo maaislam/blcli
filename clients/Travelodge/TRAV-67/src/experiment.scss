@@ -1,0 +1,174 @@
+@import "./variables";
+
+.#{$id}.#{$id}-share--active {
+	@media all and (max-width: 768px) {
+		#section-img-with-hotel-details .carousel {
+			overflow: visible;
+		}
+	}
+
+	.#{$id}-share {
+		display: flex;
+		position: relative;
+
+		&--button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			cursor: pointer;
+
+			&text {
+				color: #008cc6;
+				position: relative;
+				top: 1px;
+
+				@media all and (max-width: 600px) {
+					display: none;
+				}
+			}
+
+			&svg {
+				margin-right: 5px;
+
+				@media all and (max-width: 600px) {
+					margin-right: 0;
+				}
+
+				svg path {
+					fill: #008cc6;
+				}
+			}
+
+			&.ocb-button {
+				right: 0;
+			}
+		}
+
+		&--social {
+			display: none;
+			flex-direction: column;
+			position: absolute;
+			top: 30px;
+			right: 10px;
+			width: 300px;
+			border: 2px solid #c6c6c6;
+			background: #fff;
+			padding: 15px 20px 20px;
+			z-index: 1000;
+
+			&.#{$id}-active {
+				display: flex;
+			}
+
+			@media all and (max-width: 400px) {
+				width: 250px;
+			}
+		}
+
+		&--linkbox {
+			border: 1px solid #c6c6c6;
+			border-radius: 5px;
+			padding: 0;
+			margin-bottom: 10px;
+			display: flex;
+			flex-direction: row;
+
+			button {
+				border: none;
+				background: #f6f6f6;
+				height: 30px;
+				padding: 0 5px;
+				border-right: 1px solid #c6c6c6;
+				width: 13%;
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+
+			input {
+				border: none;
+				height: 30px;
+				width: 87%;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+		}
+
+		&--copybutton {
+			background: #5cb85c;
+			border: none;
+			color: #fff;
+			font-size: 14px;
+			padding: 10px;
+			border-radius: 40px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+
+			span {
+				color: #fff;
+			}
+
+			&innertext {
+				height: 20px;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+			}
+
+			&tick {
+				display: none;
+			}
+
+			&.#{$id}-share--copybutton--copied {
+				.#{$id}-share--copybuttoninnertext {
+					display: none;
+				}
+
+				.#{$id}-share--copybuttontick {
+					display: flex;
+				}
+			}
+		}
+
+		&--copycompletetext {
+			font-size: 11px;
+			text-align: center;
+			width: 100%;
+		}
+
+		&--socialbuttons {
+			margin-top: 20px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		&--socialbutton {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+			&--whatsapp {
+				background: #25d267;
+			}
+
+			&--email {
+				background: #5ea8ff;
+			}
+
+			&--messenger {
+				background: #f1f1f1;
+			}
+
+			&--telegram {
+				background: none;
+			}
+		}
+	}
+}

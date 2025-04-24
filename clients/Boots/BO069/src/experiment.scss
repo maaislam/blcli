@@ -1,0 +1,868 @@
+@import './variables';
+
+.#{$id} {
+    #estore_category_heading {
+        h1 {
+            display: none;
+        }
+        .mobile_facet_controls {
+            padding: 0 10px;
+        }
+    }
+
+
+    #estore_lister_template_container {
+        padding: 0 !important;
+    }
+
+    .#{$id}-content,
+    #estores_product_listing_widget,
+    .richText.seo{
+        padding: 0 10px;
+    }
+
+    .linksCarousel {
+        background: #F9F9F9;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        @media(min-width: 767px) {
+            padding-bottom: 0;
+        }
+    }
+
+    /* Roundels */
+    .#{$id}_categoryBar {
+        position: relative;
+        font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        h2 {
+            position: relative;
+            color: #004990;
+            text-align: center;
+            font-size: 28px;
+            line-height: 30px;
+            padding-top: 10px;
+            margin-bottom: 10px;
+
+            @media(min-width: 767px) {
+                padding-top: 20px;
+            }
+        }
+
+        &:before {
+            content: '';
+            background: #f3f3f3;
+            position: absolute;
+            top: 0;
+            height: 65%;
+            width: 100%;
+            left: 0;
+            z-index: 0;
+            clip-path: polygon(0 0,
+                    /* left top */
+                    100% 0,
+                    /* right top */
+                    100% 85%,
+                    /* right bottom */
+                    0 100%
+                    /* left bottom */
+                );
+        }
+
+        .#{$id}_categoriesInner {
+            .#{$id}_categories {
+                display: -webkit-box;
+                display: flex;
+                flex-direction: row;
+                text-align: center;
+                align-content: center;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                padding: 5px;
+                height: auto;
+                cursor: pointer;
+
+                /*
+                &::-webkit-scrollbar {
+                    height: 8px;
+                    background-color: transparent;
+
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 8px;
+                    width: 20px;
+                    background-color: #d0d0d0;
+                }
+
+                &::-webkit-scrollbar-track {
+                    height: 8px;
+                    border-radius: 4px;
+                    background-color: #f6f6f6;
+                    margin: 30px;
+                } */
+
+                .#{$id}_category {
+                    margin: 10px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    .#{$id}_categoryIcon {
+                        display: flex;
+                        cursor: pointer;
+                        flex-direction: column;
+                        position: relative;
+                        width: 71px; // stop links going on 2 lines
+
+                        @media(min-width: 375px) {
+                            width: 81px;
+                        }
+
+                        @media(min-width: 400px) {
+                            width: 91px;
+                        }
+
+                        a {
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                        }
+
+                        span {
+                            height: 65px;
+                            width: 65px;
+                            box-sizing: border-box;
+                            margin: 0 auto;
+                            border-radius: 50px;
+                            background: white;
+                            margin-bottom: 5px;
+                            background-size: contain;
+
+                            @media(min-width: 370px) {
+                                height: 75px;
+                                width: 75px;
+                            }
+
+                            @media(min-width: 400px) {
+                                height: 85px;
+                                width: 85px;
+                            }
+                        }
+
+                        p {
+                            font-size: 12px;
+                            margin-bottom: 0;
+                            line-height: 15px;
+                            width: 96%;
+                            margin: 0 auto;
+
+                            @media(min-width: 1024px) {
+                                width: 75%;
+                                margin-top: 5px;
+                                font-size: 13px;
+                            }
+                        }
+
+                        @media(min-width: 1100px) {
+                            width: 90px;
+                            margin-top: 5px;
+                        }
+
+                        &.#{$id}_show {
+                            position: relative;
+
+                            span {
+                                border: 2px solid #505050;
+                            }
+
+                            p {
+                                font-weight: 600;
+                            }
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                height: 30px;
+                                width: 30px;
+                                background: url('https://service.maxymiser.net/cm/images-eu/1/1/1/34BD5365D182D93163816BEF34B79296AA819DA938A94A8B2999B0CB626F8083/new-boots-com/BO022---Department-Page-Navigation-Links/noun_downarrow_859720.png') no-repeat center;
+                                background-size: contain;
+                                bottom: -23px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+
+                            @media(min-width: 767px) {
+                                &::after {
+                                    bottom: -32px;
+                                }
+                            }
+
+                            @media(min-width: 1024px) {
+                                &::after {
+                                    bottom: -25px;
+                                }
+                            }
+
+                        }
+                    }
+
+
+
+                    @media(min-width: 767px) {
+
+                        margin-left: 0;
+                        margin-right: 0;
+
+                        .#{$id}_categoryIcon {
+                            width: auto;
+
+                            span {
+                                height: 80px;
+                                width: 80px;
+                            }
+                        }
+
+                    }
+
+                    @media(min-width: 1024px) {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+
+                        .#{$id}_categoryIcon {
+                            width: auto;
+
+                            span {
+                                height: 95px;
+                                width: 95px;
+                            }
+                        }
+                    }
+                }
+
+                @media(min-width: 767px) {
+                    overflow: visible;
+                    max-width: 680px;
+                    margin: 0 auto;
+
+                    .slick-arrow {
+                        background: rgba(255, 255, 255, 0.86);
+                        height: 28px;
+                        width: 28px;
+                        border: 1px solid #efefef;
+                        border-radius: 25px;
+                    }
+
+                    .slick-slide,
+                    a {
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+
+                    .slick-prev,
+                    .slick-next {
+                        top: 50%;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/42B33E650D16C2D2E54450127EE1F34CE2EB92F6BBBAB42C8A1C5BF7CCF0F0B1.png?meta=/BO069---Hybrid-Lister-Navigational/noun_Next_18336381.png');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 5px;
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    .slick-prev {
+                        left: -15px;
+
+                    }
+
+                    .slick-next {
+                        right: -15px;
+                        transform: rotate(-180deg) translateY(50%);
+                    }
+                }
+
+                @media(min-width: 1024px) {
+                    max-width: 800px;
+                    padding: 10px;
+                    padding-bottom: 0;
+                }
+
+                @media(min-width: 1200px) {
+                    max-width: 1024px;
+
+                    .slick-prev {
+                        left: 0px;
+                    }
+
+                    .slick-next {
+                        right: 0px;
+                    }
+
+                }
+            }
+        }
+
+        @media(min-width: 767px) {
+            &.#{$id}-noSlick {
+                .#{$id}_categories {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-content: center;
+
+                    .#{$id}_category {
+                        width: 25%;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.#{$id}-2 {
+        .algolia-search-container {
+            z-index: 9;
+        }
+
+        /* Search Box */
+        .#{$id}-searchWrapper {
+            padding: 10px;
+            background: #f8f8f8;
+            margin-bottom: 10px;
+
+            h3 {
+                text-align: center;
+                font-size: 19px;
+                color: #004990;
+                margin-bottom: 10px;
+            }
+
+            #searchBar {
+                display: block;
+                position: relative;
+                width: 100%;
+                right: unset;
+                top: unset;
+
+                &.active {
+                    border: 0;
+                }
+
+                #searchTermWrapper {
+                    height: 43px;
+                    padding-right: 0;
+                }
+
+                #searchBarInput {
+                    border: 0px;
+                }
+
+                #searchBox {
+                    border: 1px solid #E7E7E7;
+                    border-radius: 10px;
+                    line-height: 30px;
+                    padding-right: 40px;
+                    width: auto;
+
+                    input {
+                        font-family: F37 Ginger, Tahoma, Arial, sans-serif;
+                        color: #868788;
+                        font-size: 13px !important;
+                        margin: 0;
+                        padding-left: 5px;
+                        height: auto;
+                    }
+
+                    .submitButton {
+                        background-color: transparent;
+                        background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/6B55DA82E4197BB3CE690885B142D9FC6115783C434394D865F428E236BC0505.png?meta=/BO044---Search-Component/bootssearch.png') no-repeat center;
+                        background-size: 15px;
+
+                        @media(min-width: 1280px) {
+                            right: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+
+
+            .#{$id}-popularContent {
+                margin-top: 15px;
+
+                .#{$id}-line {
+                    display: none;
+                    font-family: F37 Ginger Light, Tahoma, Arial, sans-serif;
+
+                    @media(min-width: 767px) {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 10px;
+                    }
+                }
+
+                .#{$id}-termsContent,
+                .#{$id}-brandsContent {
+                    display: flex;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    flex-direction: row;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    margin-top: 10px;
+
+                    >span {
+                        margin-right: 15px;
+                        width: 46px;
+                        margin-top: 1px;
+
+                        @media(min-width: 375px) {
+                            width: 60px;
+                        }
+
+                        @media(min-width: 1024px) {
+                            width: 120px;
+                        }
+                    }
+
+                    a {
+                        font-size: 13px;
+                        font-family: F37 Ginger, Tahoma, Arial, sans-serif;
+                        color: #333333;
+                        position: relative;
+                        margin: 5px;
+                        margin-bottom: 10px;
+
+                        &::after {
+                            content: '';
+                            border: 1px solid #151A61;
+                            width: 100%;
+                            position: absolute;
+                            bottom: -2px;
+                            left: 0;
+                        }
+
+                        @media(min-width: 375px) {
+                            font-size: 14px;
+                            margin: 8px;
+                        }
+
+                        @media(min-width: 414px) {
+                            font-size: 16px;
+                            margin: 8px;
+                        }
+
+                        @media(min-width: 767px) {
+                            font-size: 14px;
+                        }
+
+                        @media(min-width: 1280px) {
+                            font-size: 15px;
+                            margin: 10px;
+                        }
+                    }
+
+
+                    .#{$id}-terms,
+                    .#{$id}-brands {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                    }
+
+                    @media(min-width: 767px) {
+                        justify-content: center;
+                        width: 48%;
+                    }
+                }
+
+                @media(min-width: 767px) {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    span {
+                        width: 135px;
+                    }
+                }
+            }
+
+            @media(min-width: 767px) {
+                .#{$id}-searchContent {
+                    max-width: 1024px;
+                    margin: 0 auto;
+                }
+
+                #searchBar {
+                    display: flex;
+                    justify-content: center;
+
+                    #searchTermWrapper {
+                        height: auto;
+                        line-height: auto;
+                        padding: 0;
+                        padding-left: 10px;
+                    }
+                }
+            }
+
+            @media(min-width: 1280px) {
+                #searchBar {
+                    #searchBox {
+                        padding: 5px;
+                        padding-right: 40px;
+                    }
+                }
+            }
+        }
+
+        @media(min-width: 1290px) {
+            #header {
+                #globalNavigationContainer {
+                    top: 84px;
+                }
+            }
+        }
+
+        @media(min-width: 1397px) {
+            #header {
+                height: 80px;
+
+                #estore_header_bottom_row {
+                    top: 0 !important;
+
+                    #topLevelMenu {
+                        left: 180px !important;
+                        padding-top: 5px;
+                    }
+                }
+
+                #globalNavigationContainer {
+                    top: 94px;
+                }
+
+                .categoryList,
+                .subcategoryMenu,
+                .topLevelMenu {
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+
+    &.#{$id}-3 {
+        #estore_coremedia_template_container #leftHandNav {
+            top: 0px;
+        }
+
+        .#{$id}-heading {
+            text-align: center;
+            color: #004990;
+            text-transform: uppercase;
+            margin: 24px 0;
+        }
+
+        .#{$id}-leftNav {
+            h3 {
+                text-align: center;
+                padding: 10px;
+                font-size: 20px;
+            }
+        }
+
+        .#{$id}-accordion-wrapper {
+            padding-right: 12px;
+        }
+
+        .#{$id}-category-wrapper {
+            border-top: 1px solid #f2f2f2;
+            padding: 10px;
+
+            &:last-child {
+                border-bottom: 1px solid #f2f2f2;
+            }
+
+            .#{$id}-category-heading {
+                padding: 12px 0 6px;
+                color: #05054b;
+                cursor: pointer;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/BB47CD56A9F3CB3DB8B8F99C820F3D8874C3851F0E1F4EA6085B26BC217624A2.png?meta=/BO069---Hybrid-Lister-Navigational/plus.png') no-repeat center;
+                    background-size: contain;
+                    height: 20px;
+                    width: 10px;
+                    
+                }
+                
+    
+                .#{$id}-category-name {
+                    width: calc(100% - 30px);
+                    display: inline-block;
+                    vertical-align: top;
+                    font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+                    color: #004990;
+                }
+    
+                a {
+                    color: #333333;
+                }
+            }
+
+            .#{$id}-category a {
+                display: block;
+                padding: 12px 0;
+                color: #004990;
+                font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+    
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .#{$id}-expanded-list-toggle {
+                display: none;
+                margin-top: 20px;
+                cursor: pointer;
+                    .#{$id}-expanded-list-toggle-label {
+                       
+                        position: relative;
+                        padding-right: 30px;
+                        font-size: 15px;
+                        color: #004990;
+                        font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            height: 15px;
+                            width: 15px;
+                            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/42B33E650D16C2D2E54450127EE1F34CE2EB92F6BBBAB42C8A1C5BF7CCF0F0B1.png?meta=/BO069---Hybrid-Lister-Navigational/noun_Next_18336381.png') no-repeat center;
+                            background-size: contain;
+                            top: 50%;
+                            transform: translateY(-50%) rotate(-90deg);
+                        }
+                    }
+            }
+
+            .#{$id}-subcategory-wrapper {
+                display: none;
+                margin-bottom: 10px;
+                max-height: 128px;
+                overflow: hidden;
+                margin-top: 10px;
+                a {
+                    font-size: 16px;
+                    padding: 10px 0;
+                    display: block;
+                    font-family: "F37 Ginger", Tahoma, Arial, sans-serif;
+    
+                    &:hover {
+                        text-decoration: underline;
+                        ;
+                    }
+                }
+            }
+
+            // if accordion clicked
+            &.#{$id}__open {
+                .#{$id}-subcategory-wrapper {
+                    display: block;
+                }
+                .#{$id}-category-heading {
+                    position: relative;
+                    &::after {
+                       background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/31322105E372D60F44115F8B6030B18829B8AA7353A307029248B16A9A485B74.png?meta=/BO069---Hybrid-Lister-Navigational/minus.png') no-repeat center;
+                       background-size: contain;
+                    }
+                }
+                .#{$id}-expanded-list-toggle {
+                    display: block;
+                }
+            }
+            // if show more clicked
+            &.#{$id}-subcategory-open {
+                .#{$id}-subcategory-wrapper {
+                    display: block;
+                    height: auto;
+                    max-height: 100%;
+        
+                    &::-webkit-scrollbar-track {
+
+                        border-radius: 10px;
+                        background-color: #F5F5F5;
+                    }
+    
+                    &::-webkit-scrollbar {
+                        width: 5px;
+                        background-color: #F5F5F5;
+                        width: 5px;
+                        height: 5px;
+                        -webkit-appearance: none;
+                        -webkit-overflow-scrolling: auto;
+                    }
+    
+                    &::-webkit-scrollbar-thumb {
+                        border-radius: 10px;
+                        background-color:#c3dcf5;
+                        border-radius: 4px;
+                        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+                    }
+                }
+    
+                .#{$id}-category-toggle-icon {
+                    &:after {
+                        content: "K";
+                    }
+                }
+                .#{$id}-expanded-list-toggle {
+                    display: none;
+                }
+            }
+        }
+
+        // +- icon
+        .#{$id}-category-toggle-icon {
+            display: inline-block;
+            margin-top: -2px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/BB47CD56A9F3CB3DB8B8F99C820F3D8874C3851F0E1F4EA6085B26BC217624A2.png?meta=/BO069---Hybrid-Lister-Navigational/plus.png') no-repeat center;
+                background-size: contain;
+                height: 20px;
+                width: 10px;
+            }
+        }
+        
+        @media(min-width: 767px) {
+            .#{$id}-content {
+                display: flex;
+                flex-direction: row;
+                .#{$id}-leftNav {
+                    width: 25%;
+                    h3 {
+                        display: none;
+                    }
+                    .#{$id}-accLinks {
+                        padding: 0 10px 20px 7px;
+                        max-height: 450px;
+                        overflow: auto;
+                        &::-webkit-scrollbar-track {
+
+                            border-radius: 10px;
+                            background-color: #F5F5F5;
+                        }
+        
+                        &::-webkit-scrollbar {
+                            width: 5px;
+                            background-color: #F5F5F5;
+                        }
+        
+                        &::-webkit-scrollbar-thumb {
+                            border-radius: 10px;
+                            background-color: #c3dcf5;
+                        }
+                        .#{$id}-category-wrapper {
+                            padding: 5px;
+                            .#{$id}-category-name {
+                                font-size: 15px;
+                            }
+                            .#{$id}-category-heading {
+                               padding: 10px;
+                            }
+
+                            .#{$id}-subcategory-wrapper {
+                                padding-left: 10px;
+                                a {
+                                    font-size: 13px;
+                                    padding-bottom: 5px;
+                                    padding-top: 5px;
+                                }
+                            }
+                            .#{$id}-expanded-list-toggle {
+                                margin-top: 5px;
+                                .#{$id}-expanded-list-toggle-label {
+                                    font-size: 13px;
+                                    padding-left: 10px;
+                                }
+                            }
+                            &.#{$id}-subcategory-open {
+                                .#{$id}-subcategory-wrapper {
+                                    overflow: visible;
+                                    max-height: unset;
+                                }
+                            }
+                        }
+
+                        .#{$id}-category {
+                            a {
+                                font-size: 15px;
+                                padding: 10px;
+                            }
+                        }
+                        
+                    }
+                }
+                .#{$id}-right {
+                    width: 75%;
+                    .heroCarousel {
+                        padding: 0 7.5px;
+                    }
+                }
+            }
+        }
+        @media(min-width: 1024px) {
+            .#{$id}-content {
+                .#{$id}-leftNav {
+                    h3 {
+                        display: none;
+                    }
+                    .#{$id}-accLinks {
+                        max-height: 550px;
+                    }
+                }
+            }
+        }
+        @media(min-width: 1280px) {
+            .#{$id}-content {
+                justify-content: space-between;
+                .#{$id}-leftNav {
+                    width: 23%;
+                    .#{$id}-accLinks {
+                        max-height: 800px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+

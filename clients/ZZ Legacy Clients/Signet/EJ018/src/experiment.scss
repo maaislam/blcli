@@ -1,0 +1,52 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}_breadcrumbBar {
+    background: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+    .#{$id}-breadcrumbLink {
+      padding-right: 20px;
+      position: relative;
+      font-size: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      span {
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        height: 15px;
+        width: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/C68940A77739AE65442743ED73F7468CF0F3DE43E7ECE17A5A3B3BC9BFA879A9/ernestjones-co-uk/EJ018---Contextual-bread-crumbs/noun_directionright_2591160.png');
+      }
+      &:last-child {
+        span {
+          color: #828282;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+    @media(min-width: 1024px) {
+      text-align: left;
+      padding: 12px;
+      border-top: 1px solid #dddddd;
+      border-bottom: 0px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+  }
+}

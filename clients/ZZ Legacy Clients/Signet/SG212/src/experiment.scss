@@ -1,0 +1,160 @@
+@import './variables';
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px) translateX(-50%);
+    transform: translateY(1000px) translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(-50%) translateX(-50%);
+            transform: translateY(-50%) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+.#{$id} {
+  .#{$id}-overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    &.#{$id}-overlayShow {
+      display: block;
+    }
+  }
+
+  .#{$id}-lightboxModal {
+    position: fixed;
+    height: auto;
+    width: 90vw;
+    top: 50%;
+    left: 50%;
+    transform: translateY(1000px) translateX(-50%);
+    z-index: 999;
+    max-width: 700px;
+    @media(min-width: 375px) {
+      width: 85vw;
+    }
+    &::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      background: #DD261A;
+      position: absolute;
+      left: 5px;
+      top: -5px;
+      @media(min-width: 767px) {
+        left: auto;
+        right: -7px;
+        top: -7px
+       }
+    }
+    &.#{$id}-modalShow {
+      animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    .#{$id}-close {
+      height: 18px;
+      width: 18px;
+      background: url('https://storage.googleapis.com/exp-app-storage/9191200e-b0b2-11ea-ad2a-8afcbfbc1b77/media/original/e5d48122-4af9-11ed-9889-423d2a882e13') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      z-index: 99;
+      cursor: pointer;
+    }
+
+    .#{$id}-modalInner {
+      position: relative;
+      background:white;
+      @media(min-width: 767px) {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .#{$id}-content {
+      padding: 20px;
+      @media(min-width: 767px) {
+        flex-grow: 1;
+        padding: 30px;
+       }
+    }
+
+    .#{$id}-image {
+      height: 100px;
+      background: url('https://storage.googleapis.com/exp-app-storage/9191200e-b0b2-11ea-ad2a-8afcbfbc1b77/media/original/8c9c37ee-fc43-11ec-9151-6255e5ffafb1') no-repeat center;
+      background-size: cover;
+      display: none;
+      @media(min-width: 767px) {
+       display: block;
+       height: auto;
+       width: 45%;
+       flex-shrink: 0;
+      }
+    }
+
+    .#{$id}-titleBox {
+      text-align: center;
+      margin-bottom: 20px;
+      span {
+        font-size: 15px;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #484849;
+        @media(min-width: 1024px) {
+          font-size: 17px;
+        }
+      }
+      h2 {
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: #8F0017;
+        @media(min-width: 1024px) {
+          font-size: 34px;
+        }
+      }
+    }
+    p {
+      text-align: center;
+      margin-bottom: 25px;
+      margin-top: 0;
+      color: #484849;
+      line-height: 24px;
+    }
+
+    .#{$id}-button {
+      height: 40px;
+      line-height: 40px;
+      display: block;
+      max-width: 200px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: 600;
+      box-sizing: border-box;
+      text-decoration: none;
+      transition: all .2s ease-in-out;
+      background: #166d02;
+      border: 1px solid #166d02;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 0 auto;
+      @media(min-width: 1024px) {
+        height: 45px;
+        line-height: 45px;
+        max-width: 280px;
+        &:hover {
+          background: white;
+          color: #166d02;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,297 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}-noScroll {
+    overflow: hidden !important;
+  }
+
+  .HC060-relatedPopUp__wrapper {
+    position: relative;
+    display: none;
+    opacity: 0;
+    transition: opacity .25s ease-out;
+
+    z-index: 99999999;
+
+    &.visible {
+      opacity: 1;
+      display: block;
+    }
+    &.hidden {
+      opacity: 0;
+    }
+
+    // --- Background Overlay
+    .HC060-relatedPopUp__overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 101;
+      opacity: .25;
+    }
+
+    .HC060-relatedPopUp__container {
+      /* border: 10px solid #d6d6d6; */
+      margin: 0;
+      padding: 30px 0px 0px 0px;
+      width: 600px !important;
+      overflow: inherit!important;
+      box-sizing: border-box;
+      margin: auto;
+
+      @media screen and (max-width: 599px) {
+        width: 95vw !important;
+      }
+      @media screen and (max-width: 320px) {
+        width: 100vw !important;
+      }
+      
+  
+      // --- Visible
+      position: fixed;
+      z-index: 102;
+      background: #fff;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      // --- Product Title
+      h2 {
+        padding: 0px 50px 20px 30px;
+        strong {
+          font-weight: 500;
+
+          @media screen and (max-width: 375px) {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;  
+          }
+          
+        }
+      }
+
+      // --- CTA Buttons
+      .HC060-ctaBtn__wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        padding: 0px 30px 20px 30px;
+
+        button {
+          width: 48%;
+
+          &#HC060-continute-shopping {
+            button#HC060-continute-shopping:after {
+              content: 'new';
+            }
+          }
+        }
+        @media screen and (min-width: 391px) {
+          button#HC060-continute-shopping:after {
+            content: ' Shopping';
+          }
+        }
+        
+      }
+
+      // --- View Basket Link
+      .HC060-viewBasket__link {
+        padding: 0px 20px 20px 20px;
+        text-align: center;
+        a {
+          cursor: pointer;
+          font-size: .9375rem;
+          color: #929292;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      
+      // --- Close Icon
+      button.HC060-button__close {
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 0;
+        right: 20px;
+        top: 0;
+        color: transparent;
+        float: right;
+  
+        span {
+          height: 32px;
+          width: 32px;
+          left: 0;
+          top: 0;
+          margin-left: 0;
+          margin-top: 0;
+          background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/en_GB/v1619053683976/images/svg-icons/x-close-icon.svg') center top no-repeat;
+          background-size: 12px 11px;
+          
+          &:hover {
+            background: url('https://www.hotelchocolat.com/on/demandware.static/Sites-HotelChocolat-Site/-/en_GB/v1619053683976/images/svg-icons/x-close-icon-hover.svg') center top no-repeat;
+            background-size: 12px 11px;
+          }
+        } 
+      }
+  
+      // --- List of Related Products
+      .HC060-relatedProds__wrapper {
+        background-color: #f1f1f1;
+        padding: 20px 30px 30px 30px;
+        padding: 20px 0px 30px 0px;
+
+        h4 {
+          font-family: DidotLTPro-Roman;
+          font-size: 20px;
+          line-height: normal;
+          text-transform: none;
+          padding-bottom: 10px;
+          padding: 0 30px 20px 30px;
+        }
+        
+        ul.HC060-relatedProds__list {
+          list-style: none;
+          display: flex;
+          padding: 0px;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: space-evenly;
+
+          @media screen and (max-width: 600px) {
+            width: 95vw;
+            margin: 0px;
+          }
+          @media screen and (max-width: 320px) {
+            width: 100vw;
+          }
+
+          a {
+            padding: 0px 10px;
+          }
+  
+          li {
+            width: 150px;
+            text-align: center;
+            background-color: #f1f1f1;
+            margin: auto;
+
+            p.HC060-name {
+              letter-spacing: 0;
+              font-family: GillSansNova-Medium;
+              font-size: .9375rem;
+              margin: 10px 0px;
+              color: #000;
+              text-transform: uppercase;
+              font-size: 1.05em;
+              letter-spacing: 1px;
+              
+              height: 55px;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;          
+            }
+
+            span.HC060-price {
+              font-size: 18px;
+              font-family: GillSansNova-Light;
+              color: #2a2a2a;
+            }
+            
+          }
+        }
+      }
+    }
+
+    &.v1, &.v2 {
+      ul.HC060-relatedProds__list {
+        @media screen and (max-width: 490px) {
+          overflow-x: scroll;
+          display: flex;
+          overflow: scroll;
+          justify-content: flex-start !important;
+          padding-bottom: 10px !important;
+        }
+      }
+    }
+    &.v2 {
+
+    }
+    &.v3 {
+      @media screen and (min-width: 600px) {
+        .HC060-content__wrapper {
+          padding-top: 20px;
+
+          h2 {
+            padding: 0px 40px 40px 20px;
+          }
+        }
+        button.HC060-button__close {
+          position: absolute;
+          top: 20px;
+        }
+        .HC060-relatedPopUp__container {
+          display: flex;
+          align-content: center;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: flex-start;
+          padding-top: 0px;
+  
+          .HC060-ctaBtn__wrapper {
+            flex-direction: column;
+            padding: 0px 20px 20px 20px;
+  
+            button {
+              width: 100%;
+              margin: auto;
+              &:nth-of-type(1) {
+                margin-bottom: 10px;
+              }
+            }
+          }
+
+          h4 {
+            width: 80%;
+          }
+  
+          .HC060-viewBasket__link {
+            text-align: center;
+          }
+        }
+      }
+
+      ul.HC060-relatedProds__list li {
+        width: 185px !important;
+        img {
+          width: 165px !important;
+
+          @media screen and (max-width: 375px) {
+            width: 150px !important;
+          }
+        }
+      }
+      
+    }
+
+  }
+  
+  
+}

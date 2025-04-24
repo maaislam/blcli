@@ -1,0 +1,90 @@
+@import '../../../variables';
+
+.#{$id} {
+  .#{$id}_CategoryBar {
+    font-size: 17px;
+    padding: 0 40px;
+    background: #F7E5ED;
+
+    > ul {
+      padding: 0 40px;
+    }
+  }
+  
+  .#{$id}_CategoryBar_item {
+    padding: 11px 20px;
+    background: #F7E5ED;
+    position: relative;
+
+    &.#{$id}_CategoryBar_item--active {
+      a {
+        color: #F051AE;
+        font-weight: bold;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 20px;
+      background-color: #D1C6CB;
+    }
+
+    &:last-of-type:after {
+      display: none;
+    }
+  }
+
+  // Swiper slider
+  .#{$id}_CategoryBar {
+    .swiper-slide {
+      width: auto;
+    }
+
+    .swiper-button-prev {
+      left: 0;
+      border-right: 1px solid #E9168C;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAM1BMVEUAAADYD4fmFYLmFYHjFYDmFYHmE4PnFYHmFILjHI7nFYLmFYHmFYHnFYHlFoHhD4fmFYGhU1/LAAAAEHRSTlMABrLjJOcps7sJYeKDUzkRS0l2ogAAAHFJREFUWMPtl0sKgDAMRNv6aU3V5v6nVXDh3hEampn9e5APgQRfiXsRiM+qegJ80jsC8rVh/DST/zp/53wiz/3rx2/FNx9BPhwvDwrwErAmLmtPQ8w0PAeNBjMGC/tgwWBhFjT8aqgNNQj89sGP54C5ANGZEbOcXz6tAAAAAElFTkSuQmCC');
+    }
+
+    .swiper-button-next {
+      right: 0;
+      border-left: 1px solid #E9168C;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAALVBMVEUAAADdHofmFYHlFoHmFYHnFYHnFILmFYHmFILmFoHmFYHjDoDlFoHlF4DmFYHZuoppAAAADnRSTlMAB+IitrJiua+COxJFRIjHCwAAAABWSURBVEjHY6AjYKsUwK9g3btA/Ary3j3Fb8SmdwSMYNZ79wS/EUbv3jmOGjFqxHA2ooGQEW8IKXhLrhUIRxLy5qgBowYMAwNAVRIllRqiWiRcsdIfAABOfH0e+5oRwQAAAABJRU5ErkJggg==');
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      z-index: 10;
+      height: 100%;
+      width: 40px;
+      background-color: #F7E5ED;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-size: 50%;
+      opacity: 1;
+      transition: opacity .3s ease-out;
+      -moz-transition: opacity .3s ease-out;
+      -webkit-transition: opacity .3s ease-out;
+      -o-transition: opacity .3s ease-out;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+    
+    .swiper-button-disabled {
+      opacity: 0;
+      transition: opacity .3s ease-out;
+      -moz-transition: opacity .3s ease-out;
+      -webkit-transition: opacity .3s ease-out;
+      -o-transition: opacity .3s ease-out;
+    }
+  }
+}

@@ -1,0 +1,349 @@
+@import './variables';
+
+.#{$id} {
+    &.#{$id}-control {
+        #main {
+            overflow: hidden;
+        }
+        .#{$id}-valueMessages__wrapper.v2 {
+            // padding: 10px 0;
+            .#{$id}-valueMessages__container {
+        
+              ul.#{$id}-valueMessages__content {
+                list-style: none;
+                padding-left: 0px;
+        
+                text-align: center;
+        
+                // background-color: lightcoral;
+        
+                li.#{$id}-usp-msg {
+                  text-align: center;
+                  position: relative;
+                  background-color: transparent;
+        
+                  // background-color: lightblue;
+                  margin: 5px 0;
+                  width: 48.5%;
+                  display: inline-flex;
+                  height: fit-content;
+                  min-height: 120px;
+        
+                  @media screen and (min-width: 1280px) {
+                    min-height: 150px !important;
+                  }
+                  @media screen and (min-width: 991px) {
+                    min-height: 220px;
+                  }
+                  @media screen and (min-width: 767px) and (max-width: 990px) {
+                    min-height: 270px;
+                  }
+                  @media screen and (max-width: 767px) {
+                    min-height: 100px;
+                    &:nth-of-type(odd) {
+                      // margin: 2.5px 1% 2.5px 0;
+                      margin: 2.5px 1.5% 2.5px 0;
+                    }
+                    &:nth-of-type(even) {
+                      margin: 2.5px 0 2.5px 1.5%;
+                    }
+                  }
+        
+                  @media screen and (max-width: 420px) {
+                    min-height: 150px;
+                    width: 90%;
+                    min-height: 80px;
+                    &:nth-of-type(odd) {
+                      // margin: 2.5px 1% 2.5px 0;
+                      margin: 2.5px 0 2.5px 0;
+                    }
+                    &:nth-of-type(even) {
+                      margin: 2.5px 0 2.5px 0;
+                    }
+                  }
+                  @media screen and (max-width: 320px) {
+                    // min-height: 200px;
+                  }
+                // --- Changes ---
+                  @media screen and (min-width: 1280px){
+                    &:nth-of-type(odd) {
+                      // margin: 2.5px 1% 2.5px 0;
+                      margin: 2.5px 1.5% 2.5px 0;
+                    }
+                    &:nth-of-type(even) {
+                      margin: 2.5px 0 2.5px 1.5%;
+                    }
+                  }
+                  @media screen and (min-width: 768px) and (max-width: 1279px){
+                    width: 100%;
+                    min-height: 80px;
+                  }
+                  
+        
+                  div.#{$id}-usp__img {
+                    z-index: 0;
+                    position: relative;
+                    height: 100%;
+        
+                    display: inline-block;
+                    position: absolute;
+        
+                    div {
+                      background-color: #AB9F87;
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50px;
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      img {
+                        width: 33px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                      }
+                    }
+                      
+                  }
+                  div.#{$id}-usp__msg {
+                    padding: 10px 0;
+                    z-index: 0;
+                    text-align: left;
+        
+                    display: inline-block;
+                    padding: 0px 0 0 55px;
+        
+                    span {
+                      font-family: GillSansNova-Light;
+                      font-size: 14px;
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                    }
+                  }
+        
+                }
+        
+              }
+        
+            }
+        
+          }
+    }
+
+    &.#{$id}-1, 
+    &.#{$id}-2 {
+
+        // remove padding to make full width
+        // add padding back to individual elements
+        @media(max-width: 767px) {
+            #wrapper #main {
+                padding: 0;
+            }
+            #page_heading {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .product-col-1,
+            #product-content,
+            .tab-target-mobile,
+            .content-zone,
+            .prod-info.prod-info-b,
+            .prod-info.prod-info-c,
+            .recommendations.recommendations-pdp{
+                padding: 0 10px;
+                box-sizing: border-box;
+            }
+            .content-zone .content-zone {
+                padding: unset;
+            }
+            .pdp-main .product-col-2, .pdp-main .product-col-2 .tab-target-mobile, .content-zone {
+                width: auto;
+            }
+            .product-col-2.product-detail {
+                margin-bottom: 20px;
+            }
+        }
+
+        // value messages
+        .#{$id}-valueMessaging {
+            clear: both;
+            margin-top: 20px;
+            @media(min-width: 767px) {
+                margin-top: 50px;
+            }
+            .#{$id}-container {
+                display: flex;
+                flex-direction: column;
+
+                .#{$id}-value {
+                    .#{$id}-col-left {
+                        height: 200px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        position: relative;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            border-style: solid;
+                            border-width: 0 20px 20px 20px;
+                            border-color: transparent transparent #ffffff transparent;
+                        }
+                    }
+
+                    .#{$id}-col-right {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-content: center;
+                        .#{$id}-value-text {
+                            padding: 30px 10px;
+                            text-align: center;
+                            h3 {
+                                font-family: DidotLTPro-Roman;
+                                font-size: 25px;
+                                color: #85734F;
+                                letter-spacing: 0;
+                                margin-bottom: 10px;
+                            }
+                            p {
+                                font-family: GillSansNova-Light;
+                                font-size: 16px;
+                                line-height: 23px;
+                                margin-bottom: 10px;
+                            }
+                            a {
+                                font-family: GillSansNova-Medium;
+                                text-decoration: underline;
+                                color: black;
+                                text-transform: uppercase;
+                                letter-spacing: 0.7px;
+                            }
+                            @media(min-width: 375px) {
+                                padding: 30px 20px;
+                                p {
+                                    font-size: 17px;
+                                    line-height: 25px;
+                                }
+                            }
+                        }
+                    }
+
+                    @media(min-width: 767px) {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: stretch;
+                        .#{$id}-col-left {
+                            width: 50%;
+                            height: 300px;
+                            &::after{
+                                right: -2px;
+                                bottom: unset;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                border-width: 20px 20px 20px 0;
+                                border-color: transparent #ffffff transparent transparent;
+                            }
+                        }
+                        .#{$id}-col-right {
+                            width: 50%;
+                           
+                            .#{$id}-value-text {
+                                h3 {
+                                    font-size: 23px;
+                                }
+                                p {
+                                    font-size: 15px;
+                                    line-height: 22px;
+                                }
+                            }
+                        }
+                        &:nth-child(2n) {
+                            flex-direction: row-reverse;
+                            .#{$id}-col-left {
+                                &::after{
+                                    right: unset;
+                                    left: -2px;
+                                    border-width: 20px 0 20px 20px;
+                                    border-color: transparent transparent transparent #ffffff;
+                                }
+                            }
+                        }
+                    }
+
+                    @media(min-width: 1024px) {
+                        .#{$id}-col-right {
+                            .#{$id}-value-text {
+                                h3 {
+                                    font-size: 25px;
+                                }
+                                p{
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                }
+                            }
+                        }
+                    }
+
+                    @media(min-width: 1280px) {
+                        .#{$id}-col-right {
+                            .#{$id}-value-text {
+                                padding: 30px 30px;
+                                h3 {
+                                    font-size: 28px;
+                                }
+                                p {
+                                    font-size: 17px;
+                                    margin-bottom: 15px;
+                                }
+                                a {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+
+                    
+
+                    &.#{$id}-happiness {
+                        .#{$id}-col-left { 
+                            background-image: url('https://editor-assets.abtasty.com/48343/6093deeccaae11620303596.jpg');
+                            @media(min-width: 1024px) {
+                                background-image: url('https://editor-assets.abtasty.com/48343/6093e94a9451f1620306250.jpg');
+                            }
+                        }
+                    }
+                    &.#{$id}-ingredients {
+                        .#{$id}-col-left { 
+                            background-image: url('https://editor-assets.abtasty.com/48343/6093df40e4ae91620303680.jpg');
+                            @media(min-width: 1024px) {
+                                background-image: url('https://editor-assets.abtasty.com/48343/6093e95ce64531620306268.jpg');
+                            }
+                        }
+                    }
+                    &.#{$id}-ethics {
+                        .#{$id}-col-left { 
+                            background-image: url('https://editor-assets.abtasty.com/48343/6093df5908a821620303705.jpg');
+                            @media(min-width: 1024px) {
+                                background-image: url('https://editor-assets.abtasty.com/48343/6093e9280a3b91620306216.jpg');
+                            }
+                        }
+                    }
+                    &.#{$id}-made {
+                        .#{$id}-col-left { 
+                            background-image: url('https://editor-assets.abtasty.com/48343/6093df69a8e201620303721.jpg');
+                            @media(min-width: 1024px) {
+                                background-image: url('https://editor-assets.abtasty.com/48343/6093e98c8272c1620306316.jpg');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }  
+}

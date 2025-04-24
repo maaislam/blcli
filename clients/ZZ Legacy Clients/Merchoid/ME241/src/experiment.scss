@@ -1,0 +1,60 @@
+@import './variables';
+
+.#{$id} {
+    .#{$id}-badge {
+        background: rgba(23, 190, 251, 0.58);
+        color: white;
+        padding: 5px;
+        font-weight: 600;
+        border-radius: 10px;
+        text-align: center;
+        .#{$id}-icon {
+            height: 27px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 2px;
+            width: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        span {
+            text-transform: uppercase;
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &.#{$id}-lowStockBadge {
+            background: rgba(189, 6, 6, 0.95);
+            .#{$id}-icon {
+                background-image: url('//cdn.optimizely.com/img/6087172626/dac9bc846f17443b9ddf09e4d75c84a3.png');
+            }
+        }
+        &.#{$id}-sellingFastBadge {
+            background: #f4790d;
+            .#{$id}-icon {
+                height: 25px;
+                width: 25px;
+                margin-right: 0;
+                background-image: url('//cdn.optimizely.com/img/6087172626/3d7adb54757b4d97918845e380d7a7d0.png');
+            }
+        }
+
+        @media(min-width: 1024px) {
+            width: 90%;
+            margin: 0 auto;
+            padding: 5px;
+            .#{$id}-icon {
+                height: 27px;
+                width: 27px;
+                margin-right: 10px;
+            }
+            &.#{$id}-sellingFastBadge {
+                .#{$id}-icon {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}

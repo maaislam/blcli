@@ -1,0 +1,95 @@
+@import '../../../variables';
+
+.#{$id} {
+  .content-container {
+    position: relative;
+    .#{$id}_stickyTab {
+      position: absolute;
+      top: -1000px;
+      width: 100%;
+      left: 0;
+      background: #43aae0;
+      z-index: 999;
+      text-align: center;
+      color: white;
+      padding: 5px;
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+      &.#{$id}-nav_fixed {
+        position: fixed;
+      }
+      p {
+        font-family: "ConduitBold",Arial,Helvetica,sans-serif;
+        margin-bottom: 0px;
+        text-transform: uppercase;
+        position: relative;
+        line-height: 18px;
+      }
+      &.#{$id}-tab_show {
+        top: 0px;
+      }
+      @media(min-width: 767px) {
+        position: fixed;
+        top: 20%;
+        width: 120px;
+        padding-top: 30px;
+        right: 0;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        text-align: center;
+        left: auto;
+        &::before {
+          content: '';
+          position: absolute;
+          background-image: url('//cdn.optimizely.com/img/8355110909/9e381377747643a0afb8e9f295c462c3.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 25px;
+          height: 25px;
+          top: 7px;
+          transform: translateX(-50%);
+          left: 50%;
+        }
+        p {
+          margin-bottom: 0px;
+          font-size: 17px;
+          text-transform: uppercase;
+          line-height: 18px;
+          margin-top: 7px;
+          font-family: "ConduitBold",Arial,Helvetica,sans-serif;
+        }
+      }
+    }
+  }
+  &.#{$id}-2 {
+    @media(max-width: 767px) {
+      .#{$id}_stickyTab {
+        position: fixed;
+        top: 20%;
+        width: 50px;
+        right: 0;
+        left: auto;
+        height: 140px;
+        &::before {
+          content: '';
+          position: absolute;
+          background-image: url('//cdn.optimizely.com/img/8355110909/9e381377747643a0afb8e9f295c462c3.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 25px;
+          height: 25px;
+          top: 7px;
+          transform: translateX(-50%);
+          left: 50%;
+        }
+        p {
+          transform: translate(-50%) rotate(-90deg);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 140px;
+        }
+      }
+    }
+  }
+}

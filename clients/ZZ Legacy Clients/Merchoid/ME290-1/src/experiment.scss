@@ -1,0 +1,204 @@
+@import './variables';
+
+.#{$id} {
+    .brand-section-content,
+    .action-more.brand {
+        display: none;
+    }
+    .brand-section {
+        .brand-section-header-content {
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            @media(min-width: 767px) {
+                padding-top: 30px !important;
+                padding-bottom: 20px !important;
+            }
+        }
+        .brand-section-header {
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+        // tab titles
+        .section-title-inner {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 15px;
+            background: #f3f3f3;
+            text-align: center;
+            padding: 10px;
+            padding-bottom: 0;
+            .product-title {
+                border-bottom: 2px solid #f3f3f3;
+                margin-right: 10px;
+                margin-left: 10px;
+                padding-bottom: 10px;
+                cursor: pointer;
+                @media(min-width: 1280px) {
+                    margin-right: 20px;
+                    margin-left: 20px;
+                }
+                h3 {
+                    color: #000;
+                    font-weight: 100;
+                    font-size: 14px;
+                    margin: 0;
+                    @media(min-width: 375px) {
+                        font-size: 15px;
+                    }
+                    @media(min-width: 1280px) {
+                        font-size: 16px;
+                    }
+                }
+                &.#{$id}-titleActive {
+                    border-bottom: 2px solid #10baf4;
+                   h3 {
+                        font-weight: 600;
+                   }
+                }
+            }
+        }
+
+        .#{$id}-tabContentWrap {
+            max-width: 980px;
+            margin: 0 auto;
+            @media(min-width: 1280px) {
+                max-width: 1200px;
+            }
+        }
+    
+
+        // tab content
+        .#{$id}-tabContent {
+            height: 0px; overflow-y: hidden;
+            text-align: center;
+            &.#{$id}-tabContentActive {
+                height: auto;
+                overflow: unset;
+                padding: 10px;
+                @media(min-width: 1024px) {
+                    padding: 20px;
+                }
+            }
+
+            .item.product {
+                .product-item-info {
+                    margin: 0 auto;
+                    width: 200px;
+                    .product.name {
+                        a {
+                            font-size: 15px;
+                            font-weight: 100;
+                            color: black;
+                        }
+                    }
+                    .price {
+                        color: black;
+                    }
+                }
+                .price-box {
+                    margin-bottom: 0;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: center;
+                    .price-label {
+                        display: none;
+                    }
+                    .old-price {
+                        margin-left: 5px;
+                    }
+                }
+                .product-item-inner {
+                    display: none;
+                }
+            }
+        }
+
+        .slick-arrow {
+            background-color: #f3f3f3;
+            background-image: url('//cdn.optimizely.com/img/6087172626/3cfd7ed0857242ab94dbe4f79889139a.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 25px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50px;
+            z-index: 99;
+            border: 1px solid #c9f1ff;
+            &::before{
+                display: none;
+            }
+            &.slick-prev {
+                left: 5px;
+                transform: rotate(180deg) translateY(50%);
+                @media(min-width: 375px) {
+                    left: 10px;
+                 }
+                 @media(min-width: 1024px) {
+                    left: 0px;
+                 }
+                 @media(min-width: 1280px) {
+                    left: -20px;
+                 }
+            } 
+            &.slick-next {
+                right: 5px;
+                @media(min-width: 375px) {
+                   right: 10px;
+                }
+                @media(min-width: 1024px) {
+                    right: 0px;
+                 }
+                 @media(min-width: 1280px) {
+                    right: -20px;
+                 }
+            }
+        }
+
+        .#{$id}-buttons {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin-top: 10px;
+            .#{$id}-button {
+                padding: 10px;
+                color: white;
+                text-transform: uppercase;
+                font-weight: 900;
+                background: #10baf4;
+                border: 1px solid #10baf4;
+                box-sizing: border-box;
+                text-align: center;
+                margin-bottom: 10px;
+                font-size: 13px;
+                border-radius: 5px;
+                &:hover {
+                    background: #3dc7f7;
+                    text-decoration: none;
+                }
+                @media(min-width: 375px) {
+                    font-size: 14px;
+                } 
+            }
+            @media(min-width: 767px) {
+                flex-direction: row;
+                max-width: 1024px;
+                margin: 0 auto;
+                justify-content: center;
+                .#{$id}-button {
+                    width: 50%;
+                    margin: 10px;
+                    max-width: 350px;
+                }
+            }
+            @media(min-width: 1024px) {
+                padding: 20px; 
+                .#{$id}-button {
+                    margin: 15px;
+                }
+            }
+        }
+
+    }
+}

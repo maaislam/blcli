@@ -1,0 +1,83 @@
+@import './variables';
+
+.#{$id} {
+
+    &__samplespromo {
+        @include flex-column;
+        padding: 20px 0;
+        margin: 20px 0;
+        @include font-size(16, 20, 600);
+        background-color: $brand-gray;
+        text-align: center;
+
+        @media(max-width: 640px) {
+            margin: 20px -16px;
+        }
+
+        & img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        & a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+
+
+        &>.discount-banner {
+            @include font-size(14, 17, 400, $white-primary);
+            padding: 6px 0;
+            margin: 20px 0;
+            background-color: $brand-purple;
+
+        }
+
+        &>.products {
+            @include flex-column;
+            padding: 0 20px;
+            margin-bottom: 20px;
+
+            &>a:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+
+        & .#{$id}__product {
+            display: flex;
+            align-items: flex-start;
+            @include font-size(14, 17, 600);
+            text-align: left;
+
+            &--img {
+                width: 100%;
+                max-width: 80px;
+                height: 80px;
+                margin-right: 20px;
+            }
+
+            & .name {
+                margin-bottom: 12px;
+            }
+        }
+
+        &>.view-all {
+            display: inline-block;
+            padding: 16px 24px;
+            width: max-content;
+            margin: 0 auto;
+            @include font-size(16, 20, 700);
+            border: 2px solid $black-primary;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: $black-primary;
+                color: $white-primary;
+            }
+        }
+    }
+}

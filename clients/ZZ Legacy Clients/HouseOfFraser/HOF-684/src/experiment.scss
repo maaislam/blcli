@@ -1,0 +1,119 @@
+@import "./variables";
+
+.#{$id} {
+	.MainOrderSummary {
+		margin-top: 0px !important;
+	}
+	#buttonWrapperMobile {
+		display: none !important;
+	}
+	.newBasketSummary {
+		h2,
+		.OrderSumm,
+		#buttonWrapper {
+			display: none !important;
+		}
+	}
+	&-sticky-order-sum-wrapper {
+		font-family: "Montserrat,Arial,Helvetica,sans-serif";
+		box-sizing: border-box;
+		background: #fff;
+		box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+		position: fixed;
+		padding: 18px 25px;
+		padding-top: 4px;
+		bottom: 0;
+		width: 100%;
+		z-index: 9999;
+
+		.sticky-order-sum-header {
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px solid #f2f2f2;
+			padding-bottom: 14px;
+			padding-top: 14px;
+			margin-bottom: 10px;
+			text-transform: uppercase;
+			span.sticky-order-sum-heading {
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 20px;
+			}
+			svg {
+				transition: all 0.3s ease;
+			}
+		}
+
+		.sticky-order-sum-body {
+			.sticky-order-sum-items {
+				display: block;
+				overflow: hidden;
+				max-height: 0px;
+				transition: all 0.3s ease;
+				.sticky-order-sum-item {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: 14px;
+					line-height: 17px;
+					font-weight: 400;
+					margin-bottom: 5px;
+				}
+			}
+			.sticky-order-sum-total {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 14px;
+				line-height: 17px;
+				font-weight: 500;
+				margin-top: 5px;
+				margin-bottom: 20px;
+				.order-sum-total-title {
+					text-transform: uppercase;
+				}
+			}
+		}
+		.sticky-order-sum-footer {
+			.sticky-order-sum-button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: #e10098;
+				padding: 18px 0;
+				color: #fff;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 20px;
+				text-transform: uppercase;
+
+				&.disabled {
+					opacity: 0.6;
+					pointer-events: none;
+				}
+			}
+		}
+
+		&.maximized {
+			transition: all 0.3s ease;
+			.sticky-order-sum-header {
+				svg {
+					transform: rotate(180deg);
+					transition: all 0.3s ease;
+				}
+			}
+
+			.sticky-order-sum-body {
+				.sticky-order-sum-items {
+					display: block;
+					overflow: hidden;
+					max-height: 1000px;
+					transition: all 0.3s ease;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,147 @@
+.#{$id} {
+  $close-button-size: 24px;
+
+  .#{$id}-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto 1fr auto;
+    width: 100%;
+    max-height: calc(100% - 2rem);
+    background-color: $color-white;
+    box-shadow: 0px -2px 4px rgba($color-black, 0.2);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    position: relative;
+
+    @include media($media-mobile) {
+      max-width: 425px;
+      height: 100%;
+      max-height: 100%;
+      box-shadow: 0px 0px 8px 2px rgba($color-black, 0.2);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .#{$id}-container__banner {
+    overflow: hidden;
+    height: 175px;
+    position: relative;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .#{$id}-container__close-button-wrapper {
+    margin-top: -#{$close-button-size};
+    position: sticky;
+    position: -webkit-sticky;
+    top: $space-edge;
+    margin-top: -#{$close-button-size};
+    width: $close-button-size;
+    height: $close-button-size;
+    margin-left: calc(100% - #{$close-button-size} - #{$space-edge});
+    z-index: 1;
+  }
+
+  .#{$id}-container__close-button {
+    display: block;
+    width: $close-button-size;
+    height: $close-button-size;
+    background-color: $color-white;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px rgba($color-black, 0.2);
+    position: relative;
+    cursor: pointer;
+    transition: transform $transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80%;
+      height: 2px;
+      background-color: $color-black;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  .#{$id}-container__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+    padding: $space-edge;
+    text-align: center;
+
+    h2 {
+      font: $font-heading;
+      font-size: 24px;
+      line-height: 36px;
+
+      @include media($media-tablet) {
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 24px;
+      color: $color-grey;
+      padding-inline: $space-edge;
+    }
+  }
+
+  .#{$id}-container__product-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: min-content;
+    gap: $space-edge;
+    padding: $space-edge;
+
+    .philly-cheesesteak {
+      grid-row: 1;
+    }
+
+    .philly-mushroom {
+      grid-row: 2;
+    }
+
+    .italian-sausage-pepperoni {
+      grid-row: 3;
+    }
+
+    .bbq-chicken-bacon {
+      grid-row: 4;
+    }
+
+    .vegan-philly-mushroom {
+      grid-row: 5;
+    }
+  }
+
+  .#{$id}-container__action-button {
+    padding: $space-edge;
+    position: sticky;
+    bottom: 0;
+    background-color: $color-white;
+    border-top: 1px solid $color-light-grey;
+  }
+}

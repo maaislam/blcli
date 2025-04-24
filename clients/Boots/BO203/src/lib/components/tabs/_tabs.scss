@@ -1,0 +1,72 @@
+.#{$id} {
+  .#{$id}-tabs {
+    margin-block: 2rem;
+  }
+
+  .#{$id}-tabs-list-outer {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .#{$id}-tabs-list {
+    position: relative;
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+    list-style: none;
+    min-width: max-content;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: rgba(#333333, 0.2);
+      border-radius: 999px;
+    }
+
+    li {
+      button {
+        background-color: transparent;
+        padding: 0.5rem 1rem;
+        border: 0;
+        font-family: "F37 Ginger Bold", Tahoma, Arial, sans-serif;
+        color: grey;
+        cursor: pointer;
+        transition: 0.25s ease;
+      }
+
+      &.#{$id}-active {
+        button,
+        button:hover {
+          color: #000;
+        }
+      }
+    }
+
+    .#{$id}-tabs-active-marker {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 10px;
+      height: 2px;
+      background-color: #000;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+  }
+
+  .#{$id}-tabs-content {
+    margin-top: 1.5rem;
+
+    [data-tab] {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

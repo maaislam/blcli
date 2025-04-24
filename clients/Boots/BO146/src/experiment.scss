@@ -1,0 +1,514 @@
+@import './variables';
+
+html.#{$id}-noScroll {
+    overflow: hidden;
+}
+body.#{$id}-noScroll {
+    overflow: hidden;
+}
+.#{$id} {
+
+    // LI branded
+    .#{$id}-emailoverlay {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(66, 65, 65, 0.7);
+        z-index: 99;
+        display: none;
+        cursor: pointer;
+
+        &.#{$id}-overlayShow {
+            display: block;
+        }
+    } 
+    .#{$id}-emailSignUp {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+        z-index: 999;
+        width: 90%;
+        max-width: 700px;
+        display: none;
+        @media only screen and (max-height : 500px){
+            max-height: 400px;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        @media only screen and (min-width : 321px) and (orientation : landscape){
+            max-height: 300px;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        @media only screen and (min-width : 767px) {
+            max-height: unset;
+            overflow: unset;
+        }
+        &.#{$id}-emailShow {
+            display: block;
+        }
+
+        .#{$id}-close {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            top: -22px;
+            right: -15px;
+            z-index: 999;
+            background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/9DDADCF9442142ED0D7DF2D119363ED16E334C485688AA754083C94FAF2B318C.png?meta=/BO136---Pharmacy-Homepage/noun_Close_40381241.png') no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+            @media(min-width: 767px) {
+                right: -5px;
+                top: -5px;
+            }
+        }
+
+        .#{$id}-emailContent {
+            display: flex;
+            flex-direction: column-reverse;
+            @media(min-width: 767px) {
+                flex-direction: row;
+                height: auto;
+                justify-content: center;
+                align-items: center;
+            }
+            &::before { // if pink
+                content: '';
+                position: absolute;
+                background: #df2e89;
+                height: 145px;
+                z-index: -1;
+                width: 100%;
+                top: 10px;
+                @media(min-width: 767px) {
+                    //display: none;
+                    //height: calc(100% + 53px);
+                    //top: -26px;
+                    height: 100%;
+                    width: 90%;
+                    top: 0;
+
+                }
+                
+            }
+
+            .#{$id}-bootsLILogo {
+                height: 40px;
+                
+                background: url('https://assets.boots.com/content/dam/boots/seasonal-campaigns/love-island/Loveisland-AEM-Lockup.dam.ts%3D1622707263255.png');
+                background-position: center;
+                background-size: contain;
+                margin-bottom: 10px;
+                background-repeat: no-repeat;
+                @media(min-width: 767px) {
+                    margin-bottom: 20px;
+                }
+            }
+            
+            .#{$id}-left {
+                padding: 10px;
+                padding-top: 30px;
+                height: 320px;
+                background-color: rgb(223, 47, 137);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                @media(min-width: 375px) {
+                    padding: 20px;
+                    padding-top: 30px;
+                    
+                }
+                @media(min-width: 500px) {
+                    height: 350px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    padding: 30px;
+
+                }
+                @media(min-width: 767px) {
+                    padding: 15px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    padding-right: 100px;
+                    justify-content:center;
+                    height: 350px;
+                }
+                //background: white;
+                .success,
+                .error,
+                .spinnerContainer {
+                    display: none;
+                }
+
+                .error {
+                    font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                    color: white;
+                    text-align: center;
+                }
+
+                .newsletter_signupContainer {
+                    
+                    h4 {
+                        font-family: "F37 Ginger Bold",Tahoma,Arial,sans-serif;
+                        font-size: 22px;
+                        font-weight: 400;
+                        line-height: 25px;
+                        margin-bottom: 10px;
+                        text-align: center;
+                        color: rgb(255, 219, 19);
+                    }
+                    p {
+                        font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                        text-align: center;
+                        font-weight: 200;
+                        color: white;
+                        @media(min-width: 767px) {
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .footer {
+                        font-size: 12px;
+                        line-height: 16px;
+                        margin-bottom: 10px;
+                        @media(min-width: 767px) {
+                            margin-top: 15px;
+                        }
+                    }
+
+                    #cu_newsletter_signup_form {
+                        padding: 10px;
+                        text-align: center;
+
+                        input {
+                            padding: 10px;
+                            display: block;
+                            width: 100%;
+                            box-sizing: border-box;
+                            border: 1px solid white;
+                            font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                        }
+                        button {
+                            margin: 0 auto;
+                            margin-top: 15px;
+                            width: 50%;
+                            background-color: #ffdb17;
+                            border: 1px solid #ffdb17;
+                            color: #333333;
+                            font-size: 14px;
+                            line-height: 20px;
+                            text-align: center;
+                            height: 40px;
+                            padding: 9px 20px;
+                            border-radius: 5px;
+                            vertical-align: middle;
+                            font-family: "F37 Ginger Bold",Tahoma,Arial,sans-serif;
+                            font-weight: bold;
+                            letter-spacing: 1px;
+                            text-transform: uppercase;
+                            padding-top: 10px;
+                            cursor: pointer;
+                            @media(min-width: 1024px) {
+                                &:hover {
+                                    transition: all 400ms ease-in-out;
+                                    background-color: #333333;
+                                    color: #ffda13;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                .success {
+                    h3 {
+                        font-family: "F37 Ginger Bold",Tahoma,Arial,sans-serif;
+                        font-size: 22px;
+                        font-weight: 400;
+                        line-height: 25px;
+                        margin-bottom: 10px;
+                        text-align: center;
+                        color: rgb(255, 219, 19);
+                    }
+                    p {
+                        font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                        text-align: center;
+                        font-weight: 200;
+                        color: white;
+                    }
+                    input {
+                        padding: 10px;
+                        display: block;
+                        width: 100%;
+                        box-sizing: border-box;
+                        border: 1px solid white;
+                        font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                        font-weight: 900;
+                        letter-spacing: 1px;
+                        border-radius: 0;
+                    }
+                    .#{$id}-voucher {
+                        display: flex;
+                        flex-direction: row;
+                        width: 90%;
+                        margin: 0 auto;
+                        margin-top: 10px;
+                        position: relative;
+                        @media(min-width: 1280px) {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                        }
+
+                        .#{$id}-codeCopied {
+                            position: absolute;
+                            bottom: -37px;
+                            left: 0%;
+    
+                            background: #e4e4e4;
+                            padding: 10px;
+                            border-radius: 10px;
+                            display: none;
+                            font-size: 13px;
+                            color: #333333;
+                            font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                            &.#{$id}-codeCopyShow {
+                             display: block;
+                            }
+                            
+                            &::before {
+                              content: '';
+                              position: absolute;
+                              left: 50%;
+                              transform: translateX(-50%);
+                              width: 0;
+                              height: 0;
+                              border-style: solid;
+                              border-width: 0 20px 20px 20px;
+                              top: -10px;
+                              border-color: transparent transparent #e4e4e4 transparent;
+                            }
+                        }
+
+                        .#{$id}-copyButton {
+                            background-color: #ffda13;
+                            background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/C8FA76B77BB3D5D3BD26CC361162EFBC0782EC8303A5358196511D362C43AC01.png?meta=/BO136---Pharmacy-Homepage/noun_copy_1660797.png');
+                            background-size: 35px;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            height: 50px;
+                            width: 70px;
+                            cursor: pointer;
+                            .#{$id}-copyLabel {
+                                display: none;
+                            }
+                            @media(min-width: 1024px) {
+                                .#{$id}-copyLabel {
+                                    display: none;
+                                    position: absolute;
+                                    right: -27px;
+                                    font-size: 12px;
+                                    padding: 5px;
+                                    background: rgba(255, 255, 255, 0.78);
+                                    bottom: -25px;
+                                    color: #333333;
+                                    font-weight: bold;
+                                    font-family: "F37 Ginger",Tahoma,Arial,sans-serif;
+                                    border-radius: 5px;
+                                }
+                                &:hover {
+                                    transition: all 400ms ease-in-out;
+                                    background-color: #333333;
+                                    color: #ffda13;
+                                    background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/9E8CD3998A85855EBDB562941A2CDFB290FF2201782C4C1F22CC57B028845C52.png?meta=/BO136---Pharmacy-Homepage/noun_copy_16607971.png');
+                                    background-size: 35px;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    .#{$id}-copyLabel {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                       
+                    }
+
+                    .#{$id}-button {
+                        margin: 0 auto;
+                        margin-top: 15px;
+                        width: 65%;
+                        background-color: #ffdb17;
+                        border: 1px solid #ffdb17;
+                        color: #333333;
+                        font-size: 14px;
+                        line-height: 20px;
+                        text-align: center;
+                        height: auto;
+                        padding: 9px 20px;
+                        border-radius: 5px;
+                        vertical-align: middle;
+                        font-family: "F37 Ginger Bold",Tahoma,Arial,sans-serif;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        margin-bottom: 20px;
+                        padding-top: 10px;
+                        cursor: pointer;
+                        @media(min-width: 1024px) {
+                            &:hover {
+                                transition: all 400ms ease-in-out;
+                                background-color: #333333;
+                                color: #ffda13;
+                            }
+                        }
+                        @media(min-width: 1280px) {
+                            margin-top: 25px;
+                        }
+                    }
+                }
+            }
+
+            .#{$id}-right {
+                height: 170px;
+                width: 90%;
+                margin: 0 auto;
+                background-size: cover;
+                background-position: center;
+                margin-bottom: -15px;
+                @media only screen and (min-width : 321px) and (orientation : landscape){
+                    width: 60%;
+                }
+                @media only screen and (min-width : 767px) {
+                    margin-bottom: 0;
+                    margin-left: -75px;
+                    //height: 100%;
+                    height: 330px;
+                    width: 80%;
+                }
+            }
+        }
+    } 
+
+
+    // Boots branded
+    &.#{$id}-2 {
+        .#{$id}-emailSignUp {
+            .#{$id}-emailContent {
+                &::before {
+                    background: white;
+                }
+
+                .#{$id}-close {
+                    height: 30px;
+                    width: 30px;
+                    position: absolute;
+                    right: -15px;
+                    z-index: 999;
+                    background: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/EA435B96764FD9EBAC808E9E6D8C2A174865C5C99BDD4FD0678A535213D4F3A3.png?meta=/BO136---Pharmacy-Homepage/noun_Close_40381242.png') no-repeat center;
+                    background-size: contain;
+                    @media(min-width: 767px) {
+                        right: -5px;
+                        top: -5px;
+                    }
+                }
+                
+
+                .#{$id}-bootsLILogo {
+                    background: url('https://assets.boots.com/content/dam/boots/seasonal-campaigns/love-island/Loveisland-AEM-Lockup-blue.dam.ts%3D1624887359787.png') no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .#{$id}-right {
+                    background: url('https://assets.boots.com/content/dam/boots/seasonal-campaigns/love-island/shopthevilla-generichero-AEM-ForegroundHero-100Teaser-vs3.dam.ts%3D1624265231055.jpg') no-repeat center !important;
+                    background-size: cover !important;
+                }
+                .#{$id}-left {
+                    background: white;
+                    
+                    .newsletter_signupContainer {
+                    
+                        h4 {
+                            color: #05054b;
+                        }
+                        p {
+                            color: #333;
+                        }
+                        #cu_newsletter_signup_form {
+                            input {
+                                border: 1px solid #e0e0e0;
+                            }
+
+                            button {
+                                border-color: #05054b;
+                                background: #05054b;
+                                color: white;
+                                @media(min-width: 1024px) {
+                                    &:hover {
+                                        transition: all 400ms ease-in-out;
+                                        background: #333;
+                                        border-color: #333;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .success {
+                        h3 {
+                            color: #05054b;
+                        }
+                        p {
+                            color: #333;
+                        }
+                        input {
+                            border: 1px solid #e0e0e0;
+                            font-size: 13px !important;
+                            @media(min-width: 767px) {
+                                font-size: 16px !important;
+                            }
+                        }
+                        .#{$id}-button {
+                            border-color: #05054b;
+                            background: #05054b;
+                            color: white;
+                            @media(min-width: 1024px) {
+                                &:hover {
+                                    transition: all 400ms ease-in-out;
+                                    background: #333;
+                                    border-color: #333;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        .#{$id}-voucher {
+                            .#{$id}-copyButton {
+                                background-color: #05054b;
+                                background-image: url('https://service.maxymiser.net/cm/images-eu/new-boots-com/9E8CD3998A85855EBDB562941A2CDFB290FF2201782C4C1F22CC57B028845C52.png?meta=/BO136---Pharmacy-Homepage/noun_copy_16607971.png');
+                                background-size: 35px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                height: 50px;
+                                width: 70px;
+                                cursor: pointer;
+                                @media(min-width: 1024px) {
+                                    &:hover {
+                                        transition: all 400ms ease-in-out;
+                                        background-color: #333;
+                                        border-color: #333;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

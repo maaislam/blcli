@@ -1,0 +1,125 @@
+@import './variables';
+
+.#{$id} {
+  // Hide old banner
+  .container-fluid.header {
+    display: none !important;
+  }
+  .MP156-container {
+    background-color: #f8f8f8;
+    padding-top: 40px;
+    padding-bottom: 10px;
+
+    &.MP156-pageTitle {
+      // background-color: #eee;
+      font-weight: 400;
+      color: #323232;
+      font-size: 1.3em;
+      text-transform: uppercase;
+
+      @media(min-width: 501px) { 
+        margin-top: 15px;
+      }
+    }
+    &.MP156-pageText {
+      margin-bottom: 20px;
+      position: relative;
+
+      p {
+        position: relative;
+        width: 35%;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 30px;
+      }
+    }
+  }
+
+  
+  ul.filter-listContainer {
+    background-color: #f8f8f8;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    display: block !important;
+  }
+
+  .MP156-pageTitle ~ .filter-listContainer {
+    margin-top: 0;
+  }
+
+  // Mobile View
+  ul.MP156-list__mobile {
+    background-color: #f8f8f8;
+    padding-bottom: 20px;
+
+    li {
+      display: block !important;
+      list-style: none;
+      text-align:left;
+
+      margin-left: 0px !important;
+
+      a:hover:after {
+        width: 70% !important;
+        background: #E47562;
+        position: relative;
+        left: -16vw;
+      }
+    }
+  }
+  // Hide Slick Container
+  ul.filter-listContainer.slick-initialized.slick-slider {
+    display: none !important;
+  }
+  .MP156-pageText__mobile {
+    &.hidden {
+      display: none;
+    }
+    p {
+      width: 70% !important;
+      line-height: 22px;
+    }
+  }
+
+  li.filter-list-item .MP156-active:after {
+    width: 100%;
+    background: #E47562;
+  }
+
+  @media screen and (max-width: 500px) {
+    .yCmsComponent.content-plp {
+      &.MP156-banner__v1 .content {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+      }
+      .content {
+        background-color: #f8f8f8;
+      }
+    }
+    
+    .MP156-container.MP156-pageTitle {
+      display: inline-block !important;
+      padding-top: 20px;
+      padding-bottom: 20px !important;
+    }
+    .MP156-arrow {
+      display: inline-block;
+      width: 20px;
+      height: 15px;
+      background-image: url('https://dd6zx4ibq538k.cloudfront.net/static/images/4068/cbd943bc4a860f2a11bf80bb6b824ba6_64_64.png');
+      background-size: cover;
+      margin-left: 20px;
+
+      &.active {
+        background-image: url('https://dd6zx4ibq538k.cloudfront.net/static/images/4068/c40a669788ba7e775c3652e39fa63afa_60_60.png');
+      }
+    }
+
+    ul.MP156-list__mobile li.filter-list-item a {
+      line-height: 2em;
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+}

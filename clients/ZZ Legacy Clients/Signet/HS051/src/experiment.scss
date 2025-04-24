@@ -1,0 +1,1832 @@
+@import './variables';
+
+html.#{$id}_Lightbox__noScroll,
+body.#{$id}_Lightbox__noScroll {
+  overflow: hidden;
+}
+
+.#{$id} {
+    font-family: $montserrat;
+    .basket__messages-container,
+    .basket-table__header,
+    .cta--secondary.js-continue-shopping,
+    .cta--basket.cta--secondary.js-ifcBuyButton,
+    .help-centre-list {
+        display: none;
+    }
+
+    .container {
+        padding: 0;
+    }
+    main,h1, h2, h3, p, a, span, button {
+        font-family: $montserrat;
+    }
+
+    .error-strip {
+        background: white;
+        padding: 5px 2%;
+        width: 90%;
+        margin: 0 auto;
+        list-style: none;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        .message-list__item {
+            margin: 0;
+        }
+    }
+    .basket__button-row {
+        padding: 0 2%;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    // top buttons
+    .cta--basket {
+        font-family: $montserrat;
+        text-transform: capitalize;
+        font-weight: 600;
+        font-size: 16px;
+        max-width: none;
+        margin-top: 10px;
+        &:hover {
+            background: white;
+            border: 1px solid #166d04;
+        }
+        @media(min-width: 767px) {
+            margin-left: 0; 
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .#{$id}-financeCheckout,
+    .ifc-calculator__add-to-bag {
+        text-align: center;
+        font-family: $montserrat;
+        white-space: normal;
+        clear: both;
+        display: inline-block;
+        cursor: pointer;
+        padding: 10px 15px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        max-width: 100%;
+        width: 100%;
+        color: black;
+        line-height: 1;
+        background: white;
+        border: 2px solid #a01c29;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .#{$id}-financeCheckout {
+        &:hover {
+            background: #484849;
+            color: white;
+            border: 2px solid #484849;
+        }
+    }
+    .page-title {
+        font-family: $montserrat;
+        text-align: left;
+        text-transform: capitalize;
+        font-size: 30px;
+        position: relative;
+        margin-bottom: 20px;
+        margin-right: 2%;
+        margin-left: 2%;
+        .#{$id}-norton {
+            position: absolute;
+            height: 75px;
+            width: 75px;
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/FA93CAFAD9EBA6BAD6785A7EA1A191B67E2A4FE872DD371B7AA4C2F547DEBE50/ernestjones-co-uk/EJ051---Basket-concept/2d5fec7c-7586-4852-9cab-56810804fd1c.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .basket-table {
+        margin-top: 10px;
+        padding: 0 2%;
+        display: block;
+        width: auto;
+    }
+
+    // restyle products
+    tbody {
+        display: block;
+    }
+
+    .product-summary {
+        display: block;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: auto;
+        border-bottom: 1px solid #eeeeee;
+        &.offer {
+            td:last-of-type {
+                display: inline-block;
+                width: 54%;
+            }
+            .cta--secondary.disabled {
+                padding: 0;
+                background-color: white;
+                color: #a01d29;
+                text-transform: none;
+                font-size: 13px;
+                border: 0;
+                text-align: left;
+            }
+            @media(min-width: 767px) {
+                .product-summary__left {
+                    width: 100px;
+                }
+                h3 {
+                    font-size: 15px;
+                }
+            }
+        }
+        &.#{$id}-gift_option {
+            display: none;
+        }
+        &.offer {
+            display: block !important;
+            padding: 10px;
+        }
+
+        .product-summary__button-wrapper {
+            display: none;
+        }
+
+        .product-summary__ring-size {
+            margin-bottom: 0;
+        }
+
+        .product-summary__left {
+            display: inline-block;
+            width: 40%;
+            padding: 0px;
+            margin-right: 10px;
+
+            img {
+                border: 1px solid #e8e8e8;
+                width: 100%;
+            }
+        }
+
+        .product-summary__sku {
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+
+        .product-summary__center {
+            display: inline-block;
+            width: 50%;
+            padding: 0px;
+
+            .product-summary__description {
+                font-weight: 100;
+                color: #4d4d4f;
+                line-height: 1.5;
+                font-weight: 100;
+                font-size: 16px;
+                @media(min-width: 370px) {
+                    font-size: 18px;
+                }
+            }
+
+            a,
+            .product-summary__ring-size {
+                color: #4d4d4f;
+                line-height: 1.5;
+                font-weight: 100;
+            }
+        }
+
+        .#{$id}-bottomContent {
+            .product-summary__right {
+                display: block;
+                text-align: left;
+                padding: 0;
+                margin-bottom: 5px;
+                font-family: $montserrat;
+                strong {
+                    color: black;
+                    font-size: 20px;
+                    font-weight: 600;
+                    display: inline-block;
+                }
+
+                .product-summary__was-price {
+                    display: inline-block;
+                    color: #a0a0a0;
+                    font-size: 16px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+
+                .product-summary__save-price {
+                    display: inline-block;
+                    color: #dc2515;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .#{$id}-bottomLinks {
+            text-align: center;
+            margin-top: 10px;
+
+            .#{$id}-productLink {
+                display: inline-block;
+                color: black;
+                text-decoration: underline;
+                font-size: 16px;
+                width: 49%;
+                text-align: left;
+                cursor: pointer;
+                &.#{$id}-save {
+                    text-align: right;
+                    position: relative;
+                }
+
+                &.#{$id}-saved {
+                    pointer-events: none;
+                    text-decoration: none;
+
+                    span {
+                        height: 25px;
+                        width: 25px;
+                        background: url('https://service.maxymiser.net/cm/images-us/1/1/2/24FF5EC678C2A943AE2BA818430469601D44DB5769F4EBAAC18E54E147D2D7AE/hsamuel-co-uk/HS051---Basket-Concept/noun_tick_684585.png') no-repeat center;
+                        background-size: contain;
+                        display: inline-block;
+                        transform: unset;
+                        left: auto;
+                        top: auto;
+                        vertical-align: middle;
+                        position: relative;
+                    }
+                    p {
+                        display: inline-block;
+                        margin-bottom: 0;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    &.#{$id}-save {
+                        text-align: right;
+                        position: relative; 
+                        width: 50%;
+                    }
+                    &.#{$id}-remove {
+                        width: 30%;
+                    }
+                }
+            }
+        }
+    }
+
+    // if offer is showing
+    .product-summary__offer-text {
+        font-size: 14px;
+        font-family: $montserrat;
+    }
+
+
+    // gift option
+    .#{$id}_giftOption {
+        border: 1px solid #dedede;
+        padding: 9px;
+        margin-top: 20px;
+        position: relative;
+
+        a {
+            display: block;
+            text-decoration: underline;
+            span {
+                color: #4d4d4f;
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
+
+        &:after {
+            content: '';
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/8265D61597FFED2F0A3EB73B43AA03B217A3881EE40B9588D4949562ACD367D4/hsamuel-co-uk/HS051---Basket-Concept/hsgift.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &.#{$id}_giftAdded {
+            padding-left: 55px;
+            span {
+                float: left;
+                width: 50%;
+                &.#{$id}-giftPrice {
+                    text-align: right;
+                    color: black;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+                &.#{$id}-title {
+                    font-weight: 600;
+                    color: #4d4d4f;
+                    font-size: 16px;
+                }
+            }
+            .#{$id}-gift_links {
+                clear: both;
+                .#{$id}-link {
+                    display: inline-block;
+                    width: 49%;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    a {
+                        color: black;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    text-align: right;
+                    .#{$id}-link {
+                        width: 15%;
+                    }
+                }
+            }
+            p {
+                display: block;
+                clear: both;
+                margin-bottom: 5px;
+                span {
+                    width: auto;
+                    float: none;
+                    display: block;
+                    font-style: italic;
+                    color: #4d4d4f;
+                }
+            }
+            &:after {
+                left: 0;
+                right: auto;
+                height: 50px;
+                width: 50px;
+            }
+        }
+    }
+
+    // voucher code 
+    .promo-code-input__container {
+        border: 0;
+        padding: 0 2%;
+        width: auto;
+        .promo-code-input {
+            border: 0;
+            padding-bottom: 0;
+        }
+        .promo-code-input__remove-button {
+            position: relative;
+            button {
+                &::before {
+                    display: none;
+                }
+            }
+            span {
+                display: none;
+            }
+            input#couponCodeRemove {
+                background: #ffffff;
+                border: 1px solid #dedede;
+                padding: 7px;
+                font-weight: 100;
+                font-size: 15px;
+                width: 55%;
+                padding-left: 10px;
+                display: inline-block;
+                vertical-align: middle;
+               
+            }
+            button {
+                background: white;
+                font-weight: bold;
+                text-transform: capitalize;
+                border: 1px solid #dedede;
+                width: 35%;
+                padding: 7px;
+                font-size: 15px;
+                margin: 0;
+                display: inline-block;
+                vertical-align: middle;
+                &:before {
+                    display: none;
+                }
+            }
+            &::before{
+                content: '';
+                height: 15px;
+                width: 15px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url('https://service.maxymiser.net/cm/images-us/1/1/2/D0623C38251771E3538824189FAEC87C672A94CCDBC6016811CB44631559B94F/ernestjones-co-uk/EJ051---Basket-concept/circle.png') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .promo-code-input__input {
+            border: 1px solid #dedede;
+            width: 61%;
+            padding-left: 10px;
+            &:focus {
+               border: 2px solid black;
+            }
+            input {
+                text-transform: capitalize;
+                width: 100%;
+                overflow: hidden;
+                display: block;
+                margin: 0;
+                padding: 0;
+                font-family: $montserrat;
+                &:focus {
+                    outline: none;
+                }
+            }
+            @media(min-width: 1024px) {
+                width: 100%;
+            }
+        }
+
+        .promo-code-input__button {
+            margin-left: 10px;
+            float: right;
+
+            .cta--secondary {
+                background: white;
+                font-weight: bold;
+                text-transform: capitalize;
+                border: 1px solid #dedede;
+                &:hover {
+                    background: #484849;
+                    color: white;
+                    border: 1px solid #484849;
+                }
+            }
+        }
+        @media(min-width: 767px) {
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    // if invalid code but still gets applied
+    #promo-code-content{
+        &.#{$id}-voucher_invalid,
+        &.#{$id}-voucher_valid {
+            .promo-code-input {
+                span {
+                    display: block;
+                }
+                .promo-code-input__remove-button {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // price area
+    .order-summary__container {
+        position: relative;
+            #lower-button-group {
+                position: relative;
+                margin-bottom: 0;
+            }
+            @media(min-width: 767px) {
+                background: #eeeeee;
+            }
+    }
+    .order-summary {
+        font-family: $montserrat;
+        position: relative;
+        padding: 5px 2%;
+        background: #eeeeee;
+        width: auto;
+        clear: both;
+        .order-summary__row {
+            &.#{$id}-promoPrice {
+                dt,dd {
+                    color: #dd2a1a;
+                }
+            }
+            dt,dd {
+                color: #4e4e4f;
+                margin-bottom: 0px;
+                font-size: 16px;
+                font-family: $montserrat;
+                @media(min-width: 370px) {
+                    font-size: 16px;
+                }
+            }
+
+            dt {
+                width: 70%;
+            }
+
+            .order-summary__item-value {
+                width: 30%;
+            }
+
+            &.#{$id}-subtotal {
+                display: none
+            }
+        }
+
+        .order-summary__row__divider {
+            border: 0;
+            margin-top: 0;
+            dd {
+                text-align: right;
+            }
+
+            dt,dd {
+                font-size: 20px;
+                font-weight: 600;
+                float: left;
+                width: 50%;
+                padding: 0;
+                margin: 0;
+                font-family: $montserrat;
+            }
+
+        
+            &.#{$id}-savings,
+            &.#{$id}-promoSaving {
+                dt,
+                dd {
+                    color: #dc2515;
+                }
+
+                p {
+                    display: none;
+                }
+            }
+
+            &.#{$id}-grandTotal {
+
+                dt,dd {
+                    color: #4e4e4f;
+                    font-family: $montserrat;
+                }
+            }
+        }
+        .#{$id}-deliveryRow {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+    }
+
+    // paypal button
+    .#{$id}-paypal_button {
+        border: 1px solid #fec537;
+        background: #fec537;
+        font-family: $montserrat;
+        font-weight: 600;
+        font-size: 17px;
+        padding: 5px 10px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        text-align: center;
+        cursor: pointer;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            height: 18px;
+            width: 75px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/50584314027E0D699A126FD9B9C661095E6D6799E84ACA5B66E550F305D3D75A/ernestjones-co-uk/EJ051---Basket-concept/pp-logo-100px.png');
+        }
+        @media(min-width: 767px) {
+            border-radius: 10px;
+            padding: 5px 15px;
+        }
+    }
+    .#{$id}-paypalcredit_button {
+        background: white;
+        border: 1px solid #4e4e4f;
+        color: #4e4e4f;
+        text-align: center;
+        cursor: pointer;
+        span {
+            background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/8A3F25F864B09492216441670B116C491C4326E509E21BF960EA0A99143238EC/ernestjones-co-uk/EJ051---Basket-concept/PaypalCredit_480x480.png');
+            height: 30px;
+            width: 75px;
+            margin-top: 0px;
+            margin-right: 0;
+        }
+        @media(min-width: 767px) {
+
+            padding: 5px 10px;
+        }
+    }
+    .basket__cta-form--paypal,
+    .basket__cta-form--paypal-credit {
+        display: none;
+    }
+
+    .#{$id}-credit_text {
+        font-size: 13px;
+        text-align: center;
+        span {
+            font-weight: 600;
+        }
+        @media(min-width: 767px) {
+            text-align: left;
+        }
+    }
+
+    // finance box
+    #js-ifc-modal.#{$id}-finance_show {
+        position: relative;
+        top: auto;
+        left: auto;
+        z-index: 1;
+        right: auto;
+        transform: none;
+        bottom: auto;
+        background: #eeeeee;
+        pointer-events: unset;
+        padding: 10px;
+        clear: both;
+        font-family: $montserrat;
+        &::before {
+            content: '';
+            display: none;
+            background: #eeeeee;
+            height: 100%;
+            width: 100vw;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50vw);
+            overflow: hidden;
+            top: 0;
+        }
+        #js-error-field {
+            clear: both;
+        }
+        .#{$id}-finance_title {
+            position: relative;
+            color: #484846;
+            font-size: 25px;
+            text-transform: unset;
+        }
+
+        .light-box__close-button,
+        .ifc-calculator__brand-logo {
+            display: none;
+        }
+
+        .ifc-calculator__content-area {
+            background: white;
+            border: 0;
+            height: auto;
+            max-height: unset;
+            padding: 1rem;
+            position: relative;
+            min-width: auto;
+            max-width: auto;
+            overflow: auto;
+            margin: 0;
+            width: auto;
+            @media(min-width: 767px) {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            @media(min-width: 1200px) {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            .ifc-calculator__terms-container {
+                clear: both;
+            }
+            .ifc-calculator__title {
+                text-align: left;
+                width: auto;
+                line-height: 21px;
+                @media(min-width: 1024px) {
+                    font-size: 20px;
+                }
+            }
+
+            .ifc-calculator__label {
+                display: inline-block;
+                width: auto;
+                -webkit-box-flex: unset;
+                flex-grow: unset;
+                margin-right: 5px;
+                font-size: 16px;
+                color: #5a595a;
+            }
+
+            .ifc-calculator__deposit-container {
+                display: inline-block;
+                width: 66%;
+                vertical-align: middle;
+
+                .ifc-calculator__symbol {
+                    background: white;
+                    padding: 0;
+                    width: auto;
+                    padding-left: 10px;
+                    font-weight: 100;
+                    vertical-align: middle;
+                    float: none;
+                    line-height: 35px;
+                    font-size: 15px;
+                    border-radius: 0px;
+                    border-left: 1px solid #ddd;
+                    border-top: 1px solid #ddd;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                .ifc-calculator__input--deposit {
+                    font-weight: 100;
+                    width: 100%;
+                    float: none;
+                    display: inline-block;
+                    vertical-align: middle;
+                    padding-left: 20px;
+                    border-radius: 0px;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                .ifc-calculator__deposit-container--positioning-symbol {
+                    width: 100px;
+                    display: inline-block;
+                    @media(min-width: 374px) {
+                        width: 60%;
+                    }
+                }
+                @media(min-width: 767px) {
+                    width: 30%;
+                    clear: both;
+                    float: left;
+                }
+                @media(min-width: 1024px) {
+                    width: 20%;
+                }
+
+            }
+
+            .ifc-calculator__deposit-amount {
+                display: inline-block;
+                font-size: 11px;
+                line-height: 17px;
+                width: 30%;
+                text-align: left;
+                font-weight: 100;
+                color: #7e7e7e;
+                margin-top: 0;
+                vertical-align: middle;
+
+                @media(min-width: 767px) {
+                    float: left;
+                    margin-top: 10px;
+                    width: 20%;
+                    margin-left: 10px;
+                }
+                @media(min-width: 1024px) {
+                    width: 20%;
+                    margin-left: 20px;
+                    font-size: 14px;
+                }
+            }
+
+            .ifc-calculator-slider__container {
+                width: auto;
+                margin-top: 20px;
+                .ifc-calculator-slider__range {
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                .ifc-calculator-slider__label {
+                    display: none;
+                }
+
+                span {
+                    color: #7e7e7e;
+                    margin-top: 15px;
+                    margin-bottom: 20px;
+                }
+
+                input[type=range]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    border: 1px solid #a01d29;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 30px;
+                    background: #ffffff;
+                    cursor: pointer;
+                    background: #a01d29;
+                    margin-top: -14px;
+                    box-shadow: 1px 1px 5px #ccc, 0px 0px 1px #ccc;
+                }
+                @media(min-width: 767px) {
+                    width: 50%;
+                    margin: unset;
+                    float: left;
+                    clear: both;
+                    margin-top: 20px;
+                }
+            }
+
+            .ifc-calculator__input {
+                width: 30%;
+                border: 1px solid #dddddd;
+                @media(min-width: 374px) {
+                    margin-left: 10px;
+                }
+                @media(min-width: 767px) {
+                    width: 100px;
+                }
+            }
+
+            tbody {
+                display: table-row-group;
+
+                th {
+                    padding-bottom: 10px;
+                    font-size: 16px;
+                    font-weight: 100;
+                    color: #5a595a;
+                }
+                td {
+                    color: #5a595a;
+                }
+
+                .ifc-calculator-summary__text {
+                    text-align: right;
+                    font-weight: 600;
+                    @media(min-width: 1024px) {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        .ifc-calculator__terms-conditions {
+            position: relative;
+            color: #484846;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 10px;
+            @media(min-width: 767px) {
+                padding-top: 20px;
+            }
+            @media(min-width: 1024px) {
+                padding: 20px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .ifc-calculator__add-to-bag {
+            margin: 0 auto;
+            padding: 5px;
+            width: 100%;
+            padding: 5px 10px;
+            height: auto;
+            margin-top: 10px;
+            line-height: 30px;
+            background: #a01c29;
+            color: white;
+            &:hover {
+                background: #484849;
+                color: white;
+                border: 2px solid #484849;
+            }
+            @media(min-width: 767px) {
+                width: 250px;
+                clear: both;
+                display: block;
+            }
+        }
+        @media(min-width: 767px) {
+            padding: 20px;
+           .ifc-calculator-summary {
+                float: right;
+                width: 45%;
+                margin-top: -37px;
+                margin-bottom: 20px;
+            }
+        }
+        @media(min-width: 1024px) {
+            .ifc-calculator-summary {
+                width: 45%;
+            }
+        }
+        @media(min-width: 1200px) {
+            &::before {
+               
+                display: block;
+               
+            }
+        }
+    }
+
+    #ifcPaymentContainer{
+        padding: 0;
+        position: relative;
+        &::before {
+            content: '';
+            display: none;
+            background: #eeeeee;
+            height: 100%;
+            width: 100vw;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50vw);
+            overflow: hidden;
+            top: 0;
+        }
+        #ifcPaymentPlan {
+            position: relative;
+            margin: 0;
+            width: auto;
+            display: block;
+            padding: 5px 2%;
+            background: #eeeeee;
+            
+            .editRemoveIFC {
+                display: none;
+            }
+            caption {
+                position: relative;
+                font-size: 18px;
+                display: block;
+                @media(min-width: 1200px) {
+                    margin-bottom: 20px;
+                    color: black;
+                    margin-top: 0;
+                }
+            }
+            thead {
+                top: 29%;
+                position: relative;
+                display: inline-block;
+                margin: 0;
+                th {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    font-size: 15px;
+                    display: block;
+                }
+                @media(min-width: 767px) {
+                    width: 33%;
+                    float: none;
+                    padding: 0;
+                    th {
+                        width: 100%;
+                    }
+                }
+            }
+            tbody {
+                position: relative;
+                border: 0;
+                td {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    font-size: 15px;
+                    display: block;
+                }
+                @media(min-width: 767px) {
+                    width: 20%;
+                    float: none;
+                    display: inline-block;
+                    
+                }
+            }
+            tfoot {
+                display: none;
+            }
+            .#{$id}-financeBottomContent {
+                display: block;
+                position: relative;
+                clear: both;
+                .#{$id}-financeButtons {
+                    .#{$id}-button {
+                        display: inline-block;
+                        width: 34%;
+                        padding: 5px 10px;
+                        text-align: center;
+                        font-size: 15px;
+                        margin: 10px;
+                        margin-top: 0;
+                        &.#{$id}-removeFinance {
+                            background: #484849;
+                            color: white;
+                            cursor: pointer;
+                            border: 2px solid #484849;
+                            &:hover {
+                                background: white;
+                                color: black;
+                                border: 2px solid #484849;
+                            }
+                            @media(min-width: 767px) {
+                                margin-right: 0px;
+                                margin-left: 5px;
+                            }
+                        }
+                        &.#{$id}-editFinance {
+                            background: white;
+                            color: black;
+                            border: 2px solid #a01d29;
+                            cursor: pointer;
+                            &:hover {
+                                background: #484849;
+                                color: white;
+                                border: 2px solid #484849;
+                            }
+                            @media(min-width: 767px) {
+                                margin-right: 5px;
+                                margin-left: 0;
+                            }
+                        }
+                        @media(min-width: 767px) {
+                            width: 40%;
+                            padding: 10px;
+                        }
+                    }
+                }
+                .#{$id}-financeTotals {
+                    margin-bottom: 20px;
+                    margin-top: 0;
+                    border-top: 1px solid #ccc;
+                    border-bottom: 1px solid #ccc;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    dt {
+                        width: 70%;
+                        float: left;
+                    }    
+                    dd,dt {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-bottom: 10px;
+                    }
+                    @media(min-width: 767px) {
+                        border: 0;
+                    }
+                }
+                @media(min-width: 767px) {
+                    float: right;
+                    position: relative;
+                    clear: both;
+                    width: 44%;
+                }
+            }
+            @media(min-width: 767px){
+                padding: 30px;
+            }
+        }
+        @media(min-width: 767px) {
+            clear: both;
+            padding-top: 20px;
+        }
+        @media(min-width: 1024px) {
+            &::before {
+                display: block;
+            }
+        }
+    }
+
+    // usps 
+    .#{$id}_basket_usps {
+        text-align: center;
+        margin-top: 20px;
+        position: relative;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 2%;
+        padding-right: 2%;
+        border-bottom: 1px solid #eee;
+        border-top: 1px solid #eee;
+
+        .#{$id}-usp {
+            display: inline-block;
+            width: 32%;
+            cursor: pointer;
+            .#{$id}-icon {
+                height: 40px;
+                width: 40px;
+                display: block;
+                margin: 0 auto;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            p {
+                text-decoration: underline;
+                margin-top: 6px;
+                font-weight: 600;
+                color: #484846;
+                font-size: 16px;
+                line-height: 23px;
+
+                span {
+                    text-transform: uppercase;
+                    display: block;
+                }
+            }
+
+            &.#{$id}-delivery {
+                .#{$id}-icon {
+                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/73ACE3BD58E74CF57FCDB1D246757A2A6CCB9A7B6AAF5046104608D156A324EC/hsamuel-co-uk/HS051---Basket-Concept/hsicon2.png');
+                }
+            }
+
+            &.#{$id}-return {
+                .#{$id}-icon {
+                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/192C0D56EAF3F3B73E5A7ADE48866FE446C837D5640349AA4E93EF9D997B5361/hsamuel-co-uk/HS051---Basket-Concept/HSicon1.png');
+                }
+            }
+
+            &.#{$id}-exchange {
+                .#{$id}-icon {
+                    background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/F4DE176C13401FC02C73A7471BBF94EDE9609DCF4107DAF296A0CEFFD785029A/hsamuel-co-uk/HS051---Basket-Concept/hsicon3.png');
+                }
+            }
+        }
+    }
+
+    // slide out box
+    .#{$id}_slideOutWrapper {
+        position: fixed;
+        top: 0;
+        background: white;
+        z-index: 999;
+        left: -10000px;
+        height: 100vh;
+        width: 100%;
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+        &.#{$id}-sideBox_show {
+            left: 0;
+        }
+
+        .#{$id}-slideOut_top {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            position: relative;
+            @media(min-width:767px) {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 20px;
+                text-transform: unset;
+                margin: 0;
+                color: #4d4d4f;
+                padding-left: 45px;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    height: 30px;
+                    width: 30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+            }
+
+            .#{$id}-slide_outClose {
+                position: absolute;
+                right: 10px;
+                height: 20px;
+                width: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: url('https://service.maxymiser.net/cm/images-us/1/1/2/FA5092869514863190A785D4F0F3A61AF6C3A670F902C36D7B139792C6131FD2/ernestjones-co-uk/EJ051---Basket-concept/noun_Cross_1890781.png') no-repeat center;
+                background-size: contain;
+                cursor: pointer;
+            }
+        }
+
+        .#{$id}-slideOut_inner {
+            display: none;
+
+            &.#{$id}-inner_show {
+                display: block;
+            }
+
+            .#{$id}-slideout_content {
+                padding: 20px;
+                overflow-y: scroll;
+                height: 80vh;
+
+                .#{$id}-boldText {
+                    font-weight: 600;
+                    color: #4d4d4f;
+                    font-size: 16px;
+                }
+
+                p {
+                    color: #4d4d4f;
+                    margin: 0;
+                    font-size: 15px;
+                    line-height: 21px;
+                }
+
+                a {
+                    display: block;
+                    color: #4d4d4f;
+                    font-weight: 600;
+                    text-align: center;
+                    text-decoration: underline;
+                    padding: 10px;
+                    font-size: 16px;
+                }
+            }
+
+            &##{$id}-delivery {
+                h2 {
+                    &:before {
+                        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/2832460703696FEBA73EF180B1A7A2CEF18D2C289F2849C7D7EEA048F8A9D232/ernestjones-co-uk/EJ051---Basket-concept/freedelviery.png');
+                    }
+                }
+
+                .#{$id}-boldText {
+                    display: inline-block;
+                    margin-bottom: 0;
+                }
+
+                p {
+                    margin-bottom: 20px;
+                }
+            }
+
+            &##{$id}-return {
+                h2 {
+                    &::before {
+                        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/D175A5703D11BA40CA60299904B58D60878D623FF0D7A3491E254BD8D302787E/ernestjones-co-uk/EJ051---Basket-concept/freereturn.png');
+                    }
+                }
+
+                p {
+                    margin-bottom: 10px;
+                }
+            }
+
+            &##{$id}-exchange {
+                .#{$id}-boldText {
+                    margin-bottom: 10px;
+                }
+
+                h2 {
+                    &::before {
+                        background-image: url('https://service.maxymiser.net/cm/images-us/1/1/2/8EBC770BB7F38D6949FF9B4CBBBCB127AE70AEBFFF457931AE87B480581BCF5D/ernestjones-co-uk/EJ051---Basket-concept/freeexchange.png');
+                    }
+                }
+            }
+
+            .#{$id}-customerService {
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                .#{$id}-icon {
+                    height: 50px;
+                    width: 50px;
+                    margin-right: 10px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background: url('https://service.maxymiser.net/cm/images-us/1/1/2/0894FE2446EDC5BAD0B20BB92C8994FD9C00A14888F1EEA991B62D4AB91716B2/hsamuel-co-uk/HS051---Basket-Concept/hsphone.png') no-repeat center;
+                    background-size: contain;
+                }
+
+                .#{$id}-serviceText {
+                    display: inline-block;
+                    text-align: left;
+                    vertical-align: middle;
+
+                    p {
+                        margin-bottom: 0 !important;
+                        font-size: 16px;
+                    }
+
+                    a {
+                        font-weight: 600;
+                        text-align: left;
+                        margin: 0;
+                        text-decoration: none;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // saved products
+    .#{$id}-savedProducts {
+        padding: 0 2%;
+        clear: both;
+        h3 {
+            text-transform: none;
+            font-size: 25px;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+        .#{$id}_saved-item {
+            display: none;
+            &:nth-child(-n+4) {
+                display: block;
+            }
+            &.#{$id}-saved_active {
+                display: block;
+            }
+        }
+        .product-summary__center {
+            vertical-align: top;
+            .product-summary__description {
+                margin-top: 0;
+            }
+        }
+        .#{$id}-savedremove {
+            color: black;
+            text-decoration: underline;
+            font-size: 16px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    }
+    .#{$id}-showAllSaved {
+        text-align: center;
+        padding: 5px 10px;
+        border: 2px solid #ccc;
+        width: 210px;
+        margin: 0 auto;
+        margin-top: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        &:hover {
+            background: #484849;
+            color: white;
+            border: 2px solid #484849;
+        }
+        
+    }
+    // help box
+    .#{$id}-customerService_container {
+        padding: 10px;
+        text-align: left;
+        h3 {
+            text-transform: none;
+        }
+        .#{$id}-inner_text {
+            text-align: left;
+            width: auto;
+            margin: 0 auto;
+            background: #a01d29;
+            padding: 10px;
+            a {
+                color: white;
+                display: block;
+                text-decoration: none;
+                p {
+                    margin: 0;
+                    font-weight: bold;
+                    color: white;
+                    font-size: 15px;
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        height: 35px;
+                        width: 35px;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: url('https://service.maxymiser.net/cm/images-us/1/1/2/0894FE2446EDC5BAD0B20BB92C8994FD9C00A14888F1EEA991B62D4AB91716B2/hsamuel-co-uk/HS051---Basket-Concept/hsphone.png') no-repeat center;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+        @media (min-width: 767px) {
+            text-align: center;
+            clear: both;
+            padding: 30px;
+            h3 {
+                text-align: center;
+                font-size: 18px;
+            }
+            .#{$id}-inner_text {
+                display: block;
+                margin: 0 auto;
+                width: 250px;
+
+                .#{$id}-phone_icon {
+                    height: 40px;
+                    width: 40px;
+                }
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    // tablet
+    @media(min-width: 767px) {
+        .header {
+            z-index: 9999;
+        }
+        .page-title {
+            margin-bottom: 20px;
+            .#{$id}-norton {
+                height: 70px;
+                 width: 70px;
+            }
+        }
+        .basket__button-row {
+            display: none;
+            &#lower-button-group {
+                display: block;
+                padding: 0;
+            }
+        }
+        .basket-table  {
+            width: 50%;
+            float: left;
+        }
+        .order-summary__container {
+            width: 44%;
+            float: right;
+            margin-right: 2%;
+            .order-summary {
+                width: auto;
+                float: none;
+                padding: 15px;
+                margin-top: 0;
+            }
+        }
+        
+        .#{$id}_giftOption {
+            margin-bottom: 10px;
+            .#{$id}-removeGift {
+                text-align: right;
+            }
+        }
+
+        .#{$id}_basket_usps {
+            clear: both;
+            padding-bottom: 20px;
+            background: white;
+            margin: 0 auto;
+            border: 0;
+            &::before, &::after {
+                display: none;
+            }
+            .#{$id}-usp {
+                width: 32%;
+                .#{$id}-icon {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-bottom: 5px;
+                }
+                p {
+                    display: inline-block;
+                    text-align: center;
+                    margin: 0;
+                    text-decoration: underline;
+                    vertical-align: middle;
+                    span {
+                        text-decoration: underline;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+
+        .#{$id}-savedProducts {
+            h3 {
+                padding: 10px;
+                padding-bottom: 0;
+            }
+            .product-summary {
+                .product-summary__description {
+                    font-size: 16px;
+                }
+                .product-summary__sku {
+                    font-size: 12px;
+                }
+            }
+            .#{$id}_saved-item {
+                width: 47%;
+                margin: 10px; 
+                &:nth-child(-n+4) {
+                    display: inline-block;
+                }
+                &.#{$id}-saved_active {
+                    display: inline-block;
+                }
+            }
+        }
+        .#{$id}-showAllSaved {
+            width: 250px;
+        }
+
+        // overlay 
+        .#{$id}_overlay {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.78);
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            height: 100%;
+            display: none;
+            cursor: pointer;
+            &.#{$id}-overlay_active {
+                display: block;
+            }
+        }
+        // slide out box
+        .#{$id}_slideOutWrapper {
+            position: fixed;
+            width: 500px;
+            height: auto;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            &.#{$id}-sideBox_show {
+                left: 50%;
+            }
+            .#{$id}-slideOut_inner {
+                .#{$id}-slideout_content {
+                    height: auto;
+                    overflow: visible;
+                }
+            }
+        }
+    }
+    @media(min-width: 1024px) {
+        .basket-table {
+            width: 59%;
+        }
+        .product-summary {
+            position: relative;
+            
+            .product-summary__left {
+                width: 120px;
+            }
+            .product-summary__center {
+                display: inline-block;
+                width: 46%;
+            }
+            .#{$id}-bottomContent {
+                float: right;
+                width: 30%; 
+                text-align: right;
+                .product-summary__right {
+                    text-align: right;
+                    .product-summary__was-price {
+                        margin: 0;
+                        display: block;
+                    }
+                    strong {
+                        font-size: 26px;
+                    }
+                }
+            }
+            .#{$id}-bottomLinks {
+                position: absolute;
+                right: 0;
+                bottom: 10px;
+                width: 50%;
+                text-align: right;
+                .#{$id}-productLink {
+                    width: 40%;
+                }
+            }
+        }
+        .order-summary__container {
+            width: 35%;
+            .basket__promo-code .accordion {
+                width: 100%;
+            }
+            .order-summary__row__divider.#{$id}-grandTotal dt,
+            .order-summary__row__divider.#{$id}-grandTotal dd,
+            .order-summary__row__divider.#{$id}-savings dd,
+            .order-summary__row__divider.#{$id}-savings dt {
+                font-size: 25px;
+            }
+        }
+        .basket__button-row {
+            &#lower-button-group {
+                width: 100%;
+            }
+        }
+        .#{$id}-savedProducts {
+            .#{$id}_saved-item {
+                .product-summary__center {
+                    width: 38%;
+                }
+            }
+        }
+
+        .#{$id}-showAllSaved {
+            padding: 8px 10px;
+            margin: 0 auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+    }
+    @media(min-width: 1200px) {
+        .#{$id}_basket_usps {
+            .#{$id}-usp {
+                width: 25%;
+                padding: 10px;
+            }
+        }
+    }
+
+    &.#{$id}-basketEmpty {
+        
+        .#{$id}-savedProducts {
+            background: #f5f5f5;
+            padding: 5px;
+            padding-bottom: 20px;
+            .#{$id}_savedProducts-list {
+                background: white;
+                padding: 5px;
+            }
+            @media(min-width: 767px) {
+                padding: 20px;
+                h3 {
+                    margin: 0;
+                    margin-bottom: 10px;
+                }
+            }
+            @media(min-width: 1024px) {
+                background: white;
+                padding: 10px;
+                .product-summary{
+                    padding-top: 0;
+                }
+            }
+            @media(min-width: 1280px) {
+                padding: 0;
+            }
+        }
+        .container {
+            background: white;
+            h1 {
+                display: none;
+            } 
+            h2 {
+                text-align: left;
+                margin-top: 20px;
+                font-size: 20px;
+                padding: 0 2%;
+                @media(min-width: 767px) {
+                    margin-top: 40px;
+                    font-size: 25px;
+                }
+                @media(min-width: 1024px) {
+                    padding: 0 1%;
+                }
+                @media(min-width: 1280px) {
+                    padding: 0;
+                }
+            }
+           > strong {
+               font-size: 25px;
+                padding: 0 2%;
+                @media(min-width: 767px) {
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+                @media(min-width: 1024px) {
+                    margin-top: 17px;
+                    padding: 0;
+                }
+            }
+            > a {
+                display: block;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                text-align: center;
+                width: auto;
+                font-size: 16px;
+                background: #797979;
+                color: white;
+                margin-left: 2%;
+                margin-right: 2%;
+                @media(min-width: 767px) {
+                    width: 250px;
+                    float: right;
+                }
+            }
+            .productList {
+                padding: 0 2%;
+                .productItem {
+                    box-shadow: 0px 0px 0px;
+                    border: 0;
+                    border-bottom: 1px solid #eeeeee;
+                    img {
+                        display: inline-block;
+                        width: 40%;
+                        padding: 0px;
+                        margin-right: 10px;
+                        float: none;
+                        border: 1px solid #e8e8e8;
+                        @media (min-width: 767px) {
+                            width: 25%;
+                        }
+                    }
+                    p {
+                        display: inline-block;
+                        width: 50%;
+                        vertical-align: top;
+                        padding: 0px;
+                        color: #4d4d4f;
+                        line-height: 1.5;
+                        font-weight: 100;
+                        font-size: 16px;
+                        text-align: left;
+                        margin-top: 0;
+                        span {
+                            font-family: $montserrat;
+                        }
+                        @media(min-width: 767px) {
+                            width: 38%;
+                        }
+                    }
+                    strong {
+                        display: block;
+                        text-align: left;
+                        padding: 0;
+                        margin-bottom: 5px;
+                        color: black;
+                        font-size: 20px;
+                        font-weight: 600;
+                        @media(min-width: 767px) {
+                            float: right;
+                            width: 30%;
+                            text-align: right;
+                        }
+                    }
+                    @media(min-width: 767px) {
+                        display: inline-block;
+                        width: 46%;
+                        margin: 10px;
+                        vertical-align: top;
+                        flex-basis: unset;
+                    }
+                }
+                @media(min-width: 1024px) {
+                    padding: 0;
+                }
+                @media(min-width: 1280px) {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,269 @@
+@import './variables';
+
+.productNextDayDeliveryCountdownWrapper {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.#{$id}.#{$id}-experiment-begins {
+
+    
+
+    &.#{$id}-productpage #productDetails .BasketWishContainer {
+        align-items: flex-start;
+        padding-bottom: 0;
+    }
+
+    .#{$id}-ctc-holder {
+
+        width: calc(100% - 56px);
+        margin-bottom: 20px;
+        background: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+
+        @media all and (max-width: 992px) {
+            margin: 0;
+        }
+
+        @media all and (max-width: 600px) {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            color: #000;
+            letter-spacing: 0;
+            margin-bottom: 0;
+            line-height: 22px;
+
+            &.#{$id}-prod-brand {
+                font-size: 16px;
+                margin-bottom:0;
+                font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif !important;
+            }
+
+            &.#{$id}-prod-name {
+                font-size: 20px;
+                font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+                letter-spacing: -0.32px;
+            }
+        }
+
+        .#{$id}-product-details {
+            padding: 0 20px;
+        }
+
+        &--inner {
+            border-left: 1px solid #C4C4C4; 
+            border-right: 1px solid #C4C4C4; 
+            border-bottom: 1px solid #C4C4C4;
+            padding: 20px 0 0;
+            display: none;
+
+            &.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media all and (max-width: 600px) {
+                border-top: 1px solid #C4C4C4;
+            }
+
+        }
+
+        &--buttons {
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-between;
+
+            @media all and (max-width: 1200px) {
+                padding: 20px 5px;
+            }
+
+            @media all and (max-width: 992px) {
+                padding: 20px;
+            }
+
+            @media all and (max-width: 600px) {
+                flex-direction: column;
+                padding: 20px 20px 5px;
+            }
+
+            @media all and (max-width: 450px) {
+                padding: 20px 10px 5px;
+            }
+
+            &.single {
+                justify-content: center;
+            }
+
+            a {
+                width: 49%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif !important;
+                text-transform: uppercase;
+                line-height: 18px;
+                text-align: center;
+                padding: 20px 10px;
+
+                @media all and (max-width: 600px) {
+                    width: 100%;
+                    padding: 15px 5px;
+                    margin-bottom: 10px;
+                }
+    
+
+                @media all and (max-width: 450px) {
+                    font-size: 13px;
+                }
+
+                &.#{$id}-go-back-link {
+                    color: #000;
+                    font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+                    text-decoration: underline;
+                    border: 1px solid #C4C4C4;
+                    height: 100%;
+                }
+
+                &.#{$id}-go-to-bag {
+                    color: #FFF;
+                    background: #000;
+                    line-height: 18px;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        &--countdown {
+            background-image:url('https://blcro.fra1.digitaloceanspaces.com/FLAN-907/FLAN-907-bg.png');
+            background-size: cover;
+            padding: 10px;
+
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        &--countdowninner {
+
+            background: #FFF;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 10px 5px;
+
+            h3 {
+                text-transform: uppercase;
+                font-size: 16px;
+                line-height: 22px;
+                font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+                padding-bottom: 0;
+            }
+
+            p {
+                font-size: 16px;
+                margin-bottom: 0;
+                color: #000;
+                line-height: 22px;
+            }
+
+            span {
+                font-size: 16px;
+                line-height: 26px;
+                color: #000;
+                font-family: 'GothamBold', Arial, Helvetica, sans-serif !important;
+
+                &##{$id}-checkout-countdown {
+                    display: inline-block;
+                    min-width: 100px;
+                }
+
+                &.UC_cd-hours,
+                &.UC_cd-minutes,
+                &.UC_cd-seconds {
+                    margin-right: -3px;
+                }
+            }
+        }
+
+        &.#{$id}-cart {
+            width: 100%;
+
+            .#{$id}-ctc-holder--countdown {
+                margin-top: -15px;
+                margin-bottom: 0;
+            }
+        }
+
+        &.#{$id}-mini-bag {
+            width: 100%;
+            margin-bottom: 0;
+
+            .#{$id}-ctc-holder--countdown {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    #aAddToBag {
+        position: relative;
+        overflow:hidden;
+    }
+    
+    @media all and (max-width: 767px) {
+        #ulSizes li * {
+            pointer-events: none;
+        }
+
+        #ulSizes li {
+            z-index: 10000;
+            position: relative;
+        }
+    }
+    
+
+    .#{$id}-ctc-slide-in {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        opacity: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        color: #FFF;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 3.2px;
+        font-family: 'GothamHTF-Book', Arial, Helvetica, sans-serif !important;
+                
+        svg {
+            margin-left: 10px;
+        }
+
+        &.active {
+            width: 100%;
+            opacity: 1;
+            transition: width 0.5s ease, opacity 1s ease;
+            will-change: width, opacity;
+        }
+    }
+
+    
+
+
+}

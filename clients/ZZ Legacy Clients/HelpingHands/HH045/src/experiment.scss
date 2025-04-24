@@ -1,0 +1,426 @@
+@import './variables';
+
+// Hide non-sticky slider on variation 2
+.mobile body.#{$id}-2 > .HH005_Wrap {
+  display: none;
+}
+
+.#{$id} {
+  // ------- HH043 Styles
+  &.#{$id}-2 {
+    @media(max-width: 767px) {
+      &.HH035 {
+        padding-top: 148px;
+      }
+
+      #mobile-cta-block > div > .col-xs-12:last-child {
+        display: none;
+      }
+    }
+  }
+
+  // Shared styling
+  // Slick CSS
+  .HH005_Wrap {
+    background-color: #FFFFFF;
+    z-index: 11;
+  }
+
+  .HH005_Content_Carousel {
+    position: relative;
+    z-index: 11;
+
+    .HH005_Content_Wrap {
+      overflow: hidden;
+    }
+
+    /* Slider */
+    .slick-slider {
+      position: relative;
+
+      display: block;
+      box-sizing: border-box;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      -webkit-touch-callout: none;
+      -khtml-user-select: none;
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .slick-list {
+      position: relative;
+
+      display: block;
+      overflow: hidden;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    .slick-list:focus {
+      outline: none;
+    }
+
+    .slick-list.dragging {
+      cursor: pointer;
+      cursor: hand;
+    }
+
+    .slick-slider .slick-track,
+    .slick-slider .slick-list {
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .slick-track:before,
+    .slick-track:after {
+      display: table;
+
+      content: '';
+    }
+
+    .slick-track:after {
+      clear: both;
+    }
+
+    .slick-loading .slick-track {
+      visibility: hidden;
+    }
+
+    .slick-slide {
+      display: none;
+      float: left;
+
+      height: 100%;
+      min-height: 1px;
+    }
+
+    [dir='rtl'] .slick-slide {
+      float: right;
+    }
+
+    .slick-slide img {
+      display: block;
+    }
+
+    .slick-slide.slick-loading img {
+      display: none;
+    }
+
+    .slick-slide.dragging img {
+      pointer-events: none;
+    }
+
+    .slick-initialized .slick-slide {
+      display: block;
+    }
+
+    .slick-loading .slick-slide {
+      visibility: hidden;
+    }
+
+    .slick-vertical .slick-slide {
+      display: block;
+
+      height: auto;
+
+      border: 1px solid transparent;
+    }
+
+    .slick-arrow.slick-hidden {
+      display: none;
+    }
+
+    // Carousel content
+    // USP Link
+    .slick-slide:last-of-type {
+      .HH005_USP_Link:after {
+        display: none;
+      }  
+    }
+
+    .HH005_USP_Link {
+      float: none;
+      display: inline-block;
+      background-color: #FFFFFF;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+      outline: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    // SVG Image
+    .HH005_USP_Image {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      fill: #62489D;
+    }
+
+    // USP Text
+    .HH005_USP_Text {
+      display: inline-block;
+      vertical-align: middle;
+      color: #262626;
+      font-weight: normal;
+
+      em {
+        color: #62489D;
+        font-weight: bold;
+        font-style: normal;
+      }
+    }
+  }
+
+  // Mobile styling
+  @media(max-width: 767px) {
+    &.#{$id}-2 {
+      #hero {
+        margin-top: 45px;
+      }
+  
+      .HH041-hero {
+        margin-top: 45px;
+      }
+    }
+
+    .HH005_Content_Carousel {
+      .HH005_Content_Wrap.container {
+        padding: 0;
+      }
+
+      .HH005_USP_Link {
+        padding: 10px 6px;
+      }
+    }
+
+    .HH005_USP_Text {
+      width: calc(100% - 60px);
+      padding: 0;
+      font-size: 14px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  // Tablet styling
+  @media(min-width: 768px) {
+    .HH005_USP_Text {
+      width: auto;
+      padding: 0 10px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  // Desktop styling
+  @media(min-width: 992px) {
+    .HH041-hero {
+      margin-top: 45px;
+    }
+
+    .HH005_USP_Link:after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 100%;
+      max-height: 45px;
+      background: #e0dede;
+    }
+
+    .HH005_USP_Text {
+      width: calc(100% - 45px);
+      padding: 0 10px;
+
+      br {
+        display: block;
+      }
+    }
+
+    .HH005_Wrap {
+      position: absolute;
+      width: 100%;
+    }
+
+    // Remove white space between nav and page
+    #main-nav {
+      margin-bottom: 0;
+    }
+
+    // change page container margin top to make room for carousel
+    #hero {
+      margin-top: 0;
+    }
+  }
+
+  @media(min-width: 1075px) {
+    .HH005_USP_Text br {
+      display: none;
+    }
+  }
+
+  @media(min-width: 1880px) {
+
+    // Move up USP container, reduce size to prevent overlap with logo
+    .HH005_Wrap {
+      margin-left: 302px;
+      width: calc(100% - 302px);
+      padding-left: 88px;
+      background-color: #FFFFFF;
+      z-index: 1;
+      padding-right: 40px;
+    }
+  }
+
+  // ------- HH045 Styles
+  .HH005_Wrap {
+    background: #F2F2F2;
+    width: 100%;
+    margin-left: 70px;
+    padding-left: 0;
+    height: 45px;
+
+    .HH005_Content_Carousel .slick-slider {
+      margin: 0 auto;
+
+      @media all and (max-width: 1900px) {
+        margin: 0 auto;
+      }
+
+      @media all and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+
+    @media all and (max-width: 1900px) {
+      margin-left: 0;
+    }
+
+    @media all and (max-width: 1400px) {
+      height: auto;
+    }
+
+  }
+
+  &.HH041 .HH005_Wrap {
+    display: block;
+  }
+ 
+  .wrap-icon {
+    // float: left;
+    width: 50px;
+    display: inline-block !important;
+  }
+
+  .cqc-icon {
+    width: 55px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+  }
+  
+  .ciw-icon {
+    width: 40px;
+    position: relative;
+    top: 2px;
+  }
+
+  .time-icon {
+    width: 20px;
+  }
+
+  .trust-icon {
+    width: 50px;
+  }
+
+  .service-icon {
+    width: 20px;
+    position: relative;
+    top: -1px;
+  }
+
+  .icon-text {
+    color: #262626;
+    font-weight: normal;
+    display: inline-block;
+    // float: left;
+    font-size: 14px;
+    padding-left: 10px;
+
+    .bold {
+      font-weight: bold;
+    }
+  }
+
+  .HH005_USP_Link {
+
+    background: none !important;
+
+    @media all and (max-width: 767px) {
+      .wrap-icon,
+      .icon-text {
+        float: none;
+        display: inline-block;
+      }
+    }
+  }
+
+  .HH005_USP_Link:after {
+    display: none;
+  }
+
+  .managed-link-disappear {
+
+    @media all and (min-width: 767px) and (max-width: 992px) {
+        display: none;
+    }
+  }
+
+  .HH035_stickyNav {
+
+    .HH005_Wrap {
+      padding: 0;
+      left: 0;
+      margin-left: 0;
+      border-top: 1px solid #e3e3e3;
+      border-bottom: 1px solid #e3e3e3;
+    }
+
+    .HH005_Content_Carousel .slick-slider {
+      margin: 0 auto;
+    }
+  }
+
+}

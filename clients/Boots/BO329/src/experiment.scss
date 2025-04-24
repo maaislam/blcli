@@ -1,0 +1,385 @@
+@import './variables';
+
+html.#{$id}-noscroll {
+    height: 100%;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+
+    }
+
+    @media all and (max-height: 400px) {
+        height: auto;
+        overflow: visible;
+    }
+
+
+}
+
+.#{$id} {
+
+        .#{$id}-hidden {
+            display: none !important;
+            visibility: hidden !important;
+        }
+    
+        .#{$id}-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #FFF;
+            border: 4px solid #CC0033;
+            z-index: 10001;
+            width: 500px;
+    
+            @media all and (max-width: 550px) {
+                width: 90%;
+            }
+        }
+    
+        .#{$id}-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            padding: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+    
+    
+    
+            @media all and (max-width: 400px) {
+                right: 0;
+                top: 0;
+            }
+        }
+    
+        .#{$id}-offer {
+            padding: 10px 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+    
+            @media all and (max-width: 400px) {
+                padding: 20px;
+            }
+    
+            h2 {
+                color: #C03;
+                
+                text-align: center;
+                font-family: "Boots Sharp";
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 50px;
+                /* 156.25% */
+                letter-spacing: 1px;
+                margin-bottom: 15px;
+            } 
+    
+    
+            p {
+                color: #05054B;
+                text-align: center;
+                font-family: "Boots Sharp";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 120%;
+                /* 22px */
+                letter-spacing: 1px;
+    
+                .#{$id}-boldtext {
+                    font-weight: 700;
+                }
+    
+                &.#{$id}-secondary {
+                    color: #05054B;
+                    text-align: center;
+                    font-family: "Boots Sharp";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 22px;
+                    /* 137.5% */
+                    letter-spacing: 0.16px;
+                    margin-top: 20px;
+    
+                    a {
+                        text-decoration: underline;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    
+        &-cta {
+            background: #CC0033;
+            padding: 15px 12px 10px;
+    
+            button {
+                background: #FFF;
+                border-radius: 5px;
+                border: none;
+                width: 100%;
+                padding: 10px 0;
+                color: #05054B;
+                text-align: center;
+                cursor: pointer;
+                font-family: "Boots Sharp";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 20px;
+                /* 142.857% */
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+        }
+
+        .#{$id}-offerelement {
+            margin-top: 10px !important;
+            margin-bottom: 0 !important;
+            border: 2px solid #C03 !important;
+
+            &--header {
+                padding: 8px 25px !important;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                position: relative;
+
+                h2 {
+                    color: #C03;
+                    text-align: center;
+                    font-family: "Boots Sharp";
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 30px;
+                    /* 208.333% */
+                    letter-spacing: 1px;
+                    margin-bottom: 0;
+                    margin-top: 0;
+                }
+            
+            
+                p {
+                    color: #05054B;
+                    text-align: center;
+                    font-family: "Boots Sharp";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 22px;
+                    /* 157.143% */
+                    letter-spacing: 0.14px;
+            
+                    .#{$id}-boldtext {
+                        font-weight: 700;
+                    }
+
+                    a {
+                        text-decoration: underline;
+                        font-weight: 100;
+                    }
+                }
+
+                .#{$id}-clockdiv {
+                    display: none;
+                    flex-direction: row;
+                    margin: 0;
+                    padding: 0;
+                    justify-content: center;
+                    position: absolute;
+                    right: 20px;
+
+                    &.#{$id}-active {
+                        display: flex;
+                    }
+
+                    &>div {
+                        display: flex;
+                        background: none;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        margin: 0 5px;
+
+                        span,
+                        .smalltext {
+                            color: #FFF;
+                            text-align: center;
+                            font-family: "Boots Sharp";
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 28px;
+                            /* 133.333% */
+                            letter-spacing: 0.5px;
+                        }
+
+                        .#{$id}-hours-holder, 
+                        .#{$id}-mins-holder,
+                        .#{$id}-secs-holder {
+                            text-align: center;
+                            display: flex;
+                            position: relative;
+
+                            span {
+                                display: flex;
+                                background: #C03;
+                                color: #FFF;
+                                padding: 5px 1px;
+                                margin-right: 3px;
+                                min-width: 20px;
+                                text-align: center;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                &:last-of-type {
+                                    margin-right: 0;
+                                }
+                            }
+
+                            &:after {
+                                content: ":";
+                                font-size: 24px;
+                                font-weight: 600;
+                                color: #C03;
+                                position: absolute;
+                                top: 45%;
+                                right: -9px;
+                                transform: translateY(-50%);
+                            }
+                        }
+
+                        .#{$id}-secs-holder {
+                            &:after {
+                                content: "";
+                            }
+                        }
+
+                        
+
+                        .smalltext {
+                            color: #000;
+                            text-align: center;
+                            font-family: "Boots Sharp";
+                            font-size: 10px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            margin-bottom: 2px;
+                        }
+                    }
+
+                }
+
+
+            }
+
+            &--offer {
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 15px 25px !important;
+
+                &--text span,
+                &--target {
+                    color: #05054B;
+                    font-family: "Boots Sharp";
+                    font-size: 12.608px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 110%;
+                    /* 13.869px */
+                    letter-spacing: 0.63px;
+                }
+
+                &--target {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .#{$id}-offerelement--offer--text--complete,
+                .#{$id}-offerelement--offer--countdown {
+                    display: none;
+                }
+
+                
+
+                &--progressbar {
+                    background: #D9D9D9;
+                    width: 100%;
+                    height: 10px;
+                    border-radius: 10px;
+                    flex-grow: 1;
+                    margin-top: 8px;
+                    overflow: hidden;
+
+                    &--fill {
+                        background: #C03;
+                        height: 100%;
+                        border-radius: 10px;
+                        transition: width 0.5s ease-in-out;
+                        will-change: width;
+                    }
+                }
+
+                &.#{$id}-complete {
+
+                    .#{$id}-offerelement--offer--text--notcomplete {
+                        display: none;
+                    }
+
+                    .#{$id}-offerelement--offer--text--complete, 
+                    .#{$id}-offerelement--offer--countdown {
+                        display: block;
+                    }
+
+                    .#{$id}-offerelement--offer--progressbar--fill {
+                        width: 100% !important;
+                        background: #0C8117;
+                    }
+
+                }
+
+                &--countdown {
+
+                    p {
+                        color: #05054B;
+                        font-family: "Boots Sharp";
+                        font-size: 12.608px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 110%;
+                        /* 13.869px */
+                        letter-spacing: 0.63px;
+                        margin-top: 10px;
+                    }
+                }
+
+            }
+
+        }
+
+
+}

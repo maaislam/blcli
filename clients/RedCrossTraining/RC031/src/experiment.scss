@@ -1,0 +1,329 @@
+.RC031 {
+  /* ANIMATIONS */
+  @keyframes blink {
+    /* At the start of the animation the dot has an opacity of .2 */
+    0% {
+        opacity: .2;
+    }
+    /* At 20% the dot is fully visible and then fades out slowly */
+    20% {
+        opacity: 1;
+    }
+    /* Until it reaches an opacity of .2 and the animation can start again */
+    100% {
+        opacity: .2;
+    }
+  }
+
+  /* LOADER */
+  .RC031_loadingDots span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  .RC031_loadingDots span:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  .RC031_loadingDots span:nth-child(3) {
+    animation-delay: .4s;
+  }
+
+  .RC031_loadingDots span:nth-child(4) {
+    animation-delay: .6s;
+  }
+
+  .RC031_loadingDots span:nth-child(5) {
+    animation-delay: .8s;
+  }
+
+  .RC031_loaderWrap {
+    position: absolute;
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999999999;
+    display: none;
+  }
+
+  .RC031_loadingDots {
+    font-size: 80px;
+    line-height: 1px;
+    color: #8e0811;
+    position: relative;
+    top: 10px;
+  }
+
+
+  /* NEW ELEMENTS */
+  .RC031_row:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .RC031_map {
+    width: 70%;
+    display: inline-block;
+    vertical-align: bottom;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .RC031_map__copy {
+    p {
+      margin: 0 0 10px 0;
+    }
+  }
+
+  .RC031_distance {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+
+    em {
+      font-weight: bold;
+      font-style: normal;
+    }
+  }
+
+  .RC031_venueCta {
+    text-align: center;
+    display: block;
+    padding: 12px 5px;
+    background: #cd121f;
+    color: white;
+    width: 90%;
+    max-width: 180px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: .3s ease all;
+
+    &:hover {
+      text-decoration: none;
+      background: #ea3340;
+      transition: .3s ease all;
+    }
+  }
+
+  // Search bar
+  .RC031_search {
+    max-width: 500px;
+    margin: 60px auto 40px auto;
+
+    @media screen and (max-width: 767px) {
+      margin: 30px auto;
+    }
+
+
+    label {
+      margin-top: 5px;
+    }
+
+    #RC031_search__postcode {
+      display: inline-block;
+      width: 50%;
+      height: 45px;
+      vertical-align: top;
+    }
+
+    .RC031_search__error {
+      color: #cd121f;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    @media screen and (max-width: 767px) {
+      text-align: center;
+
+      label {
+        text-align: center;
+      }
+    }
+  }
+
+  .RC031_search__submit {
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    background: #cd121f;
+    color: white;
+    vertical-align: top;
+    cursor: pointer;
+  }
+
+  .RC031_venueInner {
+    display: block;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+
+  /* EXISTING ELEMENTS */
+  // Containers
+  .main-content-wrap {
+    width: 100%;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+  }
+
+  .main-content {
+    width: 100%;
+
+    @media (max-width: 767px) {
+      text-align: left;
+    }
+  }
+
+  // Map
+  .venue-search-area-map {
+    width: 100%;
+    margin-bottom: 0;
+
+    .venues-googlemap > div {
+      height: 420px;
+    }
+  }
+
+  // Left sidebar
+  .sidebar-first {
+    display: none;
+    width: 0px;
+  }
+
+  // Right sidebar
+  .sidebar-last {
+    float: none;
+    display: inline-block;
+    width: 30%;
+    vertical-align: bottom;
+
+    @media (min-width: 768px) {
+      padding-right: 0;
+    }
+    
+    .course-search-internal {
+      margin-bottom: 0;
+    }
+
+    .component {
+      width: 100%;
+
+      @media (min-width: 768px) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  // Search
+  .venues-search.well {
+    display: none;
+    background: none;
+    border: none;
+    max-width: 500px;
+    margin: 10px auto;
+
+    label {
+      width: 30%;
+      display: inline-block;
+    }
+
+    #main_0_contentmain_1_LocSearch_WithGMap_LocationSearchBox {
+      width: 70%;
+      display: inline-block;
+
+      input[type=text] {
+        width: 100%;
+      }
+    }
+  }
+
+  // Search results
+  .venue-search-results {
+    width: 100%;
+    position: relative;
+  }
+
+  .venue-search-row {
+    border: none;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
+  }
+
+  .venue-search-item {
+    border: 1px solid #b4b3b8;
+    border-style: solid;
+    width: 45%;
+    margin: 10px 20px;
+    padding: 0;
+    float: none;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      margin: 5px 0;
+      max-width: 500px;
+    }
+
+    p {
+      text-align: left;
+      display: inline-block;
+      margin: 16px 0;
+      max-width: 310px;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .course-search-internal .course-search-header {
+    i {
+      float: left;
+      margin-top: 5px;
+    }
+
+    p {
+      overflow: hidden;
+      margin: 0;
+      font-size: 1em;
+    }
+  }
+
+  .main-content-wrap > .sidebar-last {
+    float: none;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+  }
+}

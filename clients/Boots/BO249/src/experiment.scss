@@ -1,0 +1,293 @@
+@import './variables';
+
+.#{$id} {
+
+  .#{$id}-deliveryBanner {
+    background: #E8F3FF;
+    box-shadow: 0px 4px 4px rgba(169, 169, 169, 0.2);
+    padding: 10px 0;
+    font-family: "Boots Sharp",Arial,sans-serif;
+    gap: 10px;
+    z-index: 1;
+    padding-left: 50px;
+    position: relative;
+    @media(min-width: 600px) {
+      padding: 15px;
+      padding-right: 20px;
+      padding-left: 50px;
+    }
+    @media(min-width: 1024px) {
+      display: none;
+    }
+    svg {
+      flex-shrink: 0;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .#{$id}-amountLeft {
+      margin-bottom: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #333333;
+      @media(min-width: 767px) {
+        margin-bottom: 0;
+      }
+    }
+   
+    .#{$id}-content {
+      @media(min-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+    }
+    .#{$id}-recAnchor {
+      font-weight: 400;
+      font-size: 14px;
+      text-decoration-line: underline;
+      color: #05054B;
+    }
+  }
+
+  .oct-products {
+    position: relative;
+    &.tab-hide {
+      @media(max-width:1023px) {
+        padding-right: 0px;
+      }
+      @media(min-width:1024px) {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .oct-tabs {
+        display: none;
+      }
+    }
+    &.no-products-show {
+      .oct-tabs {
+        display: block;
+        .oct-tabs__labels {
+          display: none;
+        }
+      }
+      #BO249-root{
+        .swiper-button-prev,
+        .swiper-button-next {
+          display: none;
+        }
+      }
+      
+    }
+
+    ##{$id}-root {
+      display: flex;
+      flex-direction: column;
+      font-family: "Boots Sharp",Arial,sans-serif;
+      @media(min-width: 767px) {
+        max-width: 400px;
+      }
+      @media(min-width: 1024px) {
+        max-width: 600px;
+      }
+      
+
+      .swiper {
+        padding-right: 10px;
+        @media(min-width: 1024px) {
+          padding-left: 10px;
+        }
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        top: 53%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border: 1px solid #d0d0d0;
+        display: none;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        @media(min-width: 1024px) {
+          display: flex;
+        }
+        @media(min-width: 1280px) {
+          width: 30px;
+          height: 30px;
+        }
+
+        &::after {
+          font-size: 10px;
+          font-weight: bold;
+          color: #333;
+          @media(min-width: 1280px) {
+            font-size: 15px;
+          }
+        }
+      }
+      
+
+      .#{$id}-title {
+        text-align: center;
+        margin-bottom: 10px;
+        padding-right: 10px;
+        h2 {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 24px;
+          color: #05054B;
+          margin-bottom: 10px;
+          @media(min-width: 1024px) {
+            color: white;
+            font-size: 23px;
+            line-height: 28px;
+          }
+        }
+        span {
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          color: #05054B;
+          @media(min-width: 1024px) {
+            color: white;
+            font-size: 18px;
+            line-height: 26px;
+          }
+        }
+      }
+
+      .#{$id}-carousel-container {
+        position: relative;
+        margin-top: 10px;
+        .swiper-slide {
+          height: auto;
+          box-sizing: border-box;
+        }
+      }
+
+      .#{$id}-product {
+        background: #FFFFFF;
+        border: 1px solid #D0D0D0;
+        border-radius: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        height: 100%;
+        box-sizing: border-box;
+        .#{$id}-card-image {
+          position: relative;
+          height: 0;
+          padding-bottom: calc(3 / 4) * 100%;
+          img {
+            position: absolute; // Absolutely positioned, so it doesn't shift the layout
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .#{$id}-card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 15px;
+          flex-grow: 1;
+          h4 {
+            font-family: Boots Sharp,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+            color: #05054B;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 74px;
+          }
+        }
+
+        .#{$id}-card-pricing {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          margin-bottom: 10px;
+          @media(min-width: 768px) {
+            gap: 10px;
+          }
+          .#{$id}-card-price {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+            color: #05054B;
+            @media(min-width: 1280px) {
+              font-size: 18px;
+            }
+          }
+          .#{$id}-card-old-price {
+            font-weight: 300;
+            color: #05054B;
+          }
+        }
+
+        .#{$id}-card-promo {
+          color: #CC0033;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;  
+          overflow: hidden;
+          text-align: center;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+
+        .#{$id}-card-cta {
+          font-size: 14px;
+          height: 40px;
+          font-weight: 700;
+          letter-spacing: .86px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 5px;
+          padding-top: 5px;
+          background: #05054B;
+          border: 1px solid #05054B;
+          color: white;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          border-radius: 5px;
+          box-sizing: border-box;
+          margin-top: auto;
+        }
+      }
+      
+    }
+  }
+
+  &.#{$id}-2 {
+    .oct-products {
+      position: relative;
+      &.tab-hide {
+        .oct-tabs__labels {
+          display: none;
+        }
+        .oct-tabs {
+          display: block;
+        }
+      }
+    }
+  }
+}
