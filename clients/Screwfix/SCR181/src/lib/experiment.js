@@ -22,9 +22,16 @@ const storeSelected = () => {
 };
 
 const init = () => {
-  //check if page is correct
-  const pageCondition = !storeSelected(); //add page check conditions here based on experiment requirement
+  //remove existing dom coming from test
 
+  const newStoreLocatorElems = document.querySelectorAll(`.${ID}__postcode-prompt`);
+  newStoreLocatorElems.forEach((storeLocatorElem) => {
+    storeLocatorElem.remove();
+  });
+
+  //check if page is correct
+
+  const pageCondition = !storeSelected() && sessionStorage.getItem('storeLocator') !== 'true';
   if (!pageCondition) {
     //remove DOM element added by the experiment
     const storeLocatorElem = document.querySelector('[data-qaid="header-store-locator"]');
@@ -92,12 +99,15 @@ const init = () => {
                       const storeLocatorLinkElem = document.querySelector('[data-qaid="header-store-locator"] a');
                       const storeLocatorName = document.querySelector('[data-qaid="qa-store-label"]');
                       const postCodeForm = document.querySelector(`.${ID}__postcode-prompt`);
+                      const selectStoreLabel = document.querySelector('[data-qaid="header-store-locator"] span:first-of-type');
                       if (storeLocatorLinkElem && storeLocatorName) {
                         storeLocatorLinkElem.href = relativeUrl;
                         storeLocatorName.textContent = name;
+                        selectStoreLabel.textContent = 'Selected Store';
                         postCodeForm.classList.add(`${ID}__success`);
                         postCodeForm.innerHTML = '';
                         postCodeForm.innerHTML = `<h2 class="${ID}__successMsg">We’ve set the store closest to your location.</h2>`;
+                        fireEvent('Store Locator Postcode Submitted');
                         setTimeout(() => {
                           postCodeForm.remove();
                           storeLocator.classList.remove(`${ID}__storeLocator`);
@@ -124,6 +134,9 @@ const init = () => {
   };
   form.removeEventListener('submit', submitHandler);
   form.addEventListener('submit', submitHandler);
+  //show on load
+  const postCodeFormWrapper = document.querySelector(`.${ID}__postcode-prompt`);
+  postCodeFormWrapper.classList.add(`${ID}__visible`);
 };
 
 export default () => {
@@ -138,6 +151,9 @@ export default () => {
   /*****Request from Screwfix*****/
 
   const clickHandler = (e) => {
+    const pageCondition = !storeSelected();
+    if (!pageCondition) return;
+
     const { target } = e;
 
     if (target.closest(`.${ID}__storeLocator`) && !target.closest(`.${ID}__no-thanks-btn`)) {
@@ -146,6 +162,33 @@ export default () => {
     } else if (target.closest(`.${ID}__no-thanks-btn`)) {
       const postCodeFormWrapper = document.querySelector(`.${ID}__postcode-prompt`);
       postCodeFormWrapper.classList.remove(`${ID}__visible`);
+      fireEvent('Store Locator No Thanks Clicked');
+      sessionStorage.setItem('storeLocator', 'true');
+    } else if (target.closest('[data-qaid="button-click-and-collect"]')) {
+      fireEvent('User interacts with c&c button PLP');
+    } else if (target.closest('[data-qaid="button-deliver"]')) {
+      fireEvent('User interacts with delivery button PLP');
+    } else if (target.closest('[data-qaid="pdp-button-click-and-collect"]')) {
+      if (target.closest('[data-qaid="pdp_sticky_banner"]')) {
+        fireEvent('User interacts with c&c on PDP Sticky Banner');
+      } else {
+        fireEvent('User interacts with c&c button PDP');
+      }
+    } else if (target.closest('[data-qaid="pdp-button-deliver"]')) {
+      if (target.closest('[data-qaid="pdp_sticky_banner"]')) {
+        fireEvent('User interacts with delivery button PDP Sticky Banner');
+      } else {
+        fireEvent('User interacts with delivery button PDP');
+      }
+    } else if (
+      (target.closest('[data-qaid="store-info-block"]') || target.closest('[data-qaid="stock-availability-store"]')) &&
+      target.closest('button')
+    ) {
+      fireEvent('User interacts with store info block');
+    }
+
+    if (target.closest([`[data-qaid="header-store-locator"]`])) {
+      fireEvent('Store Locator Clicked');
     }
   };
 

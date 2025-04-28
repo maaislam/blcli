@@ -8,8 +8,8 @@
 import { setup, fireEvent, newEvents } from '../../../../../core-files/services';
 import shared from '../../../../../core-files/shared';
 import { pollerLite } from '../../../../../lib/utils';
-import filterWrapper from '../components/filterWrapper';
-import modal from '../components/modal';
+import filterWrapper from './components/filterWrapper';
+import modal from './components/modal';
 import { obsIntersection, onUrlChange } from './helpers/utils';
 
 const { ID, VARIATION } = shared;
@@ -151,18 +151,22 @@ export default () => {
     const { target } = e;
 
     if (target.closest('.sort-button')) {
+      document.body.style.overflow = 'hidden';
       openModal();
+      fireEvent('user clicked sticky sort button');
     } else if (target.closest(`.${ID}__modal-overlay`)) {
+      document.body.style.overflow = 'scroll';
       closeModal();
     } else if (target.closest(`.${ID}__sortOption`)) {
       const clickedItem = target.closest(`.${ID}__sortOption`);
       const { value } = clickedItem.dataset;
       const buttons = document.querySelectorAll(`.${ID}__modal-content button`);
       buttons.forEach((btn) => btn.classList.remove(`${ID}__active`));
-      clickedItem.classList.add('active');
+      clickedItem.classList.add(`${ID}__active`);
       controlSortOptionChange(value);
       closeModal();
     } else if (target.closest('.filter-button')) {
+      fireEvent('user clicked sticky filter button');
       window.isClickVar = true;
       const controlFilterButton = document.querySelector('[data-qaid="filter-open-button"]');
       if (controlFilterButton) controlFilterButton.click();
@@ -192,6 +196,16 @@ export default () => {
     } else if (target.closest('li.uzgZl6')) {
       const clickedItem = target.closest('li.uzgZl6');
       setActiveOption(clickedItem);
+    } else if (target.closest('[data-qaid="banners-mobile"]') && target.closest('.slick-slide')) {
+      fireEvent('user clicked category link');
+    } else if (target.closest('#navigation-area')) {
+      fireEvent('user clicked navigation');
+    } else if (target.closest('[data-qaid="header-search"]')) {
+      fireEvent('user clicked search');
+    } else if (target.closest('[data-qaid="sortby"]')) {
+      fireEvent('user clicked non sticky sort');
+    } else if (target.closest('[data-qaid="filter-open-button"]')) {
+      fireEvent('user clicked non sticky filter');
     }
   };
 
