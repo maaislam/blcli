@@ -1,0 +1,54 @@
+@import './variables';
+
+.#{$id} {
+  .#{$id}__bandBar {
+    background: #fff;
+    padding: 15px 0;
+    overflow: hidden;
+    .brand-bar__container {
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-bar__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 120px;
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .brand-bar__item img {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      //object-fit: cover;
+    }
+
+    /* Mobile horizontal scroll */
+    @media (max-width: 1023px) {
+      .brand-bar__container {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .brand-bar__container::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
